@@ -1,0 +1,349 @@
+Brand: Light Purple (#8B5CF6) + Green (#22C55E)
+Typography: Poppins (Headings) + Inter (Body)
+
+🌍 MARKETING WEBSITE
+🟣 FRAME 01 — PUBLIC LANDING PAGE (Homepage)
+
+
+Navbar
+Logo: VACHUO
+Home
+Solutions
+Pricing
+About
+Login
+[ Get Started ]
+
+Hero Section
+
+Headline
+AI-Powered Learning for Every Student.
+
+Subtext
+VACHUO is an AI-native learning platform built for schools, universities, and training institutions — optimized for low bandwidth environments.
+
+[ Start Free Trial ]
+[ Book a Demo ]
+
+Section — Why VACHUO
+
+Title
+Built for Scale. Designed for Impact.
+
+Cards
+
+AI Personalization
+Adaptive learning paths for every learner.
+
+Offline-First
+Download lessons. Sync later.
+
+Teacher Intelligence
+Actionable insights powered by AI.
+
+Institution Analytics
+Real-time performance dashboards.
+
+Section — How It Works
+
+Students learn at their own pace
+
+AI adapts content automatically
+
+Teachers receive performance insights
+
+Institutions track measurable outcomes
+
+CTA Section
+
+Headline
+Transform Learning Across Your Institution
+
+[ Request Institutional Demo ]
+
+🔐 AUTHENTICATION FLOW
+🟢 FRAME 02 — LOGIN PAGE
+
+Title
+Welcome Back to VACHUO
+
+Fields
+Email Address
+Password
+
+[ Login ]
+
+Forgot Password?
+Don’t have an account? Sign Up
+
+🟣 FRAME 03 — SIGN UP PAGE
+
+Title
+Create Your VACHUO Account
+
+Account Type:
+○ Learner
+○ Teacher
+○ Institution Admin
+
+Fields:
+Full Name
+Email
+Phone Number
+Password
+Confirm Password
+
+[ Create Account ]
+
+🟢 FRAME 04 — PASSWORD RESET
+
+Title
+Reset Your Password
+
+Enter your email address and we’ll send you reset instructions.
+
+Email Field
+
+[ Send Reset Link ]
+
+👨🏽‍🎓 LEARNER EXPERIENCE
+🟣 FRAME 05 — LEARNER DASHBOARD
+
+Header
+Good morning, Emmanuel 👋
+
+Stats Cards
+Courses Enrolled: 5
+Completion Rate: 72%
+Streak: 6 Days 🔥
+
+Continue Learning
+Mathematics — Fractions & Ratios
+Progress: 64%
+[ Resume ]
+
+AI Tutor Widget
+✨ Ask Kuza Anything
+“Explain ratios again”
+
+[ Open AI Tutor ]
+
+Navigation Sidebar
+Home
+My Courses
+AI Tutor
+Progress
+Offline
+Settings
+
+🟢 FRAME 06 — COURSE VIEW
+
+Course: Mathematics — Grade 7
+
+Modules:
+• Fractions
+• Ratios
+• Algebra Basics
+• Word Problems
+
+Progress Bar: 64%
+
+[ Download for Offline ]
+
+🟣 FRAME 07 — PROGRESS ANALYTICS (Learner)
+
+Performance Overview
+
+Math: 78%
+Science: 82%
+Digital Skills: 71%
+
+Strengths:
+Problem Solving
+
+Needs Improvement:
+Fractions
+
+AI Recommendation:
+Practice: Visual Fraction Exercises
+
+👩🏽‍🏫 TEACHER EXPERIENCE
+🟢 FRAME 08 — TEACHER DASHBOARD
+
+Welcome back, Teacher Mercy 👩🏽‍🏫
+
+Total Students: 42
+Active This Week: 37
+
+AI Insights:
+• 9 students struggling with Fractions
+• Engagement drops after 15 minutes
+
+[ Assign AI-Generated Practice ]
+
+Recent Activity:
+Assignment: Algebra Quiz 2
+Completion Rate: 81%
+
+🟣 FRAME 09 — CLASS MANAGEMENT
+
+Class: Grade 7 Mathematics
+
+Students List Table:
+
+Name | Progress | Last Active | Risk Level
+Emmanuel | 64% | Today | Low
+Amina | 48% | 3 days ago | Medium
+Brian | 32% | 1 week ago | High
+
+[ Message Student ]
+[ Assign Remedial Lesson ]
+
+🟢 FRAME 10 — CREATE ASSIGNMENT
+
+Title:
+Assignment Type:
+○ Quiz
+○ AI Adaptive Practice
+○ Homework
+
+Due Date:
+
+Attach Content or Generate with AI
+
+[ Generate with AI ]
+[ Publish Assignment ]
+
+🏫 INSTITUTION ADMIN DASHBOARD
+🟣 FRAME 11 — INSTITUTION OVERVIEW
+
+Institution: Nairobi Pilot School
+
+Active Students: 1,284
+Teachers: 47
+Courses: 32
+Completion Rate: 76%
+
+AI Institutional Insight:
+Math performance improved by 18% this term.
+
+Charts:
+• Student Engagement (7 Days)
+• Completion Trends
+• Offline Usage %
+
+[ Export Report ]
+[ Add New Teacher ]
+[ Add New Student ]
+
+🟢 FRAME 12 — USER MANAGEMENT
+
+Title: User Management
+
+Filters:
+Role | Status | Class
+
+Table:
+
+Name | Role | Status | Last Login | Actions
+
+Actions:
+Edit
+Suspend
+Reset Password
+Delete
+
+[ Invite New User ]
+
+Invite Modal:
+Email
+Role Selection
+Assign Class
+
+[ Send Invitation ]
+
+🌍 SUPER ADMIN (MULTI-TENANT MANAGEMENT)
+🟣 FRAME 13 — SUPER ADMIN DASHBOARD
+
+Platform Overview — VACHUO Global
+
+Total Tenants: 24
+Active Users: 18,493
+Monthly Active Users: 12,882
+Revenue (MRR): $48,000
+
+System Health:
+Uptime: 99.98%
+AI Response Time: 1.2s
+
+Tenant Overview Table:
+Institution | Users | Plan | Status | Revenue
+
+[ View Tenant ]
+[ Suspend Tenant ]
+[ Upgrade Plan ]
+
+🟢 FRAME 14 — TENANT MANAGEMENT
+
+Tenant: Nairobi Pilot School
+
+Plan: Growth Plan
+Billing Cycle: Monthly
+Users Limit: 1,500
+Current Users: 1,284
+
+Usage:
+AI Requests: 182,000
+Storage Used: 68%
+
+Options:
+[ Upgrade Plan ]
+[ Adjust User Limit ]
+[ View Logs ]
+[ Suspend Tenant ]
+
+💳 BILLING & SUBSCRIPTIONS
+🟣 FRAME 15 — SUBSCRIPTION PAGE
+
+Current Plan: Growth
+
+Features:
+✔ AI Tutor
+✔ Teacher Analytics
+✔ Institutional Reporting
+✔ Offline Mode
+
+Pricing:
+Starter — $499/month
+Growth — $1,299/month
+Enterprise — Custom
+
+[ Upgrade Plan ]
+[ Download Invoice ]
+
+🧩 COMPLETE NAVIGATION STRUCTURE
+
+Public
+→ Login
+→ Role-based Dashboard
+→ Role Modules
+
+Super Admin
+→ Tenants
+→ Revenue
+→ Platform Health
+
+Institution Admin
+→ Users
+→ Reports
+→ Billing
+
+Teacher
+→ Classes
+→ Assignments
+→ Insights
+
+Learner
+→ Courses
+→ AI Tutor
+→ Progress
