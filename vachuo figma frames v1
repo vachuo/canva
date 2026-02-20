@@ -1,349 +1,596 @@
+Use the below Format
+
+-Frame name
+
+-Auto-layout vertical
+
+-1440px desktop
+
+-12-column grid
+
 Brand: Light Purple (#8B5CF6) + Green (#22C55E)
 Typography: Poppins (Headings) + Inter (Body)
 
-🌍 MARKETING WEBSITE
-🟣 FRAME 01 — PUBLIC LANDING PAGE (Homepage)
+🟦 0. LANDING & AUTH
+🖼 FRAME 01 — Landing Page (AI-Native Vachuo Education)
 
+Header (Sticky)
 
-Navbar
-Logo: VACHUO
-Home
-Solutions
-Pricing
-About
-Login
-[ Get Started ]
+Logo: Vachuo Education (AI-Native Learning)
+
+Nav: Product | For Students | For Teachers | Institutions | Pricing | About
+
+CTA: Sign In | Get Started
 
 Hero Section
 
-Headline
-AI-Powered Learning for Every Student.
+Headline: “AI-Native Learning for the Next Generation”
 
-Subtext
-VACHUO is an AI-native learning platform built for schools, universities, and training institutions — optimized for low bandwidth environments.
+Subtext: Personalized learning powered by intelligent tutoring.
 
-[ Start Free Trial ]
-[ Book a Demo ]
+CTA Primary: Start Learning Free
 
-Section — Why VACHUO
+CTA Secondary: Book Institutional Demo
 
-Title
-Built for Scale. Designed for Impact.
+Illustration: AI dashboard preview
 
-Cards
+Section 1: How It Works
 
-AI Personalization
-Adaptive learning paths for every learner.
+Enroll
 
-Offline-First
-Download lessons. Sync later.
+Learn with AI Tutor
 
-Teacher Intelligence
-Actionable insights powered by AI.
+Track Mastery
 
-Institution Analytics
-Real-time performance dashboards.
+Section 2: Platform Features
 
-Section — How It Works
+AI Tutor
 
-Students learn at their own pace
+Live Classes
 
-AI adapts content automatically
+Assignments
 
-Teachers receive performance insights
+Institutional Dashboards
 
-Institutions track measurable outcomes
+Performance Analytics
 
-CTA Section
+Section 3: Featured Course
 
-Headline
-Transform Learning Across Your Institution
+Calculus 101 – Limits & Derivatives
 
-[ Request Institutional Demo ]
+Instructor: Dr. Sarah M.
 
-🔐 AUTHENTICATION FLOW
-🟢 FRAME 02 — LOGIN PAGE
+4.8 ⭐ | 1,245 learners
 
-Title
-Welcome Back to VACHUO
+Footer
 
-Fields
-Email Address
+Product
+
+Resources
+
+Privacy
+
+Contact
+
+Social links
+
+🖼 FRAME 02 — Sign In
+
+Split layout:
+Left:
+
+Branding
+
+Tagline
+
+Right:
+
+Email
+
 Password
 
-[ Login ]
+Sign In
 
-Forgot Password?
-Don’t have an account? Sign Up
+Continue with Google
 
-🟣 FRAME 03 — SIGN UP PAGE
+Forgot Password
 
-Title
-Create Your VACHUO Account
+Switch to Sign Up
 
-Account Type:
-○ Learner
-○ Teacher
-○ Institution Admin
+🖼 FRAME 03 — Sign Up
 
 Fields:
+
 Full Name
+
 Email
-Phone Number
+
 Password
-Confirm Password
 
-[ Create Account ]
+Role Selector:
 
-🟢 FRAME 04 — PASSWORD RESET
-
-Title
-Reset Your Password
-
-Enter your email address and we’ll send you reset instructions.
-
-Email Field
-
-[ Send Reset Link ]
-
-👨🏽‍🎓 LEARNER EXPERIENCE
-🟣 FRAME 05 — LEARNER DASHBOARD
-
-Header
-Good morning, Emmanuel 👋
-
-Stats Cards
-Courses Enrolled: 5
-Completion Rate: 72%
-Streak: 6 Days 🔥
-
-Continue Learning
-Mathematics — Fractions & Ratios
-Progress: 64%
-[ Resume ]
-
-AI Tutor Widget
-✨ Ask Kuza Anything
-“Explain ratios again”
-
-[ Open AI Tutor ]
-
-Navigation Sidebar
-Home
-My Courses
-AI Tutor
-Progress
-Offline
-Settings
-
-🟢 FRAME 06 — COURSE VIEW
-
-Course: Mathematics — Grade 7
-
-Modules:
-• Fractions
-• Ratios
-• Algebra Basics
-• Word Problems
-
-Progress Bar: 64%
-
-[ Download for Offline ]
-
-🟣 FRAME 07 — PROGRESS ANALYTICS (Learner)
-
-Performance Overview
-
-Math: 78%
-Science: 82%
-Digital Skills: 71%
-
-Strengths:
-Problem Solving
-
-Needs Improvement:
-Fractions
-
-AI Recommendation:
-Practice: Visual Fraction Exercises
-
-👩🏽‍🏫 TEACHER EXPERIENCE
-🟢 FRAME 08 — TEACHER DASHBOARD
-
-Welcome back, Teacher Mercy 👩🏽‍🏫
-
-Total Students: 42
-Active This Week: 37
-
-AI Insights:
-• 9 students struggling with Fractions
-• Engagement drops after 15 minutes
-
-[ Assign AI-Generated Practice ]
-
-Recent Activity:
-Assignment: Algebra Quiz 2
-Completion Rate: 81%
-
-🟣 FRAME 09 — CLASS MANAGEMENT
-
-Class: Grade 7 Mathematics
-
-Students List Table:
-
-Name | Progress | Last Active | Risk Level
-Emmanuel | 64% | Today | Low
-Amina | 48% | 3 days ago | Medium
-Brian | 32% | 1 week ago | High
-
-[ Message Student ]
-[ Assign Remedial Lesson ]
-
-🟢 FRAME 10 — CREATE ASSIGNMENT
-
-Title:
-Assignment Type:
-○ Quiz
-○ AI Adaptive Practice
-○ Homework
-
-Due Date:
-
-Attach Content or Generate with AI
-
-[ Generate with AI ]
-[ Publish Assignment ]
-
-🏫 INSTITUTION ADMIN DASHBOARD
-🟣 FRAME 11 — INSTITUTION OVERVIEW
-
-Institution: Nairobi Pilot School
-
-Active Students: 1,284
-Teachers: 47
-Courses: 32
-Completion Rate: 76%
-
-AI Institutional Insight:
-Math performance improved by 18% this term.
-
-Charts:
-• Student Engagement (7 Days)
-• Completion Trends
-• Offline Usage %
-
-[ Export Report ]
-[ Add New Teacher ]
-[ Add New Student ]
-
-🟢 FRAME 12 — USER MANAGEMENT
-
-Title: User Management
-
-Filters:
-Role | Status | Class
-
-Table:
-
-Name | Role | Status | Last Login | Actions
-
-Actions:
-Edit
-Suspend
-Reset Password
-Delete
-
-[ Invite New User ]
-
-Invite Modal:
-Email
-Role Selection
-Assign Class
-
-[ Send Invitation ]
-
-🌍 SUPER ADMIN (MULTI-TENANT MANAGEMENT)
-🟣 FRAME 13 — SUPER ADMIN DASHBOARD
-
-Platform Overview — VACHUO Global
-
-Total Tenants: 24
-Active Users: 18,493
-Monthly Active Users: 12,882
-Revenue (MRR): $48,000
-
-System Health:
-Uptime: 99.98%
-AI Response Time: 1.2s
-
-Tenant Overview Table:
-Institution | Users | Plan | Status | Revenue
-
-[ View Tenant ]
-[ Suspend Tenant ]
-[ Upgrade Plan ]
-
-🟢 FRAME 14 — TENANT MANAGEMENT
-
-Tenant: Nairobi Pilot School
-
-Plan: Growth Plan
-Billing Cycle: Monthly
-Users Limit: 1,500
-Current Users: 1,284
-
-Usage:
-AI Requests: 182,000
-Storage Used: 68%
-
-Options:
-[ Upgrade Plan ]
-[ Adjust User Limit ]
-[ View Logs ]
-[ Suspend Tenant ]
-
-💳 BILLING & SUBSCRIPTIONS
-🟣 FRAME 15 — SUBSCRIPTION PAGE
-
-Current Plan: Growth
-
-Features:
-✔ AI Tutor
-✔ Teacher Analytics
-✔ Institutional Reporting
-✔ Offline Mode
-
-Pricing:
-Starter — $499/month
-Growth — $1,299/month
-Enterprise — Custom
-
-[ Upgrade Plan ]
-[ Download Invoice ]
-
-🧩 COMPLETE NAVIGATION STRUCTURE
-
-Public
-→ Login
-→ Role-based Dashboard
-→ Role Modules
-
-Super Admin
-→ Tenants
-→ Revenue
-→ Platform Health
-
-Institution Admin
-→ Users
-→ Reports
-→ Billing
+Student
 
 Teacher
-→ Classes
-→ Assignments
-→ Insights
 
-Learner
-→ Courses
-→ AI Tutor
-→ Progress
+Institution
+
+Create Account
+
+🟩 STUDENT DASHBOARD FLOW
+🖼 FRAME 04 — Student Dashboard (Home)
+4
+
+Sidebar
+
+Home
+
+My Courses
+
+Live Classes
+
+Assignments
+
+AI Tutor
+
+Progress
+
+Certificates
+
+Settings
+
+Main Panel
+Top Cards:
+
+Courses Enrolled
+
+Assignments Due
+
+Upcoming Live Class
+
+AI Mastery Score
+
+Section:
+
+Continue Learning (Calculus 101 – 65%)
+
+Recommended Courses
+
+Weak Areas (Derivatives, Chain Rule)
+
+🖼 FRAME 05 — My Courses Page
+
+Grid:
+
+Calculus 101
+
+Linear Algebra Basics
+
+Statistics Fundamentals
+
+Card shows:
+
+Progress %
+
+Resume Button
+
+Instructor
+
+Next Lesson
+
+🖼 FRAME 06 — Individual Course View (Calculus 101)
+4
+
+Header
+Calculus 101 — Limits & Derivatives
+
+Left Sidebar
+Module 1: Limits
+
+Intro to Limits
+
+Graphical Interpretation
+
+Limit Laws
+
+Quiz 1
+
+Module 2: Derivatives
+
+Definition of Derivative
+
+Power Rule
+
+Chain Rule
+
+Quiz 2
+
+Main Panel
+Lesson Video / Content
+Tabs:
+
+Notes
+
+Resources
+
+Discussion
+
+Right Panel
+AI Tutor (Context Aware)
+
+Buttons:
+
+Mark Complete
+
+Take Quiz
+
+🖼 FRAME 07 — Lesson Player + AI Tutor Open
+
+Chat UI:
+
+Explain simply
+
+Give example
+
+Test me
+
+Real-world application
+
+Bottom:
+Message input
+
+🖼 FRAME 08 — Quiz Page
+
+Question 1: Evaluate limit as x→0
+
+Multiple choice options
+
+Submit
+
+AI Feedback
+
+Mastery Score
+
+🖼 FRAME 09 — Assignments Page
+
+List:
+
+Calculus Problem Set 1 (Due Feb 28)
+
+Derivatives Worksheet
+
+Group Project: Optimization
+
+Each:
+
+View
+
+Submit
+
+Status
+
+🖼 FRAME 10 — Assignment Submission View
+
+Instructions
+
+Upload file
+
+Text answer box
+
+Submit
+
+AI Preliminary Evaluation
+
+🖼 FRAME 11 — Live Classes Page
+4
+
+Calendar View:
+
+Monday 10AM – Calculus Live Q&A
+
+Thursday 4PM – Problem Solving Session
+
+Buttons:
+
+Join
+
+Add to Calendar
+
+🖼 FRAME 12 — Live Class Room
+
+Video Grid
+
+Screen Share
+
+Chat
+
+Raise Hand
+
+AI Notes Generator
+
+🖼 FRAME 13 — Progress Analytics
+
+Graphs:
+
+Completion %
+
+Quiz Performance
+
+Mastery Radar Chart
+
+Weak Concept Heatmap
+
+🟨 TEACHER DASHBOARD FLOW
+🖼 FRAME 14 — Teacher Dashboard
+
+Sidebar:
+
+Overview
+
+My Courses
+
+Create Course
+
+Live Classes
+
+Assignments
+
+Evaluations
+
+Students
+
+Analytics
+
+Main:
+
+Total Students
+
+Avg Completion
+
+AI Engagement Rate
+
+Pending Evaluations
+
+🖼 FRAME 15 — Create Course Wizard
+
+Step 1:
+
+Course Title
+
+Description
+
+Category
+
+Level
+
+Step 2:
+
+Add Modules
+
+Step 3:
+
+Add Lessons
+
+Upload Video
+
+Rich Text Editor
+
+Attach PDF
+
+Add AI Prompt Context
+
+Step 4:
+
+Add Quiz
+
+Publish
+
+🖼 FRAME 16 — Content Upload Page
+
+Fields:
+
+Lesson Title
+
+Upload Video
+
+Upload Slides
+
+Add Transcript
+
+Enable AI Tutor Context
+
+Save Draft
+
+🖼 FRAME 17 — Evaluation Page
+
+Assignment Submissions:
+
+Student Name
+
+Submission
+
+AI Suggested Score
+
+Teacher Score Input
+
+Feedback Box
+
+Publish Grade
+
+🖼 FRAME 18 — Live Class Scheduling
+
+Calendar Interface:
+
+Select Date
+
+Time
+
+Duration
+
+Topic
+
+Notify Students
+
+Enable Recording
+
+🖼 FRAME 19 — Student Management Page
+
+Student List
+
+Engagement Score
+
+Attendance
+
+Send Announcement
+
+🟪 INSTITUTION DASHBOARD
+🖼 FRAME 20 — Institution Overview
+
+Cards:
+
+Total Students
+
+Active Teachers
+
+Courses Offered
+
+Platform Usage
+
+Charts:
+
+Performance by Department
+
+AI Usage Trends
+
+🖼 FRAME 21 — Department Management
+
+Create Department
+
+Assign Teachers
+
+Assign Courses
+
+Enrollment Reports
+
+🖼 FRAME 22 — Institutional Analytics
+
+Completion Rate
+
+Dropout Rate
+
+AI Mastery Distribution
+
+Live Class Attendance
+
+Export Reports
+
+🟥 SUPERADMIN DASHBOARD
+🖼 FRAME 23 — Super Admin Overview
+
+Total Users
+
+Revenue
+
+Active Institutions
+
+AI Usage Cost
+
+🖼 FRAME 24 — User Management
+
+Search Users
+
+Suspend
+
+Upgrade Role
+
+View Activity
+
+🖼 FRAME 25 — Content Moderation
+4
+
+List:
+
+Course Pending Approval
+
+Reported Lesson
+
+Flagged AI Interaction
+
+Actions:
+
+Approve
+
+Reject
+
+Request Revision
+
+🖼 FRAME 26 — AI Usage Monitoring
+
+Token Usage per Institution
+
+Cost Graph
+
+High Usage Alerts
+
+Model Performance Logs
+
+🔵 GLOBAL COMPONENTS
+
+Create Figma Components:
+
+Buttons:
+
+Primary
+
+Secondary
+
+Ghost
+
+Cards:
+
+Course Card
+
+Metric Card
+
+Assignment Card
+
+Modals:
+
+Confirmation
+
+AI Suggestion
+
+Upload Success
+
+Charts:
+
+Line
+
+Bar
+
+Radar
+
+Heatmap
+
+🧠 AI SYSTEM TOUCHPOINTS
+
+Include these UI indicators everywhere:
+
+“AI Personalized”
+
+“AI Suggested”
+
+“AI Graded”
+
+“AI Insight”
+
+“AI Risk Alert”
+
+🏗 Suggested Figma Page Structure
+
+Page 1: Marketing
+Page 2: Student
+Page 3: Teacher
+Page 4: Institution
+Page 5: SuperAdmin
+Page 6: Design System
