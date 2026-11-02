@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · The loop</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body class="theme-dark">
+<div id="app"></div>
+<template id="dc-Engine">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #111315; color: #EDEDE8; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #16181B; border-right: 1px solid #2A2E33; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #EDEDE8">
+<img src="assets/img/logo-white.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #172E66; color: #AFD0FF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #2A2E33">
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #172E66; color: #AFD0FF; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">P</span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Pedagogy team</span><span style="font-size: 12.5px; color: #A3A8AE">Internal console</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 80px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+
+<header style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7DB4FF">Inside Vachuo · Pedagogy control</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 56px); line-height: 1.02; letter-spacing: -0.015em; font-weight: 600; max-width: 900px; text-wrap: balance">The loop is the school. Everything else is a view of it.</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #C9CCD0; max-width: 720px; text-wrap: pretty">Every lesson, project and workshop visit runs the same closed loop against one learner model per child. The tutor is not the moat; everyone will have a tutor. The moat is running this loop well across every subject, standard, level and pedagogy, for every learner.</p>
+</header>
+
+<section aria-labelledby="loop-title" style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+<h2 id="loop-title" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">The closed loop</h2>
+<div style="flex: 1 1 560px; min-width: 0; overflow-x: auto">
+<div role="img" aria-label="The closed loop, eleven steps in a circle around the learner model: Diagnose, Plan, Teach, Observe, Assess, Diagnose misconception, Remediate, Reassess, Update learner model, Inform parent, Repeat." style="position: relative; width: 680px; height: 680px; margin: 0 auto; font-size: 13px; line-height: 16px">
+<div style="position: absolute; left: 78px; top: 78px; width: 524px; height: 524px; box-sizing: border-box; border-radius: 50%; border: 1.5px dashed #2B4A94"></div>
+<div style="position: absolute; left: 230px; top: 230px; width: 220px; height: 220px; box-sizing: border-box; border-radius: 50%; background: #16181B; border: 1px solid #2A2E33; padding: 28px; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7DB4FF">Learner model</span><br><b style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; line-height: 28px; font-weight: 600; color: #EDEDE8">One per child</b><br><span style="color: #A3A8AE">P(skill) for every node, updated at every step</span></span></div>
+<div style="position: absolute; left: 274px; top: 48px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">01</span><br>Diagnose</span></div>
+<div style="position: absolute; left: 416px; top: 90px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">02</span><br>Plan</span></div>
+<div style="position: absolute; left: 512px; top: 201px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">03</span><br>Teach</span></div>
+<div style="position: absolute; left: 533px; top: 347px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">04</span><br>Observe, with consent</span></div>
+<div style="position: absolute; left: 472px; top: 482px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">05</span><br>Assess</span></div>
+<div style="position: absolute; left: 348px; top: 561px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #7DB4FF; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">06</span><br>Diagnose misconception</span></div>
+<div style="position: absolute; left: 200px; top: 561px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">07</span><br>Remediate</span></div>
+<div style="position: absolute; left: 76px; top: 482px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">08</span><br>Reassess</span></div>
+<div style="position: absolute; left: 15px; top: 347px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px solid #2B4A94; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">09</span><br>Update learner model</span></div>
+<div style="position: absolute; left: 36px; top: 201px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #2B2310; border: 1px solid #8C6416; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #F9A826">10</span><br>Inform parent</span></div>
+<div style="position: absolute; left: 132px; top: 90px; width: 132px; height: 60px; box-sizing: border-box; padding: 6px 10px; border-radius: 14px; background: #1A1D20; border: 1px dashed #7DB4FF; display: flex; align-items: center; justify-content: center; text-align: center"><span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #7DB4FF">11</span><br>Repeat</span></div>
+</div>
+</div>
+
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding-bottom: 10px">The loop runs across</span>
+<template data-for="{{dims}}" data-as="d">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid #2A2E33">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; color: #7DB4FF">{{d.dim}}</span>
+<span style="font-size: 15.5px; line-height: 1.5; color: #C9CCD0">{{d.detail}}</span>
+</div>
+</template>
+</div>
+</section>
+
+<section aria-labelledby="cap" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="cap" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">CAP: three graphs behind every step</h2>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: #C9CCD0; max-width: 720px">Content, Assessment and Pedagogy, kept as linked graphs rather than a library of lessons.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+<article style="background: #1A1D20; border: 1px solid #2A2E33; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #7DB4FF">Content graph</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">What there is to learn</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD0">Every concept carries its prerequisites, objectives, standards, examples, known misconceptions, difficulty levels and real-world uses.</p>
+</article>
+<article style="background: #1A1D20; border: 1px solid #2A2E33; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #7DB4FF">Assessment graph</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">What this learner knows</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD0">Every interaction updates P(understands skill). A wrong answer is diagnosed, not just scored, because each cause needs a different response.</p>
+</article>
+<article style="background: #1A1D20; border: 1px solid #2A2E33; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #7DB4FF">Pedagogy graph</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">What to do next</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD0">What to teach, how, how hard, in which modality and with which example. When to step in, when to review, and when mastery is real.</p>
+</article>
+</div>
+
+<div style="background: #16181B; border: 1px solid #2A2E33; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">Validation pipeline</h3>
+<span style="font-size: 14px; color: #A3A8AE">No lesson reaches a child as raw model output.</span>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(132px, 100%), 1fr)); gap: 12px">
+<template data-for="{{pipeline}}" data-as="p">
+<li style="display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 2px solid #2B4A94">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; color: #7DB4FF">{{p.n}}</span>
+<span style="font-size: 14.5px; font-weight: 600; line-height: 1.3">{{p.name}}</span>
+<span style="font-size: 13px; line-height: 1.45; color: #A3A8AE">{{p.detail}}</span>
+</li>
+</template>
+</ol>
+</div>
+</section>
+
+<section aria-labelledby="router" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="router" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Misconception router</h2>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: #C9CCD0; max-width: 720px">Step 06 in practice. Seven reasons a learner gets something wrong, each routed to a different response.</p>
+</div>
+<div style="overflow-x: auto; background: #1A1D20; border: 1px solid #2A2E33; border-radius: 18px">
+<table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14.5px; line-height: 1.45">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 14px 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; border-bottom: 1px solid #2A2E33">Diagnosis</th>
+<th scope="col" style="text-align: left; padding: 14px 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; border-bottom: 1px solid #2A2E33">What the signal looks like</th>
+<th scope="col" style="text-align: left; padding: 14px 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; border-bottom: 1px solid #2A2E33">What the loop does</th>
+</tr>
+</thead>
+<tbody>
+<template data-for="{{router}}" data-as="r">
+<tr>
+<th scope="row" style="text-align: left; vertical-align: top; padding: 14px 20px; font-weight: 600; border-top: 1px solid #23272B">{{r.name}}<template data-if="{{r.live}}"><br><span style="display: inline-block; margin-top: 6px; font-size: 11.5px; font-weight: 500; color: #AFD0FF; background: #172E66; padding: 2px 8px; border-radius: 999px">Live: Amani, Ratios, 0.71</span></template></th>
+<td style="vertical-align: top; padding: 14px 20px; color: #C9CCD0; border-top: 1px solid #23272B">{{r.signal}}</td>
+<td style="vertical-align: top; padding: 14px 20px; color: #EDEDE8; border-top: 1px solid #23272B">{{r.action}}</td>
+</tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-labelledby="deschool" style="display: flex; flex-direction: column; gap: 18px; padding-top: 8px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F9A826">After Ivan Illich, Deschooling Society (1971)</span>
+<h2 id="deschool" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Deschooling constraints: rules the loop must obey</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CCD0; max-width: 760px; text-wrap: pretty">A closed loop this powerful could become the most total school ever built. Illich warned that schooling teaches people to confuse being taught with learning, and a diploma with competence. These rules keep Vachuo a tool for learners, not an institution that manages them. Every model, metric and screen is checked against them.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+<template data-for="{{rules}}" data-as="r">
+<article style="background: #1A1D20; border: 1px solid #2A2E33; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #F9A826">{{r.n}}</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; line-height: 1.3">{{r.title}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD0">{{r.text}}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px">
+<span style="font-size: 12.5px; color: #A3A8AE">Shows up in</span>
+<template data-for="{{r.where}}" data-as="w"><a href="{{w.href}}" style="font-size: 12.5px; font-weight: 500; color: #AFD0FF; background: #172E66; padding: 3px 10px; border-radius: 999px; text-decoration: none">{{w.label}}</a></template>
+</div>
+</article>
+</template>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("Engine", function () {
+class Component extends DCLogic {
+  renderVals() {
+    const screen = {
+      today: { label: 'Today', href: 'today.html' },
+      session: { label: 'Tutor session', href: 'session.html' },
+      map: { label: 'My map', href: 'map.html' },
+      passport: { label: 'Passport', href: 'passport.html' },
+      webs: { label: 'Connects', href: 'connects.html' },
+      copilot: { label: 'Parent copilot', href: 'copilot.html' }
+    };
+    return {
+      dims: [
+        { dim: 'K → 16', detail: '17 levels, from kindergarten through a four-year degree' },
+        { dim: '× every subject', detail: 'Mathematics, languages, sciences, humanities, arts, making, and more' },
+        { dim: '× every standard', detail: 'CBC, Common Core, NGSS, Cambridge, IB, and each new jurisdiction' },
+        { dim: '× every learning level', detail: 'Placed per skill, never by age or grade' },
+        { dim: '× multiple pedagogies', detail: 'Socratic, worked example, concrete to abstract, project, spaced retrieval, peer teaching' },
+        { dim: '× millions of learners', detail: 'One learner model each · [LIVE COUNT] running today' }
+      ],
+      pipeline: [
+        { n: '01', name: 'Standards graph', detail: 'Every standard, every jurisdiction, mapped' },
+        { n: '02', name: 'Validated curriculum graph', detail: 'Concepts and prerequisites, reviewed by experts' },
+        { n: '03', name: 'Pedagogical model', detail: 'The right approach for this learner and concept' },
+        { n: '04', name: 'Controlled generation', detail: 'AI writes inside the graph’s constraints' },
+        { n: '05', name: 'Assessment', detail: 'Items checked for validity before use' },
+        { n: '06', name: 'Mastery evidence', detail: 'Two kinds of evidence before anything counts' },
+        { n: '07', name: 'Adaptation', detail: 'The plan changes, and the change is explained' }
+      ],
+      router: [
+        { name: 'Conceptual misconception', signal: 'The same wrong rule applied across items', action: 'Counter-example the learner can check, then a new representation', live: true },
+        { name: 'Procedural mistake', signal: 'Right idea, steps break down', action: 'Worked example, then faded practice', live: false },
+        { name: 'Prerequisite gap', signal: 'Fails wherever skill X is needed', action: 'Insert a short prerequisite lesson, then return', live: false },
+        { name: 'Language misunderstanding', signal: 'Succeeds once the question is reworded', action: 'Re-pose in simpler words or the home language', live: false },
+        { name: 'Attention lapse', signal: 'Errors cluster late in a session or come too fast', action: 'Suggest a break; shorten the next items', live: false },
+        { name: 'Calculation error', signal: 'A one-off arithmetic slip', action: 'Self-check prompt. No re-teaching', live: false },
+        { name: 'Guessing', signal: 'Fast answers at chance accuracy', action: 'Lower the stakes and ask for reasoning', live: false }
+      ],
+      rules: [
+        { n: '01', title: 'Learning, not schooling', text: 'Measure what a learner can do. Never seat time, rank or age-grade.', where: [screen.passport] },
+        { n: '02', title: 'Every inference is contestable', text: 'Learners see what the model believes about them, and can challenge it. A challenge is evidence, not defiance.', where: [screen.session, screen.map] },
+        { n: '03', title: 'Observation needs consent', text: 'Open hours are never tracked. The Observe step runs only inside commitments the learner agreed to.', where: [screen.today] },
+        { n: '04', title: 'The world counts', text: 'Evidence from Connects updates the model exactly like a lesson. Things, skill exchanges, peers and elders are part of the school.', where: [screen.webs] },
+        { n: '05', title: 'Records belong to the learner', text: 'Maps and Passports are portable, exportable and deletable by their owner. No certification monopoly.', where: [screen.passport, screen.map] },
+        { n: '06', title: 'People own meaning', text: 'AI runs instruction and operations. Guides, elders and parents own motivation, mentorship and inspiration.', where: [screen.copilot] },
+        { n: '07', title: 'Convivial by design', text: 'Success is a learner who needs Vachuo less each year. North star: self-direction, not time on platform.', where: [screen.copilot, screen.today] }
+      ]
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Engine");
+</script>
+</body>
+</html>

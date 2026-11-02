@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Connects</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.pin{transition:transform .15s ease}
+.pin:hover{transform:scale(1.12)}
+.pulse{animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(249,168,38,.7)}100%{box-shadow:0 0 0 16px rgba(249,168,38,0)}}
+.home{animation:home 2.4s ease-out infinite}
+@keyframes home{0%{box-shadow:0 0 0 0 rgba(29,78,216,.55)}100%{box-shadow:0 0 0 24px rgba(29,78,216,0)}}
+.livedot{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.glide{transition:left .45s cubic-bezier(.2,.7,.2,1),top .45s cubic-bezier(.2,.7,.2,1),width .45s cubic-bezier(.2,.7,.2,1),height .45s cubic-bezier(.2,.7,.2,1)}
+.chip{transition:background .15s ease,border-color .15s ease}
+.chip:hover{border-color:#14161A}
+.row{transition:background .15s ease}
+.row:hover{background:#F4F4EF}
+.card{transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -26px rgba(20,22,26,.45)}
+@media (prefers-reduced-motion:reduce){.pulse,.home,.livedot{animation:none}.glide{transition:none}.pin:hover,.card:hover{transform:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Webs">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #DDF4F1; color: #115E59"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<template data-if="{{showProfile}}">
+<dc-import name="Profile" pid="{{profileId}}" intent="{{profileIntent}}" embedded="{{ true }}" on-back="{{closeProfile}}" on-open="{{openOther}}"></dc-import>
+</template>
+
+<template data-if="{{showMain}}">
+<div style="display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 32px">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #115E59">Connects</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; max-width: 880px; text-wrap: balance">Learn from things, people, peers and elders, not only from lessons.</h1>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 720px; text-wrap: pretty">Vachuo maps what’s within reach and links it to your map. Hosts offer, you choose, and nobody is paid to keep you in a seat.</p>
+</div>
+<figure aria-hidden="true" style="margin: 0; flex: 1 1 280px; max-width: 380px; height: 200px; position: relative; overflow: hidden; border-radius: 20px; background: #0D9488">
+<span style="position: absolute; width: 360px; height: 360px; right: -130px; top: -210px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 620px; height: 620px; left: -300px; top: -460px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -70px; height: 120px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 14px; bottom: 10px; display: flex; justify-content: center; align-items: flex-end; gap: 6px">
+<img src="assets/img/267b7a442640f30304c2f6baf1e79fcb.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/aa521336efaf54b93b05456f9dee9a49.svg" alt="" style="display: block; height: 100%; width: auto">
+</div>
+</figure>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end">
+<div style="flex: 2 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="websearch" style="font-size: 13px; font-weight: 600; color: #3F444C">Search Connects</label>
+<div style="position: relative">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#62676F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; left: 16px; top: 15px"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+<input id="websearch" type="search" value="{{q}}" onChange="{{setQ}}" placeholder="A skill, a tool, a question, a person" style="width: 100%; min-height: 48px; box-sizing: border-box; padding: 0 16px 0 44px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 15px; color: #14161A">
+</div>
+</div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="radius" style="font-size: 13px; font-weight: 600; color: #3F444C">Distance from Kilimani, Nairobi</label>
+<div style="position: relative">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14161A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; left: 16px; top: 15px; pointer-events: none"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+<select id="radius" value="{{radiusVal}}" onChange="{{setRadius}}" style="width: 100%; min-height: 48px; box-sizing: border-box; padding: 0 16px 0 44px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 14.5px; color: #14161A; cursor: pointer">
+<option value="1">Within 1 km</option>
+<option value="2">Within 2 km</option>
+<option value="5">Within 5 km</option>
+<option value="10">Within 10 km</option>
+</select>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 14px 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg>
+<p style="flex: 1 1 400px; margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C"><b style="color: #14161A; font-weight: 600">Safe by design.</b> For learners under 18, a parent approves every in-person meeting. Hosts are ID-verified and background-checked, and meetings happen in groups or public places.</p>
+</div>
+
+<section id="around" aria-labelledby="around-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: clamp(16px, 2.4vw, 24px); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="around-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Around you</h2>
+<p aria-live="polite" style="margin: 0; font-size: 15.5px; color: #3F444C">{{summary}}</p>
+</div>
+<span style="display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 12px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600"><span class="livedot" aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #0D9488"></span>Live · Nairobi {{clock}}</span>
+</div>
+
+<div role="group" aria-label="Show on the map" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{catChips}}" data-as="c">
+<button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 6px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 50%; background: {{c.dot}}; display: inline-flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="{{c.dotFg}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"/></svg></span>{{c.label}}<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{c.count}}</span></button>
+</template>
+<button type="button" class="chip" aria-pressed="{{minePressed}}" onClick="{{toggleMine}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 6px; border-radius: 999px; border: 1px solid {{mineBd}}; background: {{mineBg}}; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 50%; background: #0F766E; display: inline-flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 11l2 2 4-4"/></svg></span>My people<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{mineCount}}</span></button>
+<button type="button" class="chip" aria-pressed="{{openPressed}}" onClick="{{toggleOpen}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{openBd}}; background: {{openBg}}; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer"><span class="livedot" aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #0D9488"></span>Open or on now<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{openCount}}</span></button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<div onPointerDown="{{down}}" onPointerMove="{{move}}" onPointerUp="{{up}}" onPointerCancel="{{up}}" style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #EFECE3; border: 1px solid #E2E2DA; touch-action: none; user-select: none; cursor: {{cursor}}">
+<div class="{{worldCls}}" style="position: absolute; left: {{wl}}%; top: {{wt}}%; width: {{ws}}%; height: {{ws}}%">
+<img src="assets/img/60e878ab3c78d12a0a8b08b442faa70f.svg" alt="" draggable="false" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; user-select: none">
+<template data-for="{{labels}}" data-as="l">
+<span aria-hidden="true" style="position: absolute; left: {{l.x}}%; top: {{l.y}}%; transform: translate(-50%, -50%) rotate({{l.r}}deg); white-space: nowrap; pointer-events: none; font-family: {{l.font}}; font-size: {{l.size}}px; font-style: {{l.style}}; font-weight: {{l.weight}}; letter-spacing: {{l.ls}}; color: {{l.color}}">{{l.t}}</span>
+</template>
+<span aria-hidden="true" style="position: absolute; left: {{ringL}}%; top: {{ringT}}%; width: {{ringW}}%; height: {{ringH}}%; border-radius: 50%; border: 2px dashed rgba(29,78,216,0.45); background: rgba(29,78,216,0.04); pointer-events: none"></span>
+<span class="home" aria-hidden="true" style="position: absolute; left: 50%; top: 52%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: #1D4ED8; border: 3px solid #FFFFFF; box-sizing: border-box; z-index: 5"></span>
+<span aria-hidden="true" style="position: absolute; left: 50%; top: 52%; transform: translate(-50%, 16px); white-space: nowrap; padding: 2px 8px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 600; z-index: 5; pointer-events: none">You · home</span>
+<template data-for="{{pins}}" data-as="m">
+<button type="button" class="pin {{m.cls}}" aria-label="{{m.aria}}" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="position: absolute; left: {{m.x}}%; top: {{m.y}}%; z-index: {{m.z}}; width: {{m.size}}px; height: {{m.size}}px; margin: {{m.margin}}; padding: 0; box-sizing: border-box; border-radius: 50%; border: 2.5px solid {{m.ring}}; background: {{m.bg}}; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 14px -6px rgba(20,22,26,0.55)">
+<template data-if="{{m.hasFace}}"><img src="{{m.face}}" alt="" draggable="false" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: top; pointer-events: none"></template>
+<template data-if="{{m.noFace}}"><svg width="{{m.isz}}" height="{{m.isz}}" viewBox="0 0 24 24" fill="none" stroke="{{m.fg}}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="pointer-events: none"><path d="{{m.icon}}"/></svg></template>
+<template data-if="{{m.mine}}"><span aria-hidden="true" style="position: absolute; right: -5px; top: -5px; width: 17px; height: 17px; border-radius: 50%; background: #0F766E; border: 2px solid #FFFFFF; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span></template>
+<template data-if="{{m.isSel}}"><span aria-hidden="true" style="position: absolute; left: 50%; top: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; padding: 3px 9px; border-radius: 8px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; pointer-events: none">{{m.name}}</span></template>
+</button>
+</template>
+</div>
+<div style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E2DA; box-shadow: 0 8px 20px -14px rgba(20,22,26,0.5)">
+<button type="button" aria-label="Zoom in" onClick="{{zoomIn}}" style="width: 44px; height: 44px; border: none; border-bottom: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+<button type="button" aria-label="Zoom out" onClick="{{zoomOut}}" style="width: 44px; height: 44px; border: none; border-bottom: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+<button type="button" aria-label="Back to home" onClick="{{recenter}}" style="width: 44px; height: 44px; border: none; background: #FFFFFF; color: #1D4ED8; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+</div>
+<div aria-hidden="true" style="position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; gap: 4px; padding: 6px 10px; border-radius: 10px; background: rgba(255,255,255,0.92); font-family: Geist, system-ui, sans-serif; font-size: 11px; color: #3F444C">
+<span style="display: block; width: {{scaleW}}px; height: 5px; border: 2px solid #3F444C; border-top: none; box-sizing: border-box"></span>
+<span>1 km · illustrative map, not to scale</span>
+</div>
+</div>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; line-height: 1.5; color: #62676F">Drag to move, use + and − to zoom. People appear at the public places where they meet, never at a home. Pulsing pins are happening now.</p>
+<div role="group" aria-label="Filter places by type" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{keyItems}}" data-as="k">
+<button type="button" class="chip" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 10px 0 4px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; border-radius: 50%; background: #0D9488; display: inline-flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{k.icon}}"/></svg></span>{{k.label}}</button>
+</template>
+</div>
+</div>
+
+<div style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<template data-if="{{hasSel}}">
+<div style="border-radius: 16px; border: 1.5px solid {{selColor}}; background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<span aria-hidden="true" style="flex: none; width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: {{selColor}}; display: flex; align-items: center; justify-content: center">
+<template data-if="{{selHasFace}}"><img src="{{selFace}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template>
+<template data-if="{{selNoFace}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{selFg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{selIcon}}"/></svg></template>
+</span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{selInk}}">{{selCat}}</span>
+<span style="font-size: 21px; font-weight: 600; line-height: 1.2">{{selName}}</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{selRole}}</span>
+</div>
+<button type="button" aria-label="Close" onClick="{{clearSel}}" style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 12.5px">
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: {{selLiveBg}}; color: {{selLiveFg}}; font-weight: 600"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: {{selLiveDot}}"></span>{{selLive}}</span>
+<span style="padding: 4px 10px; border-radius: 999px; background: #F4F4EF; color: #3F444C">{{selDist}}</span>
+<template data-if="{{selHasMine}}"><span style="padding: 4px 10px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-weight: 600">{{selMine}}</span></template>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" onClick="{{selOpen}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: {{selColor}}; color: {{selFg}}; font-size: 14px; font-weight: 600; cursor: pointer">View profile</button>
+<button type="button" onClick="{{selBook}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">{{selCta}}</button>
+</div>
+</div>
+</template>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 17px; font-weight: 600">{{listTitle}}</h3>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">Nearest first</span>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0 4px 0 0; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px">
+<template data-for="{{rows}}" data-as="r">
+<li><button type="button" class="row" aria-pressed="{{r.pressed}}" onClick="{{r.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 6px 8px; border-radius: 12px; border: 1px solid {{r.bd}}; background: {{r.bg}}; color: #14161A; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex: none; position: relative; width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: {{r.color}}; display: flex; align-items: center; justify-content: center">
+<template data-if="{{r.hasFace}}"><img src="{{r.face}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template>
+<template data-if="{{r.noFace}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{r.fg}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></template>
+</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; font-weight: 600; line-height: 1.2">{{r.name}}</span>
+<span style="font-size: 12px; color: #62676F">{{r.sub}}</span>
+</span>
+<span style="flex: none; max-width: 42%; text-align: right; font-size: 11.5px; font-weight: 600; color: {{r.liveFg}}">{{r.live}}</span>
+</button></li>
+</template>
+</ul>
+<template data-if="{{noRows}}"><p style="margin: 0; padding: 14px; border-radius: 12px; background: #F4F4EF; font-size: 15px; color: #3F444C">Nothing matches. Try a wider distance, another filter or a different word.</p></template>
+<template data-if="{{hasOnline}}">
+<h3 style="margin: 6px 0 0; font-size: 17px; font-weight: 600">Online · {{onlineCount}}</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px">
+<template data-for="{{onlineRows}}" data-as="r">
+<li><button type="button" class="row" aria-pressed="{{r.pressed}}" onClick="{{r.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 6px 8px; border-radius: 12px; border: 1px solid {{r.bd}}; background: {{r.bg}}; color: #14161A; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex: none; width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: {{r.color}}; display: flex; align-items: center; justify-content: center">
+<template data-if="{{r.hasFace}}"><img src="{{r.face}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template>
+<template data-if="{{r.noFace}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{r.fg}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></template>
+</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; font-weight: 600; line-height: 1.2">{{r.name}}</span>
+<span style="font-size: 12px; color: #62676F">{{r.sub}}</span>
+</span>
+<span style="flex: none; max-width: 42%; text-align: right; font-size: 11.5px; font-weight: 600; color: {{r.liveFg}}">{{r.live}}</span>
+</button></li>
+</template>
+</ul>
+</template>
+</div>
+</div>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 20px; align-items: start">
+<template data-for="{{columns}}" data-as="col">
+<section aria-label="{{col.title}}" style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 4px 2px 6px; min-height: 108px; box-sizing: border-box">
+<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 12px; background: #DDF4F1; color: #115E59; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="{{col.icon}}"/></svg></span>
+<h2 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">{{col.title}}</h2>
+<p style="margin: 0; font-size: 13.5px; line-height: 1.45; color: #62676F">{{col.blurb}}</p>
+</div>
+<template data-for="{{col.items}}" data-as="e">
+<article class="card" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<template data-if="{{e.hasFace}}"><img src="{{e.face}}" alt="{{e.title}}" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; object-position: top; background: #E4ECFD"></template>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><h3 style="margin: 0; font-size: 15.5px; font-weight: 600; line-height: 1.3"><button type="button" onClick="{{e.open}}" style="padding: 0; border: none; background: none; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; font-weight: 600; text-align: left; text-decoration: underline; text-decoration-color: #CFCFC6; text-underline-offset: 3px; cursor: pointer">{{e.title}}</button></h3><span style="flex: none; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">{{e.dist}}</span></div>
+<span style="font-size: 13px; color: #62676F">{{e.who}}</span>
+<p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C">{{e.text}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{e.links}}" data-as="l"><span style="font-size: 12px; font-weight: 500; color: #1E40AF; background: #E4ECFD; padding: 3px 9px; border-radius: 999px">{{l}}</span></template></div>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: {{e.liveFg}}">{{e.live}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding-top: 6px">
+<span style="font-size: 12.5px; font-weight: 500; color: #115E59">{{e.note}}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 6px">
+<button type="button" onClick="{{e.locate}}" aria-label="{{e.locateLabel}}" style="min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer">{{e.locateText}}</button>
+<button type="button" onClick="{{e.book}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 500; cursor: pointer">{{e.cta}}</button>
+</span>
+</div>
+</article>
+</template>
+</section>
+</template>
+</div>
+
+<section aria-labelledby="meet" style="margin-top: 8px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px; max-width: 620px">
+<h2 id="meet" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Where Connects meets the loop</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Learning in the world counts exactly as much as learning in a lesson, but only if you want it counted.</p>
+</div>
+<button type="button" onClick="{{offer}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Offer something on Connects</button>
+</div>
+<p role="status" style="margin: -8px 0 0; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #115E59">{{offerMsg}}</p>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px">
+<li style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 14px; background: #DDF4F1">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #115E59">01 · Connects</span>
+<span style="font-size: 16px; font-weight: 600">You learn somewhere real</span>
+<span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">A workshop, a trail, a conversation with someone who does the thing.</span>
+</li>
+<li aria-hidden="true" style="flex: none; display: flex; align-items: center; color: #8A8F96"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></li>
+<li style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 14px; background: #F4F4EF">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #3F444C">02 · Your choice</span>
+<span style="font-size: 16px; font-weight: 600">Evidence, if you want it counted</span>
+<span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">You, your host or a peer can log what happened: a photo, a note, a quick demo.</span>
+</li>
+<li aria-hidden="true" style="flex: none; display: flex; align-items: center; color: #8A8F96"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></li>
+<li style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 14px; background: #E4ECFD">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #1E40AF">03 · The loop</span>
+<span style="font-size: 16px; font-weight: 600">Your map updates</span>
+<span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">Vachuo treats it like any lesson, and next week’s plan adjusts around it.</span>
+</li>
+</ol>
+</section>
+
+</div>
+</template>
+
+</div>
+</main>
+</div>
+</template>
+<template id="dc-Profile">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; box-sizing: border-box; padding: {{rootPad}}">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
+
+<template data-if="{{embedded}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px">
+<button type="button" onClick="{{goBack}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back to Connects</button>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Connects / {{catLabel}} / {{name}}</span>
+</div>
+</template>
+
+<template data-if="{{standalone}}">
+<section aria-labelledby="dir-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="dir-h" style="margin: 0; font-size: 20px; font-weight: 600">Profiles on Connects</h2>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Pick any person, place, event or group to preview its page</span>
+</div>
+<template data-for="{{dir}}" data-as="g">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<span style="flex: none; width: 132px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{g.ink}}">{{g.label}}</span>
+<template data-for="{{g.items}}" data-as="o">
+<button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{o.bd}}; background: {{o.bg}}; color: {{o.fg}}; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; cursor: pointer">{{o.label}}</button>
+</template>
+</div>
+</template>
+</section>
+</template>
+
+<section aria-labelledby="p-name" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 24px; overflow: hidden">
+<div aria-hidden="true" style="position: relative; height: 168px; overflow: hidden; background: {{band}}">
+<span style="position: absolute; width: 520px; height: 520px; right: -150px; top: -330px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.35)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -380px; top: -700px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.22)"></span>
+<span style="position: absolute; width: 260px; height: 260px; right: 8%; top: -60px; border-radius: 50%; background: rgba(255,255,255,0.10)"></span>
+<svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 6%; top: 10px"><path d="{{icon}}"/></svg>
+</div>
+<div style="padding: 0 clamp(18px, 3vw, 32px) 26px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 22px">
+<div style="flex: none; margin-top: -56px; width: 112px; height: 112px; border-radius: 50%; border: 5px solid #FFFFFF; box-sizing: border-box; overflow: hidden; background: {{tint}}; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -14px rgba(20,22,26,0.5)">
+<template data-if="{{hasFace}}"><img src="{{face}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template>
+<template data-if="{{hasInitials}}"><span aria-hidden="true" style="font-size: 44px; font-weight: 600; color: {{ink}}">{{initials}}</span></template>
+<template data-if="{{hasIcon}}"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="{{ink}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{icon}}"/></svg></template>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 10px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{ink}}">{{catLabel}} · {{subLabel}}</span>
+<h1 id="p-name" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">{{name}}</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.45; color: #3F444C">{{role}}</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 12px; border-radius: 999px; background: {{liveBg}}; color: {{liveFg}}; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{liveDot}}"></span>{{liveText}}</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 12px; border-radius: 999px; background: #F4F4EF; color: #3F444C; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>{{where}}</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 12px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg>{{verified}}</span>
+<template data-if="{{hasMine}}"><span style="display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 12px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 11l2 2 4-4"/></svg>{{mine}}</span></template>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" onClick="{{ctaGo}}" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: none; background: {{band}}; color: {{bandFg}}; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer">{{cta}}</button>
+<button type="button" aria-pressed="{{followPressed}}" onClick="{{toggleFollow}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid {{followBd}}; background: {{followBg}}; color: {{followFg}}; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 500; cursor: pointer">{{followLabel}}</button>
+<template data-if="{{hasHost}}"><button type="button" onClick="{{openHost}}" style="min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 500; cursor: pointer">{{hostLabel}}</button></template>
+</div>
+</div>
+</section>
+
+<div role="group" aria-label="Profile sections" style="display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #E2E2DA; padding-bottom: 10px">
+<template data-for="{{tabs}}" data-as="t">
+<button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">{{t.label}}</button>
+</template>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+<template data-if="{{tabOverview}}">
+<section aria-labelledby="ov-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="ov-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">{{aboutTitle}}</h2>
+<template data-for="{{about}}" data-as="a"><p style="margin: 0; font-size: 18px; line-height: 1.6; color: #23272E">{{a}}</p></template>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 10px; padding-top: 4px">
+<template data-for="{{facts}}" data-as="f">
+<div style="border-radius: 14px; background: #F4F4EF; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{f.k}}</span><span style="font-size: 17px; line-height: 1.35">{{f.v}}</span></div>
+</template>
+</div>
+</section>
+<section aria-labelledby="of-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="of-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">{{offersTitle}}</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px">
+<template data-for="{{offers}}" data-as="o">
+<li style="border: 1px solid #ECECE6; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 600; line-height: 1.3">{{o.t}}</span><span style="font-size: 16px; line-height: 1.45; color: #3F444C">{{o.d}}</span></li>
+</template>
+</ul>
+</section>
+<template data-if="{{hasNotes}}">
+<section aria-labelledby="lg-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<h2 id="lg-h" style="margin: 0 0 4px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Logged by learners</h2>
+<template data-for="{{notes}}" data-as="n">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 12px 0; border-top: 1px solid #ECECE6"><span style="flex: none; min-width: 120px; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: {{ink}}">{{n.who}}</span><span style="flex: 1 1 260px; font-size: 17px; line-height: 1.45">{{n.text}}</span></div>
+</template>
+<p style="margin: 4px 0 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Entries are evidence learners chose to log. Nothing here is a rating.</p>
+</section>
+</template>
+</template>
+
+<template data-if="{{tabSchedule}}">
+<section aria-labelledby="sc-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="sc-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">{{schedTitle}}</h2>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{spotsText}}</span>
+</div>
+<div role="group" aria-label="Week at a glance" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<template data-for="{{week}}" data-as="w">
+<div style="border-radius: 12px; padding: 10px 4px; text-align: center; background: {{w.bg}}; color: {{w.fg}}; border: 1px solid {{w.bd}}; display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{w.d}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px">{{w.t}}</span></div>
+</template>
+</div>
+<template data-if="{{notSent}}">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{slots}}" data-as="s">
+<li style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid {{s.bd}}; background: {{s.bg}}">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 18px; font-weight: 600">{{s.date}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">{{s.time}} · {{s.label}}</span></span>
+<button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid {{s.btnBd}}; background: {{s.btnBg}}; color: {{s.btnFg}}; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">{{s.btn}}</button>
+</li>
+</template>
+</ul>
+<template data-if="{{picking}}">
+<div style="border-radius: 16px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 17px; line-height: 1.5"><b style="font-weight: 600">{{reqTitle}}</b></p>
+<label for="req-msg" style="font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: #3F444C">A note for {{shortName}} (optional)</label>
+<textarea id="req-msg" rows="3" value="{{msg}}" onChange="{{setMsg}}" placeholder="{{msgHint}}" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #14161A; resize: vertical"></textarea>
+<p style="margin: 0; display: flex; gap: 8px; align-items: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; line-height: 1.5; color: #3F444C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/></svg>Because you’re under 18, this goes to your parent first. Nothing is confirmed until they approve it.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" onClick="{{sendReq}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">{{sendLabel}}</button>
+<button type="button" onClick="{{cancelReq}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">Cancel</button>
+</div>
+</div>
+</template>
+</template>
+<template data-if="{{sent}}">
+<div role="status" style="border-radius: 16px; background: #DDF4F1; border: 1px solid #8FD3C9; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 19px; font-weight: 600; color: #115E59">Sent to your parent for approval</p>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.5; color: #134E4A">{{sentText}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{undoReq}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #8FD3C9; background: #FFFFFF; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">Withdraw request</button></div>
+</div>
+</template>
+</section>
+</template>
+
+<template data-if="{{tabMap}}">
+<section aria-labelledby="mp-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="mp-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">How this counts on your map</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3F444C">Time here can count as evidence for these skills, if you choose to log it. Your current estimates:</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<template data-for="{{skills}}" data-as="k">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-radius: 14px; border: 1px solid #ECECE6">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 18px; font-weight: 600">{{k.name}} <span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 500; color: #62676F">{{k.subj}}</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px">{{k.score}}</span></span>
+<span aria-hidden="true" style="position: relative; height: 8px; border-radius: 4px; background: #ECECE6; overflow: hidden"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{k.pct}}%; border-radius: 4px; background: {{k.bar}}"></span></span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{k.note}}</span>
+</li>
+</template>
+</ul>
+<a href="map.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Open My map</a>
+</section>
+</template>
+
+<template data-if="{{tabSafety}}">
+<section aria-labelledby="sf-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="sf-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Safety and visiting</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{safety}}" data-as="s">
+<li style="display: flex; gap: 12px; align-items: flex-start; font-size: 17.5px; line-height: 1.45"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>{{s}}</li>
+</template>
+</ul>
+<div style="border-radius: 14px; background: #F4F4EF; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Where you meet</span><span style="font-size: 17px; line-height: 1.45">{{meets}}</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<button type="button" onClick="{{reportGo}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #F9A826; background: #FEF1D9; color: #92400E; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Report a concern</button>
+<span role="status" style="font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 1.5; color: #115E59">{{reportText}}</span>
+</div>
+</section>
+</template>
+</div>
+
+<aside aria-label="At a glance" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="gl-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="gl-h" style="margin: 0; font-size: 20px; font-weight: 600">{{hoursTitle}}</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{hours}}" data-as="h">
+<li style="display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid #ECECE6; font-family: Geist, system-ui, sans-serif; font-size: 13.5px"><span style="font-weight: 600">{{h.days}}</span><span style="text-align: right; color: #3F444C">{{h.time}}<br><span style="color: #62676F">{{h.label}}</span></span></li>
+</template>
+</ul>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Times are Nairobi time. Status updates live.</p>
+</section>
+<template data-if="{{hasMap}}">
+<section aria-labelledby="loc-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="loc-h" style="margin: 0; font-size: 20px; font-weight: 600">{{locTitle}}</h2>
+<div aria-hidden="true" style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 14px; background: #EFECE3">
+<img src="assets/img/60e878ab3c78d12a0a8b08b442faa70f.svg" alt="" style="position: absolute; width: 300%; height: 300%; left: calc(50% - {{mapX}}%); top: calc(50% - {{mapY}}%); max-width: none">
+<template data-if="{{exact}}"><span style="position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: {{band}}; border: 3px solid #FFFFFF; box-shadow: 0 6px 14px -6px rgba(20,22,26,0.6)"></span></template>
+<template data-if="{{approx}}"><span style="position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background: rgba(29,78,216,0.14); border: 2px dashed #1D4ED8"></span></template>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">{{locText}}</p>
+</section>
+</template>
+<section aria-labelledby="rel-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<h2 id="rel-h" style="margin: 0; font-size: 20px; font-weight: 600">{{relTitle}}</h2>
+<template data-for="{{related}}" data-as="r">
+<button type="button" onClick="{{r.pick}}" style="display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 10px; border-radius: 14px; border: 1px solid #ECECE6; background: #FFFFFF; color: #14161A; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: {{r.bg}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{r.fg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.2">{{r.name}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{r.sub}}</span></span>
+</button>
+</template>
+</section>
+</aside>
+</div>
+
+</div>
+</div>
+</template>
+<script>
+DC.component("Webs", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.L = this.places();
+    this.state = { q: '', cats: { place: true, event: true, skill: true, peer: true, elder: true }, mine: false, openNow: false, sub: '', radius: 5,
+      sel: '', zoom: 1.4, cx: 50, cy: 52, glide: true, profile: '', intent: '', tick: 0, offer: false };
+  }
+
+  componentDidMount() { this._t = setInterval(() => this.setState({ tick: this.state.tick + 1 }), 30000); }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  icons() {
+    return {
+      library: 'M3 5.5c3-1 6-1 9 1 3-2 6-2 9-1V19c-3-1-6-1-9 1-3-2-6-2-9-1zM12 6.5V20',
+      church: 'M12 2v5M10 4h4M5 21V11l7-4 7 4v10zM10 21v-4a2 2 0 0 1 4 0v4',
+      school: 'M2 9l10-5 10 5-10 5zM6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6',
+      playground: 'M4 21V4h16v17M9 4v10M15 4v10M8 14h8',
+      park: 'M12 22v-6M12 2l5 7h-3l4 6H6l4-6H7z',
+      makerspace: 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      lab: 'M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3M7 15h10',
+      workshop: 'M6 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM8.5 7.5L20 18M8.5 16.5L20 6',
+      garden: 'M12 21v-9M12 12c0-4-3-6-7-6 0 4 3 6 7 6zM12 10c0-3 2.5-5 6-5 0 3-2.5 5-6 5z',
+      market: 'M3 9l1.5-5h15L21 9zM3 9v2a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0V9M5 13v8h14v-8',
+      thing: 'M3.5 8L12 3.5 20.5 8v8L12 20.5 3.5 16zM3.5 8L12 12.5 20.5 8M12 12.5v8',
+      event: 'M4 6h16v14H4zM8 3v5M16 3v5M4 10h16M9 15l2 2 4-4',
+      skill: 'M4 8h13l-3-3M20 16H7l3 3',
+      peer: 'M8 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM16 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM2.5 19c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5M10.5 19c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5',
+      elder: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM15.5 8.5l-2 5-5 2 2-5z'
+    };
+  }
+
+  places() {
+    const ALL = [0, 1, 2, 3, 4, 5, 6];
+    const M = (id, name, role, cat, sub, kind, x, y, win, cta, mine, face, tags) => ({ id, name, role, cat, sub, kind, x, y, win, cta, mine: mine || '', face: face || '', tags: tags || '' });
+    return [
+      M('library', 'Kilimani Community Library', 'Library', 'place', 'library', 'org', 53.3, 47.0, [[[1, 2, 3, 4, 5, 6], 9, 18]], 'Plan a visit', '', '', 'books reading story kiswahili kits'),
+      M('makerspace', 'Kilimani Makerspace', 'Makerspace', 'place', 'makerspace', 'org', 41.7, 41.1, [[[2, 3, 4, 5, 6], 10, 18]], 'Book a bench', '', '', 'laser soldering 3d printer circuits making'),
+      M('achieng', 'Achieng’s Tailoring Workshop', 'Workshop · tailoring', 'place', 'workshop', 'org', 63.3, 67.1, [[[4], 14, 16]], 'Request a visit', 'Visit booked Thursday', '', 'ratios pattern sewing geometry'),
+      M('chapel', 'Hope Chapel Community Hall', 'Place of worship · community hall', 'place', 'church', 'org', 43.3, 58.7, [[[4], 17, 20], [[6], 9, 13], [[0], 8, 14]], 'See what’s on', '', '', 'church hall homework choir forum'),
+      M('school', 'Ndovu Primary School', 'School · Saturday open lab', 'place', 'school', 'org', 56.7, 35.3, [[[6], 9, 12]], 'Book a lab place', '', '', 'science lab fair tests'),
+      M('playground', 'Kirichwa Playground', 'Playground', 'place', 'playground', 'org', 42.5, 52.0, [[ALL, 6, 19]], 'Plan a field test', '', '', 'swings slide pendulum field'),
+      M('park', 'Riverside Park', 'Park · river trail', 'place', 'park', 'org', 38.3, 30.3, [[ALL, 6, 18]], 'Plan a visit', '', '', 'trees river nature trail'),
+      M('innolab', 'Ngong Road Innovation Lab', 'Innovation lab', 'place', 'lab', 'org', 71.7, 63.7, [[[1, 2, 3, 4, 5], 9, 19], [[6], 10, 14]], 'Join an open night', '', '', 'robotics coding electronics sensors'),
+      M('farm', 'Mama Njeri’s Urban Farm', 'Urban farm', 'place', 'garden', 'org', 25.0, 29.8, [[[2, 4, 6], 7, 12]], 'Volunteer a morning', '', '', 'garden plants compost bees beans'),
+      M('market', 'Kilimani Saturday Market', 'Market · Saturdays', 'place', 'market', 'org', 52.5, 72.9, [[[6], 7, 15]], 'Plan a market task', '', '', 'prices unit rates kiswahili'),
+      M('microscope', 'Field microscope kit', 'Thing to borrow · at the library', 'place', 'thing', 'thing', 56.3, 50.5, [[[1, 2, 3, 4, 5, 6], 9, 18]], 'Reserve', '', '', 'microscope cells pond observation loan'),
+      M('ev-story', 'Story circle', 'Event · at the library', 'event', 'event', 'event', 56.3, 43.5, [[[6], 15, 16.5]], 'Save a seat', '', '', 'reading stories inference'),
+      M('ev-forum', 'Vachuo Weekly Forum · Nairobi', 'Event · at Hope Chapel hall', 'event', 'event', 'event', 46.3, 62.0, [[[4], 18, 19.5]], 'RSVP', '', '', 'discussion forum debate'),
+      M('ev-robot', 'Robotics open night', 'Event · at the Innovation Lab', 'event', 'event', 'event', 74.7, 60.2, [[[3], 17, 19]], 'Join a team', '', '', 'robots circuits coding'),
+      M('ev-repair', 'Repair café', 'Event · Jua Kali market', 'event', 'event', 'event', 40.0, 85.3, [[[5], 14, 17]], 'Bring something', '', '', 'fix repair torch radio jua kali'),
+      M('ev-hadithi', 'Hadithi hour in Kiswahili', 'Event · at Riverside Park', 'event', 'event', 'event', 41.3, 26.8, [[[0], 16, 17]], 'Save a seat', '', '', 'stories kiswahili folktales'),
+      M('otieno', 'Otieno', 'Solar installer · swap', 'skill', 'skill', 'person', 30.0, 72.0, [[[6], 9, 12]], 'Offer a swap', 'Swap partner', '', 'solar wiring circuits energy'),
+      M('grace', 'Grace', 'Baker', 'skill', 'skill', 'person', 55.8, 56.3, [[[2, 5], 15, 17]], 'Ask Grace', '', '', 'baking ratios recipes percentages'),
+      M('juma', 'Juma', 'Carpenter · swap', 'skill', 'skill', 'person', 70.0, 40.9, [[[3], 16, 18]], 'Offer a swap', '', '', 'wood joints furniture'),
+      M('mwangi', 'Mwangi, 16', 'Fellow learner · teaches Scratch', 'skill', 'skill', 'person', null, null, [[[1, 4], 17, 18]], 'Offer a swap', '', '', 'scratch coding games'),
+      M('rain-group', 'Rain gauge, part two', 'Peer group · Tomás, Neema and you', 'peer', 'peer', 'group', 38.7, 37.6, [[[6], 10, 12]], 'Open group', 'Your group', '', 'rain data rates weather'),
+      M('neema', 'Neema, 12', 'Peer · fair-test partner', 'peer', 'peer', 'person', 50.3, 43.5, [[[3], 15, 16]], 'Message Neema', 'Study partner', '', 'beans fair test science'),
+      M('reading', 'Reading circle: The River Between', 'Peer group · 4 learners, 12–14', 'peer', 'peer', 'group', null, null, [[[3], 16, 17]], 'Join', '', '', 'reading novel kenyan fiction'),
+      M('mateo', 'Mateo', 'Study pair · Cusco, Peru', 'peer', 'peer', 'person', null, null, [[[2, 5], 16, 17]], 'Say hello', 'Matched by your map', 'assets/img/a99ab88a3511fd1ecd7a152922978b94.svg', 'ratios peru'),
+      M('odhiambo', 'Mr. Odhiambo', 'Retired surveyor', 'elder', 'elder', 'person', null, null, [[[5], 14, 16]], 'Ask a question', '', 'assets/img/4f30d4067aaecee57f453efb4e4a13c6.svg', 'maps scale geometry land'),
+      M('wairimu', 'Dr. Wairimu', 'Hydrologist', 'elder', 'elder', 'person', 80.0, 22.0, [[[6], 10, 12]], 'Submit a project', 'Reviewed your soil test', 'assets/img/b6175537f69e8c99a0dd611f4b89ff7f.svg', 'water weather rain data soil'),
+      M('nduta', 'Nduta Kamau', 'Your Vachuo guide', 'elder', 'elder', 'person', null, null, [[[3], 16, 17]], 'Message', 'Your guide', 'assets/img/7c3e5e5436f406ce2f07609939b4f50a.svg', 'guide mentor'),
+      M('kariuki', 'Mzee Kariuki', 'Beekeeper', 'elder', 'elder', 'person', 23.3, 65.3, [[[6], 8, 10]], 'Ask to visit', '', '', 'bees honey nature weather')
+    ];
+  }
+
+  nbo() { const d = new Date(Date.now() + 3 * 3600000); return { day: d.getUTCDay(), h: d.getUTCHours() + d.getUTCMinutes() / 60 }; }
+  hm(h) { const H = Math.floor(h), M = Math.round((h - H) * 60); return (H < 10 ? '0' : '') + H + ':' + (M < 10 ? '0' : '') + M; }
+  dist(e) { if (e.x === null) return null; const dx = (e.x - 50) * 0.12, dy = (e.y - 52) * 0.09; return Math.sqrt(dx * dx + dy * dy); }
+
+  live(e) {
+    const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const n = this.nbo();
+    const on = e.kind === 'event' ? 'Happening now' : ((e.kind === 'org' || e.kind === 'thing') ? 'Open now' : 'Available now');
+    for (const w of e.win) if (w[0].indexOf(n.day) >= 0 && n.h >= w[1] && n.h < w[2]) return { live: true, text: on, long: on + ' · until ' + this.hm(w[2]) };
+    for (let k = 0; k < 8; k++) {
+      const day = (n.day + k) % 7;
+      let best = null;
+      for (const w of e.win) { if (w[0].indexOf(day) < 0) continue; if (k === 0 && w[1] <= n.h) continue; if (!best || w[1] < best[1]) best = w; }
+      if (best) {
+        const when = (k === 0 ? 'today' : (k === 1 ? 'tomorrow' : DAY[day])) + ' ' + this.hm(best[1]);
+        const isPlace = e.kind === 'org' || e.kind === 'thing';
+        return { live: false, text: isPlace ? 'Opens ' + when : when.charAt(0).toUpperCase() + when.slice(1), long: isPlace ? 'Closed · opens ' + when : 'Next: ' + when };
+      }
+    }
+    return { live: false, text: '', long: 'No sessions scheduled' };
+  }
+
+  clamp(v, z) { const lo = 50 / z, hi = 100 - 50 / z; return Math.max(lo, Math.min(hi, v)); }
+  setView(cx, cy, zoom, glide) { const z = Math.max(1, Math.min(3.4, zoom)); this.setState({ zoom: z, cx: this.clamp(cx, z), cy: this.clamp(cy, z), glide }); }
+
+  focus(e) {
+    if (e.x === null) { this.setState({ sel: e.id }); return; }
+    const z = Math.max(this.state.zoom, 1.9);
+    this.setState({ sel: e.id, zoom: z, cx: this.clamp(e.x, z), cy: this.clamp(e.y, z), glide: true });
+  }
+
+  openProfile(id, intent) {
+    try { this._y = window.scrollY || 0; window.scrollTo({ top: 0 }); } catch (err) { this._y = 0; }
+    this.setState({ profile: id, intent: intent || '', sel: id });
+  }
+
+  closeProfile() {
+    this.setState({ profile: '', intent: '' });
+    const y = this._y || 0;
+    setTimeout(() => { try { window.scrollTo({ top: y }); } catch (err) { /* ignore */ } }, 30);
+  }
+
+  renderVals() {
+    const I = this.icons();
+    const st = this.state;
+    const CAT = {
+      place: { label: 'Things & places', color: '#0D9488', fg: '#FFFFFF', ink: '#115E59', icon: I.thing },
+      event: { label: 'Events', color: '#F9A826', fg: '#14161A', ink: '#92400E', icon: I.event },
+      skill: { label: 'Skill exchange', color: '#1684E8', fg: '#FFFFFF', ink: '#1E40AF', icon: I.skill },
+      peer: { label: 'Peer matching', color: '#1D4ED8', fg: '#FFFFFF', ink: '#1E40AF', icon: I.peer },
+      elder: { label: 'Elders & masters', color: '#172F73', fg: '#FFFFFF', ink: '#172F73', icon: I.elder }
+    };
+    const SUBS = [['library', 'Library'], ['church', 'Place of worship'], ['school', 'School'], ['playground', 'Playground'], ['park', 'Park'], ['makerspace', 'Makerspace'], ['lab', 'Innovation lab'], ['workshop', 'Workshop'], ['garden', 'Urban farm'], ['market', 'Market'], ['thing', 'Things to borrow']];
+    const q = st.q.trim().toLowerCase();
+    const base = this.L.map((e) => Object.assign({}, e, { d: this.dist(e), lv: this.live(e) }));
+    const passBase = (e) => {
+      if (q && (e.name + ' ' + e.role + ' ' + e.tags).toLowerCase().indexOf(q) < 0) return false;
+      if (e.d !== null && e.d > st.radius) return false;
+      if (st.mine && !e.mine) return false;
+      if (st.openNow && !e.lv.live) return false;
+      if (st.sub && e.cat === 'place' && e.sub !== st.sub) return false;
+      if (st.sub && e.cat !== 'place') return false;
+      return true;
+    };
+    const pre = base.filter(passBase);
+    const vis = pre.filter((e) => st.cats[e.cat]);
+    const onMap = vis.filter((e) => e.x !== null).sort((a, b) => a.d - b.d);
+    const online = vis.filter((e) => e.x === null);
+
+    const catChips = Object.keys(CAT).map((k) => {
+      const on = !!st.cats[k];
+      return { label: CAT[k].label, icon: CAT[k].icon, dot: on ? CAT[k].color : '#CFCFC6', dotFg: on ? CAT[k].fg : '#FFFFFF', count: String(pre.filter((e) => e.cat === k).length),
+        pressed: on ? 'true' : 'false', bg: on ? '#FFFFFF' : '#F4F4EF', bd: on ? CAT[k].color : '#E2E2DA',
+        pick: () => { const c = Object.assign({}, st.cats); c[k] = !c[k]; this.setState({ cats: c }); } };
+    });
+    const keyItems = SUBS.map(([id, label]) => {
+      const on = st.sub === id;
+      return { label, icon: I[id], pressed: on ? 'true' : 'false', bg: on ? '#DDF4F1' : '#FFFFFF', bd: on ? '#0D9488' : '#E2E2DA', fg: on ? '#115E59' : '#3F444C',
+        pick: () => this.setState({ sub: on ? '' : id, cats: on ? st.cats : Object.assign({}, st.cats, { place: true }) }) };
+    });
+
+    const pins = onMap.map((e) => {
+      const c = CAT[e.cat];
+      const isSel = st.sel === e.id;
+      const size = isSel ? 46 : 36;
+      return {
+        x: e.x, y: e.y, z: isSel ? 30 : (e.cat === 'event' ? 12 : 10), size, margin: (-size / 2) + 'px 0 0 ' + (-size / 2) + 'px',
+        ring: isSel ? '#14161A' : '#FFFFFF', bg: c.color, fg: c.fg, icon: I[e.sub] || c.icon, isz: isSel ? 22 : 17,
+        hasFace: !!e.face, noFace: !e.face, face: e.face, mine: !!e.mine, isSel, name: e.name,
+        cls: e.lv.live && e.kind === 'event' ? 'pulse' : '',
+        pressed: isSel ? 'true' : 'false',
+        aria: e.name + ', ' + e.role + ', ' + e.d.toFixed(1) + ' km, ' + (e.lv.long || ''),
+        pick: () => { if (this.moved) return; this.setState({ sel: isSel ? '' : e.id }); }
+      };
+    });
+
+    const row = (e) => {
+      const c = CAT[e.cat];
+      const on = st.sel === e.id;
+      return { name: e.name, sub: e.role + ' · ' + (e.d === null ? 'online' : e.d.toFixed(1) + ' km'), color: c.color, fg: c.fg, icon: I[e.sub] || c.icon,
+        hasFace: !!e.face, noFace: !e.face, face: e.face, live: e.lv.text, liveFg: e.lv.live ? '#0F766E' : '#62676F',
+        pressed: on ? 'true' : 'false', bg: on ? '#F4F7FE' : '#FFFFFF', bd: on ? c.color : 'transparent', pick: () => this.focus(e) };
+    };
+
+    const sel = base.find((e) => e.id === st.sel);
+    const selC = sel ? CAT[sel.cat] : CAT.place;
+    const liveCount = vis.filter((e) => e.lv.live).length;
+    const mineCount = base.filter((e) => e.mine).length;
+    const r = st.radius;
+    const z = st.zoom;
+
+    const items = (ids, extra) => ids.map((id) => {
+      const e = base.find((x) => x.id === id);
+      const ex = extra[id];
+      return {
+        title: e.name, dist: e.d === null ? 'online' : e.d.toFixed(1) + ' km', who: ex[0], text: ex[1], links: ex[2], note: e.mine || ex[3] || '', cta: e.cta,
+        hasFace: !!e.face, face: e.face, live: e.lv.long, liveFg: e.lv.live ? '#0F766E' : '#62676F',
+        locateText: e.x === null ? 'Online' : 'On map', locateLabel: e.x === null ? e.name + ' is online' : 'Show ' + e.name + ' on the map',
+        locate: () => { this.focus(e); try { document.getElementById('around').scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (err) { /* ignore */ } },
+        open: () => this.openProfile(e.id, ''), book: () => this.openProfile(e.id, 'book')
+      };
+    });
+    const columns = [
+      { title: 'Things & places', blurb: 'Tools, objects and spaces open to learners.', icon: I.thing, items: items(['makerspace', 'achieng', 'microscope'], {
+        makerspace: ['Open Tuesday to Saturday', 'Laser cutter, soldering bench and a 3D printer. Learners under 18 come in groups.', ['Making', 'Measurement']],
+        achieng: ['Thursdays, 2–4 pm', 'A working tailor’s shop that hosts three learners at a time for pattern-cutting.', ['Ratios', 'Geometry'], 'Parent approval needed'],
+        microscope: ['Kilimani Community Library', 'A two-week loan with slides and a field guide to local pond life.', ['Cells', 'Observation']] }) },
+      { title: 'Skill exchange', blurb: 'People who teach what they do, often as a swap.', icon: I.skill, items: items(['otieno', 'grace', 'mwangi'], {
+        otieno: ['Solar installer', 'Teaches wiring basics on Saturdays. In return: reading help for his son.', ['Circuits', 'Energy'], 'Swap'],
+        grace: ['Baker', 'Shows how she costs and scales recipes for big orders.', ['Ratios', 'Percentages']],
+        mwangi: ['Fellow learner', 'Teaches Scratch. Wants help practising Kiswahili insha.', ['Coding'], 'Swap'] }) },
+      { title: 'Peer matching', blurb: 'People who want to learn the same thing, at the same time.', icon: I.peer, items: items(['rain-group', 'reading', 'mateo'], {
+        'rain-group': ['Tomás, Neema and you', 'Matched on the same question. Saturdays, 10 am at the makerspace.', ['Rates', 'Data']],
+        reading: ['4 learners, ages 12–14', 'Matched on reading level and a shared love of Kenyan fiction. Wednesdays.', ['Argument', 'Theme']],
+        mateo: ['Matched by your map', 'Mateo, in Cusco, is also around 0.4 on Ratios. Learn it together online and teach each other.', ['Ratios']] }) },
+      { title: 'Elders & masters', blurb: 'Experienced people for guidance, critique and inspiration.', icon: I.elder, items: items(['odhiambo', 'wairimu', 'nduta'], {
+        odhiambo: ['Retired surveyor', 'Friday group office hours on maps, scale and land.', ['Scale', 'Geometry']],
+        wairimu: ['Hydrologist', 'Reviews learners’ water and weather projects once a month.', ['Data', 'Water']],
+        nduta: ['Your guide', 'Motivation, mentorship and the big decisions. Wednesdays at 4 pm.', [], 'Vachuo staff'] }) }
+    ];
+
+    const lab = (t, x, y, rot, kind) => {
+      const S = { road: ["Geist, system-ui, sans-serif", 10.5, 'normal', 600, '0.04em', '#8A8F96'], area: ["Geist, system-ui, sans-serif", 11, 'normal', 600, '0.22em', 'rgba(98,103,111,0.7)'], water: ["'EB Garamond', Garamond, Georgia, serif", 14, 'italic', 500, '0', '#1E40AF'] }[kind];
+      return { t, x, y, r: rot, font: S[0], size: S[1], style: S[2], weight: S[3], ls: S[4], color: S[5] };
+    };
+
+    return {
+      showProfile: !!st.profile, showMain: !st.profile, profileId: st.profile || 'makerspace', profileIntent: st.intent,
+      closeProfile: () => this.closeProfile(), openOther: (id) => this.openProfile(id, ''),
+      q: st.q, setQ: (ev) => this.setState({ q: ev.target.value }),
+      radiusVal: String(r), setRadius: (ev) => this.setState({ radius: Number(ev.target.value) || 5 }),
+      clock: this.hm(this.nbo().h),
+      summary: (onMap.length + online.length) + ' places, events and people within ' + r + ' km or online · ' + liveCount + ' open or on now',
+      catChips, keyItems,
+      minePressed: st.mine ? 'true' : 'false', mineBg: st.mine ? '#DDF4F1' : '#FFFFFF', mineBd: st.mine ? '#0F766E' : '#E2E2DA', mineCount: String(mineCount),
+      toggleMine: () => this.setState({ mine: !st.mine }),
+      openPressed: st.openNow ? 'true' : 'false', openBg: st.openNow ? '#DDF4F1' : '#FFFFFF', openBd: st.openNow ? '#0F766E' : '#E2E2DA', openCount: String(pre.filter((e) => e.lv.live).length),
+      toggleOpen: () => this.setState({ openNow: !st.openNow }),
+      cursor: this.drag ? 'grabbing' : 'grab',
+      worldCls: st.glide ? 'glide' : '',
+      wl: (50 - st.cx * z).toFixed(3), wt: (50 - st.cy * z).toFixed(3), ws: (z * 100).toFixed(3),
+      labels: [
+        lab('Ngong Rd', 15, 83.6, -3, 'road'), lab('Argwings Kodhek Rd', 21, 59.4, -1.5, 'road'), lab('Kirichwa river', 22, 12.5, 33, 'water'),
+        lab('KILELESHWA', 50, 6, 0, 'area'), lab('LAVINGTON', 9, 45, 0, 'area'), lab('UPPER HILL', 90, 49, 0, 'area'), lab('KILIMANI', 66, 51, 0, 'area'), lab('HURLINGHAM', 83, 93, 0, 'area')
+      ],
+      ringL: (50 - r / 12 * 100).toFixed(2), ringT: (52 - r / 9 * 100).toFixed(2), ringW: (2 * r / 12 * 100).toFixed(2), ringH: (2 * r / 9 * 100).toFixed(2),
+      pins,
+      scaleW: Math.round(z * 100 / 12 * 7.2),
+      down: (ev) => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        const rect = ev.currentTarget.getBoundingClientRect();
+        this.drag = { x: ev.clientX, y: ev.clientY, cx: st.cx, cy: st.cy, w: rect.width, h: rect.height, moved: false, id: ev.pointerId };
+      },
+      move: (ev) => {
+        const d = this.drag;
+        if (!d) return;
+        const dx = ev.clientX - d.x, dy = ev.clientY - d.y;
+        if (!d.moved) {
+          if (Math.abs(dx) + Math.abs(dy) < 5) return;
+          d.moved = true; this.moved = true;
+          try { ev.currentTarget.setPointerCapture(d.id); } catch (err) { /* ignore */ }
+        }
+        const zz = this.state.zoom;
+        this.setState({ cx: this.clamp(d.cx - dx / (d.w * zz) * 100, zz), cy: this.clamp(d.cy - dy / (d.h * zz) * 100, zz), glide: false });
+      },
+      up: () => { this.drag = null; setTimeout(() => { this.moved = false; }, 0); this.forceUpdate(); },
+      zoomIn: () => this.setView(st.cx, st.cy, z + 0.5, true),
+      zoomOut: () => this.setView(st.cx, st.cy, z - 0.5, true),
+      recenter: () => this.setView(50, 52, 1.4, true),
+      hasSel: !!sel,
+      selColor: selC.color, selFg: selC.fg, selInk: selC.ink, selIcon: sel ? (I[sel.sub] || selC.icon) : '', selHasFace: !!(sel && sel.face), selNoFace: !(sel && sel.face), selFace: sel ? sel.face : '',
+      selCat: sel ? selC.label : '', selName: sel ? sel.name : '', selRole: sel ? sel.role : '',
+      selLive: sel ? sel.lv.long : '', selLiveBg: sel && sel.lv.live ? '#DDF4F1' : '#F4F4EF', selLiveFg: sel && sel.lv.live ? '#115E59' : '#3F444C', selLiveDot: sel && sel.lv.live ? '#0D9488' : '#8A8F96',
+      selDist: sel ? (sel.d === null ? 'Online' : sel.d.toFixed(1) + ' km from home') : '',
+      selHasMine: !!(sel && sel.mine), selMine: sel ? sel.mine : '',
+      selCta: sel ? sel.cta : '', selOpen: () => { if (sel) this.openProfile(sel.id, ''); }, selBook: () => { if (sel) this.openProfile(sel.id, 'book'); },
+      clearSel: () => this.setState({ sel: '' }),
+      listTitle: onMap.length + ' on the map',
+      rows: onMap.map(row), noRows: onMap.length === 0 && online.length === 0,
+      hasOnline: online.length > 0, onlineCount: String(online.length), onlineRows: online.map(row),
+      columns,
+      offer: () => this.setState({ offer: true }),
+      offerMsg: st.offer ? 'Thanks! A host form opens here in the full app: what you offer, when, and the safety checks we run first.' : ''
+    };
+  }
+}
+return Component;
+});
+
+DC.component("Profile", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.D = this.data();
+    this.state = { pid: null, tab: props.intent === 'book' ? 'schedule' : 'overview', pick: -1, msg: '', sent: false, follow: {}, report: false, extra: {}, tick: 0 };
+  }
+
+  componentDidMount() { this._t = setInterval(() => this.setState({ tick: this.state.tick + 1 }), 60000); }
+  componentWillUnmount() { clearInterval(this._t); }
+  componentDidUpdate(prev) {
+    if (prev.pid !== this.props.pid || prev.intent !== this.props.intent) {
+      this.setState({ pid: null, tab: this.props.intent === 'book' ? 'schedule' : 'overview', pick: -1, msg: '', sent: false, report: false });
+    }
+  }
+
+  icons() {
+    return {
+      library: 'M3 5.5c3-1 6-1 9 1 3-2 6-2 9-1V19c-3-1-6-1-9 1-3-2-6-2-9-1zM12 6.5V20',
+      church: 'M12 2v5M10 4h4M5 21V11l7-4 7 4v10zM10 21v-4a2 2 0 0 1 4 0v4',
+      school: 'M2 9l10-5 10 5-10 5zM6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6',
+      playground: 'M4 21V4h16v17M9 4v10M15 4v10M8 14h8',
+      park: 'M12 22v-6M12 2l5 7h-3l4 6H6l4-6H7z',
+      makerspace: 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      lab: 'M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3M7 15h10',
+      workshop: 'M6 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM8.5 7.5L20 18M8.5 16.5L20 6',
+      garden: 'M12 21v-9M12 12c0-4-3-6-7-6 0 4 3 6 7 6zM12 10c0-3 2.5-5 6-5 0 3-2.5 5-6 5z',
+      market: 'M3 9l1.5-5h15L21 9zM3 9v2a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0V9M5 13v8h14v-8',
+      thing: 'M3.5 8L12 3.5 20.5 8v8L12 20.5 3.5 16zM3.5 8L12 12.5 20.5 8M12 12.5v8',
+      event: 'M4 6h16v14H4zM8 3v5M16 3v5M4 10h16M9 15l2 2 4-4',
+      skill: 'M4 8h13l-3-3M20 16H7l3 3',
+      peer: 'M8 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM16 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM2.5 19c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5M10.5 19c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5',
+      elder: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM15.5 8.5l-2 5-5 2 2-5z'
+    };
+  }
+
+  data() {
+    const ALL = [0, 1, 2, 3, 4, 5, 6];
+    const E = (id, o) => Object.assign({ id, x: null, y: null, notes: [], mine: '', face: '', ini: '', meets: '', host: '', spots: null, minor: false }, o);
+    const list = [
+      E('library', { kind: 'org', cat: 'place', sub: 'library', name: 'Kilimani Community Library', role: 'Public library with a reading room, a children’s corner and kit loans', x: 53.3, y: 47.0,
+        win: [[[1, 2, 3, 4, 5, 6], 9, 18, 'Reading room']], cta: 'Plan a visit',
+        about: ['A small public library two streets from home, with a quiet reading room, a children’s corner and a shelf of Kiswahili fiction. Librarians help learners find books by interest, not by grade.', 'It is also home to the Saturday story circle and the place to borrow science kits, including the field microscope.'],
+        facts: [['Ages', 'All ages; under-12s with an adult'], ['Cost', 'Free membership'], ['Group size', 'Story circle up to 12'], ['Access', 'Step-free entrance']],
+        offers: [['Reading room', 'Quiet desks and Wi-Fi, no booking'], ['Story circle', 'Saturdays at 15:00, ages 9–13'], ['Kit loans', 'Microscope, rain gauge and coding kits for two weeks']],
+        skills: ['Inference from evidence', 'Observing & recording', 'Hadithi (storytelling)'],
+        notes: [['Neema, 12', 'Found three clues for why the chief lied in “The Rain Came”.'], ['Amani (you)', 'Borrowed a graphic novel and finished it in two days.']] }),
+      E('makerspace', { kind: 'org', cat: 'place', sub: 'makerspace', name: 'Kilimani Makerspace', role: 'Community makerspace with tools, benches and volunteer mentors', x: 41.7, y: 41.1,
+        win: [[[2, 3, 4, 5, 6], 10, 18, 'Open bench']], cta: 'Book a bench',
+        about: ['A shared workshop with a laser cutter, a soldering bench, a 3D printer and hand tools. Volunteer mentors run inductions so every machine is used safely.', 'Learners under 18 come in groups of up to eight, and every first visit starts with a 20-minute safety walk-through.'],
+        facts: [['Ages', '10+ with a parent’s OK'], ['Group size', 'Up to 8 learners'], ['Cost', 'Free for Vachuo learners'], ['Languages', 'English, Kiswahili']],
+        offers: [['Safety walk-through', '20 minutes, needed once'], ['Soldering bench', 'Booked in one-hour slots'], ['Laser cutter induction', '45 minutes, ages 12+']],
+        skills: ['Simple circuits', 'Prototyping', 'Measuring & marking'],
+        notes: [['Tomás, 13', 'Printed a funnel for the rain gauge on the second try.'], ['Amani (you)', 'Soldered a buzzer game. Logged as Simple circuits evidence.']] }),
+      E('achieng', { kind: 'org', cat: 'place', sub: 'workshop', name: 'Achieng’s Tailoring Workshop', role: 'A working tailor’s shop that hosts three learners at a time', x: 63.3, y: 67.1,
+        win: [[[4], 14, 16, 'Learner visits']], cta: 'Request a visit', mine: 'Visit booked for Thursday',
+        about: ['Achieng has run her tailoring shop for 18 years. On Thursday afternoons she opens it to three learners at a time to cut and scale real patterns.', 'Scaling a shirt pattern from a child’s size to an adult’s is ratio work you can wear, which is why Vachuo suggested it.'],
+        facts: [['Ages', '11+'], ['Group size', '3 learners'], ['Cost', 'Free; bring fabric to keep the result'], ['Languages', 'Kiswahili, English, Dholuo']],
+        offers: [['Pattern scaling', 'Take a pattern up or down a size'], ['Measuring for fit', 'Tape, chalk and a real customer'], ['Machine basics', 'Straight seams on a treadle machine']],
+        skills: ['Ratios', 'Measuring & marking'],
+        notes: [['Baraka, 14', 'Scaled a skirt pattern by 1.5 and it fitted first time.'], ['Sarah, 12', 'Learned why the seam allowance doesn’t scale with the pattern.']] }),
+      E('chapel', { kind: 'org', cat: 'place', sub: 'church', name: 'Hope Chapel Community Hall', role: 'Place of worship with a hall open to the whole neighbourhood', x: 43.3, y: 58.7,
+        win: [[[4], 17, 20, 'Weekly Forum'], [[6], 9, 13, 'Homework club'], [[0], 8, 14, 'Services and youth choir']], cta: 'See what’s on',
+        about: ['The hall next to Hope Chapel is open to everyone, whatever their faith. It hosts a Saturday homework club, a youth choir and, on Thursday evenings, the Vachuo Weekly Forum for Nairobi.', 'Nothing here asks you to join the congregation; the hall committee keeps community events and services separate.'],
+        facts: [['Ages', 'All ages'], ['Capacity', '80 seated'], ['Cost', 'Free'], ['Access', 'Step-free, ramp at the side door']],
+        offers: [['Homework club', 'Saturdays 09:00–13:00, volunteer tutors'], ['Weekly Forum', 'Thursdays at 18:00, open discussion'], ['Youth choir', 'Sundays after the morning service']],
+        skills: ['Leading discussion', 'Mahojiano (interviews)'],
+        notes: [['Mwangi, 16', 'Chaired his first Forum discussion, on screen time.'], ['Amani (you)', 'Asked a question at the Forum about rain and crops.']] }),
+      E('school', { kind: 'org', cat: 'place', sub: 'school', name: 'Ndovu Primary School', role: 'Public primary school with a Saturday open science lab', x: 56.7, y: 35.3,
+        win: [[[6], 9, 12, 'Open science lab']], cta: 'Book a lab place',
+        about: ['A public primary school that opens its science lab to neighbourhood learners on Saturday mornings, run by two of its teachers.', 'Bring a question and a plan. The lab has balances, measuring cylinders, thermometers and plenty of jars.'],
+        facts: [['Ages', '9–14'], ['Group size', '12 per session'], ['Cost', 'Free'], ['Supervision', 'Two teachers present']],
+        offers: [['Open lab', 'Saturdays 09:00–12:00'], ['Measuring kit', 'Balances, cylinders, thermometers'], ['Science fair coaching', 'Term 3, by appointment']],
+        skills: ['Fair tests', 'Variables', 'Graphing data'],
+        notes: [['Neema, 12', 'Ran three jars of soil side by side, the same water in each.'], ['Tomás, 13', 'Graphed a week of temperatures, units included this time.']] }),
+      E('playground', { kind: 'org', cat: 'place', sub: 'playground', name: 'Kirichwa Playground', role: 'Public playground with swings, a long slide and an open field', x: 42.5, y: 52.0,
+        win: [[ALL, 6, 19, 'Open to all']], cta: 'Plan a field test',
+        about: ['A council playground a few minutes’ walk from home, with swings, a long slide and a grass field.', 'It is a surprisingly good lab: the swings are pendulums, the slide is a ramp, and the field is big enough to measure a 50-metre run.'],
+        facts: [['Ages', 'All ages'], ['Cost', 'Free'], ['Supervision', 'Unstaffed; go in a group'], ['Access', 'Level paths']],
+        offers: [['Swing pendulum test', 'Does chain length change the swing time?'], ['Ramp races', 'Slide angles and friction'], ['Field measuring', 'Pace it, then check with a tape']],
+        skills: ['Fair tests', 'Making predictions', 'Measuring with units'],
+        notes: [['Rain gauge group', 'Timed ten swings at three chain lengths.']] }),
+      E('park', { kind: 'org', cat: 'place', sub: 'park', name: 'Riverside Park', role: 'Riverside trail, labelled trees and a small amphitheatre', x: 38.3, y: 30.3,
+        win: [[ALL, 6, 18, 'Gates open']], cta: 'Plan a visit',
+        about: ['A green strip along the Kirichwa river with a shaded trail, labelled trees and a small stone amphitheatre.', 'Good for nature journals and river observations, and home to the Sunday Hadithi hour in Kiswahili.'],
+        facts: [['Ages', 'All ages'], ['Cost', 'Free'], ['Supervision', 'Rangers at the main gate'], ['Access', 'Main path level; river trail is not']],
+        offers: [['Tree trail', 'Labelled trees with local and scientific names'], ['River watch', 'Record the water level and colour each week'], ['Amphitheatre', 'Hadithi hour on Sundays']],
+        skills: ['Observing & recording', 'Weather & climate', 'Hadithi (storytelling)'],
+        notes: [['Amani (you)', 'Recorded the river level after the first storm of the long rains.']] }),
+      E('innolab', { kind: 'org', cat: 'place', sub: 'lab', name: 'Ngong Road Innovation Lab', role: 'Innovation hub with robotics, coding and electronics for young builders', x: 71.7, y: 63.7,
+        win: [[[1, 2, 3, 4, 5], 9, 19, 'Lab open'], [[6], 10, 14, 'Lab open']], cta: 'Join an open night',
+        about: ['A start-up hub that gives its ground floor to young builders: microcontrollers, sensors, a robotics arena and engineers who drop by after work.', 'Wednesday open nights are for learners aged 11 and up, in teams of three.'],
+        facts: [['Ages', '11+'], ['Team size', '3 per team'], ['Cost', 'Free; parts on loan'], ['Languages', 'English, Kiswahili, Sheng']],
+        offers: [['Robotics open night', 'Wednesdays 17:00–19:00'], ['Sensor library', 'Borrow a sensor, return it with data'], ['Demo day', 'Last Saturday of the month']],
+        skills: ['Simple circuits', 'Circuit diagrams', 'Algebraic reasoning'],
+        notes: [['Mwangi, 16', 'Built a line-following robot with his team.']] }),
+      E('farm', { kind: 'org', cat: 'place', sub: 'garden', name: 'Mama Njeri’s Urban Farm', role: 'Urban farm with raised beds, compost and beehives', x: 25.0, y: 29.8,
+        win: [[[2, 4, 6], 7, 12, 'Farm mornings']], cta: 'Volunteer a morning',
+        about: ['Half an acre of raised beds, a compost yard and a few beehives in the middle of the city, run by Njeri and her neighbours.', 'Learners help with planting and harvest and can run their own plot experiments, under Njeri’s one rule: change one thing at a time.'],
+        facts: [['Ages', '8+'], ['Group size', 'Up to 6'], ['Cost', 'Free; take home what you pick'], ['Bring', 'Closed shoes and a hat']],
+        offers: [['Test plots', 'Three small beds for learner experiments'], ['Compost lab', 'Temperature and moisture readings'], ['Harvest maths', 'Weighing, pricing and selling at the market']],
+        skills: ['Fair tests', 'Patterns in data', 'Unit rates'],
+        notes: [['Neema, 12', 'Started a bean test: same soil, different shade.']] }),
+      E('market', { kind: 'org', cat: 'place', sub: 'market', name: 'Kilimani Saturday Market', role: 'Weekly market for food, crafts and repairs', x: 52.5, y: 72.9,
+        win: [[[6], 7, 15, 'Market day']], cta: 'Plan a market task',
+        about: ['Every Saturday the square fills with vegetable stalls, tailors, phone repairers and food. Traders are used to curious learners, especially ones who buy something.', 'Vachuo uses it for real maths and real Kiswahili: prices per kilo, bargaining, and describing what you see.'],
+        facts: [['Ages', 'All ages; under-12s with an adult'], ['Cost', 'Free to visit'], ['Quietest', 'Before 09:00'], ['Languages', 'Kiswahili, English, Sheng']],
+        offers: [['Price-per-kilo hunt', 'Compare unit prices across five stalls'], ['Describe it in Kiswahili', 'Name and describe ten things you see'], ['Repair row', 'Watch phone and radio repairs']],
+        skills: ['Unit rates', 'Ratios', 'Upatanisho (agreement)'],
+        notes: [['Amani (you)', 'Found the cheapest tomatoes per kilo, not per heap.']] }),
+      E('microscope', { kind: 'thing', cat: 'place', sub: 'thing', name: 'Field microscope kit', role: 'Two-week loan from Kilimani Community Library', x: 56.3, y: 50.5, host: 'library',
+        win: [[[1, 2, 3, 4, 5, 6], 9, 18, 'Pick up at the front desk']], cta: 'Reserve the kit',
+        about: ['A sturdy field microscope with 40× and 100× lenses, blank slides, pipettes and an illustrated guide to pond life in Nairobi.', 'Loans last two weeks. A parent co-signs for learners under 18.'],
+        facts: [['Loan', '2 weeks'], ['Copies', '3 kits, 1 available'], ['Cost', 'Free'], ['Pick up', 'Library front desk']],
+        offers: [['Microscope', '40× and 100×, battery light'], ['Slides and pipettes', '20 blank slides, 5 pipettes'], ['Field guide', 'Pond life of Nairobi, illustrated']],
+        skills: ['Observing & recording', 'Variables'],
+        notes: [['Tomás, 13', 'Found water fleas in a river sample.']] }),
+      E('ev-story', { kind: 'event', cat: 'event', sub: 'event', name: 'Story circle', role: 'Saturdays 15:00 at Kilimani Community Library', x: 56.3, y: 43.5, host: 'library', spots: [7, 12],
+        win: [[[6], 15, 16.5, 'Story circle']], cta: 'Save a seat',
+        about: ['A reading circle for 9 to 13-year-olds. This month’s book is a collection of East African short stories, one story a week.', 'Bring a line you liked and a question you can’t answer.'],
+        facts: [['Ages', '9–13'], ['Seats', '12'], ['Cost', 'Free'], ['Led by', 'A librarian and a volunteer reader']],
+        offers: [['15:00', 'Read-aloud of this week’s story'], ['15:30', 'Small groups: three “why” questions'], ['16:10', 'One line each, then next week’s story']],
+        skills: ['Inference from evidence', 'Figurative language'],
+        notes: [['Neema, 12', 'Explained a metaphor nobody else had spotted.']] }),
+      E('ev-forum', { kind: 'event', cat: 'event', sub: 'event', name: 'Vachuo Weekly Forum · Nairobi', role: 'Thursdays 18:00 at Hope Chapel Community Hall', x: 46.3, y: 62.0, host: 'chapel', spots: [41, 80],
+        win: [[[4], 18, 19.5, 'Weekly Forum']], cta: 'RSVP',
+        about: ['The local edition of the Vachuo Weekly Forum: one question and an hour of learners, parents and guests arguing it out kindly.', 'This week’s question: should learners be allowed to grade their own work?'],
+        facts: [['Ages', '11+, families welcome'], ['Seats', '80'], ['Cost', 'Free'], ['Language', 'English and Kiswahili']],
+        offers: [['18:00', 'Opening question and two short talks'], ['18:20', 'Small-group discussion'], ['19:00', 'Open floor, chaired by a learner']],
+        skills: ['Leading discussion', 'Comparing texts'] }),
+      E('ev-robot', { kind: 'event', cat: 'event', sub: 'event', name: 'Robotics open night', role: 'Wednesdays 17:00 at Ngong Road Innovation Lab', x: 74.7, y: 60.2, host: 'innolab', spots: [14, 18],
+        win: [[[3], 17, 19, 'Open night']], cta: 'Join a team',
+        about: ['Teams of three build and test a small robot over a few weeks, with engineers from the lab dropping by to help debug.', 'This month’s challenge: a robot that follows a line and stops at a red card.'],
+        facts: [['Ages', '11+'], ['Places', '18 (6 teams)'], ['Cost', 'Free; parts on loan'], ['Bring', 'A notebook']],
+        offers: [['17:00', 'Stand-up: what broke last week'], ['17:15', 'Build and test'], ['18:40', 'Demo to another team']],
+        skills: ['Simple circuits', 'Prototyping'] }),
+      E('ev-repair', { kind: 'event', cat: 'event', sub: 'event', name: 'Repair café', role: 'Fridays 14:00 at the Jua Kali market', x: 40.0, y: 85.3, spots: [9, 15],
+        win: [[[5], 14, 17, 'Repair café']], cta: 'Bring something broken',
+        about: ['Jua kali artisans and volunteers fix torches, radios, chairs and clothes, and teach you to fix them yourself.', 'Bring something broken and a parent’s OK. You leave with it working, or knowing why it isn’t.'],
+        facts: [['Ages', '10+ with a parent’s OK'], ['Places', '15 learners'], ['Cost', 'Free; parts at cost'], ['Where', 'Covered stalls at the market entrance']],
+        offers: [['Torches and radios', 'Batteries, switches and loose wires'], ['Furniture', 'Joints, glue and clamps'], ['Clothes', 'Buttons, zips and seams']],
+        skills: ['Simple circuits', 'Materials choice'] }),
+      E('ev-hadithi', { kind: 'event', cat: 'event', sub: 'event', name: 'Hadithi hour in Kiswahili', role: 'Sundays 16:00 at Riverside Park', x: 41.3, y: 26.8, host: 'park', spots: [11, 25],
+        win: [[[0], 16, 17, 'Hadithi hour']], cta: 'Save a seat',
+        about: ['Storytellers tell folktales in Kiswahili in the amphitheatre, then hand over to anyone brave enough to tell the next one.', 'Beginners welcome. Listening counts too.'],
+        facts: [['Ages', 'All ages'], ['Seats', '25'], ['Cost', 'Free'], ['Language', 'Kiswahili']],
+        offers: [['16:00', '“Sungura na Fisi” and another tale'], ['16:30', 'Your turn: tell one in pairs'], ['16:50', 'Methali of the week']],
+        skills: ['Hadithi (storytelling)', 'Upatanisho (agreement)'] }),
+      E('otieno', { kind: 'person', cat: 'skill', sub: 'skill', name: 'Otieno', role: 'Solar installer who teaches wiring basics', x: 30.0, y: 72.0, ini: 'O',
+        win: [[[6], 9, 12, 'Saturday lessons']], cta: 'Offer a swap', mine: 'Swapping: wiring for reading help',
+        meets: 'His installation yard off Kirichwa Lane, a public business premises. Never at a home.',
+        about: ['Otieno installs solar systems on homes and shops across Nairobi. On Saturday mornings he teaches small groups to wire panels, batteries and lights safely.', 'He doesn’t charge. In return he’s looking for reading help for his son, who is eight.'],
+        facts: [['Teaches', 'Wiring, batteries, solar panels'], ['Group size', 'Up to 4'], ['Wants in return', 'Reading help for his son'], ['Languages', 'Kiswahili, English, Dholuo']],
+        offers: [['Wiring a light', 'Panel, controller, battery, lamp'], ['Reading a meter', 'Volts, amps and what they mean'], ['Safe connections', 'What never to touch, and why']],
+        skills: ['Simple circuits', 'Solar charging'],
+        notes: [['Amani (you)', 'Measured a small panel in sun and shade: 5.8 V and 1.2 V.']] }),
+      E('grace', { kind: 'person', cat: 'skill', sub: 'skill', name: 'Grace', role: 'Baker who shows how she costs and scales recipes', x: 55.8, y: 56.3, ini: 'G',
+        win: [[[2, 5], 15, 17, 'Bakery visits']], cta: 'Ask Grace',
+        meets: 'Her bakery on Argwings Kodhek Road, during opening hours.',
+        about: ['Grace runs a small bakery that supplies three cafés. She scales recipes for orders of 20 to 2,000 and prices them so she doesn’t lose money.', 'She shows learners the notebook she does it in, then lets them try with a real order.'],
+        facts: [['Teaches', 'Scaling, costing, pricing'], ['Group size', '2 learners'], ['Wants in return', 'Nothing; a thank-you note is welcome'], ['Languages', 'English, Kiswahili, Kikuyu']],
+        offers: [['Scale a recipe', 'From 12 rolls to 300'], ['Cost a loaf', 'Flour, sugar, gas and time'], ['Price for profit', 'What to charge, and why']],
+        skills: ['Ratios', 'Unit rates'] }),
+      E('juma', { kind: 'person', cat: 'skill', sub: 'skill', name: 'Juma', role: 'Carpenter who teaches joints and finishes', x: 70.0, y: 40.9, ini: 'J',
+        win: [[[3], 16, 18, 'Workshop hours']], cta: 'Offer a swap',
+        meets: 'His joinery workshop, a short walk from Ndovu Primary School.',
+        about: ['Juma makes beds, chairs and doors to order. On Wednesday afternoons he teaches joints and finishes to anyone willing to sweep up afterwards.', 'He would like to practise English conversation in return.'],
+        facts: [['Teaches', 'Joints, sanding, finishing'], ['Group size', 'Up to 3'], ['Wants in return', 'English conversation practice'], ['Languages', 'Kiswahili, Kamba']],
+        offers: [['Mortise and tenon', 'The joint that holds a chair together'], ['Finishing', 'Sanding, oil and wax'], ['Measure twice', 'Marking up a real order']],
+        skills: ['Measuring & marking', 'Cutting & joining', 'Enclosure & finish'] }),
+      E('mwangi', { kind: 'person', cat: 'skill', sub: 'skill', name: 'Mwangi, 16', role: 'Fellow learner who teaches Scratch', ini: 'M', minor: true,
+        win: [[[1, 4], 17, 18, 'Online sessions']], cta: 'Offer a swap',
+        meets: 'Online, in Vachuo video rooms that a guide can join at any time.',
+        about: ['Mwangi has made 40 Scratch games and teaches younger learners how to make their own. He is working on his Kiswahili essays and wants someone to read them with him.', 'Sessions happen in Vachuo’s video rooms.'],
+        facts: [['Teaches', 'Scratch, game logic'], ['Level', 'Making L10'], ['Wants in return', 'Kiswahili insha practice'], ['Languages', 'English, Kiswahili']],
+        offers: [['First game', 'A maze game in one session'], ['Variables', 'Scores, lives and timers'], ['Debugging', 'Why your sprite won’t move']],
+        skills: ['Algebraic reasoning', 'Upatanisho (agreement)'] }),
+      E('rain-group', { kind: 'group', cat: 'peer', sub: 'peer', name: 'Rain gauge, part two', role: 'Peer group: Tomás, Neema and you', x: 38.7, y: 37.6, spots: [3, 4],
+        win: [[[6], 10, 12, 'Group meet']], cta: 'Open group', mine: 'You’re in this group',
+        meets: 'Kilimani Makerspace, in the main hall.',
+        about: ['Three learners matched on the same question: how much rain really falls on Kilimani, and can we predict it?', 'Part one built the gauge. Part two compares readings from three streets for a month.'],
+        facts: [['Members', '3 of 4 places'], ['Ages', '12–13'], ['Meets', 'Saturdays at 10:00'], ['Mentor', 'Dr. Wairimu reviews monthly']],
+        offers: [['Three gauges, three streets', 'Same height, same time, every morning'], ['One data sheet', 'Units in every column'], ['Month-end review', 'Present to Dr. Wairimu']],
+        skills: ['Unit rates', 'Fair tests', 'Graphing data'],
+        notes: [['Tomás, 13', 'Rebuilt the funnel so it stops overflowing.'], ['Neema, 12', 'Spotted that one gauge sat under a tree.']] }),
+      E('neema', { kind: 'person', cat: 'peer', sub: 'peer', name: 'Neema, 12', role: 'Peer partner for a bean fair test', x: 50.3, y: 43.5, ini: 'N', minor: true,
+        win: [[[3], 15, 16, 'Library meet-up']], cta: 'Message Neema', mine: 'Your study partner',
+        meets: 'Kilimani Community Library, in the reading room.',
+        about: ['Neema is also working on fair tests and wants a partner for a bean experiment: same seeds, same soil, different light.', 'Peer profiles show first names and shared goals only.'],
+        facts: [['Shared goal', 'Fair tests (Science L7)'], ['Meets', 'Wednesdays at 15:00'], ['Where', 'The library, in public'], ['Approved by', 'Both families']],
+        offers: [['Bean test', 'Two pots, one change'], ['Data swap', 'Compare notebooks every week'], ['Teach-back', 'Explain each other’s results']],
+        skills: ['Fair tests', 'Variables'] }),
+      E('reading', { kind: 'group', cat: 'peer', sub: 'peer', name: 'Reading circle: The River Between', role: 'Peer group of 4 learners, ages 12–14', spots: [4, 6],
+        win: [[[3], 16, 17, 'Online circle']], cta: 'Join',
+        meets: 'Online, in a Vachuo video room.',
+        about: ['Four learners reading Ngũgĩ wa Thiong’o’s novel a chapter a week, matched on reading level and a shared love of Kenyan fiction.', 'One member leads each week, and the leader’s questions count as evidence for Leading discussion.'],
+        facts: [['Members', '4 of 6 places'], ['Ages', '12–14'], ['Meets', 'Wednesdays at 16:00, online'], ['Pace', 'A chapter a week']],
+        offers: [['Chapter talk', 'Three questions from the week’s leader'], ['Quote wall', 'Lines worth arguing about'], ['Final project', 'Compare the novel with a folktale']],
+        skills: ['Inference from evidence', 'Comparing texts', 'Leading discussion'] }),
+      E('mateo', { kind: 'person', cat: 'peer', sub: 'peer', name: 'Mateo', role: 'Ratios study pair in Cusco, Peru', face: 'assets/img/a99ab88a3511fd1ecd7a152922978b94.svg', minor: true,
+        win: [[[2, 5], 16, 17, 'Video sessions']], cta: 'Say hello', mine: 'Matched by your map',
+        meets: 'Online, in Vachuo video rooms with live captions.',
+        about: ['Mateo is around 0.4 on Ratios too. You learn it together and teach each other, with the tutor setting problems for both of you.', 'Sessions run in Vachuo’s video rooms with live captions in English and Spanish.'],
+        facts: [['Shared goal', 'Ratios (Math L6)'], ['Time zone', '8 hours behind Nairobi'], ['Languages', 'Spanish, English, Quechua'], ['Meets', 'Tue and Fri, 16:00 Nairobi']],
+        offers: [['Teach-back', 'Each explains one problem a session'], ['Recipe swap', 'Scale each other’s family recipes'], ['Shared quiz', 'Set five problems for each other']],
+        skills: ['Ratios', 'Equivalent fractions'] }),
+      E('odhiambo', { kind: 'person', cat: 'elder', sub: 'elder', name: 'Mr. Odhiambo', role: 'Retired surveyor: maps, scale and land', face: 'assets/img/4f30d4067aaecee57f453efb4e4a13c6.svg',
+        win: [[[5], 14, 16, 'Group office hours']], cta: 'Ask a question',
+        meets: 'Online group office hours.',
+        about: ['Mr. Odhiambo surveyed land across western Kenya for 35 years. Now he runs Friday office hours on maps, scale and boundaries.', 'Bring a map, a question or a measurement that doesn’t add up.'],
+        facts: [['Expertise', 'Surveying, maps, scale'], ['Format', 'Group office hours'], ['Cost', 'Free'], ['Languages', 'English, Dholuo, Kiswahili']],
+        offers: [['Scale drawings', 'From paces to paper'], ['Reading a survey', 'Bearings, boundaries, beacons'], ['Stories from the field', 'How land disputes get settled']],
+        skills: ['Proportions', 'Ratios'] }),
+      E('wairimu', { kind: 'person', cat: 'elder', sub: 'elder', name: 'Dr. Wairimu', role: 'Hydrologist who reviews water and weather projects', x: 80.0, y: 22.0, face: 'assets/img/b6175537f69e8c99a0dd611f4b89ff7f.svg',
+        win: [[[6], 10, 12, 'Project reviews']], cta: 'Submit a project', mine: 'Reviewed your soil test',
+        meets: 'The public visitor room of her university water lab, or online.',
+        about: ['Dr. Wairimu studies how rain becomes groundwater in Nairobi. Once a month she reviews learners’ water and weather projects and tells them, kindly, what a scientist would ask next.', 'Submit your data and a one-page summary. She replies in writing or in a group review session.'],
+        facts: [['Expertise', 'Hydrology, rainfall, soils'], ['Format', 'Monthly project reviews'], ['Cost', 'Free'], ['Languages', 'English, Kiswahili, Kikuyu']],
+        offers: [['Project review', 'Written feedback on your data'], ['Lab visit', 'Once a term, groups of 6'], ['Instrument loan', 'A digital rain gauge for a month']],
+        skills: ['Fair tests', 'Patterns in data', 'Weather & climate'],
+        notes: [['Amani (you)', 'Soil lab: kept the water the same in every jar.']] }),
+      E('nduta', { kind: 'person', cat: 'elder', sub: 'elder', name: 'Nduta Kamau', role: 'Your Vachuo guide', face: 'assets/img/7c3e5e5436f406ce2f07609939b4f50a.svg',
+        win: [[[3], 16, 17, 'Weekly check-in']], cta: 'Message Nduta', mine: 'Your guide',
+        meets: 'Online check-ins, plus one family meeting a term.',
+        about: ['Nduta is not a teacher. She is here for the why: motivation, the big decisions and the bad days. Vachuo handles the lessons.', 'You meet every Wednesday at 4 pm, and you can message her any time.'],
+        facts: [['Role', 'Guide, Vachuo staff'], ['Learners', '12 learners in Nairobi'], ['Check-ins', 'Wednesdays at 16:00'], ['Languages', 'English, Kiswahili, Kikuyu']],
+        offers: [['Weekly check-in', 'Twenty minutes, your agenda'], ['Destination planning', 'Choosing what to aim for'], ['Family meetings', 'Once a term with your parents']],
+        skills: ['Ratios', 'Inference from evidence', 'Fair tests'] }),
+      E('kariuki', { kind: 'person', cat: 'elder', sub: 'elder', name: 'Mzee Kariuki', role: 'Beekeeper: bees, honey and patience', x: 23.3, y: 65.3, ini: 'K',
+        win: [[[6], 8, 10, 'Hive visits']], cta: 'Ask to visit',
+        meets: 'His apiary behind the community plant nursery. Suits provided.',
+        about: ['Mzee Kariuki has kept bees for fifty years. He shows small groups how a hive works, how the weather changes the honey flow, and how to stay calm around 40,000 bees.', 'Suits are provided. He tells stories while he works, mostly in Kiswahili.'],
+        facts: [['Expertise', 'Beekeeping, plants, weather'], ['Group size', '4, in suits'], ['Cost', 'Free'], ['Languages', 'Kiswahili, Kikuyu']],
+        offers: [['Hive inspection', 'In a suit, from a safe distance'], ['Honey harvest', 'Weighing and pricing the season'], ['Weather diary', 'How rain shows up in the hive']],
+        skills: ['Observing & recording', 'Patterns in data', 'Hadithi (storytelling)'] })
+    ];
+    const map = {};
+    list.forEach((e) => { map[e.id] = e; });
+    return { list, map };
+  }
+
+  scores() {
+    return {
+      'Ratios': ['Math', 0.42], 'Unit rates': ['Math', 0.55], 'Equivalent fractions': ['Math', 0.61], 'Proportions': ['Math', 0.20], 'Algebraic reasoning': ['Math', 0.08],
+      'Inference from evidence': ['Reading', 0.47], 'Figurative language': ['Reading', 0.58], 'Comparing texts': ['Reading', 0.24], 'Leading discussion': ['Reading', 0.11],
+      'Upatanisho (agreement)': ['Kiswahili', 0.44], 'Hadithi (storytelling)': ['Kiswahili', 0.26], 'Mahojiano (interviews)': ['Kiswahili', 0.12],
+      'Fair tests': ['Science', 0.45], 'Variables': ['Science', 0.60], 'Graphing data': ['Science', 0.69], 'Patterns in data': ['Science', 0.27], 'Weather & climate': ['Science', 0.13],
+      'Observing & recording': ['Science', 0.94], 'Measuring with units': ['Science', 0.90], 'Making predictions': ['Science', 0.73],
+      'Simple circuits': ['Making', 0.46], 'Circuit diagrams': ['Making', 0.58], 'Prototyping': ['Making', 0.71], 'Solar charging': ['Making', 0.24], 'Enclosure & finish': ['Making', 0.12],
+      'Materials choice': ['Making', 0.86], 'Measuring & marking': ['Making', 0.93], 'Cutting & joining': ['Making', 0.91]
+    };
+  }
+
+  nbo() { const d = new Date(Date.now() + 3 * 3600000); return { day: d.getUTCDay(), h: d.getUTCHours() + d.getUTCMinutes() / 60, ms: d.getTime() }; }
+  hm(h) { const H = Math.floor(h), M = Math.round((h - H) * 60); return (H < 10 ? '0' : '') + H + ':' + (M < 10 ? '0' : '') + M; }
+
+  live(e) {
+    const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const n = this.nbo();
+    const on = e.kind === 'event' ? 'Happening now' : ((e.kind === 'org' || e.kind === 'thing') ? 'Open now' : 'Available now');
+    for (const w of e.win) if (w[0].indexOf(n.day) >= 0 && n.h >= w[1] && n.h < w[2]) return { live: true, text: on + ' · until ' + this.hm(w[2]) };
+    for (let k = 0; k < 8; k++) {
+      const day = (n.day + k) % 7;
+      let best = null;
+      for (const w of e.win) { if (w[0].indexOf(day) < 0) continue; if (k === 0 && w[1] <= n.h) continue; if (!best || w[1] < best[1]) best = w; }
+      if (best) {
+        const when = (k === 0 ? 'today' : (k === 1 ? 'tomorrow' : DAY[day])) + ' ' + this.hm(best[1]);
+        const pre = (e.kind === 'org' || e.kind === 'thing') ? 'Closed · opens ' : 'Next: ';
+        return { live: false, text: pre + when };
+      }
+    }
+    return { live: false, text: 'No sessions scheduled' };
+  }
+
+  upcoming(e, count) {
+    const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const n = this.nbo();
+    const out = [];
+    for (let k = 0; k < 21 && out.length < count; k++) {
+      const day = (n.day + k) % 7;
+      const ws = e.win.filter((w) => w[0].indexOf(day) >= 0 && !(k === 0 && w[2] <= n.h)).sort((a, b) => a[1] - b[1]);
+      ws.forEach((w) => {
+        if (out.length >= count) return;
+        const d = new Date(n.ms + k * 86400000);
+        const label = (k === 0 ? 'Today, ' : (k === 1 ? 'Tomorrow, ' : '')) + DAY[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + MON[d.getUTCMonth()];
+        out.push({ date: label, time: this.hm(w[1]) + '–' + this.hm(w[2]), label: w[3] });
+      });
+    }
+    return out;
+  }
+
+  daysText(days) {
+    const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    if (days.length === 7) return 'Every day';
+    const s = days.slice().sort((a, b) => a - b);
+    let run = true;
+    for (let i = 1; i < s.length; i++) if (s[i] !== s[i - 1] + 1) run = false;
+    if (run && s.length > 2) return DAY[s[0]] + '–' + DAY[s[s.length - 1]];
+    return s.map((d) => DAY[d]).join(', ');
+  }
+
+  dist(e) {
+    if (e.x === null) return null;
+    const dx = (e.x - 50) * 0.12, dy = (e.y - 52) * 0.09;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  pidNow() { return this.state.pid || this.props.pid || 'makerspace'; }
+
+  open(id) {
+    if (this.props.onOpen && this.props.embedded) { this.props.onOpen(id); }
+    else { this.setState({ pid: id, tab: 'overview', pick: -1, msg: '', sent: false, report: false }); }
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (err) { /* ignore */ }
+  }
+
+  renderVals() {
+    const I = this.icons();
+    const SC = this.scores();
+    const D = this.D;
+    const e = D.map[this.pidNow()] || D.map.makerspace;
+    const embedded = !!this.props.embedded;
+    const COL = {
+      place: { band: '#0D9488', bandFg: '#FFFFFF', tint: '#DDF4F1', ink: '#115E59', label: 'Things & places' },
+      event: { band: '#F9A826', bandFg: '#14161A', tint: '#FEF1D9', ink: '#92400E', label: 'Events' },
+      skill: { band: '#1684E8', bandFg: '#FFFFFF', tint: '#E4ECFD', ink: '#1E40AF', label: 'Skill exchange' },
+      peer: { band: '#1D4ED8', bandFg: '#FFFFFF', tint: '#E4ECFD', ink: '#1E40AF', label: 'Peer matching' },
+      elder: { band: '#172F73', bandFg: '#FFFFFF', tint: '#E4ECFD', ink: '#172F73', label: 'Elders & masters' }
+    };
+    const SUB = { library: 'Library', church: 'Place of worship', school: 'School', playground: 'Playground', park: 'Park', makerspace: 'Makerspace', lab: 'Innovation lab', workshop: 'Workshop', garden: 'Urban farm', market: 'Market', thing: 'Thing to borrow', event: 'Event', skill: 'Teaches a skill', peer: e.kind === 'group' ? 'Peer group' : 'Peer', elder: e.id === 'nduta' ? 'Vachuo guide' : 'Elder' };
+    const c = COL[e.cat];
+    const lv = this.live(e);
+    const d = this.dist(e);
+    const followOn = this.state.follow[e.id] === undefined ? !!e.mine : this.state.follow[e.id];
+    const followWords = { org: ['Follow', 'Following'], thing: ['Watch for returns', 'Watching'], event: ['Save', 'Saved'], person: ['Connect', 'Connected'], group: ['Follow group', 'Following'] }[e.kind];
+    const adult = e.kind === 'person' && !e.minor && e.cat !== 'peer';
+    const verified = e.id === 'nduta' ? 'Vachuo staff' : (e.minor || e.cat === 'peer' ? 'Parent-approved' : (e.kind === 'person' ? 'ID-verified host' : 'Verified host'));
+
+    const tabs = [['overview', 'Overview'], ['schedule', e.kind === 'thing' ? 'Reserve' : (e.kind === 'event' ? 'Dates' : 'Schedule')], ['map', 'On your map'], ['safety', 'Safety']].map(([id, label]) => {
+      const on = this.state.tab === id;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ tab: id }) };
+    });
+
+    const dir = ['place', 'event', 'skill', 'peer', 'elder'].map((cat) => ({
+      label: COL[cat].label, ink: COL[cat].ink,
+      items: D.list.filter((x) => x.cat === cat).map((x) => {
+        const on = x.id === e.id;
+        return { label: x.name, pressed: on ? 'true' : 'false', bg: on ? COL[cat].band : '#FFFFFF', fg: on ? COL[cat].bandFg : '#14161A', bd: on ? COL[cat].band : '#CFCFC6', pick: () => this.open(x.id) };
+      })
+    }));
+
+    const up = this.upcoming(e, 4);
+    const spotsLeft = e.spots ? e.spots[1] - e.spots[0] - (this.state.sent ? 1 : 0) : null;
+    const btnWord = e.kind === 'event' ? 'RSVP' : (e.kind === 'thing' ? 'Pick up' : (e.kind === 'group' ? 'Join' : 'Request'));
+    const slots = up.map((s, i) => {
+      const on = this.state.pick === i;
+      return Object.assign({}, s, { pressed: on ? 'true' : 'false', btn: on ? 'Selected' : btnWord, bg: on ? '#F4F7FE' : '#FFFFFF', bd: on ? '#1D4ED8' : '#ECECE6',
+        btnBg: on ? '#1D4ED8' : '#FFFFFF', btnFg: on ? '#FFFFFF' : '#14161A', btnBd: on ? '#1D4ED8' : '#CFCFC6', pick: () => this.setState({ pick: on ? -1 : i }) });
+    });
+    const picked = this.state.pick >= 0 ? up[this.state.pick] : null;
+    const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const today = this.nbo().day;
+    const week = [1, 2, 3, 4, 5, 6, 0].map((dd, i) => {
+      const ws = e.win.filter((w) => w[0].indexOf(dd) >= 0);
+      const has = ws.length > 0, isToday = dd === today;
+      return { d: DAYS[i], t: has ? this.hm(ws[0][1]) : '—', bg: has ? c.tint : '#FAFAF7', fg: has ? c.ink : '#8A8F96', bd: isToday ? '#14161A' : (has ? c.tint : '#ECECE6') };
+    });
+
+    const skills = e.skills.map((name) => {
+      const s = SC[name] || ['', 0];
+      const shown = s[1] >= 0.85;
+      return { name, subj: s[0], score: s[1].toFixed(2), pct: Math.round(s[1] * 100), bar: shown ? '#93BBF3' : (s[1] < 0.3 ? '#B9BCB4' : '#1D4ED8'),
+        note: shown ? 'Shown. Time here keeps it fresh.' : (s[1] < 0.3 ? 'Not yet on your path, but nothing is locked.' : 'Growing. One more kind of evidence would help.') };
+    });
+
+    const safetyBy = {
+      org: ['Host is ID-verified and staff are background-checked', 'Learners come in groups or stay in public areas', 'A parent approves every visit for under-18s', 'Check-in and check-out are logged; your guide can see them'],
+      thing: ['Loaned through a verified library', 'A parent co-signs loans for under-18s', 'Safety notes come with the kit'],
+      event: ['Run by verified hosts in an open venue', 'Always a group event, never one-to-one', 'A parent approves attendance for under-18s', 'Check-in and check-out are logged'],
+      adult: ['ID-verified and background-checked', 'Meets only in public places or in groups, never at a home', 'A parent approves every meeting', 'Messages go through Vachuo, and your parent can see them'],
+      peer: ['Both families have approved the match', 'Peer profiles show first names and shared goals only', 'Meets in public places or Vachuo video rooms', 'Your guide can see every message'],
+      staff: ['Vachuo staff, background-checked', 'Your parents can join any check-in', 'Notes from check-ins are shared with your family']
+    };
+    const safety = e.id === 'nduta' ? safetyBy.staff : (e.kind === 'org' ? safetyBy.org : (e.kind === 'thing' ? safetyBy.thing : (e.kind === 'event' ? safetyBy.event : (adult ? safetyBy.adult : safetyBy.peer))));
+
+    const near = D.list.filter((x) => x.id !== e.id).map((x) => {
+      let score;
+      if (e.x !== null && x.x !== null) { const dx = (x.x - e.x) * 0.12, dy = (x.y - e.y) * 0.09; score = Math.sqrt(dx * dx + dy * dy); }
+      else if (e.x !== null) score = 50;
+      else score = (x.cat === e.cat ? 0 : 5) + (x.x === null ? 0 : 3) + x.name.length / 100;
+      if (e.host && x.id === e.host) score = -1;
+      return { x, score };
+    }).sort((a, b) => a.score - b.score).slice(0, 4);
+    const related = near.map(({ x }) => {
+      const cc = COL[x.cat];
+      const dd = this.dist(x);
+      return { name: x.name, sub: SUB[x.sub] + ' · ' + (dd === null ? 'Online' : dd.toFixed(1) + ' km'), bg: cc.tint, fg: cc.ink, icon: I[x.sub], pick: () => this.open(x.id) };
+    });
+
+    const host = e.host ? D.map[e.host] : null;
+    const shortName = e.name.split(',')[0].split(' · ')[0];
+    const words = { org: 'visit', thing: 'loan', event: 'place', person: 'meeting', group: 'place in the group' }[e.kind];
+
+    return {
+      rootPad: embedded ? '0' : '28px clamp(16px, 4vw, 48px) 72px',
+      embedded, standalone: !embedded,
+      goBack: () => { if (this.props.onBack) this.props.onBack(); },
+      dir,
+      band: c.band, bandFg: c.bandFg, tint: c.tint, ink: c.ink, icon: I[e.sub],
+      catLabel: c.label, subLabel: SUB[e.sub],
+      name: e.name, role: e.role,
+      hasFace: !!e.face, face: e.face, hasInitials: !e.face && !!e.ini, initials: e.ini, hasIcon: !e.face && !e.ini,
+      liveText: lv.text, liveBg: lv.live ? '#DDF4F1' : '#F4F4EF', liveFg: lv.live ? '#115E59' : '#3F444C', liveDot: lv.live ? '#0D9488' : '#8A8F96',
+      where: d === null ? 'Online' : 'Kilimani, Nairobi · ' + d.toFixed(1) + ' km from home',
+      verified,
+      hasMine: !!e.mine, mine: e.mine,
+      cta: e.cta, ctaGo: () => this.setState({ tab: 'schedule' }),
+      followPressed: followOn ? 'true' : 'false', followLabel: followOn ? '✓ ' + followWords[1] : followWords[0],
+      followBg: followOn ? '#E4ECFD' : '#FFFFFF', followFg: followOn ? '#1E40AF' : '#14161A', followBd: followOn ? '#93BBF3' : '#CFCFC6',
+      toggleFollow: () => { const f = Object.assign({}, this.state.follow); f[e.id] = !followOn; this.setState({ follow: f }); },
+      hasHost: !!host, hostLabel: host ? 'Hosted at ' + host.name : '', openHost: () => { if (host) this.open(host.id); },
+      tabs,
+      tabOverview: this.state.tab === 'overview', tabSchedule: this.state.tab === 'schedule', tabMap: this.state.tab === 'map', tabSafety: this.state.tab === 'safety',
+      aboutTitle: { org: 'About this place', thing: 'About this kit', event: 'About this event', person: 'About ' + shortName, group: 'About this group' }[e.kind],
+      about: e.about,
+      facts: e.facts.map((f) => ({ k: f[0], v: f[1] })),
+      offersTitle: { org: 'What’s on offer', thing: 'In the kit', event: 'Programme', person: e.cat === 'peer' ? 'What you’d do together' : (e.cat === 'elder' ? 'How they help' : 'What they teach'), group: 'What we’re working on' }[e.kind],
+      offers: e.offers.map((o) => ({ t: o[0], d: o[1] })),
+      hasNotes: e.notes.length > 0, notes: e.notes.map((n) => ({ who: n[0], text: n[1] })),
+      schedTitle: e.kind === 'thing' ? 'Choose a pick-up day' : (e.kind === 'event' ? 'Upcoming dates' : 'Upcoming times'),
+      spotsText: e.spots ? spotsLeft + ' of ' + e.spots[1] + ' places left' : 'Times update live',
+      week, slots, notSent: !this.state.sent, picking: !!picked && !this.state.sent,
+      reqTitle: picked ? 'Request a ' + words + ': ' + picked.date + ', ' + picked.time : '',
+      shortName,
+      msg: this.state.msg, setMsg: (ev) => this.setState({ msg: ev.target.value }),
+      msgHint: e.kind === 'event' ? 'Anything the hosts should know?' : 'What would you like to learn or bring?',
+      sendLabel: 'Send for approval',
+      sendReq: () => this.setState({ sent: true }),
+      cancelReq: () => this.setState({ pick: -1, msg: '' }),
+      sent: this.state.sent,
+      sentText: picked ? 'Your request for ' + picked.date + ' at ' + picked.time.split('–')[0] + ' is with your parent. Once they approve it, ' + (e.kind === 'event' ? 'your place is held' : shortName + ' is asked to confirm') + ', and it appears in Today.' : '',
+      undoReq: () => this.setState({ sent: false, pick: -1, msg: '' }),
+      skills,
+      safety, meets: e.meets || (host ? host.name + ', an open venue.' : (e.kind === 'org' || e.kind === 'thing' ? 'On site, in the public areas.' : 'A public place agreed in advance.')),
+      reportGo: () => this.setState({ report: true }),
+      reportText: this.state.report ? 'Thank you. Your guide and the Vachuo safety team have been told, and your parent can see this report.' : '',
+      hoursTitle: e.kind === 'event' ? 'When' : (e.kind === 'org' || e.kind === 'thing' ? 'Opening hours' : 'Usually available'),
+      hours: e.win.map((w) => ({ days: this.daysText(w[0]), time: this.hm(w[1]) + '–' + this.hm(w[2]), label: w[3] })),
+      hasMap: e.x !== null, exact: e.x !== null && (e.kind !== 'person'), approx: e.x !== null && e.kind === 'person',
+      mapX: e.x === null ? 0 : (e.x * 3).toFixed(1), mapY: e.y === null ? 0 : (e.y * 3).toFixed(1),
+      locTitle: e.kind === 'person' ? 'Approximate area' : 'Location',
+      locText: e.kind === 'person' ? 'People are shown by area only. You meet at: ' + (e.meets || 'a public place') : (d === null ? '' : d.toFixed(1) + ' km from home, Kilimani. Exact directions are shared once a visit is approved.'),
+      relTitle: e.host ? 'Host and nearby' : (e.x === null ? 'More on Connects' : 'Nearby'),
+      related
+    };
+  }
+}
+return Component;
+}, {"pid": "makerspace", "embedded": false});
+
+DC.mount("Webs");
+</script>
+</body>
+</html>

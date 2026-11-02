@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo Journal · The Science of Learning</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Blog-learning-teaching">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div aria-hidden="true" style="position: absolute; left: 0; bottom: -1px; height: 3px; width: {{progress}}; background: #1D4ED8"></div>
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="blog.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Sign in</a>
+</nav>
+</div>
+</header>
+<main>
+<article style="max-width: 760px; margin: 0 auto; box-sizing: border-box; padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 24px) 72px; display: flex; flex-direction: column; gap: 22px; font-size: 20px; line-height: 1.65; color: #23272E">
+<a href="blog.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none">← All essays</a>
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: #E4ECFD; color: #1E40AF">Learning and teaching</span>
+<h1 style="margin: 0; font-size: clamp(38px, 4.6vw, 58px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; color: #14161A; text-wrap: balance">What the Science of Learning Asks of Every Teacher and Tutor</h1>
+<p style="margin: 0; font-size: 23px; line-height: 1.45; font-style: italic; color: #3F444C">Retrieval, spacing, worked examples and well-judged feedback are among the best-replicated findings in education research. Most classrooms and apps still underuse them.</p>
+<p style="margin: 0; padding-bottom: 18px; border-bottom: 1px solid #E2E2DA; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">Vachuo Research · 7 min read</p>
+<figure aria-hidden="true" style="margin: 4px 0; position: relative; height: clamp(240px, 34vw, 320px); border-radius: 22px; overflow: hidden; background: #1D4ED8">
+<span style="position: absolute; width: 520px; height: 520px; right: -170px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -400px; top: -640px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -84px; height: 150px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 22px; bottom: 16px; display: flex; justify-content: center; align-items: flex-end; gap: 10px">
+<img src="assets/img/028366707734272954ecc6309a373201.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/1653e814680e71213ad5bbf83b9efca2.svg" alt="" style="display: block; height: 84%; width: auto">
+</div>
+</figure>
+
+<p style="margin: 0">Education research has a reputation for fads, but a handful of findings from cognitive psychology have been replicated across decades, age groups and subjects. They are not secret. They are routinely ignored, in classrooms and even more in educational software, because they make learning feel harder in the moment even as they make it more durable. An AI tutor is the most consistent implementer of pedagogy ever built. If it implements the wrong pedagogy, it will do so at scale.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Memory is built by retrieval</h2>
+<p style="margin: 0">In a widely cited 2006 study, Henry Roediger and Jeffrey Karpicke asked students to read prose passages and then either reread them or take recall tests. Rereading produced slightly better performance five minutes later; testing produced markedly better retention a week later. This testing effect, since replicated many times, shows that pulling information out of memory strengthens it more than putting it in again. In a 2013 review of ten popular study techniques, John Dunlosky and colleagues rated only two as having high utility: practice testing and distributed practice. Highlighting and rereading, the techniques students use most, rated low.</p>
+<p style="margin: 0">The implication for tutors, human or machine, is uncomfortable. Explaining well is not enough. Learners must be asked to produce: to recall, to solve, to explain in their own words. A tutor that answers every question fluently may be depriving the learner of the very effort that makes learning stick.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Space it out, and mix it up</h2>
+<p style="margin: 0">The spacing effect is one of the oldest findings in experimental psychology, traceable to Hermann Ebbinghaus in the 1880s. A 2006 meta-analysis by Nicholas Cepeda and colleagues confirmed that distributing practice over time produces better long-term retention than massing it, and that the best gap grows with how long the material must be remembered. Interleaving, mixing different problem types rather than practising one type in a block, has a related benefit. In a 2007 study by Doug Rohrer and Kelli Taylor, students who practised mixed mathematics problems did far better on a delayed test than those who practised in blocks, despite doing worse during practice itself.</p>
+<p style="margin: 0">Both effects create what Robert Bjork called desirable difficulties: conditions that slow apparent progress but improve durable learning. They also set a trap.</p>
+<blockquote style="margin: 8px 0; padding: 20px 0; border-top: 1px solid #93BBF3; border-bottom: 1px solid #93BBF3; font-size: 26px; line-height: 1.3; font-style: italic; color: #1E3A8A; text-align: center">Learners, teachers and product managers all judge learning by how fluent it feels. Fluency is a poor guide.</blockquote>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Novices need guidance; experts need room</h2>
+<p style="margin: 0">The debate between discovery learning and direct instruction has generated more heat than light, but cognitive load theory, developed by John Sweller from the late 1980s, offers a principled answer. Working memory is severely limited. Novices, who lack organised knowledge in long-term memory, are overwhelmed by unguided problem-solving and learn more from studying worked examples. Paul Kirschner, Sweller and Richard Clark argued in 2006 that minimally guided instruction is less effective for novices for exactly this reason.</p>
+<p style="margin: 0">The same research identifies an expertise reversal effect: as learners gain knowledge, worked examples become redundant and can even impede learning, while independent problem-solving becomes more productive. Good instruction is therefore not a fixed method but a fading one, moving from heavy guidance toward independence as competence grows. Few teachers can calibrate that fading for thirty students at once. A well-designed adaptive system can.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Feedback is powerful, and risky</h2>
+<p style="margin: 0">John Hattie and Helen Timperley’s 2007 review placed feedback among the most powerful influences on achievement. Less often quoted is the earlier meta-analysis by Avraham Kluger and Angelo DeNisi, which found that in over a third of the cases they examined, feedback interventions actually reduced performance. Feedback that directs attention to the self (“you’re clever”, “wrong again”) tends to hurt; feedback about the task and how to improve it tends to help. Timing and specificity matter, and so does diagnosis. Telling a learner the right answer does little if her error came from a misconception she still holds.</p>
+<p style="margin: 0">This is why diagnosis must come before feedback. Errors caused by carelessness, a missing prerequisite, a misreading of the question or a genuine conceptual misconception look identical on a scoresheet, and each needs a different response.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Active is not the same as constructive</h2>
+<p style="margin: 0">Michelene Chi and Ruth Wylie’s ICAP framework distinguishes four modes of engagement: passive (receiving), active (manipulating, such as highlighting), constructive (generating something new, such as a self-explanation) and interactive (building understanding with a partner). Learning outcomes generally rise across that sequence. Clicking through an app is active; explaining why a method works is constructive; defending it to a peer or a Socratic tutor is interactive. Engagement metrics that count clicks measure the wrong thing.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">What this asks of AI tutors</h2>
+<p style="margin: 0">Taken together, the evidence implies design rules that many consumer learning products break. Ask before telling. Schedule retrieval and spaced review instead of waiting for the learner to come back. Interleave once the basics are secure. Begin with worked examples for novices and fade them deliberately. Diagnose the cause of an error before responding to it. Resist optimising for the feeling of fluency or for time spent. Ask learners to explain, not merely to answer.</p>
+<p style="margin: 0">None of this requires artificial intelligence. Good teachers have done most of it for generations. What AI changes is the possibility of doing it consistently, for every learner, at the right moment, without exhausting the teacher. Whether that possibility is realised depends on whether the people building these systems read the research or the engagement dashboard.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; font-family: Geist, system-ui, sans-serif"><button type="button" onClick="{{copyLink}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span aria-live="polite">{{copyLabel}}</span></button><a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-size: 14px; font-weight: 600; text-decoration: none">More essays</a></div>
+<section aria-label="References" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; color: #14161A">References</h2>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; color: #3F444C">
+<li>Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In J. Metcalfe &amp; A. Shimamura (Eds.), <i>Metacognition: Knowing about Knowing</i>. MIT Press.</li>
+<li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006). Distributed practice in verbal recall tasks. <i>Psychological Bulletin</i>, 132(3), 354–380.</li>
+<li>Chi, M. T. H., &amp; Wylie, R. (2014). The ICAP framework. <i>Educational Psychologist</i>, 49(4), 219–243.</li>
+<li>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013). Improving students’ learning with effective learning techniques. <i>Psychological Science in the Public Interest</i>, 14(1), 4–58.</li>
+<li>Hattie, J., &amp; Timperley, H. (2007). The power of feedback. <i>Review of Educational Research</i>, 77(1), 81–112.</li>
+<li>Kalyuga, S., Ayres, P., Chandler, P., &amp; Sweller, J. (2003). The expertise reversal effect. <i>Educational Psychologist</i>, 38(1), 23–31.</li>
+<li>Kirschner, P. A., Sweller, J., &amp; Clark, R. E. (2006). Why minimal guidance during instruction does not work. <i>Educational Psychologist</i>, 41(2), 75–86.</li>
+<li>Kluger, A. N., &amp; DeNisi, A. (1996). The effects of feedback interventions on performance. <i>Psychological Bulletin</i>, 119(2), 254–284.</li>
+<li>Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-enhanced learning. <i>Psychological Science</i>, 17(3), 249–255.</li>
+<li>Rohrer, D., &amp; Taylor, K. (2007). The shuffling of mathematics problems improves learning. <i>Instructional Science</i>, 35, 481–498.</li>
+</ol>
+</section>
+<a href="blog-homeschooling.html" style="display: flex; flex-direction: column; gap: 4px; margin-top: 16px; padding: 20px 22px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; text-decoration: none; color: #14161A"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1D4ED8">Next essay</span><span style="font-size: 24px; font-weight: 600; line-height: 1.2">Homeschooling’s Second Wave: What the Evidence Can and Cannot Tell Us</span></a>
+</article>
+</main>
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 20px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px; margin-right: auto"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Vachuo on social media" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<template data-for="{{social}}" data-as="s"><a href="#" style="padding: 12px; border-radius: 999px; border: 1px solid #CFCFC6; color: #14161A; text-decoration: none; font-size: 13px">{{s}}</a></template>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Blog-learning-teaching", function () {
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { pct: 0, top: false, sh: false, copied: '' }; }
+  componentDidMount() {
+    this._s = () => { if (this._r) return; this._r = requestAnimationFrame(() => { this._r = 0; const y = window.scrollY || 0, max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight), pct = Math.min(100, Math.round((y / max) * 100)); if (pct !== this.state.pct || (y > 900) !== this.state.top || (y > 8) !== this.state.sh) this.setState({ pct, top: y > 900, sh: y > 8 }); }); };
+    window.addEventListener('scroll', this._s, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._s); clearTimeout(this._t); }
+  copy() { const done = (m) => { this.setState({ copied: m }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: '' }), 2400); }; try { navigator.clipboard.writeText(window.location.href).then(() => done('Link copied'), () => done('Copy failed')); } catch (e) { done('Copy failed'); } }
+  renderVals() {
+    return { progress: this.state.pct + '%', headShadow: this.state.sh ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none', showTop: this.state.top, toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }), copyLabel: this.state.copied || 'Copy link', copyLink: () => this.copy(), social: ['LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok', 'YouTube', 'WhatsApp Channel', 'Threads', 'Spotify', 'Apple Podcasts'] };
+  }
+}
+return Component;
+});
+
+DC.mount("Blog-learning-teaching");
+</script>
+</body>
+</html>

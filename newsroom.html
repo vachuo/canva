@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Newsroom</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}.eq{display:inline-block;width:3px;height:12px;background:#F9A826;border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out infinite}.eq:nth-child(2){animation-delay:.2s}.eq:nth-child(3){animation-delay:.4s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.eq{animation:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Newsroom">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none">Sign in</a>
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Request early access</a>
+</div>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="news-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) 40px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 24px 56px; align-items: flex-end">
+<div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Newsroom</span>
+<h1 id="news-title" style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">News, voices and gatherings from Vachuo.</h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.5; color: #3F444C; max-width: 680px">Announcements, the Vachuo Podcast, the Expert Series, the Weekly Forum and Vachuo Fest Global, all in one place.</p>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#media-kit" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 600; text-decoration: none">Media kit</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 500; text-decoration: none">Media portal sign-in</a>
+</div>
+</div>
+<figure aria-hidden="true" style="margin: 0; position: relative; height: clamp(240px, 30vw, 360px); border-radius: 26px; overflow: hidden; background: #1D4ED8">
+<span style="position: absolute; width: 760px; height: 760px; right: -240px; top: -520px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.28)"></span>
+<span style="position: absolute; width: 1300px; height: 1300px; left: -540px; top: -1000px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span style="position: absolute; left: -15%; right: -15%; bottom: -110px; height: 200px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 4%; right: 4%; top: 22px; bottom: 16px; display: flex; justify-content: space-around; align-items: flex-end; gap: 4px">
+<img src="assets/img/6ab3d26d29f9009ba1269cd62a3e4663.svg" alt="" style="display: block; height: 82%; width: auto">
+<img src="assets/img/3131eb41702479241dc132be8c19c769.svg" alt="" style="display: block; height: 82%; width: auto">
+<img src="assets/img/21ef351959c7b27f73dae1d9e0a3393f.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/e1b79eb4952f14718c70fb2b72622cc1.svg" alt="" style="display: block; height: 82%; width: auto">
+<img src="assets/img/d21e7783f1935f06ae9fa2d66914be3f.svg" alt="" style="display: block; height: 84%; width: auto">
+</div>
+</figure>
+<nav aria-label="Campaigns" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px">
+<a href="#podcast" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 18px; background: #0A1430; color: #FFFFFF; text-decoration: none"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #7DB4FF">LISTEN</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 25px; font-weight: 600">The Vachuo Podcast</span></a>
+<a href="#experts" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 18px; background: #E4ECFD; color: #172F73; text-decoration: none"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #1E40AF">WATCH</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 25px; font-weight: 600">Vachuo Expert Series</span></a>
+<a href="#forum" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 18px; background: #DDF4F1; color: #134E4A; text-decoration: none"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59">JOIN WEEKLY</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 25px; font-weight: 600">Vachuo Weekly Forum</span></a>
+<a href="#fest" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 18px; background: #F9A826; color: #14161A; text-decoration: none"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #14161A">GATHER</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 25px; font-weight: 600">Vachuo Fest Global</span></a>
+</nav>
+</section>
+
+<section aria-labelledby="latest-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 5vw, 64px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="latest-title" style="margin: 0; font-size: clamp(30px, 3vw, 40px); line-height: 1.1; font-weight: 600">Latest announcements</h2>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">Press enquiries: [PRESS EMAIL]</span>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{releases}}" data-as="r">
+<li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 20px 0; border-top: 1px solid #E2E2DA">
+<span style="flex: 0 0 120px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #62676F">[DATE]</span>
+<span style="flex: 0 0 auto; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: {{r.bg}}; color: {{r.fg}}">{{r.kind}}</span>
+<span style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><a href="{{r.href}}" style="font-size: 23px; line-height: 1.2; font-weight: 600; color: #14161A; text-decoration: none">{{r.title}}</a><span style="font-size: 17px; line-height: 1.5; color: #3F444C">{{r.text}}</span></span>
+</li>
+</template>
+</ul>
+</div>
+</section>
+
+<section id="podcast" aria-labelledby="podcast-title" style="background: #0A1430; color: #EEF2FB">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 40px 56px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #7DB4FF">THE VACHUO PODCAST · SEASON 1</span>
+<h2 id="podcast-title" style="margin: 0; font-size: clamp(38px, 4.4vw, 60px); line-height: 1; font-weight: 600; text-wrap: balance">Conversations on learning in the age of AI.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #CAD3EA">Hosted by [HOST NAME]. Each episode takes one hard question about children, schools and technology, with a guest who has lived it: parents, teachers, researchers, founders and policymakers.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Listen on Spotify</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; color: #EEF2FB; font-family: Geist, system-ui, sans-serif; font-size: 14px; text-decoration: none">Apple Podcasts</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; color: #EEF2FB; font-family: Geist, system-ui, sans-serif; font-size: 14px; text-decoration: none">YouTube</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; color: #EEF2FB; font-family: Geist, system-ui, sans-serif; font-size: 14px; text-decoration: none">RSS</a>
+</div>
+<figure aria-hidden="true" style="margin: 8px 0 0; position: relative; height: 220px; border-radius: 20px; overflow: hidden; background: #13204A">
+<span style="position: absolute; width: 380px; height: 380px; right: -150px; top: -230px; border-radius: 50%; border: 1.5px solid rgba(125,180,255,0.35)"></span>
+<span style="position: absolute; width: 640px; height: 640px; left: -320px; top: -470px; border-radius: 50%; border: 1.5px solid rgba(125,180,255,0.22)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -76px; height: 130px; border-radius: 50%; background: #23305A"></span>
+<div style="position: absolute; left: 0; right: 0; top: 14px; bottom: 12px; display: flex; justify-content: center; align-items: flex-end; gap: 8px">
+<img src="assets/img/028366707734272954ecc6309a373201.svg" alt="" style="display: block; height: 86%; width: auto">
+<img src="assets/img/5ed81cefbac0e2d592ae2dd5b0d48280.svg" alt="" style="display: block; height: 100%; width: auto">
+</div>
+</figure>
+</div>
+<ol aria-label="Episodes" style="flex: 2 1 520px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{episodes}}" data-as="e">
+<li style="display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid #23305A">
+<button type="button" aria-label="{{e.label}}" aria-pressed="{{e.pressed}}" onClick="{{e.toggle}}" style="flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #2B4A94; background: {{e.bg}}; color: {{e.fg}}; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s ease"><template data-if="{{e.off}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></template><template data-if="{{e.on}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></template></button>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="display: flex; align-items: center; gap: 10px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #7DB4FF">EPISODE {{e.n}}<template data-if="{{e.on}}"><span aria-hidden="true" style="display: inline-flex; align-items: flex-end; gap: 2px; height: 12px"><span class="eq"></span><span class="eq"></span><span class="eq"></span></span><span style="color: #F9A826">NOW PLAYING · DEMO</span></template></span><span style="font-size: 22px; line-height: 1.2; font-weight: 600">{{e.title}}</span><span style="font-size: 16.5px; line-height: 1.45; color: #A7B3D1">{{e.text}}</span></span>
+</li>
+</template>
+</ol>
+</div>
+</section>
+
+<section id="experts" aria-labelledby="experts-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px 56px; align-items: flex-end">
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1E40AF">VACHUO EXPERT SERIES</span>
+<h2 id="experts-title" style="margin: 0; font-size: clamp(36px, 4vw, 54px); line-height: 1.02; font-weight: 600; text-wrap: balance">Monthly masterclasses with the people who study learning.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3F444C">Hour-long talks and open Q&amp;A with researchers and practitioners. Free to attend live, recorded for YouTube.</p>
+</div>
+<a href="#" style="flex: none; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Get session reminders</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 14px">
+<template data-for="{{talks}}" data-as="t">
+<article style="display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; border-top: 4px solid {{t.c}}">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">SESSION {{t.n}} · [DATE]</span>
+<h3 style="margin: 0; font-size: 24px; line-height: 1.15; font-weight: 600">{{t.title}}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #3F444C">{{t.text}}</p>
+<span style="margin-top: auto; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">[EXPERT NAME], [AFFILIATION]</span>
+</article>
+</template>
+</div>
+</section>
+
+<section id="forum" aria-labelledby="forum-title" style="background: #DDF4F1">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 32px 56px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #115E59">VACHUO WEEKLY FORUM</span>
+<h2 id="forum-title" style="margin: 0; font-size: clamp(36px, 4vw, 54px); line-height: 1.02; font-weight: 600; color: #134E4A; text-wrap: balance">An open hour for parents, guides and educators.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #1F3B39">Every [DAY] at [TIME] EAT, online. A short briefing, then your questions about learning, AI and home education. Recordings go up on YouTube the next day.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 600; text-decoration: none">Register for this week</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid #0F766E; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; font-weight: 500; text-decoration: none">Add to calendar</a>
+</div>
+<figure aria-hidden="true" style="margin: 8px 0 0; position: relative; height: 210px; border-radius: 20px; overflow: hidden; background: #0D9488">
+<span style="position: absolute; width: 380px; height: 380px; right: -150px; top: -230px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.32)"></span>
+<span style="position: absolute; width: 640px; height: 640px; left: -320px; top: -470px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -76px; height: 130px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 18px; bottom: 12px; display: flex; justify-content: center; align-items: flex-end; gap: 10px">
+<img src="assets/img/d5b3c1bf64b6df3171cd40d4ea6cd3d7.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/3438b0a8fc256476ded0a4a58bd42512.svg" alt="" style="display: block; height: 100%; width: auto">
+</div>
+</figure>
+</div>
+<ol aria-label="Upcoming forum topics" style="flex: 1 1 420px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<template data-for="{{forum}}" data-as="f">
+<li style="display: flex; gap: 16px; padding: 18px 20px; border-radius: 16px; background: #FFFFFF">
+<span style="flex: none; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59; padding-top: 4px">{{f.when}}</span>
+<span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 21px; line-height: 1.2; font-weight: 600">{{f.title}}</span><span style="font-size: 16.5px; line-height: 1.45; color: #3F444C">{{f.text}}</span></span>
+</li>
+</template>
+</ol>
+</div>
+</section>
+
+<section id="fest" aria-labelledby="fest-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px)">
+<div style="position: relative; overflow: hidden; border-radius: 28px; background: #1D4ED8; color: #FFFFFF; padding: clamp(28px, 5vw, 56px); display: flex; flex-direction: column; gap: 32px">
+<svg aria-hidden="true" viewBox="0 0 300 300" style="position: absolute; right: -20px; top: -20px; width: 300px; height: 300px"><rect x="150" y="40" width="80" height="80" rx="16" fill="#F9A826"/><rect x="240" y="130" width="40" height="40" rx="8" fill="#0D9488"/><rect x="180" y="150" width="34" height="34" rx="7" fill="#1684E8"/></svg>
+<div style="position: relative; display: flex; flex-direction: column; gap: 14px; max-width: 760px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #DCE6FD">VACHUO FEST GLOBAL · [CITY] · [DATES]</span>
+<h2 id="fest-title" style="margin: 0; font-size: clamp(40px, 5vw, 68px); line-height: 0.98; font-weight: 600; text-wrap: balance">A festival of learning, in person and online.</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.5; color: #E4ECFD">Families, educators, builders, researchers and policymakers in one place: workshops for children, research talks, a makers’ market from local Connects hosts, and a policy day.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Submit a talk</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #7FA2EE; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 500; text-decoration: none">Get Fest updates</a>
+</div>
+</div>
+<div style="position: relative; display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #DCE6FD">Tracks</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{tracks}}" data-as="k"><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; padding: 8px 14px; border-radius: 999px; background: #1E40AF; color: #FFFFFF">{{k}}</span></template>
+</div>
+<div aria-hidden="true" style="margin-top: auto; position: relative; padding-top: 16px; display: flex; justify-content: center">
+<span style="position: absolute; left: 2%; right: 2%; bottom: -10px; height: 54px; border-radius: 50%; background: rgba(255,255,255,0.16)"></span>
+<img src="assets/img/c6b8cb517c3535e846aa4a024096cad8.svg" alt="" style="position: relative; display: block; width: 100%; max-width: 440px; height: auto">
+</div>
+</div>
+<ol aria-label="Fest updates" style="flex: 2 1 460px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #FFFFFF; border-radius: 18px; color: #14161A">
+<template data-for="{{updates}}" data-as="u">
+<li style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 14px 18px; border-top: {{u.bt}}">
+<span style="flex: 0 0 28px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{u.n}}</span>
+<span style="flex: 1 1 220px; font-size: 20px; font-weight: 600">{{u.title}}</span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #62676F">[DATE]</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: {{u.bg}}; color: {{u.fg}}">{{u.status}}</span>
+</li>
+</template>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="media-kit" aria-labelledby="kit-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Media kit</span>
+<h2 id="kit-title" style="margin: 0; font-size: clamp(32px, 3.4vw, 46px); line-height: 1.05; font-weight: 600">Logos, colours, type and the facts.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 14px">
+<a href="assets/img/logo.png" download="vachuo-logo.png" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 18px; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none"><span style="display: flex; align-items: center; justify-content: center; height: 140px; border-radius: 12px; background: #FFFFFF; border: 1px solid #ECECE6"><img src="assets/img/logo.png" alt="Vachuo logo, full colour" style="width: 70%; height: auto"></span><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">Logo, full colour · PNG</span></a>
+<a href="assets/img/logo-white.png" download="vachuo-logo-reversed.png" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 18px; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none"><span style="display: flex; align-items: center; justify-content: center; height: 140px; border-radius: 12px; background: #1D4ED8"><img src="assets/img/logo-white.png" alt="Vachuo logo, reversed" style="width: 70%; height: auto"></span><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">Logo, reversed · PNG</span></a>
+<a href="assets/img/mark.png" download="vachuo-mark.png" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 18px; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none"><span style="display: flex; align-items: center; justify-content: center; height: 140px; border-radius: 12px; background: #F4F4EF"><img src="assets/img/mark.png" alt="Vachuo mark" style="width: 38%; height: auto"></span><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">Mark · PNG</span></a>
+<a href="assets/img/cc0f52e9fdce92484fe3cdb758a26bad.png" download="vachuo-app-icon.png" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 18px; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none"><span style="display: flex; align-items: center; justify-content: center; height: 140px; border-radius: 12px; background: #F4F4EF"><img src="assets/img/cc0f52e9fdce92484fe3cdb758a26bad.png" alt="Vachuo app icon" style="width: 100px; height: 100px"></span><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">App icon · PNG</span></a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 600">Colours</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 8px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px">
+<template data-for="{{swatches}}" data-as="w"><button type="button" onClick="{{w.copy}}" aria-label="Copy {{w.name}} {{w.hex}}" style="display: flex; flex-direction: column; gap: 6px; padding: 0; border: none; background: transparent; text-align: left; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #14161A; cursor: pointer"><span style="display: block; width: 100%; height: 56px; border-radius: 10px; background: {{w.hex}}"></span><span>{{w.name}} {{w.hex}}</span><span aria-live="polite" style="color: #1E40AF">{{w.note}}</span></button></template>
+</div>
+<h3 style="margin: 8px 0 0; font-size: 22px; font-weight: 600">Type</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #3F444C">EB Garamond for headlines and reading. Geist for interface labels. Geist Mono for figures.</p>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 22px; border-radius: 18px; background: #F4F4EF">
+<h3 style="margin: 0; font-size: 22px; font-weight: 600">About Vachuo</h3>
+<p id="boilerplate" style="margin: 0; font-size: 18px; line-height: 1.55; color: #23272E">Vachuo is building the operating system for individualized education: a validated content, assessment and pedagogy engine, a persistent learner model, AI teachers, automated school administration, a parent copilot, and human guides who handle motivation, mentorship and meaning. Vachuo starts with homeschooling families and is designed to serve tutors, microschools, schools and education systems. Learn more at [WEBSITE].</p>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #3F444C">Press contact: [PRESS CONTACT NAME] · [PRESS EMAIL]</p>
+<button type="button" onClick="{{copyBoiler}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span aria-live="polite">{{boilerLabel}}</span></button>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="follow-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Follow Vachuo</span>
+<h2 id="follow-title" style="margin: 0; font-size: clamp(32px, 3.4vw, 46px); line-height: 1.05; font-weight: 600">Wherever you already are.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 12px">
+<template data-for="{{channels}}" data-as="c">
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none">
+<span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 23px; font-weight: 600">{{c.name}}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1E40AF">{{c.handle}}</span>
+<span style="font-size: 16.5px; line-height: 1.45; color: #3F444C">{{c.what}}</span>
+</a>
+</template>
+</div>
+</section>
+</main>
+
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0 20px">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">White paper</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Sign in</a>
+<span style="display: inline-flex; align-items: center; min-height: 44px">[CONTACT EMAIL]</span>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Newsroom", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { playing: 0, copied: '', copyMsg: '', scrolled: false, showTop: false };
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || 0, scrolled = y > 8, showTop = y > 900;
+        if (scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ scrolled, showTop });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.innerHeight < 1600 && 'IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      const vh = window.innerHeight;
+      this._io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-shown', ''); this._io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main > section').forEach((el) => { if (el.getBoundingClientRect().top > vh * 0.9) { el.setAttribute('data-rv', ''); this._io.observe(el); } });
+      document.documentElement.classList.add('rv-on');
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    clearTimeout(this._t);
+    if (this._io) this._io.disconnect();
+    document.documentElement.classList.remove('rv-on');
+  }
+  copyText(text, key) {
+    const done = (m) => { this.setState({ copied: key, copyMsg: m }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: '', copyMsg: '' }), 2200); };
+    try { navigator.clipboard.writeText(text).then(() => done('Copied'), () => done('Copy failed')); } catch (e) { done('Copy failed'); }
+  }
+  renderVals() {
+    const kinds = {
+      Announcement: ['#E4ECFD', '#1E40AF'], Podcast: ['#E4ECFD', '#172F73'], 'Expert Series': ['#E4ECFD', '#1E40AF'],
+      Forum: ['#DDF4F1', '#115E59'], Fest: ['#FEF1D9', '#92400E'], Product: ['#ECECE6', '#3F444C']
+    };
+    const rel = (kind, title, text, href) => ({ kind, title, text, href, bg: kinds[kind][0], fg: kinds[kind][1] });
+    const ep = (n, title, text) => {
+      const on = this.state.playing === n;
+      return { n: String(n).padStart(2, '0'), title, text, on, off: !on, pressed: on ? 'true' : 'false', label: (on ? 'Pause episode ' : 'Play episode ') + n, bg: on ? '#F9A826' : '#13204A', fg: on ? '#14161A' : '#EEF2FB', toggle: () => this.setState({ playing: on ? 0 : n }) };
+    };
+    const status = { Announced: ['#E4ECFD', '#1E40AF'], Open: ['#DDF4F1', '#115E59'], Upcoming: ['#ECECE6', '#3F444C'] };
+    const up = (n, title, s, i) => ({ n: String(n).padStart(2, '0'), title, status: s, bg: status[s][0], fg: status[s][1], bt: i === 0 ? 'none' : '1px solid #ECECE6' });
+    return {
+      swatches: [['Royal blue', '#1D4ED8'], ['Sky', '#1684E8'], ['Teal', '#0D9488'], ['Amber', '#F9A826']].map((w) => ({ name: w[0], hex: w[1], note: this.state.copied === w[1] ? this.state.copyMsg : 'Click to copy', copy: () => this.copyText(w[1], w[1]) })),
+      boilerLabel: this.state.copied === 'boiler' ? this.state.copyMsg : 'Copy boilerplate',
+      copyBoiler: () => { const el = document.getElementById('boilerplate'); this.copyText(el ? el.innerText : '', 'boiler'); },
+      headShadow: this.state.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: this.state.showTop,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      releases: [
+        rel('Announcement', 'Vachuo publishes “A Primer for Every Child”', 'A white paper on deschooled, closed-loop AI education, drawing on Socrates, Aristotle, Dewey and Ivan Illich.', 'white-paper.html'),
+        rel('Product', 'Early-access list opens for homeschooling families', 'Families can now register interest in Vachuo’s first cohorts.', 'index.html'),
+        rel('Podcast', 'Introducing the Vachuo Podcast', 'A new show on learning in the age of AI, with guests from classrooms, kitchens, labs and ministries.', '#podcast'),
+        rel('Expert Series', 'The Vachuo Expert Series opens with a season on assessment', 'Monthly masterclasses begin with what wrong answers reveal about how children think.', '#experts'),
+        rel('Forum', 'The Vachuo Weekly Forum launches', 'An open hour every week for parents, guides and educators.', '#forum'),
+        rel('Fest', 'Vachuo Fest Global: save the date and call for speakers', 'A festival of learning for families, educators, builders and policymakers.', '#fest')
+      ],
+      episodes: [
+        ep(1, 'Everyone will have an AI tutor. Then what?', 'Why the loop around the tutor matters more than the tutor itself.'),
+        ep(2, 'Socrates had a point', 'Teaching by asking, and why an AI that hands over answers can harm learning.'),
+        ep(3, 'Homeschooling, reinvented', 'The second wave of home education and the support it actually needs.'),
+        ep(4, 'What Illich got right about school', 'Learning webs, credentials, and the difference between being taught and learning.'),
+        ep(5, 'Your child’s data, explained', 'Privacy, AI and the rights children should have over their learning records.'),
+        ep(6, 'Careers when machines can write', 'What today’s twelve-year-olds should learn for work that doesn’t exist yet.')
+      ],
+      talks: [
+        { n: '01', c: '#1D4ED8', title: 'What wrong answers reveal', text: 'Misconceptions, prerequisite gaps and slips, and why each needs a different response.' },
+        { n: '02', c: '#1684E8', title: 'Designing for motivation', text: 'Interest, autonomy and relationships in self-directed learning.' },
+        { n: '03', c: '#0D9488', title: 'Assessment without seat time', text: 'Competence-based records that families, schools and employers can trust.' },
+        { n: '04', c: '#F9A826', title: 'Safeguarding learning networks', text: 'Vetting, consent and supervision when children learn beyond home.' }
+      ],
+      forum: [
+        { when: 'THIS WEEK', title: 'Getting started with home education', text: 'Records, routines and the first month.' },
+        { when: 'NEXT WEEK', title: 'Screens, AI and attention', text: 'Healthy limits for AI-supported learning.' },
+        { when: 'IN 2 WEEKS', title: 'Getting started with Connects', text: 'Workshops, mentors and peers near you.' },
+        { when: 'IN 3 WEEKS', title: 'Talking to children about AI', text: 'Honest answers to the questions they ask.' }
+      ],
+      tracks: ['Learning science', 'AI schools', 'Policy and funding', 'Children’s safety', 'Careers and skills', 'Makers’ market'],
+      updates: [
+        up(1, 'Save the date', 'Announced', 0), up(2, 'Call for speakers', 'Open', 1), up(3, 'Programme announced', 'Upcoming', 2),
+        up(4, 'Registration opens', 'Upcoming', 3), up(5, 'Vachuo Fest Global', 'Upcoming', 4)
+      ],
+      channels: [
+        { name: 'LinkedIn', handle: '@vachuo', what: 'Company news, research and careers.' },
+        { name: 'Facebook', handle: '@vachuo', what: 'The Vachuo parent community.' },
+        { name: 'Instagram', handle: '@vachuo', what: 'Learning moments and Fest behind the scenes.' },
+        { name: 'X', handle: '@vachuo', what: 'Live updates, policy and Forum threads.' },
+        { name: 'TikTok', handle: '@vachuo', what: 'Learning science in sixty seconds.' },
+        { name: 'YouTube', handle: '@vachuo', what: 'Podcast video, Expert Series and Forum recordings.' },
+        { name: 'WhatsApp Channel', handle: 'Vachuo', what: 'A weekly briefing for parents.' },
+        { name: 'Threads', handle: '@vachuo', what: 'Conversations with educators.' },
+        { name: 'Spotify', handle: 'The Vachuo Podcast', what: 'Every episode, audio first.' },
+        { name: 'Apple Podcasts', handle: 'The Vachuo Podcast', what: 'Subscribe and never miss an episode.' }
+      ]
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Newsroom");
+</script>
+</body>
+</html>

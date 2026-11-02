@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Sign in</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-SignIn">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<section aria-label="About signing in" style="flex: 1 1 420px; position: relative; overflow: hidden; box-sizing: border-box; padding: clamp(28px, 4vw, 56px); background: #1D4ED8; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+<span aria-hidden="true" style="position: absolute; width: 640px; height: 640px; right: -300px; top: -360px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.28)"></span>
+<span aria-hidden="true" style="position: absolute; width: 1100px; height: 1100px; left: -520px; top: -760px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span aria-hidden="true" style="position: absolute; left: -30%; right: -30%; bottom: -110px; height: 210px; border-radius: 50%; background: #FBF7EE"></span>
+<a href="index.html" style="position: relative; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: #FFFFFF; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back to vachuo.com</a>
+<div style="position: relative; display: flex; flex-direction: column; gap: 24px; max-width: 460px">
+<img src="assets/img/78712f5daf163a96256f6f781a871cff.png" alt="Vachuo" style="width: 190px; height: auto">
+<p style="margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.12; font-weight: 600; text-wrap: balance">One door for everyone who learns, guides and builds with Vachuo.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #E4ECFD">Children under 13 sign in with a code or picture password that a parent controls. We never ask a child for an email address.</p>
+</div>
+<img src="assets/img/5c3f875080e321cd4069ef3eba9f9f60.svg" alt="Illustrated learners from North America, India, Jordan, Canada and Kenya" style="position: relative; display: block; align-self: center; width: 100%; max-width: 460px; height: auto; margin-bottom: -44px">
+<span style="position: relative; align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: #14161A; background: #F9A826; padding: 5px 12px; border-radius: 999px">Demo sign-in · no real accounts</span>
+</section>
+
+<main style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; padding: clamp(28px, 5vw, 64px) clamp(16px, 4vw, 56px); display: flex; justify-content: center">
+<div style="width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 22px">
+<h1 style="margin: 0; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.05; font-weight: 600">Sign in</h1>
+<div role="group" aria-label="I am a" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{roles}}" data-as="r">
+<button type="button" aria-pressed="{{r.pressed}}" onClick="{{r.pick}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid {{r.bd}}; background: {{r.bg}}; color: {{r.fg}}; font-size: 14px; font-weight: 500; cursor: pointer">{{r.label}}</button>
+</template>
+</div>
+
+<template data-if="{{isLearner}}">
+<form aria-label="Learner sign-in" style="display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600">Hi! Ready to learn?</h2>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="code" style="font-size: 14px; font-weight: 600">Your learner code</label>
+<input id="code" type="text" autocomplete="off" placeholder="AMANI-7K" style="min-height: 56px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FAFAF7; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 20px; letter-spacing: 0.08em; color: #14161A">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600">Or tap your three pictures</span>
+<div role="group" aria-label="Picture password" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<template data-for="{{pics}}" data-as="p">
+<button type="button" aria-label="{{p.name}}" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="min-height: 72px; border-radius: 14px; border: 2px solid {{p.bd}}; background: {{p.bg}}; color: {{p.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{p.d}}"/></svg>
+<span style="font-size: 12.5px">{{p.name}}</span>
+</button>
+</template>
+</div>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{picNote}}</span>
+</div>
+<a href="today.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 14px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 16px; font-weight: 600; text-decoration: none">Start learning</a>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">Forgot your code? Ask your parent or guardian. They can find it in Parent copilot.</p>
+</form>
+</template>
+
+<template data-if="{{isParent}}">
+<form aria-label="Parent sign-in" style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600">Welcome back</h2>
+<button type="button" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border-radius: 14px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg>Sign in with a passkey</button>
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 12px; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F"><span style="flex: 1; height: 1px; background: #E2E2DA"></span>or<span style="flex: 1; height: 1px; background: #E2E2DA"></span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="pemail" style="font-size: 14px; font-weight: 600">Email</label><input id="pemail" type="email" autocomplete="email" placeholder="you@example.com" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; align-items: baseline"><label for="ppass" style="font-size: 14px; font-weight: 600">Password</label><a href="#" style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px">Forgot password?</a></div><input id="ppass" type="password" autocomplete="current-password" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<a href="copilot.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Sign in</a>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 160px; min-height: 46px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Continue with Google</button>
+<button type="button" style="flex: 1 1 160px; min-height: 46px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Continue with Apple</button>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">New to Vachuo? <a href="index.html">Create a family account</a>. Two-step verification is on for every parent account.</p>
+</form>
+</template>
+
+<template data-if="{{isGuide}}">
+<form aria-label="Guide and educator sign-in" style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600">Guides, hosts and educators</h2>
+<button type="button" style="min-height: 52px; border-radius: 14px; border: none; background: #0F766E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Sign in with your organisation (SSO)</button>
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 12px; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F"><span style="flex: 1; height: 1px; background: #E2E2DA"></span>or<span style="flex: 1; height: 1px; background: #E2E2DA"></span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="gemail" style="font-size: 14px; font-weight: 600">Work email</label><input id="gemail" type="email" autocomplete="email" placeholder="you@school.org" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="gpass" style="font-size: 14px; font-weight: 600">Password</label><input id="gpass" type="password" autocomplete="current-password" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<a href="connects.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Sign in</a>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">Every guide and host is identity-verified and background-checked before meeting a learner. <a href="connects.html">Become a guide or host</a></p>
+</form>
+</template>
+
+<template data-if="{{isSchool}}">
+<form aria-label="School and partner sign-in" style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600">Schools and partners</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #3F444C">For tutors, microschools, schools, districts and ministries running Vachuo.</p>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="domain" style="font-size: 14px; font-weight: 600">Organisation domain</label><input id="domain" type="text" placeholder="yourschool.ac.ke" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<a href="loop.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Continue with single sign-on</a>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">Supports SAML and OpenID Connect. Not a partner yet? Write to [PARTNERSHIPS EMAIL].</p>
+</form>
+</template>
+
+<template data-if="{{isPress}}">
+<form aria-label="Media portal sign-in" style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600">Media portal</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #3F444C">Embargoed releases, the media kit and interview requests.</p>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="memail" style="font-size: 14px; font-weight: 600">Email</label><input id="memail" type="email" autocomplete="email" placeholder="you@newsroom.com" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="mpass" style="font-size: 14px; font-weight: 600">Password</label><input id="mpass" type="password" autocomplete="current-password" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A"></div>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Sign in</a>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">Journalist without an account? <a href="newsroom.html">Request media access</a></p>
+</form>
+</template>
+
+<nav aria-label="Help" style="display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13.5px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 40px; color: #3F444C">Help</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 40px; color: #3F444C">Privacy</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 40px; color: #3F444C">Children’s privacy</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 40px; color: #3F444C">Terms</a>
+</nav>
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("SignIn", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { role: 'learner', picks: ['Sun', 'Fish'] };
+  }
+  renderVals() {
+    const roleList = [
+      ['learner', 'Learner'], ['parent', 'Parent'], ['guide', 'Guide or educator'], ['school', 'School or partner'], ['press', 'Press']
+    ];
+    const roles = roleList.map(([id, label]) => {
+      const on = this.state.role === id;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ role: id }) };
+    });
+    const icons = {
+      Sun: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4',
+      Tree: 'M12 3l6 8h-4l4 6H6l4-6H6zM12 17v4',
+      Star: 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z',
+      Fish: 'M3 12c3-4 8-5 12-3l4-3v12l-4-3c-4 2-9 1-12-3zM14 11h.01',
+      Moon: 'M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z',
+      Book: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7'
+    };
+    const picks = this.state.picks;
+    const pics = Object.keys(icons).map((name) => {
+      const on = picks.indexOf(name) !== -1;
+      return {
+        name, d: icons[name], pressed: on ? 'true' : 'false',
+        bg: on ? '#E4ECFD' : '#FAFAF7', bd: on ? '#1D4ED8' : '#E2E2DA', fg: on ? '#1E40AF' : '#3F444C',
+        pick: () => {
+          const cur = this.state.picks;
+          const next = cur.indexOf(name) !== -1 ? cur.filter((x) => x !== name) : cur.concat([name]).slice(-3);
+          this.setState({ picks: next });
+        }
+      };
+    });
+    const r = this.state.role;
+    return {
+      roles, pics,
+      picNote: picks.length + ' of 3 pictures chosen',
+      isLearner: r === 'learner', isParent: r === 'parent', isGuide: r === 'guide', isSchool: r === 'school', isPress: r === 'press'
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("SignIn");
+</script>
+</body>
+</html>

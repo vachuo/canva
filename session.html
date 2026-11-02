@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Tutor session</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Session">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
+
+<header style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: #62676F"><a href="today.html" style="font-weight: 500">Today</a><span aria-hidden="true">/</span><span>Math · Level 6</span><span aria-hidden="true">/</span><span>Ratios from recipes</span></p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.015em; font-weight: 600">Scaling a chapati recipe</h1>
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">18 of 35 min</span>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Pause</button>
+</div>
+</div>
+</header>
+
+<nav aria-label="Where this session is in the loop" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">The loop, on Ratios</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{loop}}" data-as="s">
+<li aria-current="{{s.current}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; font-size: 13px; font-weight: 500; background: {{s.bg}}; color: {{s.fg}}; border: 1px solid {{s.bd}}"><span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; opacity: 0.8">{{s.n}}</span>{{s.name}}</li>
+</template>
+</ol>
+</nav>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+
+<section aria-labelledby="convo" style="flex: 3 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 16px 20px; border-bottom: 1px solid #ECECE6">
+<h2 id="convo" style="margin: 0; font-size: 15px; font-weight: 600">Tutor · Socratic mode</h2>
+<a href="#" style="font-size: 13.5px; font-weight: 500">Switch to worked examples</a>
+</div>
+
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 600px">
+<img src="assets/img/2e56785cbdd423153ab096cdead1668c.svg" alt="Vachuo tutor" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
+<p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">Your aunt’s recipe makes 8 chapati from 3 cups of flour. The party needs 20. Before any calculating: will you need more or less than double the flour?</p>
+</div>
+<p style="margin: 0; align-self: flex-end; max-width: 460px; background: #1D4ED8; color: #FFFFFF; border-radius: 16px 4px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">More than double, because 20 is more than 16.</p>
+<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 600px">
+<img src="assets/img/6b7158ce9be36ad9a33a1085cc3b48e2.svg" alt="Vachuo tutor" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
+<p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">Good reasoning. So how many cups for 20 chapati?</p>
+</div>
+<p style="margin: 0; align-self: flex-end; max-width: 460px; background: #1D4ED8; color: #FFFFFF; border-radius: 16px 4px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">15 cups. 20 is 12 more than 8, so I add 12 to the 3.</p>
+<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 600px">
+<img src="assets/img/2494016a538ce95f8d6bf1ee4ca732b1.svg" alt="Vachuo tutor" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
+<p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">Let’s test that rule on something smaller. Two batches make 16 chapati. Your add-the-difference rule says 3 + 8 = 11 cups. Doubling says 2 × 3 = 6 cups. Which one matches two real batches?</p>
+</div>
+<div role="group" aria-label="Choose an answer" style="align-self: flex-end; display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="{{pick6}}" onClick="{{choose6}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #1D4ED8; background: {{bg6}}; color: {{fg6}}; font-size: 15px; font-weight: 500; cursor: pointer">6 cups</button>
+<button type="button" aria-pressed="{{pick11}}" onClick="{{choose11}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #1D4ED8; background: {{bg11}}; color: {{fg11}}; font-size: 15px; font-weight: 500; cursor: pointer">11 cups</button>
+</div>
+
+<template data-if="{{chose6}}">
+<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 640px">
+<img src="assets/img/b2bfffc0d77d42095d0a69049d12ac74.svg" alt="Vachuo tutor" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
+<div style="background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 16.5px; line-height: 1.55">Yes. And you just caught your own rule out: two batches means everything times two, not plus eight. Recipes scale by multiplying. Here’s the whole recipe on a double number line. What goes under 20?</p>
+<div style="display: grid; grid-template-columns: auto repeat(4, minmax(0, 1fr)); gap: 8px 12px; align-items: center; background: #FFFFFF; border-radius: 12px; padding: 14px 16px; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Chapati</span><span>0</span><span>8</span><span>16</span><span style="font-weight: 500">20</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Cups</span><span>0</span><span>3</span><span>6</span><span style="font-weight: 600; color: #92400E">?</span>
+</div>
+</div>
+</div>
+</template>
+<template data-if="{{chose11}}">
+<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 600px">
+<img src="assets/img/6dbe191a478a0c3250e3a7b61f28167d.svg" alt="Vachuo tutor" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
+<p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">Picture it: you make one batch with 3 cups, then a second batch with another 3 cups. How many cups did you use in total?</p>
+</div>
+</template>
+</div>
+
+<div style="margin-top: auto; border-top: 1px solid #ECECE6; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 10px">
+<label for="answer" style="font-size: 13px; font-weight: 600; color: #3F444C">Your answer</label>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<input id="answer" type="text" placeholder="Type, draw or say your thinking" style="flex: 1 1 260px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 16px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 15px; color: #14161A">
+<div style="display: flex; gap: 8px">
+<button type="button" aria-label="Draw it" style="width: 48px; height: 48px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button>
+<button type="button" aria-label="Say it" style="width: 48px; height: 48px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+<button type="button" aria-label="Send" style="width: 48px; height: 48px; border-radius: 12px; border: none; background: #1D4ED8; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg></button>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">I’m stuck</button>
+<button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Answer in Kiswahili</button>
+<button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Use my own recipe</button>
+</div>
+</div>
+</section>
+
+<aside aria-labelledby="thinking" style="flex: 2 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="thinking" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.02em">What Vachuo is thinking</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">Always visible to you. Nothing here is a grade, and you can challenge any of it.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">What it noticed</span>
+<p style="margin: 0; background: #FAFAF7; border: 1px solid #ECECE6; border-radius: 12px; padding: 12px 14px; font-size: 16px; line-height: 1.5">15 cups for 20 chapati. You added the difference (+12) instead of scaling (×2.5).</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Most likely why</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+<template data-for="{{causes}}" data-as="c">
+<li style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-size: 14px; line-height: 1.4">{{c.label}}</span><span style="flex: none; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{c.p}}</span></div>
+<div aria-hidden="true" style="height: 6px; border-radius: 3px; background: #ECECE6"><div style="height: 6px; border-radius: 3px; width: {{c.w}}; background: {{c.bar}}"></div></div>
+<span style="font-size: 12.5px; color: #62676F">{{c.kind}}</span>
+</li>
+</template>
+</ul>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">What it’s trying</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">A counter-example on numbers you already trust. Finding the contradiction yourself sticks better than being told.</p>
+<ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #3F444C; line-height: 1.45">
+<li><span style="color: #14161A; font-weight: 500">Counter-example on two batches</span> (now)</li>
+<li>Double number line for the full recipe</li>
+<li>Three recipes you pick, mixed difficulty</li>
+<li>Reassess on Wednesday with a real order for 40</li>
+</ol>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px; background: #FAFAF7; border: 1px solid #ECECE6">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 14px; font-weight: 600">Proportional reasoning</span><span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px">0.58 <span aria-hidden="true">→</span><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">to</span> <span style="color: #92400E; font-weight: 500">0.42</span></span></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">How sure Vachuo is that you’ve got this skill. One answer moved it; it moves back the moment you show it.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-expanded="{{contestOpen}}" onClick="{{toggleContest}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #1D4ED8; background: #FFFFFF; color: #1E40AF; font-size: 14px; font-weight: 600; cursor: pointer">That’s not what happened</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Explain it another way</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #8FD3C9; background: #DDF4F1; color: #115E59; font-size: 14px; font-weight: 600; cursor: pointer">Bring in Nduta</button>
+</div>
+
+<template data-if="{{contest}}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="contest" style="font-size: 13.5px; font-weight: 600">Tell Vachuo what it missed</label>
+<textarea id="contest" rows="3" placeholder="I typed 15 by mistake. I meant 7.5." style="box-sizing: border-box; width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 16px; line-height: 1.5; color: #14161A; resize: vertical"></textarea>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Send to Vachuo</button>
+<span style="font-size: 13px; color: #62676F">Your explanation counts as evidence. Vachuo re-runs its diagnosis with it.</span>
+</div>
+</div>
+</template>
+</aside>
+</div>
+
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("Session", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { contest: false, choice: null };
+  }
+  renderVals() {
+    const names = ['Diagnose', 'Plan', 'Teach', 'Observe', 'Assess', 'Diagnose misconception', 'Remediate', 'Reassess', 'Update learner model', 'Inform parent', 'Repeat'];
+    const current = 6;
+    const loop = names.map((name, i) => {
+      const n = String(i + 1).padStart(2, '0');
+      if (i + 1 < current) return { n, name, current: 'false', bg: '#E4ECFD', fg: '#1E40AF', bd: '#E4ECFD' };
+      if (i + 1 === current) return { n, name, current: 'step', bg: '#14161A', fg: '#FFFFFF', bd: '#14161A' };
+      if (name === 'Inform parent') return { n, name, current: 'false', bg: '#FFFFFF', fg: '#115E59', bd: '#A7DED6' };
+      return { n, name, current: 'false', bg: '#FFFFFF', fg: '#62676F', bd: '#E2E2DA' };
+    });
+    const causes = [
+      { label: 'Adding when the relationship multiplies', p: '0.71', w: '71%', bar: '#1D4ED8', kind: 'Conceptual misconception' },
+      { label: 'Shaky on equivalent fractions', p: '0.18', w: '18%', bar: '#1684E8', kind: 'Prerequisite gap' },
+      { label: 'Arithmetic slip', p: '0.06', w: '6%', bar: '#B9BCB4', kind: 'Calculation error' },
+      { label: 'A quick guess', p: '0.05', w: '5%', bar: '#B9BCB4', kind: 'Guessing' }
+    ];
+    const ch = this.state.choice;
+    return {
+      loop,
+      causes,
+      contest: this.state.contest,
+      contestOpen: this.state.contest ? 'true' : 'false',
+      toggleContest: () => this.setState({ contest: !this.state.contest }),
+      chose6: ch === 6,
+      chose11: ch === 11,
+      pick6: ch === 6 ? 'true' : 'false',
+      pick11: ch === 11 ? 'true' : 'false',
+      bg6: ch === 6 ? '#1D4ED8' : '#FFFFFF',
+      fg6: ch === 6 ? '#FFFFFF' : '#1E40AF',
+      bg11: ch === 11 ? '#1D4ED8' : '#FFFFFF',
+      fg11: ch === 11 ? '#FFFFFF' : '#1E40AF',
+      choose6: () => this.setState({ choice: 6 }),
+      choose11: () => this.setState({ choice: 11 })
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Session");
+</script>
+</body>
+</html>

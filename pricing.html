@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo Pricing</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
+.plan{transition:transform .25s ease,box-shadow .25s ease}
+.plan:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(20,22,26,.35)}
+.faq-q{transition:background .2s ease}.faq-q:hover{background:#F4F4EF}
+@keyframes bot-hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.bot-hover{animation:bot-hover 3.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plan,.plan:hover{transition:none;transform:none}.bot-hover{animation:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Pricing">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 10px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 42px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="pricing.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-weight: 600; text-decoration: none">Sign in</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="price-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) 32px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center">
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Pricing</span>
+<h1 id="price-title" style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">A whole school, priced like a tutor.</h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.5; color: #3F444C; max-width: 640px; text-wrap: pretty">Start free with one learner. Upgrade when the loop has earned it. Every plan includes the safeguards: verified adults, parent approval for meetings and a learner-owned record.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 20px; padding-top: 6px">
+<div role="group" aria-label="Billing period" style="display: inline-flex; padding: 4px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<button type="button" aria-pressed="{{mPressed}}" onClick="{{setMonthly}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: {{mBg}}; color: {{mFg}}; font-size: 14.5px; font-weight: 600; cursor: pointer">Monthly</button>
+<button type="button" aria-pressed="{{yPressed}}" onClick="{{setYearly}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: {{yBg}}; color: {{yFg}}; font-size: 14.5px; font-weight: 600; cursor: pointer">Yearly · 2 months free</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<label for="region" style="font-size: 13px; font-weight: 600; color: #3F444C">Region and currency</label>
+<select id="region" value="{{region}}" onChange="{{pickRegion}}" style="min-height: 46px; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 15px; color: #14161A">
+<option value="USD">United States · USD</option>
+<option value="KES">Kenya · KES</option>
+<option value="EUR">Euro area · EUR</option>
+<option value="GBP">United Kingdom · GBP</option>
+<option value="INR">India · INR</option>
+</select>
+</div>
+</div>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Local prices reflect what families can afford in each region, not exchange rates. Taxes may apply.</p>
+</div>
+<figure aria-hidden="true" style="flex: 2 1 320px; margin: 0; position: relative; height: 340px; border-radius: 26px; overflow: hidden; background: #1D4ED8">
+<span style="position: absolute; width: 520px; height: 520px; right: -200px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -420px; top: -660px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -96px; height: 170px; border-radius: 50%; background: #FBF7EE"></span>
+<span style="position: absolute; left: 18px; top: 18px; padding: 7px 14px; border-radius: 16px 16px 16px 4px; background: #FFFFFF; color: #172F73; font-family: 'EB Garamond', Garamond, Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.15; white-space: nowrap">One tutor on every plan.</span>
+<span style="position: absolute; left: 50%; bottom: 12px; width: 120px; height: 12px; margin-left: -120px; border-radius: 50%; background: rgba(20,22,26,0.12)"></span>
+<div style="position: absolute; left: 0; right: 0; top: 30px; bottom: 18px; display: flex; justify-content: center; align-items: flex-end; gap: 4px">
+<img class="bot-hover" src="assets/img/87d7bb4eafcdad13beb883a8e8834715.svg" alt="" style="display: block; height: 80%; width: auto; margin: 0 4px 22px 0">
+<img src="assets/img/d42b6aeb08200a8796692a2ce1cd239f.svg" alt="" style="display: block; height: 72%; width: auto">
+</div>
+</figure>
+</section>
+
+<section aria-label="Plans" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 16px clamp(16px, 4vw, 48px) 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px; align-items: stretch">
+<template data-for="{{plans}}" data-as="p">
+<article class="plan" aria-labelledby="{{p.hid}}" style="position: relative; display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 22px; background: {{p.bg}}; color: {{p.fg}}; border: {{p.border}}">
+<template data-if="{{p.popular}}"><span style="position: absolute; top: -12px; left: 24px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: #F9A826; color: #14161A">Most popular</span></template>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="{{p.hid}}" style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 600">{{p.name}}</h2>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 1.45; color: {{p.sub}}">{{p.for}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; min-height: 86px">
+<span style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -0.02em">{{p.price}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: {{p.sub}}">{{p.unit}}</span></span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: {{p.sub}}">{{p.note}}</span>
+</div>
+<a href="{{p.href}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; background: {{p.ctaBg}}; color: {{p.ctaFg}}; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">{{p.cta}}</a>
+<ul style="list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid {{p.rule}}; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.45">
+<template data-for="{{p.features}}" data-as="f"><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{p.tick}}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>{{f}}</span></li></template>
+</ul>
+</article>
+</template>
+</div>
+</section>
+
+<section aria-labelledby="calc-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 5vw, 72px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #115E59">Estimate your cost</span>
+<h2 id="calc-title" style="margin: 0; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; font-weight: 600; text-wrap: balance">How many learners are in your home or microschool?</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3F444C">Family plans cover up to four learners. Each extra learner adds a small fee, so siblings never cost the price of a new subscription.</p>
+<img src="assets/img/2aa4c92439122fbbb3d3f75cd70a35fc.webp" alt="A parent reviews papers while her son learns with headphones at the kitchen table" style="display: block; width: 100%; max-width: 520px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px">
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px; padding: clamp(20px, 3vw, 32px); border-radius: 22px; background: #F4F4EF; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<label for="learners" style="font-size: 15px; font-weight: 600">Learners</label>
+<output for="learners" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 28px; font-weight: 500">{{learners}}</output>
+</div>
+<input id="learners" type="range" min="1" max="12" step="1" value="{{learners}}" onChange="{{pickLearners}}" style="width: 100%; accent-color: #1D4ED8; min-height: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<template data-for="{{estimates}}" data-as="e">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding: 14px 16px; border-radius: 14px; background: #FFFFFF; border: {{e.border}}">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{e.name}}</span><span style="font-size: 13px; color: #62676F">{{e.detail}}</span></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 18px; font-weight: 500">{{e.total}}</span>
+</div>
+</template>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #62676F">{{calcNote}}</p>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="compare-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Compare plans</span>
+<h2 id="compare-title" style="margin: 0; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; font-weight: 600">Everything, side by side.</h2>
+</div>
+<div role="group" aria-label="Feature groups" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{groupChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template>
+</div>
+</div>
+<div style="overflow-x: auto; border-radius: 20px; border: 1px solid #E2E2DA; background: #FFFFFF">
+<table style="width: 100%; min-width: 820px; border-collapse: collapse; font-family: Geist, system-ui, sans-serif; font-size: 14.5px">
+<caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Feature comparison across Vachuo plans</caption>
+<thead>
+<tr style="background: #F4F4EF">
+<th scope="col" style="text-align: left; padding: 16px 18px; font-weight: 600; width: 30%">Feature</th>
+<th scope="col" style="text-align: left; padding: 16px 12px; font-weight: 600">Explore</th>
+<th scope="col" style="text-align: left; padding: 16px 12px; font-weight: 600; color: #1E40AF">Family</th>
+<th scope="col" style="text-align: left; padding: 16px 12px; font-weight: 600">Family Plus</th>
+<th scope="col" style="text-align: left; padding: 16px 12px; font-weight: 600">Microschool</th>
+<th scope="col" style="text-align: left; padding: 16px 12px; font-weight: 600">Schools &amp; systems</th>
+</tr>
+</thead>
+<tbody>
+<template data-for="{{rows}}" data-as="r">
+<tr style="border-top: 1px solid #ECECE6; background: {{r.bg}}">
+<th scope="row" style="text-align: left; padding: 13px 18px; font-weight: {{r.weight}}; color: {{r.color}}">{{r.label}}</th>
+<td style="padding: 13px 12px; color: #3F444C">{{r.a}}</td>
+<td style="padding: 13px 12px; color: #14161A; font-weight: 500">{{r.b}}</td>
+<td style="padding: 13px 12px; color: #3F444C">{{r.c}}</td>
+<td style="padding: 13px 12px; color: #3F444C">{{r.d}}</td>
+<td style="padding: 13px 12px; color: #3F444C">{{r.e}}</td>
+</tr>
+</template>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">✓ included · — not included. Guide sessions are 30 minutes with a verified Vachuo guide.</p>
+</section>
+
+<section aria-labelledby="access-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px)">
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; padding: clamp(24px, 4vw, 44px); border-radius: 26px; background: #DDF4F1">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #115E59">Vachuo Access</span>
+<h2 id="access-title" style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; font-weight: 600; color: #134E4A; text-wrap: balance">No child should be priced out of being known.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #134E4A">Families who can’t afford a plan can apply for a free or reduced Family plan, no questions about why. Access places are funded by [PARTNER NAMES] and by a share of every paid plan.</p>
+<a href="sign-in.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Apply for Access</a>
+</div>
+<div aria-hidden="true" style="flex: 0 1 380px; display: flex; justify-content: center; align-items: flex-end; height: 220px; gap: 4px">
+<img src="assets/img/6ab3d26d29f9009ba1269cd62a3e4663.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/46e5e779174aa0ddfd4f477b9c75cf42.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/d21e7783f1935f06ae9fa2d66914be3f.svg" alt="" style="display: block; height: 95%; width: auto">
+</div>
+</div>
+</section>
+
+<section aria-labelledby="faq-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 900px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px">
+<h2 id="faq-title" style="margin: 0; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; font-weight: 600">Questions families ask</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E2E2DA">
+<template data-for="{{faqs}}" data-as="q">
+<div style="border-bottom: 1px solid #E2E2DA">
+<h3 style="margin: 0"><button type="button" class="faq-q" aria-expanded="{{q.expanded}}" aria-controls="{{q.pid}}" onClick="{{q.toggle}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 14px 8px; border: none; background: transparent; color: #14161A; text-align: left; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; cursor: pointer">{{q.q}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex: none; transform: {{q.rot}}; transition: transform .25s ease"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+<template data-if="{{q.open}}"><div id="{{q.pid}}" style="padding: 0 8px 20px; font-size: 18.5px; line-height: 1.6; color: #3F444C">{{q.a}}</div></template>
+</div>
+</template>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="cta-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px)">
+<div style="position: relative; overflow: hidden; border-radius: 28px; background: #1D4ED8; color: #FFFFFF; padding: clamp(28px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center">
+<span aria-hidden="true" style="position: absolute; width: 700px; height: 700px; right: -260px; top: -460px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.25)"></span>
+<div style="position: relative; flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 id="cta-title" style="margin: 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.02; font-weight: 600; text-wrap: balance">Try the loop with one learner, free.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #DCE6FD">No card needed for Explore. Family plans start with a 14-day trial, and you can cancel any time.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 22px; border-radius: 999px; background: #FFFFFF; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 15.5px; font-weight: 600; text-decoration: none">Start free</a>
+<a href="mailto:[PARTNERSHIPS EMAIL]" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid #7FA2EE; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15.5px; font-weight: 500; text-decoration: none">Talk to us about schools</a>
+</div>
+</div>
+<div aria-hidden="true" style="position: relative; flex: 0 1 220px; width: 220px; max-width: 62%; margin: 0 auto calc(-1 * clamp(28px, 5vw, 56px)); display: flex; flex-direction: column; align-items: center; gap: 6px">
+<span style="align-self: flex-end; padding: 8px 14px; border-radius: 16px 16px 4px 16px; background: #FFFFFF; color: #172F73; font-family: 'EB Garamond', Garamond, Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.15; white-space: nowrap; box-shadow: 0 8px 20px -10px rgba(16,24,64,0.45)">Shall we open a book?</span>
+<img src="assets/img/75bd46953fad97327e85d7b8095e8983.svg" alt="" style="display: block; width: 100%; height: auto">
+</div>
+</div>
+</section>
+</main>
+
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px; margin-right: auto"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 18px"><a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Careers</a><a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Blog</a><a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Newsroom</a><a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Vision</a></nav>
+<nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<template data-for="{{social}}" data-as="s"><a href="#" style="padding: 12px; border-radius: 999px; border: 1px solid #CFCFC6; color: #14161A; text-decoration: none; font-size: 13px">{{s}}</a></template>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Pricing", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { yearly: false, region: 'USD', learners: 3, open: 0, group: 'All', scrolled: false, showTop: false };
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || 0;
+        const scrolled = y > 8, showTop = y > 900;
+        if (scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ scrolled, showTop });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.innerHeight < 1600 && 'IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      const vh = window.innerHeight;
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-shown', ''); this._io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main > section, .plan').forEach((el) => {
+        if (el.getBoundingClientRect().top > vh * 0.9) { el.setAttribute('data-rv', ''); this._io.observe(el); }
+      });
+      document.documentElement.classList.add('rv-on');
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    document.documentElement.classList.remove('rv-on');
+  }
+  renderVals() {
+    const R = {
+      USD: { family: 29, plus: 79, micro: 19, extra: 7, f: (n) => '$' + n.toLocaleString('en-US') },
+      KES: { family: 1500, plus: 4500, micro: 900, extra: 350, f: (n) => 'KES ' + n.toLocaleString('en-US') },
+      EUR: { family: 27, plus: 75, micro: 18, extra: 6, f: (n) => '€' + n.toLocaleString('en-US') },
+      GBP: { family: 24, plus: 65, micro: 16, extra: 6, f: (n) => '£' + n.toLocaleString('en-US') },
+      INR: { family: 999, plus: 2999, micro: 599, extra: 249, f: (n) => '₹' + n.toLocaleString('en-IN') }
+    };
+    const r = R[this.state.region] || R.USD;
+    const yearly = this.state.yearly;
+    const per = (m) => (yearly ? Math.round((m * 10) / 12) : m);
+    const billed = (m) => (yearly ? 'Billed ' + r.f(m * 10) + ' a year' : 'Billed monthly, cancel any time');
+    const light = { bg: '#FFFFFF', fg: '#14161A', sub: '#62676F', border: '1px solid #E2E2DA', ctaBg: '#14161A', ctaFg: '#FFFFFF', rule: '#ECECE6', tick: '#0F766E' };
+    const dark = { bg: '#1D4ED8', fg: '#FFFFFF', sub: '#DCE6FD', border: '1px solid #1D4ED8', ctaBg: '#FFFFFF', ctaFg: '#1E40AF', rule: '#4A73E0', tick: '#F9A826' };
+    const plans = [
+      Object.assign({}, light, { hid: 'p-explore', name: 'Explore', for: 'Try Vachuo with one learner.', price: r.f(0), unit: 'forever', note: 'No card needed', cta: 'Start free', href: 'sign-in.html', popular: false,
+        features: ['One learner', 'AI tutor, 20 sessions a month', 'Learning map for maths and reading', 'Weekly summary for parents', 'Learning Passport, basic'] }),
+      Object.assign({}, dark, { hid: 'p-family', name: 'Family', for: 'The full closed loop for your home school.', price: r.f(per(r.family)), unit: '/ month', note: billed(r.family), cta: 'Start 14-day trial', href: 'sign-in.html', popular: true,
+        features: ['Up to 4 learners, ' + r.f(r.extra) + ' per extra learner', 'Unlimited tutoring across K–12 subjects', 'Diagnose, remediate and reassess loop', 'Parent Copilot with weekly briefing', 'Connects with verified hosts', 'Learning Passport with verifiable badges'] }),
+      Object.assign({}, light, { hid: 'p-plus', name: 'Family Plus', for: 'Add a named human guide.', price: r.f(per(r.plus)), unit: '/ month', note: billed(r.plus), cta: 'Start 14-day trial', href: 'sign-in.html', popular: false,
+        features: ['Everything in Family', 'A named guide, 2 sessions a month', 'Quarterly progress review', 'Transcript and portfolio support', 'Priority mentor matching', 'Priority support'] }),
+      Object.assign({}, light, { hid: 'p-micro', name: 'Microschool', for: 'For tutors, pods and microschools.', price: r.f(per(r.micro)), unit: '/ learner / month', note: 'Minimum 5 learners · ' + (yearly ? 'billed yearly' : 'billed monthly'), cta: 'Start a pilot', href: 'sign-in.html', popular: false,
+        features: ['Guide dashboard for every learner', 'Cohort planning and grouping', 'Attendance, records and reports', 'Parent Copilot for each family', 'Roster import and billing tools'] }),
+      Object.assign({}, light, { hid: 'p-systems', name: 'Schools & systems', for: 'Districts, networks and governments.', price: 'Custom', unit: '', note: 'Annual agreements', cta: 'Talk to us', href: 'mailto:[PARTNERSHIPS EMAIL]', popular: false,
+        features: ['SSO, OneRoster and LTI integration', 'Teacher-to-guide transition support', 'System dashboards and outcome reports', 'Data residency, DPA and DPIA support', 'Implementation, training and SLA'] })
+    ];
+    const L = this.state.learners;
+    const extra = Math.max(0, L - 4);
+    const famM = r.family + extra * r.extra;
+    const plusM = r.plus + extra * r.extra;
+    const microM = Math.max(5, L) * r.micro;
+    const rec = L >= 5 ? 'micro' : 'family';
+    const est = (m) => (yearly ? r.f(m * 10) + ' / year' : r.f(m) + ' / month');
+    const estimates = [
+      { name: 'Family', detail: L <= 4 ? 'Covers all ' + L + (L === 1 ? ' learner' : ' learners') : '4 learners + ' + extra + ' extra', total: est(famM), border: rec === 'family' ? '2px solid #1D4ED8' : '1px solid #E2E2DA' },
+      { name: 'Family Plus', detail: 'Adds a named guide', total: est(plusM), border: '1px solid #E2E2DA' },
+      { name: 'Microschool', detail: L < 5 ? 'Billed for the 5-learner minimum' : L + ' learners', total: est(microM), border: rec === 'micro' ? '2px solid #1D4ED8' : '1px solid #E2E2DA' }
+    ];
+    const Y = '✓', N = '—';
+    const allRows = [
+      ['Learning', 'Learners included', '1', 'Up to 4', 'Up to 4', 'Per learner', 'Per learner'],
+      ['Learning', 'AI tutor sessions', '20 / month', 'Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
+      ['Learning', 'Subjects and grades', 'Maths, reading', 'All K–12 core', 'All K–12 core', 'All K–12 core', 'All, mapped to your standards'],
+      ['Learning', 'Diagnose, remediate, reassess loop', 'Light', Y, Y, Y, Y],
+      ['Learning', 'Projects and open hours', N, Y, Y, Y, Y],
+      ['People', 'Parent Copilot', 'Weekly summary', Y, Y, Y, Y],
+      ['People', 'Named human guide', N, N, '2 sessions / month', 'Your own guides', 'Your teachers as guides'],
+      ['People', 'Connects (hosts, peers, elders)', N, Y, 'Priority matching', Y, Y],
+      ['People', 'Verified adults and parent approval', Y, Y, Y, Y, Y],
+      ['Records', 'Learning Passport', 'Basic', 'Verifiable badges', 'Verifiable badges', 'Verifiable badges', 'Verifiable badges'],
+      ['Records', 'Homeschool records and transcripts', N, Y, 'With review', Y, Y],
+      ['Records', 'Export and delete all data', Y, Y, Y, Y, Y],
+      ['Operations', 'Attendance, planning and reports', N, N, N, Y, Y],
+      ['Operations', 'SSO, OneRoster and LTI', N, N, N, 'Roster import', Y],
+      ['Operations', 'System dashboards', N, N, N, N, Y],
+      ['Support', 'Offline and low-bandwidth mode', Y, Y, Y, Y, Y],
+      ['Support', 'Support', 'Help centre', 'Email', 'Priority', 'Priority', 'Dedicated team and SLA']
+    ];
+    const groups = ['All', 'Learning', 'People', 'Records', 'Operations', 'Support'];
+    const g = this.state.group;
+    const rows = allRows.filter((x) => g === 'All' || x[0] === g).map((x, i) => ({ label: x[1], a: x[2], b: x[3], c: x[4], d: x[5], e: x[6], bg: i % 2 ? '#FBFBF8' : '#FFFFFF', weight: 500, color: '#14161A' }));
+    const groupChips = groups.map((label) => {
+      const on = label === g;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ group: label }) };
+    });
+    const qa = [
+      ['Is there a free trial?', 'Explore is free for one learner, for as long as you like. Family and Family Plus start with a 14-day trial, and you can cancel before it ends without being charged.'],
+      ['Do I need to be a teacher to use Vachuo?', 'No. Vachuo plans, teaches, assesses and adjusts. The Parent Copilot tells you what happened and asks only when a parent’s judgement is needed, such as motivation, values or a meeting with a mentor.'],
+      ['Which ages and grades does it cover?', 'Core subjects from kindergarten to grade 12, mapped to the standards you choose. Learners move at their own level in each subject, so a child can be ahead in maths and still working on reading.'],
+      ['Will it meet my state’s or country’s homeschool rules?', 'Vachuo keeps attendance, work samples and progress records that most authorities ask for, and exports them on request. Rules differ by place, so check your local requirements; we publish guides for the regions we serve.'],
+      ['How are guides and hosts vetted?', 'Every adult who teaches through Vachuo is identity-verified and background-checked where the law allows. Meetings need a parent’s approval and take place in public or approved settings.'],
+      ['What happens to my child’s data?', 'It belongs to your child. We never sell it or use it for advertising, we do not use emotion recognition, and you can export or delete everything at any time.'],
+      ['Can I switch plans or cancel?', 'Yes. Upgrade, downgrade or cancel at any time from the Parent Copilot. Yearly plans can be refunded for unused full months.'],
+      ['Does it work offline or on a basic phone?', 'Yes. Lessons and practice download for offline use, and learners can work on low-cost Android phones. Progress syncs when the connection returns.']
+    ];
+    const faqs = qa.map((x, i) => {
+      const open = this.state.open === i;
+      return { q: x[0], a: x[1], open, expanded: open ? 'true' : 'false', rot: open ? 'rotate(45deg)' : 'none', pid: 'faq-' + i, toggle: () => this.setState({ open: open ? -1 : i }) };
+    });
+    return {
+      plans, estimates, rows, groupChips, faqs,
+      region: this.state.region, learners: L,
+      calcNote: (L >= 5 ? 'With five or more learners, a Microschool plan is usually cheaper. ' : '') + 'Estimates exclude tax. Prices shown in ' + this.state.region + '.',
+      mPressed: yearly ? 'false' : 'true', yPressed: yearly ? 'true' : 'false',
+      mBg: yearly ? 'transparent' : '#14161A', mFg: yearly ? '#14161A' : '#FFFFFF',
+      yBg: yearly ? '#14161A' : 'transparent', yFg: yearly ? '#FFFFFF' : '#14161A',
+      setMonthly: () => this.setState({ yearly: false }),
+      setYearly: () => this.setState({ yearly: true }),
+      pickRegion: (e) => this.setState({ region: e.target.value }),
+      pickLearners: (e) => this.setState({ learners: Number(e.target.value) || 1 }),
+      headShadow: this.state.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: this.state.showTop,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      social: ['LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok', 'YouTube', 'WhatsApp Channel', 'Threads', 'Spotify', 'Apple Podcasts']
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Pricing");
+</script>
+</body>
+</html>

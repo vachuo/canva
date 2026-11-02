@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo Journal · AI Schools and the Two-Hour Day</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Blog-ai-schools">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div aria-hidden="true" style="position: absolute; left: 0; bottom: -1px; height: 3px; width: {{progress}}; background: #1D4ED8"></div>
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="blog.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Sign in</a>
+</nav>
+</div>
+</header>
+<main>
+<article style="max-width: 760px; margin: 0 auto; box-sizing: border-box; padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 24px) 72px; display: flex; flex-direction: column; gap: 22px; font-size: 20px; line-height: 1.65; color: #23272E">
+<a href="blog.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none">← All essays</a>
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: #E4ECFD; color: #1E40AF">AI schools</span>
+<h1 style="margin: 0; font-size: clamp(38px, 4.6vw, 58px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; color: #14161A; text-wrap: balance">AI Schools and the Two-Hour Day: Promise, Proof and Missing Evidence</h1>
+<p style="margin: 0; font-size: 23px; line-height: 1.45; font-style: italic; color: #3F444C">A new generation of schools claims AI can compress academics into a few hours a day. The idea deserves serious attention, and serious evaluation.</p>
+<p style="margin: 0; padding-bottom: 18px; border-bottom: 1px solid #E2E2DA; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">Vachuo Research · 7 min read</p>
+<figure aria-hidden="true" style="margin: 4px 0; position: relative; height: clamp(240px, 34vw, 320px); border-radius: 22px; overflow: hidden; background: #1D4ED8">
+<span style="position: absolute; width: 520px; height: 520px; right: -170px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -400px; top: -640px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -84px; height: 150px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 18px; bottom: 16px; display: flex; justify-content: center; align-items: flex-end; gap: 10px">
+<img src="assets/img/1faac0a7d16146a1a5b3b74c07d1a41a.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/58864873fe4dd83572979be618792f53.svg" alt="" style="display: block; height: 89%; width: auto">
+</div>
+</figure>
+
+<p style="margin: 0">In the past few years a new kind of school has appeared. Students spend a short block of the day, often around two hours, working through adaptive software and AI tutors at their own pace, and the rest on projects, life skills and pursuits guided by adults who are called guides rather than teachers. The best-known example is Alpha School in Texas, whose “2 Hour Learning” model is now also offered remotely; online AI homeschool programmes are following. The claims are bold: faster mastery, higher test scores, happier children. They deserve serious attention, and serious evaluation.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Why the model might work</h2>
+<p style="margin: 0">The design rests on ideas with real evidence behind them. Mastery learning, which Benjamin Bloom formalised in 1968, holds that students should move on only when they have demonstrated command of prerequisite material, with extra time and support for those who need it. A 1990 meta-analysis by Chen-Lin Kulik, James Kulik and Robert Bangert-Drowns found consistently positive effects of mastery programmes on achievement. Tutoring, the other pillar, has some of the strongest evidence of any educational intervention: a 2020 meta-analysis of randomised trials by Andre Nickow, Philip Oreopoulos and Vincent Quan found substantial average effects, largest when tutoring is frequent and takes place during the school day.</p>
+<p style="margin: 0">Time efficiency is plausible too. Conventional classrooms spend much of their time on whole-class activity pitched at the middle, too fast for some students and too slow for others. Software that lets each student work on exactly what they are ready for can, in principle, cover the same ground in less time.</p>
+<p style="margin: 0">There is now early experimental evidence on generative AI tutors specifically. In a randomised study in a Harvard physics course, Gregory Kestin and colleagues found that students using a carefully designed AI tutor learned more than twice as much, in less time, as students in an active-learning class. A World Bank-supported pilot in Nigeria found that six weeks of after-school sessions with a GPT-4-based tutor, supported by teachers, improved English results by about 0.3 standard deviations.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">Why caution is warranted</h2>
+<p style="margin: 0">The case is incomplete in four ways. <b style="font-weight: 600">First, selection.</b> Families who choose, and can pay for, a novel private school differ systematically from those who do not, in income, education, motivation and support at home. Comparing their children’s scores with national norms says little about what the school itself contributes.</p>
+<p style="margin: 0"><b style="font-weight: 600">Second, provenance.</b> Much of the outcome data from AI-first schools is reported by the schools themselves, analysed internally, without pre-registration, comparison groups or independent review. That is normal for young organisations, but it is not evidence of efficacy.</p>
+<p style="margin: 0"><b style="font-weight: 600">Third, the technology cuts both ways.</b> In a large field experiment in Turkish high schools, published in 2025, Hamsa Bastani and colleagues found that students given unrestricted access to a GPT-4 chat assistant during practice did much better on practice problems, but performed 17% worse than a control group on exams once access was removed. A version designed as a tutor, which offered hints rather than answers, largely avoided the harm.</p>
+<blockquote style="margin: 8px 0; padding: 20px 0; border-top: 1px solid #93BBF3; border-bottom: 1px solid #93BBF3; font-size: 26px; line-height: 1.3; font-style: italic; color: #1E3A8A; text-align: center">Design determines whether AI builds understanding or substitutes for it.</blockquote>
+<p style="margin: 0"><b style="font-weight: 600">Fourth, novelty.</b> New programmes benefit from enthusiastic founders, hand-picked staff and the energy of the new. Whether results persist as programmes scale to ordinary families, ordinary guides and less favourable conditions is the question that matters, and it is almost never answered in the first years.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">The role of adults</h2>
+<p style="margin: 0">A striking feature of the leading AI-first models is that they do not eliminate adults; they reassign them. Guides are responsible for motivation, emotional support, coaching and the life-skills curriculum rather than for delivering academic content. The division of labour is plausible: relationships and a sense of belonging matter for engagement and persistence, and nothing yet suggests software can supply them. It is also expensive. If the economics of an AI school depend on removing adults, it will probably fail on outcomes. If they depend on keeping them, the question becomes whether the model can be made affordable beyond families who can pay premium fees.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">What an AI school should be asked to prove</h2>
+<p style="margin: 0">Before AI schools are adopted at scale, by families or by public systems, they should be able to show five things. Learning gains measured on independent assessments, against credible comparison groups, ideally through randomised or rigorous quasi-experimental designs. Outcomes beyond tests, including transfer, retention, wellbeing, attendance and later educational trajectories. Effects for students unlike the early adopters, including lower-income students and those with learning differences. Transparency about screen time and the safeguards around AI. And costs per student that are honest about the human staff involved.</p>
+
+<h2 style="margin: 18px 0 0; font-size: 31px; line-height: 1.15; font-weight: 600; color: #14161A">A research agenda worth funding</h2>
+<p style="margin: 0">The promise of AI schools is too important to be settled by marketing or dismissed by reflex. What is needed is the kind of evidence that settled the tutoring debate: several independent trials, in different contexts, with long follow-up. Vachuo commits to pre-registering its evaluations, publishing its methods and reporting results whether or not they flatter us. We would welcome the same standard across the sector, because families deserve to know which version of the two-hour day actually works.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; font-family: Geist, system-ui, sans-serif"><button type="button" onClick="{{copyLink}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span aria-live="polite">{{copyLabel}}</span></button><a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-size: 14px; font-weight: 600; text-decoration: none">More essays</a></div>
+<section aria-label="References" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; color: #14161A">References</h2>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; color: #3F444C">
+<li>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., &amp; Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. <i>Proceedings of the National Academy of Sciences</i>.</li>
+<li>Bloom, B. S. (1968). Learning for mastery. <i>Evaluation Comment</i>, 1(2).</li>
+<li>De Simone, M. E., et al. (2025). From chalk to chatbots: Evaluating the impact of generative AI on learning outcomes in Nigeria. World Bank Policy Research Working Paper.</li>
+<li>Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G. (2025). AI tutoring outperforms in-class active learning. <i>Scientific Reports</i>, 15.</li>
+<li>Kulik, C.-L. C., Kulik, J. A., &amp; Bangert-Drowns, R. L. (1990). Effectiveness of mastery learning programs: A meta-analysis. <i>Review of Educational Research</i>, 60(2), 265–299.</li>
+<li>Nickow, A., Oreopoulos, P., &amp; Quan, V. (2020). The impressive effects of tutoring on PreK-12 learning. NBER Working Paper 27476.</li>
+</ol>
+</section>
+<a href="blog-international-schools.html" style="display: flex; flex-direction: column; gap: 4px; margin-top: 16px; padding: 20px 22px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; text-decoration: none; color: #14161A"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1D4ED8">Next essay</span><span style="font-size: 24px; font-weight: 600; line-height: 1.2">The International School Boom, and What It Teaches Everyone Else</span></a>
+</article>
+</main>
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 20px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px; margin-right: auto"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Vachuo on social media" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<template data-for="{{social}}" data-as="s"><a href="#" style="padding: 12px; border-radius: 999px; border: 1px solid #CFCFC6; color: #14161A; text-decoration: none; font-size: 13px">{{s}}</a></template>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Blog-ai-schools", function () {
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { pct: 0, top: false, sh: false, copied: '' }; }
+  componentDidMount() {
+    this._s = () => { if (this._r) return; this._r = requestAnimationFrame(() => { this._r = 0; const y = window.scrollY || 0, max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight), pct = Math.min(100, Math.round((y / max) * 100)); if (pct !== this.state.pct || (y > 900) !== this.state.top || (y > 8) !== this.state.sh) this.setState({ pct, top: y > 900, sh: y > 8 }); }); };
+    window.addEventListener('scroll', this._s, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._s); clearTimeout(this._t); }
+  copy() { const done = (m) => { this.setState({ copied: m }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: '' }), 2400); }; try { navigator.clipboard.writeText(window.location.href).then(() => done('Link copied'), () => done('Copy failed')); } catch (e) { done('Copy failed'); } }
+  renderVals() {
+    return { progress: this.state.pct + '%', headShadow: this.state.sh ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none', showTop: this.state.top, toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }), copyLabel: this.state.copied || 'Copy link', copyLink: () => this.copy(), social: ['LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok', 'YouTube', 'WhatsApp Channel', 'Threads', 'Spotify', 'Apple Podcasts'] };
+  }
+}
+return Component;
+});
+
+DC.mount("Blog-ai-schools");
+</script>
+</body>
+</html>

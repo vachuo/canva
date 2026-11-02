@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · My map</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.node{transition:transform .18s ease,box-shadow .18s ease,opacity .25s ease}
+.node:hover{transform:translateY(-2px)}
+.edge{transition:opacity .25s ease}
+.chip{transition:background .15s ease,border-color .15s ease}
+.chip:hover{border-color:#14161A}
+.opt{transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.opt:hover{border-color:#1D4ED8}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.node,.edge,.opt{transition:none}.node:hover{transform:none}.fade{animation:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Map">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
+<a href="map.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1112px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">My map · {{subjName}}</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; max-width: 860px; text-wrap: balance">What Vachuo thinks you know — and what you think.</h1>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 700px; text-wrap: pretty">Every number is an estimate from your work, not a judgment of you. Correct it, set your own destinations, or wander off the path. The map follows you, not the other way round.</p>
+</header>
+
+<div role="group" aria-label="Subject" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{subjects}}" data-as="s">
+<button type="button" class="chip" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 14px; font-weight: 500; cursor: pointer">{{s.name}}<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: {{s.lv}}">{{s.levelText}}</span></button>
+</template>
+</div>
+
+<section aria-labelledby="path" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="path" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.02em">{{pathTitle}}</h2>
+<span style="font-size: 13.5px; color: #62676F">{{placed}}</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px">
+<ul aria-label="Legend" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: #3F444C">
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #E4ECFD; border: 1px solid #93BBF3"></span>Shown (0.85+)</li>
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #FFFFFF; border: 1px solid #B9BCB4"></span>Growing</li>
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #FFFFFF; border: 2px solid #F9A826; box-sizing: border-box"></span>Gap found</li>
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #1D4ED8"></span>Working now</li>
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #FAFAF7; border: 1px dashed #8A8F96; box-sizing: border-box"></span>Not yet</li>
+<li style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 4px; background: #FEF1D9; border: 1.5px dashed #F9A826; box-sizing: border-box"></span>Your destination</li>
+</ul>
+<button type="button" class="chip" aria-pressed="{{routePressed}}" onClick="{{toggleRoute}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{routeBd}}; background: {{routeBg}}; color: {{routeFg}}; font-size: 13.5px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="6" r="2.5"/><path d="M7.5 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6.5"/></svg>{{routeLabel}}</button>
+</div>
+<p style="margin: -6px 0 0; font-size: 13.5px; color: #62676F">Select any skill to see the evidence behind it, or the destination to change it.</p>
+<div style="overflow-x: auto; margin: 0 -8px; padding: 4px 8px 8px">
+<div role="group" aria-label="{{graphLabel}}" style="position: relative; width: 1064px; height: 256px">
+<template data-for="{{edges}}" data-as="e">
+<span aria-hidden="true">
+<span class="edge" style="position: absolute; left: {{e.l}}px; top: {{e.t}}px; width: {{e.w}}px; height: {{e.h}}px; background: {{e.bg}}; border-top: {{e.dt}}; border-left: {{e.dl}}; opacity: {{e.op}}"></span>
+<span class="edge" style="position: absolute; left: {{e.al}}px; top: {{e.at}}px; width: 0; height: 0; border-top: {{e.bt}}; border-right: {{e.br}}; border-bottom: {{e.bb}}; border-left: {{e.bl}}; opacity: {{e.op}}"></span>
+</span>
+</template>
+<template data-for="{{nodes}}" data-as="n">
+<button type="button" class="node" aria-pressed="{{n.sel}}" aria-label="{{n.aria}}" onClick="{{n.pick}}" style="position: absolute; left: {{n.x}}px; top: {{n.y}}px; width: 168px; height: 72px; box-sizing: border-box; margin: 0; padding: 8px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; text-align: center; border-radius: 14px; background: {{n.bg}}; border: {{n.bd}}; color: {{n.fg}}; box-shadow: {{n.shadow}}; opacity: {{n.op}}; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 14px; line-height: 18px; cursor: pointer">
+<b style="font-weight: 600">{{n.name}}</b>
+<span style="font-family: {{n.subFont}}; font-size: 12.5px; color: {{n.subFg}}">{{n.sub}}</span>
+</button>
+</template>
+</div>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+
+<template data-if="{{isSkill}}">
+<section aria-labelledby="skill" class="fade" style="flex: 2 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<h2 id="skill" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">{{skName}}</h2>
+<span style="font-size: 12.5px; font-weight: 600; color: {{skPillFg}}; background: {{skPillBg}}; padding: 4px 10px; border-radius: 999px">{{skPill}}</span>
+</div>
+<p style="margin: 0; font-size: 14px; color: #62676F">{{skLinks}}</p>
+<p style="margin: 2px 0 0; font-size: 16.5px; line-height: 1.5; color: #3F444C; max-width: 640px">{{skAbout}}</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 260px; min-width: 0; border: 1px solid #ECECE6; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Vachuo’s estimate</span>
+<span aria-live="polite" style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 40px; line-height: 1; letter-spacing: -0.02em">{{skScore}}</span>
+<div aria-hidden="true" style="position: relative; height: 10px; border-radius: 5px; background: #ECECE6">
+<div style="position: absolute; left: {{skBandL}}%; width: {{skBandW}}%; top: 0; bottom: 0; background: #93BBF3; border-radius: 5px"></div>
+<div style="position: absolute; left: calc({{skPos}}% - 1px); width: 3px; top: -3px; bottom: -3px; background: #1D4ED8; border-radius: 2px"></div>
+<div style="position: absolute; left: 85%; width: 2px; top: -5px; bottom: -5px; background: #14161A"></div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">{{skRange}}</p>
+</div>
+<div style="flex: 1 1 260px; min-width: 0; border: 1px solid #ECECE6; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Your view</span>
+<div role="group" aria-label="{{viewAria}}" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{views}}" data-as="v">
+<button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="flex: 1 1 auto; min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid {{v.bd}}; background: {{v.bg}}; color: {{v.fg}}; font-size: 14px; font-weight: 500; cursor: pointer">{{v.label}}</button>
+</template>
+</div>
+<p aria-live="polite" style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">{{viewNote}}</p>
+</div>
+</div>
+
+<template data-if="{{hasQuiz}}">
+<div style="border-radius: 16px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF"><img src="assets/img/2e56785cbdd423153ab096cdead1668c.svg" alt="" style="width: 28px; height: 28px; border-radius: 50%">Try one now · {{quizTag}}</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Counts as practice evidence</span>
+</div>
+<template data-if="{{hasPassage}}">
+<blockquote style="margin: 0; padding: 12px 16px; border-left: 3px solid #1684E8; background: #FFFFFF; border-radius: 0 12px 12px 0; font-size: 17px; line-height: 1.55; font-style: italic; color: #14161A">{{quizPassage}}</blockquote>
+</template>
+<p style="margin: 0; font-size: 18px; line-height: 1.45; font-weight: 600">{{quizQ}}</p>
+<div role="group" aria-label="Answer choices" style="display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{quizOpts}}" data-as="o">
+<button type="button" class="opt" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 14px; border-radius: 12px; border: 1.5px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; text-align: left; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: {{o.markBg}}; color: {{o.markFg}}; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600">{{o.mark}}</span>{{o.t}}</button>
+</template>
+</div>
+<p role="status" style="margin: 0; min-height: 24px; font-size: 16px; line-height: 1.5; color: {{quizFbFg}}">{{quizFb}}</p>
+<template data-if="{{quizDone}}">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" onClick="{{quizReset}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer">Try it again</button>
+<a href="session.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none">Keep going with the tutor</a>
+</div>
+</template>
+</div>
+</template>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0 0 8px; font-size: 16px; font-weight: 600">Evidence behind the estimate</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{evidence}}" data-as="e">
+<li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 12px 0; border-top: 1px solid #ECECE6">
+<span style="flex: none; width: 84px; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: #62676F">{{e.date}}</span>
+<span style="flex: none; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: {{e.tagBg}}; color: {{e.tagFg}}">{{e.source}}</span>
+<span style="flex: 1 1 240px; min-width: 0; font-size: 15.5px; line-height: 1.45">{{e.text}}</span>
+<span style="flex: none; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: {{e.deltaFg}}">{{e.delta}}</span>
+</li>
+</template>
+</ul>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="{{pinPressed}}" onClick="{{togglePin}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: {{pinBd}}; background: {{pinBg}}; color: {{pinFg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{pinLabel}}</button>
+<a href="connects.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #8FD3C9; background: #DDF4F1; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Learn it somewhere else</a>
+<button type="button" aria-expanded="{{whyExpanded}}" aria-controls="why-text" onClick="{{toggleWhy}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">{{whyLabel}}</button>
+</div>
+<template data-if="{{whyOpen}}">
+<p id="why-text" class="fade" style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #F4F4EF; font-size: 16px; line-height: 1.55; color: #3F444C">{{whyText}}</p>
+</template>
+</div>
+</section>
+</template>
+
+<template data-if="{{isDest}}">
+<section aria-labelledby="dest" class="fade" style="flex: 2 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<h2 id="dest" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">{{destTitle}}</h2>
+<span style="font-size: 12.5px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 4px 10px; border-radius: 999px">Your destination</span>
+</div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.5; color: #3F444C; max-width: 640px">{{destAbout}}</p>
+</div>
+<div style="border: 1px solid #ECECE6; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Ready for it</span>
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 40px; line-height: 1; letter-spacing: -0.02em">{{destPct}}%</span>
+<div aria-hidden="true" style="height: 10px; border-radius: 5px; background: #ECECE6; overflow: hidden"><div style="width: {{destPct}}%; height: 100%; border-radius: 5px; background: #F9A826"></div></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">Averaged across the {{destCount}} skills on your route, each counted as ready at 0.85.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">On the way there</h3>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{destRoute}}" data-as="r">
+<button type="button" class="chip" onClick="{{r.pick}}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 8px 14px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; text-align: left; cursor: pointer"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; font-weight: 600">{{r.name}}</span><span style="display: inline-flex; align-items: center; gap: 10px"><span style="font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: {{r.pillBg}}; color: {{r.pillFg}}">{{r.pill}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #3F444C">{{r.score}}</span></span></button>
+</template>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">Change your destination</h3>
+<div role="group" aria-label="Choose a destination" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{destOpts}}" data-as="d">
+<button type="button" class="chip" aria-pressed="{{d.pressed}}" onClick="{{d.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: {{d.bd}}; background: {{d.bg}}; color: {{d.fg}}; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; font-weight: 600; cursor: pointer">{{d.label}}</button>
+</template>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">Destinations are yours to change. Vachuo re-plans the route; nothing you’ve already shown is lost.</p>
+</div>
+</section>
+</template>
+
+<aside aria-labelledby="how" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.02em">This week in {{subjName}}</h2>
+<div style="display: flex; gap: 10px">
+<div style="flex: 1 1 0; min-width: 0; border-radius: 12px; background: #F4F4EF; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 24px; line-height: 1">{{wkSessions}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">sessions</span></div>
+<div style="flex: 1 1 0; min-width: 0; border-radius: 12px; background: #F4F4EF; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 24px; line-height: 1">{{wkMinutes}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">minutes</span></div>
+<div style="flex: 1 1 0; min-width: 0; border-radius: 12px; background: #F4F4EF; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 24px; line-height: 1">{{wkShown}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">skills shown</span></div>
+</div>
+<p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C"><b style="font-weight: 600; color: #14161A">Next:</b> {{wkNext}}</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="how" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.02em">How your map works</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Each skill holds a probability that you’ve got it. It updates after every lesson, project and workshop visit, and after anything you choose to log from open hours.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">A wrong answer is never just a zero. Vachuo asks why: a misconception, a slip, a missing step, confusing wording, tiredness or a guess. Each one gets a different response.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #14161A; font-weight: 500">Your map belongs to you. It goes with you to any school, tutor or employer, or nowhere at all.</p>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+<button type="button" onClick="{{exportMap}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download my {{subjName}} map</button>
+<button type="button" aria-expanded="{{logExpanded}}" aria-controls="obs-log" onClick="{{toggleLog}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">{{logLabel}}</button>
+<p role="status" style="margin: 0; min-height: 0; font-size: 14px; line-height: 1.5; color: #115E59">{{status}}</p>
+</div>
+<template data-if="{{logOpen}}">
+<ul id="obs-log" class="fade" style="list-style: none; margin: 0; padding: 0 4px 0 0; max-height: 420px; overflow-y: auto; display: flex; flex-direction: column">
+<template data-for="{{logItems}}" data-as="g">
+<li style="display: flex; flex-direction: column; gap: 3px; padding: 10px 0; border-top: 1px solid #ECECE6">
+<span style="display: flex; justify-content: space-between; gap: 8px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F"><span>{{g.date}} · {{g.skill}}</span><span style="color: {{g.deltaFg}}">{{g.delta}}</span></span>
+<span style="font-size: 15px; line-height: 1.4">{{g.text}}</span>
+</li>
+</template>
+</ul>
+</template>
+</div>
+</aside>
+</div>
+
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("Map", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.S = this.buildSubjects();
+    this.state = { subj: 'math', sel: {}, views: {}, pins: {}, dest: {}, quiz: {}, why: false, route: false, log: false, status: '' };
+  }
+
+  buildSubjects() {
+    const N = (id, name, score, st, about, ev) => ({ id, name, score, st, about, ev });
+    return [
+      {
+        id: 'math', name: 'Math', level: 6, obs: 214, week: [5, 212], next: 'Wed 4 Nov · reassessment with a real order for 40 chapati',
+        dests: [
+          ['Build a scale-model bridge', 'the bridge you want to build', 'A bridge model at 1:50 that carries a full water bottle. Every length on it is a ratio of the real thing.'],
+          ['Plan a family trip budget', 'planning the family trip budget', 'Fuel, food and fares for a weekend to Nanyuki, worked out per person and per kilometre.'],
+          ['Draw a scale map of your street', 'a scale map of your street', 'Pace it out, measure it, then shrink it onto one sheet of paper without losing the proportions.']
+        ],
+        why: 'Ratios is the next step on every route to your destination: scale models, budgets and maps all run on it. Your gap in Equivalent fractions shows up inside ratio problems, so Vachuo will mix the two this week.',
+        quiz: { tag: 'Ratios', q: 'Three cups of flour make 8 chapati. How many cups for 40 chapati?', passage: '', ok: 'Right. 40 is 5 batches of 8, so 5 × 3 = 15 cups. You scaled instead of adding the difference.',
+          opts: [['15 cups', true], ['35 cups', 'That adds the difference: 3 + 32. Scaling asks how many batches of 8 make 40.'], ['12 cups', 'Close, but 40 ÷ 8 = 5 batches, and 5 × 3 cups = 15.']] },
+        r0: [
+          N('eqs', 'Equal sharing', 0.96, 'shown', 'Splitting things fairly, including when they don’t divide evenly.', [['Mon 26 Oct', 'Tutor', 'Split 3 chapati among 4 people without a hint', '+0.01']]),
+          N('frac', 'Fractions', 0.88, 'shown', 'Naming and placing parts of a whole, on a number line and in real things.', [['Fri 23 Oct', 'Practice', 'Placed 3/4 and 5/8 on a number line, both right', '+0.02']]),
+          N('eqfr', 'Equivalent fractions', 0.61, 'gap', 'Seeing that 2/3, 4/6 and 6/9 are the same amount, and why.', [['Mon 2 Nov', 'Tutor', 'Said 2/3 and 4/9 were the same size during the chapati problem', '−0.09']]),
+          N('comp', 'Comparing fractions', 0.74, 'growing', 'Deciding which of two fractions is bigger, with a reason.', [['Wed 28 Oct', 'Practice', 'Compared 5 pairs of fractions, 4 right. Missed 3/8 against 2/5', '+0.04']])
+        ],
+        r1: [
+          N('mult', 'Multiplication facts', 0.93, 'shown', 'Times tables to 12, fast enough to free up your thinking.', [['Tue 27 Oct', 'Practice', 'Times-tables sprint: 46 of 48 in four minutes', '+0.01']]),
+          N('unit', 'Unit rates', 0.55, 'growing', 'How much for one: per cup, per day, per kilometre.', [['Sat 31 Oct', 'Open hours', 'Rain gauge: 12 mm in 3 days became 4 mm a day. Logged by you', '+0.05']]),
+          N('ratios', 'Ratios', 0.42, 'now', 'Comparing two amounts by scaling, not by adding: 3 cups for 8 chapati is the same as 15 for 40.', [
+            ['Thu 5 Nov', 'Workshop', 'Scale a shirt pattern at Achieng’s workshop (needs a parent’s OK)', 'planned'],
+            ['Wed 4 Nov', 'Planned', 'Reassessment: a real order for 40 chapati', 'planned'],
+            ['Mon 2 Nov', 'Tutor', 'Added the difference instead of scaling: 15 cups for 20 chapati', '−0.16'],
+            ['Sat 31 Oct', 'Open hours', 'Rain gauge: turned 12 mm in 3 days into a daily rate. Logged by you', '+0.07'],
+            ['Thu 29 Oct', 'Practice', 'Unit-rate set, 4 of 6. Both misses were two-step problems', '+0.03']
+          ]),
+          N('props', 'Proportions', 0.20, 'notyet', 'Using a ratio to find a missing amount, like a map scale or a recipe for a crowd.', [['Thu 29 Oct', 'Practice', 'Tried one stretch problem on map scales; skipped the second', '+0.02']]),
+          N('alg', 'Algebraic reasoning', 0.08, 'notyet', 'Writing a rule for a pattern, then using it to predict.', [['Thu 15 Oct', 'Tutor', 'Spotted the pattern in a growing tile design but couldn’t write a rule yet', '+0.03']])
+        ]
+      },
+      {
+        id: 'reading', name: 'Reading', level: 8, obs: 188, week: [6, 245], next: 'Thu 5 Nov · three “why do you think” questions on a short story',
+        dests: [
+          ['Lead a book circle for younger readers', 'leading a book circle', 'Choose a book, prepare four open questions and lead six under-10s through it at the community library.'],
+          ['Review a novel for the Vachuo Journal', 'a published book review', 'Six hundred words on a novel you loved or didn’t, with quotes that prove your point.'],
+          ['Write a story and read it at the library', 'your own story, read aloud', 'Write a short story with a twist, then read it to a room that hasn’t heard it.']
+        ],
+        why: 'Every discussion you’ll lead turns on “how do you know?” Inference is that skill. Figurative language is the gap underneath it, so expect a few metaphors in this week’s reading.',
+        quiz: { tag: 'Inference', q: 'Why didn’t Wanjiru plant the beans?', passage: 'Wanjiru looked at the cracked earth, then at the empty sky. She tucked the bean seeds back into her pocket. “Not yet,” she whispered.',
+          ok: 'Yes. “Cracked earth” and “empty sky” are your evidence: no rain is coming, so planting now would waste the seeds.',
+          opts: [['The ground was dry and no rain was coming', true], ['She had lost her seeds', 'Look again: the seeds are in her pocket.'], ['She doesn’t like beans', 'Nothing in the text says that. Which words describe the land and the sky?']] },
+        r0: [
+          N('dec', 'Decoding & fluency', 0.97, 'shown', 'Reading words accurately and smoothly enough that meaning comes first.', [['Mon 26 Oct', 'Tutor', 'Read a 400-word passage aloud at 142 words a minute, 2 slips', '+0.01']]),
+          N('voc', 'Vocabulary in context', 0.89, 'shown', 'Working out a new word from the sentences around it.', [['Thu 29 Oct', 'Practice', 'Worked out “drought-stricken” from the sentences around it', '+0.02']]),
+          N('fig', 'Figurative language', 0.58, 'gap', 'Metaphor, simile and personification: words that mean more than they say.', [['Tue 3 Nov', 'Tutor', 'Read “the sky was a closed fist” as a real fist', '−0.07']]),
+          N('purp', 'Author’s purpose', 0.72, 'growing', 'Why a writer wrote it: to inform, persuade or entertain, and how you can tell.', [['Wed 28 Oct', 'Practice', 'Sorted 6 texts by purpose, 5 right', '+0.04']])
+        ],
+        r1: [
+          N('ret', 'Retelling & sequence', 0.94, 'shown', 'Telling what happened, in order, without the small stuff.', [['Fri 23 Oct', 'Workshop', 'Retold a folktale to the under-8s at the library, in order', '+0.01']]),
+          N('main', 'Main idea & summary', 0.86, 'shown', 'Saying what a text is mostly about in a sentence or three.', [['Sat 31 Oct', 'Open hours', 'Wrote a three-line summary of a news story about bees. Logged by you', '+0.03']]),
+          N('inf', 'Inference from evidence', 0.47, 'now', 'Reading between the lines, then pointing to the lines that prove it.', [
+            ['Thu 5 Nov', 'Planned', 'Reassessment: “The Rain Came” by Grace Ogot, three “why do you think” questions', 'planned'],
+            ['Tue 3 Nov', 'Tutor', 'Said the chief was “just sad” without pointing to a line in the text', '−0.09'],
+            ['Sat 31 Oct', 'Workshop', 'Story circle at the library: found two clues for why a character lied', '+0.08'],
+            ['Fri 30 Oct', 'Open hours', 'Finished a graphic novel in two days and explained the twist to Mum. Logged by you', '+0.04'],
+            ['Thu 29 Oct', 'Practice', 'Inference set, 5 of 8. All three misses were “between the lines” questions', '+0.03']
+          ]),
+          N('cmp', 'Comparing texts', 0.24, 'notyet', 'Holding two texts side by side: same story, different tellers, different truths.', [['Mon 19 Oct', 'Tutor', 'Noticed two versions of the same folktale end differently', '+0.03']]),
+          N('lead', 'Leading discussion', 0.11, 'notyet', 'Asking questions that open a book up for other readers, then listening.', [['Sat 17 Oct', 'Workshop', 'Asked the story circle one open question, then went quiet', '+0.02']])
+        ]
+      },
+      {
+        id: 'kiswahili', name: 'Kiswahili', level: 6, obs: 131, week: [4, 118], next: 'Fri 6 Nov · describe five things in Bibi’s kitchen',
+        dests: [
+          ['Interview Bibi for the family podcast', 'interviewing Bibi', 'Twenty minutes with your grandmother about the farm when she was your age, recorded and edited in Kiswahili.'],
+          ['Give a market tour in Kiswahili', 'a market tour in Kiswahili', 'Walk two visitors through the market, naming, bargaining and explaining as you go.'],
+          ['Perform a shairi at Vachuo Fest', 'performing at Vachuo Fest', 'Write and perform a short poem in Kiswahili for the Fest stage, with the rhythm intact.']
+        ],
+        why: 'An interview falls apart if every sentence trips on agreement. Your vocabulary is strong; agreement is what will make it sound like Kiswahili. Ngeli comes along with it.',
+        quiz: { tag: 'Upatanisho', q: 'Chagua neno sahihi: “Kitabu ___ ni kipya.” (This book is new.)', passage: '', ok: 'Sawa kabisa! Kitabu is in the KI-VI class, so “this” is hiki: kitabu hiki ni kipya.',
+          opts: [['hiki', true], ['huyu', 'Huyu is for people and animals, the M-WA class. Kitabu is KI-VI.'], ['hii', 'Hii fits the N class, as in “nyumba hii”. Kitabu takes hiki.']] },
+        r0: [
+          N('sal', 'Salamu (greetings)', 0.95, 'shown', 'Greeting anyone properly, from friends to elders: Shikamoo, Marahaba.', [['Mon 26 Oct', 'Tutor', 'Held a two-minute greeting with the right replies for an elder', '+0.01']]),
+          N('msa', 'Msamiati (vocabulary)', 0.88, 'shown', 'Everyday words for home, food, family and the market.', [['Wed 28 Oct', 'Practice', 'Named 30 things around the home, 27 right', '+0.02']]),
+          N('nge', 'Ngeli (noun classes)', 0.57, 'gap', 'Knowing which class a noun belongs to: M-WA, KI-VI, N and the rest.', [['Tue 3 Nov', 'Tutor', 'Put kitabu in the M-WA class, the class for people', '−0.08']]),
+          N('nya', 'Nyakati (tenses)', 0.70, 'growing', 'Past, present and future with -li-, -na- and -ta-.', [['Thu 29 Oct', 'Practice', 'Switched -na- and -li- correctly in 7 of 10 sentences', '+0.03']])
+        ],
+        r1: [
+          N('kus', 'Kusoma kwa sauti', 0.91, 'shown', 'Reading aloud with clear sounds and natural rhythm.', [['Fri 23 Oct', 'Workshop', 'Read a page of Taifa Leo aloud at the library', '+0.02']]),
+          N('via', 'Viambishi (verb parts)', 0.74, 'growing', 'Building verbs from parts: who, when and what. Ni-na-soma.', [['Wed 28 Oct', 'Practice', 'Built “ninasoma”, “tulisoma” and “watasoma” from parts', '+0.04']]),
+          N('upa', 'Upatanisho (agreement)', 0.44, 'now', 'Making adjectives, verbs and “this/that” agree with the noun’s class: kiti kizuri, viti vizuri.', [
+            ['Fri 6 Nov', 'Planned', 'Reassessment: describe five things in Bibi’s kitchen', 'planned'],
+            ['Tue 3 Nov', 'Tutor', 'Said “kiti zuri” instead of “kiti kizuri”: the adjective lost its KI-VI prefix', '−0.11'],
+            ['Sun 1 Nov', 'Open hours', 'Phone call with Bibi, 12 minutes mostly in Kiswahili. Logged by you', '+0.06'],
+            ['Sat 31 Oct', 'Workshop', 'Storytelling circle: retold “Sungura na Fisi” with two agreement slips', '+0.05'],
+            ['Thu 29 Oct', 'Practice', 'Agreement set, 6 of 10. Every miss was in the KI-VI or N class', '+0.03']
+          ]),
+          N('had', 'Hadithi (storytelling)', 0.26, 'notyet', 'Telling a story in the past tense that holds a listener to the end.', [['Sat 24 Oct', 'Workshop', 'Told the start of a story in Kiswahili, finished it in English', '+0.03']]),
+          N('mah', 'Mahojiano (interviews)', 0.12, 'notyet', 'Asking open questions and following up on the answers.', [['Mon 19 Oct', 'Tutor', 'Wrote three interview questions with help, starting with “Ulizaliwa wapi?”', '+0.02']])
+        ]
+      },
+      {
+        id: 'science', name: 'Science', level: 7, obs: 156, week: [3, 140], next: 'Thu 5 Nov · design a test for which soil holds water longest',
+        dests: [
+          ['Run a weather station for the farm', 'a farm weather station', 'Rain, temperature and wind, read every morning for a term, with a weekly forecast for the farm next door.'],
+          ['Find the best soil for beans', 'the best soil for beans', 'Three soils, three plots, one fair test, and a recommendation the farmer can use next season.'],
+          ['Present a water study at Vachuo Fest', 'a water-quality study', 'Test the stream above and below the village and present what you find, with Dr. Wairimu reviewing.']
+        ],
+        why: 'A weather station is only useful if its readings are fair: same place, same time, same tools. Fair tests come first, with Variables mixed in.',
+        quiz: { tag: 'Fair tests', q: 'Amani wants to know if sunlight changes how fast beans grow. One pot goes in the sun, one in the shade. What must stay the same?', passage: '',
+          ok: 'Right. Change one thing, sunlight, and keep everything else the same. That’s what makes it a fair test.',
+          opts: [['The water, the soil and the type of seed', true], ['The amount of sunlight', 'Sunlight is the one thing you change on purpose, so it can’t stay the same.'], ['Nothing, just compare the pots', 'Then you won’t know whether sunlight or something else made the difference.']] },
+        r0: [
+          N('obs', 'Observing & recording', 0.94, 'shown', 'Noticing carefully and writing it down the same way every time.', [['Mon 26 Oct', 'Open hours', 'Kept a 10-day bean diary with sketches. Logged by you', '+0.01']]),
+          N('mea', 'Measuring with units', 0.90, 'shown', 'Millilitres, grams and centimetres, read from real instruments.', [['Wed 28 Oct', 'Practice', 'Read millilitres, grams and centimetres from photos, 9 of 10', '+0.02']]),
+          N('var', 'Variables', 0.60, 'gap', 'What you change, what you measure and what you keep the same.', [['Tue 3 Nov', 'Tutor', 'Couldn’t say which thing was being changed in the bean test', '−0.06']]),
+          N('gra', 'Graphing data', 0.69, 'growing', 'Turning readings into a chart someone else can read at a glance.', [['Thu 29 Oct', 'Practice', 'Drew a bar chart of rainfall but forgot the units on one axis', '+0.03']])
+        ],
+        r1: [
+          N('que', 'Testable questions', 0.87, 'shown', 'Turning curiosity into a question an experiment can answer.', [['Fri 23 Oct', 'Tutor', 'Turned “Do plants like music?” into a question you can test', '+0.03']]),
+          N('pre', 'Making predictions', 0.73, 'growing', 'Saying what you expect, and why, before you look.', [['Sat 31 Oct', 'Workshop', 'Predicted which jar of soil would drain first, and why', '+0.04']]),
+          N('fair', 'Fair tests', 0.45, 'now', 'Changing one thing at a time so the result means something.', [
+            ['Thu 5 Nov', 'Planned', 'Reassessment: design a test for which soil holds water longest', 'planned'],
+            ['Tue 3 Nov', 'Tutor', 'Changed the pot size and the amount of water at the same time', '−0.12'],
+            ['Sat 31 Oct', 'Open hours', 'Rain gauge read at 7 a.m. three days running. Logged by you', '+0.06'],
+            ['Fri 30 Oct', 'Workshop', 'Soil lab with Dr. Wairimu: kept the water the same in every jar', '+0.08'],
+            ['Wed 28 Oct', 'Practice', 'Fair-test set, 3 of 5. Both misses were about what to keep the same', '+0.03']
+          ]),
+          N('pat', 'Patterns in data', 0.27, 'notyet', 'Spotting trends and saying how sure you are about them.', [['Mon 19 Oct', 'Tutor', 'Noticed it rains more in the afternoons, from two weeks of notes', '+0.03']]),
+          N('wea', 'Weather & climate', 0.13, 'notyet', 'How air, water and heat make the weather, and how climate differs.', [['Sat 17 Oct', 'Open hours', 'Asked why the long rains came late this year. Logged by you', '+0.01']])
+        ]
+      },
+      {
+        id: 'making', name: 'Making', level: 9, obs: 97, week: [2, 165], next: 'Wed 4 Nov · wire an LED with a switch from a diagram',
+        dests: [
+          ['Build a solar study lamp', 'a solar study lamp', 'A lamp that charges by day and gives three hours of reading light at night, in a case you designed.'],
+          ['Build a hand-washing station', 'a hand-washing station', 'A foot-pedal tap and soap holder for the market, made from parts you can buy there.'],
+          ['Make a bridge that holds 5 kg', 'a model bridge that holds 5 kg', 'Sticks, string and glue only. Shares its maths with the scale-model bridge on your Math map.']
+        ],
+        why: 'Every lamp is a circuit before it’s a lamp. Once you can wire an LED and a switch, solar charging is the next step. Circuit diagrams come along with it.',
+        quiz: { tag: 'Simple circuits', q: 'Your LED won’t light. The battery is new and every wire is tight. What do you try first?', passage: '',
+          ok: 'Yes. An LED only lets current flow one way: the longer leg goes to the positive side.',
+          opts: [['Turn the LED around', true], ['Add a second battery', 'More voltage could burn the LED out. Check its direction first.'], ['Use thicker wire', 'Thin wire is fine for an LED. The problem is which way the current flows.']] },
+        r0: [
+          N('saf', 'Tool safety', 0.98, 'shown', 'Using saws, drills and soldering irons without hurting anyone.', [['Mon 26 Oct', 'Workshop', 'Safety walk-through at the makerspace, signed off', '+0.01']]),
+          N('mm', 'Measuring & marking', 0.93, 'shown', 'Measure twice, mark once, cut on the waste side.', [['Wed 28 Oct', 'Practice', 'Marked out a 30 cm shelf to the millimetre', '+0.02']]),
+          N('dia', 'Circuit diagrams', 0.58, 'gap', 'Reading and drawing circuits with the standard symbols.', [['Mon 2 Nov', 'Tutor', 'Drew the battery but left out the switch symbol', '−0.07']]),
+          N('pro', 'Prototyping', 0.71, 'growing', 'Making a fast, rough version to learn what the real one needs.', [['Thu 29 Oct', 'Workshop', 'Built a cardboard lamp mock-up in 40 minutes', '+0.05']])
+        ],
+        r1: [
+          N('cut', 'Cutting & joining', 0.91, 'shown', 'Clean cuts and joints that hold: glue, screws, pegs.', [['Fri 23 Oct', 'Workshop', 'Cut and glued a plywood box with square corners', '+0.02']]),
+          N('mat', 'Materials choice', 0.86, 'shown', 'Picking the right material for the job, and saying why.', [['Sat 31 Oct', 'Open hours', 'Chose tin over plastic for a reflector, and said why. Logged by you', '+0.03']]),
+          N('cir', 'Simple circuits', 0.46, 'now', 'Batteries, switches and LEDs wired so they work the first time.', [
+            ['Fri 6 Nov', 'Workshop', 'Repair café at the Jua Kali market: fix a broken torch (needs a parent’s OK)', 'planned'],
+            ['Wed 4 Nov', 'Planned', 'Reassessment: wire an LED with a switch from a diagram', 'planned'],
+            ['Mon 2 Nov', 'Tutor', 'Connected the LED backwards and thought the battery was flat', '−0.08'],
+            ['Sat 31 Oct', 'Open hours', 'Made a buzzer game from foil and a 9 V battery. Logged by you', '+0.09'],
+            ['Thu 29 Oct', 'Practice', 'Circuit simulator, 7 of 10. Every miss was an open circuit', '+0.03']
+          ]),
+          N('sol', 'Solar charging', 0.24, 'notyet', 'Getting energy from a panel into a battery safely.', [['Mon 19 Oct', 'Tutor', 'Measured a small panel: 5.8 V in sun, 1.2 V in shade', '+0.03']]),
+          N('enc', 'Enclosure & finish', 0.12, 'notyet', 'A case that protects the insides and is good to hold.', [['Sat 17 Oct', 'Workshop', 'Sketched three lamp shapes and picked one to try', '+0.02']])
+        ]
+      }
+    ];
+  }
+
+  subj() { return this.S.find((s) => s.id === this.state.subj) || this.S[0]; }
+  nowNode(s) { return s.r1[2]; }
+  allNodes(s) { return s.r0.concat(s.r1); }
+  key(id) { return this.state.subj + ':' + id; }
+  selId(s) { return this.state.sel[s.id] || this.nowNode(s).id; }
+  destIdx(s) { return this.state.dest[s.id] || 0; }
+  quizPick(s) { const q = this.state.quiz[s.id]; return typeof q === 'number' ? q : -1; }
+  quizDelta(s) { const p = this.quizPick(s); if (p < 0) return 0; return s.quiz.opts[p][1] === true ? 0.03 : -0.02; }
+  score(s, n) { return Math.max(0, Math.min(1, n.score + (n.id === this.nowNode(s).id ? this.quizDelta(s) : 0))); }
+  routeIds(s) { return [s.r0[2].id, s.r1[2].id, s.r1[3].id, s.r1[4].id, 'dest']; }
+
+  select(id) { const sel = Object.assign({}, this.state.sel); sel[this.state.subj] = id; this.setState({ sel, why: false }); }
+
+  edges(s, selId, route) {
+    const c0 = s.r0.map((n) => n.id).concat(['dest']);
+    const c1 = s.r1.map((n) => n.id);
+    const onRoute = this.routeIds(s);
+    const out = [];
+    const T = '0 solid transparent';
+    const mk = (from, to, kind, c, r, dashed) => {
+      const hl = from === selId || to === selId;
+      const col = hl ? '#1D4ED8' : (dashed ? '#F9A826' : '#9A9E95');
+      const op = route && !(onRoute.indexOf(from) >= 0 && onRoute.indexOf(to) >= 0) ? 0.22 : 1;
+      if (kind === 'h') {
+        const y = 24 + 136 * r;
+        out.push({ l: 180 + 220 * c, t: y + 35, w: 38, h: dashed ? 0 : 2, bg: dashed ? 'transparent' : col, dt: dashed ? '2px dashed ' + col : 'none', dl: 'none',
+          al: 218 + 220 * c, at: y + 31, bt: '5px solid transparent', bb: '5px solid transparent', bl: '7px solid ' + col, br: T, op });
+      } else if (kind === 'down') {
+        const x = 92 + 220 * c;
+        out.push({ l: x - 1, t: 100, w: 2, h: 48, bg: col, dt: 'none', dl: 'none',
+          al: x - 5, at: 148, bt: '7px solid ' + col, bb: T, bl: '5px solid transparent', br: '5px solid transparent', op });
+      } else {
+        const x = 92 + 220 * c;
+        out.push({ l: x - 1, t: 108, w: 0, h: 48, bg: 'transparent', dt: 'none', dl: '2px dashed ' + col,
+          al: x - 5, at: 101, bt: T, bb: '7px solid ' + col, bl: '5px solid transparent', br: '5px solid transparent', op });
+      }
+    };
+    for (let c = 0; c < 3; c++) mk(c0[c], c0[c + 1], 'h', c, 0, false);
+    for (let c = 0; c < 4; c++) mk(c1[c], c1[c + 1], 'h', c, 1, false);
+    mk(c0[2], c1[2], 'down', 2, 0, false);
+    mk(c0[3], c1[3], 'down', 3, 0, false);
+    mk(c1[4], 'dest', 'up', 4, 1, true);
+    return out;
+  }
+
+  linksText(s, id) {
+    const all = this.allNodes(s);
+    const name = (x) => (x === 'dest' ? 'your destination' : (all.find((n) => n.id === x) || {}).name);
+    const c0 = s.r0.map((n) => n.id).concat(['dest']);
+    const c1 = s.r1.map((n) => n.id);
+    const pairs = [];
+    for (let c = 0; c < 3; c++) pairs.push([c0[c], c0[c + 1]]);
+    for (let c = 0; c < 4; c++) pairs.push([c1[c], c1[c + 1]]);
+    pairs.push([c0[2], c1[2]], [c0[3], c1[3]], [c1[4], 'dest']);
+    const ins = pairs.filter((p) => p[1] === id).map((p) => name(p[0]));
+    const outs = pairs.filter((p) => p[0] === id).map((p) => name(p[1]));
+    const join = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1] : a[0]);
+    const parts = [];
+    if (ins.length) parts.push('Builds on ' + join(ins));
+    if (outs.length) parts.push((outs[0] === 'your destination' ? 'Leads to ' : 'Opens up ') + join(outs));
+    return { text: parts.join(' · ') || 'A starting point on this map', ins, outs };
+  }
+
+  renderVals() {
+    const s = this.subj();
+    const now = this.nowNode(s);
+    const selId = this.selId(s);
+    const route = this.state.route;
+    const onRoute = this.routeIds(s);
+    const dest = s.dests[this.destIdx(s)];
+    const f2 = (v) => v.toFixed(2);
+    const pillOf = { shown: ['Shown', '#E4ECFD', '#1E40AF'], growing: ['Growing', '#F4F4EF', '#3F444C'], gap: ['Gap found', '#FEF1D9', '#92400E'], now: ['Working now', '#1D4ED8', '#FFFFFF'], notyet: ['Not yet', '#F4F4EF', '#62676F'] };
+    const mono = "'Geist Mono', ui-monospace, Menlo, monospace";
+    const serif = "'EB Garamond', Garamond, Georgia, serif";
+
+    const subjects = this.S.map((x) => {
+      const on = x.id === s.id;
+      return { name: x.name, levelText: 'L' + x.level, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', lv: on ? 'rgba(255,255,255,0.8)' : '#62676F',
+        pick: () => this.setState({ subj: x.id, why: false, log: false, status: '' }) };
+    });
+
+    const look = {
+      shown: { bg: '#E4ECFD', bd: '1px solid #93BBF3', fg: '#172F73', subFg: '#172F73', shadow: 'none' },
+      growing: { bg: '#FFFFFF', bd: '1px solid #B9BCB4', fg: '#14161A', subFg: '#14161A', shadow: 'none' },
+      gap: { bg: '#FFFFFF', bd: '2px solid #F9A826', fg: '#14161A', subFg: '#92400E', shadow: 'none' },
+      now: { bg: '#1D4ED8', bd: '1px solid #1D4ED8', fg: '#FFFFFF', subFg: '#FFFFFF', shadow: '0 0 0 4px #E4ECFD' },
+      notyet: { bg: '#FAFAF7', bd: '1px dashed #8A8F96', fg: '#3F444C', subFg: '#3F444C', shadow: 'none' },
+      dest: { bg: '#FEF1D9', bd: '1.5px dashed #F9A826', fg: '#78350F', subFg: '#78350F', shadow: 'none' }
+    };
+    const placed = [];
+    s.r0.forEach((n, i) => placed.push([n, i, 0]));
+    placed.push([{ id: 'dest', name: dest[0], st: 'dest' }, 4, 0]);
+    s.r1.forEach((n, i) => placed.push([n, i, 1]));
+    const nodes = placed.map(([n, c, r]) => {
+      const L = look[n.st];
+      const isSel = n.id === selId;
+      const sc = n.st === 'dest' ? 0 : this.score(s, n);
+      const pin = this.state.pins[this.key(n.id)] ? '★ ' : '';
+      let sub = f2(sc);
+      if (n.st === 'gap') sub = f2(sc) + ' · gap';
+      if (n.st === 'now') sub = f2(sc) + ' · now';
+      if (n.st === 'dest') sub = 'your destination';
+      const state = n.st === 'dest' ? 'your destination' : pillOf[n.st][0].toLowerCase();
+      return {
+        x: 8 + 220 * c, y: 24 + 136 * r, name: n.name, sub: pin + sub,
+        subFont: n.st === 'dest' ? serif : mono, subFg: L.subFg, bg: L.bg, bd: L.bd, fg: L.fg,
+        shadow: isSel ? (n.st === 'now' ? '0 0 0 3px #FFFFFF, 0 0 0 6px #14161A' : '0 0 0 3px #FFFFFF, 0 0 0 5px #14161A') : L.shadow,
+        op: route && onRoute.indexOf(n.id) < 0 ? 0.32 : 1,
+        sel: isSel ? 'true' : 'false',
+        aria: n.name + ', ' + state + (n.st === 'dest' ? '' : ', estimate ' + f2(sc)),
+        pick: () => this.select(n.id)
+      };
+    });
+
+    const tag = { Planned: ['#F4F4EF', '#3F444C'], Tutor: ['#E4ECFD', '#1E40AF'], 'Open hours': ['#DDF4F1', '#115E59'], Practice: ['#E4ECFD', '#1E40AF'], Workshop: ['#DDF4F1', '#115E59'] };
+    const dFg = (d) => (d.indexOf('−') === 0 ? '#92400E' : (d.indexOf('+') === 0 ? '#1E40AF' : '#62676F'));
+    const ev = (a) => ({ date: a[0], source: a[1], text: a[2], delta: a[3], tagBg: tag[a[1]][0], tagFg: tag[a[1]][1], deltaFg: dFg(a[3]) });
+
+    const vals = {
+      subjects, nodes,
+      subjName: s.name,
+      pathTitle: 'Your path to ' + dest[1],
+      placed: 'Placed at Level ' + s.level + ' by what you can do, not by your age',
+      graphLabel: 'Skill graph for ' + s.name + ': 9 skills and your destination, ' + dest[0] + '. Select one for details.',
+      edges: this.edges(s, selId, route),
+      routePressed: route ? 'true' : 'false', routeBg: route ? '#FEF1D9' : '#FFFFFF', routeFg: route ? '#92400E' : '#14161A', routeBd: route ? '#F9A826' : '#CFCFC6',
+      routeLabel: route ? 'Showing your route' : 'Show my route',
+      toggleRoute: () => this.setState({ route: !this.state.route }),
+      wkSessions: String(s.week[0]), wkMinutes: String(s.week[1]),
+      wkShown: String(this.allNodes(s).filter((n) => this.score(s, n) >= 0.85).length) + '/9',
+      wkNext: s.next,
+      exportMap: () => this.setState({ status: 'Your ' + s.name + ' map is ready as a PDF and a portable JSON file. (Demo: nothing downloads here.)' }),
+      status: this.state.status,
+      logOpen: this.state.log, logExpanded: this.state.log ? 'true' : 'false',
+      toggleLog: () => this.setState({ log: !this.state.log }),
+      isSkill: selId !== 'dest', isDest: selId === 'dest'
+    };
+
+    const logItems = [];
+    this.allNodes(s).forEach((n) => n.ev.forEach((a) => { if (a[3] !== 'planned') logItems.push({ date: a[0], skill: n.name, text: a[2], delta: a[3], deltaFg: dFg(a[3]), ord: Date.parse(a[0].slice(4) + ' 2026') || 0 }); }));
+    logItems.sort((a, b) => b.ord - a.ord);
+    vals.logItems = logItems;
+    vals.logLabel = this.state.log ? 'Hide observations' : 'Show recent observations (' + logItems.length + ' of ' + s.obs + ')';
+
+    if (selId === 'dest') {
+      const routeNodes = onRoute.filter((id) => id !== 'dest').map((id) => this.allNodes(s).find((n) => n.id === id));
+      const ready = routeNodes.reduce((a, n) => a + Math.min(this.score(s, n) / 0.85, 1), 0) / routeNodes.length;
+      vals.destTitle = dest[0];
+      vals.destAbout = dest[2];
+      vals.destPct = String(Math.round(ready * 100));
+      vals.destCount = String(routeNodes.length);
+      vals.destRoute = routeNodes.map((n) => ({ name: n.name, score: f2(this.score(s, n)), pill: pillOf[n.st][0], pillBg: pillOf[n.st][1], pillFg: pillOf[n.st][2], pick: () => this.select(n.id) }));
+      vals.destOpts = s.dests.map((d, i) => {
+        const on = i === this.destIdx(s);
+        return { label: d[0], pressed: on ? 'true' : 'false', bg: on ? '#FEF1D9' : '#FFFFFF', fg: on ? '#92400E' : '#14161A', bd: on ? '1.5px dashed #F9A826' : '1px solid #CFCFC6',
+          pick: () => { const dd = Object.assign({}, this.state.dest); dd[s.id] = i; this.setState({ dest: dd }); } };
+      });
+      Object.assign(vals, { skName: '', skPill: '', skPillBg: '', skPillFg: '', skLinks: '', skAbout: '', skScore: '', skBandL: 0, skBandW: 0, skPos: 0, skRange: '', views: [], viewNote: '', viewAria: '', hasQuiz: false, hasPassage: false, evidence: [], quizOpts: [], quizDone: false,
+        quizTag: '', quizQ: '', quizPassage: '', quizFb: '', quizFbFg: '#62676F', quizReset: () => {}, pinPressed: 'false', pinLabel: '', pinBg: '#FFFFFF', pinFg: '#14161A', pinBd: 'none', togglePin: () => {},
+        whyOpen: false, whyExpanded: 'false', whyLabel: '', whyText: '', toggleWhy: () => {} });
+      return vals;
+    }
+
+    const n = this.allNodes(s).find((x) => x.id === selId) || now;
+    const sc = this.score(s, n);
+    const shown = sc >= 0.85;
+    const spread = shown ? 0.04 : 0.09;
+    const lo = Math.max(0, sc - spread), hi = Math.min(1, sc + spread);
+    const links = this.linksText(s, n.id);
+    const pill = pillOf[n.st];
+
+    const def = shown ? 'got' : (n.st === 'notyet' ? 'not' : 'getting');
+    const view = this.state.views[this.key(n.id)] || def;
+    const opts = [{ id: 'got', label: 'I’ve got it' }, { id: 'getting', label: 'Getting there' }, { id: 'not', label: 'Not yet' }];
+    const views = opts.map((o) => {
+      const on = view === o.id;
+      return Object.assign({}, o, { pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6',
+        pick: () => { const v = Object.assign({}, this.state.views); v[this.key(n.id)] = o.id; this.setState({ views: v }); } });
+    });
+    let viewNote;
+    if (view === 'got') viewNote = shown ? 'You and Vachuo agree. It will come back now and then, mixed into other work, so it stays.' : 'Then show it. Vachuo will offer one real problem on ' + n.name + ' now: no penalty if it doesn’t go your way.';
+    else if (view === 'getting') viewNote = shown ? 'Vachuo is a little more sure than you are. It will add one quick check this week, just to be certain.' : 'Close to Vachuo’s estimate. Your view is evidence too, and it’s logged alongside the rest.';
+    else viewNote = shown ? 'Vachuo thinks you’ve shown this, but your doubt counts. Expect a short refresher before anything builds on it.' : 'Thanks for saying so. Vachuo will slow down and add a worked example this week.';
+
+    let evidence = n.ev.map(ev);
+    const isNow = n.id === now.id;
+    const qp = this.quizPick(s);
+    if (isNow && qp >= 0) {
+      const ok = s.quiz.opts[qp][1] === true;
+      evidence = [ev(['Today', 'Practice', ok ? 'Quick check from your map: right first time' : 'Quick check from your map: chose “' + s.quiz.opts[qp][0] + '”', ok ? '+0.03' : '−0.02'])].concat(evidence);
+    }
+
+    const ins = links.ins.join(' and ');
+    const whyByState = {
+      shown: 'You’ve shown ' + n.name + '. Vachuo will bring it back in a few weeks, mixed into other work, so it stays shown.',
+      growing: n.name + ' is on its way. A few more pieces of evidence, of different kinds, and it will count as shown.' + (links.outs.length ? ' It matters because it leads to ' + links.outs.join(' and ') + '.' : ''),
+      gap: 'Vachuo found this gap while you were working on ' + now.name + '. A short detour now will save a long one later, so it’s mixed into this week’s work.',
+      now: s.why,
+      notyet: 'Not yet, and that’s fine. It opens up once ' + (ins || 'the skills before it') + (links.ins.length === 1 ? ' reaches' : ' reach') + ' 0.85. You can still try it any time: nothing on your map is locked.'
+    };
+
+    const pinned = !!this.state.pins[this.key(n.id)];
+    Object.assign(vals, {
+      skName: n.name, skPill: pill[0], skPillBg: pill[1], skPillFg: pill[2], skLinks: links.text, skAbout: n.about,
+      skScore: f2(sc), skBandL: (lo * 100).toFixed(1), skBandW: ((hi - lo) * 100).toFixed(1), skPos: (sc * 100).toFixed(1),
+      skRange: 'Likely between ' + f2(lo) + ' and ' + f2(hi) + '. ' + (shown ? 'That counts as shown.' : 'At 0.85, with two kinds of evidence, it counts as shown.'),
+      views, viewNote, viewAria: 'How sure are you about ' + n.name + '?',
+      evidence,
+      pinPressed: pinned ? 'true' : 'false', pinLabel: pinned ? '★ Pinned as a destination' : 'Make this a destination',
+      pinBg: pinned ? '#FEF1D9' : '#1D4ED8', pinFg: pinned ? '#92400E' : '#FFFFFF', pinBd: pinned ? '1.5px dashed #F9A826' : '1px solid #1D4ED8',
+      togglePin: () => { const p = Object.assign({}, this.state.pins); p[this.key(n.id)] = !pinned; this.setState({ pins: p }); },
+      whyOpen: this.state.why, whyExpanded: this.state.why ? 'true' : 'false', whyLabel: this.state.why ? 'Hide the reason' : (isNow ? 'Why is this next?' : 'Why is it here?'),
+      whyText: whyByState[n.st],
+      toggleWhy: () => this.setState({ why: !this.state.why }),
+      hasQuiz: isNow
+    });
+
+    const q = s.quiz;
+    vals.quizTag = q.tag;
+    vals.quizQ = q.q;
+    vals.quizPassage = q.passage;
+    vals.hasPassage = !!q.passage;
+    vals.quizDone = qp >= 0;
+    vals.quizOpts = q.opts.map((o, i) => {
+      const picked = qp === i, right = o[1] === true, done = qp >= 0;
+      let bg = '#FFFFFF', bd = '#CFCFC6', markBg = '#F4F4EF', markFg = '#3F444C', mark = String.fromCharCode(65 + i);
+      if (done && right) { bg = '#DDF4F1'; bd = '#0D9488'; markBg = '#0D9488'; markFg = '#FFFFFF'; mark = '✓'; }
+      else if (picked) { bg = '#FEF1D9'; bd = '#F9A826'; markBg = '#F9A826'; markFg = '#14161A'; mark = '✗'; }
+      return { t: o[0], bg, bd, markBg, markFg, mark, pressed: picked ? 'true' : 'false',
+        pick: () => { if (this.quizPick(s) >= 0) return; const qq = Object.assign({}, this.state.quiz); qq[s.id] = i; this.setState({ quiz: qq }); } };
+    });
+    if (qp >= 0) {
+      const right = q.opts[qp][1] === true;
+      vals.quizFb = right ? q.ok + ' Estimate +0.03.' : q.opts[qp][1] + ' Logged as a slip to work on, −0.02.';
+      vals.quizFbFg = right ? '#115E59' : '#92400E';
+    } else {
+      vals.quizFb = 'Pick one. Your answer updates the estimate above.';
+      vals.quizFbFg = '#62676F';
+    }
+    vals.quizReset = () => { const qq = Object.assign({}, this.state.quiz); delete qq[s.id]; this.setState({ quiz: qq }); };
+    return vals;
+  }
+}
+return Component;
+});
+
+DC.mount("Map");
+</script>
+</body>
+</html>

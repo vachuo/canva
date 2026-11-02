@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · The operating system for individualized education</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
+.lnode{transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
+.lnode:hover{transform:translateY(-3px)}
+.lnode.pre,.lyedge.pre{opacity:0 !important}
+.lnode.pre{transform:translateY(16px) scale(.96)}
+.lyedge{transition:opacity .4s ease,background-color .3s ease}
+.dv,.dh,.dhr{position:absolute;width:8px;height:8px;border-radius:50%;animation-duration:1.8s;animation-timing-function:linear;animation-iteration-count:infinite}
+.dv{left:-3px;animation-name:dv}.dh{top:-3px;animation-name:dh}.dhr{top:-3px;animation-name:dhr}
+@keyframes dv{0%{top:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:calc(100% - 4px);opacity:0}}
+@keyframes dh{0%{left:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 4px);opacity:0}}
+@keyframes dhr{0%{left:calc(100% - 4px);opacity:0}15%{opacity:1}85%{opacity:1}100%{left:-4px;opacity:0}}
+.antv{animation:antv .8s linear infinite}@keyframes antv{to{background-position:0 12px}}
+.anth{animation:anth .8s linear infinite}@keyframes anth{to{background-position:-12px 0}}
+.ripple{position:absolute;inset:-3px;border-radius:15px;border:2px solid;pointer-events:none;animation:ripple 1.6s ease-out infinite}
+@keyframes ripple{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(1.12,1.45)}}
+.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.lyrow{transition:background .2s ease}.lyrow:hover{background:#F4F4EF}
+.unfold{animation:unfold .35s ease}@keyframes unfold{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dv,.dh,.dhr{display:none}.antv,.anth,.ripple,.pop,.unfold{animation:none}.lnode:hover{transform:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Landing">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(244,244,239,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="#top" aria-label="Vachuo home" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto">
+</a>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0 20px; font-size: 14.5px; font-weight: 500">
+<a href="#moat" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">The loop</a>
+<a href="#layers" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">System</a>
+<a href="#cap" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">CAP</a>
+<a href="#parents" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Parents</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; text-decoration: none">Sign in</a>
+<a href="#access" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Request early access</a>
+</div>
+</div>
+</header>
+
+<main id="top">
+
+<section aria-labelledby="hero" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 7vw, 104px) clamp(16px, 4vw, 48px) clamp(56px, 7vw, 96px); display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 540px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 6px 12px; border-radius: 999px">End-to-end AI school · K–12</span>
+<h1 id="hero" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(42px, 5.8vw, 80px); line-height: 0.98; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">Everyone will have an AI tutor. Vachuo runs the whole school.</h1>
+<p style="margin: 0; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: #3F444C; max-width: 640px; text-wrap: pretty">The operating system for individualized K–12 education: a validated CAP engine, persistent learner model, autonomous AI teachers, automated school administration, parent copilot, and human expertise available only when it adds value.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#access" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">Request early access<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="today.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 16px; font-weight: 500; text-decoration: none">Take the product tour</a>
+</div>
+<p style="margin: 0; font-size: 14px; color: #62676F">Starting with homeschooling families. Built for every kind of school.</p>
+</div>
+
+<div style="flex: 1 1 400px; min-width: 0; position: relative; display: flex; justify-content: center; padding: 28px 0">
+<svg aria-hidden="true" viewBox="0 0 400 400" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: min(540px, 100%); height: auto; pointer-events: none"><rect x="300" y="8" width="56" height="56" rx="11" fill="#1684E8" opacity="0.2"/><rect x="364" y="70" width="28" height="28" rx="6" fill="#0D9488" opacity="0.4"/><rect x="256" y="74" width="34" height="34" rx="7" fill="#F9A826" opacity="0.55"/><rect x="6" y="292" width="72" height="72" rx="14" fill="#1D4ED8" opacity="0.1"/><rect x="88" y="352" width="26" height="26" rx="5" fill="#0D9488" opacity="0.35"/></svg>
+<article aria-label="Example Parent Copilot briefing" style="position: relative; width: 100%; max-width: 460px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 24px 48px -24px rgba(20, 22, 26, 0.25)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Parent Copilot · Sunday</span>
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">week 9</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid #ECECE6">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #E4ECFD">James, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
+<p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C">Mastered multiplication; still confusing division remainders. Next week’s path now has three short prerequisite lessons.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #FEF1D9">Sarah, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
+<p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C">Avoiding writing for four days. She can do it, so this looks behavioral, not a knowledge gap.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="font-size: 12.5px; padding: 6px 10px; border-radius: 10px; border: 1px solid #E2E2DA">Projects around animals</span>
+<span style="font-size: 12.5px; padding: 6px 10px; border-radius: 10px; border: 1px solid #E2E2DA">10-minute talk with you</span>
+<span style="font-size: 12.5px; padding: 6px 10px; border-radius: 10px; border: 1px solid #E2E2DA">A writing coach</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding-top: 4px">
+<div aria-hidden="true" style="display: flex; gap: 3px">
+<template data-for="{{miniLoop}}" data-as="m"><span style="flex: 1 1 0; height: 5px; border-radius: 3px; background: {{m.bg}}"></span></template>
+</div>
+<span style="font-size: 12.5px; color: #62676F">Each line above is one turn of the closed loop.</span>
+</div>
+</article>
+</div>
+</section>
+
+<section aria-labelledby="learners-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(16px, 4vw, 48px) clamp(56px, 6vw, 88px)">
+<div style="position: relative; overflow: hidden; border-radius: 28px; background: #1D4ED8; color: #FFFFFF; display: flex; flex-wrap: wrap; align-items: flex-end">
+<span aria-hidden="true" style="position: absolute; width: 760px; height: 760px; right: -260px; top: -520px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.28)"></span>
+<span aria-hidden="true" style="position: absolute; width: 1300px; height: 1300px; left: -560px; top: -980px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span aria-hidden="true" style="position: absolute; left: -20%; right: -20%; bottom: -120px; height: 220px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: relative; flex: 1 1 340px; min-width: 0; align-self: flex-start; box-sizing: border-box; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #DCE6FD">Meet the learners</span>
+<h2 id="learners-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Every child, every continent. One loop.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DCE6FD; text-wrap: pretty">From Nairobi to Cusco, Seoul to Window Rock, every learner starts in a different place and moves at a different speed. Vachuo finds where each of them is, plans the next step, and brings in a person when it matters.</p>
+<a href="today.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #FFFFFF; color: #1E40AF; font-size: 15px; font-weight: 600; text-decoration: none">See Amani’s day<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<div style="position: relative; flex: 1 1 100%; min-width: 0; height: clamp(220px, 26vw, 380px); box-sizing: border-box; padding: 8px 16px 18px; display: flex; justify-content: center; align-items: flex-end">
+<img src="assets/img/80b06694a121b52e5cf0510bfda36f44.svg" alt="Illustrated learners from all seven continents, in everyday, formal and traditional dress" style="display: block; max-height: 100%; max-width: 100%; width: auto; height: auto">
+</div>
+</div>
+</section>
+
+<section id="moat" aria-labelledby="moat-title" style="background: #111315; color: #EDEDE8">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 900px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7DB4FF">The moat</span>
+<h2 id="moat-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">The real moat is not the AI tutor.</h2>
+<p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; color: #C9CCD0; text-wrap: pretty">Everyone will have an AI tutor. Vachuo’s moat is the closed loop, and running it for every child.</p>
+</div>
+<ol aria-label="The closed loop" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 10px">
+<template data-for="{{loop}}" data-as="s">
+<li style="display: flex">
+<button type="button" aria-current="{{s.cur}}" onClick="{{s.pick}}" style="flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 18px; min-height: 104px; box-sizing: border-box; padding: 14px; border-radius: 14px; background: {{s.bg}}; border: 1px solid {{s.bd}}; color: #EDEDE8; text-align: left; cursor: pointer; transform: {{s.tf}}; transition: background .35s ease, border-color .35s ease, transform .35s ease">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: {{s.c}}">{{s.n}}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.25">{{s.name}}</span>
+</button>
+</li>
+</template>
+</ol>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: -20px">
+<button type="button" onClick="{{loopToggle}}" aria-pressed="{{loopPressed}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; background: transparent; color: #EDEDE8; font-size: 14px; font-weight: 500; cursor: pointer">{{loopToggleLabel}}</button>
+<p aria-live="polite" style="flex: 1 1 320px; margin: 0; font-size: 16px; line-height: 1.5; color: #C9CCD0"><span style="color: #AFD0FF; font-weight: 600">{{loopNow}}.</span> {{loopCaption}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 15px; color: #A3A8AE">And doing that across</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<template data-for="{{scale}}" data-as="t"><span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: clamp(16px, 1.6vw, 21px); padding: 12px 16px; border-radius: 12px; border: 1px solid #2B4A94; color: #EDEDE8">{{t}}</span></template>
+</div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #A3A8AE; max-width: 640px">That is an enormous systems problem, and the reason a better chatbot will not be enough. <a href="loop.html" style="color: #7DB4FF; font-weight: 500">See the loop inside Vachuo</a></p>
+</div>
+</div>
+</section>
+
+<section id="layers" aria-labelledby="layers-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 820px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">The full system</span>
+<h2 id="layers-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Vachuo AI School, in seven layers</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C; text-wrap: pretty">The parent layer and school operations sit on one persistent learner model per child, with people brought in where people matter.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 720px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div role="group" aria-label="Highlight a path" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{lyViews}}" data-as="v">
+<button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{v.bd}}; background: {{v.bg}}; color: {{v.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{v.dot}}"></span>{{v.label}}</button>
+</template>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 22px; padding: 24px 0">
+<div id="layers-diagram" role="group" aria-label="Seven layers. Parent OS at the top branches to the AI School Manager and to Human help on demand. The AI School Manager drives Content, Assessment and Pedagogy, which feed the Learner model, then the Knowledge and skill graph, then AI tutor agents, then the individual child. Human help reaches the child directly with motivation and mentorship. Select a layer to trace its path." style="position: relative; width: 720px; height: 760px; margin: 0 auto; font-size: 14px; line-height: 18px">
+<template data-for="{{lyEdges}}" data-as="e">
+<span aria-hidden="true" class="{{e.cls}}" style="position: absolute; left: {{e.l}}px; top: {{e.t}}px; width: {{e.w}}px; height: {{e.h}}px; background: {{e.bg}}; opacity: {{e.op}}"><template data-if="{{e.dot}}"><span class="{{e.dotCls}}" style="background: {{e.dotCol}}; animation-delay: {{e.delay}}s"></span></template></span>
+</template>
+<span aria-hidden="true" class="{{arrowCls}}" style="position: absolute; left: 401px; top: 711px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid {{arrowCol}}; opacity: {{arrowOp}}"></span>
+<template data-for="{{lyNodes}}" data-as="n">
+<button type="button" class="{{n.cls}}" aria-pressed="{{n.pressed}}" aria-label="{{n.aria}}" onClick="{{n.pick}}" style="position: absolute; left: {{n.x}}px; top: {{n.y}}px; width: {{n.w}}px; height: 56px; box-sizing: border-box; margin: 0; padding: 6px 10px; display: flex; align-items: center; justify-content: center; gap: 6px; text-align: center; border-radius: 12px; background: {{n.bg}}; border: {{n.bd}}; color: {{n.fg}}; box-shadow: {{n.shadow}}; opacity: {{n.op}}; transition-delay: {{n.delay}}ms; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 14px; line-height: 18px; cursor: pointer">
+<template data-if="{{n.active}}"><span class="ripple" aria-hidden="true" style="border-color: {{n.accent}}"></span></template>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: {{n.tag}}">{{n.l}}</span><b style="font-weight: 600">{{n.name}}</b>
+<template data-if="{{n.hasBadge}}"><span class="pop" aria-hidden="true" style="position: absolute; right: -12px; top: -15px; white-space: nowrap; padding: 3px 9px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(20,22,26,0.6)">{{n.badge}}</span></template>
+</button>
+</template>
+<span aria-hidden="true" style="position: absolute; left: 572px; top: 446px; width: 132px; font-size: 13px; line-height: 16px; color: #115E59; opacity: {{humanLabelOp}}; transition: opacity .3s ease">Motivation and mentorship</span>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="border-radius: 20px; background: #14161A; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7DB4FF">Follow one signal</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #A3A8AE">{{tourCount}}</span></div>
+<p style="margin: 0; font-size: 20px; line-height: 1.25; font-weight: 600">{{tourTitle}}</p>
+<p aria-live="polite" style="margin: 0; min-height: 72px; font-size: 16px; line-height: 1.5; color: #DCE6FD">{{tourText}}</p>
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px"><template data-for="{{tourBars}}" data-as="b"><span style="height: 4px; border-radius: 2px; background: {{b.bg}}; transition: background .3s ease"></span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-label="Previous step" onClick="{{tourPrev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" aria-pressed="{{tourPressed}}" onClick="{{tourToggle}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">{{tourLabel}}</button>
+<button type="button" aria-label="Next step" onClick="{{tourNext}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{lyList}}" data-as="l">
+<li style="border-top: 1px solid #E2E2DA">
+<button type="button" class="lyrow" aria-expanded="{{l.expanded}}" onClick="{{l.pick}}" style="width: 100%; display: flex; gap: 14px; align-items: flex-start; padding: 12px 6px; border: none; border-radius: 10px; background: {{l.bg}}; color: #14161A; text-align: left; cursor: pointer">
+<span style="flex: none; width: 28px; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: {{l.c}}; padding-top: 3px">{{l.n}}</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; font-weight: 600">{{l.name}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 15.5px; line-height: 1.5; color: #3F444C">{{l.text}}</span></span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#62676F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 4px; transform: rotate({{l.rot}}deg); transition: transform .25s ease"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<template data-if="{{l.isOpen}}">
+<div class="unfold" style="padding: 0 6px 14px 48px; display: flex; flex-direction: column; gap: 8px">
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.45; color: #3F444C">
+<template data-for="{{l.bullets}}" data-as="b"><li>{{b}}</li></template>
+</ul>
+<template data-if="{{l.href}}"><a href="{{l.href}}" style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500">{{l.link}} →</a></template>
+</div>
+</template>
+</li>
+</template>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="cap" aria-labelledby="cap-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Content · Assessment · Pedagogy</span>
+<h2 id="cap-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">The CAP problem is more subtle than “generate lessons.”</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C">For Vachuo, CAP is three interconnected graphs.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 20px; align-items: start">
+
+<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">01</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Content graph</h3>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #62676F">Not</span>
+<span style="font-size: 16px; color: #62676F; text-decoration: line-through; text-decoration-color: #0D9488">“Here is Grade 5 math.”</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #62676F">Instead</span>
+<ol aria-label="Example concept chain" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px">
+<template data-for="{{chain}}" data-as="c">
+<li style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px">
+<span style="font-size: 14.5px; font-weight: 500; padding: 7px 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E2E2DA">{{c.name}}</span>
+<template data-if="{{c.more}}"><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true" style="margin-left: 16px"><path d="M8 1v11M3.5 8L8 12.5 12.5 8" fill="none" stroke="#9A9E95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></template>
+</li>
+</template>
+</ol>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every concept needs prerequisites, learning objectives, standards, examples, misconceptions, difficulty levels and applications.</p>
+</article>
+
+<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">02</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Assessment graph</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every interaction updates a probability:</p>
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: clamp(16px, 1.6vw, 19px); padding: 14px 16px; border-radius: 12px; background: #14161A; color: #7DB4FF">P(student understands skill X)</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">A wrong answer isn’t merely <span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace">0 points</span>. It might mean:</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{causes}}" data-as="c"><li style="font-size: 13.5px; padding: 6px 11px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">{{c}}</li></template>
+</ul>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #14161A; font-weight: 500">Those lead to completely different interventions.</p>
+</article>
+
+<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">03</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Pedagogy graph</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Then the AI determines:</p>
+<ol style="margin: 0; padding: 0 0 0 22px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.4">
+<template data-for="{{questions}}" data-as="q"><li>{{q}}</li></template>
+</ol>
+<p style="margin: 0; padding: 14px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 16px; line-height: 1.55">This is much harder than content generation, and no one has convincingly solved it across K–12 yet.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section id="people" aria-labelledby="people-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #115E59">The fourth layer</span>
+<h2 id="people-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Motivation, the layer most competitors underestimate.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3F444C; text-wrap: pretty">AI may solve content, explanation, assessment, grading, planning and administration before it solves one question:</p>
+<div style="display: flex; align-items: center; gap: 16px">
+<img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="flex: none; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; background: #DDF4F1">
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; color: #115E59; text-wrap: balance">“Why should an 8-year-old care about fractions today?”</p>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3F444C; text-wrap: pretty">Even Alpha, arguably the most aggressive believer in AI instruction, doesn’t eliminate adults. It moves them from teacher to guide, responsible for motivation, emotional support and coaching.</p>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<div style="flex: 1 1 200px; border-radius: 18px; background: #E4ECFD; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">AI handles</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 16px; font-weight: 500; color: #172F73">
+<li>Content</li><li>Explanation</li><li>Assessment</li><li>Grading</li><li>Planning</li><li>Administration</li>
+</ul>
+</div>
+<div style="flex: 1 1 200px; border-radius: 18px; background: #DDF4F1; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #115E59">Humans handle</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 16px; font-weight: 500; color: #134E4A">
+<li>Motivation</li><li>Mentorship</li><li>Relationships</li><li>Inspiration</li>
+</ul>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<span style="font-size: 18px; font-weight: 600; color: #62676F; text-decoration: line-through">Teacher</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+<span style="font-size: 18px; font-weight: 600; color: #115E59">Guide</span>
+<span style="flex: 1 1 200px; font-size: 15.5px; line-height: 1.5; color: #3F444C">The adult’s job changes. It doesn’t disappear.</span>
+</div>
+</div>
+</div>
+<figure style="margin: 0; position: relative">
+<img src="assets/img/4de2ed3f217056ab76b199a4501cab88.webp" alt="A boy learns at home with an AI tutor on screen while a human guide joins by video" style="display: block; width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 24px">
+<figcaption style="position: absolute; left: 16px; bottom: 16px; font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.94); color: #14161A">AI tutor for instruction · a human guide for what matters</figcaption>
+</figure>
+<div style="border-radius: 24px; background: #14161A; color: #EDEDE8; padding: clamp(24px, 4vw, 48px); display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 16px; color: #A3A8AE">We don’t sell <span style="color: #EDEDE8; text-decoration: line-through; text-decoration-color: #F9A826">“No teachers.”</span> We sell this:</p>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.12; letter-spacing: -0.015em; font-weight: 500; text-wrap: balance">AI handles instruction and school operations. Humans handle what humans are best at: <span style="color: #F9A826">motivation, mentorship, relationships and inspiration.</span></p>
+<p style="margin: 0; font-size: 15px; color: #A3A8AE">Educationally stronger, and much easier to defend.</p>
+</div>
+</section>
+
+<section id="parents" aria-labelledby="parents-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">The wedge</span>
+<h2 id="parents-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Not a dashboard. An AI school principal for the parent.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C; text-wrap: pretty">Most homeschooling products still show parents analytics. Vachuo’s Parent Copilot explains what happened, acts on it, and asks only when a parent’s judgment is needed.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<div style="flex: 1 1 280px; min-width: 0; border-radius: 22px; background: #F4F4EF; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">What parents get today</span>
+<img src="assets/img/9fc3c61854cc5c01193c9cd4234c440a.webp" alt="A worried parent reads printouts while her daughter works on a laptop" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px">
+<dl style="margin: 0; display: flex; flex-direction: column; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 16px; color: #3F444C">
+<div style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #DCDCD3"><dt>Math</dt><dd style="margin: 0">82%</dd></div>
+<div style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #DCDCD3"><dt>English</dt><dd style="margin: 0">91%</dd></div>
+<div style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #DCDCD3; border-bottom: 1px solid #DCDCD3"><dt>Lessons completed</dt><dd style="margin: 0">17</dd></div>
+</dl>
+<p style="margin: auto 0 0; font-size: 16px; line-height: 1.5; color: #62676F">That’s analytics. It says what happened, not what it means or what to do next.</p>
+</div>
+<div style="flex: 2 1 480px; min-width: 0; border-radius: 22px; border: 1.5px solid #1D4ED8; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">What a Parent Copilot says</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #E4ECFD"><span style="font-size: 16px; font-weight: 600">James, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">James mastered multiplication this week but is repeatedly confusing division remainders. His confidence drops when word problems contain more than two steps. Vachuo has therefore adjusted next week’s learning path and inserted three short prerequisite lessons. No intervention is required from you right now.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid #ECECE6">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9"><span style="font-size: 16px; font-weight: 600">Sarah, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">Sarah has been avoiding writing assignments for four days. Academically she can perform them, so this appears behavioral rather than a knowledge gap. Would you like Vachuo to adjust her projects around her interest in animals, schedule a 10-minute conversation with you, or connect her with a writing coach?</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #CFCFC6">Projects around animals</span>
+<span style="font-size: 13.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #CFCFC6">10-minute conversation</span>
+<span style="font-size: 13.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #CFCFC6">Writing coach</span>
+</div>
+</div>
+<a href="copilot.html" style="align-self: flex-start; font-size: 14.5px; font-weight: 600">Open the Parent Copilot</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="scale" aria-labelledby="scale-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Beyond homeschooling</span>
+<h2 id="scale-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">The business doesn’t have to stop at homeschooling.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C">The same infrastructure can eventually power every kind of school.</p>
+</div>
+<img src="assets/img/827a1ca470366ddf9133088b3b15d8eb.webp" alt="A night map of the world linking learners, parents and teachers on every continent" style="display: block; width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 24px">
+<ol aria-label="Expansion path" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px">
+<template data-for="{{path}}" data-as="p">
+<li style="flex: 1 1 150px; min-width: 0; box-sizing: border-box; min-height: {{p.h}}; padding: 18px; border-radius: 18px; background: {{p.bg}}; color: {{p.fg}}; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; opacity: 0.8">{{p.n}}</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">{{p.name}}</span><span style="font-size: 13.5px; line-height: 1.4; opacity: 0.85">{{p.note}}</span></span>
+</li>
+</template>
+</ol>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3F444C; max-width: 760px">Families → tutors → microschools → private schools → charter schools → governments. That is considerably more venture-scale than a homeschool curriculum subscription.</p>
+</section>
+
+<section id="field" aria-labelledby="field-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(56px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">The field</span>
+<h2 id="field-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Six competitors we take seriously.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C; text-wrap: pretty">Not twenty logos. A few are getting close, but no one has yet demonstrably solved the whole problem at K–12 scale.</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px">
+<template data-for="{{rivals}}" data-as="r">
+<li style="border-radius: 18px; background: #F4F4EF; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">{{r.n}}</span>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">{{r.name}}</span>
+<span style="font-size: 15px; line-height: 1.5; color: #3F444C">{{r.role}}</span>
+<template data-if="{{r.note}}"><span style="font-size: 15px; line-height: 1.5; color: #62676F">{{r.note}}</span></template>
+</li>
+</template>
+</ol>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 18px 22px; border-radius: 18px; border: 1px dashed #9A9E95">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Benchmark</span>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">Synthesis</span>
+<span style="flex: 1 1 300px; font-size: 15px; line-height: 1.5; color: #3F444C">The benchmark for AI pedagogy, rather than an end-to-end competitor.</span>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="deschool-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 5vw, 72px) clamp(16px, 4vw, 48px) 0">
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; padding: clamp(24px, 4vw, 40px); border-radius: 24px; background: #DDF4F1">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #115E59">Deschooled by design</span>
+<h2 id="deschool-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; color: #134E4A; text-wrap: balance">A school this powerful needs limits.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #134E4A; text-wrap: pretty">After Ivan Illich’s Deschooling Society, the loop obeys rules that keep learners free: every inference is contestable, open time is never observed, learning in the world counts, and records belong to the learner.</p>
+</div>
+<a href="loop.html" style="flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Read the seven constraints<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<img src="assets/img/f2d98c98ce8744c8f63eeb876bbf6246.svg" alt="" style="flex: none; align-self: flex-end; height: 190px; width: auto; margin-bottom: calc(-1 * clamp(24px, 4vw, 40px))">
+</div>
+</section>
+
+<section id="access" aria-labelledby="access-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 5vw, 72px) clamp(16px, 4vw, 48px) clamp(64px, 8vw, 112px)">
+<div style="border-radius: 28px; background: #1D4ED8; color: #FFFFFF; padding: clamp(28px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-end">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<img src="assets/img/mark-white.png" alt="" style="width: 72px; height: auto">
+<h2 id="access-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">Start with one family. Build toward every school.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #DCE6FD">Families, tutors, microschools and schools: tell us who you are and we’ll write when Vachuo opens in your region.</p>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<label for="email" style="font-size: 13.5px; font-weight: 600; color: #DCE6FD">Email</label>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<input id="email" type="email" autocomplete="email" placeholder="you@example.com" value="{{email}}" onChange="{{setEmail}}" onKeyDown="{{emailKey}}" aria-invalid="{{emailInvalid}}" aria-describedby="email-msg" style="flex: 1 1 220px; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 18px; border-radius: 14px; border: 2px solid {{emailBorder}}; background: #FFFFFF; font-size: 16px; color: #14161A">
+<button type="button" onClick="{{joinList}}" style="min-height: 52px; padding: 0 22px; border-radius: 14px; border: none; background: #14161A; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{joinLabel}}</button>
+</div>
+<p id="email-msg" role="status" style="margin: 0; min-height: 22px; font-size: 14.5px; line-height: 1.5; color: #FFFFFF">{{emailMsg}}</p>
+</div>
+<div aria-hidden="true" style="flex: 0 1 210px; width: 210px; max-width: 58%; margin: 0 auto calc(-1 * clamp(28px, 5vw, 64px)); display: flex; flex-direction: column; align-items: center; gap: 6px">
+<span style="align-self: flex-start; padding: 8px 14px; border-radius: 16px 16px 16px 4px; background: #FFFFFF; color: #172F73; font-family: 'EB Garamond', Garamond, Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.15; white-space: nowrap; box-shadow: 0 8px 20px -10px rgba(16,24,64,0.45)">Hi! Ready when you are.</span>
+<img src="assets/img/4029747382fc6c61ccd72a2172cd19f0.svg" alt="" style="display: block; width: 100%; height: auto">
+</div>
+</div>
+</section>
+</main>
+
+<footer style="border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 8px"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0 20px">
+<a href="today.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Product tour</a>
+<a href="loop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">The loop</a>
+<a href="copilot.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Parent Copilot</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">White paper</a>
+<a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Vision, mission &amp; values</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Sign in</a>
+<span style="display: inline-flex; align-items: center; min-height: 44px">[CONTACT EMAIL]</span>
+</nav>
+<nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; margin-right: 8px">Follow Vachuo</span>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">LinkedIn</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Facebook</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Instagram</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">X</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">TikTok</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">YouTube</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">WhatsApp Channel</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Threads</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Spotify</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Apple Podcasts</a>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Landing", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 0, playing: true, email: '', joined: false, emailErr: false, scrolled: false, showTop: false,
+      ly: 'tour', lyKey: '', lyView: 'all', tour: true, tstep: 0, built: true, builtDone: true };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) this.setState({ playing: false, tour: false, ly: 'idle' });
+    this._tourT = setInterval(() => { if (this.state.ly === 'tour' && this.state.tour && this.state.built && !document.hidden) this.setState({ tstep: (this.state.tstep + 1) % 8 }); }, 2800);
+    if (!reduce && window.innerHeight < 1600 && 'IntersectionObserver' in window) {
+      const dg = document.getElementById('layers-diagram');
+      if (dg && dg.getBoundingClientRect().top > window.innerHeight * 0.85) {
+        this.setState({ built: false, builtDone: false });
+        this._io2 = new IntersectionObserver((es) => {
+          if (!es.some((x) => x.isIntersecting)) return;
+          this._io2.disconnect();
+          this.setState({ built: true, tstep: 0 });
+          this._bt = setTimeout(() => this.setState({ builtDone: true }), 1800);
+        }, { rootMargin: '0px 0px -15% 0px' });
+        this._io2.observe(dg);
+      }
+    }
+    this._tick = setInterval(() => { if (this.state.playing && !document.hidden) this.setState({ step: (this.state.step + 1) % 11 }); }, 2000);
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || 0, scrolled = y > 8, showTop = y > 900;
+        if (scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ scrolled, showTop });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (!reduce && window.innerHeight < 1600 && 'IntersectionObserver' in window) {
+      const vh = window.innerHeight;
+      this._io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-shown', ''); this._io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main > section').forEach((el) => { if (el.getBoundingClientRect().top > vh * 0.9) { el.setAttribute('data-rv', ''); this._io.observe(el); } });
+      document.documentElement.classList.add('rv-on');
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this._tick);
+    clearInterval(this._tourT);
+    clearTimeout(this._bt);
+    if (this._io2) this._io2.disconnect();
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    document.documentElement.classList.remove('rv-on');
+  }
+  join() {
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email.trim());
+    this.setState(ok ? { joined: true, emailErr: false } : { emailErr: true, joined: false });
+  }
+  layerVals() {
+    const st = this.state;
+    const N = {
+      p: { x: 280, y: 16, w: 240, l: 'L1', name: 'Parent OS', bg: '#14161A', bd: 'none', fg: '#FFFFFF', tag: '#7DB4FF', accent: '#14161A', lv: 0, key: 'p' },
+      m: { x: 170, y: 136, w: 220, l: 'L2', name: 'AI School Manager', bg: '#E4ECFD', bd: '1px solid #93BBF3', fg: '#172F73', tag: '#172F73', accent: '#1D4ED8', lv: 1, key: 'm' },
+      h: { x: 450, y: 136, w: 220, l: 'L2', name: 'Human help on demand', bg: '#DDF4F1', bd: '1px solid #8FD3C9', fg: '#134E4A', tag: '#134E4A', accent: '#0D9488', lv: 1, key: 'h' },
+      c: { x: 22, y: 256, w: 156, l: 'L3', name: 'Content', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
+      a: { x: 202, y: 256, w: 156, l: 'L3', name: 'Assessment', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
+      g: { x: 382, y: 256, w: 156, l: 'L3', name: 'Pedagogy', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
+      lm: { x: 160, y: 376, w: 240, l: 'L4', name: 'Learner model', bg: '#1D4ED8', bd: 'none', fg: '#FFFFFF', tag: '#C7D7FB', accent: '#1D4ED8', lv: 3, key: 'lm' },
+      kg: { x: 160, y: 480, w: 240, l: 'L5', name: 'Knowledge / Skill graph', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 4, key: 'kg' },
+      t: { x: 160, y: 584, w: 240, l: 'L6', name: 'AI tutor agents', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 5, key: 't' },
+      k: { x: 160, y: 688, w: 240, l: 'L7', name: 'Individual child', bg: '#DDF4F1', bd: '1.5px solid #0D9488', fg: '#134E4A', tag: '#134E4A', accent: '#0D9488', lv: 6, key: 'k' }
+    };
+    // [id, from, to, kind, x1, y1, x2, y2, human, delay]
+    const E = [
+      ['e1', 'p', 'j1', 'v', 400, 72, 400, 104, 0, 0], ['e2a', 'j1', 'jl', 'h', 400, 104, 280, 104, 0, 0.3], ['e2b', 'j1', 'jr', 'h', 400, 104, 560, 104, 1, 0.3],
+      ['e3', 'jl', 'm', 'v', 280, 104, 280, 136, 0, 0.6], ['e4', 'jr', 'h', 'v', 560, 104, 560, 136, 1, 0.6], ['e5', 'm', 'j2', 'v', 280, 192, 280, 224, 0, 0.9],
+      ['e6a', 'j2', 'j2l', 'h', 280, 224, 100, 224, 0, 1.2], ['e6b', 'j2', 'j2r', 'h', 280, 224, 460, 224, 0, 1.2],
+      ['e7', 'j2l', 'c', 'v', 100, 224, 100, 256, 0, 1.5], ['e8', 'j2', 'a', 'v', 280, 224, 280, 256, 0, 1.5], ['e9', 'j2r', 'g', 'v', 460, 224, 460, 256, 0, 1.5],
+      ['e10', 'c', 'j3l', 'v', 100, 312, 100, 344, 0, 0], ['e11', 'a', 'j3', 'v', 280, 312, 280, 344, 0, 0], ['e12', 'g', 'j3r', 'v', 460, 312, 460, 344, 0, 0],
+      ['e13a', 'j3l', 'j3', 'h', 100, 344, 280, 344, 0, 0.3], ['e13b', 'j3r', 'j3', 'h', 460, 344, 280, 344, 0, 0.3], ['e14', 'j3', 'lm', 'v', 280, 344, 280, 376, 0, 0.6],
+      ['e15', 'lm', 'kg', 'v', 280, 432, 280, 480, 0, 0.9], ['e16', 'kg', 't', 'v', 280, 536, 280, 584, 0, 1.2], ['e17', 't', 'k', 'v', 280, 640, 280, 688, 0, 1.5],
+      ['e18', 'h', 'j4', 'v', 560, 192, 560, 716, 2, 0], ['e19', 'j4', 'k', 'h', 560, 716, 409, 716, 2, 0.9]
+    ];
+    const groups = { p: ['p'], m: ['m'], h: ['h'], cap: ['c', 'a', 'g'], lm: ['lm'], kg: ['kg'], t: ['t'], k: ['k'] };
+    const reach = (start, fwd) => {
+      const seen = new Set(start), q = start.slice();
+      while (q.length) { const n = q.shift(); E.forEach((e) => { const a = fwd ? e[1] : e[2], b = fwd ? e[2] : e[1]; if (a === n && !seen.has(b)) { seen.add(b); q.push(b); } }); }
+      return seen;
+    };
+    const up = (ids) => { const A = reach(ids, false); return { e: new Set(E.filter((e) => A.has(e[2])).map((e) => e[0])), n: A }; };
+    const route = (ids) => { const u = up(ids), D = reach(ids, true); const es = new Set(u.e); E.forEach((e) => { if (D.has(e[1])) es.add(e[0]); }); D.forEach((x) => u.n.add(x)); return { e: es, n: u.n }; };
+    const humanSet = () => { const u = up(['h']); u.e.add('e18'); u.e.add('e19'); u.n.add('k'); return u; };
+    const TOUR = [
+      ['p', 'Plan approved', 'The family decides', 'Amani’s parent approves the week’s plan and Thursday’s workshop visit in the Parent OS.'],
+      ['m', '4 sessions booked', 'The school runs itself', 'The AI School Manager books four sessions, the workshop and Wednesday’s reassessment, and files the record.'],
+      ['cap', 'Problem · check · approach', 'Content, Assessment, Pedagogy', 'CAP picks a chapati problem, a check question and a worked-example approach, all validated before Amani sees them.'],
+      ['lm', 'Ratios 0.42', 'The model knows how sure it is', 'Ratios is likely between 0.33 and 0.51. Not shown yet, so it’s worth this week’s time.'],
+      ['kg', 'Gap found', 'The graph finds the root', 'Wrong answers trace back to Equivalent fractions, a gap at 0.61, so that comes in first.'],
+      ['t', 'Worked example', 'A tutor that asks why', 'An AI tutor agent teaches with a worked example and asks why an answer happened, not just whether it’s right.'],
+      ['k', '15 cups for 40 ✓', 'Amani gets there', 'Amani scales 3 cups for 8 chapati to 15 cups for 40. The evidence flows back into the model.'],
+      ['h', 'Wednesday check-in', 'People where people matter', 'Nduta, Amani’s human guide, checks in on Wednesday. Motivation and mentorship stay human.']
+    ];
+    let hl = null, focus = [], badgeOn = '', badgeText = '';
+    if (st.ly === 'tour') {
+      const s = TOUR[st.tstep];
+      hl = s[0] === 'h' ? humanSet() : up(groups[s[0]]);
+      focus = groups[s[0]]; badgeOn = s[0] === 'cap' ? 'a' : groups[s[0]][0]; badgeText = s[1];
+    } else if (st.ly === 'sel' && st.lyKey) {
+      hl = st.lyKey === 'h' ? (() => { const r = humanSet(); r.e.add('e1'); return r; })() : route(groups[st.lyKey]);
+      focus = groups[st.lyKey];
+    } else if (st.ly === 'view' && st.lyView === 'ai') {
+      hl = { e: new Set(E.filter((e) => !e[8]).map((e) => e[0])), n: new Set(Object.keys(N).filter((k) => k !== 'h')) };
+    } else if (st.ly === 'view' && st.lyView === 'human') {
+      hl = humanSet();
+    }
+    const pre = !st.built;
+    const lyEdges = E.map((e) => {
+      const on = !hl || hl.e.has(e[0]);
+      const human = e[8] > 0, dashed = e[8] === 2;
+      const col = hl ? (on ? (human ? '#0D9488' : '#1D4ED8') : '#DCDCD3') : (dashed ? '#0D9488' : '#9A9E95');
+      const v = e[3] === 'v';
+      const x1 = e[4], y1 = e[5], x2 = e[6], y2 = e[7];
+      const g = {
+        l: v ? x1 - 1 : Math.min(x1, x2), t: v ? Math.min(y1, y2) : y1 - 1, w: v ? 2 : Math.abs(x2 - x1), h: v ? Math.abs(y2 - y1) : 2,
+        bg: dashed ? 'repeating-linear-gradient(' + (v ? 'to bottom' : 'to right') + ', ' + col + ' 0 6px, transparent 6px 12px)' : col,
+        op: hl && !on ? 0.6 : 1,
+        cls: 'lyedge' + (dashed ? (v ? ' antv' : ' anth') : '') + (pre ? ' pre' : ''),
+        dot: !dashed && on && !pre, dotCls: v ? 'dv' : (x2 > x1 ? 'dh' : 'dhr'), dotCol: human ? '#0D9488' : '#1D4ED8', delay: e[9]
+      };
+      return g;
+    });
+    const e19on = !hl || hl.e.has('e19');
+    const lyNodes = Object.keys(N).map((id) => {
+      const n = N[id];
+      const on = !hl || hl.n.has(id);
+      const isFocus = focus.indexOf(id) >= 0;
+      return {
+        x: n.x, y: n.y, w: n.w, l: n.l, name: n.name, bg: n.bg, bd: n.bd, fg: n.fg, tag: n.tag, accent: n.accent,
+        op: on ? 1 : 0.3,
+        shadow: isFocus ? '0 0 0 3px #FFFFFF, 0 0 0 6px ' + n.accent + ', 0 14px 28px -16px rgba(20,22,26,0.6)' : 'none',
+        active: isFocus && !pre, hasBadge: st.ly === 'tour' && id === badgeOn && !pre, badge: badgeText,
+        cls: 'lnode' + (pre ? ' pre' : ''), delay: st.builtDone ? 0 : n.lv * 160,
+        pressed: st.ly === 'sel' && st.lyKey === n.key ? 'true' : 'false',
+        aria: n.l + ' ' + n.name + '. Show its path.',
+        pick: () => this.setState(st.ly === 'sel' && st.lyKey === n.key ? { ly: 'idle', lyKey: '' } : { ly: 'sel', lyKey: n.key, tour: false })
+      };
+    });
+    const views = [['all', 'Whole system', '#9A9E95'], ['ai', 'The AI loop', '#1D4ED8'], ['human', 'The human path', '#0D9488']];
+    const curView = st.ly === 'view' ? st.lyView : 'all';
+    const lyViews = views.map(([id, label, dot]) => {
+      const on = curView === id && (st.ly === 'view' || (id === 'all' && st.ly === 'idle'));
+      return { label, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6',
+        pick: () => this.setState(id === 'all' ? { ly: 'idle', lyView: 'all', lyKey: '', tour: false } : { ly: 'view', lyView: id, lyKey: '', tour: false }) };
+    });
+    const INFO = [
+      ['p', 'L1', '#3F444C', 'Parent OS', 'The family’s view: narrative briefings, decisions and approvals instead of dashboards.', ['A weekly briefing in plain words', 'Approves plans, visits and anything in person', 'Sees evidence, never surveillance'], 'copilot.html', 'See the Parent Copilot'],
+      ['m', 'L2', '#1D4ED8', 'AI School Manager', 'Planning, scheduling, records and compliance, run automatically.', ['Builds the week around goals and gaps', 'Books sessions, workshops and reassessments', 'Keeps the records local rules require'], 'today.html', 'See a learner’s week'],
+      ['h', 'L2', '#0D9488', 'Human help on demand', 'Guides, coaches and elders, brought in only when they add value.', ['A named guide for every learner', 'Hosts, peers and elders through Connects', 'Called in for motivation, not for drills'], 'connects.html', 'See Connects'],
+      ['cap', 'L3', '#1D4ED8', 'Content · Assessment · Pedagogy', 'The CAP engine: three linked graphs, validated before anything reaches a child.', ['Content: what to learn, at every level', 'Assessment: how Vachuo knows, from more than one kind of evidence', 'Pedagogy: how to teach it to this learner'], 'loop.html', 'See the loop'],
+      ['lm', 'L4', '#1D4ED8', 'Learner model', 'One persistent model per child: what they know, and how sure Vachuo is.', ['A probability for every skill, with a range', 'Updates after every lesson, visit and log', 'Belongs to the learner and travels with them'], 'map.html', 'See a learner’s map'],
+      ['kg', 'L5', '#3F444C', 'Knowledge / Skill graph', 'Every concept, prerequisite and standard from K to 12.', ['Concepts linked by what depends on what', 'Traces a wrong answer to the gap behind it', 'Mapped to each curriculum Vachuo supports'], '', ''],
+      ['t', 'L6', '#3F444C', 'AI tutor agents', 'Teach inside the graph’s constraints, in more than one pedagogy.', ['Socratic, worked example, project and more', 'Asks why a wrong answer happened', 'Hands the conversation to a person when it should'], 'session.html', 'See a tutor session'],
+      ['k', 'L7', '#0D9488', 'Individual child', 'Who all of it is for.', ['Learns at their level, not their age', 'Chooses destinations and can correct the map', 'Has adults who know them, not only software'], 'today.html', 'See a learner’s day']
+    ];
+    const openKey = st.ly === 'sel' ? st.lyKey : (st.ly === 'tour' ? TOUR[st.tstep][0] : '');
+    const lyList = INFO.map(([key, n, c, name, text, bullets, href, link]) => {
+      const open = openKey === key;
+      return { n, c, name, text, bullets, href, link, isOpen: open, expanded: open ? 'true' : 'false', rot: open ? 180 : 0, bg: open ? '#F4F7FE' : 'transparent',
+        pick: () => this.setState(st.ly === 'sel' && st.lyKey === key ? { ly: 'idle', lyKey: '' } : { ly: 'sel', lyKey: key, tour: false }) };
+    });
+    const s = TOUR[st.tstep];
+    const touring = st.ly === 'tour';
+    return {
+      lyEdges, lyNodes, lyViews, lyList,
+      arrowCol: hl ? (e19on ? '#0D9488' : '#DCDCD3') : '#0D9488', arrowOp: hl && !e19on ? 0.6 : 1, arrowCls: 'lyedge' + (pre ? ' pre' : ''),
+      humanLabelOp: hl && !hl.e.has('e18') ? 0.3 : 1,
+      tourCount: touring ? 'Step ' + (st.tstep + 1) + ' of 8' : (st.ly === 'sel' ? 'Exploring' : 'Paused'),
+      tourTitle: touring ? s[2] : (st.ly === 'sel' ? 'Tracing one layer' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'The AI loop' : 'The human path') : 'Seven layers, one child')),
+      tourText: touring ? s[3] : (st.ly === 'sel' ? 'The lit path shows what feeds this layer and what it feeds. Play the journey to watch one signal travel from the family to the child.' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'Plans flow down from the family through the school manager and CAP into the learner model, the graph, the tutors and the child.' : 'Guides, hosts and elders reach the child directly, for motivation and mentorship, with the family approving.') : 'Select any layer to trace its path, or play the journey.')),
+      tourBars: TOUR.map((x, i) => ({ bg: touring && i <= st.tstep ? (i === 7 ? '#0D9488' : '#F9A826') : '#3F444C' })),
+      tourPressed: touring && st.tour ? 'true' : 'false',
+      tourLabel: touring && st.tour ? 'Pause the journey' : 'Play the journey',
+      tourToggle: () => this.setState(touring && st.tour ? { tour: false } : { ly: 'tour', tour: true, lyKey: '', lyView: 'all', tstep: touring ? st.tstep : 0 }),
+      tourPrev: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 7) % 8 : 0 }),
+      tourNext: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 1) % 8 : 0 })
+    };
+  }
+
+  renderVals() {
+    const step = this.state.step;
+    const caps = ['Find where the learner really is, not where the grade says.', 'Build the next path from their goals and their gaps.', 'Explain it in the way that suits this learner.', 'Watch how they work, not just what they answer.', 'Check understanding with fresh, well-made items.', 'Name the exact misconception behind an error.', 'Repair the gap with targeted practice.', 'Confirm the repair held, days later.', 'Update what Vachuo believes, and how sure it is.', 'Tell the family what happened and what needs them.', 'Then start again, for every child, every day.'];
+    const names = ['Diagnose', 'Plan', 'Teach', 'Observe', 'Assess', 'Diagnose misconception', 'Remediate', 'Reassess', 'Update learner model', 'Inform parent', 'Repeat'];
+    const loop = names.map((name, i) => {
+      const human = name === 'Inform parent';
+      const on = i === step;
+      return { n: String(i + 1).padStart(2, '0'), name, c: human ? '#F9A826' : '#7DB4FF', bd: on ? (human ? '#F9A826' : '#7DB4FF') : (human ? '#8C6416' : '#2A2E33'), bg: on ? (human ? '#3A2A0E' : '#172E66') : '#1A1D20', tf: on ? 'translateY(-4px)' : 'none', cur: on ? 'step' : 'false', pick: () => this.setState({ step: i, playing: false }) };
+    });
+    const miniLoop = names.map((n, i) => ({ bg: i <= step ? (i === 9 ? '#0D9488' : '#1D4ED8') : '#DCDCD3' }));
+    const green = '#1D4ED8', orange = '#0D9488', ink = '#3F444C';
+    return Object.assign(this.layerVals(), {
+      loop,
+      miniLoop,
+      loopNow: names[step],
+      loopCaption: caps[step],
+      loopPressed: this.state.playing ? 'true' : 'false',
+      loopToggleLabel: this.state.playing ? 'Pause the loop' : 'Play the loop',
+      loopToggle: () => this.setState({ playing: !this.state.playing }),
+      email: this.state.email,
+      setEmail: (e) => this.setState({ email: e.target.value, emailErr: false }),
+      emailKey: (e) => { if (e.key === 'Enter') this.join(); },
+      joinList: () => this.join(),
+      joinLabel: this.state.joined ? 'You’re on the list' : 'Request early access',
+      emailInvalid: this.state.emailErr ? 'true' : 'false',
+      emailBorder: this.state.emailErr ? '#F9A826' : '#7FA2EE',
+      emailMsg: this.state.joined ? 'Thank you. This demo stores nothing, so no email will arrive.' : (this.state.emailErr ? 'Please enter a valid email address, like name@example.com.' : ''),
+      headShadow: this.state.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: this.state.showTop,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      scale: ['K → 12', '× every subject', '× every standard', '× every learning level', '× multiple pedagogies', '× millions of learners'],
+      chain: ['Fractions', 'Equivalent fractions', 'Comparing fractions', 'Operations with fractions', 'Ratios', 'Proportions', 'Algebraic reasoning'].map((name, i, a) => ({ name, more: i < a.length - 1 })),
+      causes: ['Conceptual misconception', 'Procedural mistake', 'Prerequisite gap', 'Language misunderstanding', 'Attention lapse', 'Calculation error', 'Guessing'],
+      questions: ['What should I teach?', 'How should I teach it?', 'How difficult should it be?', 'Which modality?', 'What example?', 'When should I intervene?', 'When should I review?', 'When has mastery actually occurred?'],
+      path: [
+        { n: '01', name: 'Families', note: 'Homeschooling, where we start', h: '150px', bg: '#E4ECFD', fg: '#172F73' },
+        { n: '02', name: 'Tutors', note: 'One tutor, many learners', h: '180px', bg: '#CFDDFB', fg: '#172F73' },
+        { n: '03', name: 'Microschools', note: 'Small groups, one guide', h: '210px', bg: '#9DBDF6', fg: '#172F73' },
+        { n: '04', name: 'Private schools', note: 'A full school operating system', h: '240px', bg: '#1684E8', fg: '#0A1A3F' },
+        { n: '05', name: 'Charter schools', note: 'Public accountability built in', h: '270px', bg: '#1D4ED8', fg: '#FFFFFF' },
+        { n: '06', name: 'Governments', note: 'National scale', h: '300px', bg: '#14161A', fg: '#FFFFFF' }
+      ],
+      rivals: [
+        { n: '01', name: 'LittleLit AI', role: 'Closest full AI homeschool product', note: '' },
+        { n: '02', name: 'Alpha Anywhere / TimeBack', role: 'Strongest learning-system architecture', note: '' },
+        { n: '03', name: 'Acellus', role: 'Strongest mature CAP incumbent', note: 'Its diagnostics already point toward misconception-level assessment.' },
+        { n: '04', name: 'Khan Academy / Khanmigo', role: 'Strongest content and AI platform threat', note: '' },
+        { n: '05', name: 'TheHomeschoolingCompany', role: 'Emerging generative homeschool OS', note: '' },
+        { n: '06', name: 'YourHomeschool', role: 'Emerging low-cost integrated AI homeschool', note: '' }
+      ]
+    });
+  }
+}
+return Component;
+});
+
+DC.mount("Landing");
+</script>
+</body>
+</html>

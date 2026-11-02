@@ -1,0 +1,18 @@
+/* Base styles shared by every page. Component styling lives inline in each page's template. */
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F4F4EF; }
+a { color: #1D4ED8; }
+a:hover { color: #1E40AF; }
+button, input, textarea, select, label, nav { font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+:focus-visible { outline: 2px solid #1D4ED8; outline-offset: 2px; }
+
+/* Dark pages (Inside Vachuo · The loop) */
+body.theme-dark { background: #111315; }
+body.theme-dark a { color: #7DB4FF; }
+body.theme-dark a:hover { color: #AFD0FF; }
+body.theme-dark :focus-visible { outline-color: #7DB4FF; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

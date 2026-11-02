@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers at Vachuo</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
+.role{transition:border-color .2s ease,box-shadow .2s ease}.role:hover{border-color:#93BBF3;box-shadow:0 18px 40px -30px rgba(20,22,26,.4)}
+@keyframes vfade{from{opacity:0}to{opacity:1}}@keyframes vrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.v-overlay{animation:vfade .2s ease}.v-dialog{animation:vrise .25s ease}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v-overlay,.v-dialog{animation:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Careers">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 10px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 42px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Careers</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-weight: 600; text-decoration: none">Sign in</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="careers-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) 40px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center">
+<div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Careers · Palo Alto and Nairobi</span>
+<h1 id="careers-title" style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">Build the school every child deserves.</h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.5; color: #3F444C; max-width: 620px; text-wrap: pretty">Vachuo is a seed-stage company building the operating system for individualised education: an AI school that knows each child, and a web of people who help them grow. We are backed by [INVESTOR NAMES] and hiring our founding team.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#roles" style="display: inline-flex; align-items: center; gap: 8px; min-height: 50px; padding: 0 22px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15.5px; font-weight: 600; text-decoration: none">See open roles<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+<button type="button" onClick="{{applyGeneral}}" style="min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 15.5px; font-weight: 500; cursor: pointer">General application</button>
+</div>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; position: relative">
+<img src="assets/img/827a1ca470366ddf9133088b3b15d8eb.webp" alt="A night map of the world linking learners, parents and teachers across continents to an AI tutor at the centre" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 26px">
+<span style="position: absolute; left: 16px; bottom: 16px; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.92); color: #14161A">One loop, every continent</span>
+</div>
+</section>
+
+<section aria-labelledby="values-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px); display: flex; flex-direction: column; gap: 22px">
+<h2 id="values-title" style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.06; font-weight: 600">How we work</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 14px">
+<template data-for="{{values}}" data-as="v">
+<article style="display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<img src="{{v.img}}" alt="" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: {{v.tint}}">
+<h3 style="margin: 0; font-size: 24px; line-height: 1.15; font-weight: 600">{{v.title}}</h3>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C">{{v.text}}</p>
+</article>
+</template>
+</div>
+<a href="vision.html" style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600">Read our vision, mission and values</a>
+</section>
+
+<section id="roles" aria-labelledby="roles-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px">
+<h2 id="roles-title" style="margin: 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.02; font-weight: 600">Open roles</h2>
+<span role="status" style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">{{countNote}}</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: flex-end">
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px">
+<label for="role-search" style="font-size: 13px; font-weight: 600; color: #3F444C">Search roles</label>
+<input id="role-search" type="search" value="{{query}}" onChange="{{setQuery}}" placeholder="Machine learning, design, Nairobi…" style="min-height: 48px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 15px; color: #14161A">
+</div>
+<div style="flex: 0 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="role-loc" style="font-size: 13px; font-weight: 600; color: #3F444C">Location</label>
+<select id="role-loc" value="{{loc}}" onChange="{{setLoc}}" style="min-height: 48px; padding: 0 14px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 15px; color: #14161A">
+<option value="All">All locations</option>
+<option value="Palo Alto">Palo Alto, CA</option>
+<option value="Remote (US)">Remote (US)</option>
+<option value="Nairobi">Nairobi, Kenya</option>
+</select>
+</div>
+</div>
+<div role="group" aria-label="Filter by team" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{teamChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<template data-for="{{roles}}" data-as="r">
+<article class="role" aria-labelledby="{{r.hid}}" style="border-radius: 20px; border: 1px solid #E2E2DA; background: #FFFFFF; overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 20px 22px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: {{r.chipBg}}; color: {{r.chipFg}}">{{r.team}}</span>
+<h3 id="{{r.hid}}" style="margin: 0; font-size: 26px; line-height: 1.15; font-weight: 600">{{r.title}}</h3>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #3F444C">{{r.meta}}</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13.5px; color: #14161A; padding: 8px 12px; border-radius: 10px; background: #F4F4EF">{{r.pay}}</span>
+<button type="button" aria-expanded="{{r.expanded}}" aria-controls="{{r.pid}}" onClick="{{r.toggle}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">{{r.toggleLabel}}</button>
+<button type="button" onClick="{{r.apply}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Apply</button>
+</div>
+</div>
+<template data-if="{{r.open}}">
+<div id="{{r.pid}}" style="display: flex; flex-wrap: wrap; gap: 20px 40px; padding: 4px 22px 24px; border-top: 1px solid #ECECE6">
+<p style="flex: 1 1 100%; margin: 16px 0 0; font-size: 19px; line-height: 1.6; color: #23272E">{{r.about}}</p>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h4 style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">What you’ll do</h4>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 17.5px; line-height: 1.5; color: #3F444C"><template data-for="{{r.do}}" data-as="x"><li>{{x}}</li></template></ul>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h4 style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #115E59">What you bring</h4>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 17.5px; line-height: 1.5; color: #3F444C"><template data-for="{{r.bring}}" data-as="x"><li>{{x}}</li></template></ul>
+</div>
+<p style="flex: 1 1 100%; margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; line-height: 1.5; color: #62676F">{{r.payNote}}</p>
+</div>
+</template>
+</article>
+</template>
+<template data-if="{{noRoles}}">
+<div style="padding: 28px; border-radius: 20px; background: #F4F4EF; font-size: 19px; color: #3F444C">No roles match those filters. Try another team or location, or send a general application.</div>
+</template>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="benefits-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #115E59">Benefits</span>
+<h2 id="benefits-title" style="margin: 0; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; font-weight: 600; max-width: 760px">We take care of the people who take care of learners.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px">
+<template data-for="{{benefits}}" data-as="b">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<span style="font-size: 21px; line-height: 1.2; font-weight: 600">{{b.t}}</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; color: #3F444C">{{b.d}}</span>
+</div>
+</template>
+</div>
+</section>
+
+<section aria-labelledby="process-title" style="background: #111315; color: #EDEDE8">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #7DB4FF">HOW WE HIRE</span>
+<h2 id="process-title" style="margin: 0; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; font-weight: 600; max-width: 760px">Five steps, about three weeks, no surprises.</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+<template data-for="{{steps}}" data-as="s">
+<li style="display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 18px; background: #1A1D20; border: 1px solid #2A2E33">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #AFD0FF">{{s.n}}</span>
+<span style="font-size: 23px; line-height: 1.15; font-weight: 600">{{s.t}}</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; color: #B8BCC2">{{s.d}}</span>
+</li>
+</template>
+</ol>
+</div>
+</section>
+
+<section aria-labelledby="eeo-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: center">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h2 id="eeo-title" style="margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 600">Every learner, every background, every continent.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3F444C">Vachuo is an equal opportunity employer. We hire on skill and evidence, not pedigree, and we welcome people of every race, colour, religion, sex, gender identity, sexual orientation, age, national origin, disability and veteran status. If you need an accommodation at any stage, tell us and we will arrange it.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3F444C">Roles that involve working with children require identity verification and background checks where the law allows. Pay ranges for US roles follow California’s pay transparency law; final offers depend on location and experience.</p>
+</div>
+<img src="assets/img/80b06694a121b52e5cf0510bfda36f44.svg" alt="Illustrated learners from all seven continents standing together" style="flex: 1 1 420px; min-width: 0; width: 100%; height: auto">
+</section>
+</main>
+
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px; margin-right: auto"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 18px"><a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Pricing</a><a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Blog</a><a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Newsroom</a><a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C">Vision</a></nav>
+<nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<template data-for="{{social}}" data-as="s"><a href="#" style="padding: 12px; border-radius: 999px; border: 1px solid #CFCFC6; color: #14161A; text-decoration: none; font-size: 13px">{{s}}</a></template>
+</nav>
+</div>
+</footer>
+
+<template data-if="{{modalOpen}}">
+<div class="v-overlay" onClick="{{closeModal}}" style="position: fixed; inset: 0; z-index: 60; background: rgba(17,19,21,0.55); display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: clamp(16px, 5vh, 56px) 16px">
+<div class="v-dialog" role="dialog" aria-modal="true" aria-labelledby="apply-title" onClick="{{stop}}" onKeyDown="{{dialogKey}}" style="width: 100%; max-width: 620px; box-sizing: border-box; border-radius: 24px; background: #FFFFFF; padding: clamp(20px, 4vw, 32px); display: flex; flex-direction: column; gap: 16px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1D4ED8">Apply</span>
+<h2 id="apply-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 30px; line-height: 1.1; font-weight: 600">{{applyRole}}</h2>
+</div>
+<button type="button" aria-label="Close" onClick="{{closeModal}}" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<span style="align-self: flex-start; font-size: 12.5px; font-weight: 600; color: #14161A; background: #F9A826; padding: 4px 10px; border-radius: 999px">Demo form · nothing is sent</span>
+<template data-if="{{sent}}">
+<div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #DDF4F1; color: #134E4A">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">Thank you, {{firstName}}.</span>
+<span style="font-size: 15px; line-height: 1.55">In the live site, your application would reach the hiring team and you would hear back within 10 working days. This demo stores nothing.</span>
+<button type="button" onClick="{{closeModal}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14.5px; font-weight: 600; cursor: pointer">Close</button>
+</div>
+</template>
+<template data-if="{{notSent}}">
+<form onSubmit="{{submit}}" novalidate="novalidate" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="f-name" style="font-size: 13.5px; font-weight: 600">Full name</label>
+<input id="f-name" type="text" autocomplete="name" value="{{fName}}" onChange="{{setName}}" aria-invalid="{{nameInvalid}}" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid {{nameBorder}}; font-size: 15px">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="f-email" style="font-size: 13.5px; font-weight: 600">Email</label>
+<input id="f-email" type="email" autocomplete="email" value="{{fEmail}}" onChange="{{setEmail}}" aria-invalid="{{emailInvalid}}" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid {{emailBorder}}; font-size: 15px">
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="f-loc" style="font-size: 13.5px; font-weight: 600">Where are you based?</label>
+<input id="f-loc" type="text" autocomplete="address-level2" value="{{fLoc}}" onChange="{{setLocField}}" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; font-size: 15px">
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px">
+<label for="f-link" style="font-size: 13.5px; font-weight: 600">LinkedIn, GitHub or portfolio</label>
+<input id="f-link" type="url" value="{{fLink}}" onChange="{{setLink}}" placeholder="https://" style="min-height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; font-size: 15px">
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-cv" style="font-size: 13.5px; font-weight: 600">CV or résumé (PDF)</label>
+<input id="f-cv" type="file" accept=".pdf,.doc,.docx" onChange="{{setFile}}" style="min-height: 48px; box-sizing: border-box; padding: 10px 14px; border-radius: 12px; border: 1px dashed #CFCFC6; font-size: 14px">
+<span style="font-size: 13px; color: #62676F">{{fileNote}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-why" style="font-size: 13.5px; font-weight: 600">Why Vachuo, and why this role?</label>
+<textarea id="f-why" rows="5" value="{{fWhy}}" onChange="{{setWhy}}" aria-invalid="{{whyInvalid}}" style="box-sizing: border-box; padding: 12px 14px; border-radius: 12px; border: 1px solid {{whyBorder}}; font-size: 15px; line-height: 1.5; resize: vertical"></textarea>
+<span style="font-size: 13px; color: #62676F">{{whyCount}}</span>
+</div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: #3F444C; cursor: pointer"><input type="checkbox" checked="{{fConsent}}" onChange="{{toggleConsent}}" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #1D4ED8">I agree that Vachuo may keep my application for 12 months to consider me for this and similar roles.</label>
+<template data-if="{{hasErrors}}"><p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #FEF1D9; color: #92400E; font-size: 14px; line-height: 1.5">{{errorText}}</p></template>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end">
+<button type="button" onClick="{{closeModal}}" style="min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 15px; font-weight: 500; cursor: pointer">Cancel</button>
+<button type="submit" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Submit application</button>
+</div>
+</form>
+</template>
+</div>
+</div>
+</template>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Careers", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { team: 'All', loc: 'All', query: '', open: 'ml', modal: null, sent: false, tried: false,
+      fName: '', fEmail: '', fLoc: '', fLink: '', fWhy: '', fFile: '', fConsent: false, scrolled: false, showTop: false };
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || 0;
+        const scrolled = y > 8, showTop = y > 900;
+        if (scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ scrolled, showTop });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.innerHeight < 1600 && 'IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      const vh = window.innerHeight;
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-shown', ''); this._io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main > section').forEach((el) => {
+        if (el.getBoundingClientRect().top > vh * 0.9) { el.setAttribute('data-rv', ''); this._io.observe(el); }
+      });
+      document.documentElement.classList.add('rv-on');
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    document.documentElement.classList.remove('rv-on');
+  }
+  openApply(title) {
+    this._lastFocus = document.activeElement;
+    this.setState({ modal: title, sent: false, tried: false });
+    setTimeout(() => { const el = document.getElementById('f-name'); if (el) el.focus(); }, 60);
+  }
+  closeApply() {
+    this.setState({ modal: null });
+    setTimeout(() => { if (this._lastFocus && this._lastFocus.focus) this._lastFocus.focus(); }, 30);
+  }
+  renderVals() {
+    const T = {
+      Engineering: ['#E4ECFD', '#1E40AF'], Learning: ['#DDF4F1', '#115E59'], Design: ['#FEF1D9', '#92400E'],
+      Safety: ['#FEF1D9', '#92400E'], Growth: ['#ECECE6', '#3F444C'], 'Guides & partnerships': ['#DDF4F1', '#115E59']
+    };
+    const US = 'The base salary range for this full-time role in California is shown above. Final offers depend on location, skills and experience, and include equity and benefits.';
+    const KE = 'Pay for Nairobi roles is set against local market data and shared before your first interview. Includes equity and benefits.';
+    const all = [
+      { id: 'ml', team: 'Engineering', title: 'Founding Machine Learning Engineer, Learner Modelling', loc: 'Palo Alto', where: 'Palo Alto, CA · Hybrid', type: 'Full-time', pay: '$185k–$230k · 0.6–1.2%', note: US,
+        about: 'Own the learner model at the heart of the loop: the system that estimates what each child knows, predicts what will help next, and explains why.',
+        do: ['Build knowledge-tracing and misconception models from interaction data', 'Design evaluation that measures learning gains, not engagement', 'Ship models that run cheaply on low-end Android phones', 'Partner with learning scientists on every experiment'],
+        bring: ['4+ years shipping ML systems to production', 'Depth in probabilistic modelling, recommender or sequential models', 'Strong Python and a habit of rigorous evaluation', 'Care for privacy-preserving methods'] },
+      { id: 'fs', team: 'Engineering', title: 'Senior Full-Stack Engineer, Learner Experience', loc: 'Remote (US)', where: 'Palo Alto, CA or Remote (US)', type: 'Full-time', pay: '$165k–$205k · 0.25–0.6%', note: US,
+        about: 'Build the screens a child, a parent and a guide use every day, so that the loop feels calm, fast and humane.',
+        do: ['Build the learner, Parent Copilot and guide apps end to end', 'Make every flow accessible and fast on slow connections', 'Own offline sync for lessons and the Learning Passport', 'Instrument features so we learn what actually helps'],
+        bring: ['5+ years building web or mobile products', 'TypeScript, React and a modern backend', 'Taste for clear, accessible interfaces', 'Comfort working directly with families and guides'] },
+      { id: 'safety-eng', team: 'Engineering', title: 'AI Safety and Evaluation Engineer', loc: 'Palo Alto', where: 'Palo Alto, CA · Hybrid', type: 'Full-time', pay: '$175k–$220k · 0.3–0.7%', note: US,
+        about: 'Make sure our AI tutor is accurate, kind and safe for children, before launch and every day after.',
+        do: ['Build red-team suites for child safety, accuracy and bias', 'Design guardrails that give hints before answers', 'Run continuous evaluation and incident reviews', 'Publish what we learn in our safety reports'],
+        bring: ['3+ years in ML engineering or evaluation', 'Experience testing language models', 'A rigorous, sceptical mindset', 'Interest in child development and online safety'] },
+      { id: 'android', team: 'Engineering', title: 'Mobile Engineer, Offline-first Android', loc: 'Nairobi', where: 'Nairobi, Kenya · Hybrid', type: 'Full-time', pay: 'KES range shared early · equity', note: KE,
+        about: 'Bring Vachuo to learners on low-cost phones and patchy networks across East Africa.',
+        do: ['Build our Android learner app in Kotlin', 'Make lessons, practice and records work fully offline', 'Optimise for memory, storage and data costs', 'Test with families and learning hubs in Kenya'],
+        bring: ['3+ years building Android apps', 'Experience with offline sync and local storage', 'Pride in performance on low-end devices', 'Kiswahili is a plus'] },
+      { id: 'ls', team: 'Learning', title: 'Founding Learning Scientist', loc: 'Remote (US)', where: 'Palo Alto, CA or Remote (US)', type: 'Full-time', pay: '$150k–$190k · 0.3–0.7%', note: US,
+        about: 'Turn the best evidence on how people learn into product decisions, and run the studies that test whether Vachuo works.',
+        do: ['Design the pedagogy graph: retrieval, spacing, worked examples, feedback', 'Run A/B tests and pre-registered efficacy studies', 'Partner with universities on independent evaluations', 'Write for the Vachuo Journal'],
+        bring: ['PhD or equivalent in learning sciences, psychology or education', 'Experience running field experiments', 'Fluency with causal inference', 'Ability to explain research to engineers and parents'] },
+      { id: 'cap', team: 'Learning', title: 'Curriculum and Assessment Lead, CAP Engine', loc: 'Remote (US)', where: 'Remote (US)', type: 'Full-time', pay: '$135k–$170k · 0.2–0.5%', note: US,
+        about: 'Build the content, assessment and pedagogy graphs that let Vachuo teach every standard at every level.',
+        do: ['Map standards across the US, Kenya CBC and IB into one graph', 'Write and validate diagnostic items and misconception probes', 'Lead a network of subject-matter experts', 'Set quality bars for AI-generated items'],
+        bring: ['5+ years in curriculum or assessment design', 'Experience with item writing and psychometrics', 'Classroom or tutoring experience', 'Systems thinking and attention to detail'] },
+      { id: 'design', team: 'Design', title: 'Founding Product Designer', loc: 'Palo Alto', where: 'Palo Alto or San Francisco, CA', type: 'Full-time', pay: '$160k–$200k · 0.3–0.7%', note: US,
+        about: 'Shape how a child, a parent and a guide experience an AI school, from the first sign-in to the Learning Passport.',
+        do: ['Lead design across learner, parent and guide products', 'Run research with families in the US and Kenya', 'Build and own the Vachuo design system', 'Prototype quickly and test with real learners'],
+        bring: ['5+ years designing consumer or education products', 'A portfolio showing craft and clear thinking', 'Experience designing for children or families', 'Accessibility as a habit, not a checklist'] },
+      { id: 'tns', team: 'Safety', title: 'Child Safety and Privacy Lead', loc: 'Palo Alto', where: 'Palo Alto, CA · Hybrid', type: 'Full-time', pay: '$160k–$200k · 0.25–0.5%', note: US,
+        about: 'Own safeguarding across the product and Connects, and make privacy a feature families can see.',
+        do: ['Run COPPA, GDPR, Kenya DPA and AI Act compliance', 'Design vetting for guides, hosts and mentors', 'Lead incident response and safeguarding escalations', 'Publish transparency reports'],
+        bring: ['5+ years in trust and safety, privacy or child protection', 'Working knowledge of children’s privacy law', 'Calm judgement under pressure', 'Experience with education or youth services'] },
+      { id: 'growth', team: 'Growth', title: 'Homeschool Community and Growth Lead', loc: 'Remote (US)', where: 'Remote (US)', type: 'Full-time', pay: '$120k–$155k · 0.15–0.4%', note: US,
+        about: 'Earn the trust of homeschooling families and co-ops, and grow Vachuo through the people who use it.',
+        do: ['Build partnerships with co-ops, microschools and parent groups', 'Run the Weekly Forum and community programmes', 'Own activation and referral experiments', 'Bring family feedback into the product every week'],
+        bring: ['4+ years in community, growth or partnerships', 'Deep respect for homeschooling families', 'Comfort with data and experiments', 'Homeschooling experience is a plus'] },
+      { id: 'guide', team: 'Guides & partnerships', title: 'Learning Guide (part-time)', loc: 'Nairobi', where: 'Nairobi, Kenya or Remote (Kenya)', type: 'Part-time contract', pay: 'Hourly rate shared early', note: KE,
+        about: 'Be the human in the loop: motivate learners, mentor families and make the big calls the AI should not make alone.',
+        do: ['Meet a small group of learners each week', 'Coach motivation, habits and projects', 'Review Vachuo’s plans and override them when needed', 'Connect learners to people and places through Connects'],
+        bring: ['Teaching, tutoring or youth-work experience', 'Warmth, patience and good judgement', 'Clear background check', 'Fluent English and Kiswahili'] },
+      { id: 'partner', team: 'Guides & partnerships', title: 'Partnerships Lead, Africa and Governments', loc: 'Nairobi', where: 'Nairobi, Kenya · Hybrid', type: 'Full-time', pay: 'KES range shared early · equity', note: KE,
+        about: 'Bring Vachuo to schools, counties and ministries, starting in East Africa.',
+        do: ['Build relationships with ministries, counties and school networks', 'Design pilots with clear outcome measures', 'Navigate procurement and data agreements', 'Represent Vachuo at policy forums'],
+        bring: ['7+ years in education partnerships or public sector sales', 'A network across East African education', 'Experience structuring pilots and contracts', 'Strong writing and presenting'] }
+    ];
+    const teams = ['All', 'Engineering', 'Learning', 'Design', 'Safety', 'Growth', 'Guides & partnerships'];
+    const q = this.state.query.trim().toLowerCase();
+    const list = all.filter((r) => (this.state.team === 'All' || r.team === this.state.team)
+      && (this.state.loc === 'All' || r.loc === this.state.loc || (this.state.loc === 'Remote (US)' && r.where.indexOf('Remote (US)') >= 0) || (this.state.loc === 'Palo Alto' && r.where.indexOf('Palo Alto') >= 0))
+      && (!q || (r.title + ' ' + r.team + ' ' + r.where + ' ' + r.about).toLowerCase().indexOf(q) >= 0));
+    const roles = list.map((r) => {
+      const open = this.state.open === r.id;
+      return Object.assign({}, r, {
+        hid: 'role-' + r.id, pid: 'role-panel-' + r.id, open, expanded: open ? 'true' : 'false', toggleLabel: open ? 'Hide details' : 'Details',
+        meta: r.where + ' · ' + r.type, chipBg: T[r.team][0], chipFg: T[r.team][1], payNote: r.note,
+        toggle: () => this.setState({ open: open ? null : r.id }),
+        apply: () => this.openApply(r.title)
+      });
+    });
+    const teamChips = teams.map((label) => {
+      const on = label === this.state.team;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ team: label }) };
+    });
+    const s = this.state;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.fEmail.trim());
+    const nameOk = s.fName.trim().length > 1;
+    const whyOk = s.fWhy.trim().length >= 40;
+    const errs = [];
+    if (!nameOk) errs.push('your name');
+    if (!emailOk) errs.push('a valid email');
+    if (!whyOk) errs.push('a few sentences on why (at least 40 characters)');
+    if (!s.fConsent) errs.push('your consent to keep the application');
+    const showErr = s.tried && errs.length > 0;
+    const bad = (ok) => (s.tried && !ok ? '#B45309' : '#CFCFC6');
+    return {
+      roles, teamChips, noRoles: roles.length === 0,
+      countNote: roles.length + (roles.length === 1 ? ' open role' : ' open roles') + (list.length !== all.length ? ' of ' + all.length : ''),
+      query: s.query, loc: s.loc,
+      setQuery: (e) => this.setState({ query: e.target.value }),
+      setLoc: (e) => this.setState({ loc: e.target.value }),
+      values: [
+        { title: 'Learners first', text: 'Every decision starts with what helps a child learn and stay safe, even when it costs us growth.', img: 'assets/img/a99ab88a3511fd1ecd7a152922978b94.svg', tint: '#E4ECFD' },
+        { title: 'Evidence over hype', text: 'We measure learning, publish what we find and change course when the data says so.', img: 'assets/img/d2a1b6a6b98dc6c01a65bc72956a63ce.svg', tint: '#FEF1D9' },
+        { title: 'Humans where they matter', text: 'AI does instruction and operations. People do motivation, mentorship and judgement.', img: 'assets/img/1a0229fd1c0c8a82776eb70e3bac6e43.svg', tint: '#DDF4F1' },
+        { title: 'Small steps, shipped', text: 'We work in short loops, like the one we build: try, observe, assess, improve, repeat.', img: 'assets/img/869eb9b1ab4934c59b2cb32140b0c0e8.svg', tint: '#E4ECFD' }
+      ],
+      benefits: [
+        { t: 'Meaningful equity', d: 'Every full-time teammate owns part of what we build.' },
+        { t: 'Health cover', d: 'Medical, dental and vision in the US; comprehensive medical cover in Kenya.' },
+        { t: '16 weeks parental leave', d: 'Fully paid, for every parent, however your family grows.' },
+        { t: '$2,000 learning budget', d: 'Every year, for courses, books and conferences.' },
+        { t: 'Flexible hybrid work', d: 'Studios in Palo Alto and Nairobi, with remote roles where they work.' },
+        { t: 'Five weeks off', d: 'Twenty-five days of leave plus local public holidays.' },
+        { t: 'Home office setup', d: 'A one-off stipend for a desk, chair and the right equipment.' },
+        { t: 'A week together', d: 'The whole team meets once a year, alternating between Nairobi and the Bay Area.' }
+      ],
+      steps: [
+        { n: '01', t: 'Apply', d: 'A short form. We read every application and reply within 10 working days.' },
+        { n: '02', t: 'Intro call', d: '30 minutes with the hiring manager about the role and your questions.' },
+        { n: '03', t: 'Work sample', d: 'A realistic task, about two hours. Anything longer is paid.' },
+        { n: '04', t: 'Team day', d: 'Meet the people you would work with, including a guide and a parent.' },
+        { n: '05', t: 'Offer', d: 'References, then a written offer with salary and equity explained.' }
+      ],
+      applyGeneral: () => this.openApply('General application'),
+      modalOpen: !!s.modal, applyRole: s.modal || '', sent: s.sent, notSent: !s.sent,
+      firstName: s.fName.trim().split(' ')[0] || 'there',
+      closeModal: () => this.closeApply(),
+      stop: (e) => e.stopPropagation(),
+      dialogKey: (e) => { if (e.key === 'Escape') this.closeApply(); },
+      fName: s.fName, fEmail: s.fEmail, fLoc: s.fLoc, fLink: s.fLink, fWhy: s.fWhy, fConsent: s.fConsent,
+      setName: (e) => this.setState({ fName: e.target.value }),
+      setEmail: (e) => this.setState({ fEmail: e.target.value }),
+      setLocField: (e) => this.setState({ fLoc: e.target.value }),
+      setLink: (e) => this.setState({ fLink: e.target.value }),
+      setWhy: (e) => this.setState({ fWhy: e.target.value }),
+      setFile: (e) => this.setState({ fFile: e.target.files && e.target.files[0] ? e.target.files[0].name : '' }),
+      toggleConsent: () => this.setState({ fConsent: !s.fConsent }),
+      fileNote: s.fFile ? 'Attached: ' + s.fFile + ' (stays on your device in this demo)' : 'PDF or Word, up to 10 MB.',
+      whyCount: s.fWhy.trim().length + ' characters · at least 40',
+      nameBorder: bad(nameOk), emailBorder: bad(emailOk), whyBorder: bad(whyOk),
+      nameInvalid: s.tried && !nameOk ? 'true' : 'false', emailInvalid: s.tried && !emailOk ? 'true' : 'false', whyInvalid: s.tried && !whyOk ? 'true' : 'false',
+      hasErrors: showErr, errorText: 'Please add ' + errs.join(', ') + '.',
+      submit: (e) => { e.preventDefault(); if (errs.length) { this.setState({ tried: true }); return; } this.setState({ sent: true }); },
+      headShadow: s.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: s.showTop,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      social: ['LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok', 'YouTube', 'WhatsApp Channel', 'Threads', 'Spotify', 'Apple Podcasts']
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Careers");
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Learning Passport</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Passport">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
+<a href="passport.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Learning Passport · Amani M.</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; max-width: 860px; text-wrap: balance">Competence you can show, not hours you sat.</h1>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 720px; text-wrap: pretty">Amani’s Passport records what she can do and the evidence behind it. It belongs to her: she decides who sees it, and it leaves with her to any school, programme or employer.</p>
+</header>
+
+<section aria-label="Ownership and sharing" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="Amani" style="flex: none; width: 72px; height: 72px; border-radius: 18px; object-fit: cover; background: #E4ECFD; border: 1px solid #E2E2DA">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Owner</span><span style="font-size: 15px; font-weight: 600">Amani, who controls sharing</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Shared with</span><span style="font-size: 15px">Wanjiru (parent), Nduta (guide)</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Format</span><span style="font-size: 15px">Open Badges 3.0, verifiable without an account</span></div>
+<div style="margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Share a link</button>
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download</button>
+</div>
+</section>
+
+<section aria-labelledby="placement" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="placement" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.02em">Where Amani works, subject by subject, on the K→16 path</h2>
+<p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #62676F">Placed by what she can do, not by her age. Her age-grade is drawn for reference only.</p>
+</div>
+<div style="display: flex; gap: 14px">
+<div style="flex: none; width: 96px; display: flex; flex-direction: column; gap: 14px; padding-top: 26px">
+<template data-for="{{subjects}}" data-as="s"><span style="height: 24px; display: flex; align-items: center; font-size: 14px; font-weight: 500">{{s.name}}</span></template>
+</div>
+<div style="flex: 1 1 auto; min-width: 0; position: relative; display: flex; flex-direction: column; gap: 14px; padding-top: 26px">
+<div aria-hidden="true" style="position: absolute; left: 37.5%; top: 0; bottom: 66px; border-left: 2px dashed #F9A826"></div>
+<span style="position: absolute; left: calc(37.5% + 8px); top: 0; font-size: 12px; font-weight: 500; color: #92400E; white-space: nowrap">Age-grade 6</span>
+<template data-for="{{subjects}}" data-as="s">
+<div style="position: relative; height: 24px; display: flex; align-items: center">
+<div style="position: absolute; left: 0; right: 0; height: 8px; border-radius: 4px; background: #ECECE6"></div>
+<div style="position: absolute; left: 0; width: {{s.pct}}; height: 8px; border-radius: 4px; background: #93BBF3"></div>
+<div style="position: absolute; left: {{s.pct}}; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: #1D4ED8; box-shadow: 0 0 0 3px #FFFFFF"></div>
+</div>
+</template>
+<div aria-hidden="true" style="position: relative; height: 18px; margin-top: 2px; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; color: #62676F">
+<template data-for="{{ticks}}" data-as="t"><span style="position: absolute; left: {{t.left}}; transform: translateX(-50%)">{{t.label}}</span></template>
+</div>
+<div aria-hidden="true" style="display: flex; gap: 4px; font-size: 12px; color: #3F444C">
+<span style="flex: 0 0 calc(40.6% - 4px); padding-top: 6px; border-top: 2px solid #CFCFC6">Early years &amp; primary</span>
+<span style="flex: 0 0 calc(37.5% - 4px); padding-top: 6px; border-top: 2px solid #CFCFC6">Secondary</span>
+<span style="flex: 1 1 auto; padding-top: 6px; border-top: 2px solid #CFCFC6">University</span>
+</div>
+</div>
+<div style="flex: none; width: 40px; display: flex; flex-direction: column; gap: 14px; padding-top: 26px">
+<template data-for="{{subjects}}" data-as="s"><span style="height: 24px; display: flex; align-items: center; justify-content: flex-end; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px">L{{s.level}}</span></template>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="shown" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<h2 id="shown" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">What Amani has shown</h2>
+<div role="group" aria-label="Filter" style="display: flex; flex-wrap: wrap; gap: 6px">
+<button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 13.5px; cursor: pointer">All</button>
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Shown</button>
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">In progress</button>
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Learned outside Vachuo</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 18px; align-items: start">
+<template data-for="{{skills}}" data-as="k">
+<article style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{k.area}}</span>
+<span style="font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{k.statusBg}}; color: {{k.statusFg}}">{{k.status}}</span>
+</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 1.3; font-weight: 600">{{k.title}}</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<template data-for="{{k.evidence}}" data-as="e">
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-top: 1px solid #ECECE6">
+<span style="align-self: flex-start; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: {{e.bg}}; color: {{e.fg}}">{{e.type}}</span>
+<span style="font-size: 15.5px; line-height: 1.45">{{e.text}}</span>
+<span style="font-size: 12.5px; color: #62676F">{{e.by}}</span>
+</li>
+</template>
+</ul>
+</article>
+</template>
+</div>
+</section>
+
+<section aria-labelledby="leaves" style="background: #14161A; color: #EDEDE8; border-radius: 20px; padding: clamp(20px, 3vw, 32px); display: flex; flex-wrap: wrap; gap: 24px 40px">
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px">
+<h2 id="leaves" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">What this Passport leaves out, on purpose</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD0">Schools often count attendance in place of learning. Vachuo only records what a learner can actually do.</p>
+<button type="button" style="align-self: flex-start; margin-top: 6px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #4A4F57; background: transparent; color: #EDEDE8; font-size: 14px; font-weight: 500; cursor: pointer">Generate a transcript on request</button>
+</div>
+<ul style="flex: 1 1 320px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+<li style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9A826" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Seat time and attendance</li>
+<li style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9A826" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Class rank and grade averages</li>
+<li style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9A826" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>An age-grade label</li>
+<li style="display: flex; align-items: center; gap: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F9A826" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Anything from open hours Amani didn’t choose to add</li>
+</ul>
+</section>
+
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("Passport", function () {
+class Component extends DCLogic {
+  renderVals() {
+    const subj = [['Math', 6], ['Reading', 8], ['Kiswahili', 6], ['Science', 7], ['Making', 9]];
+    const subjects = subj.map(([name, level]) => ({ name, level, pct: (level / 16 * 100).toFixed(2) + '%' }));
+    const ticks = [0, 2, 4, 6, 8, 10, 12, 14, 16].map((n) => ({ label: n === 0 ? 'K' : String(n), left: (n / 16 * 100).toFixed(2) + '%' }));
+    const loop = ['#E4ECFD', '#1E40AF'];
+    const world = ['#DDF4F1', '#115E59'];
+    const plain = ['#F4F4EF', '#3F444C'];
+    const types = { 'Real world': world, Peer: world, Elder: world, Guide: world, 'Open hours': world, Tutor: loop, Practice: loop, Planned: plain };
+    const ev = (type, text, by) => ({ type, text, by, bg: types[type][0], fg: types[type][1] });
+    const sk = (o) => Object.assign({}, o, o.status === 'In progress'
+      ? { statusBg: '#F4F4EF', statusFg: '#3F444C' }
+      : { statusBg: '#E4ECFD', statusFg: '#1E40AF' });
+    return {
+      subjects,
+      ticks,
+      skills: [
+        sk({ area: 'Science · Making', title: 'Builds and tests a physical model', status: 'Shown · 24 Oct', evidence: [
+          ev('Real world', 'A rain gauge, built and calibrated over three weeks', 'Photo log and data sheet'),
+          ev('Peer', 'Build reviewed by Tomás and Neema', 'Peer review, Connects'),
+          ev('Elder', 'Checked against the weather station: a sound method', 'Dr. Wairimu, hydrologist')
+        ] }),
+        sk({ area: 'Kiswahili', title: 'Writes a persuasive essay in Kiswahili', status: 'Shown · 16 Oct', evidence: [
+          ev('Tutor', 'Insha on single-use plastics, scored against the argument rubric', 'Vachuo tutor'),
+          ev('Guide', 'Read aloud and defended in conversation', 'Nduta Kamau, guide')
+        ] }),
+        sk({ area: 'Science', title: 'Explains moon phases with a working model', status: 'Shown · 9 Oct', evidence: [
+          ev('Real world', 'Lamp-and-ball model with a recorded explanation', 'Video, 3 minutes'),
+          ev('Tutor', 'Predicted the next night’s phase from the model', 'Vachuo tutor')
+        ] }),
+        sk({ area: 'Making · outside Vachuo', title: 'Codes an interactive story', status: 'Shown · 2 Oct', evidence: [
+          ev('Open hours', 'A Scratch story about her grandmother’s farm', 'Added by Amani'),
+          ev('Peer', 'Demonstrated to Mwangi, who taught her', 'Skill exchange, Connects')
+        ] }),
+        sk({ area: 'Math', title: 'Reasons proportionally with real quantities', status: 'In progress', evidence: [
+          ev('Practice', 'Unit-rate set, 4 of 6', 'Vachuo practice, 29 Oct'),
+          ev('Open hours', 'Turned rainfall into a daily rate', 'Added by Amani, 31 Oct'),
+          ev('Planned', 'Scale a shirt pattern at Achieng’s workshop', 'Thursday, pending a parent’s OK')
+        ] })
+      ]
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Passport");
+</script>
+</body>
+</html>

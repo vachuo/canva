@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · The Vachuo Journal</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.feat-text{max-width:min(640px,calc(100% - 240px))}
+.feat-figs{position:absolute;right:20px;bottom:0;height:80%;display:flex;align-items:flex-end;gap:2px;pointer-events:none}
+@media (max-width:899px){.feat-text{max-width:640px}.feat-figs{position:relative;right:auto;height:230px;align-self:center;margin-bottom:calc(-1 * clamp(24px,3vw,40px))}}
+html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
+.post{transition:transform .25s ease,box-shadow .25s ease}.post:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(20,22,26,.45)}.post img{transition:transform .4s ease}.post:hover img{transform:translateY(-8px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.post,.post:hover,.post img,.post:hover img{transition:none;transform:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Blog">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
+<a href="blog.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none">Sign in</a>
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Request early access</a>
+</div>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="journal-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) 32px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: flex-end">
+<div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Blog · The Vachuo Journal</span>
+<h1 id="journal-title" style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">Research and ideas on learning in the age of AI.</h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.5; color: #3F444C; max-width: 680px; text-wrap: pretty">Long-form essays from Vachuo Research on education, policy, technology and work, written for parents, educators, builders and policymakers. Every claim is sourced.</p>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="journal-search" style="font-size: 13.5px; font-weight: 600; color: #3F444C">Search the Journal</label>
+<input id="journal-search" type="search" value="{{query}}" onChange="{{setQuery}}" placeholder="Tutoring, privacy, careers…" style="min-height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; color: #14161A">
+</div>
+</section>
+
+<section aria-label="Featured essays" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(16px, 4vw, 48px) 40px; display: flex; flex-wrap: wrap; gap: 18px">
+<a href="blog-ai-education.html" style="flex: 2 1 560px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 360px; padding: clamp(24px, 3vw, 40px); border-radius: 24px; background: #1D4ED8; color: #FFFFFF; text-decoration: none; position: relative; overflow: hidden">
+<span aria-hidden="true" style="position: absolute; width: 560px; height: 560px; right: -220px; top: -340px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.28)"></span>
+<span aria-hidden="true" style="position: absolute; width: 980px; height: 980px; left: -460px; top: -720px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span style="position: relative; align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #DCE6FD">Featured · AI and education</span>
+<span class="feat-text" style="position: relative; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: clamp(32px, 3.6vw, 48px); line-height: 1.04; font-weight: 600; text-wrap: balance">Can AI Tutors Teach? What the First Rigorous Trials Show</span>
+<span style="font-size: 20px; line-height: 1.45; font-style: italic; color: #E4ECFD">Well-designed AI tutors can produce large gains; poorly designed ones can quietly harm learning. Design is the variable.</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #FFFFFF">Read the essay · 7 min</span>
+</span>
+<span class="feat-figs" aria-hidden="true"><img src="assets/img/e1b79eb4952f14718c70fb2b72622cc1.svg" alt="" style="display: block; height: 100%; width: auto"><img src="assets/img/d5b3c1bf64b6df3171cd40d4ea6cd3d7.svg" alt="" style="display: block; height: 100%; width: auto"></span>
+</a>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<a href="blog-education.html" style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #E4ECFD; color: #1E40AF">Education</span><img src="assets/img/d2a1b6a6b98dc6c01a65bc72956a63ce.svg" alt="" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: #E4ECFD"></span>
+<span style="font-size: 26px; line-height: 1.12; font-weight: 600">What Is Education For? Three Purposes, One Child</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Vachuo Research · 7 min</span>
+</a>
+<a href="blog-child-safety.html" style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E2E2DA; color: #14161A; text-decoration: none">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #FEF1D9; color: #92400E">Children’s safety</span><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: #FEF1D9"></span>
+<span style="font-size: 26px; line-height: 1.12; font-weight: 600">Keeping Children Safe in AI-Powered Learning: A Practical Framework</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Vachuo Research · 7 min</span>
+</a>
+</div>
+</section>
+
+<section aria-labelledby="all-title" style="background: #FFFFFF; border-top: 1px solid #E2E2DA; border-bottom: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 5vw, 64px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="all-title" style="margin: 0; font-size: clamp(30px, 3vw, 40px); line-height: 1.1; font-weight: 600">All essays</h2>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F" aria-live="polite">{{countNote}}</span>
+</div>
+<div role="group" aria-label="Filter by topic" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{chips}}" data-as="c">
+<button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 38px; padding: 0 13px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button>
+</template>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px">
+<template data-for="{{posts}}" data-as="p">
+<a href="{{p.href}}" class="post" style="display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: 18px; background: #F4F4EF; color: #14161A; text-decoration: none; overflow: hidden">
+<span aria-hidden="true" style="position: relative; display: block; height: 150px; margin: -22px -22px 8px; overflow: hidden; background: {{p.band}}"><span style="position: absolute; width: 300px; height: 300px; left: -120px; top: -190px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span><span style="position: absolute; width: 520px; height: 520px; left: -300px; top: -380px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span><img src="{{p.img}}" alt="" style="position: absolute; right: 28px; top: 16px; height: 290px; width: auto"></span>
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: {{p.chipBg}}; color: {{p.chipFg}}">{{p.topic}}</span>
+<span style="font-size: 25px; line-height: 1.12; font-weight: 600">{{p.title}}</span>
+<span style="font-size: 17.5px; line-height: 1.45; color: #3F444C">{{p.dek}}</span>
+<span style="margin-top: auto; padding-top: 6px; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Vachuo Research · {{p.mins}} min read</span>
+</a>
+</template>
+</div>
+<template data-if="{{noPosts}}"><div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 24px; border-radius: 18px; background: #F4F4EF; font-size: 19px; color: #3F444C">No essays match that search yet.<button type="button" onClick="{{clearFilters}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Clear filters</button></div></template>
+</div>
+</section>
+
+<section aria-labelledby="sub-title" style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 5vw, 64px) clamp(16px, 4vw, 48px)">
+<div style="border-radius: 24px; background: #1D4ED8; color: #FFFFFF; padding: clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-end">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<h2 id="sub-title" style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; font-weight: 600">The Journal, in your inbox.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.5; color: #E4ECFD">New essays, the Vachuo Podcast and Weekly Forum topics. Unsubscribe whenever you like.</p>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="sub-email" style="font-size: 13.5px; font-weight: 600; color: #DCE6FD">Email</label>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<input id="sub-email" type="email" placeholder="you@example.com" style="flex: 1 1 200px; min-width: 0; min-height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #7FA2EE; background: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; color: #14161A">
+<button type="button" style="min-height: 50px; padding: 0 20px; border-radius: 14px; border: none; background: #F9A826; color: #14161A; font-size: 15px; font-weight: 600; cursor: pointer">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0 20px">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">White paper</a>
+<a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Vision, mission &amp; values</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<span style="display: inline-flex; align-items: center; min-height: 44px">[CONTACT EMAIL]</span>
+</nav>
+<nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; margin-right: 8px">Follow Vachuo</span>
+<template data-for="{{social}}" data-as="s"><a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">{{s}}</a></template>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("Blog", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { topic: 'All', query: '', scrolled: false, showTop: false };
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || 0, scrolled = y > 8, showTop = y > 900;
+        if (scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ scrolled, showTop });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.innerHeight < 1600 && 'IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      const vh = window.innerHeight;
+      this._io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-shown', ''); this._io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main > section').forEach((el) => { if (el.getBoundingClientRect().top > vh * 0.9) { el.setAttribute('data-rv', ''); this._io.observe(el); } });
+      document.documentElement.classList.add('rv-on');
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    document.documentElement.classList.remove('rv-on');
+  }
+  renderVals() {
+    const groups = {
+      learn: ['#E4ECFD', '#1E40AF'],
+      work: ['#DDF4F1', '#115E59'],
+      safe: ['#FEF1D9', '#92400E'],
+      industry: ['#ECECE6', '#3F444C']
+    };
+    const raw = [
+      ['education', 'Education', 'learn', 7, 'What Is Education For? Three Purposes, One Child', 'Before we automate schooling, we should be clear about what it is for. Gert Biesta’s three purposes of education offer a test every AI system should pass.'],
+      ['learning-teaching', 'Learning and teaching', 'learn', 7, 'What the Science of Learning Asks of Every Teacher and Tutor', 'Retrieval, spacing, worked examples and well-judged feedback are among the best-replicated findings in education research. Most classrooms and apps still underuse them.'],
+      ['homeschooling', 'Homeschooling', 'learn', 7, 'Homeschooling’s Second Wave: What the Evidence Can and Cannot Tell Us', 'Home education is growing again, and its families are more varied than the stereotypes. The research base has not kept up.'],
+      ['ai-schools', 'AI schools', 'learn', 7, 'AI Schools and the Two-Hour Day: Promise, Proof and Missing Evidence', 'A new generation of schools claims AI can compress academics into a few hours a day. The idea deserves serious attention, and serious evaluation.'],
+      ['international-schools', 'International schools', 'learn', 6, 'The International School Boom, and What It Teaches Everyone Else', 'Fifteen thousand schools, 7.7 million students and nearly $70 billion in fees: the sector has become a laboratory for curriculum, credentials and mobility.'],
+      ['education-policy', 'Education policy', 'learn', 7, 'Education Policy Meets AI: Five Regimes Taking Shape', 'From Brussels to Beijing, governments are writing the rules for AI in schools. Their choices will shape what learners experience for a generation.'],
+      ['k12', 'K–12', 'learn', 6, 'K–12 After the Pandemic: The Recovery That Stalled, and the One That Could Work', 'Scores and attendance have not returned to where they were. Intensive, individualised instruction is the best-evidenced lever we have.'],
+      ['edtech-funding', 'Funding in EdTech', 'industry', 6, 'After the EdTech Bubble: Where Patient Capital Should Go Next', 'Venture funding has fallen by more than four-fifths since 2021. The next decade will reward evidence, distribution and sound unit economics.'],
+      ['careers-ai', 'Careers in the age of AI', 'work', 7, 'Careers in the Age of AI: Advice for a Twelve-Year-Old', 'The evidence on AI and work is early but instructive. It points less to “safe” jobs than to durable capacities and the habit of learning.'],
+      ['ai-education', 'AI and education', 'learn', 7, 'Can AI Tutors Teach? What the First Rigorous Trials Show', 'Well-designed AI tutors can produce large gains; poorly designed ones can quietly harm learning. Design is the variable.'],
+      ['global-talent', 'Global talent', 'work', 6, 'Talent Is Everywhere, Opportunity Is Not: Global Talent in the AI Era', 'Demography is shifting the world’s young workforce toward Africa and South Asia. Whether that becomes a dividend depends on skills, credentials and connection.'],
+      ['workforce', 'Workforce development', 'work', 6, 'Workforce Development Needs a Theory of Learning, Not a List of Skills', 'Training spending is large and results are mixed. The programmes that work combine sector focus, learning on the job and real support.'],
+      ['skills', 'Skills development', 'work', 6, 'The Skills Paradox: More Schooling, Flat Literacy', 'Adults have more years of education than ever, yet literacy is stagnating or falling in many countries. Skills are built and kept through use.'],
+      ['child-safety', 'Children’s safety', 'safe', 7, 'Keeping Children Safe in AI-Powered Learning: A Practical Framework', 'Online safety law is catching up with children’s digital lives. Learning platforms, and AI companions above all, should go well beyond the minimum.'],
+      ['digital-transformation', 'Digital transformation', 'industry', 6, 'Digital Transformation in Education: Lessons From Two Decades of Devices', 'Laptops, tablets and platforms have often arrived faster than evidence. AI is a chance to transform practice, not just procurement.'],
+      ['ai-privacy', 'AI and data privacy', 'safe', 7, 'Children’s Data in the Age of AI: From Compliance to Custody', 'Privacy law treats children’s data as something to protect. A better model treats it as something children own and institutions hold in trust.']
+    ];
+    const band = { learn: '#1D4ED8', work: '#0D9488', safe: '#F9A826', industry: '#172F73' };
+    const B = (id) => 'assets/img/' + id + '.svg';
+    const art = {
+      'education': B('734c48226a9d32aaeebc02194bddd245'), 'learning-teaching': B('3131eb41702479241dc132be8c19c769'),
+      'homeschooling': B('0a1435c5059775e636726ec8ea6ae1bf'), 'ai-schools': B('1faac0a7d16146a1a5b3b74c07d1a41a'),
+      'international-schools': B('d42b6aeb08200a8796692a2ce1cd239f'), 'education-policy': B('d5b3c1bf64b6df3171cd40d4ea6cd3d7'),
+      'k12': B('cac9841562397b7ca613a7ffcdd03071'), 'edtech-funding': B('028366707734272954ecc6309a373201'),
+      'careers-ai': B('21ef351959c7b27f73dae1d9e0a3393f'), 'ai-education': B('267b7a442640f30304c2f6baf1e79fcb'),
+      'global-talent': B('65a0f4b355f066cff6c2b1eae9c72c33'), 'workforce': B('22033daaf123028b1b5f7e201a7028b0'),
+      'skills': B('cc13f9d919b0933cc82b960722e0d690'), 'child-safety': B('6ab3d26d29f9009ba1269cd62a3e4663'),
+      'digital-transformation': B('46e5e779174aa0ddfd4f477b9c75cf42'), 'ai-privacy': B('3438b0a8fc256476ded0a4a58bd42512')
+    };
+    const all = raw.map((r) => ({ id: r[0], topic: r[1], mins: r[3], title: r[4], dek: r[5], href: 'blog-' + r[0] + '.html', chipBg: groups[r[2]][0], chipFg: groups[r[2]][1], band: band[r[2]], img: art[r[0]] }));
+    const t = this.state.topic;
+    const q = (this.state.query || '').trim().toLowerCase();
+    const posts = all.filter((p) => (t === 'All' || p.topic === t) && (!q || (p.title + ' ' + p.dek + ' ' + p.topic).toLowerCase().indexOf(q) >= 0));
+    const chips = ['All'].concat(all.map((p) => p.topic)).map((label) => {
+      const on = label === t;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ topic: label }) };
+    });
+    return {
+      posts, chips,
+      countNote: (posts.length === 1 ? '1 essay' : posts.length + ' essays') + (q ? ' matching “' + this.state.query.trim() + '”' : ''),
+      query: this.state.query,
+      setQuery: (e) => this.setState({ query: e.target.value }),
+      noPosts: posts.length === 0,
+      clearFilters: () => this.setState({ query: '', topic: 'All' }),
+      headShadow: this.state.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: this.state.showTop,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      social: ['LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok', 'YouTube', 'WhatsApp Channel', 'Threads', 'Spotify', 'Apple Podcasts']
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Blog");
+</script>
+</body>
+</html>

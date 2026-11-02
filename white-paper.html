@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · White paper: A Primer for Every Child</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-WhitePaper">
+<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
+<div aria-hidden="true" style="position: absolute; left: 0; bottom: -1px; height: 3px; width: {{progress}}; background: #1D4ED8"></div>
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; min-height: 44px"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 44px; width: auto"></a>
+<nav aria-label="Site" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 14.5px; font-weight: 500">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="loop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">The loop</a>
+<a href="copilot.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Parents</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
+<a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
+<a href="white-paper.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; color: #1D4ED8; font-weight: 600; text-decoration: none">About</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none">Sign in</a>
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Request early access</a>
+</div>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="paper-title" style="position: relative; overflow: hidden; background: #1D4ED8; color: #FFFFFF">
+<span aria-hidden="true" style="position: absolute; width: 900px; height: 900px; right: -280px; top: -560px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.28)"></span>
+<span aria-hidden="true" style="position: absolute; width: 1500px; height: 1500px; left: -640px; top: -1080px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
+<span aria-hidden="true" style="position: absolute; left: -20%; right: -20%; bottom: -120px; height: 200px; border-radius: 50%; background: #F4F4EF"></span>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(28px, 4vw, 44px) clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px); display: flex; flex-direction: column; gap: clamp(32px, 5vw, 56px)">
+<nav aria-label="About Vachuo" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #DCE6FD; margin-right: 6px">About Vachuo</span>
+<a href="white-paper.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #FFFFFF; color: #1E40AF; font-size: 14.5px; font-weight: 600; text-decoration: none">White paper</a>
+<a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #7FA2EE; color: #FFFFFF; font-size: 14.5px; font-weight: 500; text-decoration: none">Vision, mission &amp; values</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #DCE6FD">WHITE PAPER · DRAFT 1.0 · NOVEMBER 2026</span>
+<h1 id="paper-title" style="margin: 0; font-size: clamp(48px, 6.4vw, 92px); line-height: 0.98; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">A Primer for Every Child</h1>
+<p style="margin: 0; font-size: clamp(21px, 2vw, 27px); line-height: 1.4; font-style: italic; color: #E4ECFD; max-width: 760px; text-wrap: pretty">The case for a deschooled, closed-loop AI school, and the principles that keep it humane.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #DCE6FD">By [AUTHOR NAMES] · About 25 minutes</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download PDF</button>
+<button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #7FA2EE; background: transparent; color: #FFFFFF; font-size: 14px; font-weight: 500; cursor: pointer">Share</button>
+</div>
+</div>
+</div>
+<img src="assets/img/1c2c0a3c82492c25afe2e7ef6524512f.svg" alt="Illustrated learners from Peru, South Korea, Kenya, Sweden and Samoa" style="flex: 0 1 440px; width: 440px; max-width: 100%; height: auto; align-self: flex-end; margin-bottom: calc(-1 * clamp(48px, 6vw, 80px))">
+</div>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 5vw, 64px) clamp(16px, 4vw, 48px) clamp(56px, 7vw, 96px); display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+
+<nav aria-label="Contents" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #62676F">Contents</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; font-size: 14.5px">
+<template data-for="{{toc}}" data-as="t">
+<li style="border-top: 1px solid #E2E2DA"><a href="{{t.href}}" aria-current="{{t.cur}}" style="display: flex; gap: 12px; align-items: baseline; min-height: 40px; padding: 9px 0; box-sizing: border-box; color: {{t.color}}; font-weight: {{t.weight}}; text-decoration: none; transition: color .2s ease"><span style="flex: none; width: 22px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #1D4ED8">{{t.n}}</span><span>{{t.label}}</span></a></li>
+</template>
+</ol>
+</nav>
+
+<article style="flex: 999 1 560px; min-width: 0; max-width: 740px; display: flex; flex-direction: column">
+
+<section aria-label="Abstract" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8">Abstract</span>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #23272E; text-wrap: pretty">Every child deserves a tutor who knows them: what they understand, what they misunderstand, what they care about and what they are ready for next. For most of history that was a privilege of princes. For the first time, the technology exists to approach it for everyone. But a tutor alone is not an education, and a perfectly efficient tutor could become the most total school ever built.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #23272E; text-wrap: pretty">This paper argues for a different design. We propose an operating system for individualized education, built on a closed loop that diagnoses, plans, teaches, observes, assesses, diagnoses misconceptions, remediates, reassesses, updates a persistent learner model and informs the family. The loop runs over three linked graphs of content, assessment and pedagogy. We then constrain it with ideas far older than software: Socrates’ insistence on questions, Aristotle’s account of habit and flourishing, Dewey’s conviction that education is experience, and Ivan Illich’s warning that schooling teaches us to confuse instruction with learning. The result is Vachuo. AI handles instruction and school operations. People handle motivation, mentorship and meaning. Connects returns children to the world.</p>
+</section>
+
+<section id="primer" aria-labelledby="h-primer" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">01</span>
+<h2 id="h-primer" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">The Primer problem</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty"><span aria-hidden="true" style="float: left; font-size: 76px; line-height: 0.82; padding: 6px 10px 0 0; font-weight: 600; color: #1D4ED8">I</span>n Neal Stephenson’s 1995 novel <i>The Diamond Age</i>, an engineer builds a book for a duke’s granddaughter: <i>A Young Lady’s Illustrated Primer</i>. It talks and it listens. It notices what its reader knows and what frightens her, and it folds its lessons into stories cast with the people and objects of her own life. A stolen copy falls into the hands of Nell, a four-year-old in a violent household, and the book raises her into a young woman of extraordinary capability.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Engineers have been chasing the Primer ever since, and most read the novel as a specification: adaptive content, a conversational interface, infinite patience. That reading misses the book’s quieter argument. Nell’s Primer is voiced, night after night, by the same human performer, Miranda, who comes to love a child she has never met. Meanwhile hundreds of thousands of mass-produced copies raise a generation of abandoned girls who become, in the story, an army devoted to Nell. The technology is the same in both cases. What differs is whether a person who cares is present, and whom the learning ultimately serves.</p>
+<p style="margin: 8px 0; padding: 24px 0; border-top: 1px solid #93BBF3; border-bottom: 1px solid #93BBF3; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.3; font-style: italic; color: #1E3A8A; text-align: center; text-wrap: balance">The scarce thing is no longer the tutor. It is the school around the tutor.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">This is the Primer problem, and it is now a practical one. Language models can explain, question and adapt. Several companies already offer AI tutors to homeschooling families, and more will. What is scarce is an educational system around the tutor: one that is accurate, that knows a child over years rather than minutes, that keeps people in the places only people can fill, and that leaves the child more free, not less.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Vachuo’s thesis is that this system can be built, and that it must be built with limits. We call it an operating system for individualized K–12 education: a validated content, assessment and pedagogy (CAP) engine; a persistent learner model; autonomous AI teachers; automated school administration; a parent copilot; and human expertise available only when it adds value.</p>
+</section>
+
+<section id="schooling" aria-labelledby="h-schooling" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">02</span>
+<h2 id="h-schooling" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">What schooling gets wrong</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">In 1971 Ivan Illich published <i>Deschooling Society</i>, a short book that remains one of the most radical critiques of education ever written. His central charge was that school teaches its pupils to confuse process with substance: teaching with learning, promotion to the next grade with education, a diploma with competence, and fluency with the ability to say something new. Once that confusion takes hold, people believe that learning is the product of being taught, and that what has not been certified has not been learned.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Illich called the result the hidden curriculum. Children learn that knowledge is a commodity dispensed in measured units by licensed professionals. They learn that worth comes from climbing a ladder of grades, that time in a seat is evidence of growth, and that the right to learn depends on admission to an institution. None of these lessons appears on the timetable. All of them are taught.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">It is easy to read an AI school as Illich’s nightmare perfected: an institution that never closes, observes everything and can certify every keystroke. That risk is real, and section 11 answers it directly. But Illich’s critique also cuts the other way. Much of what he condemned, from age-graded cohorts and fixed sequences to seat time and the credentialed monopoly over instruction, exists because until now it was the only way to educate at scale. A system that places each child by what they know rather than how old they are, that measures competence directly instead of inferring it from attendance, and that connects children to the people and things around them could do what Illich asked for. It could separate learning from schooling.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Vachuo is designed as that separation. The test we hold every feature to is simple: <b style="font-weight: 600">does this help a child learn, or does it help an institution manage a child?</b></p>
+</section>
+
+<section id="socrates" aria-labelledby="h-socrates" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">03</span>
+<h2 id="h-socrates" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Learning as inquiry: Socrates</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Socrates wrote nothing, and he had a reason. In Plato’s <i>Phaedrus</i> he complains that written words seem intelligent, but when you question them they always give “one unvarying answer.” A book cannot notice that its reader has misunderstood, and it cannot ask what she meant. For twenty-four centuries every educational technology, from the scroll to the textbook to the video lecture, has shared that limitation.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Conversational AI is the first technology that answers back. That makes the Socratic method, long reserved for small seminars and expensive tutors, available at scale for the first time. The method has two movements. The first, the <i>elenchus</i>, leads a learner to discover a contradiction in what she believes. The second, which Socrates compares in the <i>Theaetetus</i> to the work of a midwife, helps her bring a better idea to birth by herself.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The most famous demonstration is in Plato’s <i>Meno</i>. Socrates questions an enslaved boy about how to double the area of a square. The boy answers confidently that you double the side, which is a proportional misconception, and Socrates does not correct him. He asks questions until the boy sees for himself that doubling the side quadruples the area, then guides him toward the diagonal. Vachuo’s tutor does the same thing with an eleven-year-old who adds when she should multiply. It chooses a case she already trusts, lets her find the contradiction, and only then shows her the double number line.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Socrates also warned of a danger. The same dialogue predicts that readers of books will have “the show of wisdom without the reality.” A fluent machine that produces answers on demand raises that risk at far greater scale. So Vachuo’s tutor asks more than it tells. It verifies understanding through transfer and application rather than accepting a confident reply, and it never treats a correct answer as proof of comprehension. The open-source Primer project (primer-ai.org) puts the principle plainly: it teaches by asking. We agree.</p>
+</section>
+
+<section id="aristotle" aria-labelledby="h-aristotle" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">04</span>
+<h2 id="h-aristotle" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Learning as habit and flourishing: Aristotle</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Aristotle offers two correctives to a purely conversational picture of learning. The first concerns practice. In the <i>Nicomachean Ethics</i> he argues that we acquire excellences the way we acquire crafts: we become builders by building and harpists by playing the harp. Understanding a ratio in conversation is not the same as reasoning proportionally when you scale a recipe for forty, cut a shirt pattern or read a map. Competence is a disposition built through repeated, varied use. That is why Vachuo counts evidence from projects, workshops and real tasks, and why it does not mark a skill as shown until it has been demonstrated in more than one way.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The second concerns purpose. For Aristotle the aim of education is neither employability nor obedience but <i>eudaimonia</i>, a flourishing life lived well among others. The capacity that matters most for such a life, <i>phronesis</i> or practical wisdom, cannot be delivered as content. It grows from experience, under the eye of people who already have it. Aristotle himself spent years as tutor to the young Alexander of Macedon, the archetype of the private tutor that every adaptive learning system is trying to democratize. What Aristotle could offer one prince, we want to offer every child. But the part of his tutoring that formed character was never the syllabus.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Modern evidence supports both halves of the argument. In 1984 Benjamin Bloom reported that students tutored one-to-one with mastery learning performed about two standard deviations above students taught conventionally: the “two sigma problem” that has shaped educational technology ever since. Later reviews of rigorous trials find smaller but still substantial effects from tutoring. Individual attention combined with mastery works. Why it works is less settled, and much of the answer appears to be relational. We design accordingly.</p>
+</section>
+
+<section id="dewey" aria-labelledby="h-dewey" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">05</span>
+<h2 id="h-dewey" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Learning as experience: John Dewey</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">John Dewey spent his life arguing that education is not a rehearsal for life but part of it. In <i>My Pedagogic Creed</i> (1897) he wrote that education is “a process of living and not a preparation for future living.” Children learn best, he believed, when inquiry starts from a real problem that matters to them, moves through action and reflection, and ends in understanding they can use. He distinguished experiences that are educative, which open the way to further growth, from those that are mis-educative, which narrow or deaden it.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Dewey gives Vachuo its daily rhythm. A learner’s day begins with her own question: why bridges stand, how recipes scale, why the moon changes shape. The system’s job is to find where that question lives on her map, build a path toward it, and tie the abstract skill to the concrete problem. A child who wants to build a scale-model bridge has a reason to care about ratios that no syllabus can supply.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Dewey also insisted that school is a community, and that education in a democracy must prepare people to share in common life. An individualized system risks sealing children into private tunnels of content. So Vachuo treats peers, families, neighbours and local experts as part of the school, and the rest of this paper turns the loop outward, toward the world.</p>
+</section>
+
+<section id="loop" aria-labelledby="h-loop" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">06</span>
+<h2 id="h-loop" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">The closed loop</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Everyone will soon have an AI tutor. The lasting advantage is not the tutor but the system that governs it: a closed loop that runs every time a learner engages.</p>
+<ol aria-label="The closed loop" style="list-style: none; margin: 4px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{loop}}" data-as="s">
+<li style="display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 12px; border-radius: 999px; font-size: 14px; font-weight: 500; background: {{s.bg}}; color: {{s.fg}}"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; opacity: 0.8">{{s.n}}</span>{{s.name}}</li>
+</template>
+</ol>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Doing this well for one child in one subject is hard. Doing it from kindergarten to grade 12, across every subject, standard, learning level and pedagogy, for millions of learners, is an enormous systems problem. We treat it as three interconnected graphs.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 12px">
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-top: 3px solid #1D4ED8; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 21px; font-weight: 600">Content graph</span><span style="font-size: 17px; line-height: 1.5; color: #3F444C">Not “Grade 5 math” but a network of concepts, each with prerequisites, objectives, standards, examples, misconceptions, difficulty levels and applications.</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-top: 3px solid #1684E8; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 21px; font-weight: 600">Assessment graph</span><span style="font-size: 17px; line-height: 1.5; color: #3F444C">Every interaction updates P(student understands skill X). A wrong answer is evidence to be explained, not zero points.</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-top: 3px solid #0D9488; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 21px; font-weight: 600">Pedagogy graph</span><span style="font-size: 17px; line-height: 1.5; color: #3F444C">What to teach, how, how hard, in which modality and with which example; when to step in, when to review, and when mastery is real.</span></div>
+</div>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The assessment graph is where most systems are weakest. A wrong answer might signal a conceptual misconception, a procedural mistake, a prerequisite gap, a misunderstanding of language, a lapse of attention, a calculation error or a guess, and each calls for a different response. Re-teaching a child who made an arithmetic slip wastes her time. Drilling a child who holds a misconception entrenches it. The pedagogy graph is harder still, and it is the least solved problem in the field.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Between these graphs and the child sits a validation layer. Generative models make mistakes, and a school cannot afford to. No lesson reaches a learner as raw model output. Content is generated inside the constraints of a validated curriculum graph, checked against standards and known misconceptions, and tested for validity before use. Mastery requires more than one kind of evidence. Around the loop sit the remaining layers of the system: a knowledge graph and learner model at the core, AI tutor agents that teach within its limits, an AI school manager for planning, records and compliance, human help on demand, and a parent operating system on top.</p>
+</section>
+
+<section id="webs" aria-labelledby="h-webs" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">07</span>
+<h2 id="h-webs" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Connects: Illich’s learning webs, rebuilt</h2>
+<figure aria-hidden="true" style="margin: 4px 0; position: relative; height: clamp(220px, 30vw, 300px); border-radius: 22px; overflow: hidden; background: #0D9488">
+<span style="position: absolute; width: 520px; height: 520px; right: -170px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -400px; top: -640px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -84px; height: 150px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 22px; bottom: 16px; display: flex; justify-content: center; align-items: flex-end; gap: 10px">
+<img src="assets/img/028366707734272954ecc6309a373201.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/d21e7783f1935f06ae9fa2d66914be3f.svg" alt="" style="display: block; height: 87%; width: auto">
+</div>
+</figure>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Illich did more than criticize. He proposed an alternative: learning webs that would let anyone find the resources, people and partners they needed, without passing through a school. He described four networks. In 1971 they required infrastructure that did not exist. Today they need little more than a phone, a map and a model that understands what each learner is trying to learn.</p>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px">
+<li style="background: #DDF4F1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59">NETWORK 1</span><span style="font-size: 23px; font-weight: 600; color: #134E4A">Resource services</span><span style="font-size: 17.5px; line-height: 1.5; color: #1F3B39">Access to the things and processes of learning: tools, books, laboratories, workshops, farms, markets and museums, many of which sit idle or behind institutional walls. Vachuo maps them and links each to the skills it can teach. A tailoring workshop is a lesson in ratio and geometry.</span></li>
+<li style="background: #DDF4F1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59">NETWORK 2</span><span style="font-size: 23px; font-weight: 600; color: #134E4A">Skill exchanges</span><span style="font-size: 17.5px; line-height: 1.5; color: #1F3B39">Directories where people list the skills they will teach and on what terms, often in exchange for something they want to learn. A solar installer teaches wiring in return for reading help for his son; a sixteen-year-old teaches coding in return for Kiswahili practice.</span></li>
+<li style="background: #DDF4F1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59">NETWORK 3</span><span style="font-size: 23px; font-weight: 600; color: #134E4A">Peer-matching</span><span style="font-size: 17.5px; line-height: 1.5; color: #1F3B39">A way for learners to find partners for an inquiry. Vachuo matches on shared questions and on neighbouring positions in the learner model, so two children both close to understanding ratios can learn it together and teach each other.</span></li>
+<li style="background: #DDF4F1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #115E59">NETWORK 4</span><span style="font-size: 23px; font-weight: 600; color: #134E4A">Educator directory</span><span style="font-size: 17.5px; line-height: 1.5; color: #1F3B39">A directory of professionals, para-professionals and independent educators, Illich’s educators-at-large, whose experience can guide, critique and inspire: a retired surveyor, a hydrologist, a master craftsperson, a Vachuo guide.</span></li>
+</ol>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The loop and Connects meet in one place: evidence. When a learner scales a pattern in a workshop or builds a rain gauge with peers, she, her host or her partners can record what happened, and her learner model updates as it would after any lesson. But only if she wants it to. Learning that happens in the world belongs to the learner first.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Children meeting adults outside the home demands serious safeguards, and Illich’s fully open webs would not pass a modern child-protection review. Vachuo’s webs are open in spirit and careful in practice. Hosts are identity-verified and background-checked, a parent approves every in-person meeting for learners under eighteen, and meetings happen in groups or public places.</p>
+</section>
+
+<section id="people" aria-labelledby="h-people" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">08</span>
+<h2 id="h-people" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">People where people matter</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The most important lesson from today’s AI-first schools is that even the strongest believers in AI instruction keep adults. They change the adult’s role from teacher to guide. AI may soon handle content, explanation, assessment, grading, planning and administration better than most people can at scale. It is much further from answering the question every child eventually asks: why should I care about this today?</p>
+<p style="margin: 8px 0; padding: 24px 0; border-top: 1px solid #93BBF3; border-bottom: 1px solid #93BBF3; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.3; font-style: italic; color: #1E3A8A; text-align: center; text-wrap: balance">AI handles instruction and school operations. Humans handle what humans are best at: motivation, mentorship, relationships and inspiration.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Motivation is the layer most competitors underestimate, and it is where Dewey, Aristotle and <i>The Diamond Age</i> agree. Learning is sustained by relationships, by interest, and by the sense that someone notices. So we do not sell “no teachers.” We sell a division of labour. Every Vachuo learner has a named guide, close to what Illich called a pedagogical counsellor, whose job is not to deliver lessons but to know the child, help with big decisions and show up on bad days.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The same insight governs product design. Like the open Primer project, which commits never to maximize engagement, Vachuo has no feeds, streaks, points or manipulative notifications. Its north-star metric is not time on the platform. It is the learner’s growing ability to direct her own learning.</p>
+</section>
+
+<section id="family" aria-labelledby="h-family" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">09</span>
+<h2 id="h-family" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">The family and the copilot</h2>
+<figure aria-hidden="true" style="margin: 4px 0; position: relative; height: clamp(220px, 30vw, 300px); border-radius: 22px; overflow: hidden; background: #1D4ED8">
+<span style="position: absolute; width: 520px; height: 520px; right: -170px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
+<span style="position: absolute; width: 900px; height: 900px; left: -400px; top: -640px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
+<span style="position: absolute; left: -25%; right: -25%; bottom: -84px; height: 150px; border-radius: 50%; background: #FBF7EE"></span>
+<div style="position: absolute; left: 0; right: 0; top: 16px; bottom: 16px; display: flex; justify-content: center; align-items: flex-end; gap: 4px">
+<img src="assets/img/0a1435c5059775e636726ec8ea6ae1bf.svg" alt="" style="display: block; height: 75%; width: auto">
+<img src="assets/img/267b7a442640f30304c2f6baf1e79fcb.svg" alt="" style="display: block; height: 89%; width: auto">
+<img src="assets/img/34ca7e8b43fa2c9e35ef5770834dbd3e.svg" alt="" style="display: block; height: 100%; width: auto">
+<img src="assets/img/23ceaff40668bb318aa5bfebe6cc7af9.svg" alt="" style="display: block; height: 92%; width: auto">
+</div>
+</figure>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Homeschooling parents hold two jobs at once: teacher and principal. Most products help with neither. They show analytics (a percentage per subject, a count of completed lessons) and leave the interpretation to an exhausted parent. Vachuo’s Parent Copilot behaves instead like a good principal reporting to a family. It explains what happened, says what it has already done, and asks only when a parent’s judgment is needed.</p>
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: clamp(18px, 3vw, 26px); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; font-style: italic; color: #23272E">James mastered multiplication this week but is repeatedly confusing division remainders. His confidence drops when word problems contain more than two steps. Vachuo has therefore adjusted next week’s learning path and inserted three short prerequisite lessons. No intervention is required from you right now.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 1px solid #ECECE6">
+<span style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; font-style: italic; color: #23272E">Sarah has been avoiding writing assignments for four days. Academically she can perform them, so this appears behavioral rather than a knowledge gap. Would you like Vachuo to adjust her projects around her interest in animals, schedule a 10-minute conversation with you, or connect her with a writing coach?</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The copilot is bounded by the child’s dignity. Parents see learning (progress, plans and decisions), not surveillance. Unscheduled time is never tracked, children can read everything the copilot says about them, and oversight recedes as independence grows. By the time a learner reaches university, she shares with her family only what she chooses.</p>
+</section>
+
+<section id="passport" aria-labelledby="h-passport" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">10</span>
+<h2 id="h-passport" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Competence, not credentials</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Illich argued that a society which certifies learning only through schools hands schools a monopoly over opportunity. The diploma becomes a proxy for competence and eventually a substitute for it. Vachuo replaces the transcript with a Learning Passport: a record of what the learner can do, with the evidence behind each claim. That evidence can be tutor assessments, real-world demonstrations, peer reviews or endorsements from elders and masters.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The Passport records no seat time, rank or age-grade label. It belongs to the learner, anyone she shares it with can verify it, and it leaves with her to any school, programme or employer. Where a regulator or institution requires grades or a transcript, Vachuo generates them from the evidence on request, so the family never has to choose between principle and paperwork.</p>
+</section>
+
+<section id="constraints" aria-labelledby="h-constraints" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">11</span>
+<h2 id="h-constraints" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Deschooling constraints</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">A closed loop this capable could become the most total school ever built: always on, all-seeing, quietly deciding who a child is. Good intentions are not a sufficient safeguard. We write the limits into the system as constraints that every model, metric and screen must satisfy.</p>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px">
+<template data-for="{{rules}}" data-as="r">
+<li style="display: flex; gap: 16px; padding: 16px 20px; border-top: {{r.bt}}">
+<span style="flex: none; width: 28px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #92400E; padding-top: 4px">{{r.n}}</span>
+<span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 20px; font-weight: 600">{{r.title}}</span><span style="font-size: 17.5px; line-height: 1.5; color: #3F444C">{{r.text}}</span></span>
+</li>
+</template>
+</ol>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The last constraint borrows Illich’s word from <i>Tools for Conviviality</i> (1973). A convivial tool enlarges what its user can do on her own terms; a manipulative one makes her depend on it. In the novel, the Primer was convivial for Nell and something closer to manipulative for the girls who became an army. The difference lay in choices of design and purpose, and those choices are ours to make.</p>
+</section>
+
+<section id="evidence" aria-labelledby="h-evidence" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">12</span>
+<h2 id="h-evidence" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">How we will know</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">The AI-education market is full of company-reported usage figures and short of independent evidence that children learn more. Building content and assessment infrastructure is not the same as proving that it works. Vachuo commits to the following:</p>
+<ul style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 12px; font-size: 19px; line-height: 1.55; color: #23272E">
+<li>Pre-registered studies of learning gains, evaluated independently, beginning with our first cohorts and compared against well-matched alternatives.</li>
+<li>Measures beyond test scores: transfer to new problems, retention over months, growth in self-direction, and learner wellbeing.</li>
+<li>Calibration audits of the learner model. When Vachuo estimates an 85% chance that a child understands a skill, she should succeed about 85% of the time.</li>
+<li>Published error rates for generated content and for the validation layer, with a public log of corrections.</li>
+<li>Publication of results whether or not they flatter us.</li>
+</ul>
+</section>
+
+<section id="risks" aria-labelledby="h-risks" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">13</span>
+<h2 id="h-risks" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Risks, and how we answer them</h2>
+<dl style="margin: 0; display: flex; flex-direction: column">
+<template data-for="{{risks}}" data-as="k">
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 16px 0; border-top: 1px solid #E2E2DA">
+<dt style="flex: 1 1 180px; font-size: 19px; font-weight: 600">{{k.risk}}</dt>
+<dd style="flex: 3 1 360px; margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C">{{k.answer}}</dd>
+</div>
+</template>
+</dl>
+</section>
+
+<section id="scale" aria-labelledby="h-scale" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">14</span>
+<h2 id="h-scale" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">From one family to a nation</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">We begin with homeschooling families because they feel the whole problem at once. They need instruction, administration and guidance together, and they will tell us quickly what fails. But the same infrastructure can serve families, then tutors, microschools, private schools, charter schools and eventually governments. A validated CAP engine with one learner model per child is as useful to a ministry of education as it is to a kitchen table.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Our ambition is to make the best of one-to-one education, once the tutoring of princes, an ordinary public good. In that, at least, Illich and the engineers of the Primer would have agreed: what matters is not who owns the school, but whether every child can reach what she needs to learn.</p>
+</section>
+
+<section id="conclusion" aria-labelledby="h-conclusion" style="display: flex; flex-direction: column; gap: 20px; padding-top: 56px">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #1D4ED8">15</span>
+<h2 id="h-conclusion" style="margin: 0; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600">Conclusion</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">Stephenson imagined a book that could raise a child. We think the better ambition is both humbler and larger: a system that helps every child raise herself. That means a tutor that asks before it tells, a family that knows what matters, mentors who care, peers to learn alongside, a world full of things to learn from, and a record of what she can do that is hers to keep.</p>
+<p style="margin: 8px 0 0; padding: 28px 24px; border-radius: 20px; background: #1D4ED8; color: #FFFFFF; font-size: clamp(25px, 2.6vw, 32px); line-height: 1.3; font-style: italic; text-align: center; text-wrap: balance">A Primer for every child, a guide for every Primer, and a web for every guide.</p>
+</section>
+
+<section id="references" aria-labelledby="h-references" style="display: flex; flex-direction: column; gap: 16px; padding-top: 56px">
+<h2 id="h-references" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">References</h2>
+<ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 8px; font-size: 16.5px; line-height: 1.5; color: #3F444C">
+<li>Aristotle. <i>Nicomachean Ethics</i>, Book II; <i>Politics</i>, Book VIII.</li>
+<li>Bloom, B. S. (1984). The 2 Sigma Problem: The Search for Methods of Group Instruction as Effective as One-to-One Tutoring. <i>Educational Researcher</i>, 13(6), 4–16.</li>
+<li>Dewey, J. (1897). My Pedagogic Creed. <i>The School Journal</i>, 54.</li>
+<li>Dewey, J. (1916). <i>Democracy and Education</i>. Macmillan.</li>
+<li>Dewey, J. (1938). <i>Experience and Education</i>. Kappa Delta Pi.</li>
+<li>Illich, I. (1971). <i>Deschooling Society</i>. Harper &amp; Row.</li>
+<li>Illich, I. (1973). <i>Tools for Conviviality</i>. Harper &amp; Row.</li>
+<li>Nickow, A., Oreopoulos, P., &amp; Quan, V. (2020). The Impressive Effects of Tutoring on PreK-12 Learning: A Systematic Review and Meta-Analysis of the Experimental Evidence. NBER Working Paper 27476.</li>
+<li>Plato. <i>Meno</i>; <i>Phaedrus</i>; <i>Theaetetus</i>. Trans. B. Jowett.</li>
+<li>Stephenson, N. (1995). <i>The Diamond Age: Or, A Young Lady’s Illustrated Primer</i>. Bantam Spectra.</li>
+<li>The Primer project. <a href="https://primer-ai.org/">primer-ai.org</a>. Accessed November 2026.</li>
+</ol>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 56px; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<span style="font-size: 21px; font-weight: 600">Next: what we believe, in one page</span>
+<a href="vision.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Vision, mission &amp; values<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</article>
+</div>
+</main>
+
+<footer style="background: #FFFFFF; border-top: 1px solid #E2E2DA">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 24px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">
+<span style="display: flex; align-items: center; gap: 10px"><img src="assets/img/mark.png" alt="" style="width: 34px; height: auto">© 2026 Vachuo</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0 20px">
+<a href="index.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Home</a>
+<a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">White paper</a>
+<a href="vision.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Vision, mission &amp; values</a>
+<a href="blog.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Blog</a>
+<a href="newsroom.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Newsroom</a>
+<span style="display: inline-flex; align-items: center; min-height: 44px">[CONTACT EMAIL]</span>
+</nav>
+<nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; margin-right: 8px">Follow Vachuo</span>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">LinkedIn</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Facebook</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Instagram</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">X</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">TikTok</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">YouTube</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">WhatsApp Channel</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Threads</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Spotify</a>
+<a href="#" style="padding: 12px 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; text-decoration: none; font-size: 13.5px">Apple Podcasts</a>
+</nav>
+</div>
+</footer>
+<template data-if="{{showTop}}"><button type="button" aria-label="Back to top" onClick="{{toTop}}" style="position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 48px; height: 48px; border-radius: 50%; border: none; background: #14161A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px -12px rgba(20,22,26,0.5)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></template>
+</div>
+</template>
+<script>
+DC.component("WhitePaper", function () {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { pct: 0, sh: false, top: false, current: '' };
+  }
+  componentDidMount() {
+    this._s = () => {
+      if (this._r) return;
+      this._r = requestAnimationFrame(() => {
+        this._r = 0;
+        const y = window.scrollY || 0, max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight), pct = Math.min(100, Math.round((y / max) * 100));
+        if (pct !== this.state.pct || (y > 8) !== this.state.sh || (y > 900) !== this.state.top) this.setState({ pct, sh: y > 8, top: y > 900 });
+      });
+    };
+    window.addEventListener('scroll', this._s, { passive: true });
+    if ('IntersectionObserver' in window && window.innerHeight < 1600) {
+      this._spy = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting && e.target.id !== this.state.current) this.setState({ current: e.target.id }); }), { rootMargin: '-35% 0px -60% 0px' });
+      this.ids.forEach((id) => { const el = document.getElementById(id); if (el) this._spy.observe(el); });
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._s);
+    if (this._spy) this._spy.disconnect();
+  }
+  renderVals() {
+    const sections = [
+      ['primer', 'The Primer problem'], ['schooling', 'What schooling gets wrong'], ['socrates', 'Learning as inquiry: Socrates'],
+      ['aristotle', 'Learning as habit: Aristotle'], ['dewey', 'Learning as experience: Dewey'], ['loop', 'The closed loop'],
+      ['webs', 'Connects: the four networks'], ['people', 'People where people matter'], ['family', 'The family and the copilot'],
+      ['passport', 'Competence, not credentials'], ['constraints', 'Deschooling constraints'], ['evidence', 'How we will know'],
+      ['risks', 'Risks, and how we answer them'], ['scale', 'From one family to a nation'], ['conclusion', 'Conclusion']
+    ];
+    this.ids = sections.map((s) => s[0]);
+    const toc = sections.map((s, i) => {
+      const on = this.state.current === s[0];
+      return { href: '#' + s[0], label: s[1], n: String(i + 1).padStart(2, '0'), cur: on ? 'location' : 'false', color: on ? '#1D4ED8' : '#3F444C', weight: on ? 600 : 400 };
+    });
+    const names = ['Diagnose', 'Plan', 'Teach', 'Observe', 'Assess', 'Diagnose misconception', 'Remediate', 'Reassess', 'Update learner model', 'Inform parent', 'Repeat'];
+    const loop = names.map((name, i) => ({
+      n: String(i + 1).padStart(2, '0'), name,
+      bg: name === 'Inform parent' ? '#DDF4F1' : (name === 'Repeat' ? '#1D4ED8' : '#E4ECFD'),
+      fg: name === 'Inform parent' ? '#115E59' : (name === 'Repeat' ? '#FFFFFF' : '#1E40AF')
+    }));
+    const r = [
+      ['Learning, not schooling', 'Measure what a learner can do. Never seat time, rank or age-grade.'],
+      ['Every inference is contestable', 'Learners see what the model believes about them and can challenge it. A challenge is evidence, not defiance.'],
+      ['Observation needs consent', 'Open hours are never tracked. The loop observes only inside commitments the learner agreed to.'],
+      ['The world counts', 'Evidence from Connects updates the model like any lesson.'],
+      ['Records belong to the learner', 'Maps and Passports are portable, exportable and deletable by their owner.'],
+      ['People own meaning', 'AI runs instruction and operations. Guides, elders and parents own motivation, mentorship and inspiration.'],
+      ['Convivial by design', 'Success is a learner who needs Vachuo less each year.']
+    ];
+    const rules = r.map((x, i) => ({ n: String(i + 1).padStart(2, '0'), title: x[0], text: x[1], bt: i === 0 ? 'none' : '1px solid #ECECE6' }));
+    const risks = [
+      ['Errors in AI content', 'A validation layer between generation and the child; mastery requires more than one kind of evidence; sampled human review; and a “that’s not what happened” control on every inference.'],
+      ['Surveillance', 'Data minimization, unobserved open hours, learner-owned records, consent for every share, and no advertising or sale of data, ever.'],
+      ['Dependence', 'A north star of rising self-direction. Scaffolding fades as competence grows, and learners plan more of their own week each year.'],
+      ['Isolation', 'Connects, peer-matching and a named human guide for every learner.'],
+      ['Child safety in Connects', 'Identity verification and background checks for hosts, parental approval for every in-person meeting, and group or public settings.'],
+      ['Inequity', 'Mobile-first and low-bandwidth design, an offline-capable core, multiple languages including Kiswahili, and pricing families can afford: [PRICE].'],
+      ['Displacing teachers', 'The adult role changes from instruction to guidance. Tutors and microschools are partners and customers, not casualties.'],
+      ['Regulation', 'Automated records and compliance, standards alignment, and transcripts generated from evidence on request.']
+    ];
+    return {
+      toc, loop, rules, risks: risks.map((x) => ({ risk: x[0], answer: x[1] })),
+      progress: this.state.pct + '%',
+      headShadow: this.state.sh ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
+      showTop: this.state.top,
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' })
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("WhitePaper");
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-64.3 11.6 128.7 128.7" width="256" height="256"><defs><pattern id="nduta-v2-kit" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="28" height="28" fill="#0D9488"></rect><circle cx="14" cy="14" r="6.5" fill="#F9A826"></circle><circle cx="14" cy="14" r="2.6" fill="#0F766E"></circle><path d="M0 0 L5 0 L0 5 Z M28 0 L23 0 L28 5 Z M0 28 L5 28 L0 23 Z M28 28 L23 28 L28 23 Z" fill="#FBF7EE"></path></pattern><pattern id="nduta-v2-wrap" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#F9A826"></rect><path d="M0 12 L12 0 L24 12 L12 24 Z" fill="#1D4ED8"></path><path d="M6 12 L12 6 L18 12 L12 18 Z" fill="#FBF7EE"></path><circle cx="0" cy="0" r="2.5" fill="#0D9488"></circle></pattern></defs><ellipse cx="0.0" cy="481.0" rx="76.0" ry="7.0" fill="#000000" opacity="0.13"></ellipse>
+<path d="M-50,252 L50,252 L51,302 L-51,302 Z" fill="#1F2A44" stroke="#1F2A44" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-23.0,284.0 L-25.0,452.0" fill="none" stroke="#1F2A44" stroke-width="37.0" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M23.0,284.0 L25.0,452.0" fill="none" stroke="#1F2A44" stroke-width="37.0" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-49.5,452 L-10.5,452 L-16.5,476 L-55.5,476 Z" fill="#8A3F1E" stroke="#8A3F1E" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-56.5,479.0 L-13.5,479.0" fill="none" stroke="#5E2A14" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M10.5,452 L49.5,452 L55.5,476 L10.5,476 Z" fill="#8A3F1E" stroke="#8A3F1E" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M11.5,479.0 L58.5,479.0" fill="none" stroke="#5E2A14" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-14.04,84 L14.04,84 L14.04,125 L-14.04,125 Z" fill="#462A1A" stroke="#462A1A" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-16.38,115 Q0,125 16.38,115 L50,117 Q60,120 60,133 L52,260 L-52,260 L-60,133 Q-60,120 -50,117 Z" fill="#FBF7EE" stroke="#FBF7EE" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M27.0,125 L60,133 L52,260 L26.0,260 Z" fill="#000" opacity="0.07"></path>
+<path d="M-12,117 L-50,117 Q-60,120 -60,133 L-58,298 L-14,298 L-12,218 Z" fill="url(#nduta-v2-kit)" stroke="url(#nduta-v2-kit)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-12,117 L-28,121 L-16,165 L-12,218 Z" fill="#0F766E" stroke="#0F766E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M12,117 L50,117 Q60,120 60,133 L58,298 L14,298 L12,218 Z" fill="url(#nduta-v2-kit)" stroke="url(#nduta-v2-kit)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M12,117 L28,121 L16,165 L12,218 Z" fill="#0F766E" stroke="#0F766E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-53.0,131.0 L-66.0,191.5 L-69.0,286.0" fill="none" stroke="#4E2F1D" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-53.0,131.0 L-66.0,191.5 L-68.6,272.8" fill="none" stroke="url(#nduta-v2-kit)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-68.4,267.8 L-68.6,272.8" fill="none" stroke="#0F766E" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="-69.1" cy="290.0" r="11.9" fill="#4E2F1D"></circle>
+<path d="M53.0,131.0 L84.0,226.0 L56.0,256.0" fill="none" stroke="#4E2F1D" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M53.0,131.0 L84.0,226.0 L59.9,251.8" fill="none" stroke="url(#nduta-v2-kit)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M63.3,248.1 L59.9,251.8" fill="none" stroke="#0F766E" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="53.3" cy="258.9" r="11.9" fill="#4E2F1D"></circle>
+<path d="M-10.0,119.0 L-4.0,185.0" fill="none" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M10.0,119.0 L4.0,185.0" fill="none" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-13,185 L13,185 L13,217 L-13,217 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-13,185 L13,185 L13,193 L-13,193 Z" fill="#1D4ED8" stroke="#1D4ED8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+<circle cx="0.0" cy="204.0" r="5.0" fill="#F9A826"></circle>
+<ellipse cx="-38.2" cy="57.0" rx="8.5" ry="11.0" fill="#4E2F1D"></ellipse>
+<ellipse cx="-38.2" cy="57.0" rx="4.0" ry="6.0" fill="#432818"></ellipse>
+<ellipse cx="38.2" cy="57.0" rx="8.5" ry="11.0" fill="#4E2F1D"></ellipse>
+<ellipse cx="38.2" cy="57.0" rx="4.0" ry="6.0" fill="#432818"></ellipse>
+<circle cx="-38.2" cy="76.0" r="7.5" fill="none" stroke="#E0B04A" stroke-width="3"></circle>
+<circle cx="38.2" cy="76.0" r="7.5" fill="none" stroke="#E0B04A" stroke-width="3"></circle>
+<ellipse cx="0.0" cy="49.0" rx="39.0" ry="49.0" fill="#4E2F1D"></ellipse>
+<path d="M7.800000000000001,95.06 Q33.54,78.4 39,49" fill="none" stroke="#462A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.5"></path>
+<ellipse cx="-15.6" cy="54.9" rx="7.4" ry="7.2" fill="#FFFFFF"></ellipse>
+<circle cx="-15.0" cy="55.7" r="5.0" fill="#2A1B16"></circle>
+<circle cx="-15.0" cy="55.7" r="2.3" fill="#120B08"></circle>
+<circle cx="-13.2" cy="53.3" r="1.7" fill="#FFFFFF"></circle>
+<path d="M-23.6,53.88 Q-15.600000000000001,44.48 -7.600000000000001,53.88" fill="none" stroke="#2A1B16" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-22.6,51.9 L-26.6,47.9" fill="none" stroke="#2A1B16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-24.6,39.88 Q-15.600000000000001,34.88 -6.600000000000001,39.88" fill="none" stroke="#2A1B16" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"></path>
+<ellipse cx="15.6" cy="54.9" rx="7.4" ry="7.2" fill="#FFFFFF"></ellipse>
+<circle cx="16.2" cy="55.7" r="5.0" fill="#2A1B16"></circle>
+<circle cx="16.2" cy="55.7" r="2.3" fill="#120B08"></circle>
+<circle cx="18.0" cy="53.3" r="1.7" fill="#FFFFFF"></circle>
+<path d="M7.600000000000001,53.88 Q15.600000000000001,44.48 23.6,53.88" fill="none" stroke="#2A1B16" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M22.6,51.9 L26.6,47.9" fill="none" stroke="#2A1B16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M6.600000000000001,39.88 Q15.600000000000001,34.88 24.6,39.88" fill="none" stroke="#2A1B16" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-3,69.88 Q0,73.88 3,69.88" fill="none" stroke="#382114" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"></path>
+<ellipse cx="-24.2" cy="70.9" rx="8.0" ry="5.0" fill="#C2554F" opacity="0.18"></ellipse>
+<ellipse cx="24.2" cy="70.9" rx="8.0" ry="5.0" fill="#C2554F" opacity="0.18"></ellipse>
+<path d="M-9,82.88 Q0,92.88 9,82.88 Z" fill="#7A2E2A"></path>
+<path d="M-7,83.38 Q0,85.38 7,83.38 Z" fill="#FFFFFF"></path>
+<path d="M-47,41.65 Q-55,-34 -14,-48 Q15.600000000000001,-56 47,-30 Q55,-4 46,41.65 Z" fill="url(#nduta-v2-wrap)" stroke="url(#nduta-v2-wrap)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-46,20.580000000000002 Q0,6.859999999999999 46,20.580000000000002 L44,38.22 Q0,26.459999999999997 -44,38.22 Z" fill="#E08E12" stroke="#E08E12" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-35,27.44 Q0,18.62 35,27.44" fill="none" stroke="#FBD38A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"></path>
+<path d="M-10,-46 Q12,-30 27.299999999999997,-6" fill="none" stroke="#C27A0E" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"></path>
+<path d="M-30,-36 Q-6,-22 8,-2" fill="none" stroke="#C27A0E" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"></path>
+<path d="M7.800000000000001,-50 Q29.25,-58 33.15,-36 Q19.5,-34 7.800000000000001,-50 Z" fill="#E08E12" stroke="#E08E12" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
