@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Showcase</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Caveat:wght@500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<style>
+.acard{transition:transform .2s ease,box-shadow .2s ease}
+.acard:hover{transform:translateY(-2px);box-shadow:0 16px 30px -24px rgba(20,22,26,.55)}
+.calpill{transition:transform .15s ease,box-shadow .15s ease}
+.calpill:hover{transform:translateY(-1px);box-shadow:0 6px 12px -8px rgba(20,22,26,.45)}
+.fadein{animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.slidein{animation:slidein .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.livedot{animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.paper-lined{background-color:#FFFFFE;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 33px,#C9D6F2 33px,#C9D6F2 34px),linear-gradient(to right,transparent 40px,#F2B8B5 40px,#F2B8B5 41px,transparent 41px);background-position:0 10px,0 0}
+@media (prefers-reduced-motion:reduce){.fadein,.slidein,.livedot{animation:none}.acard:hover,.calpill:hover{transform:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Showcase">
+<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>My tutor</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My learning map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M10.5 8.5v5l4-2.5z"/><path d="M8 20.5h8"/></svg>My classes</a>
+<a href="assessments.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14.6l2 2 4-4.2"/></svg>My assessments</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h2.5"/><path d="M13.5 16.3l1.4 1.4 2.4-2.7"/></svg>Report card</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+<a href="clubs.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20h6M8 17h8l-1-6h-6zM10 11V8h4v3M12 4v4M10.5 5.5h3"/></svg>Clubs</a>
+<a href="showcase.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<button type="button" role="switch" aria-checked="{{uiOn}}" onClick="{{uiToggle}}" style="margin-top: auto; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; background: transparent; color: #3F444C; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span style="flex: 1">Dark mode</span><span aria-hidden="true" style="position: relative; flex: none; width: 38px; height: 22px; border-radius: 999px; background: {{uiTrack}}; transition: background 160ms ease"><span style="position: absolute; top: 3px; left: {{uiKnob}}; width: 16px; height: 16px; border-radius: 50%; background: #FDFDFD; box-shadow: 0 1px 2px rgba(20,22,26,0.35); transition: left 160ms ease"></span></span></button>
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Showcase</span>
+<h1 style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Show your work, earn from it, and find your next opportunity.</h1>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 720px; text-wrap: pretty">Sell, offer services, swap, give, ask, take on paid challenges, and put your home library or art on a shelf others can browse. Learners do it with a grown-up: a parent or guardian approves every listing, receives every payment and answers every buyer.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<template data-for="{{stats}}" data-as="s"><div style="min-width: 112px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{s.v}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">{{s.l}}</span></div></template>
+</div>
+</header>
+
+<section aria-label="Choose whose view to see" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Viewing as (demo)</span><button type="button" onClick="{{openPost}}" style="min-height: 42px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">{{postLabel}}</button></div>
+<div role="group" aria-label="Viewer" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{roleChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px; min-height: 46px; padding: 5px 12px; border-radius: 12px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; text-align: left; cursor: pointer"><span style="font-size: 13.5px; font-weight: 600">{{c.label}}</span><span style="font-size: 11.5px; opacity: 0.75">{{c.sub}}</span></button></template>
+</div>
+<p aria-live="polite" style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F444C">{{roleNote}}</p>
+</section>
+
+<section aria-label="How Showcase keeps learners safe" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px">
+<template data-for="{{rules}}" data-as="r"><div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 14px; background: #FBF7EE; border: 1px solid #F6DFAE"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 10px; background: #FFFFFF; color: #92400E; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; color: #14161A">{{r.t}}</span><span style="font-size: 14.5px; line-height: 1.4; color: #3F444C">{{r.d}}</span></div></div></template>
+</section>
+
+<template data-if="{{isParent}}">
+<section aria-labelledby="inbox-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="inbox-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Waiting for you</h2><a href="copilot.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13.5px">All approvals in Parent copilot</a></div>
+<template data-if="{{inboxClear}}"><p style="margin: 0; font-size: 14px; color: #62676F">Nothing waiting. When Amani posts, buys, borrows or enters a challenge, it shows up here first.</p></template>
+<template data-for="{{inbox}}" data-as="a"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 14px; border-radius: 14px; background: #FEF9EE; border: 1px solid #F6DFAE"><div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14.5px; font-weight: 600; line-height: 1.35">{{a.t}}</span><span style="font-size: 13px; line-height: 1.45; color: #3F444C">{{a.d}}</span><span style="font-size: 12px; color: #62676F">{{a.at}}</span></div><div style="display: flex; gap: 6px"><button type="button" onClick="{{a.approve}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Approve</button><button type="button" onClick="{{a.decline}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Decline</button></div></div></template>
+</section>
+</template>
+
+<template data-if="{{hasMine}}">
+<section aria-labelledby="mine-h" style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 id="mine-h" style="margin: 0; font-size: 24px; font-weight: 600">{{mineTitle}}</h2><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{mineNote}}</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{mine}}" data-as="m"><div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 14px; padding: 10px; display: flex; gap: 10px"><button type="button" aria-label="Open {{m.t}}" onClick="{{m.open}}" style="flex: none; width: 64px; height: 64px; border-radius: 10px; border: none; background: {{m.bg}}; cursor: pointer"></button><div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 600; line-height: 1.3">{{m.t}}</span><span style="font-size: 12.5px; color: #3F444C">{{m.sub}}</span><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="padding: 2px 8px; border-radius: 999px; background: {{m.stBg}}; color: {{m.stFg}}; font-size: 11.5px; font-weight: 700">{{m.st}}</span><template data-if="{{m.hasDecide}}"><button type="button" onClick="{{m.approve}}" style="min-height: 32px; padding: 0 12px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer">Approve</button><button type="button" onClick="{{m.decline}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">Decline</button></template><template data-if="{{m.hasDemo}}"><button type="button" onClick="{{m.demo}}" style="min-height: 32px; padding: 0 6px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; text-decoration: underline; cursor: pointer">{{m.demoLabel}}</button></template></div></div></div></template>
+</div>
+</section>
+</template>
+
+<section aria-label="Showcase sections" style="display: flex; flex-direction: column; gap: 16px">
+<div role="tablist" aria-label="Showcase sections" style="display: flex; gap: 4px; overflow-x: auto; padding: 4px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{tabs}}" data-as="t"><button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 42px; padding: 0 14px; border-radius: 10px; border: none; background: {{t.bg}}; color: {{t.fg}}; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap">{{t.label}} <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; opacity: 0.7">{{t.n}}</span></button></template>
+</div>
+
+<template data-if="{{isListTab}}">
+<div role="tabpanel" aria-label="{{tabTitle}}" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 26px; font-weight: 600">{{tabTitle}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 760px">{{tabLead}}</p></div>
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{catChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; cursor: pointer">{{c.label}} <span style="opacity: 0.7">{{c.n}}</span></button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px">
+<label style="flex: 1 1 240px; display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #62676F"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Search listings</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><input type="search" value="{{q}}" onChange="{{setQ}}" placeholder="Search: watercolour, logo, textbooks…" style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; font-size: 14px; color: #14161A"></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #3F444C">Sort<select value="{{sort}}" onChange="{{setSort}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{sortOpts}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 42px; font-size: 14px; color: #14161A; cursor: pointer"><input type="checkbox" checked="{{learnerOnly}}" onChange="{{toggleLearner}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Learners’ work only</label>
+</div>
+<span aria-live="polite" style="font-size: 13px; color: #62676F">{{resultText}}</span>
+</div>
+<template data-if="{{hasCards}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px">
+<template data-for="{{cards}}" data-as="c">
+<article class="acard" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative">
+<button type="button" onClick="{{c.open}}" aria-label="Open {{c.t}}" style="display: block; width: 100%; padding: 0; border: none; background: transparent; cursor: pointer">
+<span role="img" aria-label="{{c.alt}}" style="position: relative; aspect-ratio: 4 / 3; background: {{c.bg}}; display: flex; align-items: center; justify-content: center">
+<template data-if="{{c.hasIcon}}"><span style="width: 76px; height: 76px; border-radius: 50%; background: #FFFFFF; color: {{c.iconInk}}; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -16px rgba(20,22,26,.6)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{c.icon}}"/></svg></span></template>
+<template data-if="{{c.isCover}}"><span style="max-width: 70%; padding: 14px 10px; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; line-height: 1.1; font-weight: 600; color: #FFFFFE; text-align: center; text-wrap: balance">{{c.coverT}}</span></template>
+</span>
+</button>
+<button type="button" aria-pressed="{{c.saved}}" aria-label="{{c.saveLabel}}" onClick="{{c.save}}" style="position: absolute; top: 8px; right: 8px; width: 38px; height: 38px; border-radius: 50%; border: none; background: #FFFFFF; color: #14161A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 14px -10px rgba(20,22,26,.7)"><svg width="18" height="18" viewBox="0 0 24 24" fill="{{c.saveFill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button>
+</div>
+<div style="padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 7px; flex: 1">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: Geist, system-ui, sans-serif"><span style="padding: 2px 8px; border-radius: 6px; background: {{c.tint}}; color: {{c.ink}}; font-size: 11.5px; font-weight: 700">{{c.cat}}</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13.5px; font-weight: 500; color: #14161A">{{c.price}}</span></div>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.2; font-weight: 600"><button type="button" onClick="{{c.open}}" style="padding: 0; border: none; background: transparent; color: #14161A; font: inherit; text-align: left; cursor: pointer">{{c.t}}</button></h3>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{c.by}} · {{c.area}}</span>
+<template data-if="{{c.hasSwap}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #1E40AF">{{c.swapLine}}</span></template>
+<template data-if="{{c.hasCloses}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: #92400E">{{c.closes}}</span></template>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 5px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600"><template data-if="{{c.hasBadge}}"><span style="padding: 2px 8px; border-radius: 6px; background: #DDF4F1; color: #115E59">{{c.badge}}</span></template><template data-if="{{c.hasSold}}"><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.soldLine}}</span></template></div>
+</div>
+</article>
+</template>
+</div>
+</template>
+<template data-if="{{noCards}}"><p style="margin: 0; padding: 18px; border-radius: 14px; border: 1px dashed #CFCFC6; text-align: center; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">{{emptyText}}</p></template>
+</div>
+</template>
+
+<template data-if="{{isColl}}">
+<div role="tabpanel" aria-label="Collections" style="display: flex; flex-direction: column; gap: 14px">
+<template data-if="{{notInColl}}">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 26px; font-weight: 600">Collections</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 720px">Put a physical collection online: a home library, a sketchbook, a club’s kit. Catalogue it by ISBN, photo or a pasted list, choose who can see it, and set lending rules.</p></div><button type="button" onClick="{{openStart}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Start a collection</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px">
+<template data-for="{{collCards}}" data-as="c"><article class="acard" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column"><div aria-hidden="true" style="height: 120px; background: {{c.bg}}"></div><div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex: 1"><div style="display: flex; flex-wrap: wrap; gap: 5px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700"><span style="padding: 2px 8px; border-radius: 6px; background: #F4F7FE; color: #1E40AF">{{c.kind}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.vis}}</span></div><h3 style="margin: 0; font-size: 20px; line-height: 1.2; font-weight: 600">{{c.t}}</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{c.by}} · {{c.total}}</span><p style="margin: 0; font-size: 15px; line-height: 1.45; color: #3F444C">{{c.d}}</p><button type="button" onClick="{{c.open}}" style="margin-top: auto; align-self: flex-start; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">Open collection</button></div></article></template>
+</div>
+</template>
+
+<template data-if="{{inColl}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<button type="button" onClick="{{cBack}}" style="align-self: flex-start; min-height: 40px; padding: 0 4px; border: none; background: transparent; color: #1D4ED8; font-family: Geist, system-ui, sans-serif; font-size: 14px; cursor: pointer">← All collections</button>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF">{{cKind}} · {{cBy}}</span><h2 style="margin: 0; font-size: 28px; font-weight: 600">{{cT}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 720px">{{cD}}</p></div><div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-family: Geist, system-ui, sans-serif"><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 15px">{{cTotal}}</span><span style="font-size: 12.5px; color: #62676F">{{cVisLabel}}</span></div></div>
+<p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #F4F4EF; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">{{cRulesLine}}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: Geist, system-ui, sans-serif">
+<label style="flex: 1 1 240px; display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #62676F"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Search this collection</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><input type="search" value="{{cq}}" onChange="{{cSetQ}}" placeholder="Search titles and authors" style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; font-size: 14px; color: #14161A"></label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 42px; font-size: 14px; color: #14161A; cursor: pointer"><input type="checkbox" checked="{{cAvail}}" onChange="{{cToggleAvail}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Available to borrow</label>
+<span style="font-size: 13px; color: #62676F">{{cShown}}</span>
+</div>
+<template data-if="{{cHasItems}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px">
+<template data-for="{{cItems}}" data-as="it"><div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column"><div role="img" aria-label="{{it.t}}" style="aspect-ratio: 3 / 4; background: {{it.bg}}; display: flex; align-items: center; justify-content: center"><template data-if="{{it.isCover}}"><span style="max-width: 78%; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; line-height: 1.1; font-weight: 600; color: #FFFFFE; text-align: center; text-wrap: balance">{{it.t}}</span></template></div><div style="padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; font-family: Geist, system-ui, sans-serif"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; font-weight: 600; line-height: 1.2">{{it.t}}</span><span style="font-size: 12.5px; color: #3F444C">{{it.by}}</span><template data-if="{{it.hasYear}}"><span style="font-size: 12px; color: #62676F">{{it.year}} · {{it.cond}}</span></template><template data-if="{{it.hasIsbn}}"><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #62676F">{{it.isbn}}</span></template><span style="font-size: 12px; font-weight: 600; color: {{it.stFg}}">{{it.status}}</span><template data-if="{{it.hasAct}}"><button type="button" onClick="{{it.go}}" disabled="{{it.actOff}}" style="margin-top: auto; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; font-weight: 600; cursor: pointer">{{it.act}}</button></template></div></div></template>
+</div>
+</template>
+<template data-if="{{cNoItems}}"><p style="margin: 0; padding: 18px; border-radius: 14px; border: 1px dashed #CFCFC6; text-align: center; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">{{cEmpty}}</p></template>
+
+<template data-if="{{cIsOwner}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; font-family: Geist, system-ui, sans-serif">
+<section aria-labelledby="add-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<h3 id="add-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Add an item</h3>
+<template data-if="{{aIsBooks}}"><div style="display: flex; gap: 6px; align-items: flex-end"><label style="flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">ISBN (from the back cover)<input type="text" inputmode="numeric" value="{{aIsbn}}" onChange="{{aSetIsbn}}" placeholder="9780141439518" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-family: 'Geist Mono', ui-monospace, monospace"></label><button type="button" onClick="{{aLookup}}" style="min-height: 42px; padding: 0 14px; border-radius: 10px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Look up</button></div></template>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Title<input type="text" value="{{aT}}" onChange="{{aSetT}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label>
+<div style="display: flex; gap: 8px"><label style="flex: 2; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">{{aByLabel}}<input type="text" value="{{aBy}}" onChange="{{aSetBy}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label><label style="flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Year<input type="text" inputmode="numeric" value="{{aYear}}" onChange="{{aSetYear}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #3F444C">Condition<select value="{{aCond}}" onChange="{{aSetCond}}" style="min-height: 40px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{aConds}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label><template data-if="{{aIsBooks}}"><label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 14px; cursor: pointer"><input type="checkbox" checked="{{aLend}}" onChange="{{aToggleLend}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Can be lent</label></template></div>
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 54px; height: 54px; border-radius: 10px; border: 1px dashed #CFCFC6; background: {{aPhotoBg}}"></span><label style="position: relative; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Add a photo of the cover or piece<input type="file" accept="image/*" onChange="{{aSetPhoto}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"></label></div>
+<template data-if="{{aHasMsg}}"><span role="status" style="font-size: 13px; color: #115E59">{{aMsg}}</span></template>
+<button type="button" onClick="{{aAdd}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Add to collection</button>
+</section>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<section aria-labelledby="imp-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<h3 id="imp-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Paste a list</h3>
+<span style="font-size: 13px; color: #62676F">One item per line: Title, Author, Year. Good for a shelf you’ve typed up or a spreadsheet column.</span>
+<textarea rows="4" aria-label="Items to import" value="{{importTxt}}" onChange="{{setImport}}" placeholder="The River and the Source, Margaret Ogola, 1994" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; line-height: 1.5"></textarea>
+<button type="button" onClick="{{doImport}}" style="align-self: flex-start; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Import</button>
+</section>
+<section aria-labelledby="vis-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<h3 id="vis-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Who can see it, and lending</h3>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Visible to<select value="{{cVis}}" onChange="{{cSetVis}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{cVisOpts}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label>
+<span style="font-size: 13px; line-height: 1.45; color: #62676F">{{cVisNote}}</span>
+<template data-if="{{cIsLibrary}}"><div style="display: flex; flex-wrap: wrap; gap: 10px"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Loan length<select value="{{cWeeks}}" onChange="{{cSetWeeks}}" style="min-height: 40px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{cWeekOpts}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Items per family<select value="{{cMax}}" onChange="{{cSetMax}}" style="min-height: 40px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{cMaxOpts}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label></div><label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 14px; cursor: pointer"><input type="checkbox" checked="{{cVerified}}" onChange="{{cToggleVerified}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Lend only to verified Vachuo families</label></template>
+</section>
+</div>
+</div>
+</template>
+</div>
+</template>
+</div>
+</template>
+
+<template data-if="{{isJobs}}">
+<div role="tabpanel" aria-label="Jobs and internships" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 26px; font-weight: 600">Jobs and internships</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 760px">For senior-school learners from 16, alumni and adult learners. Employers are verified, every listing states pay, and nobody can charge you to apply.</p></div><template data-if="{{isEmployer}}"><button type="button" onClick="{{openJobPost}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Post a job</button></template></div>
+
+<template data-if="{{jLocked}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 18px; border-radius: 16px; background: #F4F7FE; border: 1px solid #93BBF3; font-family: Geist, system-ui, sans-serif"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; color: #1E40AF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h12v9H6zM9 11V8a3 3 0 0 1 6 0v3"/></svg></span><p style="flex: 1 1 320px; margin: 0; font-size: 15px; line-height: 1.5; color: #14161A">{{jLockText}}</p><div style="display: flex; gap: 6px"><button type="button" onClick="{{goEarn}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">See paid challenges</button><button type="button" onClick="{{goServices}}" style="min-height: 42px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Offer a service</button></div></div>
+</template>
+
+<template data-if="{{jOpen}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr)); gap: 16px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{jTypes}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><template data-for="{{jWheres}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template><label style="display: flex; align-items: center; gap: 7px; min-height: 34px; font-size: 13.5px; cursor: pointer"><input type="checkbox" checked="{{jYoung}}" onChange="{{toggleYoung}}" style="width: 17px; height: 17px; accent-color: #1D4ED8">Open to 16 and 17</label><template data-if="{{jHasMatch}}"><label style="display: flex; align-items: center; gap: 7px; min-height: 34px; font-size: 13.5px; cursor: pointer"><input type="checkbox" checked="{{jMatch}}" onChange="{{toggleMatch}}" style="width: 17px; height: 17px; accent-color: #1D4ED8">Best matches for me</label></template></div>
+<span aria-live="polite" style="font-size: 13px; color: #62676F">{{jResult}} <template data-if="{{jHasMatch}}">· {{jInterests}}</template></span>
+</div>
+<template data-for="{{jobCards}}" data-as="j"><article style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700"><span style="padding: 2px 8px; border-radius: 6px; background: {{j.srcBg}}; color: {{j.srcFg}}">{{j.srcLabel}}</span><span style="padding: 2px 8px; border-radius: 6px; border: 1px solid #E2E2DA; color: #3F444C">{{j.min}}</span><template data-if="{{j.hasMatch}}"><span style="padding: 2px 8px; border-radius: 6px; background: {{j.matchBg}}; color: {{j.matchFg}}">{{j.matchLabel}}</span></template><template data-if="{{j.isNew}}"><span style="padding: 2px 8px; border-radius: 6px; background: #FEF1D9; color: #92400E">New</span></template></div><div style="display: flex; flex-direction: column; gap: 2px"><h3 style="margin: 0; font-size: 20px; line-height: 1.2; font-weight: 600">{{j.t}}</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">{{j.org}} · {{j.type}} · {{j.where}}, {{j.place}}</span></div><p style="margin: 0; font-size: 15px; line-height: 1.45; color: #3F444C">{{j.d}}</p><div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; font-family: Geist, system-ui, sans-serif"><span style="font-size: 13.5px"><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500">{{j.pay}}</span> <span style="color: #62676F">· {{j.closes}}</span></span><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><template data-if="{{j.hasDemo}}"><button type="button" onClick="{{j.demo}}" style="min-height: 38px; padding: 0 6px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; text-decoration: underline; cursor: pointer">{{j.demoLabel}}</button></template><button type="button" aria-pressed="{{j.saved}}" onClick="{{j.save}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">{{j.saveLabel}}</button><button type="button" onClick="{{j.actGo}}" disabled="{{j.actOff}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: {{j.actBg}}; color: {{j.actFg}}; font-size: 13.5px; font-weight: 700; cursor: pointer">{{j.act}}</button></div></div></article></template>
+<template data-if="{{noJobs}}"><p style="margin: 0; padding: 18px; border-radius: 14px; border: 1px dashed #CFCFC6; text-align: center; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">No opportunities match these filters.</p></template>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<template data-if="{{hasMyJobs}}">
+<section aria-labelledby="myjobs-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px"><h3 id="myjobs-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Your postings</h3><template data-for="{{myJobs}}" data-as="m"><div style="display: flex; flex-direction: column; gap: 2px; padding: 8px 0; border-top: 1px solid #ECECE6"><span style="font-size: 14px; font-weight: 600">{{m.t}}</span><span style="font-size: 12.5px; color: #3F444C">{{m.sub}}</span><span style="font-size: 12px; font-weight: 600; color: #115E59">{{m.st}}</span></div></template></section>
+</template>
+<section aria-labelledby="finder-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px"><h3 id="finder-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600">Opportunity finder</h3><span style="padding: 2px 8px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-size: 11.5px; font-weight: 700">Demo · sample data</span></div>
+<p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: #3F444C">Each morning at 06:00 it reads public job listings from approved sources, keeps only safe, paid, clearly identified roles, and a person reviews each one before it’s shared with matching members.</p>
+<div style="display: flex; flex-direction: column; gap: 6px"><template data-for="{{crSources}}" data-as="c"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #FAFAF7"><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 13.5px; font-weight: 600">{{c.n}}</span><span style="font-size: 12px; color: #62676F">{{c.k}} · {{c.last}}</span></span><span style="font-size: 11.5px; font-weight: 700; color: #115E59">robots.txt ✓ · terms ✓</span></div></template></div>
+<button type="button" onClick="{{crRun}}" disabled="{{crRunning}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">{{crRunLabel}}</button>
+<template data-if="{{crShowSteps}}"><ol aria-live="polite" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px"><template data-for="{{crSteps}}" data-as="st"><li style="display: flex; gap: 8px; font-size: 13px; line-height: 1.4; color: {{st.fg}}; font-weight: {{st.fw}}"><span aria-hidden="true" style="width: 14px">{{st.icon}}</span>{{st.t}}</li></template></ol></template>
+<template data-if="{{crDone}}"><span style="font-size: 13px; font-weight: 600; color: #14161A">{{crSummary}}</span></template>
+<template data-if="{{crHasQueue}}"><div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Review queue (moderator view)</span><template data-for="{{crQueue}}" data-as="q"><div style="padding: 10px 12px; border-radius: 12px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 600">{{q.t}}</span><span style="font-size: 12.5px; color: #3F444C">{{q.org}} · {{q.place}} · {{q.pay}} · {{q.min}}</span><span style="font-size: 12px; color: #62676F">From {{q.srcName}}. {{q.d}}</span><span style="font-size: 12px; color: #1E40AF">{{q.matchLine}}</span><div style="display: flex; gap: 6px; margin-top: 2px"><button type="button" onClick="{{q.ok}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer">Share</button><button type="button" onClick="{{q.no}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">Reject</button></div></div></template></div></template>
+<template data-if="{{crShowBlocked}}"><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Blocked automatically</span><template data-for="{{crBlocked}}" data-as="b"><div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 10px; background: #FBF7EE"><span style="font-size: 13px; text-decoration: line-through; color: #3F444C">{{b.t}}</span><span style="font-size: 12px; font-weight: 600; color: #92400E">{{b.why}}</span></div></template></div></template>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #62676F">In this prototype the finder runs on sample listings. In production it reads only public pages from approved sources, follows each site’s robots.txt and terms, stores no personal data from those sites, and links back to the original posting.</p>
+</section>
+</div>
+</div>
+</template>
+</div>
+</template>
+</section>
+
+<section aria-labelledby="msg-h" style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 id="msg-h" style="margin: 0; font-size: 24px; font-weight: 600">Messages</h2><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{msgLead}}</span></div>
+<template data-if="{{hasThreads}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div role="list" aria-label="Conversations" style="display: flex; flex-direction: column; gap: 6px"><template data-for="{{threads}}" data-as="t"><button type="button" role="listitem" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 600">{{t.title}}</span><span style="font-size: 12.5px; color: #3F444C">With {{t.with}} · {{t.n}} messages</span><span style="font-size: 12.5px; color: #62676F; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%">{{t.last}}</span></button></template></div>
+<div style="grid-column: span 2; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 15px; font-weight: 600">{{thTitle}}</span><span style="font-size: 12.5px; color: #62676F">{{thWith}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><template data-for="{{thMsgs}}" data-as="m"><div style="display: flex; flex-direction: column; align-items: {{m.align}}"><template data-if="{{m.notSys}}"><div style="max-width: 82%; padding: 8px 12px; border-radius: 14px; background: {{m.bg}}; color: {{m.fg}}; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11.5px; font-weight: 700; color: #3F444C">{{m.from}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.4">{{m.t}}</span><span style="font-size: 11px; color: #62676F">{{m.at}}</span></div></template><template data-if="{{m.isSys}}"><span style="align-self: center; font-size: 12px; color: #62676F">{{m.t}}</span></template></div></template></div>
+<template data-if="{{thReadOnly}}"><p style="margin: 0; padding: 8px 12px; border-radius: 10px; background: #FBF7EE; font-size: 13px; color: #92400E">{{thNote}}</p></template>
+<template data-if="{{thCanWrite}}"><div style="display: flex; gap: 8px; align-items: flex-end"><label style="flex: 1; display: flex; flex-direction: column; gap: 4px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Reply</span><textarea rows="2" value="{{reply}}" onChange="{{setReply}}" placeholder="Write a reply. Numbers and emails are hidden." style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; line-height: 1.45"></textarea></label><button type="button" onClick="{{sendReply}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Send</button></div></template>
+</div>
+</div>
+</template>
+<template data-if="{{noThreads}}"><p style="margin: 0; padding: 16px; border-radius: 14px; border: 1px dashed #CFCFC6; font-family: Geist, system-ui, sans-serif; font-size: 14px; color: #62676F">No conversations yet. Open a listing and send a message; it will appear here.</p></template>
+</section>
+</div>
+
+<template data-if="{{lOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="l-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(880px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; box-sizing: border-box; display: flex; flex-wrap: wrap">
+<div role="img" aria-label="{{lAlt}}" style="flex: 1 1 340px; min-height: 280px; background: {{lBg}}; display: flex; align-items: center; justify-content: center"><template data-if="{{lHasIcon}}"><span style="width: 110px; height: 110px; border-radius: 50%; background: #FFFFFF; color: {{lInk}}; display: flex; align-items: center; justify-content: center"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{lIcon}}"/></svg></span></template><template data-if="{{lIsCover}}"><span style="max-width: 70%; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 30px; line-height: 1.1; font-weight: 600; color: #FFFFFE; text-align: center">{{lCoverT}}</span></template></div>
+<div style="flex: 1 1 360px; min-width: 0; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><span style="align-self: flex-start; padding: 2px 8px; border-radius: 6px; background: {{lTint}}; color: {{lInk}}; font-size: 11.5px; font-weight: 700">{{lCat}}</span><h2 id="l-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 27px; line-height: 1.15; font-weight: 600">{{lT}}</h2><span style="font-size: 13.5px; color: #3F444C">{{lBy}}</span></div><button type="button" aria-label="Close" onClick="{{lClose}}" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 20px; font-weight: 500">{{lPrice}}</span><template data-if="{{lHasBadge}}"><span style="padding: 2px 8px; border-radius: 6px; background: #DDF4F1; color: #115E59; font-size: 11.5px; font-weight: 700">{{lBadge}}</span></template><template data-if="{{lHasCloses}}"><span style="font-size: 12.5px; font-weight: 600; color: #92400E">{{lCloses}}</span></template></div>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.5; color: #14161A">{{lD}}</p>
+<template data-if="{{lHasCond}}"><span style="font-size: 13.5px; color: #3F444C">{{lCond}}</span></template>
+<template data-if="{{lHasSwap}}"><span style="font-size: 13.5px; font-weight: 600; color: #1E40AF">{{lSwap}}</span></template>
+<span style="font-size: 12.5px; color: #62676F">{{lArea}} · {{lPosted}}</span>
+
+<template data-if="{{lManages}}"><div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 12px; background: #F4F4EF"><div style="display: flex; align-items: center; gap: 8px"><span style="padding: 2px 8px; border-radius: 999px; background: {{lStBg}}; color: {{lStFg}}; font-size: 11.5px; font-weight: 700">{{lStatus}}</span><span style="font-size: 13px; color: #3F444C">{{lMgrNote}}</span></div><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-if="{{lHasDecide}}"><button type="button" onClick="{{lApprove}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Approve</button><button type="button" onClick="{{lDecline}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Decline</button></template><button type="button" onClick="{{lRemove}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Remove listing</button></div></div></template>
+
+<template data-if="{{lNotManages}}"><div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><button type="button" onClick="{{lActGo}}" disabled="{{lActOff}}" style="min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: {{lActBg}}; color: {{lActFg}}; font-size: 14.5px; font-weight: 700; cursor: pointer">{{lAct}}</button><template data-if="{{lHasDemo}}"><button type="button" onClick="{{lDemo}}" style="min-height: 40px; padding: 0 6px; border: none; background: transparent; color: #1D4ED8; font-size: 13px; text-decoration: underline; cursor: pointer">{{lDemoLabel}}</button></template></div><span style="font-size: 13px; line-height: 1.45; color: #3F444C">{{lActNote}}</span></div></template>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FBF7EE"><template data-for="{{lRules}}" data-as="r"><span style="display: flex; gap: 8px; font-size: 13px; line-height: 1.45"><span aria-hidden="true" style="color: #0F766E">✓</span>{{r.t}}</span></template></div>
+
+<template data-if="{{lIsMinor}}"><p style="margin: 0; font-size: 13px; color: #62676F">{{lMinorNote}}</p></template>
+<template data-if="{{lHasThread}}"><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 6px; border-top: 1px solid #ECECE6"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Conversation</span><template data-for="{{lThread}}" data-as="m"><div style="display: flex; flex-direction: column; align-items: {{m.align}}"><template data-if="{{m.notSys}}"><div style="max-width: 88%; padding: 7px 11px; border-radius: 12px; background: {{m.bg}}; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 11.5px; font-weight: 700; color: #3F444C">{{m.from}}</span><span style="font-size: 14px; line-height: 1.4">{{m.t}}</span></div></template><template data-if="{{m.isSys}}"><span style="font-size: 12px; color: #62676F">{{m.t}}</span></template></div></template></div></template>
+<template data-if="{{lCanMsg}}"><div style="display: flex; flex-direction: column; gap: 6px"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">{{lMsgTo}}<textarea rows="3" value="{{draft}}" onChange="{{setDraft}}" placeholder="Ask a question or make an offer. Contact details are hidden." style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400; line-height: 1.45"></textarea></label><div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><button type="button" onClick="{{sendDraft}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Send message</button><button type="button" onClick="{{lReport}}" style="min-height: 42px; padding: 0 8px; border: none; background: transparent; color: #62676F; font-size: 13px; text-decoration: underline; cursor: pointer">Report this listing</button></div></div></template>
+</div>
+</div>
+</div>
+</template>
+
+<template data-if="{{coOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="co-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(520px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="co-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 23px; line-height: 1.2; font-weight: 600">{{coTitle}}</h2><button type="button" aria-label="Close" onClick="{{coClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<template data-if="{{coIsHand}}"><div role="group" aria-label="{{coHandTitle}}" style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #3F444C">{{coHandTitle}}</span><template data-for="{{coHands}}" data-as="h"><button type="button" aria-pressed="{{h.pressed}}" onClick="{{h.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 10px 12px; border-radius: 12px; border: 2px solid {{h.bd}}; background: {{h.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 600">{{h.label}}</span><span style="font-size: 12.5px; color: #3F444C">{{h.sub}}</span></button></template></div></template>
+<template data-if="{{coIsPay}}"><div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FAFAF7"><template data-for="{{coLines}}" data-as="ln"><div style="display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px"><span style="color: #3F444C">{{ln.k}}</span><span style="font-weight: 600; text-align: right">{{ln.v}}</span></div></template><div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; padding-top: 6px; border-top: 1px solid #ECECE6"><span>Total</span><span style="font-family: 'Geist Mono', ui-monospace, monospace">{{coTotal}}</span></div></div><div role="group" aria-label="Payment method" style="display: flex; gap: 6px"><template data-for="{{coPays}}" data-as="p"><button type="button" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="flex: 1; min-height: 44px; border-radius: 12px; border: 1px solid {{p.bd}}; background: {{p.bg}}; color: {{p.fg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{p.label}}</button></template></div><template data-if="{{coIsMpesa}}"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">M-Pesa number<input type="tel" inputmode="tel" value="{{coPhone}}" onChange="{{coSetPhone}}" placeholder="0712 345 678" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 15px; font-family: 'Geist Mono', ui-monospace, monospace"></label><span style="font-size: 12.5px; color: #62676F">You’d get an STK prompt on your phone. Demo: nothing is charged.</span></template><template data-if="{{coIsCard}}"><span style="font-size: 13px; color: #3F444C">Card details are entered on the payment provider’s secure page. Demo: nothing is charged.</span></template><template data-if="{{coHasErr}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #92400E">{{coErr}}</span></template></div></template>
+<template data-if="{{coIsDone}}"><div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 14px; background: #DDF4F1"><span style="font-size: 16px; font-weight: 700; color: #115E59">Done. Order {{coOrder}}</span><span style="font-size: 14px; line-height: 1.5; color: #14161A">{{coDoneText}}</span></div></template>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-if="{{coNotDone}}"><button type="button" onClick="{{coNext}}" style="min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">{{coNextLabel}}</button></template><template data-if="{{coHasBack}}"><button type="button" onClick="{{coBack}}" style="min-height: 46px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Back</button></template><template data-if="{{coIsDone}}"><button type="button" onClick="{{coClose}}" style="min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Close</button></template></div>
+</div>
+</div>
+</template>
+
+<template data-if="{{enOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="en-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(520px, 100%); background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #92400E">Your entry</span><h2 id="en-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 23px; font-weight: 600">{{enT}}</h2></div><button type="button" aria-label="Close" onClick="{{enClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<div style="display: flex; align-items: center; gap: 10px"><label style="position: relative; display: inline-flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Attach your work<input type="file" accept="image/*,application/pdf,.sb3" onChange="{{enSetFile}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"></label><span style="font-size: 13px; color: #3F444C">{{enFileName}}</span></div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">A note for the judges<textarea rows="3" value="{{enNote}}" onChange="{{enSetNote}}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400; line-height: 1.45"></textarea></label>
+<span style="font-size: 13px; color: #62676F">{{enRule}}</span>
+<button type="button" onClick="{{enSubmit}}" style="align-self: flex-start; min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Submit entry</button>
+</div>
+</div>
+</template>
+
+<template data-if="{{pmOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="pm-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(620px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="pm-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{pmTitle}}</h2><button type="button" aria-label="Close" onClick="{{pmClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<div role="group" aria-label="What are you posting?" style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{pmModes}}" data-as="m"><button type="button" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{m.bd}}; background: {{m.bg}}; color: {{m.fg}}; font-size: 13.5px; cursor: pointer">{{m.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 2 1 260px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Title<input type="text" value="{{pmT}}" onChange="{{pmSetT}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label><label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Category<select value="{{pmCat}}" onChange="{{pmSetCat}}" style="min-height: 42px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{pmCats}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label></div>
+<template data-if="{{pmNeedPrice}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">{{pmPriceLabel}}<input type="text" inputmode="numeric" value="{{pmPrice}}" onChange="{{pmSetPrice}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-family: 'Geist Mono', ui-monospace, monospace"></label><template data-if="{{pmIsService}}"><label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Charged<select value="{{pmUnit}}" onChange="{{pmSetUnit}}" style="min-height: 42px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{pmUnits}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label></template></div></template>
+<template data-if="{{pmIsSwap}}"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">What would you like in return?<input type="text" value="{{pmSwap}}" onChange="{{pmSetSwap}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></template>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Description<textarea rows="3" value="{{pmD}}" onChange="{{pmSetD}}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400; line-height: 1.45"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Neighbourhood or “Online”<input type="text" value="{{pmArea}}" onChange="{{pmSetArea}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><span style="font-weight: 400; color: #62676F">Never a home address. Handovers happen at a library desk, school office or by courier.</span></label>
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 12px; border: 1px dashed #CFCFC6; background: {{pmPhotoBg}}"></span><label style="position: relative; display: inline-flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Add a photo<input type="file" accept="image/*" onChange="{{pmSetPhoto}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"></label></div>
+<template data-if="{{pmHasErr}}"><p role="alert" style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #FEF1D9; color: #92400E; font-size: 13.5px; line-height: 1.45">{{pmErr}}</p></template>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #3F444C">{{pmRuleText}}</p>
+<button type="button" onClick="{{pmSubmit}}" style="align-self: flex-start; min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">{{pmSubmitLabel}}</button>
+</div>
+</div>
+</template>
+
+<template data-if="{{scOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="sc-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(480px, 100%); background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="sc-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Start a collection</h2><button type="button" aria-label="Close" onClick="{{scClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Name<input type="text" value="{{scT}}" onChange="{{scSetT}}" placeholder="Our family bookshelf" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label>
+<div role="group" aria-label="Kind of collection" style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{scKinds}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 13.5px; cursor: pointer">{{k.label}}</button></template></div>
+<span style="font-size: 13px; color: #62676F">It starts private. You choose later who can see it and whether items can be lent.</span>
+<button type="button" onClick="{{scCreate}}" style="align-self: flex-start; min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Create</button>
+</div>
+</div>
+</template>
+
+<template data-if="{{apOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="ap-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(540px, 100%); background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="ap-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Apply: {{apT}}</h2><span style="font-size: 13px; color: #3F444C">{{apOrg}}</span></div><button type="button" aria-label="Close" onClick="{{apClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<span style="font-size: 13px; color: #62676F">Applying as {{apWho}}</span>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Why you’d be good at this<textarea rows="4" value="{{apNote}}" onChange="{{apSetNote}}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400; line-height: 1.45"></textarea></label>
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: #F4F7FE; font-size: 14px; cursor: pointer"><input type="checkbox" checked="{{apPassport}}" onChange="{{apTogglePassport}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Attach my Passport summary (Report Card, verified skills and projects)</label>
+<span style="font-size: 12.5px; color: #62676F">The employer replies in your Vachuo messages. Your phone number and email stay hidden until you choose to share them.</span>
+<button type="button" onClick="{{apSubmit}}" style="align-self: flex-start; min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Send application</button>
+</div>
+</div>
+</template>
+
+<template data-if="{{jpOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="jp-h" style="position: fixed; inset: 0; z-index: 90; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(640px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="jp-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Post a job or internship</h2><button type="button" aria-label="Close" onClick="{{jpClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Job title<input type="text" value="{{jpT}}" onChange="{{jpSetT}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Type<select value="{{jpType}}" onChange="{{jpSetType}}" style="min-height: 42px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{jpTypes}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label><label style="flex: 1 1 130px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Where<select value="{{jpWhere}}" onChange="{{jpSetWhere}}" style="min-height: 42px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{jpWheres}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label><label style="flex: 2 1 180px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Place<input type="text" value="{{jpPlace}}" onChange="{{jpSetPlace}}" placeholder="Westlands, Nairobi" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Pay (KSh)<input type="text" inputmode="numeric" value="{{jpPay}}" onChange="{{jpSetPay}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-family: 'Geist Mono', ui-monospace, monospace"></label><label style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Minimum age<select value="{{jpMin}}" onChange="{{jpSetMin}}" style="min-height: 42px; padding: 0 8px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><template data-for="{{jpMins}}" data-as="o"><option value="{{o.v}}">{{o.label}}</option></template></select></label><label style="flex: 1 1 110px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Hours a day<input type="text" inputmode="numeric" value="{{jpHours}}" onChange="{{jpSetHours}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label><label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Closes<input type="date" value="{{jpCloses}}" onChange="{{jpSetCloses}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></div>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 14px; cursor: pointer"><input type="checkbox" checked="{{jpNight}}" onChange="{{jpToggleNight}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">Includes night shifts</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">What the work involves<textarea rows="4" value="{{jpD}}" onChange="{{jpSetD}}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400; line-height: 1.45"></textarea></label>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 14px"><template data-for="{{jpChecks}}" data-as="c"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: {{c.fg}}"><span aria-hidden="true" style="font-weight: 700">{{c.icon}}</span>{{c.t}}</span></template></div>
+<template data-if="{{jpHasErr}}"><p role="alert" style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #FEF1D9; color: #92400E; font-size: 13.5px; line-height: 1.45">{{jpErr}}</p></template>
+<button type="button" onClick="{{jpSubmit}}" style="align-self: flex-start; min-height: 46px; padding: 0 20px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Submit for checks</button>
+</div>
+</div>
+</template>
+
+<div aria-live="polite" style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 120; pointer-events: none; max-width: calc(100% - 32px)"><template data-if="{{hasToast}}"><div class="fadein" style="padding: 12px 18px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 1.4">{{toast}}</div></template></div>
+</main>
+
+</div>
+</template>
+<script>
+DC.component("Showcase", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  constructor(props) {
+    super(props);
+    this.RL = this.roles(); this.C = this.cats(); this.IC = this.icons(); this.D = this.listings(); this.CO = this.collections(); this.JB = this.jobs(); this.ISBN = this.isbnTable(); this.FOUND = this.crawlFound();
+    let role = 'amani';
+    try { const r = window.localStorage.getItem('vachuo-showcase-role'); if (r && this.RL[r]) role = r; } catch (e) {}
+    this.state = { role, tab: 'market', cat: 'all', q: '', sort: 'new', learnerOnly: false, saved: { 'l-skyline': true }, soldPlus: {},
+      open: null, draft: '', co: null, post: null, mine: [], local: {}, removed: {},
+      threads: this.threadSeed(), thOpen: '', reply: '', entries: {}, entry: null,
+      coll: null, cq: '', cAvail: false, added: {}, vis: {}, lendOff: {}, rules: { 'c-family': { weeks: 2, max: 2, verified: true } }, borrow: {}, newColls: [], startColl: null,
+      add: { isbn: '', t: '', by: '', year: '', cond: 'Good', lend: true, photo: '', msg: '' }, importTxt: '',
+      jType: 'all', jWhere: 'all', jYoung: false, jMatch: false, applied: {}, jSaved: {}, apply: null, jobPost: null, myJobs: [],
+      crawl: { state: 'idle', step: 0 }, queue: [], foundOk: [], foundNo: [], toast: '' };
+  }
+  componentDidMount() {
+    this._sync = (e) => { if (!e || e.key === 'vachuo-approvals') this.forceUpdate(); };
+    try { window.addEventListener('storage', this._sync); window.addEventListener('vachuo-approvals', this._sync); } catch (e) {}
+    this._tk = setInterval(() => this.tick(), 900);
+  }
+  componentWillUnmount() { this.themeOff(); clearInterval(this._tk); clearTimeout(this._tt); try { window.removeEventListener('storage', this._sync); window.removeEventListener('vachuo-approvals', this._sync); } catch (e) {} (this._urls || []).forEach((u) => { try { URL.revokeObjectURL(u); } catch (e) {} }); }
+  read() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', from: 'Amani', at: 'Mon 2 Nov', status: 'pending', ref: 'bao' }, { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending', ref: 'l-rain' }]; }
+  write(list) { this._mem = list; try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {} this.forceUpdate(); }
+  toast(t) { clearTimeout(this._tt); this.setState({ toast: t }); this._tt = setTimeout(() => this.setState({ toast: '' }), 4200); }
+  R() { return this.RL[this.state.role]; }
+  minor() { return this.R().age < 18; }
+  today() { const d = new Date(); return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getDay()] + ' ' + d.getDate() + ' ' + ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()]; }
+  now() { const d = new Date(); return this.today() + ', ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  ksh(n) { return 'KSh ' + Number(n || 0).toLocaleString('en-US'); }
+  storeItem(ref) { return this.read().filter((x) => x.ref === ref).slice(-1)[0]; }
+  okStatus(ref) { const a = this.storeItem(ref); if (a) return a.status; return this.state.local[ref] || ''; }
+  askOk(ref, title, detail, payload, kind) {
+    const r = this.R();
+    if (r.gStore) { const list = this.read().filter((x) => !(x.ref === ref && x.status !== 'approved')); list.push({ id: 'sc-' + Date.now() + '-' + Math.floor(Math.random() * 1e4), kind: kind || 'listing', title, detail, from: r.short, at: this.today(), status: 'pending', ref, payload: payload || null }); this.write(list); }
+    else { const l = Object.assign({}, this.state.local); l[ref] = 'pending'; this.setState({ local: l }); }
+    this.toast('Sent to ' + r.guardian + ' to approve.' + (r.gStore ? ' She’ll see it in Parent copilot.' : ''));
+  }
+  decide(ref, yes) {
+    const a = this.storeItem(ref);
+    if (a) { this.write(this.read().map((x) => (x.id === a.id ? Object.assign({}, x, { status: yes ? 'approved' : 'declined', decidedAt: this.today() }) : x))); }
+    else { const l = Object.assign({}, this.state.local); l[ref] = yes ? 'approved' : 'declined'; this.setState({ local: l }); }
+  }
+  guardianOf(l) { if (l.own === 'amani') return 'Wanjiru M., Amani’s guardian'; if (l.own === 'tumaini') return 'Mr Kariuki, Tumaini’s guardian'; return l.by.split(' ')[0] + '’s guardian'; }
+  contactFor(l) { return l.learner ? this.guardianOf(l) : l.by; }
+  payeeFor(l) { return l.learner ? this.guardianOf(l).split(',')[0] + ' (guardian)' : l.by; }
+  manages(l) { const r = this.state.role; return !!l.own && (l.own === r || (r === 'wanjiru' && l.own === 'amani')); }
+  created() {
+    const fromStore = this.read().filter((x) => x.payload && x.payload.listing).map((x) => x.payload.listing);
+    const ids = {}; return fromStore.concat(this.state.mine).filter((l) => (ids[l.id] ? false : (ids[l.id] = true)));
+  }
+  statusOf(l) {
+    if (this.state.removed[l.id]) return 'removed';
+    if (l.gated || l.fresh) { const s = this.okStatus(l.id); if (s === 'approved') return 'live'; if (s === 'declined') return 'declined'; if (s === 'pending') return 'pending'; return l.fresh ? 'live' : 'pending'; }
+    return 'live';
+  }
+  all() { return this.D.concat(this.created()).map((l) => Object.assign({}, l, { st: this.statusOf(l) })); }
+  byId(id) { return this.all().find((l) => l.id === id); }
+  thumb(a, photo) {
+    if (photo) return 'url(' + photo + ') center / cover no-repeat, #ECECE6';
+    const k = a[0], c0 = a[1], c1 = a[2], c2 = a[3];
+    if (k === 'wash') return 'radial-gradient(46% 40% at 30% 36%, ' + c0 + 'D9, transparent 72%), radial-gradient(42% 48% at 70% 60%, ' + c1 + 'CC, transparent 70%), radial-gradient(30% 26% at 60% 24%, ' + c2 + 'B3, transparent 70%), radial-gradient(26% 30% at 22% 76%, ' + c1 + '80, transparent 70%), linear-gradient(170deg, #FBF8F1, #EFE8DA)';
+    if (k === 'sky') return 'linear-gradient(#141826, #141826) 6% 100% / 9% 34% no-repeat, linear-gradient(#1B2033, #1B2033) 17% 100% / 7% 52% no-repeat, linear-gradient(#141826, #141826) 26% 100% / 11% 40% no-repeat, linear-gradient(#20263B, #20263B) 39% 100% / 6% 66% no-repeat, linear-gradient(#141826, #141826) 48% 100% / 12% 46% no-repeat, linear-gradient(#1B2033, #1B2033) 62% 100% / 8% 58% no-repeat, linear-gradient(#141826, #141826) 74% 100% / 10% 36% no-repeat, linear-gradient(#20263B, #20263B) 88% 100% / 9% 50% no-repeat, radial-gradient(16% 22% at 78% 30%, ' + c2 + ', transparent 70%), linear-gradient(180deg, ' + c0 + ' 0%, ' + c1 + ' 62%, ' + c2 + ' 100%)';
+    if (k === 'dots') return 'radial-gradient(circle, ' + c0 + ' 0 5px, transparent 6px) 0 0 / 24px 24px, radial-gradient(circle, ' + c1 + ' 0 5px, transparent 6px) 12px 12px / 24px 24px, ' + c2;
+    if (k === 'cover') return 'linear-gradient(90deg, rgba(0,0,0,0.22) 0 7%, rgba(255,255,255,0.08) 7% 8%, transparent 8%), linear-gradient(160deg, ' + c0 + ', ' + c1 + ')';
+    return 'radial-gradient(70% 70% at 50% 40%, ' + c0 + ', ' + c1 + ')';
+  }
+  clean(t) {
+    let hid = false; const s = String(t || '').replace(/[\w.+-]+@[\w-]+\.[\w.]+/g, () => { hid = true; return '[hidden]'; }).replace(/(https?:\/\/|www\.)\S+/gi, () => { hid = true; return '[hidden]'; }).replace(/\+?\d[\d\s-]{7,}\d/g, () => { hid = true; return '[hidden]'; });
+    return { t: s, hid };
+  }
+  agesOk(cond, age) {
+    const s = String(cond || ''); if (/all ages/i.test(s)) return true;
+    let m = s.match(/Ages (\d+) to (\d+)/i); if (m) return age >= Number(m[1]) && age <= Number(m[2]);
+    m = s.match(/Ages (\d+) and up/i); if (m) return age >= Number(m[1]);
+    return true;
+  }
+  tick() {
+    const c = this.state.crawl; if (c.state !== 'running') return;
+    if (c.step + 1 >= this.crawlSteps().length) this.setState({ crawl: { state: 'done', step: this.crawlSteps().length }, queue: this.FOUND.pass.map((f) => f.id) });
+    else this.setState({ crawl: { state: 'running', step: c.step + 1 } });
+  }
+  crawlSteps() { return ['Reading 4 approved sources, public pages only', 'Keeping listings that state an employer and pay (115 read)', 'Removing duplicates of jobs already here', 'Safety and scam checks: fees, night work, off-platform contact', 'Matching to member profiles by age and interests', 'Sending to a person for review']; }
+  setRole(id) { try { window.localStorage.setItem('vachuo-showcase-role', id); } catch (e) {} this.setState({ role: id, open: null, co: null, post: null, apply: null, jobPost: null, entry: null, startColl: null, thOpen: '' }); }
+  // ---- listing actions
+  openL(id) { this.setState({ open: id, draft: '' }); }
+  sendMsg(l, text) {
+    const r = this.R(); const c = this.clean(text); if (!c.t.trim()) return;
+    const th = this.state.threads.slice(); let i = th.findIndex((x) => x.about === l.id && x.buyer === r.id);
+    if (i < 0) { th.push({ id: 'th-' + l.id + '-' + r.id, about: l.id, buyer: r.id, seller: l.own || 'other', sellerName: l.by, share: !!l.learner, msgs: [] }); i = th.length - 1; }
+    const msgs = th[i].msgs.concat([{ from: r.n, role: r.id, t: c.t, at: this.now() }, { from: 'Vachuo', role: 'system', t: 'Delivered to ' + this.contactFor(l) + '. Replies appear here.' + (c.hid ? ' We hid contact details: keep the conversation in Vachuo.' : ''), at: '' }]);
+    th[i] = Object.assign({}, th[i], { msgs }); this.setState({ threads: th, thOpen: th[i].id, draft: '' });
+    this.toast(c.hid ? 'Sent. Phone numbers, emails and links were hidden.' : 'Sent to ' + this.contactFor(l) + '.');
+  }
+  reply(thId) {
+    const r = this.R(); const c = this.clean(this.state.reply); if (!c.t.trim()) return;
+    const th = this.state.threads.map((x) => (x.id === thId ? Object.assign({}, x, { msgs: x.msgs.concat([{ from: r.n + (r.id === 'wanjiru' && x.seller === 'amani' ? ' (Amani’s guardian)' : ''), role: r.id, t: c.t, at: this.now() }]) }) : x));
+    this.setState({ threads: th, reply: '' }); if (c.hid) this.toast('Sent. Contact details were hidden.');
+  }
+  primaryAct(l) {
+    const r = this.R(); const t = l.tab; const s = this.state;
+    if (t === 'earn') {
+      if (!this.agesOk(l.cond, r.age)) return { label: 'Not open to your age group', go: null, note: l.cond.split('·')[0].trim() + '.' };
+      if (s.entries[s.role + ':' + l.id]) return { label: 'Entry submitted', go: null, note: 'Results are shared here and in your messages.' };
+      if (this.minor()) {
+        const st = this.okStatus('earn-' + l.id);
+        if (st === 'approved') return { label: 'Submit your entry', go: () => this.setState({ entry: { id: l.id, note: '', file: '' } }), note: r.guardian + ' said yes. Any prize goes to ' + r.guardian + '.' };
+        if (st === 'pending') return { label: 'Waiting for ' + r.guardian, go: null, note: 'You can start your entry now and submit it once ' + r.guardian + ' says yes.', demo: () => this.decide('earn-' + l.id, true) };
+        return { label: 'Ask ' + r.guardian + ' to let me enter', go: () => this.askOk('earn-' + l.id, r.short + ' wants to enter “' + l.t + '”', l.by + ' · ' + this.ksh(l.price) + l.unit + ' · ' + l.closes + '. Any prize would be paid to you.'), note: 'Paid challenges need a guardian’s OK; prizes are paid to the guardian.' };
+      }
+      return { label: 'Enter the challenge', go: () => this.setState({ entry: { id: l.id, note: '', file: '' } }), note: l.closes + '.' };
+    }
+    if (this.minor()) {
+      const verb = t === 'market' ? 'buy' : (t === 'services' ? 'book' : (t === 'swap' ? 'swap for' : (l.cat === 'ask' ? 'help with' : 'ask for')));
+      const ref = 'buy-' + l.id; const st = this.okStatus(ref);
+      if (st === 'approved') return { label: r.guardian + ' is arranging it', go: null, note: r.guardian + ' said yes and will contact ' + this.contactFor(l) + ' for you.' };
+      if (st === 'pending') return { label: 'Waiting for ' + r.guardian, go: null, note: 'Under-18s buy, swap and arrange things through their guardian.', demo: () => this.decide(ref, true) };
+      return { label: 'Ask ' + r.guardian + ' to ' + verb + ' this', go: () => this.askOk(ref, r.short + ' wants to ' + verb + ' “' + l.t + '”', l.by + (l.price ? ' · ' + this.ksh(l.price) + l.unit : '') + (l.swapFor ? ' · wants ' + l.swapFor : '') + '. You’d pay and message the seller in Vachuo.'), note: 'Under-18s buy, swap and arrange things through their guardian.' };
+    }
+    if (t === 'market') return { label: 'Buy for ' + this.ksh(l.price), go: () => this.setState({ co: { id: l.id, step: 'hand', hand: 0, pay: 'mpesa', phone: '', err: '', order: '' } }), note: 'Paid to ' + this.payeeFor(l) + ' after you confirm you received it.' };
+    if (t === 'services') return { label: l.price ? 'Book for ' + this.ksh(l.price) : 'Book a free visit', go: () => this.setState({ co: { id: l.id, step: 'hand', hand: 0, pay: 'mpesa', phone: '', err: '', order: '' } }), note: l.price ? 'Held by Vachuo, released to ' + this.payeeFor(l) + ' after the session.' : 'Free. Donations go to the club.' };
+    const pre = t === 'swap' ? 'Hello, I’d like to swap my ' + (l.swapFor || '…') + ' for your “' + l.t + '”. ' : (l.cat === 'ask' ? 'Hello, I can help with this: ' : 'Hello, I’d love this if it’s still available. I’d use it for ');
+    return { label: t === 'swap' ? 'Offer a swap' : (l.cat === 'ask' ? 'I can help' : 'Request this'), go: () => this.setState({ draft: pre }), note: 'Your message goes to ' + this.contactFor(l) + '.' };
+  }
+  // ---- posting
+  openPost(pre) { const r = this.R(); this.setState({ open: null, post: Object.assign({ mode: 'sell', cat: 'art', t: '', price: '', unit: ' per hour', swapFor: '', d: '', area: r.id === 'kim' ? 'South B' : 'Kilimani', photo: '', err: '' }, pre || {}) }); }
+  modeTab(m) { return { sell: 'market', service: 'services', swap: 'swap', give: 'give', ask: 'give', earn: 'earn' }[m]; }
+  modeCats(m) { return { sell: ['art', 'photo', 'craft', 'books', 'tech'], service: ['design', 'photo', 'tutor', 'code', 'lang', 'music', 'video', 'help'], swap: ['books', 'uniform', 'sport', 'games', 'music'], give: ['give'], ask: ['ask'], earn: ['design', 'photo', 'writing', 'code'] }[m]; }
+  submitPost() {
+    const p = this.state.post; const r = this.R(); const needPrice = p.mode === 'sell' || p.mode === 'service' || p.mode === 'earn';
+    const err = [];
+    if (p.t.trim().length < 4) err.push('Give it a title of at least four letters.');
+    if (needPrice && !(Number(p.price) > 0) && !(p.mode === 'service' && String(p.price).trim() === '0')) err.push(p.mode === 'earn' ? 'Add the prize or pay in shillings.' : 'Add a price in shillings (0 is fine for a free service).');
+    if (p.mode === 'swap' && p.swapFor.trim().length < 3) err.push('Say what you’d like in return.');
+    if (p.d.trim().length < 10) err.push('Describe it in a sentence or two.');
+    if (this.clean(p.d).hid || this.clean(p.t).hid) err.push('Remove phone numbers, emails and links. People contact you through Vachuo.');
+    if (/\b(house|plot|apartment|flat|gate|road)\s*(no\.?|number)?\s*\d+/i.test(p.area)) err.push('Use a neighbourhood or a public place, not a home address.');
+    if (err.length) { this.setState({ post: Object.assign({}, p, { err: err.join(' ') }) }); return; }
+    const tab = this.modeTab(p.mode); const id = 'n-' + Date.now();
+    const art = p.mode === 'sell' && (p.cat === 'art' || p.cat === 'craft') ? ['wash', '#5B8FC7', '#E8A15A', '#7BB38A'] : ['object', (this.C[p.cat] || this.C.art)[2], '#DCDCD3', ''];
+    const ic = { photo: 'camera', design: 'pen', books: 'book', code: 'code', music: 'guitar', tech: 'chip', lang: 'lang', tutor: 'calc', video: 'video', help: 'people', uniform: 'shirt', sport: 'ball', games: 'dice', give: 'gift', ask: 'heart', writing: 'pen', craft: 'gift', art: '' }[p.cat] || '';
+    const l = { id, tab, cat: p.cat, t: p.t.trim(), by: r.n, own: r.id, learner: r.age < 18, age: r.age, area: p.area.trim() || 'Online', price: Number(p.price) || 0, unit: p.mode === 'service' ? p.unit : (p.mode === 'earn' ? ' prize' : ''), cond: p.mode === 'earn' ? 'All ages' : '', swapFor: p.mode === 'swap' ? p.swapFor.trim() : '', closes: p.mode === 'earn' ? 'Closes in 3 weeks' : '', d: p.d.trim(), art, ic, photo: p.photo, posted: this.today(), sold: 0, saves: 0, hand: 'Kilimani Library front desk', fresh: true };
+    if (r.age < 18) {
+      if (r.gStore) this.askOk(id, 'Showcase listing: “' + l.t + '”' + (l.price ? ', ' + this.ksh(l.price) + l.unit : ''), (this.C[l.cat] || this.C.art)[0] + ' · ' + l.area + '. Payment would go to you; buyers message you, never ' + r.short + '.', { listing: l });
+      else { const loc = Object.assign({}, this.state.local); loc[id] = 'pending'; this.setState({ local: loc, mine: this.state.mine.concat([l]) }); this.toast('Sent to ' + r.guardian + ' to approve. It goes live when he says yes.'); }
+      this.setState({ post: null, tab });
+    } else {
+      const loc = Object.assign({}, this.state.local); loc[id] = 'approved';
+      this.setState({ post: null, tab, mine: this.state.mine.concat([l]), local: loc }); this.toast('Live now. Moderation checked it: no contact details, a public handover place.');
+    }
+  }
+  photoUrl(e) { const f = e && e.target && e.target.files && e.target.files[0]; if (!f) return ''; try { const u = URL.createObjectURL(f); (this._urls = this._urls || []).push(u); return u; } catch (err) { return ''; } }
+  // ---- checkout
+  coNext() {
+    const co = this.state.co; const l = this.byId(co.id);
+    if (co.step === 'hand') { this.setState({ co: Object.assign({}, co, { step: 'pay', err: '' }) }); return; }
+    if (co.step === 'pay') {
+      if (co.pay === 'mpesa' && !/^(\+?254|0)(7|1)\d{8}$/.test(co.phone.replace(/\s/g, ''))) { this.setState({ co: Object.assign({}, co, { err: 'Enter an M-Pesa number like 0712 345 678.' }) }); return; }
+      const sp = Object.assign({}, this.state.soldPlus); sp[l.id] = (sp[l.id] || 0) + 1;
+      this.setState({ soldPlus: sp, co: Object.assign({}, co, { step: 'done', err: '', order: 'VC-' + String(48213 + Object.keys(sp).length * 7 + (sp[l.id] || 0)) }) });
+    }
+  }
+  // ---- collections
+  colls() { return this.CO.concat(this.state.newColls); }
+  coll(id) { return this.colls().find((c) => c.id === id); }
+  collOwner(c) { const r = this.state.role; return !!c.own && (c.own === r || (r === 'wanjiru' && c.own === 'amani')); }
+  collItems(c) { return c.items.concat(this.state.added[c.id] || []); }
+  lookup() {
+    const a = this.state.add; const k = a.isbn.replace(/[^0-9Xx]/g, '');
+    const hit = this.ISBN[k] || (this.CO[0].items.find((b) => b.isbn === k) ? [this.CO[0].items.find((b) => b.isbn === k).t, this.CO[0].items.find((b) => b.isbn === k).by, this.CO[0].items.find((b) => b.isbn === k).year] : null);
+    if (!hit) { this.setState({ add: Object.assign({}, a, { msg: k.length < 10 ? 'Type a 10- or 13-digit ISBN from the back cover.' : 'Not in this demo’s ISBN table. Type the details below.' }) }); return; }
+    this.setState({ add: Object.assign({}, a, { t: hit[0], by: hit[1], year: hit[2], msg: 'Found: ' + hit[0] + ' by ' + hit[1] + '.' }) });
+  }
+  addItem(cid) {
+    const a = this.state.add; if (a.t.trim().length < 2) { this.setState({ add: Object.assign({}, a, { msg: 'Add a title first.' }) }); return; }
+    const pal = [['#115E59', '#7BB38A'], ['#1E3A8A', '#5B8FC7'], ['#92400E', '#E7C66B'], ['#3C3F8F', '#9BB8D9'], ['#7A3E1D', '#C97B3C']];
+    const n = (this.state.added[cid] || []).length; const c = this.coll(cid);
+    const it = { id: cid + '-a' + n + '-' + Date.now(), t: a.t.trim(), by: a.by.trim() || 'Unknown', year: a.year.trim(), isbn: a.isbn.trim(), cond: a.cond, lend: a.lend, out: '', c: pal[n % pal.length], photo: a.photo, wash: c && c.kind === 'Art gallery' };
+    const ad = Object.assign({}, this.state.added); ad[cid] = (ad[cid] || []).concat([it]);
+    this.setState({ added: ad, add: { isbn: '', t: '', by: '', year: '', cond: 'Good', lend: true, photo: '', msg: 'Added “' + it.t + '”.' } });
+  }
+  importList(cid) {
+    const lines = this.state.importTxt.split(/\n+/).map((x) => x.trim()).filter(Boolean); if (!lines.length) return;
+    const pal = [['#115E59', '#7BB38A'], ['#1E3A8A', '#5B8FC7'], ['#92400E', '#E7C66B'], ['#3C3F8F', '#9BB8D9'], ['#7A3E1D', '#C97B3C']];
+    const c = this.coll(cid); const base = (this.state.added[cid] || []).length;
+    const items = lines.slice(0, 50).map((ln, i) => { const p = ln.split(',').map((x) => x.trim()); return { id: cid + '-i' + (base + i) + '-' + Date.now(), t: p[0], by: p[1] || 'Unknown', year: /^\d{4}$/.test(p[2] || '') ? p[2] : '', isbn: '', cond: 'Good', lend: true, out: '', c: pal[(base + i) % pal.length], photo: '', wash: c && c.kind === 'Art gallery' }; });
+    const ad = Object.assign({}, this.state.added); ad[cid] = (ad[cid] || []).concat(items);
+    this.setState({ added: ad, importTxt: '' }); this.toast('Added ' + items.length + (items.length === 1 ? ' item' : ' items') + ' to ' + c.t + '.');
+  }
+  setVis(c, v) {
+    if (this.state.role === 'amani' && v === 'community') { this.askOk('vis-' + c.id, 'Amani wants to show “' + c.t + '” to the Vachuo community', 'Right now only family can see it. Community members could see the pieces but not her full name or school.'); return; }
+    const vs = Object.assign({}, this.state.vis); vs[c.id] = v; this.setState({ vis: vs });
+  }
+  visOf(c) { if (this.okStatus('vis-' + c.id) === 'approved') return 'community'; return this.state.vis[c.id] || c.vis; }
+  borrowIt(c, it) {
+    const r = this.R();
+    if (this.minor()) { this.askOk('borrow-' + it.id, r.short + ' wants to borrow “' + it.t + '” from ' + c.t, c.by + ' lends for ' + ((this.state.rules[c.id] || {}).weeks || 2) + ' weeks. Pickup at a library desk or school office.'); return; }
+    const b = Object.assign({}, this.state.borrow); b[this.state.role + ':' + it.id] = 'sent'; this.setState({ borrow: b }); this.toast('Request sent to ' + c.by + '. They’ll confirm a pickup point in Messages.');
+  }
+  // ---- jobs
+  allJobs() {
+    const found = this.state.foundOk.map((id) => Object.assign({}, this.FOUND.pass.find((f) => f.id === id), { src: 'found' }));
+    return this.JB.concat(this.state.myJobs, found);
+  }
+  match(j) {
+    const r = this.R(); if (!r.interests || r.age < j.min) return 0;
+    const o = j.tags.filter((t) => r.interests.indexOf(t) >= 0).length; return o ? Math.min(95, 55 + 15 * o) : 35;
+  }
+  matchesFor(j) { return ['kim', 'tumaini'].filter((k) => { const r = this.RL[k]; return r.age >= j.min && j.tags.some((t) => r.interests.indexOf(t) >= 0); }).map((k) => this.RL[k].n); }
+  runCrawl() { if (this.state.crawl.state === 'running') return; this.setState({ crawl: { state: 'running', step: 0 }, queue: [], foundNo: [] }); }
+  review(id, yes) {
+    const q = this.state.queue.filter((x) => x !== id);
+    if (yes) { const j = this.FOUND.pass.find((f) => f.id === id); const m = this.matchesFor(j); this.setState({ queue: q, foundOk: this.state.foundOk.concat([id]) }); this.toast('Shared to Jobs' + (m.length ? ' and sent to ' + m.length + ' matching ' + (m.length === 1 ? 'profile' : 'profiles') + ': ' + m.join(', ') : '') + '.'); }
+    else { this.setState({ queue: q, foundNo: this.state.foundNo.concat([id]) }); this.toast('Not shared. The finder learns from this.'); }
+  }
+  submitJob() {
+    const p = this.state.jobPost; const err = [];
+    if (p.t.trim().length < 4) err.push('Add a job title.');
+    if (!p.place.trim()) err.push('Add where the work happens.');
+    if (p.type !== 'Volunteer' && !(Number(p.pay) > 0)) err.push('State the pay. Every paid listing on Vachuo shows pay.');
+    if (p.d.trim().length < 20) err.push('Describe the work in at least a sentence.');
+    if (/\b(fee|fees|deposit|registration|pay to apply|pay to join)\b/i.test(p.d)) err.push('Jobs on Vachuo can’t ask applicants to pay anything.');
+    if (this.clean(p.d).hid) err.push('Remove phone numbers, emails and links. Applicants reply through Vachuo.');
+    if (Number(p.min) === 16 && Number(p.hours) > 8) err.push('For 16- and 17-year-olds, keep shifts to 8 hours or less.');
+    if (Number(p.min) === 16 && p.night) err.push('Night work isn’t allowed for under-18s.');
+    if (err.length) { this.setState({ jobPost: Object.assign({}, p, { err: err.join(' ') }) }); return; }
+    const unit = { Internship: ' a month', Apprenticeship: ' stipend a month', 'Full-time': ' a month', 'Part-time': ' a day', Volunteer: '' }[p.type];
+    const j = { id: 'jp-' + Date.now(), t: p.t.trim(), org: this.R().n, type: p.type, where: p.where, place: p.place.trim(), pay: p.type === 'Volunteer' && !(Number(p.pay) > 0) ? 'Unpaid' : this.ksh(p.pay) + unit, min: Number(p.min), closes: p.closes ? 'Closes ' + p.closes : 'Rolling', d: p.d.trim(), tags: [], src: 'employer', own: 'employer', fresh: true };
+    this.setState({ jobPost: null, myJobs: this.state.myJobs.concat([j]) }); this.toast('Live after checks: pay stated, no fees, contact through Vachuo' + (j.min === 16 ? ', safe hours for under-18s.' : '.'));
+  }
+  applyAct(j) {
+    const r = this.R(); const s = this.state;
+    if (s.applied[s.role + ':' + j.id]) return { label: 'Applied', go: null, demo: null, bg: '#DDF4F1', fg: '#115E59' };
+    if (j.own && j.own === r.id) return { label: 'Your posting', go: null, demo: null, bg: '#ECECE6', fg: '#3F444C' };
+    if (r.id === 'employer') return { label: 'Employers can’t apply', go: null, demo: null, bg: '#ECECE6', fg: '#3F444C' };
+    if (r.age < j.min) return { label: 'Open to ' + j.min + '+', go: null, demo: null, bg: '#ECECE6', fg: '#3F444C' };
+    if (r.age < 18) {
+      const st = this.okStatus('job-' + j.id);
+      if (st === 'approved') return { label: 'Apply', go: () => this.setState({ apply: { id: j.id, note: '', passport: true } }), demo: null, bg: '#F9A826', fg: '#14161A' };
+      if (st === 'pending') return { label: 'Waiting for ' + r.guardian, go: null, demo: () => this.decide('job-' + j.id, true), bg: '#FEF1D9', fg: '#92400E' };
+      return { label: 'Ask ' + r.guardian + ' first', go: () => this.askOk('job-' + j.id, r.short + ' wants to apply to “' + j.t + '”', j.org + ' · ' + j.pay + ' · ' + j.place), demo: null, bg: '#F9A826', fg: '#14161A' };
+    }
+    return { label: 'Apply', go: () => this.setState({ apply: { id: j.id, note: '', passport: true } }), demo: null, bg: '#F9A826', fg: '#14161A' };
+  }
+  roles() {
+    return {
+      amani: { id: 'amani', n: 'Amani M.', short: 'Amani', age: 12, kind: 'Learner, 12', guardian: 'Wanjiru', gStore: true, note: 'You can browse, post your work and ask for things. Wanjiru approves every listing, receives any payment, and reads buyers’ messages for you.' },
+      tumaini: { id: 'tumaini', n: 'Tumaini K.', short: 'Tumaini', age: 16, kind: 'Senior school, 16', guardian: 'Mr Kariuki', gStore: false, interests: ['coding', 'science', 'energy'], note: 'You can sell, offer services and apply for jobs open to 16+. Your guardian, Mr Kariuki, approves listings and job applications.' },
+      kim: { id: 'kim', n: 'Kim O.', short: 'Kim', age: 19, kind: 'Alumna, 19', guardian: '', interests: ['data', 'design', 'research', 'teaching'], note: 'You’re an adult alumna: you post, sell and apply directly. Buyers still can’t see your phone number or email.' },
+      wanjiru: { id: 'wanjiru', n: 'Wanjiru M.', short: 'Wanjiru', age: 41, kind: 'Parent of Amani', guardian: '', note: 'You approve Amani’s listings, receive her payments and answer buyers for her. You can also post for the family.' },
+      baraka: { id: 'baraka', n: 'Baraka K.', short: 'Baraka', age: 35, kind: 'Community member', guardian: '', note: 'You can buy, book, swap and give. When the seller is a learner, you pay and message their guardian, never the learner.' },
+      employer: { id: 'employer', n: 'Mto Analytics', short: 'Mto Analytics', age: 30, kind: 'Employer (fictional)', guardian: '', note: 'Verified employer. You post jobs and internships; Vachuo checks each one before it goes live.' }
+    };
+  }
+  cats() {
+    // id: [label, ink, tint]
+    return {
+      art: ['Art', '#B45309', '#FEF1D9'], photo: ['Photography', '#1E40AF', '#E4ECFD'], craft: ['Crafts', '#92400E', '#FBF7EE'], books: ['Books', '#115E59', '#DDF4F1'], tech: ['Tech builds', '#172F73', '#DCE6FD'],
+      design: ['Design', '#B45309', '#FEF1D9'], tutor: ['Peer tutoring', '#0F766E', '#DDF4F1'], code: ['Coding', '#1D4ED8', '#E4ECFD'], lang: ['Translation', '#92400E', '#FEF9EE'], music: ['Music', '#1E3A8A', '#DCE6FD'], video: ['Video', '#2B4A94', '#F4F7FE'], help: ['Tech help', '#115E59', '#DDF4F1'],
+      uniform: ['Uniforms', '#3F444C', '#ECECE6'], sport: ['Sports kit', '#0F766E', '#DDF4F1'], games: ['Games', '#1E40AF', '#E4ECFD'],
+      give: ['Giving away', '#115E59', '#DDF4F1'], ask: ['Asking for', '#1E3A8A', '#DCE6FD'], writing: ['Writing', '#1F3B39', '#DDF4F1']
+    };
+  }
+  icons() {
+    return {
+      camera: 'M4 8h3l2-3h6l2 3h3v11H4zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', pen: 'M4 20l4-1 11-11-3-3L5 16zM14 6l3 3', book: 'M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10',
+      code: 'M8 8l-4 4 4 4M16 8l4 4-4 4M13 5l-2 14', guitar: 'M9 18V6l10-2v12M9 18a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM19 16a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z', swap: 'M7 7h11l-3-3M17 17H6l3 3',
+      gift: 'M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-3-6-3-6 0M12 7c2-3 6-3 6 0', heart: 'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z',
+      trophy: 'M8 4h8v4a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 12v4M9 20h6M10 16h4v4h-4z', brief: 'M4 8h16v11H4zM9 8V5h6v3M4 13h16',
+      chip: 'M7 7h10v10H7zM10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4', lang: 'M4 5h8M8 3v2M6 5c0 4 3 7 6 8M10 5c0 3-3 7-6 8M13 20l4-9 4 9M14.5 17h5',
+      calc: 'M6 3h12v18H6zM9 7h6M9 11h1M12 11h1M15 11h1M9 15h1M12 15h1M9 18h1M12 18h1M15 15v3', laptop: 'M5 6h14v9H5zM3 18h18', shirt: 'M8 4l-4 3 2 4 2-1v10h8V10l2 1 2-4-4-3a4 4 0 0 1-8 0z',
+      ball: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7l4 3-1.5 5h-5L8 10z', scope: 'M9 3h4v7H9zM11 10v3M6 21h12M8 21a6 6 0 0 1 9-8', stand: 'M7 3h10v14H7zM10 20h4M12 17v3',
+      people: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20c0-3 3-5 6-5s6 2 6 5M14 15c3 0 6 2 6 5', leaf: 'M5 19c0-8 6-14 14-14 0 8-6 14-14 14zM5 19l7-7',
+      video: 'M3 7h13v10H3zM16 10l5-3v10l-5-3', dice: 'M5 5h14v14H5zM9 9h.01M15 9h.01M12 12h.01M9 15h.01M15 15h.01', bolt: 'M13 3L5 14h6l-1 7 8-11h-6z'
+    };
+  }
+  listings() {
+    // own: role id that manages it (learners' listings are managed with their guardian)
+    // art: [kind, c0, c1, c2]  kind: wash | sky | dots | object | cover
+    const L = (o) => Object.assign({ unit: '', cond: '', swapFor: '', closes: '', sold: 0, saves: 0, own: '', learner: false, age: 0, ic: '', hand: 'Kilimani Library front desk' }, o);
+    return [
+      L({ id: 'l-rain', tab: 'market', cat: 'art', t: 'Rain over Kilimani', by: 'Amani M.', own: 'amani', learner: true, age: 12, area: 'Kilimani', price: 1200, cond: 'Original, A4, watercolour on 300 g paper', d: 'Painted from our balcony during the long rains. Signed on the back. Comes in a card sleeve.', art: ['wash', '#5B8FC7', '#9BB8D9', '#C7B98E'], posted: 'Sun 1 Nov', gated: true }),
+      L({ id: 'l-cards', tab: 'market', cat: 'art', t: 'Hand-drawn birthday cards, pack of 6', by: 'Amani M.', own: 'amani', learner: true, age: 12, area: 'Kilimani', price: 450, cond: 'New, A6 with envelopes', d: 'Six different animals, drawn in ink and coloured pencil. I can add a name inside for KSh 50 more.', art: ['wash', '#E8A15A', '#7BB38A', '#E7C66B'], posted: 'Tue 20 Oct', sold: 4, saves: 11 }),
+      L({ id: 'l-matatu', tab: 'market', cat: 'art', t: 'Matatu at dusk', by: 'Zawadi N.', learner: true, age: 15, area: 'Lavington', price: 4500, cond: 'Original, acrylic on canvas, 40 × 50 cm', d: 'A matatu on Ngong Road at sunset, painted for my art portfolio. Ready to hang.', art: ['wash', '#D9643A', '#3C3F8F', '#F2B84B'], posted: 'Fri 30 Oct', saves: 23 }),
+      L({ id: 'l-skyline', tab: 'market', cat: 'photo', t: 'Nairobi skyline at blue hour, A3 print', by: 'Brian O.', learner: true, age: 17, area: 'Upper Hill', price: 1800, cond: 'Printed on matte archival paper, signed', d: 'Shot from a footbridge with a tripod, 20-second exposure. Edition of 20; this is number 6.', art: ['sky', '#1F2D57', '#5470A8', '#E9A86A'], posted: 'Wed 28 Oct', sold: 5, saves: 31 }),
+      L({ id: 'l-beads', tab: 'market', cat: 'craft', t: 'Beaded bracelets, set of three', by: 'Neema W.', learner: true, age: 14, area: 'Kileleshwa', price: 600, cond: 'New, adjustable', d: 'Glass beads on waxed cord. Pick colours in the message to the guardian; I make each set in two days.', art: ['dots', '#1D4ED8', '#F9A826', '#FBF7EE'], posted: 'Mon 26 Oct', sold: 9, saves: 14 }),
+      L({ id: 'l-basket', tab: 'market', cat: 'craft', t: 'Woven sisal basket, medium', by: 'Njeri’s weaving circle', area: 'Kawangware', price: 2200, cond: 'New, 30 cm across', d: 'Woven by a group of grandmothers who also teach the weaving club on Saturdays.', art: ['dots', '#B45309', '#E7C66B', '#F4EBDC'], posted: 'Thu 22 Oct', sold: 12, saves: 19 }),
+      L({ id: 'l-stand', tab: 'market', cat: 'tech', t: '3D-printed phone stand', by: 'Kilimani Robotics Club', area: 'Kilimani', price: 350, cond: 'New, PLA, six colours', d: 'Designed in the club’s CAD sessions. Sales pay for filament and competition fees.', art: ['object', '#DCE6FD', '#B6C8F2', ''], ic: 'stand', posted: 'Sat 24 Oct', sold: 27, saves: 8 }),
+      L({ id: 'l-blossoms', tab: 'market', cat: 'books', t: 'Blossoms of the Savannah (set book), used', by: 'Kim O.', own: 'kim', area: 'South B', price: 400, cond: 'Good, light pencil notes', d: 'My old KCSE set book with chapter summaries pencilled in the margins.', art: ['cover', '#7A3E1D', '#C97B3C', 'Blossoms of the Savannah'], posted: 'Mon 2 Nov', saves: 6 }),
+
+      L({ id: 's-logo', tab: 'services', cat: 'design', t: 'Logo design for small businesses', by: 'Brian O.', learner: true, age: 17, area: 'Online', price: 2500, unit: ' per logo', cond: 'Three concepts, two rounds of changes, files in 3 days', d: 'I’ve designed logos for two kiosks and a church choir. You get PNG and SVG files.', art: ['object', '#FEF1D9', '#F6DFAE', ''], ic: 'pen', posted: 'Thu 29 Oct', sold: 6, saves: 17 }),
+      L({ id: 's-photo', tab: 'services', cat: 'photo', t: 'Event photography: birthdays, school days', by: 'Kim O.', own: 'kim', area: 'Nairobi', price: 1500, unit: ' per hour', cond: '40 edited photos per hour, delivered in 48 hours', d: 'Natural light and candid shots. I bring my own camera and a backup battery.', art: ['object', '#E4ECFD', '#C9D6F2', ''], ic: 'camera', posted: 'Sat 31 Oct', sold: 3, saves: 9 }),
+      L({ id: 's-maths', tab: 'services', cat: 'tutor', t: 'Maths homework help, Grades 4 to 6', by: 'Kim O.', own: 'kim', area: 'Online, in a Vachuo room', price: 300, unit: ' per 45-minute session', cond: 'Sessions are recorded; the parent can watch', d: 'I explain with drawings and real examples, then the learner tries one alone. Socrates suggests the next practice.', art: ['object', '#DDF4F1', '#BFE6E0', ''], ic: 'calc', posted: 'Fri 23 Oct', sold: 14, saves: 22 }),
+      L({ id: 's-web', tab: 'services', cat: 'code', t: 'One-page website for your shop', by: 'Tumaini K.', own: 'tumaini', learner: true, age: 16, area: 'Online', price: 5000, unit: ' per site', cond: 'Mobile-friendly, with a map and opening hours', d: 'Built with HTML and CSS; I host it free on a static site and show you how to update prices.', art: ['object', '#E4ECFD', '#B6C8F2', ''], ic: 'code', posted: 'Tue 27 Oct', sold: 2, saves: 12 }),
+      L({ id: 's-translate', tab: 'services', cat: 'lang', t: 'Kiswahili and English translation', by: 'Mwalimu Achieng (retired teacher)', area: 'Online', price: 500, unit: ' per page', cond: 'School letters, stories, notices', d: 'Thirty years teaching Kiswahili. Next-day turnaround for one to three pages.', art: ['object', '#FEF9EE', '#F6DFAE', ''], ic: 'lang', posted: 'Mon 19 Oct', sold: 21, saves: 7 }),
+      L({ id: 's-guitar', tab: 'services', cat: 'music', t: 'Guitar for beginners', by: 'Juma O.', area: 'Kilimani or online', price: 800, unit: ' per hour', cond: 'First lesson half price', d: 'Chords, strumming and three songs in a month. Lessons for under-18s happen at the library or online.', art: ['object', '#DCE6FD', '#B6C8F2', ''], ic: 'guitar', posted: 'Wed 21 Oct', sold: 8, saves: 10 }),
+      L({ id: 's-video', tab: 'services', cat: 'video', t: 'Video editing for YouTube and TikTok', by: 'Brian O.', learner: true, age: 17, area: 'Online', price: 1200, unit: ' per video', cond: 'Up to 5 minutes, captions included', d: 'Cuts, music, captions in English or Kiswahili. Two-day turnaround.', art: ['object', '#F4F7FE', '#DCE6FD', ''], ic: 'video', posted: 'Sun 25 Oct', sold: 5, saves: 6 }),
+      L({ id: 's-help', tab: 'services', cat: 'help', t: 'Phone and laptop help for grandparents', by: 'Kilimani Robotics Club', area: 'Kilimani Library, Saturdays', price: 0, cond: 'Free, donations go to the club', d: 'WhatsApp, M-Pesa safety, video calls and photos. Two club members per visitor, with a library volunteer.', art: ['object', '#DDF4F1', '#BFE6E0', ''], ic: 'people', posted: 'Sat 17 Oct', saves: 15 }),
+
+      L({ id: 'w-books', tab: 'swap', cat: 'books', t: 'Grade 7 CBC textbooks, set of 6', by: 'Wanjiru M.', own: 'wanjiru', area: 'Kilimani', price: 0, swapFor: 'Grade 8 CBC textbooks, same publishers', cond: 'Good, covered', d: 'Maths, English, Kiswahili, Integrated Science, Social Studies and Pre-technical Studies.', art: ['cover', '#115E59', '#3E8E84', 'Grade 7 set'], posted: 'Sat 31 Oct', saves: 9 }),
+      L({ id: 'w-blazer', tab: 'swap', cat: 'uniform', t: 'School blazer, size 30', by: 'Otieno family', area: 'Kileleshwa', price: 0, swapFor: 'Same blazer in size 34', cond: 'Very good', d: 'Navy blazer with the crest removed, so it fits most schools that use navy.', art: ['object', '#ECECE6', '#DCDCD3', ''], ic: 'shirt', posted: 'Thu 29 Oct', saves: 3 }),
+      L({ id: 'w-boots', tab: 'swap', cat: 'sport', t: 'Football boots, size 5', by: 'Amani M.', own: 'amani', learner: true, age: 12, area: 'Kilimani', price: 0, swapFor: 'Football boots, size 6', cond: 'Worn for one term', d: 'Moulded studs, good for grass. My feet grew!', art: ['object', '#DDF4F1', '#BFE6E0', ''], ic: 'ball', posted: 'Tue 27 Oct', saves: 2 }),
+      L({ id: 'w-games', tab: 'swap', cat: 'games', t: 'Ludo and Snakes and Ladders boards', by: 'Neema W.', learner: true, age: 14, area: 'Kileleshwa', price: 0, swapFor: 'A chess set', cond: 'All pieces present', d: 'Wooden boards from my grandfather. I want to join the chess ladder.', art: ['object', '#E4ECFD', '#C9D6F2', ''], ic: 'dice', posted: 'Sun 1 Nov', saves: 4 }),
+      L({ id: 'w-uke', tab: 'swap', cat: 'music', t: 'Soprano ukulele with bag', by: 'Kim O.', own: 'kim', area: 'South B', price: 0, swapFor: 'A small keyboard (37 or 49 keys)', cond: 'Good, new strings', d: 'Great first instrument. Tuner included.', art: ['object', '#DCE6FD', '#B6C8F2', ''], ic: 'guitar', posted: 'Fri 30 Oct', saves: 5 }),
+
+      L({ id: 'g-calc', tab: 'give', cat: 'give', t: 'Scientific calculator (Casio fx-82)', by: 'Kim O.', own: 'kim', area: 'South B', price: 0, cond: 'Works, new battery', d: 'Free to a senior-school learner who needs one for exams.', art: ['object', '#DDF4F1', '#BFE6E0', ''], ic: 'calc', posted: 'Mon 2 Nov', saves: 7 }),
+      L({ id: 'g-story', tab: 'give', cat: 'give', t: 'Box of 40 storybooks for ages 6 to 10', by: 'Otieno family', area: 'Kileleshwa', price: 0, cond: 'Mixed, all readable', d: 'For a school or community library. Collect from the school office.', art: ['cover', '#B45309', '#E7C66B', '40 storybooks'], posted: 'Sat 24 Oct', saves: 12 }),
+      L({ id: 'g-laptop', tab: 'give', cat: 'give', t: 'Refurbished laptop (2017) for a learner', by: 'Kilimani Robotics Club', area: 'Kilimani', price: 0, cond: 'New battery and SSD, wiped and checked', d: 'Apply with a short note on what you’ll use it for. The club picks with a teacher on 15 Nov.', art: ['object', '#E4ECFD', '#C9D6F2', ''], ic: 'laptop', posted: 'Wed 28 Oct', saves: 34 }),
+      L({ id: 'a-scope', tab: 'give', cat: 'ask', t: 'Looking for a used microscope', by: 'Amani M.', own: 'amani', learner: true, age: 12, area: 'Kilimani', price: 0, cond: 'Borrow or buy, any working one', d: 'For my science fair project on pond water. I can return it in December.', art: ['object', '#DCE6FD', '#B6C8F2', ''], ic: 'scope', posted: 'Sun 1 Nov', saves: 3 }),
+      L({ id: 'a-mentor', tab: 'give', cat: 'ask', t: 'A mentor who works in renewable energy', by: 'Tumaini K.', own: 'tumaini', learner: true, age: 16, area: 'Online', price: 0, cond: 'One video call a month, in a Vachuo room', d: 'I’m choosing my senior-school pathway and want to understand solar jobs.', art: ['object', '#FEF9EE', '#F6DFAE', ''], ic: 'bolt', posted: 'Fri 30 Oct', saves: 5 }),
+      L({ id: 'a-readers', tab: 'give', cat: 'ask', t: 'Volunteers to read with Grade 1s on Saturdays', by: 'Kilimani Library', area: 'Kilimani Library', price: 0, cond: 'Ages 14 and up, 10:00 to 11:00', d: 'Thirty minutes of shared reading, then a story game. Counts towards community service hours.', art: ['object', '#DDF4F1', '#BFE6E0', ''], ic: 'book', posted: 'Thu 22 Oct', saves: 18 }),
+
+      L({ id: 'e-poster', tab: 'earn', cat: 'design', t: 'Design the poster for Reading Week', by: 'Kilimani Library', area: 'Online entry', price: 3000, unit: ' prize', closes: 'Closes Fri 20 Nov', cond: 'Ages 10 to 18 · A3 portrait · hand-drawn or digital', d: 'The winning poster is printed for 12 branches. Two runners-up get book vouchers.', art: ['wash', '#F9A826', '#1D4ED8', '#7BB38A'], posted: 'Mon 26 Oct', saves: 41 }),
+      L({ id: 'e-birds', tab: 'earn', cat: 'photo', t: 'Photograph birds for a field guide', by: 'Friends of the Forest (fictional)', area: 'Karura Forest, with an adult', price: 500, unit: ' per photo used', closes: 'Closes Mon 30 Nov', cond: 'Ages 12 and up · species name and place with each photo', d: 'We need clear photos of 30 common birds for a children’s guide. You keep the copyright; we get a licence.', art: ['sky', '#6FA36A', '#B7D39A', '#F2E6B8'], posted: 'Wed 21 Oct', saves: 16 }),
+      L({ id: 'e-mascot', tab: 'earn', cat: 'design', t: 'Name and draw our café mascot', by: 'Chai na Story Café (fictional)', area: 'Online entry', price: 2000, unit: ' prize', closes: 'Closes Sun 15 Nov', cond: 'All ages · one drawing and a name', d: 'A friendly character for our menu and walls. The winner gets the prize and a free birthday party for six.', art: ['wash', '#C97B3C', '#E7C66B', '#9BB8D9'], posted: 'Sat 31 Oct', saves: 9 }),
+      L({ id: 'e-translate', tab: 'earn', cat: 'writing', t: 'Translate five short stories into Kiswahili', by: 'Hadithi Hub (fictional)', area: 'Online', price: 400, unit: ' per story', closes: 'Rolling', cond: 'Ages 13 and up · stories of about 300 words', d: 'For younger readers in Grades 1 to 3. An editor checks each story before it’s published.', art: ['object', '#FEF9EE', '#F6DFAE', ''], ic: 'lang', posted: 'Tue 20 Oct', saves: 11 }),
+      L({ id: 'e-game', tab: 'earn', cat: 'code', t: 'Build a Scratch game that teaches road safety', by: 'Usalama Trust (fictional)', area: 'Online entry', price: 5000, unit: ' prize', closes: 'Closes Mon 7 Dec', cond: 'Ages 9 to 16 · solo or a team of up to three', d: 'The best three games go on the trust’s site and into school assemblies.', art: ['object', '#E4ECFD', '#B6C8F2', ''], ic: 'code', posted: 'Thu 29 Oct', saves: 26 })
+    ];
+  }
+  collections() {
+    const I = (o) => Object.assign({ isbn: '', year: '', cond: 'Good', lend: true, out: '' }, o);
+    return [
+      { id: 'c-family', t: 'The M. family library', by: 'Wanjiru M.', own: 'wanjiru', kind: 'Home library', total: 214, vis: 'community', d: 'Novels, set books, Kiswahili readers and a shelf of cookbooks. Lent to verified Vachuo families for two weeks.', art: ['cover', '#115E59', '#3E8E84', ''],
+        items: [
+          I({ id: 'b1', t: 'The River Between', by: 'Ngũgĩ wa Thiong’o', year: '1965', isbn: '9780435905484', c: ['#7A3E1D', '#C97B3C'] }),
+          I({ id: 'b2', t: 'Things Fall Apart', by: 'Chinua Achebe', year: '1958', isbn: '9780385474542', c: ['#14161A', '#B45309'], out: 'On loan until 12 Nov' }),
+          I({ id: 'b3', t: 'Unbowed', by: 'Wangari Maathai', year: '2006', isbn: '9780307263483', c: ['#115E59', '#7BB38A'] }),
+          I({ id: 'b4', t: 'Kiu', by: 'Mohammed S. Mohammed', year: '1972', c: ['#1E3A8A', '#5B8FC7'] }),
+          I({ id: 'b5', t: 'Blossoms of the Savannah', by: 'H. R. Ole Kulet', year: '2008', c: ['#92400E', '#E7C66B'] }),
+          I({ id: 'b6', t: 'Weep Not, Child', by: 'Ngũgĩ wa Thiong’o', year: '1964', isbn: '9780435905507', c: ['#3C3F8F', '#9BB8D9'] }),
+          I({ id: 'b7', t: 'Americanah', by: 'Chimamanda Ngozi Adichie', year: '2013', isbn: '9780307455925', c: ['#B45309', '#F2B84B'], out: 'On loan until 9 Nov' }),
+          I({ id: 'b8', t: 'Kenyan Home Cooking', by: 'Family recipe binder', year: '2019', lend: false, c: ['#8C6416', '#E7C66B'] })
+        ] },
+      { id: 'c-sketch', t: 'Amani’s sketchbook', by: 'Amani M.', own: 'amani', kind: 'Art gallery', total: 18, vis: 'family', d: 'Watercolours and ink drawings from Grade 6 and 7. Family can see it; Amani can ask Wanjiru to show it to the community or to sell a piece.', art: ['wash', '#5B8FC7', '#E8A15A', '#7BB38A'],
+        items: [
+          I({ id: 'p1', t: 'Rain over Kilimani', by: 'Watercolour', year: '2026', lend: false, c: ['#5B8FC7', '#C7B98E'], wash: true }),
+          I({ id: 'p2', t: 'Grandma’s kitchen, Nyeri', by: 'Ink and wash', year: '2026', lend: false, c: ['#C97B3C', '#7BB38A'], wash: true }),
+          I({ id: 'p3', t: 'Marabou storks on the bypass', by: 'Ink', year: '2025', lend: false, c: ['#3F444C', '#9BB8D9'], wash: true }),
+          I({ id: 'p4', t: 'Jacaranda street', by: 'Watercolour', year: '2025', lend: false, c: ['#7B6CC2', '#B7D39A'], wash: true }),
+          I({ id: 'p5', t: 'Self-portrait with headphones', by: 'Coloured pencil', year: '2026', lend: false, c: ['#E8A15A', '#5470A8'], wash: true }),
+          I({ id: 'p6', t: 'Matatu number 46', by: 'Marker', year: '2025', lend: false, c: ['#D9643A', '#F2B84B'], wash: true })
+        ] },
+      { id: 'c-parts', t: 'Robotics club parts library', by: 'Kilimani Robotics Club', own: '', kind: 'Lending library', total: 63, vis: 'community', d: 'Kits members can borrow for a project. Each kit has a parts list and is checked on return.', art: ['object', '#DCE6FD', '#B6C8F2', ''],
+        items: [
+          I({ id: 'k1', t: 'Arduino starter kit', by: 'Uno board, breadboard, 30 parts', cond: 'Complete', c: ['#1E40AF', '#93BBF3'] }),
+          I({ id: 'k2', t: 'Ultrasonic distance sensors (×4)', by: 'HC-SR04', cond: 'Complete', c: ['#0F766E', '#8FD3C9'], out: 'On loan until 10 Nov' }),
+          I({ id: 'k3', t: 'Micro:bit classroom pack', by: '5 boards with battery packs', cond: 'Complete', c: ['#172F73', '#7FA2EE'] }),
+          I({ id: 'k4', t: 'Soldering station', by: 'Club room only, with a mentor', cond: 'Good', lend: false, c: ['#3F444C', '#B9BCB4'] }),
+          I({ id: 'k5', t: 'Solar panel kit, 10 W', by: 'Panel, charge controller, battery', cond: 'Complete', c: ['#B45309', '#F6DFAE'] })
+        ] }
+    ];
+  }
+  isbnTable() {
+    return {
+      '9780141439518': ['Pride and Prejudice', 'Jane Austen', '1813'], '9780435905255': ['Petals of Blood', 'Ngũgĩ wa Thiong’o', '1977'], '9780062316097': ['Sapiens', 'Yuval Noah Harari', '2011'],
+      '9780439708180': ['Harry Potter and the Sorcerer’s Stone', 'J. K. Rowling', '1997'], '9780060935467': ['To Kill a Mockingbird', 'Harper Lee', '1960'], '9780385490818': ['The Handmaid’s Tale', 'Margaret Atwood', '1985']
+    };
+  }
+  jobs() {
+    const J = (o) => Object.assign({ src: 'employer', srcName: '', tags: [] }, o);
+    return [
+      J({ id: 'j-data', t: 'Data intern (paid), 3 months', org: 'Mto Analytics', type: 'Internship', where: 'Hybrid', place: 'Westlands, Nairobi', pay: 'KSh 25,000 a month', min: 18, closes: 'Closes 30 Nov', d: 'Clean and chart county health data with our analysts. Spreadsheets required; Python is a plus.', tags: ['data', 'research'], own: 'employer' }),
+      J({ id: 'j-solar', t: 'Solar installation apprentice', org: 'Jua Power Co-op (fictional)', type: 'Apprenticeship', where: 'On-site', place: 'Kitengela', pay: 'KSh 15,000 stipend a month', min: 18, closes: 'Closes 12 Dec', d: 'Six months on rooftops with a certified installer, then a level-1 certificate.', tags: ['energy', 'science'] }),
+      J({ id: 'j-lib', t: 'Weekend library assistant', org: 'Kilimani Library', type: 'Part-time', where: 'On-site', place: 'Kilimani', pay: 'KSh 800 a day', min: 16, closes: 'Closes 20 Nov', d: 'Shelve, help visitors find books and run the Saturday story hour. Saturdays 9:00 to 13:00.', tags: ['teaching', 'research'] }),
+      J({ id: 'j-design', t: 'Junior graphic designer', org: 'Kijani Studio (fictional)', type: 'Full-time', where: 'Remote', place: 'Kenya', pay: 'KSh 45,000 a month', min: 18, closes: 'Closes 5 Dec', d: 'Social posts, posters and packaging for food brands. Send three pieces of work.', tags: ['design'] }),
+      J({ id: 'j-camp', t: 'Coding camp mentor, December', org: 'Vachuo Clubs', type: 'Part-time', where: 'On-site', place: 'Kilimani Library', pay: 'KSh 1,000 a day', min: 16, closes: 'Closes 25 Nov', d: 'Help 9- to 12-year-olds build Scratch games. Training on 28 Nov; 10 days in December, 9:00 to 14:00.', tags: ['coding', 'teaching'] }),
+      J({ id: 'j-support', t: 'Customer support, Kiswahili and English', org: 'Soko Fresh (fictional)', type: 'Part-time', where: 'Remote', place: 'Kenya', pay: 'KSh 400 an hour', min: 18, closes: 'Closes 18 Nov', d: 'Answer customer chats about grocery orders, 20 hours a week, daytime shifts only.', tags: ['teaching'] }),
+      J({ id: 'j-climate', t: 'Gap-year research assistant', org: 'Mvua Climate Lab (fictional)', type: 'Internship', where: 'Hybrid', place: 'Gigiri', pay: 'KSh 30,000 a month', min: 18, closes: 'Closes 10 Dec', d: 'Log rainfall station data and help write a public summary each month.', tags: ['data', 'science', 'research'] }),
+      J({ id: 'j-shop', t: 'Holiday bookshop assistant', org: 'Duka la Vitabu (fictional)', type: 'Part-time', where: 'On-site', place: 'CBD', pay: 'KSh 700 a day', min: 16, closes: 'Closes 1 Dec', d: 'Back-to-school rush in January: shelving, wrapping and the till with a supervisor.', tags: ['teaching'] }),
+      J({ id: 'j-vol', t: 'Tree-planting team lead (volunteer)', org: 'Friends of the Forest (fictional)', type: 'Volunteer', where: 'On-site', place: 'Karura Forest', pay: 'Unpaid · lunch, transport and a certificate', min: 16, closes: 'Rolling', d: 'Lead a group of eight younger volunteers on two Saturdays a month.', tags: ['science', 'energy', 'teaching'] })
+    ];
+  }
+  crawlSources() {
+    return [
+      { n: 'Public youth jobs portal', k: 'Sample feed', robots: true, terms: true, last: '37 listings read' },
+      { n: 'University careers feed', k: 'Sample RSS', robots: true, terms: true, last: '22 listings read' },
+      { n: 'NGO internships board', k: 'Sample feed', robots: true, terms: true, last: '15 listings read' },
+      { n: 'Company careers pages', k: '14 sample sites', robots: true, terms: true, last: '41 listings read' }
+    ];
+  }
+  crawlFound() {
+    return {
+      pass: [
+        { id: 'f-annot', t: 'Junior data annotator, part-time', org: 'Lughawise (fictional)', type: 'Part-time', where: 'Remote', place: 'Kenya', pay: 'KSh 18,000 a month', min: 18, closes: 'Closes 28 Nov', d: 'Label Kiswahili and Sheng sentences for a language model. 15 hours a week.', tags: ['data', 'research'], srcName: 'Company careers pages' },
+        { id: 'f-camp', t: 'Holiday science camp assistant', org: 'Sayansi Kids (fictional)', type: 'Part-time', where: 'On-site', place: 'Lavington', pay: 'KSh 900 a day', min: 16, closes: 'Closes 22 Nov', d: 'Set up experiments and keep groups of six safe. Two weeks in December, daytime.', tags: ['science', 'teaching'], srcName: 'Public youth jobs portal' },
+        { id: 'f-agri', t: 'Agritech field intern', org: 'Shamba Data (fictional)', type: 'Internship', where: 'On-site', place: 'Limuru', pay: 'KSh 20,000 stipend a month', min: 18, closes: 'Closes 6 Dec', d: 'Visit farms with an agronomist and record soil and yield data on a tablet.', tags: ['data', 'science', 'energy'], srcName: 'University careers feed' },
+        { id: 'f-museum', t: 'Gallery guide trainee, weekends', org: 'Urithi Gallery (fictional)', type: 'Part-time', where: 'On-site', place: 'Museum Hill', pay: 'KSh 700 a day', min: 16, closes: 'Closes 30 Nov', d: 'Learn the collection, then lead 20-minute tours for school groups.', tags: ['teaching', 'research', 'design'], srcName: 'NGO internships board' },
+        { id: 'f-social', t: 'Social media assistant', org: 'Soko Fresh (fictional)', type: 'Full-time', where: 'Hybrid', place: 'Industrial Area', pay: 'KSh 22,000 a month', min: 18, closes: 'Closes 4 Dec', d: 'Plan posts, film short recipe videos and reply to comments.', tags: ['design'], srcName: 'Company careers pages' }
+      ],
+      blocked: [
+        { t: 'Brand ambassador: earn KSh 50,000 weekly!', why: 'Asks applicants to pay a KSh 2,000 registration fee' },
+        { t: 'Night-shift warehouse packer, ages 16+', why: 'Night work isn’t allowed for under-18s' },
+        { t: 'Typing job from home, WhatsApp only', why: 'No employer named and contact only off the platform' },
+        { t: 'Data intern (paid), 3 months', why: 'Duplicate of a listing already on Vachuo' }
+      ]
+    };
+  }
+  threadSeed() {
+    return [
+      { id: 'th-cards', about: 'l-cards', buyer: 'baraka', seller: 'amani', share: true, msgs: [
+        { from: 'Baraka K.', role: 'baraka', t: 'Hello, could Amani write “Happy 70th, Mama” inside one of the cards?', at: 'Sat 31 Oct, 18:02' },
+        { from: 'Wanjiru M. (Amani’s guardian)', role: 'wanjiru', t: 'Yes, she can. It’s KSh 50 extra for the name. Pickup at Kilimani Library front desk on Tuesday after 16:00?', at: 'Sat 31 Oct, 19:40' },
+        { from: 'Baraka K.', role: 'baraka', t: 'Perfect, I’ll order now.', at: 'Sat 31 Oct, 19:52' }
+      ] },
+      { id: 'th-photo', about: 's-photo', buyer: 'wanjiru', seller: 'kim', share: false, msgs: [
+        { from: 'Wanjiru M.', role: 'wanjiru', t: 'Are you free on 14 Nov for two hours? It’s a small birthday at home.', at: 'Mon 2 Nov, 08:15' },
+        { from: 'Kim O.', role: 'kim', t: 'Yes, 14:00 to 16:00 works. I’ll send a booking through Vachuo so the payment is held until after.', at: 'Mon 2 Nov, 09:03' }
+      ] }
+    ];
+  }
+  chip(on) { return { pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6' }; }
+  stChip(st) { return { live: ['Live', '#DDF4F1', '#115E59'], pending: ['Waiting for approval', '#FEF1D9', '#92400E'], declined: ['Not approved', '#ECECE6', '#3F444C'], removed: ['Removed', '#ECECE6', '#3F444C'] }[st] || ['', '#FFFFFF', '#14161A']; }
+  cardOf(l) {
+    const s = this.state; const c = this.C[l.cat] || this.C.art; const sold = (l.sold || 0) + (s.soldPlus[l.id] || 0); const free = !l.price;
+    const price = l.tab === 'swap' ? 'Swap' : (l.tab === 'give' ? (l.cat === 'ask' ? 'Request' : 'Free') : (free ? 'Free' : this.ksh(l.price) + (l.unit || '')));
+    const sc = this.stChip(l.st);
+    return { id: l.id, t: l.t, by: l.by, badge: l.learner ? 'Learner, ' + l.age + ' · guardian approved' : '', hasBadge: !!l.learner && l.st === 'live', area: l.area, price, cat: c[0], ink: c[1], tint: c[2],
+      bg: this.thumb(l.art, l.photo), hasIcon: !!l.ic && l.art[0] === 'object' && !l.photo, icon: this.IC[l.ic] || '', isCover: l.art[0] === 'cover' && !l.photo, coverT: l.art[3] || l.t, iconInk: c[1],
+      alt: l.photo ? 'Photo of ' + l.t : (l.art[0] === 'cover' ? 'Cover of ' + l.t : 'Preview for ' + l.t), saved: s.saved[l.id] ? 'true' : 'false', saveLabel: (s.saved[l.id] ? 'Remove ' : 'Save ') + l.t, saveFill: s.saved[l.id] ? 'currentColor' : 'none',
+      save: () => { const sv = Object.assign({}, s.saved); sv[l.id] = !sv[l.id]; this.setState({ saved: sv }); }, open: () => this.openL(l.id),
+      swapLine: l.swapFor ? 'Wants: ' + l.swapFor : '', hasSwap: !!l.swapFor, closes: l.closes, hasCloses: !!l.closes, soldLine: sold ? (l.tab === 'services' ? sold + ' booked' : sold + ' sold') : '', hasSold: !!sold,
+      st: sc[0], stBg: sc[1], stFg: sc[2], hasSt: l.st !== 'live', posted: l.posted };
+  }
+  pageVals() {
+    const s = this.state; const r = this.R(); const C = this.C; const no = () => {}; const rid = s.role;
+    const ALL = this.all(); const live = ALL.filter((l) => l.st === 'live');
+    const TABS = [['market', 'Market'], ['services', 'Services'], ['swap', 'Swap'], ['give', 'Give & ask'], ['earn', 'Earn'], ['collections', 'Collections'], ['jobs', 'Jobs & internships']];
+    const jobsAll = this.allJobs();
+    const cnt = (t) => (t === 'collections' ? this.colls().length : (t === 'jobs' ? jobsAll.length : live.filter((l) => l.tab === t).length));
+    const out = {
+      stats: [{ v: String(live.length), l: 'live listings' }, { v: String(new Set(live.filter((l) => l.learner).map((l) => l.by)).size), l: 'learners selling' }, { v: String(jobsAll.length), l: 'jobs and internships' }, { v: String(this.colls().reduce((a, c) => a + c.total + (s.added[c.id] || []).length, 0)), l: 'items in collections' }],
+      roleChips: ['amani', 'tumaini', 'kim', 'wanjiru', 'baraka', 'employer'].map((k) => Object.assign({ label: this.RL[k].n, sub: this.RL[k].kind, pick: () => this.setRole(k) }, this.chip(k === rid))),
+      roleNote: r.note, roleName: r.n,
+      postLabel: rid === 'employer' ? 'Post a job' : (rid === 'wanjiru' ? 'Post for the family' : 'Post a listing'),
+      openPost: () => (rid === 'employer' ? this.setState({ tab: 'jobs', jobPost: { t: '', type: 'Internship', where: 'On-site', place: '', pay: '', min: '18', hours: '8', night: false, closes: '', d: '', err: '' } }) : this.openPost()),
+      rules: [
+        { t: 'A parent approves each listing', d: 'Nothing a learner posts goes live until their guardian says yes.', icon: 'M5 12l4 4 10-10' },
+        { t: 'Money goes to the guardian', d: 'Vachuo holds each payment and releases it to the guardian’s M-Pesa or bank.', icon: 'M3 7h18v10H3zM3 11h18M7 15h3' },
+        { t: 'Buyers talk to the guardian', d: 'Messages about a learner’s listing go to their guardian, inside Vachuo. Numbers and emails are hidden.', icon: 'M4 5h16v11H8l-4 4z' },
+        { t: 'Handovers in public places', d: 'Library desks, school offices or courier. Never a home address.', icon: 'M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12zM12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' }
+      ],
+      isListTab: ['market', 'services', 'swap', 'give', 'earn'].indexOf(s.tab) >= 0, isColl: s.tab === 'collections', isJobs: s.tab === 'jobs',
+      tabs: TABS.map(([id, label]) => ({ id, label, n: String(cnt(id)), selected: s.tab === id ? 'true' : 'false', bg: s.tab === id ? '#14161A' : 'transparent', fg: s.tab === id ? '#FFFFFF' : '#3F444C', pick: () => this.setState({ tab: id, cat: 'all', q: '', coll: null }) })),
+      toast: s.toast, hasToast: !!s.toast
+    };
+    // parent inbox
+    const pend = this.read().filter((x) => x.status === 'pending' && (x.kind === 'listing' || /^(buy|earn|borrow|vis|job)-/.test(x.ref || '')));
+    out.isParent = rid === 'wanjiru';
+    out.inbox = pend.map((x) => ({ t: x.title, d: x.detail, at: x.from + ' · ' + x.at, approve: () => { this.decide(x.ref, true); this.toast('Approved. ' + (x.payload && x.payload.listing ? 'The listing is live.' : 'Amani can go ahead.')); }, decline: () => { this.decide(x.ref, false); this.toast('Declined. Amani sees “Not this time”.'); } }));
+    out.hasInbox = out.isParent && out.inbox.length > 0; out.inboxClear = out.isParent && !out.inbox.length;
+    // my listings
+    const mineL = ALL.filter((l) => this.manages(l) && l.st !== 'removed');
+    out.hasMine = mineL.length > 0 && rid !== 'employer';
+    out.mineTitle = rid === 'wanjiru' ? 'Amani’s listings and yours' : 'My listings';
+    out.mineNote = rid === 'wanjiru' ? 'You approve Amani’s listings, receive her payments and answer her buyers.' : (r.age < 18 ? r.guardian + ' approves each listing and receives any payment.' : 'Buyers pay through Vachuo and message you here.');
+    out.mine = mineL.map((l) => { const sc = this.stChip(l.st); const pendL = l.st === 'pending'; const sold = (l.sold || 0) + (s.soldPlus[l.id] || 0);
+      return { t: l.t, sub: (l.tab === 'swap' ? 'Swap' : (l.price ? this.ksh(l.price) + (l.unit || '') : 'Free')) + ' · ' + (C[l.cat] || C.art)[0] + (sold ? ' · ' + sold + (l.tab === 'services' ? ' booked' : ' sold') : ''), st: pendL && l.own !== rid && rid === 'wanjiru' ? 'Needs your OK' : sc[0], stBg: sc[1], stFg: sc[2], bg: this.thumb(l.art, l.photo), open: () => this.openL(l.id),
+        hasDecide: pendL && rid === 'wanjiru', approve: () => { this.decide(l.id, true); this.toast('Approved. “' + l.t + '” is live.'); }, decline: () => { this.decide(l.id, false); this.toast('Declined. Amani sees “Not this time”.'); },
+        hasDemo: pendL && rid !== 'wanjiru' && r.age < 18, demoLabel: 'Approve as ' + r.guardian + ' (demo)', demo: () => { this.decide(l.id, true); this.toast(r.guardian + ' approved it. “' + l.t + '” is live.'); } }; });
+    // list tabs
+    const tabCats = { market: ['art', 'photo', 'craft', 'books', 'tech'], services: ['design', 'photo', 'tutor', 'code', 'lang', 'music', 'video', 'help'], swap: ['books', 'uniform', 'sport', 'games', 'music'], give: ['give', 'ask'], earn: ['design', 'photo', 'writing', 'code'] };
+    const LEAD = { market: ['Market', 'Art, prints, crafts, books and things learners have made. Buy with M-Pesa or card; the money is held until you have it.'], services: ['Services', 'Design, photography, tutoring, coding, translation and more, booked and paid inside Vachuo.'], swap: ['Swap', 'Textbooks, uniforms, kit and instruments. Offer something of yours in return.'], give: ['Give & ask', 'Give away what you no longer need, or ask the community for something.'], earn: ['Earn', 'Paid challenges and commissions from libraries, clubs and businesses. Prizes for under-18s go to their guardian.'] };
+    if (out.isListTab) {
+      const inTab = live.filter((l) => l.tab === s.tab);
+      out.tabTitle = LEAD[s.tab][0]; out.tabLead = LEAD[s.tab][1];
+      out.catChips = [Object.assign({ label: 'All', n: String(inTab.length), pick: () => this.setState({ cat: 'all' }) }, this.chip(s.cat === 'all'))].concat(tabCats[s.tab].map((k) => Object.assign({ label: C[k][0], n: String(inTab.filter((l) => l.cat === k).length), pick: () => this.setState({ cat: k }) }, this.chip(s.cat === k))));
+      let list = inTab.filter((l) => (s.cat === 'all' || l.cat === s.cat) && (!s.learnerOnly || l.learner) && (!s.q.trim() || (l.t + ' ' + l.by + ' ' + l.d + ' ' + (C[l.cat] || C.art)[0]).toLowerCase().indexOf(s.q.trim().toLowerCase()) >= 0));
+      if (s.sort === 'low') list = list.slice().sort((a, b) => a.price - b.price); else if (s.sort === 'high') list = list.slice().sort((a, b) => b.price - a.price); else if (s.sort === 'saved') list = list.slice().sort((a, b) => b.saves - a.saves); else list = list.slice().reverse();
+      out.cards = list.map((l) => this.cardOf(l)); out.hasCards = out.cards.length > 0; out.noCards = !out.hasCards;
+      out.resultText = list.length + (list.length === 1 ? ' listing' : ' listings') + (s.cat !== 'all' ? ' in ' + C[s.cat][0] : '') + (s.learnerOnly ? ' by learners' : '');
+      out.emptyText = 'Nothing here yet. Try another category, or post the first one.';
+    } else { out.tabTitle = ''; out.tabLead = ''; out.catChips = []; out.cards = []; out.hasCards = false; out.noCards = false; out.resultText = ''; out.emptyText = ''; }
+    out.q = s.q; out.setQ = (e) => this.setState({ q: e.target.value }); out.sort = s.sort; out.setSort = (e) => this.setState({ sort: e.target.value });
+    out.sortOpts = [['new', 'Newest'], ['low', 'Price: low to high'], ['high', 'Price: high to low'], ['saved', 'Most saved']].map(([v, label]) => ({ v, label }));
+    out.learnerOnly = s.learnerOnly; out.toggleLearner = () => this.setState({ learnerOnly: !s.learnerOnly });
+    out.goPost = out.openPost;
+    Object.assign(out, this.modalVals(), this.collVals(), this.jobVals(), this.msgVals());
+    return out;
+  }
+  modalVals() {
+    const s = this.state; const r = this.R(); const no = () => {};
+    const base = { lOpen: false, lClose: no, lT: '', lBy: '', lBadge: '', lHasBadge: false, lPrice: '', lCat: '', lInk: '#14161A', lTint: '#FFFFFF', lBg: '', lHasIcon: false, lIcon: '', lIsCover: false, lCoverT: '', lAlt: '', lCond: '', lHasCond: false, lD: '', lArea: '', lPosted: '', lSwap: '', lHasSwap: false, lCloses: '', lHasCloses: false,
+      lManages: false, lMgrNote: '', lStatus: '', lStBg: '#FFFFFF', lStFg: '#14161A', lHasDecide: false, lApprove: no, lDecline: no, lRemove: no, lNotManages: true, lAct: '', lActGo: no, lActOn: false, lActOff: true, lActBg: '#ECECE6', lActFg: '#3F444C', lActNote: '', lHasDemo: false, lDemo: no, lDemoLabel: '',
+      lCanMsg: false, lMsgTo: '', draft: s.draft, setDraft: (e) => this.setState({ draft: e.target.value }), sendDraft: no, lRules: [], lThread: [], lHasThread: false, lReport: no, lIsMinor: false, lMinorNote: '' };
+    if (s.open) {
+      const l = this.byId(s.open); if (!l) return base; const cd = this.cardOf(l); const mg = this.manages(l); const act = mg ? null : this.primaryAct(l);
+      const th = s.threads.find((x) => x.about === l.id && (x.buyer === r.id || (mg && (r.id === 'wanjiru' || r.id === l.own))));
+      const sc = this.stChip(l.st);
+      Object.assign(base, { lOpen: true, lClose: () => this.setState({ open: null, draft: '' }), lT: l.t, lBy: l.by + (l.learner ? ', ' + l.age : ''), lBadge: cd.badge, lHasBadge: cd.hasBadge, lPrice: cd.price, lCat: cd.cat, lInk: cd.ink, lTint: cd.tint, lBg: cd.bg, lHasIcon: cd.hasIcon, lIcon: cd.icon, lIsCover: cd.isCover, lCoverT: cd.coverT, lAlt: cd.alt,
+        lCond: l.cond, lHasCond: !!l.cond, lD: l.d, lArea: l.tab === 'services' || l.area === 'Online' ? l.area : l.area + ' · handover at ' + l.hand, lPosted: 'Posted ' + l.posted + (l.saves ? ' · saved by ' + l.saves : ''), lSwap: l.swapFor ? 'Wants in return: ' + l.swapFor : '', lHasSwap: !!l.swapFor, lCloses: l.closes, lHasCloses: !!l.closes,
+        lManages: mg, lNotManages: !mg, lMgrNote: mg ? (l.learner ? (r.id === 'wanjiru' ? 'You manage this for Amani. Payments come to you; buyers message you.' : r.guardian + ' approves changes, receives payments and answers buyers.') : 'You manage this listing.') : '',
+        lStatus: sc[0], lStBg: sc[1], lStFg: sc[2], lHasDecide: mg && l.st === 'pending' && r.id === 'wanjiru', lApprove: () => { this.decide(l.id, true); this.toast('Approved. “' + l.t + '” is live.'); }, lDecline: () => { this.decide(l.id, false); this.toast('Declined.'); },
+        lRemove: () => { const rm = Object.assign({}, s.removed); rm[l.id] = true; this.setState({ removed: rm, open: null }); this.toast('Removed “' + l.t + '”.'); },
+        lAct: act ? act.label : '', lActGo: act && act.go ? act.go : no, lActOn: !!(act && act.go), lActOff: !(act && act.go), lActBg: act && act.go ? '#F9A826' : '#ECECE6', lActFg: act && act.go ? '#14161A' : '#3F444C', lActNote: act ? act.note : '', lHasDemo: !!(act && act.demo), lDemo: act && act.demo ? () => { act.demo(); this.toast(r.guardian + ' said yes (demo).'); } : no, lDemoLabel: 'Approve as ' + r.guardian + ' (demo)',
+        lCanMsg: !mg && !this.minor(), lMsgTo: 'Message ' + this.contactFor(l), sendDraft: () => this.sendMsg(l, s.draft),
+        lIsMinor: !mg && this.minor(), lMinorNote: 'You can’t message sellers directly. ' + r.guardian + ' handles messages and payments for you.',
+        lRules: (l.learner ? [{ t: 'You pay ' + this.guardianOf(l).split(',')[0] + ', the learner’s guardian, through Vachuo.' }, { t: 'Messages go to the guardian, never the learner.' }] : [{ t: 'You pay ' + l.by + ' through Vachuo; the money is held until you confirm.' }]).concat([{ t: 'Phone numbers, emails and links are hidden in messages.' }, { t: l.tab === 'services' ? 'Sessions with under-18s happen online in Vachuo or in a public place.' : 'Hand over at a library desk, school office or by courier.' }]),
+        lThread: th ? th.msgs.map((m) => this.msgRow(m)) : [], lHasThread: !!th, lReport: () => this.toast('Reported. A moderator will look within a day.') });
+    }
+    // checkout
+    const co = s.co; const cl = co ? this.byId(co.id) : null;
+    Object.assign(base, { coOpen: false, coClose: no, coTitle: '', coIsHand: false, coIsPay: false, coIsDone: false, coHandTitle: '', coHands: [], coPays: [], coIsMpesa: false, coIsCard: false, coNotDone: false, coPhone: '', coSetPhone: no, coErr: '', coHasErr: false, coLines: [], coTotal: '', coNext: no, coNextLabel: '', coBack: no, coHasBack: false, coDoneText: '', coOrder: '', coPayee: '' });
+    if (co && cl) {
+      const svc = cl.tab === 'services';
+      const hands = svc ? [['Sat 7 Nov, 10:00', cl.area], ['Sat 7 Nov, 14:00', cl.area], ['Sun 8 Nov, 11:00', cl.area]] : [['Kilimani Library front desk', 'Free · Tue to Sat, 9:00 to 17:00'], ['School office', 'Free · weekdays, 8:00 to 16:00'], ['Courier to your area', 'KSh 250 · one to two days']];
+      const extra = !svc && co.hand === 2 ? 250 : 0; const total = cl.price + extra;
+      Object.assign(base, { coOpen: true, coClose: () => this.setState({ co: null }), coTitle: (svc ? 'Book: ' : 'Buy: ') + cl.t, coIsHand: co.step === 'hand', coIsPay: co.step === 'pay', coIsDone: co.step === 'done', coHandTitle: svc ? 'Choose a time' : 'Choose a handover',
+        coHands: hands.map(([label, sub], i) => ({ label, sub, pressed: co.hand === i ? 'true' : 'false', bd: co.hand === i ? '#14161A' : '#E2E2DA', bg: co.hand === i ? '#FAFAF7' : '#FFFFFF', pick: () => this.setState({ co: Object.assign({}, co, { hand: i }) }) })),
+        coPays: [['mpesa', 'M-Pesa'], ['card', 'Card']].map(([v, label]) => Object.assign({ label, pick: () => this.setState({ co: Object.assign({}, co, { pay: v, err: '' }) }) }, this.chip(co.pay === v))),
+        coIsMpesa: co.pay === 'mpesa', coIsCard: co.pay !== 'mpesa', coNotDone: co.step !== 'done', coPhone: co.phone, coSetPhone: (e) => this.setState({ co: Object.assign({}, this.state.co, { phone: e.target.value }) }), coErr: co.err, coHasErr: !!co.err,
+        coLines: [{ k: cl.t, v: this.ksh(cl.price) }].concat(extra ? [{ k: 'Courier', v: this.ksh(extra) }] : []).concat([{ k: 'Paid to', v: this.payeeFor(cl) }]), coTotal: this.ksh(total),
+        coNext: () => this.coNext(), coNextLabel: co.step === 'hand' ? 'Continue' : (total ? 'Pay ' + this.ksh(total) + ' into escrow' : 'Confirm booking'), coHasBack: co.step === 'pay', coBack: () => this.setState({ co: Object.assign({}, co, { step: 'hand' }) }),
+        coDoneText: this.ksh(total) + ' is held by Vachuo and released to ' + this.payeeFor(cl) + ' when you confirm ' + (svc ? 'the session happened.' : 'you received it.') + (cl.learner ? ' ' + cl.by.split(' ')[0] + ' gets a note that her work sold; the money goes to her guardian.' : ''), coOrder: co.order, coPayee: this.payeeFor(cl) });
+    }
+    // earn entry
+    const en = s.entry; const el = en ? this.byId(en.id) : null;
+    Object.assign(base, { enOpen: !!el, enClose: () => this.setState({ entry: null }), enT: el ? el.t : '', enNote: en ? en.note : '', enSetNote: (e) => this.setState({ entry: Object.assign({}, this.state.entry, { note: e.target.value }) }), enHasFile: !!(en && en.file), enFileName: en && en.file ? en.file : 'No file chosen', enSetFile: (e) => { const f = e && e.target && e.target.files && e.target.files[0]; this.setState({ entry: Object.assign({}, this.state.entry, { file: f ? f.name : '' }) }); },
+      enSubmit: () => { if (!en.file && en.note.trim().length < 5) { this.toast('Attach your entry or describe it first.'); return; } const x = Object.assign({}, s.entries); x[s.role + ':' + en.id] = true; this.setState({ entries: x, entry: null }); this.toast('Entry submitted to ' + el.by + '.'); }, enRule: el ? (this.minor() ? 'You keep the copyright. Any prize is paid to ' + r.guardian + '.' : 'You keep the copyright; the organiser gets a licence to use winning entries.') : '' });
+    // post
+    const p = s.post;
+    Object.assign(base, { pmOpen: !!p, pmClose: () => this.setState({ post: null }), pmTitle: this.minor() ? 'Post a listing for ' + r.guardian + ' to approve' : 'Post a listing' });
+    if (p) {
+      const modes = [['sell', 'Sell'], ['service', 'Offer a service'], ['swap', 'Swap'], ['give', 'Give away'], ['ask', 'Ask for'], ['earn', 'Post a challenge']].filter(([m]) => m !== 'earn' || !this.minor());
+      Object.assign(base, { pmModes: modes.map(([m, label]) => Object.assign({ label, pick: () => this.setState({ post: Object.assign({}, p, { mode: m, cat: this.modeCats(m)[0], err: '' }) }) }, this.chip(p.mode === m))),
+        pmCats: this.modeCats(p.mode).map((k) => ({ v: k, label: this.C[k][0] })), pmCat: p.cat, pmSetCat: (e) => this.setState({ post: Object.assign({}, this.state.post, { cat: e.target.value }) }),
+        pmT: p.t, pmSetT: (e) => this.setState({ post: Object.assign({}, this.state.post, { t: e.target.value }) }), pmNeedPrice: p.mode === 'sell' || p.mode === 'service' || p.mode === 'earn', pmPriceLabel: p.mode === 'earn' ? 'Prize or pay (KSh)' : 'Price (KSh)', pmPrice: p.price, pmSetPrice: (e) => this.setState({ post: Object.assign({}, this.state.post, { price: e.target.value }) }),
+        pmIsService: p.mode === 'service', pmUnits: [' per hour', ' per session', ' per item', ' per page'].map((u) => ({ v: u, label: u.trim() })), pmUnit: p.unit, pmSetUnit: (e) => this.setState({ post: Object.assign({}, this.state.post, { unit: e.target.value }) }),
+        pmIsSwap: p.mode === 'swap', pmSwap: p.swapFor, pmSetSwap: (e) => this.setState({ post: Object.assign({}, this.state.post, { swapFor: e.target.value }) }),
+        pmD: p.d, pmSetD: (e) => this.setState({ post: Object.assign({}, this.state.post, { d: e.target.value }) }), pmArea: p.area, pmSetArea: (e) => this.setState({ post: Object.assign({}, this.state.post, { area: e.target.value }) }),
+        pmHasPhoto: !!p.photo, pmPhotoBg: p.photo ? 'url(' + p.photo + ') center / cover no-repeat' : '#FAFAF7', pmSetPhoto: (e) => { const u = this.photoUrl(e); if (u) this.setState({ post: Object.assign({}, this.state.post, { photo: u }) }); },
+        pmErr: p.err, pmHasErr: !!p.err, pmSubmit: () => this.submitPost(), pmSubmitLabel: this.minor() ? 'Send to ' + r.guardian + ' to approve' : 'Publish',
+        pmRuleText: this.minor() ? r.guardian + ' sees it first. Once approved, buyers pay ' + r.guardian + ' and message ' + r.guardian + ', never you.' : 'Moderation checks every listing for contact details, home addresses and fair prices.' });
+    } else Object.assign(base, { pmModes: [], pmCats: [], pmCat: '', pmSetCat: no, pmT: '', pmSetT: no, pmNeedPrice: false, pmPriceLabel: '', pmPrice: '', pmSetPrice: no, pmIsService: false, pmUnits: [], pmUnit: '', pmSetUnit: no, pmIsSwap: false, pmSwap: '', pmSetSwap: no, pmD: '', pmSetD: no, pmArea: '', pmSetArea: no, pmHasPhoto: false, pmPhotoBg: '#FAFAF7', pmSetPhoto: no, pmErr: '', pmHasErr: false, pmSubmit: no, pmSubmitLabel: '', pmRuleText: '' });
+    return base;
+  }
+  msgRow(m) {
+    const me = m.role === this.state.role; const sys = m.role === 'system';
+    return { from: sys ? '' : m.from, t: m.t, at: m.at, isSys: sys, notSys: !sys, align: me ? 'flex-end' : 'flex-start', bg: me ? '#E4ECFD' : '#F4F4EF', fg: '#14161A' };
+  }
+  msgVals() {
+    const s = this.state; const r = this.R(); const rid = s.role;
+    const vis = s.threads.filter((t) => t.buyer === rid || t.seller === rid || (rid === 'wanjiru' && t.seller === 'amani') || ((rid === 'amani' || rid === 'tumaini') && t.seller === rid && t.share));
+    const sel = vis.find((t) => t.id === s.thOpen) || vis[0];
+    const canW = (t) => !(rid === 'amani' || rid === 'tumaini');
+    const titleOf = (t) => { const l = this.byId(t.about); return l ? l.t : 'Listing'; };
+    const withOf = (t) => { const l = this.byId(t.about); if (t.buyer === rid) return l ? this.contactFor(l) : t.sellerName; const b = this.RL[t.buyer]; return b ? b.n : 'Buyer'; };
+    return { hasThreads: vis.length > 0, noThreads: vis.length === 0, threads: vis.map((t) => ({ title: titleOf(t), with: withOf(t), last: (t.msgs.filter((m) => m.role !== 'system').slice(-1)[0] || { t: '' }).t, n: String(t.msgs.filter((m) => m.role !== 'system').length), pressed: sel && sel.id === t.id ? 'true' : 'false', bg: sel && sel.id === t.id ? '#F4F7FE' : '#FFFFFF', bd: sel && sel.id === t.id ? '#93BBF3' : '#E2E2DA', pick: () => this.setState({ thOpen: t.id }) })),
+      thTitle: sel ? titleOf(sel) : '', thWith: sel ? 'With ' + withOf(sel) : '', thMsgs: sel ? sel.msgs.map((m) => this.msgRow(m)) : [], thCanWrite: !!sel && canW(sel), thReadOnly: !!sel && !canW(sel),
+      thNote: sel && !canW(sel) ? r.guardian + ' shared this conversation with you. Buyers can’t message you directly.' : '', reply: s.reply, setReply: (e) => this.setState({ reply: e.target.value }), sendReply: () => sel && this.reply(sel.id),
+      msgLead: rid === 'amani' || rid === 'tumaini' ? 'Buyers write to ' + r.guardian + '. Conversations ' + r.guardian + ' shares with you appear here.' : 'Every conversation stays in Vachuo. Phone numbers, emails and links are hidden automatically.' };
+  }
+  collVals() {
+    const s = this.state; const r = this.R(); const no = () => {}; const rid = s.role;
+    const VIS = { private: 'Only me', family: 'Family only', community: 'Vachuo community' };
+    const out = { collCards: this.colls().map((c) => ({ t: c.t, kind: c.kind, by: c.by, total: (c.total + (s.added[c.id] || []).length) + ' items', vis: VIS[this.visOf(c)], bg: this.thumb(c.art), open: () => this.setState({ coll: c.id, cq: '', cAvail: false }), d: c.d, isMine: this.collOwner(c) })),
+      inColl: false, notInColl: true, openStart: () => this.setState({ startColl: { t: '', kind: 'Home library' } }) };
+    const sc = s.startColl;
+    Object.assign(out, { scOpen: !!sc, scClose: () => this.setState({ startColl: null }), scT: sc ? sc.t : '', scSetT: (e) => this.setState({ startColl: Object.assign({}, this.state.startColl, { t: e.target.value }) }),
+      scKinds: ['Home library', 'Art gallery', 'Lending library', 'Other collection'].map((k) => Object.assign({ label: k, pick: () => this.setState({ startColl: Object.assign({}, sc, { kind: k }) }) }, this.chip(!!sc && sc.kind === k))),
+      scCreate: () => { if (!sc || sc.t.trim().length < 3) { this.toast('Give your collection a name.'); return; } const id = 'c-new-' + Date.now(); const nc = { id, t: sc.t.trim(), by: r.n, own: rid, kind: sc.kind, total: 0, vis: 'private', d: 'Started ' + this.today() + '. Add items one by one, by ISBN, or paste a list.', art: sc.kind === 'Art gallery' ? ['wash', '#E8A15A', '#5B8FC7', '#7BB38A'] : ['cover', '#1E3A8A', '#5B8FC7', ''], items: [] }; this.setState({ newColls: s.newColls.concat([nc]), startColl: null, coll: id }); this.toast('Collection created. It’s private until you change who can see it.'); } });
+    const c = s.coll ? this.coll(s.coll) : null;
+    const empty = { cBack: no, cT: '', cKind: '', cBy: '', cD: '', cTotal: '', cVisLabel: '', cIsOwner: false, cNotOwner: true, cVisOpts: [], cVis: '', cSetVis: no, cVisNote: '', cHasVisNote: false, cIsLibrary: false, cWeeks: '2', cWeekOpts: [], cSetWeeks: no, cMax: '2', cMaxOpts: [], cSetMax: no, cVerified: false, cToggleVerified: no, cq: '', cSetQ: no, cAvail: false, cToggleAvail: no, cItems: [], cHasItems: false, cNoItems: false, cEmpty: '', cShown: '', cRulesLine: '',
+      aIsbn: '', aSetIsbn: no, aLookup: no, aT: '', aSetT: no, aBy: '', aSetBy: no, aYear: '', aSetYear: no, aConds: [], aCond: '', aSetCond: no, aLend: true, aToggleLend: no, aHasPhoto: false, aPhotoBg: '#FAFAF7', aSetPhoto: no, aMsg: '', aHasMsg: false, aAdd: no, aByLabel: '', aIsBooks: false, importTxt: '', setImport: no, doImport: no };
+    if (!c) return Object.assign(out, empty);
+    const owner = this.collOwner(c); const isArt = c.kind === 'Art gallery'; const rl = s.rules[c.id] || { weeks: 2, max: 2, verified: true }; const vis = this.visOf(c); const visPend = this.okStatus('vis-' + c.id) === 'pending';
+    const items = this.collItems(c).filter((it) => (!s.cAvail || (it.lend && !it.out && !s.lendOff[it.id])) && (!s.cq.trim() || (it.t + ' ' + it.by).toLowerCase().indexOf(s.cq.trim().toLowerCase()) >= 0));
+    const setRule = (k, v) => { const all = Object.assign({}, s.rules); all[c.id] = Object.assign({}, rl, { [k]: v }); this.setState({ rules: all }); };
+    Object.assign(out, empty, { inColl: true, notInColl: false, cBack: () => this.setState({ coll: null }), cT: c.t, cKind: c.kind, cBy: c.by, cD: c.d, cTotal: (c.total + (s.added[c.id] || []).length) + ' items catalogued', cShown: items.length + ' shown' + (c.items.length < c.total ? ' · showing a sample of the catalogue' : ''),
+      cVisLabel: VIS[vis] + (visPend ? ' · community view waiting for ' + r.guardian : ''), cIsOwner: owner, cNotOwner: !owner, cVisOpts: Object.keys(VIS).map((v) => ({ v, label: VIS[v] })), cVis: vis, cSetVis: (e) => this.setVis(c, e.target.value),
+      cVisNote: rid === 'amani' ? 'Showing your gallery to the community needs Wanjiru’s OK. Your full name and school are never shown.' : (vis === 'community' ? 'Verified Vachuo families can see this and ask to borrow.' : 'Only the people you choose can see this.'), cHasVisNote: owner,
+      cIsLibrary: owner && !isArt, cWeeks: String(rl.weeks), cWeekOpts: ['1', '2', '4'].map((v) => ({ v, label: v + (v === '1' ? ' week' : ' weeks') })), cSetWeeks: (e) => setRule('weeks', Number(e.target.value)), cMax: String(rl.max), cMaxOpts: ['1', '2', '3'].map((v) => ({ v, label: v + ' at a time' })), cSetMax: (e) => setRule('max', Number(e.target.value)), cVerified: !!rl.verified, cToggleVerified: () => setRule('verified', !rl.verified),
+      cRulesLine: isArt ? 'Pieces aren’t lent. Ask to buy a print through Showcase.' : 'Lent for ' + rl.weeks + (rl.weeks === 1 ? ' week' : ' weeks') + ', up to ' + rl.max + ' at a time' + (rl.verified ? ', to verified families only' : '') + '.',
+      cq: s.cq, cSetQ: (e) => this.setState({ cq: e.target.value }), cAvail: s.cAvail, cToggleAvail: () => this.setState({ cAvail: !s.cAvail }), cHasItems: items.length > 0, cNoItems: items.length === 0, cEmpty: owner ? 'No items yet. Add one below, look one up by ISBN, or paste a list.' : 'Nothing matches.',
+      cItems: items.map((it) => { const off = !!s.lendOff[it.id]; const lendable = it.lend && !off; const b = s.borrow[rid + ':' + it.id] || (this.minor() ? this.okStatus('borrow-' + it.id) : '');
+        const status = isArt ? (it.year ? 'Made ' + it.year : 'Artwork') : (it.out ? it.out : (lendable ? 'Available to borrow' : 'Not for loan'));
+        let act = '', go = null;
+        if (owner && isArt && rid === 'amani') { act = 'Offer for sale'; go = () => this.openPost({ mode: 'sell', cat: 'art', t: it.t, d: it.by + ', ' + (it.year || '2026') + '. From my sketchbook.', photo: it.photo || '' }); }
+        else if (owner && !isArt) { if (it.lend) { act = off ? 'Allow lending' : 'Stop lending'; go = () => { const lo = Object.assign({}, s.lendOff); lo[it.id] = !off; this.setState({ lendOff: lo }); }; } }
+        else if (!owner && !isArt && lendable && !it.out) { if (b === 'sent' || b === 'approved') act = 'Requested'; else if (b === 'pending') act = 'Waiting for ' + r.guardian; else { act = 'Ask to borrow'; go = () => this.borrowIt(c, it); } }
+        return { t: it.t, by: it.by, year: it.year, hasYear: !!it.year && !isArt, bg: it.photo ? 'url(' + it.photo + ') center / cover no-repeat' : (it.wash ? this.thumb(['wash', it.c[0], it.c[1], '#E7C66B']) : this.thumb(['cover', it.c[0], it.c[1], ''])), isCover: !it.wash && !it.photo, status, stFg: it.out ? '#92400E' : (lendable && !isArt ? '#115E59' : '#62676F'), hasAct: !!act, act, actOn: !!go, actOff: !go, go: go || no, hasIsbn: !!it.isbn, isbn: 'ISBN ' + it.isbn, cond: it.cond }; }),
+      aIsbn: s.add.isbn, aSetIsbn: (e) => this.setState({ add: Object.assign({}, this.state.add, { isbn: e.target.value }) }), aLookup: () => this.lookup(), aT: s.add.t, aSetT: (e) => this.setState({ add: Object.assign({}, this.state.add, { t: e.target.value }) }), aBy: s.add.by, aSetBy: (e) => this.setState({ add: Object.assign({}, this.state.add, { by: e.target.value }) }), aYear: s.add.year, aSetYear: (e) => this.setState({ add: Object.assign({}, this.state.add, { year: e.target.value }) }),
+      aConds: ['New', 'Very good', 'Good', 'Worn'].map((v) => ({ v, label: v })), aCond: s.add.cond, aSetCond: (e) => this.setState({ add: Object.assign({}, this.state.add, { cond: e.target.value }) }), aLend: s.add.lend, aToggleLend: () => this.setState({ add: Object.assign({}, s.add, { lend: !s.add.lend }) }),
+      aHasPhoto: !!s.add.photo, aPhotoBg: s.add.photo ? 'url(' + s.add.photo + ') center / cover no-repeat' : '#FAFAF7', aSetPhoto: (e) => { const u = this.photoUrl(e); if (u) this.setState({ add: Object.assign({}, this.state.add, { photo: u }) }); }, aMsg: s.add.msg, aHasMsg: !!s.add.msg, aAdd: () => this.addItem(c.id), aByLabel: isArt ? 'Medium' : 'Author or maker', aIsBooks: !isArt,
+      importTxt: s.importTxt, setImport: (e) => this.setState({ importTxt: e.target.value }), doImport: () => this.importList(c.id) });
+    return out;
+  }
+  jobVals() {
+    const s = this.state; const r = this.R(); const no = () => {}; const rid = s.role;
+    const locked = r.age < 16;
+    const out = { jLocked: locked, jOpen: !locked, jLockText: 'Jobs and internships open at 16. Until then you can earn through paid challenges and by offering services, with ' + r.guardian + '’s OK.', goEarn: () => this.setState({ tab: 'earn', cat: 'all' }), goServices: () => this.setState({ tab: 'services', cat: 'all' }),
+      jTypes: ['all', 'Internship', 'Apprenticeship', 'Part-time', 'Full-time', 'Volunteer'].map((t) => Object.assign({ label: t === 'all' ? 'All types' : t, pick: () => this.setState({ jType: t }) }, this.chip(s.jType === t))),
+      jWheres: ['all', 'On-site', 'Remote', 'Hybrid'].map((t) => Object.assign({ label: t === 'all' ? 'Anywhere' : t, pick: () => this.setState({ jWhere: t }) }, this.chip(s.jWhere === t))),
+      jYoung: s.jYoung, toggleYoung: () => this.setState({ jYoung: !s.jYoung }), jHasMatch: !!r.interests, jMatch: s.jMatch, toggleMatch: () => this.setState({ jMatch: !s.jMatch }), jInterests: r.interests ? 'Matched to your interests: ' + r.interests.join(', ') + '.' : '',
+      isEmployer: rid === 'employer', openJobPost: () => this.setState({ jobPost: { t: '', type: 'Internship', where: 'On-site', place: '', pay: '', min: '18', hours: '8', night: false, closes: '', d: '', err: '' } }) };
+    let js = this.allJobs().filter((j) => (s.jType === 'all' || j.type === s.jType) && (s.jWhere === 'all' || j.where === s.jWhere) && (!s.jYoung || j.min === 16));
+    if (s.jMatch && r.interests) js = js.filter((j) => this.match(j) >= 55).sort((a, b) => this.match(b) - this.match(a));
+    out.jobCards = js.map((j) => { const a = this.applyAct(j); const m = this.match(j);
+      return { t: j.t, org: j.org, type: j.type, where: j.where, place: j.place, pay: j.pay, min: j.min + '+', closes: j.closes, d: j.d, isNew: !!j.fresh,
+        srcLabel: j.src === 'found' ? 'Found by the opportunity finder · ' + j.srcName + ' (sample)' : 'Posted by a verified employer', srcBg: j.src === 'found' ? '#F4F7FE' : '#FBF7EE', srcFg: j.src === 'found' ? '#1E40AF' : '#92400E',
+        hasMatch: !!r.interests && m > 0, matchLabel: m >= 55 ? m + '% match' : 'Low match', matchBg: m >= 70 ? '#DDF4F1' : '#ECECE6', matchFg: m >= 70 ? '#115E59' : '#3F444C',
+        act: a.label, actOn: !!a.go, actOff: !a.go, actGo: a.go || no, actBg: a.bg, actFg: a.fg, hasDemo: !!a.demo, demo: a.demo ? () => { a.demo(); this.toast(r.guardian + ' said yes (demo). You can apply now.'); } : no, demoLabel: 'Approve as ' + r.guardian + ' (demo)',
+        saved: s.jSaved[j.id] ? 'true' : 'false', saveLabel: s.jSaved[j.id] ? 'Saved' : 'Save', save: () => { const x = Object.assign({}, s.jSaved); x[j.id] = !x[j.id]; this.setState({ jSaved: x }); } }; });
+    out.jResult = js.length + (js.length === 1 ? ' opportunity' : ' opportunities') + (r.age < 18 && !locked ? ' · under-18s apply with a guardian’s OK' : '');
+    out.hasJobs = js.length > 0; out.noJobs = js.length === 0;
+    out.myJobs = this.allJobs().filter((j) => j.own === 'employer').map((j) => ({ t: j.t, sub: j.type + ' · ' + j.place + ' · ' + j.pay, st: j.fresh ? 'Live · checked today' : 'Live · 14 applicants' }));
+    out.hasMyJobs = rid === 'employer';
+    // finder
+    const cr = s.crawl; const steps = this.crawlSteps();
+    Object.assign(out, { crSources: this.crawlSources(), crRunning: cr.state === 'running', crRun: () => this.runCrawl(), crRunLabel: cr.state === 'running' ? 'Running…' : (cr.state === 'done' ? 'Run again' : 'Run now'), crShowSteps: cr.state !== 'idle',
+      crSteps: steps.map((t, i) => { const done = cr.state === 'done' || i < cr.step; const cur = cr.state === 'running' && i === cr.step; return { t, icon: done ? '✓' : (cur ? '…' : '·'), fg: done ? '#115E59' : (cur ? '#1E40AF' : '#62676F'), fw: cur ? '600' : '400' }; }),
+      crDone: cr.state === 'done', crSummary: cr.state === 'done' ? this.FOUND.pass.length + ' to review · ' + this.FOUND.blocked.length + ' blocked automatically · ' + s.foundOk.length + ' shared' : '',
+      crQueue: s.queue.map((id) => { const f = this.FOUND.pass.find((x) => x.id === id); const m = this.matchesFor(f); return { t: f.t, org: f.org, pay: f.pay, min: f.min + '+', place: f.place, srcName: f.srcName + ' (sample)', d: f.d, matchLine: m.length ? 'Would be sent to: ' + m.join(', ') : 'No matching profiles yet', ok: () => this.review(id, true), no: () => this.review(id, false) }; }),
+      crHasQueue: s.queue.length > 0, crBlocked: this.FOUND.blocked, crShowBlocked: cr.state === 'done', crAllDone: cr.state === 'done' && !s.queue.length });
+    // apply modal
+    const ap = s.apply; const aj = ap ? this.allJobs().find((j) => j.id === ap.id) : null;
+    Object.assign(out, { apOpen: !!aj, apClose: () => this.setState({ apply: null }), apT: aj ? aj.t : '', apOrg: aj ? aj.org + ' · ' + aj.place + ' · ' + aj.pay : '', apNote: ap ? ap.note : '', apSetNote: (e) => this.setState({ apply: Object.assign({}, this.state.apply, { note: e.target.value }) }), apPassport: ap ? ap.passport : false, apTogglePassport: () => this.setState({ apply: Object.assign({}, ap, { passport: !ap.passport }) }),
+      apWho: r.n + (r.age < 18 ? ' · ' + r.guardian + ' approved this application' : ''),
+      apSubmit: () => { const c = this.clean(ap.note); if (c.t.trim().length < 20) { this.toast('Write a short note: two or three sentences on why you fit.'); return; } const x = Object.assign({}, s.applied); x[s.role + ':' + ap.id] = true; this.setState({ applied: x, apply: null }); this.toast('Application sent to ' + aj.org + '. Replies come to your Vachuo messages.'); } });
+    // job post modal
+    const jp = s.jobPost;
+    Object.assign(out, { jpOpen: !!jp, jpClose: () => this.setState({ jobPost: null }) });
+    const upd = (k) => (e) => this.setState({ jobPost: Object.assign({}, this.state.jobPost, { [k]: e.target.value }) });
+    if (jp) Object.assign(out, { jpT: jp.t, jpSetT: upd('t'), jpType: jp.type, jpTypes: ['Internship', 'Apprenticeship', 'Part-time', 'Full-time', 'Volunteer'].map((v) => ({ v, label: v })), jpSetType: upd('type'), jpWhere: jp.where, jpWheres: ['On-site', 'Remote', 'Hybrid'].map((v) => ({ v, label: v })), jpSetWhere: upd('where'),
+      jpPlace: jp.place, jpSetPlace: upd('place'), jpPay: jp.pay, jpSetPay: upd('pay'), jpMin: jp.min, jpMins: [['16', '16 and over'], ['18', '18 and over']].map(([v, label]) => ({ v, label })), jpSetMin: upd('min'), jpHours: jp.hours, jpSetHours: upd('hours'), jpNight: jp.night, jpToggleNight: () => this.setState({ jobPost: Object.assign({}, jp, { night: !jp.night }) }),
+      jpCloses: jp.closes, jpSetCloses: upd('closes'), jpD: jp.d, jpSetD: upd('d'), jpErr: jp.err, jpHasErr: !!jp.err, jpSubmit: () => this.submitJob(),
+      jpChecks: [['Pay is stated', jp.type === 'Volunteer' || Number(jp.pay) > 0], ['No fees asked of applicants', !/\b(fee|fees|deposit|registration|pay to apply|pay to join)\b/i.test(jp.d)], ['Contact only through Vachuo', !this.clean(jp.d).hid], ['Safe hours for under-18s', Number(jp.min) !== 16 || (Number(jp.hours) <= 8 && !jp.night)]].map(([t, ok]) => ({ t, icon: ok ? '✓' : '!', fg: ok ? '#115E59' : '#92400E' })) });
+    else Object.assign(out, { jpT: '', jpSetT: no, jpType: '', jpTypes: [], jpSetType: no, jpWhere: '', jpWheres: [], jpSetWhere: no, jpPlace: '', jpSetPlace: no, jpPay: '', jpSetPay: no, jpMin: '', jpMins: [], jpSetMin: no, jpHours: '', jpSetHours: no, jpNight: false, jpToggleNight: no, jpCloses: '', jpSetCloses: no, jpD: '', jpSetD: no, jpErr: '', jpHasErr: false, jpSubmit: no, jpChecks: [] });
+    return out;
+  }
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+}
+return Component;
+});
+
+DC.mount("Showcase");
+</script>
+</body>
+</html>

@@ -9,12 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
 <script src="assets/js/dc.js"></script>
 </head>
 <body>
 <div id="app"></div>
 <template id="dc-Profile">
-<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; box-sizing: border-box; padding: {{rootPad}}">
+<div data-theme="{{uiTheme}}" style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; box-sizing: border-box; padding: {{rootPad}}">
 <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
 
 <template data-if="{{embedded}}">
@@ -169,7 +170,7 @@
 </li>
 </template>
 </ul>
-<a href="map.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Open My map</a>
+<a href="map.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #E4ECFD; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none">Open My learning map</a>
 </section>
 </template>
 
@@ -229,6 +230,19 @@
 <script>
 DC.component("Profile", function () {
 class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
   constructor(props) {
     super(props);
     this.D = this.data();
@@ -236,7 +250,7 @@ class Component extends DCLogic {
   }
 
   componentDidMount() { this._t = setInterval(() => this.setState({ tick: this.state.tick + 1 }), 60000); }
-  componentWillUnmount() { clearInterval(this._t); }
+  componentWillUnmount() { this.themeOff(); clearInterval(this._t); }
   componentDidUpdate(prev) {
     if (prev.pid !== this.props.pid || prev.intent !== this.props.intent) {
       this.setState({ pid: null, tab: this.props.intent === 'book' ? 'schedule' : 'overview', pick: -1, msg: '', sent: false, report: false });
@@ -287,7 +301,7 @@ class Component extends DCLogic {
         facts: [['Ages', '11+'], ['Group size', '3 learners'], ['Cost', 'Free; bring fabric to keep the result'], ['Languages', 'Kiswahili, English, Dholuo']],
         offers: [['Pattern scaling', 'Take a pattern up or down a size'], ['Measuring for fit', 'Tape, chalk and a real customer'], ['Machine basics', 'Straight seams on a treadle machine']],
         skills: ['Ratios', 'Measuring & marking'],
-        notes: [['Baraka, 14', 'Scaled a skirt pattern by 1.5 and it fitted first time.'], ['Sarah, 12', 'Learned why the seam allowance doesn’t scale with the pattern.']] }),
+        notes: [['Kim, 14', 'Scaled a skirt pattern by 1.5 and it fitted first time.'], ['Johari, 13', 'Learned why the seam allowance doesn’t scale with the pattern.']] }),
       E('chapel', { kind: 'org', cat: 'place', sub: 'church', name: 'Hope Chapel Community Hall', role: 'Place of worship with a hall open to the whole neighbourhood', x: 43.3, y: 58.7,
         win: [[[4], 17, 20, 'Weekly Forum'], [[6], 9, 13, 'Homework club'], [[0], 8, 14, 'Services and youth choir']], cta: 'See what’s on',
         about: ['The hall next to Hope Chapel is open to everyone, whatever their faith. It hosts a Saturday homework club, a youth choir and, on Thursday evenings, the Vachuo Weekly Forum for Nairobi.', 'Nothing here asks you to join the congregation; the hall committee keeps community events and services separate.'],
@@ -543,7 +557,8 @@ class Component extends DCLogic {
     try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (err) { /* ignore */ }
   }
 
-  renderVals() {
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
     const I = this.icons();
     const SC = this.scores();
     const D = this.D;

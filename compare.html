@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Curriculum fit</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Compare">
+<section data-theme="{{uiTheme}}" aria-labelledby="cmp-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; overflow: hidden; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div style="padding: 20px 22px 16px; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid #ECECE6">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">{{eyebrow}}</span>
+<h2 id="cmp-h" style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; font-weight: 600">{{title}}</h2>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.5; color: #3F444C; max-width: 820px">{{sub}}</p>
+</div>
+
+<div style="padding: 16px 22px; display: flex; flex-direction: column; gap: 10px; background: #FAFAF7; border-bottom: 1px solid #ECECE6; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Learner</span><template data-for="{{learnerChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">In Kenya, learns with</span><template data-for="{{keChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Compare with</span><template data-for="{{toChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{regLabel}}</span><template data-for="{{regChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Goal</span><template data-for="{{dirChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template><span style="width: 12px"></span><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">When</span><template data-for="{{whenChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template></div>
+</div>
+
+<div style="padding: 18px 22px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{keName}}</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{keNote}}</span></div>
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{stdName}} · standards and tests</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{stdText}}</span></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 21px; font-weight: 600">By age: where {{ageNow}}, and {{ageAt}}</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{placeCards}}" data-as="p">
+<div style="flex: 1 1 320px; min-width: 0; padding: 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="font-size: 15px; font-weight: 700">{{p.h}}</span><span style="font-size: 12px; color: #62676F">{{p.sub}}</span></div>
+<div style="display: flex; gap: 10px"><div style="flex: 1; padding: 10px; border-radius: 10px; background: #F4F7FE; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11.5px; color: #1E40AF">Now</span><span style="font-size: 18px; font-weight: 700">{{p.now}}</span><span style="font-size: 12px; color: #3F444C">{{p.nowStage}}</span></div><div style="flex: 1; padding: 10px; border-radius: 10px; background: #FEF9EE; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11.5px; color: #92400E">At the move</span><span style="font-size: 18px; font-weight: 700">{{p.at}}</span><span style="font-size: 12px; color: #3F444C">{{p.atStage}}</span></div></div>
+<span style="font-size: 12.5px; line-height: 1.5; color: #3F444C">{{p.year}} · {{p.rule}}</span>
+<span style="font-size: 12.5px; line-height: 1.5; color: #3F444C"><strong>Next milestone:</strong> {{p.next}}</span>
+</div>
+</template>
+</div>
+<div style="padding: 12px 14px 16px; border-radius: 14px; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{timelines}}" data-as="t">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px"><span style="flex: 0 0 170px; font-size: 12.5px; font-weight: 600">{{t.name}}</span><div style="flex: 1 1 400px; position: relative; height: 26px; border-radius: 6px; background: #F4F4EF"><template data-for="{{t.bars}}" data-as="b"><span title="{{b.t}}" style="position: absolute; top: 2px; bottom: 2px; left: {{b.left}}%; width: {{b.w}}%; border-radius: 5px; background: {{b.c}}; color: #14161A; font-size: 11px; font-weight: 600; display: flex; align-items: center; padding: 0 6px; box-sizing: border-box; overflow: hidden; white-space: nowrap; border-right: 2px solid #FFFFFF">{{b.t}}</span></template></div></div>
+</template>
+<div style="display: flex; gap: 10px"><span style="flex: 0 0 170px"></span><div style="flex: 1 1 400px; position: relative; height: 34px"><template data-for="{{ageTicks}}" data-as="k"><span style="position: absolute; left: {{k.left}}%; top: 0; font-size: 11px; color: #62676F; transform: translateX(-50%)">{{k.t}}</span></template><span style="position: absolute; left: {{agePos}}%; top: 14px; transform: translateX(-50%); padding: 1px 7px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-size: 11px; font-weight: 700; white-space: nowrap">now</span><span style="position: absolute; left: {{ageAtPos}}%; top: 14px; transform: translateX(-50%); padding: 1px 7px; border-radius: 999px; background: #F9A826; color: #14161A; font-size: 11px; font-weight: 700; white-space: nowrap">move</span></div></div>
+<span style="font-size: 12px; color: #62676F">Age in years. Bands show the usual ages for each stage; exact placement follows each system’s birthday cut-off, shown above.</span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">By curriculum: subject by subject</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{rowsHead}}</span></div>
+<div style="overflow-x: auto; border: 1px solid #E2E2DA; border-radius: 14px">
+<div style="min-width: 760px; display: grid; grid-template-columns: 150px 1fr 1.2fr 150px; font-family: Geist, system-ui, sans-serif; font-size: 13px">
+<span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">Subject · level</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">In Kenya</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">There, at that age</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">Fit</span>
+<template data-for="{{rows}}" data-as="r">
+<span style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13.5px">{{r.name}}</strong><span style="color: #62676F">{{r.lv}}</span></span>
+<span style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; line-height: 1.45; color: #3F444C">{{r.here}}</span>
+<span style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 2px; line-height: 1.45"><strong style="font-weight: 600">{{r.there}}</strong><span style="color: #3F444C">{{r.topic}}</span></span>
+<span style="padding: 10px 12px; border-bottom: 1px solid #ECECE6"><span style="display: inline-block; padding: 3px 9px; border-radius: 999px; background: {{r.sBg}}; color: {{r.sFg}}; font-size: 12px; font-weight: 700">{{r.status}}</span></span>
+</template>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border-radius: 14px; background: #F4F7FE; font-family: Geist, system-ui, sans-serif">
+<span style="font-size: 13px; font-weight: 600; color: #1E3A8A">Curriculum fit</span>
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px"><div aria-hidden="true" style="position: relative; height: 12px; border-radius: 999px; background: #DCE6FD"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{afterW}}%; border-radius: 999px; background: #93BBF3"></span><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{scoreW}}%; border-radius: 999px; background: #1D4ED8"></span></div><span style="font-size: 12.5px; color: #1E3A8A">{{score}} now · about {{after}} with the plan below · {{fitNote}}</span></div>
+</div>
+</div>
+
+<template data-if="{{isAssess}}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 21px; font-weight: 600">Assessments, side by side</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="flex: 1 1 320px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 700">Kenya</span><template data-for="{{asmHere}}" data-as="a"><div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 13.5px; font-weight: 600">{{a.n}} <span style="font-weight: 400; color: #62676F">· {{a.when}}</span></span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{a.t}}</span></div></template></div>
+<div style="flex: 1 1 320px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 700">{{asmThereName}}</span><template data-for="{{asmThere}}" data-as="a"><div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 13.5px; font-weight: 600">{{a.n}} <span style="font-weight: 400; color: #62676F">· {{a.when}}</span></span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{a.t}}</span></div></template></div>
+</div>
+</div>
+</template>
+<template data-if="{{isReport}}">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="flex: 1.3 1 380px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">How this Report Card reads in {{convName}}</span>
+<template data-for="{{conv}}" data-as="c"><div style="display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; font-size: 13px"><span style="flex: 1 1 160px; font-weight: 600">{{c.v}}</span><span style="flex: 1 1 140px; color: #3F444C">Kenya: {{c.ke}}</span><span style="flex: 1 1 160px; color: #1E40AF; font-weight: 600">{{c.t}}</span></div></template>
+<span style="font-size: 12px; line-height: 1.5; color: #62676F">A guide for the receiving school, printed on the transcript. Final placement is always the school’s decision.</span></div>
+<div style="flex: 1 1 280px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">Documents schools usually ask for</span><template data-for="{{docs}}" data-as="d"><span style="display: flex; gap: 8px; font-size: 13.5px; line-height: 1.45"><span aria-hidden="true" style="color: #0F766E">✓</span>{{d.t}}</span></template><span style="font-size: 12px; line-height: 1.5; color: #62676F">Check the school or education office for the exact list. Vachuo can prepare the transcript and portfolio; visas and residence are outside what it advises on.</span></div>
+</div>
+</template>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">What the plan would change</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{nChosen}} changes selected · untick anything you don’t want</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px">
+<template data-for="{{groups}}" data-as="g">
+<div style="padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 13.5px; font-weight: 700">{{g.label}}</span><a href="{{g.href}}" style="font-size: 12.5px">Open →</a></div>
+<template data-for="{{g.items}}" data-as="i"><label style="display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; cursor: pointer"><input type="checkbox" checked="{{i.on}}" onChange="{{i.toggle}}" style="flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: #1D4ED8"><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13.5px; font-weight: 600; line-height: 1.35">{{i.t}}</span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{i.w}}</span></span></label></template>
+</div>
+</template>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 16px; border-radius: 16px; background: #FEF9EE; border: 1px solid #F3DDB0; font-family: Geist, system-ui, sans-serif">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 700">{{planLabel}}</span>
+<template data-if="{{stNone}}"><span style="font-size: 13px; color: #3F444C">Send it to Wanjiru. Once she approves, each change appears on the page it belongs to.</span></template>
+<template data-if="{{stDeclined}}"><span style="font-size: 13px; color: #92400E">Wanjiru declined the last version. Adjust it and send again.</span></template>
+<template data-if="{{stPending}}"><span style="font-size: 13px; color: #92400E">Waiting for Wanjiru. It’s in her Parent copilot inbox.</span></template>
+<template data-if="{{stApproved}}"><span style="font-size: 13px; color: #115E59">Approved by Wanjiru and applied.</span></template>
+</div>
+<template data-if="{{stNone}}"><button type="button" onClick="{{propose}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Send to Wanjiru for approval</button></template>
+<template data-if="{{stPending}}"><button type="button" onClick="{{approveDemo}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Approve as Wanjiru (signed in here)</button><button type="button" onClick="{{withdraw}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Withdraw</button></template>
+<template data-if="{{stApproved}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{appliedLinks}}" data-as="l"><a href="{{l.href}}" style="display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 12.5px; text-decoration: none">{{l.t}} →</a></template><button type="button" onClick="{{withdraw}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">Remove plan</button></div></template>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Everyone in the family, same comparison</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px">
+<template data-for="{{family}}" data-as="f"><button type="button" onClick="{{f.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 1px solid #E2E2DA; background: {{f.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 700">{{f.name}} · {{f.age}}</span><span style="font-size: 12.5px; color: #3F444C">Kenya {{f.ke}} · there {{f.there}}</span><span style="font-size: 12px; color: #62676F">{{f.lv}}</span></button></template>
+</div>
+</div>
+</div>
+</section>
+</template>
+<script>
+DC.component("Compare", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  constructor(props) {
+    super(props);
+    this.TODAY = '2026-11-02';
+    this.state = { lid: (props && props.learner) || 'amani', ke: 'cbcPub', to: 'us', reg: { us: 'ca', uk: 'eng', cn: 'nat' }, dir: 'to', when: '2027-09', picks: {}, open: 'insights' };
+  }
+  componentDidMount() {
+    this._sync = (e) => { if (!e || e.key === 'vachuo-approvals') this.forceUpdate(); };
+    try { window.addEventListener('storage', this._sync); window.addEventListener('vachuo-approvals', this._sync); } catch (e) {}
+  }
+  componentWillUnmount() { try { window.removeEventListener('storage', this._sync); window.removeEventListener('vachuo-approvals', this._sync); } catch (e) {} }
+  read() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || []; }
+  write(list) { this._mem = list; try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {} this.forceUpdate(); }
+
+  learners() {
+    return {
+      amani: { name: 'Amani', full: 'Amani M.', dob: '2014-10-14', lv: { math: 6, english: 8, kiswahili: 6, science: 7, social: 7, making: 9 }, likes: 'cooking, weather, Scratch and her grandmother’s farm', clubs: ['Scratch to Python', 'Bao la Kiswahili', 'Chess for beginners'] },
+      johari: { name: 'Johari', full: 'Johari W.', dob: '2013-06-05', lv: { math: 7, english: 8, kiswahili: 7, science: 9, social: 7, making: 6 }, likes: 'wildlife, bird drawing and nature photography', clubs: ['Bird photography walk', 'Nature journaling'] },
+      bob: { name: 'Bob', full: 'Bob M.', dob: '2017-03-02', lv: { math: 4, english: 5, kiswahili: 4, science: 4, social: 4, making: 5 }, likes: 'football stats, building bricks and drums', clubs: ['Football league', 'Drum circle'] },
+      kim: { name: 'Kim', full: 'Kim O.', dob: '2007-08-20', lv: { math: 13, english: 12, kiswahili: 11, science: 13, social: 11, making: 14 }, likes: 'solar power, irrigation and electronics repair', clubs: ['Electronics simulator', 'Robotics league'] }
+    };
+  }
+  kenya() {
+    return {
+      cbcPub: { name: 'CBC in a public school', short: 'CBC public', family: 'cbc', note: 'Competency-Based Curriculum (now Competency-Based Education). 2-6-3-3: pre-primary, Grades 1–6, Junior School Grades 7–9, Senior School Grades 10–12 with STEM, Social Sciences or Arts & Sports Science pathways. Tuition-free; KNEC assessments.', grade: 'cbc' },
+      cbcPri: { name: 'CBC in a private school', short: 'CBC private', family: 'cbc', note: 'The same national curriculum, learning areas and KNEC assessments as public schools, usually with smaller classes and extra clubs. Transfers between public and private CBC schools are grade-for-grade.', grade: 'cbc' },
+      brit: { name: 'British curriculum (IGCSE / A-levels)', short: 'British', family: 'brit', note: 'Cambridge or Pearson Edexcel programmes in Year groups. Lower Secondary Checkpoint around Year 9, IGCSEs at the end of Year 11 (about 16), A-levels at the end of Year 13. Equivalence for Kenyan universities is set through KNQA.', grade: 'uk' },
+      amer: { name: 'American curriculum', short: 'American', family: 'amer', note: 'US-style K–12 grades, usually Common Core-aligned maths and English, credits, Advanced Placement (AP) and SAT in high school. Diplomas come from US-accredited schools.', grade: 'us' },
+      ib: { name: 'International Baccalaureate', short: 'IB', family: 'ib', note: 'Primary Years Programme (ages 3–12), Middle Years Programme (11–16) and the Diploma Programme (16–19). Inquiry-led and portfolio-heavy; the Diploma is recognised by universities worldwide.', grade: 'ib' },
+      mont: { name: 'Montessori', short: 'Montessori', family: 'alt', note: 'Mixed-age classes in three-year cycles (6–9, 9–12), self-directed work with materials, no grades. Placement abroad needs a portfolio and a short placement check.', grade: 'none' },
+      wald: { name: 'Waldorf (Steiner)', short: 'Waldorf', family: 'alt', note: 'Main-lesson blocks, arts and crafts woven through every subject, formal reading started later (around 7). Placement abroad needs a reading and maths check.', grade: 'none' },
+      faith: { name: 'Mission or faith-based programme', short: 'Faith-based', family: 'alt', note: 'For example self-paced Christian workbooks (such as ACE) or integrated Islamic schools teaching CBC alongside Islamic studies. Levels rarely match grades one-to-one, so placement uses tests and a portfolio.', grade: 'none' }
+    };
+  }
+  systems() {
+    return {
+      us: { name: 'United States', short: 'US', start: 9, label: 'Grade', regions: {
+        ca: { name: 'California', cut: '09-01', std: 'California Common Core (maths, ELA) and NGSS science', test: 'CAASPP (Smarter Balanced) each spring, Grades 3–8 and 11', cutTxt: 'Kindergarten if 5 by 1 September' },
+        ny: { name: 'New York', cut: '12-01', std: 'Next Generation Learning Standards (Common Core-derived)', test: 'NYS tests Grades 3–8; Regents exams for the diploma', cutTxt: 'Kindergarten if 5 by 1 December in most districts (31 December in New York City)' },
+        tx: { name: 'Texas', cut: '09-01', std: 'Texas Essential Knowledge and Skills (TEKS); never adopted Common Core', test: 'STAAR Grades 3–8 and end-of-course exams', cutTxt: 'Kindergarten if 5 by 1 September' },
+        fl: { name: 'Florida', cut: '09-01', std: 'B.E.S.T. standards for maths and ELA (replaced Common Core)', test: 'FAST progress monitoring three times a year', cutTxt: 'Kindergarten if 5 by 1 September' },
+        va: { name: 'Virginia', cut: '09-30', std: 'Standards of Learning (SOL); never adopted Common Core', test: 'SOL tests, Grades 3–8 and high-school end-of-course', cutTxt: 'Kindergarten if 5 by 30 September' },
+        ma: { name: 'Massachusetts', cut: '09-01', std: 'Massachusetts Curriculum Frameworks (Common Core-based)', test: 'MCAS, Grades 3–8 and 10', cutTxt: 'Set by each district; most use 1 September' },
+        ga: { name: 'Georgia', cut: '09-01', std: 'Georgia K–12 Mathematics Standards and Georgia Standards of Excellence', test: 'Georgia Milestones, Grades 3–8 and end-of-course', cutTxt: 'Kindergarten if 5 by 1 September' },
+        wa: { name: 'Washington', cut: '08-31', std: 'Washington State Learning Standards (Common Core) and NGSS', test: 'Smarter Balanced, Grades 3–8 and 10', cutTxt: 'Kindergarten if 5 by 31 August' } } },
+      uk: { name: 'United Kingdom', short: 'UK', start: 9, label: 'Year', regions: {
+        eng: { name: 'England', std: 'National Curriculum (Key Stages 1–4). A review published in November 2025 plans a refreshed curriculum, about 10% less GCSE exam time and Year 8 diagnostic tests in English and maths.', test: 'KS2 national tests in Year 6; GCSEs in Year 11; A-levels, T-levels or the planned V-levels at 18', cutTxt: 'Year group set by age on 31 August' },
+        wal: { name: 'Wales', std: 'Curriculum for Wales (progression steps, six areas of learning)', test: 'Personalised online assessments; made-for-Wales GCSEs at 16', cutTxt: 'Year group set by age on 31 August' },
+        sco: { name: 'Scotland', std: 'Curriculum for Excellence (P1–P7, S1–S6)', test: 'National 5 in S4, Highers in S5–S6', cutTxt: 'P1 cohort born March to the following February' },
+        ni: { name: 'Northern Ireland', std: 'Northern Ireland Curriculum (Key Stages 1–4)', test: 'Optional transfer tests in P7 for grammar schools; GCSEs at 16', cutTxt: 'Year group set by age on 1 July' } } },
+      cn: { name: 'China', short: 'China', start: 9, label: 'Grade', regions: {
+        nat: { name: 'National', std: 'Compulsory Education Curriculum Plan and Standards (2022): nine years, Grades 1–9 (6-3), with labour education and information technology as their own subjects. AI education across primary and secondary schools from 2025.', test: 'Zhongkao (senior-high entrance, includes a PE test in most provinces) after Grade 9; gaokao after Grade 12', cutTxt: 'Grade 1 if 6 by 31 August' },
+        bj: { name: 'Beijing', std: 'National standards, plus at least eight class hours of AI education a year from autumn 2025', test: 'Beijing zhongkao after Grade 9', cutTxt: 'Grade 1 if 6 by 31 August' },
+        sh: { name: 'Shanghai', std: 'National standards with Shanghai’s own textbook editions in several subjects; English from Grade 1 in many schools', test: 'Shanghai zhongkao after Grade 9', cutTxt: 'Grade 1 if 6 by 31 August' },
+        zj: { name: 'Zhejiang', std: 'National standards with an early provincial push on information technology and AI courses', test: 'Zhejiang zhongkao after Grade 9', cutTxt: 'Grade 1 if 6 by 31 August' } } }
+    };
+  }
+  // ---------- dates and placement ----------
+  ageOn(dob, iso) { const a = dob.split('-').map(Number), b = iso.split('-').map(Number); let y = b[0] - a[0]; if (b[1] < a[1] || (b[1] === a[1] && b[2] < a[2])) y--; return y; }
+  keGrade(dob, year) {
+    const by = Number(dob.slice(0, 4)); const g1 = (dob.slice(5) === '01-01') ? by + 6 : by + 7; // Grade 1 in the first January the child is already 6
+    const g = year - g1 + 1;
+    if (g < -1) return { g, label: 'Not yet in school', stage: 'Early years' };
+    if (g <= 0) return { g, label: g === 0 ? 'PP2' : 'PP1', stage: 'Pre-primary' };
+    if (g <= 6) return { g, label: 'Grade ' + g, stage: 'Primary (Grades 1–6)' };
+    if (g <= 9) return { g, label: 'Grade ' + g, stage: 'Junior School (Grades 7–9)' };
+    if (g <= 12) return { g, label: 'Grade ' + g, stage: 'Senior School (Grades 10–12)' };
+    return { g, label: 'Finished school', stage: 'Post-secondary' };
+  }
+  usGrade(dob, cut, fallYear) {
+    const by = Number(dob.slice(0, 4)); const md = dob.slice(5); const ky = by + 5 + (md > cut ? 1 : 0); const g = fallYear - ky;
+    const st = g < 0 ? 'Pre-K' : (g <= 5 ? 'Elementary (K–5)' : (g <= 8 ? 'Middle school (6–8)' : (g <= 12 ? 'High school (9–12)' : 'Post-secondary')));
+    return { g, label: g < 0 ? 'Pre-K' : (g === 0 ? 'Kindergarten' : (g > 12 ? 'Finished high school' : 'Grade ' + g)), stage: st };
+  }
+  ukYear(dob, reg, fallYear) {
+    const by = Number(dob.slice(0, 4)); const md = dob.slice(5);
+    if (reg === 'sco') { const p1 = by + 5 - (md < '03-01' ? 1 : 0); const n = fallYear - p1 + 1; const g = n - 1;
+      return { g, label: n <= 0 ? 'Early learning' : (n <= 7 ? 'P' + n : (n <= 13 ? 'S' + (n - 7) : 'Left school')), stage: n <= 7 ? 'Primary (P1–P7)' : (n <= 13 ? 'Secondary (S1–S6)' : 'Post-school') }; }
+    const cut = reg === 'ni' ? '07-01' : '08-31';
+    const age = fallYear - by - (md > cut ? 1 : 0); const y = age - 4; const g = y - 1;
+    const ks = y <= 0 ? 'Reception / foundation' : (y <= 2 ? 'Key Stage 1' : (y <= 6 ? 'Key Stage 2' : (y <= 9 ? 'Key Stage 3' : (y <= 11 ? 'Key Stage 4 (GCSE)' : (y <= 13 ? 'Sixth form (16–18)' : 'Post-school')))));
+    return { g, label: y <= 0 ? 'Reception' : (y <= 13 ? 'Year ' + y : 'Left school'), stage: reg === 'ni' && y >= 1 && y <= 7 ? 'Primary (P1–P7)' : ks };
+  }
+  cnGrade(dob, fallYear) {
+    const by = Number(dob.slice(0, 4)); const md = dob.slice(5); const g1 = by + 6 + (md > '08-31' ? 1 : 0); const g = fallYear - g1 + 1;
+    return { g, label: g <= 0 ? 'Kindergarten' : (g <= 12 ? 'Grade ' + g : 'Finished school'), stage: g <= 0 ? 'Kindergarten' : (g <= 6 ? 'Primary (Grades 1–6)' : (g <= 9 ? 'Junior middle (7–9)' : (g <= 12 ? 'Senior high (10–12)' : 'Post-secondary'))) };
+  }
+  place(sys, reg, dob, fallYear) {
+    const S = this.systems();
+    if (sys === 'us') return this.usGrade(dob, S.us.regions[reg].cut, fallYear);
+    if (sys === 'uk') return this.ukYear(dob, reg, fallYear);
+    return this.cnGrade(dob, fallYear);
+  }
+  subjects() {
+    return [
+      { k: 'math', name: 'Mathematics', ke: 'Mathematics', us: 'Mathematics', uk: 'Mathematics', cn: '数学 Mathematics' },
+      { k: 'english', name: 'English', ke: 'English', us: 'English Language Arts', uk: 'English', cn: '英语 English (from Grade 3), plus 语文 Chinese for everyone' },
+      { k: 'kiswahili', name: 'Kiswahili', ke: 'Kiswahili (compulsory)', us: 'World language (optional; Spanish most common)', uk: 'Modern foreign language (statutory at KS2–KS3)', cn: '语文 Chinese language (core, daily)' },
+      { k: 'science', name: 'Science', ke: 'Science & Technology (4–6) · Integrated Science (7–9)', us: 'Science (NGSS or state standards)', uk: 'Science (biology, chemistry, physics)', cn: '科学 Science (1–6) · biology, physics, chemistry (7–9)' },
+      { k: 'social', name: 'Social Studies', ke: 'Social Studies', us: 'Social studies: state history, US history, civics', uk: 'History and Geography (+ Citizenship at KS3)', cn: '道德与法治 Morality and Rule of Law, history, geography' },
+      { k: 'making', name: 'Making & technology', ke: 'Pre-technical Studies · Agriculture & Nutrition', us: 'Computer science and engineering electives', uk: 'Computing and Design & Technology', cn: '信息科技 Information technology, 劳动 labour education, AI' }
+    ];
+  }
+  topic(k, sys, g) {
+    const band = g <= 3 ? 0 : (g <= 5 ? 1 : (g <= 8 ? 2 : (g <= 12 ? 3 : 4)));
+    const T = {
+      math: { ke: ['Counting, place value', 'Fractions, decimals, measurement', 'Ratio, rates, proportion, algebra', 'Core or Essential Mathematics', 'Tertiary maths'], us: ['Operations, place value', 'Fractions and decimals (4.NF, 5.NF)', 'Ratios and proportional relationships (6.RP, 7.RP), expressions and equations', 'Algebra I, geometry, Algebra II', 'Calculus and statistics'], uk: ['Number and place value', 'Fractions, decimals, percentages', 'Ratio, proportion and rates of change; algebra', 'GCSE then A-level maths', 'Further maths'], cn: ['口算 mental arithmetic, place value', 'Fractions, decimals', '比和比例 ratio and proportion (Grade 6), equations', 'Functions, geometry for zhongkao and gaokao', 'University maths'] },
+      english: { ke: ['Phonics, reading aloud', 'Comprehension, composition', 'Grammar, literature, oral skills', 'Literature in English (optional)', 'Academic writing'], us: ['Foundational reading', 'Opinion and informative writing', 'Argument writing with evidence (W.6.1), citing text', 'Literature and research papers', 'College writing'], uk: ['Phonics screening (Year 1)', 'Reading and grammar (KS2 tests)', 'Shakespeare, poetry, essay writing (KS3)', 'GCSE English language and literature', 'A-level English'], cn: ['English from Grade 3: phonics', 'Basic dialogue and reading', 'Grammar for zhongkao', 'Gaokao English', 'Academic English'] },
+      kiswahili: { ke: ['Kusoma, kuandika', 'Sarufi: ngeli, upatanisho', 'Insha, fasihi, ufahamu', 'Kiswahili (compulsory), Fasihi optional', 'Advanced Kiswahili'], us: ['—', 'Optional world language', 'World language often starts in middle school', 'Two years of a language for many colleges', 'Language major'], uk: ['—', 'A modern foreign language is statutory at KS2', 'MFL statutory at KS3', 'GCSE language (optional)', 'A-level language'], cn: ['Pinyin, characters', 'Reading and composition', 'Classical Chinese begins', 'Zhongkao and gaokao Chinese', 'Advanced Chinese'] },
+      science: { ke: ['Environmental activities', 'Science & Technology', 'Integrated Science', 'Pure or applied sciences (STEM pathway)', 'Degree sciences'], us: ['Life, earth, physical science', 'Life, earth, physical science', 'Middle-school science, engineering design', 'Biology, chemistry, physics', 'College science'], uk: ['Plants, animals, materials', 'Forces, light, electricity', 'KS3 biology, chemistry, physics', 'GCSE combined or triple science', 'A-level sciences'], cn: ['科学 Science', '科学 Science', 'Biology, then physics (Grade 8), chemistry (Grade 9)', 'Physics, chemistry, biology', 'University science'] },
+      social: { ke: ['Home and school community', 'Kenya: regions, resources', 'Kenya and Africa: citizenship, history', 'History & Citizenship, Geography', 'Humanities'], us: ['Community helpers', 'State history', 'World history, US history to 1877, civics', 'US history, government, economics', 'College humanities'], uk: ['Local history, places', 'British history to 1066, UK and world geography', 'British and world history since 1066; geography; citizenship', 'GCSE history or geography', 'A-level humanities'], cn: ['Morality and Rule of Law', 'Morality and Rule of Law', 'Chinese history, geography, law', 'Politics, history, geography', 'Humanities'] },
+      making: { ke: ['Creative activities', 'Agriculture, creative arts', 'Pre-technical Studies, Agriculture & Nutrition', 'Technical studies, computer science', 'TVET or engineering'], us: ['Making and design', 'Coding with blocks', 'Computer science (CSTA standards), engineering', 'AP Computer Science, engineering', 'Engineering'], uk: ['Design and technology', 'Computing: algorithms, debugging', 'Computing: two languages, one textual; D&T', 'GCSE computer science or D&T', 'A-level, T-level'], cn: ['劳动 labour education', '信息科技 IT, AI literacy', 'IT, AI logic, labour education', 'Information technology, general technology', 'Engineering'] }
+    };
+    return T[k][sys][band];
+  }
+  vals() {
+    const st = this.state; const L = this.learners(); const KE = this.kenya(); const S = this.systems(); const SUB = this.subjects();
+    const me = L[st.lid] || L.amani; const sys = S[st.to]; const reg = st.reg[st.to]; const R = sys.regions[reg]; const ke = KE[st.ke];
+    const moveYear = Number(st.when.slice(0, 4)); const moveMonth = Number(st.when.slice(5)); const fallNow = 2026;
+    const keNow = this.keGrade(me.dob, 2026); const keAt = this.keGrade(me.dob, moveYear);
+    const tNow = this.place(st.to, reg, me.dob, fallNow); const tAt = this.place(st.to, reg, me.dob, moveMonth === 1 ? moveYear - 1 : moveYear);
+    const age = this.ageOn(me.dob, this.TODAY); const ageAt = this.ageOn(me.dob, st.when + '-01');
+    const inbound = st.dir === 'from'; const dual = st.dir === 'dual';
+    const expect = Math.min(12, inbound ? keAt.g : tAt.g); // expected level at the move, capped at final school year
+    const yrs = Math.max(0, Math.round(((moveYear - 2026) * 12 + moveMonth - 11) / 12));
+    const nm = me.name;
+    // subject rows
+    const rows = SUB.map((s) => {
+      const lv0 = me.lv[s.k]; const lv = lv0 + yrs; let d = lv - expect; let status, sBg, sFg;
+      const langGap = (!inbound && s.k === 'kiswahili' && st.to === 'cn');
+      const langNew = (inbound && s.k === 'kiswahili' && st.ke !== 'cbcPub' && st.ke !== 'cbcPri' && lv < expect);
+      if (langGap) { status = 'New language'; sBg = '#FEF1D9'; sFg = '#92400E'; d = -3; }
+      else if (!inbound && s.k === 'kiswahili') { status = 'Counts as a language'; sBg = '#E4ECFD'; sFg = '#1E40AF'; d = 0; }
+      else if (d >= 1) { status = 'Ahead by ' + d; sBg = '#DDF4F1'; sFg = '#115E59'; }
+      else if (d === 0) { status = 'On track'; sBg = '#E4ECFD'; sFg = '#1E40AF'; }
+      else if (d === -1) { status = 'Close gap (1 level)'; sBg = '#FEF1D9'; sFg = '#92400E'; }
+      else { status = 'Gap: ' + (-d) + ' levels'; sBg = '#FEF1D9'; sFg = '#92400E'; }
+      if (langNew) status = 'Catch up';
+      const there = inbound ? 'ke' : st.to;
+      return { k: s.k, name: s.name, d, lv: 'Level ' + lv0 + (yrs ? ' now · about ' + lv + ' by the move' : ''), here: s.ke, there: s[there], topic: this.topic(s.k, there, Math.max(0, expect)), status, sBg, sFg };
+    });
+    const score = Math.max(20, Math.min(98, Math.round(100 - rows.reduce((x, r) => x + (r.d < 0 ? -r.d * 9 : 0), 0) - (rows.some((r) => r.status === 'New language') ? 8 : 0))));
+    // insights
+    const I = { map: [], classes: [], assess: [], tutor: [], clubs: [] };
+    const add = (a, t, w) => I[a].push({ id: a + I[a].length, t, w });
+    const tName = inbound ? 'Kenya' : sys.name + (st.to === 'us' || st.to === 'cn' ? ' (' + R.name + ')' : (st.to === 'uk' ? ' (' + R.name + ')' : ''));
+    rows.filter((r) => r.d < 0 && r.k !== 'kiswahili').forEach((r) => { add('map', r.name + ': ' + r.topic, nm + ' is ' + (-r.d) + (r.d === -1 ? ' level' : ' levels') + ' behind what ' + tName + ' expects at ' + (inbound ? keAt.label : tAt.label) + '. Adds these skills to the route, before anything new.'); add('assess', 'Checkpoint: ' + r.name + ' at ' + (inbound ? keAt.label : tAt.label) + ' level', 'A short closed-workspace check every four weeks until the gap closes. Mastery rules unchanged.'); });
+    rows.filter((r) => r.d >= 1).slice(0, 2).forEach((r) => add('tutor', 'Stretch ' + r.name + ', don’t repeat it', nm + ' is ahead here. Socrates will skip review and use ' + tName + ' material one level up, so the move doesn’t feel like going backwards.'));
+    if (inbound) {
+      add('classes', 'Kiswahili every day: sarufi, ngeli and conversation', 'Kiswahili is compulsory in Kenyan schools. Lessons start from where ' + nm + ' is, with a speaking partner in Connects.');
+      add('map', 'CBC learning areas: Pre-technical Studies, Agriculture & Nutrition, Creative Arts & Sports', 'Junior School learning areas that ' + sys.name + ' schools don’t teach under those names. Most of it maps onto skills ' + nm + ' already has.');
+      add('assess', keAt.g <= 6 ? 'KPSEA practice, end of Grade 6' : (keAt.g <= 9 ? 'KJSEA practice, end of Grade 9' : 'Senior School assessment practice'), 'Kenya’s national assessments at the next transition, with school-based tasks scored on the four CBC levels.');
+      add('tutor', 'Socrates switches to CBC rubric language', 'Feedback reported as Exceeding, Meeting, Approaching or Below Expectations, so ' + nm + '’s reports read the same as her classmates’.');
+      add('clubs', 'Kiswahili conversation circle and Bao la Kiswahili', 'Fastest route to everyday Kiswahili is talk and play. Both meet online and at Kilimani Library.');
+      add('clubs', 'Community service through Showcase “Donate” and the 4-K Club', 'Community Service Learning is compulsory in Senior School; starting early builds the portfolio.');
+    } else {
+      if (st.to === 'us') {
+        add('classes', 'US customary units: cups, ounces, pounds, miles', 'Every US recipe and map uses them. ' + nm + '’s ratio skills carry over; the units don’t. Built into the recipe lessons.');
+        add('classes', 'US history and civics for ' + R.name, 'Social studies in ' + R.name + ' expects state and US history at ' + tAt.label + '. Six short lessons before the move.');
+        add('map', 'Argument writing with evidence (CCSS W.' + Math.max(6, Math.min(8, tAt.g)) + '.1 or state equivalent)', 'US English classes grade claims, evidence and reasoning. Builds on ' + nm + '’s inference work.');
+        add('assess', 'Practice in the style of ' + R.test.split(',')[0].split(';')[0], 'Same closed workspace, US question formats, no score sent anywhere.');
+        add('clubs', 'Spanish beginners (world language)', 'Most US middle schools offer Spanish; Kiswahili can count as a world language by exam in many states.');
+        add('clubs', 'Debate: team format and Debate with Socrates', 'US classes reward speaking up with evidence. Debate builds it fastest.');
+      } else if (st.to === 'uk') {
+        add('classes', R.name === 'Scotland' ? 'Scottish history and the Curriculum for Excellence outcomes' : 'British history since 1066 and UK geography', 'Covered in KS3 history and geography, and new to ' + nm + '.');
+        add('map', 'Computing: one text-based language (Python)', 'KS3 Computing expects two programming languages, at least one textual. ' + nm + ' knows Scratch; Python is the next step.');
+        add('classes', 'French or Spanish beginners', 'A modern foreign language is statutory at KS2 and KS3 in England.');
+        add('assess', R.name === 'England' ? 'Year 8 diagnostic-style check in English and maths' : 'Practice in the style of ' + R.test.split(';')[0], 'Matches the planned Year 8 tests in England; kept low-stakes here.');
+        add('clubs', 'Python coding club and Robotics (text coding)', 'Turns the Computing requirement into something ' + nm + ' already enjoys.');
+        add('clubs', 'Choir or instrument lessons', 'Music is statutory at KS3; a review in 2025 asked that every child can learn it.');
+      } else {
+        add('classes', 'Mandarin (Chinese) every day: pinyin, characters, speaking', '语文 Chinese is the core subject and the language of every lesson in a local school. The biggest single gap; an international school would teach in English.');
+        add('map', '口算 Fast mental calculation', 'Chinese maths lessons expect quick, accurate calculation. Short daily practice keeps ' + nm + '’s reasoning strengths and adds speed.');
+        add('map', 'AI literacy and information technology', 'AI education is required across primary and secondary schools from 2025' + (reg === 'bj' ? ', with at least eight class hours a year in Beijing.' : '.'));
+        add('assess', tAt.g <= 9 ? 'Zhongkao-style practice, including the PE test' : 'Academic proficiency test practice', 'The senior-high entrance exam after Grade 9 includes a physical test in most provinces.');
+        add('tutor', 'Socrates adds Mandarin vocabulary to maths and science', 'Bilingual key terms (比, 比例, 实验…) so subject learning keeps going while the language grows.');
+        add('clubs', 'Mandarin club, Xiangqi (Chinese chess) and Go', 'Language and strategy together; both games are played widely in China.');
+        add('clubs', 'Athletics and skipping league', 'Practice for the zhongkao PE test, with a leaderboard.');
+      }
+      if (dual) add('tutor', 'Dual-track: Kenyan CBC first, ' + sys.short + ' extras second', 'Nothing in CBC is dropped. The ' + sys.short + ' items are added as stretch work, at most 3 hours a week.');
+    }
+    if (ke.family === 'alt') add('assess', 'Placement check and portfolio for ' + ke.short, ke.short + ' programmes don’t use grades, so receiving schools ask for a placement check and samples of work. Vachuo builds both from her Report Card.');
+    if (ke.family === 'brit' && st.to === 'uk') add('tutor', 'Keep the same Year group and exam board', 'Cambridge or Pearson programmes line up with England’s Key Stages; transfer is year for year.');
+    if (ke.family === 'amer' && st.to === 'us') add('tutor', 'Keep credits and transcripts in US format', 'An American-curriculum school in Kenya already reports in grades and credits, so placement is grade for grade.');
+    add('clubs', 'Pen-pal in ' + (inbound ? 'Kenya' : R.name) + ' through Connects', 'A moderated exchange with a learner the same age, so the first day isn’t the first conversation.');
+    const picks = st.picks; const sel = (a, x) => picks[a + ':' + x.id] !== false;
+    const chosen = {}; Object.keys(I).forEach((a) => { chosen[a] = I[a].filter((x) => sel(a, x)); });
+    const nChosen = Object.keys(chosen).reduce((x, a) => x + chosen[a].length, 0);
+    const after = Math.min(99, Math.max(score + (nChosen ? 1 : 0), score + Math.round(nChosen * 2.2)));
+    return { me, sys, reg, R, ke, keNow, keAt, tNow, tAt, age, ageAt, inbound, dual, rows, score, after, I, chosen, nChosen, tName, moveYear, moveMonth };
+  }
+  renderVals() {
+    const st = this.state; const L = this.learners(); const KE = this.kenya(); const S = this.systems(); const v = this.vals(); const ctx = (this.props && this.props.ctx) || 'assessments';
+    const pressed = (on) => ({ pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6' });
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const whenLabel = MON[v.moveMonth - 1] + ' ' + v.moveYear;
+    const nm = v.me.name;
+    // timelines (age 4–19)
+    const span = (a, b) => ({ left: ((a - 4) / 15 * 100).toFixed(2), w: ((b - a) / 15 * 100).toFixed(2) });
+    const TL = { ke: [['Pre-primary', 4, 6, '#ECECE6'], ['Primary 1–6', 6, 12, '#DDF4F1'], ['Junior 7–9', 12, 15, '#A7DED6'], ['Senior 10–12', 15, 18, '#5FB8AC']],
+      us: [['Pre-K/K', 4, 6, '#ECECE6'], ['Elementary K–5', 5, 11, '#E4ECFD'], ['Middle 6–8', 11, 14, '#B9C8F2'], ['High school 9–12', 14, 18, '#8EA8E6']],
+      uk: [['Reception', 4, 5, '#ECECE6'], ['KS1–KS2', 5, 11, '#FEF1D9'], ['KS3', 11, 14, '#F4C77A'], ['KS4 · GCSE', 14, 16, '#E9A93F'], ['Sixth form', 16, 18, '#D99227']],
+      cn: [['Kindergarten', 4, 6, '#ECECE6'], ['Primary 1–6', 6, 12, '#FDE2DC'], ['Junior middle 7–9', 12, 15, '#F5B5A7'], ['Senior high 10–12', 15, 18, '#E98A75']] };
+    const tlRow = (k, name) => ({ name, bars: TL[k].map((b) => Object.assign(span(b[1], b[2]), { t: b[0], c: b[3] })) });
+    const timelines = [tlRow('ke', 'Kenya (CBC)'), tlRow(st.to, S[st.to].name + (st.to === 'uk' ? ' · England & Wales' : ''))];
+    const agePos = Math.max(0, Math.min(100, (v.age + 0.5 - 4) / 15 * 100)).toFixed(2); const ageAtPos = Math.max(0, Math.min(100, (v.ageAt + 0.5 - 4) / 15 * 100)).toFixed(2);
+    // assessments map / report translation
+    const ASM = {
+      ke: [['KPSEA', 'End of Grade 6', 'Mix of school-based tasks and a national assessment; used for feedback, not placement'], ['KJSEA', 'End of Grade 9', 'First sat in late 2025; used with interests to place learners in Senior School pathways'], ['Senior School final assessment', 'End of Grade 12', 'First cohort finishes in 2028']],
+      us: [['State tests', 'Each spring, Grades 3–8', v.R.test || ''], ['PSAT, SAT or ACT', 'Grades 10–12', 'Used by many colleges; some are test-optional'], ['High-school diploma', 'Grade 12', 'Credit requirements set by each state']],
+      uk: [['KS2 national tests', 'Year 6 (age 10–11)', 'English reading, grammar and maths in England'], ['Year 8 diagnostic tests', 'Planned (England)', 'Recommended by the 2025 review for English and maths'], ['GCSEs', 'Year 11 (age 16)', 'About 10% less exam time is planned'], ['A-levels, T-levels, V-levels', 'Age 18', 'V-levels are new vocational qualifications']],
+      cn: [['No national primary exam', 'Grade 6', 'Schools report with levels such as 优秀 / 良好 / 合格'], ['Zhongkao', 'After Grade 9', 'Provincial; includes a PE test in most provinces'], ['Gaokao', 'After Grade 12', 'National university entrance exam']]
+    };
+    const asmRows = (k) => ASM[k].map((x) => ({ n: x[0], when: x[1], t: x[2] }));
+    const CONV = { us: [['Exceeding expectations', 'A (4.0)'], ['Meeting expectations', 'B (3.0)'], ['Approaching expectations', 'C (2.0)'], ['Below expectations', 'D/F (needs support plan)']],
+      uk: [['Exceeding expectations', 'Greater depth / above expected'], ['Meeting expectations', 'Working at the expected standard'], ['Approaching expectations', 'Working towards the expected standard'], ['Below expectations', 'Below; school sets support']],
+      cn: [['Exceeding expectations', '优秀 Excellent'], ['Meeting expectations', '良好 Good'], ['Approaching expectations', '合格 Pass'], ['Below expectations', '待合格 Needs improvement']],
+      ke: [['Exceeding expectations', 'EE (EE1/EE2 in Junior School)'], ['Meeting expectations', 'ME (ME1/ME2)'], ['Approaching expectations', 'AE (AE1/AE2)'], ['Below expectations', 'BE (BE1/BE2)']] };
+    const there = v.inbound ? 'ke' : st.to;
+    // insights
+    const AREA = [['map', 'Learning map', 'map.html'], ['classes', 'My classes', 'notes.html'], ['assess', 'My assessments', 'assessments.html'], ['tutor', 'Socrates (My tutor)', 'session.html'], ['clubs', 'Clubs and Connects', 'clubs.html']];
+    const groups = AREA.map(([a, label, href]) => ({ label, href, n: String(v.I[a].length), items: v.I[a].map((x) => { const key = a + ':' + x.id; const on = st.picks[key] !== false; return { t: x.t, w: x.w, on, toggle: () => { const p = Object.assign({}, this.state.picks); p[key] = !on; this.setState({ picks: p }); } }; }) })).filter((g) => g.items.length);
+    // approval state for this exact plan
+    const planId = 'align-' + st.lid + '-' + (v.inbound ? 'to-ke' : st.to + '-' + v.reg) + '-' + st.when + '-' + st.dir;
+    const list = this.read(); const mine = list.find((x) => x.id === planId); const status = mine ? mine.status : 'none';
+    const label = (v.inbound ? nm + ': moving to Kenya from ' + S[st.to].name : (v.dual ? nm + ': Kenya + ' + v.tName + ' dual-track' : nm + ': moving to ' + v.tName)) + ', ' + whenLabel;
+    const propose = () => { const items = {}; Object.keys(v.chosen).forEach((a) => { items[a] = v.chosen[a].map((x) => ({ t: x.t, w: x.w })); });
+      const rec = { id: planId, kind: 'align', title: 'Alignment plan · ' + label, detail: v.nChosen + ' changes across the learning map, classes, assessments, Socrates and clubs. Fit ' + v.score + '% now, about ' + v.after + '% after.', from: nm, at: 'Tue 3 Nov', status: 'pending', payload: { label: 'Alignment plan · ' + label, items } };
+      this.write(this.read().filter((x) => x.id !== planId).concat([rec])); };
+    const setStatus = (s) => this.write(this.read().map((x) => (x.id === planId ? Object.assign({}, x, { status: s, decidedAt: 'Tue 3 Nov' }) : x)));
+    const family = Object.keys(L).map((k) => { const p = L[k]; const a = this.ageOn(p.dob, this.TODAY); const ke = this.keGrade(p.dob, 2026); const t = this.place(st.to, v.reg, p.dob, 2026);
+      const lvAvg = Math.round(Object.keys(p.lv).reduce((x, s) => x + p.lv[s], 0) / 6 * 10) / 10;
+      return { name: p.name + (k === st.lid ? ' (selected)' : ''), age: String(a), ke: ke.label, there: t.label, lv: 'avg level ' + lvAvg, pick: () => this.setState({ lid: k }), bg: k === st.lid ? '#F4F7FE' : '#FFFFFF' }; });
+    const regKeys = Object.keys(S[st.to].regions);
+    return Object.assign(this.themeVals(), {
+      isReport: ctx === 'report', isAssess: ctx !== 'report',
+      eyebrow: ctx === 'report' ? 'Report Card · curriculum fit' : 'My assessments · curriculum fit',
+      title: 'How ' + nm + '’s learning lines up, at home and abroad',
+      sub: 'Compare ' + nm + ' with Kenya and with the United States, United Kingdom or China, by age and by curriculum. Choose a move or a dual track, and Vachuo drafts the changes. Nothing is applied until Wanjiru approves.',
+      learnerChips: Object.keys(L).map((k) => Object.assign(pressed(st.lid === k), { label: L[k].name + ', ' + this.ageOn(L[k].dob, this.TODAY), pick: () => this.setState({ lid: k, picks: {} }) })),
+      keChips: Object.keys(KE).map((k) => Object.assign(pressed(st.ke === k), { label: KE[k].short, pick: () => this.setState({ ke: k }) })),
+      keName: v.ke.name, keNote: v.ke.note,
+      toChips: Object.keys(S).map((k) => Object.assign(pressed(st.to === k), { label: S[k].name, pick: () => this.setState({ to: k, picks: {} }) })),
+      regLabel: st.to === 'us' ? 'State' : (st.to === 'uk' ? 'Nation' : 'Province or city'),
+      regChips: regKeys.map((k) => Object.assign(pressed(v.reg === k), { label: S[st.to].regions[k].name, pick: () => { const r = Object.assign({}, this.state.reg); r[st.to] = k; this.setState({ reg: r, picks: {} }); } })),
+      dirChips: [['to', 'Moving to ' + S[st.to].short], ['from', 'Moving from ' + S[st.to].short + ' to Kenya'], ['dual', 'Staying: dual-track']].map(([k, l]) => Object.assign(pressed(st.dir === k), { label: l, pick: () => this.setState({ dir: k, picks: {}, when: k === 'from' ? '2027-01' : (this.state.when === '2027-01' ? '2027-09' : this.state.when) }) })),
+      whenChips: (st.dir === 'from' ? [['2027-01', 'Jan 2027'], ['2028-01', 'Jan 2028']] : [['2027-01', 'Jan 2027'], ['2027-09', 'Sep 2027'], ['2028-09', 'Sep 2028']]).map(([k, l]) => Object.assign(pressed(st.when === k), { label: l, pick: () => this.setState({ when: k }) })),
+      stdText: v.R.std, stdName: v.R.name, cutText: v.R.cutTxt,
+      placeCards: [
+        { h: 'Kenya', sub: v.ke.short, now: v.keNow.label, nowStage: v.keNow.stage, at: v.keAt.label, atStage: v.keAt.stage, year: 'School year January to November', rule: 'Grade 1 in the January a child is 6', next: v.keNow.g <= 6 ? 'KPSEA at the end of Grade 6' : (v.keNow.g <= 9 ? 'KJSEA at the end of Grade 9' : 'Senior School final assessment') },
+        { h: S[st.to].name + ' · ' + v.R.name, sub: st.to === 'uk' ? 'Year groups' : 'Grades', now: v.tNow.label, nowStage: v.tNow.stage, at: v.tAt.label, atStage: v.tAt.stage, year: st.to === 'cn' ? 'School year September to July' : (st.to === 'uk' ? (v.reg === 'sco' ? 'School year August to June' : 'School year September to July') : 'School year late August or September to June'), rule: v.R.cutTxt, next: v.R.test }
+      ],
+      ageNow: nm + ' is ' + v.age + ' today', ageAt: v.ageAt + ' in ' + whenLabel, agePos, ageAtPos, timelines,
+      ageTicks: [4, 6, 8, 10, 12, 14, 16, 18].map((a) => ({ t: String(a), left: ((a - 4) / 15 * 100).toFixed(2) })),
+      rowsHead: v.inbound ? 'Kenya expects at ' + v.keAt.label : v.tName + ' expects at ' + v.tAt.label,
+      rows: v.rows.map((r) => ({ name: r.name, lv: r.lv, here: r.here, there: r.there, topic: r.topic, status: r.status, sBg: r.sBg, sFg: r.sFg })),
+      score: v.score + '%', after: v.after + '%', scoreW: v.score, afterW: v.after, fitNote: v.score >= 85 ? 'Strong fit already.' : (v.score >= 65 ? 'A good fit with a few gaps to close.' : 'Real gaps to close, and time to close them.'),
+      asmHere: asmRows('ke'), asmThere: asmRows(there === 'ke' ? st.to : there), asmThereName: there === 'ke' ? S[st.to].name : S[there].name,
+      conv: CONV[there === 'ke' ? st.to : there].map((c, i) => ({ v: c[0], t: c[1], ke: CONV.ke[i][1] })), convName: there === 'ke' ? S[st.to].name : S[there].name,
+      docs: (v.inbound ? ['Vachuo Report Card and transcript', 'Birth certificate', 'Previous school reports (translated where needed)', 'KNQA equivalence for foreign certificates, for older learners', 'Immunisation record'] : (st.to === 'us' ? ['Vachuo transcript, with grades shown in US form', 'Birth certificate and immunisation records (US schools require them)', 'Proof of address in the school district', 'English-learner screening if the school asks', 'Portfolio for advanced placement'] : (st.to === 'uk' ? ['Vachuo transcript with Year-group equivalents', 'Birth certificate', 'Proof of address for the local authority application', 'Samples of work for setting in maths and English'] : ['Vachuo transcript with Chinese level equivalents', 'Birth certificate and health record', 'Residence registration documents the school asks for', 'Language placement for Chinese (or an international school application)']))).map((t) => ({ t })),
+      groups, nChosen: String(v.nChosen),
+      family,
+      planLabel: label,
+      stNone: status === 'none' || status === 'declined', stPending: status === 'pending', stApproved: status === 'approved',
+      stDeclined: status === 'declined',
+      propose, approveDemo: () => setStatus('approved'), withdraw: () => this.write(this.read().filter((x) => x.id !== planId)),
+      appliedLinks: AREA.filter(([a]) => v.chosen[a].length).map(([a, l, href]) => ({ t: l + ' · ' + v.chosen[a].length, href }))
+    });
+  }
+}
+return Component;
+}, {"ctx": "assessments", "learner": "amani", "embedded": false});
+
+DC.mount("Compare");
+</script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Clubs</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Caveat:wght@500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<style>
+.acard{transition:transform .2s ease,box-shadow .2s ease}
+.acard:hover{transform:translateY(-2px);box-shadow:0 16px 30px -24px rgba(20,22,26,.55)}
+.calpill{transition:transform .15s ease,box-shadow .15s ease}
+.calpill:hover{transform:translateY(-1px);box-shadow:0 6px 12px -8px rgba(20,22,26,.45)}
+.fadein{animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.slidein{animation:slidein .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.livedot{animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.paper-lined{background-color:#FFFFFE;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 33px,#C9D6F2 33px,#C9D6F2 34px),linear-gradient(to right,transparent 40px,#F2B8B5 40px,#F2B8B5 41px,transparent 41px);background-position:0 10px,0 0}
+@media (prefers-reduced-motion:reduce){.fadein,.slidein,.livedot{animation:none}.acard:hover,.calpill:hover{transform:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Clubs">
+<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+
+<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
+<a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>My tutor</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My learning map</a>
+<a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M10.5 8.5v5l4-2.5z"/><path d="M8 20.5h8"/></svg>My classes</a>
+<a href="assessments.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14.6l2 2 4-4.2"/></svg>My assessments</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h2.5"/><path d="M13.5 16.3l1.4 1.4 2.4-2.7"/></svg>Report card</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
+<a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+<a href="clubs.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20h6M8 17h8l-1-6h-6zM10 11V8h4v3M12 4v4M10.5 5.5h3"/></svg>Clubs</a>
+<a href="showcase.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
+<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
+<a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
+</div>
+<button type="button" role="switch" aria-checked="{{uiOn}}" onClick="{{uiToggle}}" style="margin-top: auto; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; background: transparent; color: #3F444C; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span style="flex: 1">Dark mode</span><span aria-hidden="true" style="position: relative; flex: none; width: 38px; height: 22px; border-radius: 999px; background: {{uiTrack}}; transition: background 160ms ease"><span style="position: absolute; top: 3px; left: {{uiKnob}}; width: 16px; height: 16px; border-radius: 50%; background: #FDFDFD; box-shadow: 0 1px 2px rgba(20,22,26,0.35); transition: left 160ms ease"></span></span></button>
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Clubs</span>
+<h1 style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Play, make and compete, on your own or together.</h1>
+<p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 700px; text-wrap: pretty">Coding, chess, art, music, sport, languages, debate and the games your grandparents played. Join online or in person, practise in a simulator, climb a ladder or play in a league. In-person sessions for under-18s always need a parent’s OK.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<template data-for="{{stats}}" data-as="s"><div style="min-width: 112px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{s.v}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">{{s.l}}</span></div></template>
+</div>
+</header>
+
+<template data-if="{{hasMy}}">
+<section aria-labelledby="my-h" style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="my-h" style="margin: 0; font-size: 24px; font-weight: 600">My clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post something</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{myClubs}}" data-as="m"><div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{m.color}}"></span><span style="flex: 1; font-size: 14px; font-weight: 600; line-height: 1.3">{{m.t}}</span></div><span style="font-size: 12.5px; color: #3F444C">{{m.sub}}</span><div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="padding: 2px 8px; border-radius: 999px; background: {{m.stBg}}; color: {{m.stFg}}; font-size: 12px; font-weight: 700">{{m.st}}</span><button type="button" onClick="{{m.open}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">{{m.cta}}</button></div></div></template>
+</div>
+</section>
+</template>
+
+<section aria-label="Filter clubs" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{catChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{c.dot}}"></span>{{c.label}} <span style="opacity: 0.7">{{c.n}}</span></button></template>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 78px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Who</span><template data-for="{{whoChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template><span style="width: 10px"></span><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Where</span><template data-for="{{whereChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 78px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Play</span><template data-for="{{playChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template><span style="width: 10px"></span><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Compete</span><template data-for="{{compChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 78px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Age</span><template data-for="{{ageChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 34px; padding: 0 11px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13px; cursor: pointer">{{c.label}}</button></template>
+<label style="flex: 1 1 220px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #62676F"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Search clubs</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><input type="search" value="{{q}}" onChange="{{setQ}}" placeholder="Search: chess, guitar, Mandarin…" style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; font-size: 14px; color: #14161A"></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span aria-live="polite" style="font-size: 13px; color: #62676F">{{resultText}}</span><button type="button" onClick="{{clear}}" style="min-height: 32px; padding: 0 6px; border: none; background: transparent; color: #1D4ED8; font-size: 13px; text-decoration: underline; cursor: pointer">Clear filters</button></div>
+</section>
+
+<section aria-label="Catalogue" style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
+<template data-for="{{cards}}" data-as="c">
+<article class="acard" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 9px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="flex: none; width: 38px; height: 38px; border-radius: 11px; background: {{c.tint}}; color: {{c.ink}}; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"/></svg></span><span style="flex: 1; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: {{c.ink}}">{{c.cat}}</span><template data-if="{{c.isNew}}"><span style="padding: 2px 8px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">Yours · in review</span></template><template data-if="{{c.hasSt}}"><span style="padding: 2px 8px; border-radius: 999px; background: {{c.stBg}}; color: {{c.stFg}}; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">{{c.stLabel}}</span></template></div>
+<h3 style="margin: 0; font-size: 19.5px; line-height: 1.2; font-weight: 600">{{c.t}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: #3F444C">{{c.d}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 5px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600"><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.who}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.where}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F7FE; color: #1E40AF">{{c.play}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #FBF7EE; color: #92400E">{{c.comp}}</span><span style="padding: 2px 8px; border-radius: 6px; border: 1px solid #E2E2DA; color: #3F444C">{{c.ages}} · {{c.lvl}}</span></div>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #62676F">{{c.when}} · {{c.place}} · host {{c.host}} · {{c.members}}</span>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif"><button type="button" onClick="{{c.join}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">{{c.cta}}</button><template data-if="{{c.canPlay}}"><button type="button" onClick="{{c.play1}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Play now</button></template></div>
+</article>
+</template>
+</div>
+<template data-if="{{hasMore}}"><button type="button" onClick="{{toggleMore}}" style="align-self: flex-start; min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; cursor: pointer">{{moreLabel}}</button></template>
+<template data-if="{{empty}}"><div style="padding: 24px; border-radius: 16px; border: 1px dashed #CFCFC6; background: #FFFFFF; font-size: 17px">Nothing matches. Try fewer filters, or <button type="button" onClick="{{openHost}}" style="border: none; background: transparent; color: #1D4ED8; font-size: 17px; text-decoration: underline; cursor: pointer; padding: 0">host it yourself</button>.</div></template>
+</section>
+
+<section aria-labelledby="lb-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 id="lb-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">Leaderboards</h2><p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">The same table in every category: rank, player or team, club, rating or points, games played, win rate and trend. Age bands keep it fair. Learners under 13 appear by first name and initial, and parents can hide a child from public boards.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{lbTabs}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{t.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px"><div style="display: flex; gap: 4px"><template data-for="{{lbWho}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div><div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{lbAge}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div><div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{lbScope}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div></div>
+<div style="overflow-x: auto; border: 1px solid #ECECE6; border-radius: 14px">
+<div role="table" aria-label="Leaderboard" style="min-width: 640px; display: grid; grid-template-columns: 64px 1.4fr 1.2fr 100px 80px 80px 60px; font-size: 13.5px">
+<span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Rank</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Player or team</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Club</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">{{lbHead}}</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Played</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Win rate</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Trend</span>
+<template data-for="{{lbRows}}" data-as="r">
+<span role="cell" style="padding: 8px 12px; background: {{r.bg}}"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 50%; background: {{r.medal}}; color: {{r.mFg}}; font-weight: 700; font-size: 12.5px">{{r.rank}}</span></span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-weight: {{r.fw}}">{{r.name}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.club}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-weight: 600">{{r.val}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.played}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.win}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: {{r.tFg}}; font-weight: 700">{{r.trend}}</span>
+</template>
+</div>
+</div>
+<span style="font-size: 12.5px; color: #62676F">{{lbNote}} Fair-play checks run on every rated game.</span>
+</section>
+
+<section aria-labelledby="gd-h" style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 id="gd-h" style="margin: 0; font-size: 26px; font-weight: 600">Traditional and cultural games</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 760px">How to play games from Kenya, across Africa and around the world, in person or online. Rules vary from place to place; each guide gives one common version and says where it comes from.</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{guides}}" data-as="g"><button type="button" class="acard" onClick="{{g.open}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; text-align: left; cursor: pointer"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.2">{{g.t}}</span><span style="font-size: 12.5px; line-height: 1.4; color: #3F444C">{{g.origin}}</span><span style="font-size: 12px; color: #62676F">{{g.players}} · {{g.ages}} · {{g.where}}</span></button></template>
+</div>
+</section>
+
+<section aria-labelledby="ps-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="ps-h" style="margin: 0; font-size: 26px; font-weight: 600">From the clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post</button></div>
+<template data-for="{{posts}}" data-as="p"><div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FBFBF8"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-family: Geist, system-ui, sans-serif; font-size: 12.5px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{p.color}}"></span><span style="font-weight: 600">{{p.who}}</span><span style="color: #62676F">{{p.cat}} · {{p.when}} · {{p.replies}}</span><template data-if="{{p.hasPending}}"><span style="padding: 1px 7px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-size: 11.5px; font-weight: 700">Waiting for a moderator</span></template></div><span style="font-size: 16px; line-height: 1.45">{{p.t}}</span></div></template>
+</section>
+</div>
+
+<template data-if="{{jOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="j-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(560px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="j-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{jTitle}}</h2><span style="font-size: 13px; color: #62676F">{{jSub}}</span></div><button type="button" aria-label="Close" onClick="{{jClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<div role="group" aria-label="How you’ll take part" style="display: flex; gap: 6px"><template data-for="{{jHow}}" data-as="h"><button type="button" aria-pressed="{{h.pressed}}" onClick="{{h.pick}}" style="flex: 1; min-height: 42px; border-radius: 12px; border: 1px solid {{h.bd}}; background: {{h.bg}}; color: {{h.fg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{h.label}}</button></template></div>
+<template data-if="{{jIsTeam}}">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #3F444C">Join a team with space</span>
+<template data-for="{{jTeams}}" data-as="t"><button type="button" aria-pressed="{{t.on}}" onClick="{{t.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 9px 12px; border-radius: 12px; border: 2px solid {{t.bd}}; background: {{t.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 600">{{t.n}}</span><span style="font-size: 12.5px; color: #3F444C">{{t.m}}</span></button></template>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Or start a new team<input type="text" value="{{jNewTeam}}" onChange="{{jSetNew}}" placeholder="Team name" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span style="font-size: 12.5px; color: #3F444C">Invite:</span><template data-for="{{jFriends}}" data-as="f"><label style="display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; font-size: 13px; cursor: pointer"><input type="checkbox" checked="{{f.on}}" onChange="{{f.toggle}}" style="accent-color: #1D4ED8">{{f.n}}</label></template></div>
+</div>
+</template>
+<template data-if="{{jCanCompete}}"><label style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: #FBF7EE; font-size: 14px; cursor: pointer"><input type="checkbox" checked="{{jCompete}}" onChange="{{jToggleCompete}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">{{jCompLabel}}</label></template>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #F4F4EF"><template data-for="{{jRules}}" data-as="r"><span style="display: flex; gap: 8px; font-size: 13px; line-height: 1.45"><span aria-hidden="true" style="color: #0F766E">✓</span>{{r.t}}</span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{jConfirm}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">{{jConfirmLabel}}</button><template data-if="{{jJoined}}"><button type="button" onClick="{{jLeave}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Leave</button></template></div>
+</div>
+</div>
+</template>
+
+<template data-if="{{pOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="p-h" style="position: fixed; inset: 0; z-index: 85; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(720px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="p-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{pTitle}}</h2><span style="font-size: 12.5px; color: #62676F">{{pScoreLine}}</span></div><button type="button" aria-label="Close" onClick="{{pClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+
+<template data-if="{{isChess}}">
+<span style="font-size: 14px; font-weight: 600">{{chName}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<div role="grid" aria-label="Chess board" style="flex: none; width: min(100%, 384px); display: flex; flex-direction: column; border: 2px solid #3F444C; border-radius: 6px; overflow: hidden">
+<template data-for="{{chRows}}" data-as="r"><div role="row" style="display: flex"><template data-for="{{r.cells}}" data-as="c"><button type="button" role="gridcell" aria-label="{{c.aria}}" onClick="{{c.pick}}" style="flex: 1; aspect-ratio: 1; padding: 0; border: none; background: {{c.bg}}; color: {{c.fg}}; text-shadow: {{c.shadow}}; font-size: clamp(22px, 5vw, 34px); line-height: 1; cursor: pointer; font-family: 'Segoe UI Symbol', 'DejaVu Sans', serif">{{c.piece}}</button></template></div></template>
+</div>
+<div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 10px"><p role="status" style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #F4F7FE; font-size: 14px; line-height: 1.45">{{chMsg}}</p><template data-if="{{chShowHint}}"><p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #FEF9EE; font-size: 14px; line-height: 1.45">Socrates: {{chHintText}}</p></template><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{chHint}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #93BBF3; background: #F4F7FE; color: #1E40AF; font-size: 13px; font-weight: 600; cursor: pointer">Ask Socrates</button><button type="button" onClick="{{chNext}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">{{chNextLabel}}</button></div><span style="font-size: 12px; color: #62676F">Tap a white piece, then the square it moves to. Files a–h left to right, ranks 8 to 1 top to bottom.</span></div>
+</div>
+</template>
+
+<template data-if="{{isP24}}">
+<span style="font-size: 14px; color: #3F444C">Use all four numbers once each, with + − × ÷ and brackets, to make 24.</span>
+<div style="display: flex; gap: 10px"><template data-for="{{p24Nums}}" data-as="n"><span style="width: 64px; height: 76px; border-radius: 12px; background: #DDF4F1; color: #115E59; display: flex; align-items: center; justify-content: center; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 30px; font-weight: 600">{{n.n}}</span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 260px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your expression</span><input type="text" value="{{p24Val}}" onChange="{{p24Set}}" onKeyDown="{{p24Key}}" placeholder="e.g. (6 ÷ 2 + 3) × 4" autoComplete="off" style="flex: 1; min-width: 0; min-height: 46px; padding: 0 14px; border-radius: 12px; border: 2px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 17px"></label><button type="button" onClick="{{p24Check}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Check</button><button type="button" onClick="{{p24Next}}" style="min-height: 46px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Next numbers</button></div>
+<template data-if="{{p24HasMsg}}"><p role="status" style="margin: 0; padding: 10px 12px; border-radius: 12px; background: {{p24MsgBg}}; color: {{p24MsgFg}}; font-size: 14.5px">{{p24Msg}}</p></template>
+</template>
+
+<template data-if="{{isDebate}}">
+<template data-if="{{dbPick}}">
+<span style="font-size: 13px; font-weight: 600; color: #3F444C">Pick a motion</span>
+<template data-for="{{dbMotions}}" data-as="m"><button type="button" aria-pressed="{{m.on}}" onClick="{{m.pick}}" style="padding: 10px 12px; border-radius: 12px; border: 2px solid {{m.bd}}; background: {{m.bg}}; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; text-align: left; cursor: pointer">{{m.t}}</button></template>
+<div style="display: flex; gap: 6px"><template data-for="{{dbSides}}" data-as="s"><button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="flex: 1; min-height: 42px; border-radius: 12px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{s.label}}</button></template></div>
+<button type="button" onClick="{{dbStart}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Write my opening</button>
+</template>
+<template data-if="{{dbWrite}}">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 19px; font-weight: 600">{{dbMotion}}</span><span style="font-size: 13px; color: #3F444C">{{dbSide}}. Give a claim, your reasons and one example.</span>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Your opening speech<textarea rows="7" value="{{dbOpen}}" onChange="{{dbSetOpen}}" style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 12px; border: 2px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.5"></textarea><span style="font-weight: 400; color: #62676F">{{dbWords}}</span></label>
+<button type="button" onClick="{{dbSubmit}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Face Socrates</button>
+</template>
+<template data-if="{{dbAsk}}">
+<template data-for="{{dbLog}}" data-as="l"><div style="display: flex; flex-direction: column; gap: 6px"><p style="margin: 0; align-self: flex-start; max-width: 560px; padding: 10px 14px; border-radius: 4px 14px 14px 14px; background: #F4F4EF; font-size: 14.5px">{{l.q}}</p><p style="margin: 0; align-self: flex-end; max-width: 520px; padding: 10px 14px; border-radius: 14px 4px 14px 14px; background: #E4ECFD; color: #172F73; font-size: 14.5px">{{l.a}}</p></div></template>
+<p class="fadein" style="margin: 0; align-self: flex-start; max-width: 600px; padding: 12px 16px; border-radius: 4px 16px 16px 16px; background: #172F73; color: #FFFFFF; font-size: 16px; line-height: 1.45">Socrates: {{dbQ}}</p>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Your answer<textarea rows="3" value="{{dbAns}}" onChange="{{dbSetAns}}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 2px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px"></textarea></label>
+<button type="button" onClick="{{dbReply}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Answer</button>
+</template>
+<template data-if="{{dbDone}}">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Socrates’ scorecard · {{dbTotal}}</span>
+<template data-for="{{dbScores}}" data-as="s"><div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FBFBF8"><div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 80px; font-size: 13.5px; font-weight: 600">{{s.k}}</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 999px; background: #ECECE6; overflow: hidden"><span style="display: block; height: 100%; width: {{s.w}}%; background: #1D4ED8"></span></span><span style="flex: 0 0 56px; font-size: 13px; text-align: right">{{s.v}}</span></div><span style="font-size: 12.5px; color: #3F444C">{{s.tip}}</span></div></template>
+<button type="button" onClick="{{dbAgain}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Debate again</button>
+</template>
+</template>
+
+<template data-if="{{isCircuit}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px">
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600">Battery<select value="{{ckV}}" onChange="{{ckSetV}}" style="min-height: 38px; padding: 0 8px; border-radius: 8px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><option value="1.5">1.5 V</option><option value="3">3 V</option><option value="4.5">4.5 V</option><option value="6">6 V</option><option value="9">9 V</option></select></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600">Bulbs<select value="{{ckN}}" onChange="{{ckSetN}}" style="min-height: 38px; padding: 0 8px; border-radius: 8px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></label>
+<div style="display: flex; gap: 4px"><template data-for="{{ckPar}}" data-as="p"><button type="button" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 8px; border: 1px solid {{p.bd}}; background: {{p.bg}}; color: {{p.fg}}; font-size: 13px; font-weight: 600; cursor: pointer">{{p.label}}</button></template></div>
+<button type="button" role="switch" aria-checked="{{ckOn}}" onClick="{{ckToggle}}" style="min-height: 38px; padding: 0 12px; border-radius: 8px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Switch</button>
+</div>
+<div style="padding: 22px 16px; border-radius: 16px; background: #14161A; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px"><template data-for="{{ckBulbs}}" data-as="b"><span role="img" aria-label="Bulb {{b.n}}" style="width: 54px; height: 54px; border-radius: 50%; background: #F9A826; opacity: {{b.glow}}; box-shadow: {{b.ring}}"></span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13.5px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace">{{ckI}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace">{{ckP}}</span></div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F444C">{{ckNote}} Each bulb is 6 Ω in this simulator.</p>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #3F444C">Challenges</span><template data-for="{{ckCh}}" data-as="c"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="flex: 1 1 240px; font-size: 13.5px">{{c.t}}</span><span style="font-size: 12.5px; font-weight: 700; color: {{c.fg}}">{{c.done}}</span><button type="button" onClick="{{c.check}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 12.5px; font-weight: 700; cursor: pointer">Check</button></div></template></div>
+</template>
+
+<template data-if="{{isPiano}}">
+<span role="status" style="font-size: 14px; color: #3F444C">{{pnMsg}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{pnSong}}" data-as="n"><span style="min-width: 28px; padding: 4px 6px; border-radius: 6px; background: {{n.bg}}; color: {{n.fg}}; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; text-align: center">{{n.n}}</span></template></div>
+<div style="position: relative; height: 180px; display: flex; border-radius: 10px; overflow: hidden; border: 2px solid #14161A">
+<template data-for="{{pnKeys}}" data-as="k"><button type="button" aria-label="{{k.aria}}" onClick="{{k.press}}" style="flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; border: none; border-right: 1px solid #9A9E95; background: {{k.bg}}; color: #3F444C; font-size: 13px; font-weight: 600; cursor: pointer">{{k.k}}</button></template>
+<template data-for="{{pnBlack}}" data-as="k"><button type="button" aria-label="{{k.aria}}" onClick="{{k.press}}" style="position: absolute; top: 0; left: {{k.left}}%; width: 7%; height: 60%; border: none; border-radius: 0 0 6px 6px; background: #14161A; cursor: pointer"></button></template>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{pnRestart}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Start again</button><span style="font-size: 12.5px; color: #62676F">Sound plays from this page; turn your volume up. A connected keyboard works too in the full app.</span></div>
+</template>
+
+<template data-if="{{isVocab}}">
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{vcLangs}}" data-as="l"><button type="button" aria-pressed="{{l.pressed}}" onClick="{{l.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{l.bd}}; background: {{l.bg}}; color: {{l.fg}}; font-size: 13px; cursor: pointer">{{l.label}}</button></template></div>
+<template data-if="{{vcStarted}}">
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #3F444C"><span>{{vcProg}}</span><span role="timer" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-weight: 700">{{vcLeft}}</span></div>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 40px; font-weight: 600; text-align: center">{{vcWord}}</span>
+<div style="display: flex; flex-direction: column; gap: 6px"><template data-for="{{vcOpts}}" data-as="o"><button type="button" onClick="{{o.pick}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 16px; cursor: pointer">{{o.t}}</button></template></div>
+</template>
+<template data-if="{{vcHasLast}}"><p role="status" style="margin: 0; padding: 8px 12px; border-radius: 10px; background: {{vcLastBg}}; color: {{vcLastFg}}; font-size: 14px">{{vcMsg}}</p></template>
+<template data-if="{{vcDone}}"><span style="font-size: 18px; font-weight: 700">{{vcScore}}</span><button type="button" onClick="{{vcAgain}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Play again</button></template>
+<template data-if="{{vcStartShow}}"><button type="button" onClick="{{vcStart}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Start: 6 seconds a word</button></template>
+</template>
+</div>
+</div>
+</template>
+
+<template data-if="{{hOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="h-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(640px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="h-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Host or post</h2><button type="button" aria-label="Close" onClick="{{hClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{hKinds}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 13px; font-weight: 600; cursor: pointer">{{k.label}}</button></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 5px"><template data-for="{{hCats}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Title<input type="text" value="{{hT}}" onChange="{{hSetT}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14.5px"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Details<textarea rows="3" value="{{hD}}" onChange="{{hSetD}}" style="padding: 10px 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px"></textarea></label>
+<template data-if="{{hNotPost}}">
+<div style="display: flex; flex-wrap: wrap; gap: 10px 16px"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Where</span><div style="display: flex; gap: 4px"><template data-for="{{hWhere}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Who</span><div style="display: flex; gap: 4px"><template data-for="{{hWho}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Ages</span><div style="display: flex; gap: 4px"><template data-for="{{hAges}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px"><label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">When<input type="datetime-local" value="{{hWhen}}" onChange="{{hSetWhen}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label><label style="flex: 0 1 120px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Places<input type="number" min="2" max="60" value="{{hCap}}" onChange="{{hSetCap}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></div>
+<template data-if="{{hIsInPerson}}"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Public venue<input type="text" value="{{hPlace}}" onChange="{{hSetPlace}}" placeholder="e.g. Kilimani Library" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></template>
+</template>
+<p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #FEF9EE; font-size: 13px; line-height: 1.5; color: #3F444C">{{hNote}}</p>
+<button type="button" onClick="{{hSubmit}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">{{hSubmitLabel}}</button>
+</div>
+</div>
+</template>
+
+<template data-if="{{gOpen}}">
+<div role="dialog" aria-modal="true" aria-labelledby="g-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(620px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="g-h" style="margin: 0; font-size: 26px; font-weight: 600">{{gT}}</h2><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{gOrigin}}</span></div><button type="button" aria-label="Close" onClick="{{gClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{gMeta}}</span>
+<p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #FBF7EE; font-size: 16px; line-height: 1.5"><strong>You need:</strong> {{gMat}}</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><template data-for="{{gSteps}}" data-as="s"><li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5"><span style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: #FEF1D9; color: #92400E; display: flex; align-items: center; justify-content: center; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 700">{{s.n}}</span><span>{{s.t}}</span></li></template></ol>
+<template data-if="{{gHasNote}}"><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">{{gNote}}</p></template>
+<button type="button" onClick="{{gHost}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Host a game</button>
+</div>
+</div>
+</template>
+
+<div aria-live="polite" style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 120; pointer-events: none; max-width: calc(100% - 32px)"><template data-if="{{hasToast}}"><div class="fadein" style="padding: 12px 18px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 1.4">{{toast}}</div></template></div>
+</main>
+
+</div>
+</template>
+<script>
+DC.component("Clubs", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  constructor(props) {
+    super(props);
+    this.C = this.cats(); this.K = this.catalogue(); this.GD = this.guides();
+    this.state = { cat: 'all', who: 'all', where: 'all', play: 'all', comp: 'all', age: 'all', q: '', more: false,
+      joined: { 'scratch': { how: 'solo', team: '', compete: false }, 'chess-ladder': { how: 'solo', team: '', compete: true }, 'kisw-circle': { how: 'solo', team: '', compete: false }, 'virtual-run': { how: 'team', team: 'Rain Gauge Crew', compete: true } },
+      join: null, playing: null, host: null, guide: null, board: { cat: 'chess', team: false, age: 'all', scope: 'community' }, pts: {}, created: [], myPosts: [], toast: '' };
+  }
+  componentDidMount() {
+    this._sync = (e) => { if (!e || e.key === 'vachuo-approvals') this.forceUpdate(); };
+    try { window.addEventListener('storage', this._sync); window.addEventListener('vachuo-approvals', this._sync); } catch (e) {}
+    this._tk = setInterval(() => this.tick(), 1000);
+  }
+  componentWillUnmount() { this.themeOff(); clearInterval(this._tk); clearTimeout(this._tt); try { window.removeEventListener('storage', this._sync); window.removeEventListener('vachuo-approvals', this._sync); } catch (e) {} try { if (this._ac) this._ac.close(); } catch (e) {} }
+  read() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', from: 'Amani', at: 'Mon 2 Nov', status: 'pending', ref: 'bao' }, { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending', ref: 'l-rain' }]; }
+  write(list) { this._mem = list; try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {} this.forceUpdate(); }
+  toast(t) { clearTimeout(this._tt); this.setState({ toast: t }); this._tt = setTimeout(() => this.setState({ toast: '' }), 4200); }
+  all() { return this.K.concat(this.state.created); }
+  byId(id) { return this.all().find((e) => e.id === id); }
+  approvalFor(id) { return this.read().filter((x) => x.kind === 'club' && x.ref === id).slice(-1)[0]; }
+  status(e) { const a = this.approvalFor(e.id); if (a && a.status === 'pending') return 'pending'; if (this.state.joined[e.id] || (a && a.status === 'approved')) return 'joined'; return 'open'; }
+  addPts(cat, n) { const p = Object.assign({}, this.state.pts); p[cat] = (p[cat] || 0) + n; this.setState({ pts: p }); }
+  tick() {
+    const g = this.state.playing; if (!g || g.kind !== 'vocab' || g.done || !g.started) return;
+    const left = g.left - 1; if (left <= 0) { this.vocabAnswer(-1); } else this.setState({ playing: Object.assign({}, g, { left }) });
+  }
+  // ---------- leaderboards ----------
+  rng(seed) { let s = 0; for (let i = 0; i < seed.length; i++) s = (s * 31 + seed.charCodeAt(i)) % 2147483647; return () => { s = (s * 48271) % 2147483647; return s / 2147483647; }; }
+  board() {
+    const b = this.state.board; const rated = ['chess', 'debate', 'coding'].indexOf(b.cat) >= 0 && !b.team;
+    const r = this.rng(b.cat + (b.team ? 'T' : 'S') + b.age + b.scope); const P = this.people(); const T = this.teams();
+    const n = Math.min(b.scope === 'global' ? 12 : 10, b.team ? T.length - 1 : P.length); const rows = []; let guard = 0;
+    const scale = b.scope === 'global' ? 1.25 : (b.scope === 'kenya' ? 1.1 : 1);
+    for (let i = 0; i < n; i++) {
+      const name = b.team ? T[(i + Math.floor(r() * 10)) % T.length] : P[Math.floor(r() * P.length)];
+      if ((rows.some((x) => x.name === name) || name === 'Rain Gauge Crew') && guard++ < 400) { i--; continue; } if (rows.some((x) => x.name === name) || name === 'Rain Gauge Crew') continue;
+      const val = rated ? Math.round((1650 - i * 55 - r() * 40) * (b.scope === 'global' ? 1.08 : 1)) : Math.round((980 - i * 70 - r() * 50) * scale);
+      rows.push({ name, club: b.team ? (3 + Math.floor(r() * 3)) + ' members' : T[Math.floor(r() * T.length)], val, played: 8 + Math.floor(r() * 30), win: 40 + Math.floor(r() * 45), trend: r() > 0.55 ? 1 : (r() > 0.5 ? -1 : 0), me: false });
+    }
+    const mine = (this.state.pts[b.cat] || 0);
+    const base = { chess: 1180, debate: 1210, coding: 1260, games: 520, robotics: 430, sport: 610, lang: 480, music: 300, art: 260 }[b.cat] || 400;
+    const meRow = b.team ? { name: 'Rain Gauge Crew', club: 'Amani, Tomás, Neema', val: Math.round((base + 140 + mine) * (rated ? 1 : scale)), played: 14, win: 57, trend: 1, me: true }
+      : { name: 'Amani M. (you)', club: 'Rain Gauge Crew', val: Math.round(rated ? base + mine : (base + mine) * scale), played: 21, win: 52, trend: mine ? 1 : 0, me: true };
+    rows.push(meRow); rows.sort((x, y) => y.val - x.val);
+    return { rated, rows };
+  }
+  // ---------- 24 game ----------
+  eval24(src, nums) {
+    const s = String(src).replace(/×|x|X/g, '*').replace(/÷/g, '/').replace(/\s+/g, '');
+    if (!s || /[^0-9+\-*/().]/.test(s)) return { ok: false, msg: 'Use only numbers, + − × ÷ and brackets.' };
+    const used = (s.match(/\d+(\.\d+)?/g) || []).map(Number).sort((a, b) => a - b); const want = nums.slice().sort((a, b) => a - b);
+    if (used.length !== want.length || used.some((x, i) => x !== want[i])) return { ok: false, msg: 'Use each of ' + nums.join(', ') + ' exactly once.' };
+    let i = 0; const peek = () => s[i]; const num = () => { let j = i; while (i < s.length && /[0-9.]/.test(s[i])) i++; return parseFloat(s.slice(j, i)); };
+    const factor = () => { if (peek() === '(') { i++; const v = expr(); if (peek() !== ')') throw 0; i++; return v; } if (peek() === '-') { i++; return -factor(); } if (!/[0-9]/.test(peek() || '')) throw 0; return num(); };
+    const term = () => { let v = factor(); while (peek() === '*' || peek() === '/') { const o = s[i++]; const w = factor(); v = o === '*' ? v * w : v / w; } return v; };
+    const expr = () => { let v = term(); while (peek() === '+' || peek() === '-') { const o = s[i++]; const w = term(); v = o === '+' ? v + w : v - w; } return v; };
+    try { const v = expr(); if (i !== s.length) throw 0; if (Math.abs(v - 24) < 1e-9) return { ok: true, msg: '24! Nicely done.' }; return { ok: false, msg: 'That makes ' + (Math.round(v * 1000) / 1000) + ', not 24.' }; } catch (e) { return { ok: false, msg: 'Check the brackets and signs.' }; }
+  }
+  // ---------- chess ----------
+  chessPuzzles() {
+    return [
+      { name: 'Back-rank mate', w: { g1: '♔', a1: '♖' }, b: { g8: '♚', f7: '♟', g7: '♟', h7: '♟' }, sol: ['a1', 'a8'], hint: 'Black’s king is boxed in by its own pawns. Which piece can reach the back rank?' },
+      { name: 'The f7 square', w: { e1: '♔', c4: '♗', h5: '♕', e4: '♙', d2: '♙', f2: '♙' }, b: { e8: '♚', d8: '♛', f8: '♝', c6: '♞', f6: '♞', e5: '♟', f7: '♟', g7: '♟', h7: '♟', d7: '♟' }, sol: ['h5', 'f7'], hint: 'Which black pawn is guarded only by the king? Which of your pieces both attack it?' },
+      { name: 'Smothered mate', w: { g1: '♔', e5: '♘' }, b: { h8: '♚', g8: '♜', g7: '♟', h7: '♟' }, sol: ['e5', 'f7'], hint: 'The king has no squares at all. Which piece jumps?' }
+    ];
+  }
+  // ---------- circuit ----------
+  circuit(g) {
+    const R = 6; const n = g.n; const V = g.on ? g.v : 0; let I, P;
+    if (g.par) { P = (V * V) / R; I = n * V / R; } else { const i = V / (n * R); I = i; P = i * i * R; }
+    const one = (3 * 3) / R; const b = Math.min(1, P / (one * 1.6));
+    return { I: Math.round(I * 100) / 100, P: Math.round(P * 100) / 100, b };
+  }
+  // ---------- vocab ----------
+  vocabSets() {
+    return {
+      sw: ['Kiswahili', [['kitabu', 'book', ['chair', 'book', 'cup']], ['maji', 'water', ['water', 'bread', 'rain']], ['rafiki', 'friend', ['teacher', 'friend', 'brother']], ['mvua', 'rain', ['wind', 'sun', 'rain']], ['shule', 'school', ['school', 'shop', 'house']], ['kikombe', 'cup', ['spoon', 'cup', 'plate']]]],
+      fr: ['French', [['livre', 'book', ['book', 'free', 'pound']], ['eau', 'water', ['egg', 'water', 'year']], ['ami', 'friend', ['friend', 'love', 'soul']], ['pluie', 'rain', ['plum', 'rain', 'feather']], ['école', 'school', ['school', 'echo', 'scale']], ['tasse', 'cup', ['tax', 'cup', 'table']]]],
+      es: ['Spanish', [['libro', 'book', ['free', 'book', 'pound']], ['agua', 'water', ['water', 'eagle', 'needle']], ['amigo', 'friend', ['friend', 'enemy', 'love']], ['lluvia', 'rain', ['rain', 'key', 'moon']], ['escuela', 'school', ['stair', 'school', 'scale']], ['taza', 'cup', ['cup', 'rate', 'stick']]]],
+      zh: ['Mandarin', [['书 shū', 'book', ['book', 'tree', 'water']], ['水 shuǐ', 'water', ['sleep', 'water', 'who']], ['朋友 péngyou', 'friend', ['friend', 'teacher', 'family']], ['雨 yǔ', 'rain', ['fish', 'rain', 'jade']], ['学校 xuéxiào', 'school', ['school', 'student', 'snow']], ['比 bǐ', 'ratio, to compare', ['pen', 'ratio, to compare', 'nose']]]]
+    };
+  }
+  vocabAnswer(j) {
+    const g = this.state.playing; const set = this.vocabSets()[g.lang][1]; const w = set[g.i]; const ok = j >= 0 && w[2][j] === w[1];
+    const streak = ok ? g.streak + 1 : 0; const score = g.score + (ok ? 10 + streak * 2 : 0);
+    const last = { ok, word: w[0], ans: w[1] };
+    if (g.i + 1 >= set.length) { this.setState({ playing: Object.assign({}, g, { done: true, score, streak, last, right: g.right + (ok ? 1 : 0) }) }); this.addPts('lang', score); }
+    else this.setState({ playing: Object.assign({}, g, { i: g.i + 1, left: 6, score, streak, last, right: g.right + (ok ? 1 : 0) }) });
+  }
+  // ---------- piano ----------
+  tone(f) {
+    try { if (!this._ac) { const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; this._ac = new AC(); }
+      const ac = this._ac; const o = ac.createOscillator(); const gn = ac.createGain(); o.type = 'triangle'; o.frequency.value = f; o.connect(gn); gn.connect(ac.destination);
+      const t = ac.currentTime; gn.gain.setValueAtTime(0.0001, t); gn.gain.exponentialRampToValueAtTime(0.35, t + 0.02); gn.gain.exponentialRampToValueAtTime(0.0001, t + 0.9); o.start(t); o.stop(t + 0.95); } catch (e) {}
+  }
+  // ---------- debate ----------
+  motions() {
+    return [
+      ['Homework should be optional in primary school', ['If homework is optional, how would a teacher know who needs extra help?', 'What evidence do you have that free time teaches more than homework?', 'What would you say to a parent who says homework builds discipline?'], ['Who loses most if homework becomes optional, and why?', 'Can you give one example where homework helped you learn something you could not have learnt in class?', 'How would you answer someone who says children are already too tired after school?']],
+      ['Every child should learn to code', ['Should coding come before music or a third language? What would you drop?', 'What evidence shows coding helps children who will not become programmers?', 'How would schools without computers do this fairly?'], ['What can a child do with coding that they cannot do with maths and logic puzzles?', 'If AI can write code, why should children still learn it?', 'Which other subject would you give time to instead, and why?']],
+      ['Plastic bags should be banned everywhere', ['Kenya banned most plastic carrier bags in 2017. What changed, and how do you know?', 'Who pays when cheap bags disappear? Is that fair?', 'What should replace them, and is the replacement really better for the environment?'], ['What would small traders use instead, and what would it cost them?', 'Is a ban better than a charge, like a few shillings a bag?', 'Can you think of a use where plastic bags are the safest option?']]
+    ];
+  }
+  scoreDebate(text) {
+    const t = String(text || ''); const words = t.trim() ? t.trim().split(/\s+/).length : 0; const sents = t.split(/[.!?]+/).filter((x) => x.trim()).length || 1;
+    const claim = /\b(should|must|because|therefore|so)\b/i.test(t) ? (/\bbecause\b/i.test(t) ? 4 : 3) : (words > 20 ? 2 : 1);
+    const evid = (/\d/.test(t) ? 1 : 0) + (/for example|for instance|such as|research|study|survey|in 20\d\d|when i|my /i.test(t) ? 2 : 0) + (words > 60 ? 1 : 0);
+    const reb = /\b(however|but|although|some people|opponents|others say|critics|on the other hand)\b/i.test(t) ? 4 : (/\b(not|no)\b/i.test(t) ? 2 : 1);
+    const avg = words / sents; const clar = avg >= 8 && avg <= 24 ? 4 : (avg < 30 ? 3 : 2);
+    return [['Claim', Math.max(1, Math.min(4, claim))], ['Evidence', Math.max(1, Math.min(4, evid))], ['Rebuttal', reb], ['Clarity', words < 15 ? 1 : clar]];
+  }
+  cats() {
+    return {
+      coding: ['Coding', '#1D4ED8', '#E4ECFD', '#1E40AF', 'M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16'],
+      robotics: ['Robotics & electronics', '#172F73', '#E4ECFD', '#172F73', 'M7 8h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2zM12 4v4M9 13h.01M15 13h.01M9 16h6'],
+      chess: ['Chess & strategy', '#14161A', '#ECECE6', '#14161A', 'M9 20h6M8 17h8l-1-6h-6zM10 11V8h4v3M12 4v4M10.5 5.5h3'],
+      games: ['Card games & puzzles', '#0D9488', '#DDF4F1', '#115E59', 'M5 4h9a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zM15 7l4 1-3 12M9.5 9.5l-2 3 2 3 2-3z'],
+      art: ['Art studio', '#B45309', '#FEF1D9', '#92400E', 'M12 3a9 9 0 1 0 0 18c1.5 0 2-1 2-2s-1-2 0-3 3 0 4-1 3-2 3-4c0-4.4-4-8-9-8zM7.5 11h.01M10 7.5h.01M15 8h.01'],
+      diy: ['DIY & making', '#92400E', '#FEF1D9', '#92400E', 'M14.5 6.5l3 3M4 20l6-6M13 4l7 7-3 3-7-7zM10 14l-2-2'],
+      music: ['Music', '#1684E8', '#E4ECFD', '#1E40AF', 'M9 18V6l11-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM20 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3z'],
+      sport: ['Sport & movement', '#0F766E', '#DDF4F1', '#115E59', 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 3v18M3 12h18M5.6 5.6c3 3 9.8 3 12.8 0M5.6 18.4c3-3 9.8-3 12.8 0'],
+      lang: ['Languages', '#F9A826', '#FEF1D9', '#92400E', 'M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 4-3 7-6 8M13 21l4-9 4 9M14.5 18h5'],
+      debate: ['Debate & speaking', '#1E3A8A', '#DCE6FD', '#1E3A8A', 'M4 5h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM16 9h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-4-3h-3'],
+      culture: ['Traditional & cultural games', '#B45309', '#FBF7EE', '#92400E', 'M4 7c2-3 14-3 16 0M4 7v4c0 3 16 3 16 0V7M7 9.5h.01M10.5 10h.01M14 10h.01M17 9.5h.01M8 15v4M16 15v4']
+    };
+  }
+  catalogue() {
+    // [id, cat, title, blurb, who 'solo'|'team'|'both', where 'online'|'inperson'|'hybrid', play [..], compete 'ind'|'league'|'fun'|'both', ages, level, host, when, place, members, spots, playKind]
+    const E = (id, cat, t, d, who, where, play, comp, ages, lvl, host, when, place, members, spots, pk) => ({ id, cat, t, d, who, where, play, comp, ages, lvl, host, when, place, members, spots, pk: pk || '' });
+    return [
+      E('scratch', 'coding', 'Scratch stories', 'Animate your own stories with blocks. Weekly theme, a badge for every finished project, and a showcase on Fridays.', 'solo', 'online', ['gamified', 'live'], 'fun', '7–12', 'Beginner', 'Nduta Kamau', 'Tue 16:00 · weekly', 'Online', 214, 0),
+      E('py-bridge', 'coding', 'Scratch to Python', 'Rebuild your Scratch games in Python, one block at a time. Text coding for the move to KS3 Computing or US CS classes.', 'solo', 'online', ['live', 'gamified'], 'fun', '10–14', 'Beginner', 'Kim O.', 'Thu 17:00 · weekly', 'Online', 96, 4),
+      E('py-ladder', 'coding', 'Python puzzle ladder', 'A new puzzle every Monday, auto-checked. Climb the ladder by solving faster and cleaner than last week.', 'solo', 'online', ['gamified'], 'ind', '11–18', 'Intermediate', 'Vachuo community', 'New puzzle Mondays', 'Online', 388, 0),
+      E('web-makers', 'coding', 'Web makers league', 'Teams of three build a real website for a community group each month. Judged on usefulness, accessibility and code.', 'team', 'online', ['live'], 'league', '12–18', 'Intermediate', 'Karen Coders mentors', 'Monthly sprint', 'Online', 72, 2),
+      E('game-jam', 'coding', 'Monthly game jam', '48 hours, one theme, any tool. Solo or in a team. Play everyone’s games on Sunday evening and vote.', 'both', 'online', ['live', 'gamified'], 'both', '10–18', 'All levels', 'Vachuo community', 'Last weekend monthly', 'Online', 160, 0),
+      E('ai-lab', 'coding', 'AI literacy lab', 'Train a tiny image classifier, then try to fool it. Learn how AI makes mistakes and how to spot made-up answers.', 'solo', 'online', ['simulated'], 'fun', '10–16', 'Beginner', 'Socrates', 'Any time', 'Online', 301, 0),
+      E('comp-prog', 'coding', 'Competitive programming', 'Olympiad-style problems with a time limit and an online judge. Monthly contest with rated results.', 'solo', 'online', ['live'], 'ind', '14+', 'Advanced', 'Kim O.', 'First Saturday monthly', 'Online', 58, 0),
+      E('rover-block', 'robotics', 'Block-coded rover', 'Program a rover through a maze with blocks, in the simulator first, then on a real kit at the makerspace.', 'solo', 'hybrid', ['simulated', 'live'], 'fun', '8–12', 'Beginner', 'Ngong Road Makerspace', 'Sat 11:00', 'Ngong Road Makerspace', 44, 6),
+      E('robot-text', 'robotics', 'Text-coded robotics', 'Python on microcontrollers: sensors, motors and a line-following robot that you tune yourself.', 'solo', 'hybrid', ['live', 'simulated'], 'fun', '12–18', 'Intermediate', 'Ngong Road Makerspace', 'Wed 16:30', 'Ngong Road Makerspace', 31, 3),
+      E('robot-league', 'robotics', 'Robotics league', 'Teams build and code a robot for a new challenge each term. Matches at the makerspace, standings online.', 'team', 'inperson', ['live'], 'league', '11–18', 'Intermediate', 'Ngong Road Makerspace', 'Saturdays, term 3', 'Ngong Road Makerspace', 54, 1),
+      E('circuit-sim', 'robotics', 'Circuit simulator lab', 'Design series and parallel circuits, change the battery and bulbs, and see what happens before you build.', 'solo', 'online', ['simulated', 'gamified'], 'fun', '9–16', 'Beginner', 'Socrates', 'Any time', 'Online', 412, 0, 'circuit'),
+      E('solar', 'robotics', 'Solar builders', 'Build a solar phone charger and a night-light. Measure what the panel gives in sun and shade.', 'team', 'inperson', ['live'], 'fun', '12–18', 'Intermediate', 'Jamii Solar volunteers', 'Sat 14:00 · fortnightly', 'Kilimani Library garden', 22, 5),
+      E('drone-sim', 'robotics', 'Drone obstacle course', 'Fly a simulated drone through rings with code, then race your best route against the clock.', 'solo', 'online', ['simulated', 'gamified'], 'ind', '10–18', 'All levels', 'Vachuo community', 'Any time', 'Online', 233, 0),
+      E('chess-begin', 'chess', 'Chess for beginners', 'How every piece moves, then puzzles that teach checkmate patterns. Play Socrates or a friend.', 'solo', 'online', ['gamified', 'simulated'], 'fun', '6–14', 'Beginner', 'Riverside Rooks', 'Any time · coaching Wed 17:00', 'Online', 520, 0, 'chess'),
+      E('chess-ladder', 'chess', 'Rapid chess ladder', '10-minute games against players near your rating. Fair-play checks on every game.', 'solo', 'online', ['live'], 'ind', '8+', 'All levels', 'Riverside Rooks', 'Daily 17:00–19:00', 'Online', 1240, 0),
+      E('chess-league', 'chess', 'Inter-club chess league', 'Teams of four, one match a week, standings across Nairobi clubs. Home and away at libraries and schools.', 'team', 'inperson', ['live'], 'league', '9–18', 'Intermediate', 'Nairobi junior chess clubs', 'Saturdays', 'Rotating libraries', 96, 2),
+      E('draughts', 'chess', 'Draughts (checkers) league', 'Fast, sharp and played on every street. International 10×10 and the local 8×8 board.', 'both', 'hybrid', ['live'], 'both', '7+', 'All levels', 'Mzee Kariuki', 'Fri 16:00', 'Kilimani Library', 64, 6),
+      E('bao', 'chess', 'Bao la Kiswahili', 'East Africa’s great sowing game. Start with the learners’ version, then the full game with a master player.', 'both', 'inperson', ['live'], 'both', '8+', 'All levels', 'Mzee Kariuki', 'Sat 10:00', 'Kilimani Library', 38, 2),
+      E('xiangqi-go', 'chess', 'Xiangqi and Go club', 'Chinese chess and Go (weiqi) on small boards first. Good preparation for anyone moving to China.', 'solo', 'online', ['live', 'simulated'], 'fun', '9+', 'Beginner', 'Mei L.', 'Sun 15:00', 'Online', 47, 0),
+      E('p24', 'games', '24 game sprint', 'Four numbers, make 24. Points for speed and for clever solutions nobody else found.', 'solo', 'online', ['gamified'], 'ind', '8+', 'All levels', 'Vachuo community', 'Any time', 'Online', 760, 0, '24'),
+      E('logic', 'games', 'Sudoku and logic grids', 'Daily puzzles from gentle to fiendish, with a weekly ladder and hints that teach a technique.', 'solo', 'online', ['gamified'], 'ind', '8+', 'All levels', 'Vachuo community', 'Daily', 'Online', 680, 0),
+      E('cross', 'games', 'Crosswords in English and Kiswahili', 'Bilingual crosswords made by learners for learners. Make one, solve ten.', 'both', 'online', ['gamified'], 'fun', '9+', 'All levels', 'Westlands Wordsmiths', 'New puzzle Fridays', 'Online', 145, 0),
+      E('cards', 'games', 'Family card games night', 'Rummy, Crazy Eights and Go Fish: counting, probability and patience. Bring the whole family.', 'team', 'inperson', ['live'], 'fun', '6+', 'Beginner', 'Kilimani Library', 'First Friday monthly, 18:00', 'Kilimani Library', 40, 12),
+      E('cube', 'games', 'Speedcubing', 'Solve the cube with a beginner method, then shave seconds. Timed averages count for the ladder.', 'solo', 'hybrid', ['gamified', 'live'], 'ind', '9+', 'All levels', 'Brian O.', 'Thu 17:30', 'Online', 88, 0),
+      E('hunt', 'games', 'Puzzle hunt', 'Teams of four crack linked puzzles to open the final lock. A new story each month.', 'team', 'online', ['gamified'], 'league', '11+', 'Intermediate', 'Vachuo community', 'Second Saturday monthly', 'Online', 120, 3),
+      E('sketch', 'art', 'Sketchbook club', 'Ten minutes a day, one prompt, no erasers. Share a page each week and get one kind, specific comment.', 'solo', 'online', ['live'], 'fun', '7+', 'All levels', 'Grace W.', 'Daily prompt', 'Online', 410, 0),
+      E('water', 'art', 'Watercolour weather', 'Paint skies, rain and clouds from your own window, and learn why they look the way they do.', 'solo', 'hybrid', ['live'], 'fun', '9+', 'Beginner', 'Grace W.', 'Sat 09:00', 'Kilimani Library', 26, 4),
+      E('digital-art', 'art', 'Digital illustration', 'Layers, brushes and colour on a tablet or phone. Monthly challenge judged by the community.', 'solo', 'online', ['live', 'gamified'], 'both', '11+', 'Beginner', 'Tausi Media Studio', 'Tue 17:00', 'Online', 133, 0),
+      E('kitenge', 'art', 'Kitenge and kanga patterns', 'Design repeat patterns, learn how kanga sayings work, and print one on cloth.', 'solo', 'inperson', ['live'], 'fun', '10+', 'Beginner', 'Achieng A.', 'Sat 14:00', 'Achieng’s workshop', 12, 3),
+      E('clay', 'art', 'Clay and pottery', 'Pinch, coil and slab pots fired in a real kiln. Messy, quiet and very satisfying.', 'solo', 'inperson', ['live'], 'fun', '8+', 'Beginner', 'Ngong Road Makerspace', 'Sun 10:00', 'Ngong Road Makerspace', 18, 2),
+      E('photo', 'art', 'Photography walks', 'Composition, light and patience, on a phone or a camera. Monthly theme and an online gallery.', 'solo', 'hybrid', ['live'], 'both', '10+', 'All levels', 'Johari W. and Tausi Media Studio', 'Second Sunday, 07:00', 'Karura Forest gate', 34, 5),
+      E('comics', 'art', 'Comics and storyboards', 'Turn a story into panels: framing, pacing and lettering. Finish a four-page comic by the end of term.', 'solo', 'online', ['live'], 'fun', '9+', 'Beginner', 'Tausi Media Studio', 'Thu 16:00', 'Online', 92, 0),
+      E('callig', 'art', 'Brush calligraphy', 'Chinese brush strokes and Arabic letterforms side by side: two scripts, one steady hand.', 'solo', 'online', ['live'], 'fun', '10+', 'Beginner', 'Mei L. and Aisha H.', 'Sun 16:30', 'Online', 39, 0),
+      E('upcycle', 'diy', 'Upcycling lab', 'Turn bottles, tins and offcuts into things people want. Sell the best in Showcase.', 'both', 'inperson', ['live'], 'fun', '8+', 'Beginner', 'Ngong Road Makerspace', 'Sat 14:00', 'Ngong Road Makerspace', 30, 6),
+      E('wire', 'diy', 'Wire cars and toy making', 'Bend wire into cars with rolling wheels, then race them. A Kenyan childhood classic.', 'solo', 'inperson', ['live', 'gamified'], 'ind', '7+', 'Beginner', 'Mzee Kariuki', 'Sat 11:30', 'Kilimani Library garden', 24, 8),
+      E('sew', 'diy', 'Sewing with Achieng', 'Hand stitches, then the machine. Make a bag, then a shirt, in a real tailoring workshop.', 'solo', 'inperson', ['live'], 'fun', '10+', 'Beginner', 'Achieng A.', 'Thu 14:00', 'Achieng’s workshop', 8, 1),
+      E('wood', 'diy', 'Woodwork basics', 'Measure, saw, drill and sand safely. Build a bookshelf you can actually use.', 'solo', 'inperson', ['live'], 'fun', '11+', 'Beginner', 'Ngong Road Makerspace', 'Wed 15:00', 'Ngong Road Makerspace', 16, 2),
+      E('kitchen', 'diy', 'Kitchen science and cooking', 'Why bread rises, why onions make you cry, and how to scale a recipe for 40.', 'solo', 'hybrid', ['live'], 'fun', '9+', 'Beginner', 'Grace, baker', 'Sat 08:00', 'Grace’s bakery', 20, 4),
+      E('garden', 'diy', '4-K Club gardening', 'Kuungana, Kufanya, Kusaidia Kenya: grow food in a school or library plot and keep a harvest log.', 'team', 'inperson', ['live'], 'fun', '8+', 'All levels', 'Mama Njeri’s urban farm', 'Sat 07:30', 'Mama Njeri’s urban farm', 46, 10),
+      E('kite', 'diy', 'Kite making', 'Design, build and fly. Learn lift and balance by changing one thing at a time.', 'team', 'inperson', ['live'], 'fun', '7+', 'Beginner', 'Ngong Road Makerspace', 'Windy Saturdays', 'Ngong Racecourse field', 28, 9),
+      E('piano', 'music', 'Piano and keyboard', 'Play on screen or on a real keyboard. Learn notes by following the lights, then read them.', 'solo', 'hybrid', ['simulated', 'gamified'], 'fun', '6+', 'Beginner', 'Grace W.', 'Any time · lesson Mon 16:00', 'Online', 340, 0, 'piano'),
+      E('guitar', 'music', 'Guitar for beginners', 'Five chords that play a hundred songs, strumming patterns and how to tune by ear.', 'solo', 'online', ['live'], 'fun', '9+', 'Beginner', 'Otieno J.', 'Tue 18:00', 'Online', 156, 0),
+      E('nyatiti', 'music', 'Nyatiti with a master player', 'The eight-string Luo lyre: play it, sing with it and learn the stories behind the songs.', 'solo', 'inperson', ['live'], 'fun', '10+', 'Beginner', 'Otieno J.', 'Sun 14:00', 'Kenya National Theatre studio', 9, 2),
+      E('drums', 'music', 'Drum circle', 'Djembe and ngoma rhythms, call and response, and how to keep time as a group.', 'team', 'inperson', ['live'], 'fun', '6+', 'All levels', 'Hamisi B.', 'Sat 16:00', 'Kilimani Library garden', 33, 7),
+      E('choir', 'music', 'Choir and festival set pieces', 'Sing in parts and prepare set pieces for the Kenya Music Festival, in English, Kiswahili and mother tongues.', 'team', 'inperson', ['live'], 'league', '8+', 'All levels', 'Kilimani community choir', 'Wed 17:00', 'St Andrew’s hall', 48, 6),
+      E('beats', 'music', 'Music production', 'Make beats, record your voice and mix a track. Remix challenge every month.', 'solo', 'online', ['live', 'gamified'], 'both', '12+', 'Beginner', 'Tausi Media Studio', 'Fri 17:00', 'Online', 97, 0),
+      E('theory', 'music', 'Recorder and music theory', 'Read music and play the recorder, working towards a graded theory exam if you want one.', 'solo', 'online', ['live'], 'fun', '7+', 'Beginner', 'Grace W.', 'Mon 17:00', 'Online', 74, 0),
+      E('football', 'sport', 'Junior football league', 'Mixed teams, small-sided games, fair play points as well as goals. Season standings online.', 'team', 'inperson', ['live'], 'league', '7–14', 'All levels', 'Lavington Lions', 'Saturdays 08:30', 'Lavington grounds', 120, 6),
+      E('athletics', 'sport', 'Running and athletics', 'Sprint, middle distance and cross-country with coaches who grew up running in the highlands.', 'solo', 'inperson', ['live'], 'ind', '8+', 'All levels', 'Kiprono K.', 'Tue and Thu 06:30', 'Ngong Racecourse', 64, 10),
+      E('virtual-run', 'sport', 'Virtual run league', 'Log runs and walks from anywhere. Teams add up kilometres for a monthly challenge across counties.', 'both', 'hybrid', ['gamified'], 'both', '8+', 'All levels', 'Vachuo community', 'All month', 'Anywhere', 890, 0),
+      E('swim', 'sport', 'Swimming', 'Learn to swim, then lengths and strokes, with qualified coaches and lifeguards on deck.', 'solo', 'inperson', ['live'], 'fun', '6+', 'All levels', 'Kilimani Aquatics', 'Sat 13:00', 'Community pool', 24, 3),
+      E('netball', 'sport', 'Netball and basketball', 'Passing, movement and teamwork. Friendly matches every fortnight.', 'team', 'inperson', ['live'], 'league', '9+', 'All levels', 'Eastleigh Eagles', 'Fri 16:30', 'Eastleigh courts', 40, 4),
+      E('tkd', 'sport', 'Taekwondo', 'Discipline, flexibility and self-control, graded belt by belt.', 'solo', 'inperson', ['live'], 'ind', '7+', 'Beginner', 'Leila S.', 'Mon and Wed 17:00', 'Kilimani hall', 30, 2),
+      E('dance', 'sport', 'Dance: traditional and modern', 'Isukuti, chakacha and modern styles. Perform at the end-of-term showcase.', 'team', 'hybrid', ['live'], 'fun', '7+', 'All levels', 'Zawadi M.', 'Sun 11:00', 'Kenya National Theatre studio', 52, 8),
+      E('skip', 'sport', 'Skipping league', 'Speed rounds, tricks and team ropes. Counts from your phone camera, checked by a coach.', 'both', 'hybrid', ['gamified', 'live'], 'both', '6+', 'All levels', 'Vachuo community', 'Weekly rounds', 'Anywhere', 210, 0),
+      E('kisw-circle', 'lang', 'Kiswahili conversation circle', 'Talk, don’t study: games, stories and real conversation at your level, from salamu to debate.', 'both', 'hybrid', ['live'], 'fun', '7+', 'All levels', 'Mwalimu Socrates and Nduta', 'Mon 17:00', 'Online and Kilimani Library', 140, 6),
+      E('mandarin', 'lang', 'Mandarin for beginners', 'Pinyin, tones and your first 150 characters, towards HSK 1. Weekly call with learners in Beijing.', 'solo', 'online', ['live', 'gamified'], 'fun', '8+', 'Beginner', 'Mei L.', 'Tue and Thu 16:00', 'Online', 86, 0),
+      E('french', 'lang', 'French club', 'Songs, games and conversation for beginners, plus a moderated pen-pal in a French-speaking school.', 'solo', 'online', ['live'], 'fun', '8+', 'Beginner', 'Sofia G.', 'Wed 16:00', 'Online', 72, 0),
+      E('spanish', 'lang', 'Spanish club', 'Everyday Spanish through games and short stories. Good preparation for US middle school.', 'solo', 'online', ['live'], 'fun', '8+', 'Beginner', 'Sofia G.', 'Fri 16:00', 'Online', 64, 0),
+      E('arabic', 'lang', 'Arabic letters and words', 'Read and write the alphabet, then short words and greetings.', 'solo', 'online', ['live'], 'fun', '8+', 'Beginner', 'Aisha H.', 'Sat 15:00', 'Online', 41, 0),
+      E('ksl', 'lang', 'Kenyan Sign Language', 'Fingerspelling, greetings and conversation, taught by Deaf instructors.', 'solo', 'hybrid', ['live'], 'fun', '7+', 'Beginner', 'Nia K.', 'Thu 16:30', 'Online and Kilimani Library', 55, 6),
+      E('mother', 'lang', 'Mother-tongue circles', 'Dholuo, Gĩkũyũ, Kikamba, Ekegusii and Luhya circles with elders: stories, riddles and proverbs.', 'team', 'inperson', ['live'], 'fun', '6+', 'All levels', 'Community elders', 'Sun 15:00', 'Kilimani Library', 63, 15),
+      E('vocab', 'lang', 'Vocabulary sprint', 'Five words, five seconds each. Kiswahili, French, Spanish or Mandarin. Beat your own streak.', 'solo', 'online', ['gamified'], 'ind', '7+', 'All levels', 'Vachuo community', 'Any time', 'Online', 970, 0, 'vocab'),
+      E('penpal', 'lang', 'Moderated pen-pals', 'Write to a learner your age in another country. Every letter is read by a moderator first.', 'solo', 'online', ['live'], 'fun', '9+', 'All levels', 'Vachuo Connects', 'Monthly letter', 'Online', 302, 0),
+      E('debate-soc', 'debate', 'Debate with Socrates', 'Pick a motion and a side. Socrates questions your case, then scores claim, evidence, rebuttal and clarity.', 'solo', 'online', ['simulated'], 'ind', '9+', 'All levels', 'Socrates', 'Any time', 'Online', 640, 0, 'debate'),
+      E('debate-1v1', 'debate', '1-v-1 debate ladder', 'Short head-to-head debates on video with a trained judge. Ranked by rating.', 'solo', 'online', ['live'], 'ind', '11+', 'Intermediate', 'Westlands Wordsmiths', 'Wed 18:00', 'Online', 118, 0),
+      E('debate-team', 'debate', 'Team debate league', 'World Schools format, three speakers a side. Season of six rounds and a final.', 'team', 'hybrid', ['live'], 'league', '12+', 'Intermediate', 'Nairobi schools debate circuit', 'Saturdays', 'Rotating schools', 84, 3),
+      E('mun', 'debate', 'Model United Nations', 'Represent a country, negotiate a resolution, and learn how the world argues.', 'team', 'hybrid', ['live'], 'fun', '13+', 'Intermediate', 'Karen Coders mentors', 'Termly conference', 'Online and in person', 70, 10),
+      E('spell', 'debate', 'Spelling bee: English and Kiswahili', 'Weekly online rounds and a termly live final.', 'solo', 'hybrid', ['live', 'gamified'], 'ind', '7–14', 'All levels', 'Westlands Wordsmiths', 'Thu 16:00', 'Online', 210, 0),
+      E('poetry', 'debate', 'Poetry and spoken word', 'Write, perform and give feedback. Verse speaking for the Kenya Music Festival too.', 'solo', 'hybrid', ['live'], 'both', '10+', 'All levels', 'Zawadi M.', 'Sun 17:00', 'Kilimani Library', 46, 6),
+      E('story', 'debate', 'Storytelling circle', 'Tell a folktale, then make one up. Elders and learners take turns.', 'team', 'inperson', ['live'], 'fun', '6+', 'All levels', 'Community elders', 'Sat 16:00', 'Kilimani Library', 39, 10)
+    ];
+  }
+  guides() {
+    // [id, title, origin, players, ages, where, materials, steps[], note, playable]
+    const G = (id, t, origin, players, ages, where, mat, steps, note) => ({ id, t, origin, players, ages, where, mat, steps, note });
+    return [
+      G('g-bao', 'Bao la kujifunza (learners’ Bao)', 'East African coast and Tanzania; played across Kenya', '2', '8+', 'In person or online', 'A board of 4 rows × 8 pits (or 32 cups), 64 seeds or stones', ['Put 2 seeds in every pit. You own the two rows nearest you.', 'Pick up all the seeds from one of your pits that has two or more, and sow them one by one into the next pits of your own two rows, going round in a circle.', 'If your last seed lands in a pit that already had seeds, pick them all up and keep sowing.', 'Capture: if your last seed lands in an occupied pit in your front row and the opponent’s pit straight across has seeds, take them and sow them into your front row from one end.', 'You lose when your front row is empty or you can’t make a move.'], 'Many regions add the nyumba (house) and a starting phase with seeds in hand. Play the learners’ version first.'),
+      G('g-oware', 'Oware (abapa)', 'Ghana and the Akan people; played across West Africa and the Caribbean', '2', '7+', 'In person or online', '2 rows of 6 pits, 48 seeds', ['Put 4 seeds in each of the 12 pits. Your row is the one nearest you.', 'Take all the seeds from one of your pits and sow one per pit anticlockwise. Skip the pit you started from if you go all the way round.', 'If your last seed makes 2 or 3 in an opponent’s pit, capture them, and keep capturing backwards while the pits hold 2 or 3.', 'If your opponent has no seeds, you must make a move that gives them some.', 'The first player to capture 25 seeds wins.'], ''),
+      G('g-morabaraba', 'Morabaraba', 'Southern Africa, especially South Africa and Lesotho', '2', '8+', 'In person or online', 'A board of three nested squares joined by lines and diagonals (24 points), 12 counters each', ['Take turns placing a counter on any empty point.', 'Three in a straight line along a marked line makes a mill: remove one of your opponent’s counters.', 'When all counters are placed, move one counter along a line to the next empty point.', 'With only three counters left, you may jump to any empty point.', 'You lose with two counters or when you can’t move.'], 'Cattle herders scratched the board into the ground; counters are called cows.'),
+      G('g-kati', 'Kati', 'Kenya', '6–20', '6+', 'In person', 'A soft ball (a bundle of paper or plastic bags tied tight) and an open space', ['Two throwers stand at opposite ends. Everyone else stands in the middle (kati).', 'Throwers try to hit the players in the middle below the shoulders.', 'If you’re hit, you’re out. If you catch the ball cleanly, you earn a life or bring a friend back.', 'Some groups fill a bottle with sand while dodging; filling it wins a round.', 'The last player in the middle becomes a thrower next round.'], 'Use a soft ball and no head shots. Rules vary by estate and school.'),
+      G('g-bano', 'Bano (marbles)', 'Kenya; marble games are played worldwide', '2–6', '6+', 'In person', 'Marbles, a small hole (shimo) dug in the ground, a starting line', ['Everyone flicks a marble from the line towards the shimo; the closest goes first.', 'Flick your marble with your thumb, knuckle on the ground.', 'Get your marble into the shimo, then hit other players’ marbles to win them (or a point, if you agree to play “for fun”).', 'Missed? Your turn ends where your marble stops.', 'Agree before you start whether you keep marbles you win.'], ''),
+      G('g-nyama', 'Nyama nyama', 'Kenya', '4–30', '5+', 'In person or on video', 'Nothing', ['Everyone stands in a circle. The leader chants “Nyama, nyama, nyama…”', 'The leader shouts an animal. Jump only if it’s an animal people eat (nyama means meat).', 'Jump for a lion, or stay still for a goat, and you’re out.', 'The leader speeds up and adds tricks: shouting “Nyama ya…” then a car.', 'The last one in leads the next round.'], 'Great for Kiswahili vocabulary: play it with animal names only in Kiswahili.'),
+      G('g-pada', 'Pada (hopscotch)', 'Kenya; hopscotch is played worldwide', '2–6', '5+', 'In person', 'Chalk or a stick to draw squares, a flat stone', ['Draw a court of 8 to 10 numbered boxes.', 'Throw the stone into box 1. Hop over it, through every box, and back, picking up the stone on the way.', 'Hop on one foot in single boxes, two feet in side-by-side boxes.', 'Step on a line, miss the box or lose balance and your turn ends.', 'First to finish every box wins.'], ''),
+      G('g-kamba', 'Kamba (rope games)', 'Kenya and across East Africa', '3–10', '5+', 'In person', 'A long rope', ['Two players turn the rope; others jump in one at a time.', 'Jump to the rhythm of a counting song, in Kiswahili or English.', 'Do the action in the song: touch the ground, turn around, jump out.', 'Miss and swap places with a turner.', 'Count the longest run for the skipping league.'], ''),
+      G('g-kalongo', 'Kalongolongo (play-house)', 'Kenya', '2–8', '4+', 'In person', 'Empty tins, leaves, sand, water, old cloth', ['Choose a “home” and roles: parents, children, shopkeeper, visitors.', 'Cook pretend meals with sand, leaves and water in tins.', 'Visit each other, buy and sell with leaf money, solve “family problems”.', 'Swap roles so everyone gets a turn to lead.', 'Pack everything away together at the end.'], 'Pretend play builds language and turn-taking. Guide younger children; older ones can run it.'),
+      G('g-xiangqi', 'Xiangqi (Chinese chess)', 'China', '2', '8+', 'In person or online', 'A 9 × 10 board with a river and two palaces, 16 pieces each', ['Pieces stand on line crossings, not squares.', 'The general and two advisors stay inside the palace.', 'Elephants move two diagonally and can’t cross the river; horses move like a knight but can be blocked.', 'Chariots move like rooks; cannons move like rooks but capture by jumping exactly one piece.', 'Checkmate the general to win. The two generals may never face each other on an open file.'], ''),
+      G('g-go', 'Go (weiqi)', 'China; also Japan (igo) and Korea (baduk)', '2', '7+', 'In person or online', 'A 9 × 9 board for beginners (19 × 19 for the full game), black and white stones', ['Black plays first. Place one stone on an empty crossing each turn.', 'A group of stones with no empty points next to it is captured and removed.', 'You can’t play where your stone would have no liberties, unless it captures.', 'Don’t repeat the board position from one move ago (the ko rule).', 'Surround the most empty area to win.'], ''),
+      G('g-kabaddi', 'Kabaddi', 'India and South Asia', '2 teams of 7', '10+', 'In person', 'A court with a centre line, soft ground or mats', ['A raider crosses the centre line and tags as many defenders as possible.', 'The raider must return before taking a new breath, chanting “kabaddi” the whole way.', 'Each defender tagged is out; if the defenders hold the raider down, the raider is out.', 'Teams take turns raiding.', 'Most points after two halves wins.'], 'Play touch-only for beginners; tackles need coaching and mats.'),
+      G('g-takraw', 'Sepak takraw', 'Southeast Asia', '2 teams of 3', '10+', 'In person', 'A light woven ball, a net at badminton height', ['Like volleyball, but with feet, knees, chest and head: no hands.', 'Up to three touches per side.', 'Serve by kicking the ball over the net from the service circle.', 'Points for every rally won.', 'Start with a soft ball and a low net.'], ''),
+      G('g-lagori', 'Lagori (seven stones)', 'India', '2 teams', '7+', 'In person', 'Seven flat stones, a soft ball', ['Stack the seven stones in a pile.', 'The seeking team throws the ball to knock the pile down.', 'They try to rebuild it while the other team throws the ball to hit them.', 'Hit a rebuilder below the shoulders and they’re out.', 'Rebuild the pile and shout “Lagori!” to win the round.'], 'Soft ball only.'),
+      G('g-string', 'String figures', 'Worldwide: Inuit, Navajo, Pacific, African and many more traditions', '1–2', '6+', 'In person or on video', 'A loop of string about 1.5 m long', ['Start with the loop over both thumbs and little fingers.', 'Pick up the string across each palm with the opposite middle finger.', 'Learn one figure from a guide, then teach it to someone.', 'Pass figures between two players (cat’s cradle).', 'Many cultures tell a story with each figure; learn the story too.'], ''),
+      G('g-tafl', 'Tafl (Viking chess)', 'Scandinavia, Iceland and Britain', '2', '9+', 'In person or online', 'A 9 × 9 or 11 × 11 board, a king, defenders and attackers', ['The king starts in the centre with defenders; attackers start at the edges.', 'All pieces move like rooks; only the king may stand on the centre or corners.', 'Capture by trapping a piece between two of yours.', 'Defenders win if the king reaches a corner.', 'Attackers win by surrounding the king.'], 'Rules were reconstructed by historians; there are several modern versions.'),
+      G('g-senet', 'Senet', 'Ancient Egypt', '2', '8+', 'In person or online', 'A 3 × 10 board, 5 pieces each, four throwing sticks', ['Place pieces alternately on the first ten squares.', 'Throw the sticks: the flat sides up give your move.', 'Move along the board in an S shape; landing on a lone opposing piece swaps places.', 'Two pieces side by side protect each other.', 'Bear all your pieces off the board first to win.'], 'No rulebook survives; these are historians’ reconstructions.')
+    ];
+  }
+  people() {
+    return ['Tomás R.', 'Neema K.', 'Johari W.', 'Wanjiku N.', 'Brian O.', 'Achieng A.', 'Mohamed A.', 'Aisha H.', 'Kiprono K.', 'Zawadi M.', 'Jabari T.', 'Mei L.', 'Arjun P.', 'Sofia G.', 'Oliver B.', 'Fatuma D.', 'Otieno J.', 'Liam C.', 'Nia K.', 'Hamisi B.', 'Imani R.', 'Chloe T.', 'Baraka S.', 'Leila S.', 'Wei Z.', 'Kofi M.', 'Amara E.', 'Diego R.', 'Halima Y.', 'Sipho N.'];
+  }
+  teams() { return ['Rain Gauge Crew', 'Kilimani Knights', 'Ngong Road Makers', 'Lavington Lions', 'Riverside Rooks', 'Karen Coders', 'Westlands Wordsmiths', 'Eastleigh Eagles', 'Karura Kestrels', 'Upper Hill Owls']; }
+  posts() {
+    return [
+      ['chess', 'Riverside Rooks', 'Puzzle of the week: white to move and mate in two. First correct reply from someone under 12 gets a shout-out on Saturday.', '2 h', 14],
+      ['coding', 'Kim O.', 'Scratch to Python session notes are up: how a “forever” loop becomes a while loop, with three practice tasks.', '5 h', 9],
+      ['culture', 'Mzee Kariuki', 'Bao this Saturday at Kilimani Library: bring a friend who has never played. Boards and seeds provided.', 'Yesterday', 21],
+      ['art', 'Grace W.', 'Watercolour weather prompt: paint the sky at 7 a.m. and 5 p.m. on the same day. What changed, and why?', 'Yesterday', 17],
+      ['sport', 'Kiprono K.', 'Virtual run league: Kilimani is 42 km behind Kisumu with nine days left. Every walk counts.', '2 days', 33],
+      ['lang', 'Mei L.', 'Mandarin tip: 比 (bǐ) is the word for ratio. Amani’s maths class and Mandarin class just met.', '3 days', 12]
+    ];
+  }
+  pageVals() {
+    const st = this.state; const C = this.C; const ALL = this.all(); const no = () => {};
+    const pressed = (on) => ({ pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6' });
+    const ageOk = (e) => { if (st.age === 'all') return true; const m = String(e.ages).match(/(\d+)\D*(\d+)?/); const lo = m ? Number(m[1]) : 0; const hi = m && m[2] ? Number(m[2]) : 99; const R = { a: [6, 9], b: [10, 13], c: [14, 17], d: [18, 99] }[st.age]; return lo <= R[1] && hi >= R[0]; };
+    const match = (e, ig) => (ig === 'cat' || st.cat === 'all' || e.cat === st.cat) && (ig === 'who' || st.who === 'all' || e.who === st.who || e.who === 'both') && (ig === 'where' || st.where === 'all' || e.where === st.where || e.where === 'hybrid') && (ig === 'play' || st.play === 'all' || e.play.indexOf(st.play) >= 0) && (ig === 'comp' || st.comp === 'all' || e.comp === st.comp || e.comp === 'both') && ageOk(e) && (!st.q.trim() || (e.t + ' ' + e.d + ' ' + C[e.cat][0] + ' ' + e.host).toLowerCase().indexOf(st.q.trim().toLowerCase()) >= 0);
+    const list = ALL.filter((e) => match(e));
+    const WHO = { solo: 'Individual', team: 'Group', both: 'Individual or group' }; const WHERE = { online: 'Online', inperson: 'In person', hybrid: 'Online + in person' }; const PLAY = { live: 'Live', simulated: 'Simulated', gamified: 'Gamified' }; const COMP = { ind: 'Individual competition', league: 'Group league', both: 'Competition', fun: 'Just for fun' };
+    const card = (e) => { const c = C[e.cat]; const s = this.status(e); const j = st.joined[e.id];
+      return { id: e.id, t: e.t, d: e.d, cat: c[0], color: c[1], tint: c[2], ink: c[3], icon: c[4], who: WHO[e.who], where: WHERE[e.where], play: e.play.map((p) => PLAY[p]).join(' · '), comp: COMP[e.comp], ages: 'Ages ' + e.ages, lvl: e.lvl, host: e.host, when: e.when, place: e.place,
+        members: e.members + ' members' + (e.spots ? ' · ' + e.spots + ' spots left' : ''), isNew: !!e.mine, canPlay: !!e.pk, play1: () => this.openPlay(e),
+        stLabel: s === 'joined' ? (j && j.how === 'team' ? 'In ' + j.team : 'Joined') : (s === 'pending' ? 'Waiting for Wanjiru' : ''), hasSt: s !== 'open', stBg: s === 'joined' ? '#DDF4F1' : '#FEF1D9', stFg: s === 'joined' ? '#115E59' : '#92400E',
+        cta: s === 'open' ? (e.comp === 'fun' ? 'Join' : 'Join or compete') : 'Manage', join: () => this.setState({ join: { id: e.id, how: e.who === 'team' ? 'team' : 'solo', team: '', newTeam: '', invites: {}, compete: e.comp !== 'fun' } }) }; };
+    const shown = st.more ? list : list.slice(0, 18);
+    const cnt = (ig, f) => ALL.filter((e) => match(e, ig) && f(e)).length;
+    const catChips = [['all', 'All', '#9A9E95']].concat(Object.keys(C).map((k) => [k, C[k][0], C[k][1]])).map(([k, l, dot]) => Object.assign(pressed(st.cat === k), { label: l, dot, n: String(cnt('cat', (e) => k === 'all' || e.cat === k)), pick: () => this.setState({ cat: k, more: false }) }));
+    const chipRow = (key, opts) => opts.map(([k, l]) => Object.assign(pressed(st[key] === k), { label: l, pick: () => this.setState({ [key]: k }) }));
+    // my clubs
+    const mineJ = Object.keys(st.joined).map((id) => this.byId(id)).filter(Boolean);
+    const pend = this.read().filter((x) => x.kind === 'club');
+    const myClubs = mineJ.map((e) => { const j = st.joined[e.id]; const c = C[e.cat]; return { t: e.t, sub: (j.how === 'team' ? 'Team: ' + j.team : 'Individual') + (j.compete ? ' · competing' : '') + ' · ' + e.when, color: c[1], st: 'Joined', stBg: '#DDF4F1', stFg: '#115E59', open: () => (e.pk ? this.openPlay(e) : this.setState({ join: { id: e.id, how: j.how, team: j.team, newTeam: '', invites: {}, compete: j.compete } })), cta: e.pk ? 'Play now' : 'Manage' }; })
+      .concat(pend.filter((x) => !st.joined[x.ref]).map((x) => { const e = this.byId(x.ref); const c = e ? C[e.cat] : C.culture; return { t: e ? e.t : x.title, sub: x.status === 'pending' ? 'In person · needs Wanjiru’s OK' : (x.status === 'approved' ? 'Approved by Wanjiru · ' + (e ? e.when : '') : 'Wanjiru said not this time'), color: c[1], st: x.status === 'pending' ? 'Waiting for Wanjiru' : (x.status === 'approved' ? 'Joined' : 'Declined'), stBg: x.status === 'approved' ? '#DDF4F1' : (x.status === 'pending' ? '#FEF1D9' : '#ECECE6'), stFg: x.status === 'approved' ? '#115E59' : (x.status === 'pending' ? '#92400E' : '#3F444C'), open: () => this.toast(x.status === 'pending' ? 'Waiting for Wanjiru. She’ll see it in Parent copilot.' : 'Saved in your clubs.'), cta: 'Details' }; }));
+    // leaderboard
+    const B = st.board; const bd = this.board(); const LB = ['chess', 'coding', 'games', 'debate', 'robotics', 'sport', 'lang', 'music', 'art'];
+    const myRow = bd.rows.findIndex((r) => r.me);
+    const vals = {
+      stats: [{ v: String(mineJ.length), l: 'clubs joined' }, { v: String(ALL.filter((e) => e.play.indexOf('live') >= 0 && e.where !== 'online').length), l: 'meet in person' }, { v: '#' + (myRow + 1), l: 'your rank · ' + C[B.cat][0] }, { v: String(Object.keys(st.pts).reduce((x, k) => x + st.pts[k], 0)), l: 'points earned today' }],
+      myClubs, hasMy: myClubs.length > 0,
+      catChips, whoChips: chipRow('who', [['all', 'Any'], ['solo', 'Individual'], ['team', 'Group']]), whereChips: chipRow('where', [['all', 'Any'], ['online', 'Online'], ['inperson', 'In person']]),
+      playChips: chipRow('play', [['all', 'Any'], ['live', 'Live'], ['simulated', 'Simulated'], ['gamified', 'Gamified']]), compChips: chipRow('comp', [['all', 'Any'], ['ind', 'Individual competition'], ['league', 'Group league'], ['fun', 'Just for fun']]),
+      ageChips: chipRow('age', [['all', 'Any age'], ['a', '6–9'], ['b', '10–13'], ['c', '14–17'], ['d', '18+']]),
+      q: st.q, setQ: (e) => this.setState({ q: e.target.value }), clear: () => this.setState({ cat: 'all', who: 'all', where: 'all', play: 'all', comp: 'all', age: 'all', q: '' }),
+      resultText: list.length + ' of ' + ALL.length + ' clubs and sessions', cards: shown.map(card), hasMore: list.length > 18, moreLabel: st.more ? 'Show fewer' : 'Show all ' + list.length, toggleMore: () => this.setState({ more: !st.more }), empty: list.length === 0,
+      lbTabs: LB.map((k) => Object.assign(pressed(B.cat === k), { label: C[k][0], pick: () => this.setState({ board: Object.assign({}, B, { cat: k }) }) })),
+      lbWho: [[false, 'Individuals'], [true, 'Teams']].map(([k, l]) => Object.assign(pressed(B.team === k), { label: l, pick: () => this.setState({ board: Object.assign({}, B, { team: k }) }) })),
+      lbAge: [['all', 'All ages'], ['a', '6–9'], ['b', '10–13'], ['c', '14–17'], ['d', '18+']].map(([k, l]) => Object.assign(pressed(B.age === k), { label: l, pick: () => this.setState({ board: Object.assign({}, B, { age: k }) }) })),
+      lbScope: [['community', 'Kilimani community'], ['kenya', 'Kenya'], ['global', 'Global']].map(([k, l]) => Object.assign(pressed(B.scope === k), { label: l, pick: () => this.setState({ board: Object.assign({}, B, { scope: k }) }) })),
+      lbHead: bd.rated ? 'Rating' : 'Season points', lbNote: bd.rated ? 'Ranked by rating: you gain more for beating stronger players. Ties go to the most recent result.' : 'Ranked by season points from matches, challenges and leagues. Ties go to the most recent result.',
+      lbRows: bd.rows.map((r, i) => ({ rank: String(i + 1), name: r.name, club: r.club, val: String(r.val), played: String(r.played), win: r.win + '%', trend: r.trend > 0 ? '▲' : (r.trend < 0 ? '▼' : '–'), tFg: r.trend > 0 ? '#0F766E' : (r.trend < 0 ? '#B45309' : '#62676F'), bg: r.me ? '#FEF9EE' : (i % 2 ? '#FBFBF8' : '#FFFFFF'), fw: r.me ? '700' : '500', medal: i < 3 ? ['#F9A826', '#B8BDC5', '#D8B36C'][i] : 'transparent', mFg: i < 3 ? '#14161A' : '#3F444C' })),
+      guides: this.GD.map((g) => ({ t: g.t, origin: g.origin, players: g.players + ' players', ages: 'Ages ' + g.ages, where: g.where, open: () => this.setState({ guide: g.id }) })),
+      posts: st.myPosts.concat(this.posts()).map((p) => ({ cat: C[p[0]][0], color: C[p[0]][1], who: p[1], t: p[2], when: p[3], replies: p[4] + (p[4] === 1 ? ' reply' : ' replies'), pending: !!p[5], hasPending: !!p[5] })),
+      openHost: () => this.setState({ host: { kind: 'session', cat: 'chess', t: '', d: '', where: 'online', who: 'solo', when: '2026-11-14T10:00', place: '', cap: '12', age: '10–13', step: 'form' } }),
+      hasToast: !!st.toast, toast: st.toast
+    };
+    return Object.assign(vals, this.joinVals(), this.playVals(), this.hostVals(), this.guideVals());
+  }
+  joinVals() {
+    const st = this.state; const no = () => {}; const J = st.join;
+    const base = { jOpen: false, jTitle: '', jSub: '', jClose: no, jHow: [], jIsTeam: false, jTeams: [], jNewTeam: '', jSetNew: no, jFriends: [], jCanTeam: false, jCompete: false, jToggleCompete: no, jCanCompete: false, jCompLabel: '', jInPerson: false, jConfirm: no, jConfirmLabel: '', jJoined: false, jLeave: no, jRules: [] };
+    if (!J) return base; const e = this.byId(J.id); const C = this.C[e.cat]; const isJoined = !!st.joined[e.id];
+    const teams = [['Rain Gauge Crew', 'Amani, Tomás, Neema', 0], ['Kilimani Knights', 'Brian, Wanjiku, Jabari', 1], ['Karura Kestrels', 'Imani, Kofi', 2]];
+    const inPerson = e.where === 'inperson';
+    const setJ = (o) => this.setState({ join: Object.assign({}, this.state.join, o) });
+    const friends = [['Tomás', 'tomas'], ['Neema', 'neema'], ['Johari', 'johari'], ['Bob', 'bob']];
+    return Object.assign(base, { jOpen: true, jTitle: e.t, jSub: C[0] + ' · ' + e.when + ' · ' + e.place, jClose: () => this.setState({ join: null }),
+      jHow: (e.who === 'both' ? [['solo', 'On my own'], ['team', 'With a team']] : (e.who === 'team' ? [['team', 'With a team']] : [['solo', 'On my own']])).map(([k, l]) => ({ label: l, pressed: J.how === k ? 'true' : 'false', bg: J.how === k ? '#14161A' : '#FFFFFF', fg: J.how === k ? '#FFFFFF' : '#14161A', bd: J.how === k ? '#14161A' : '#CFCFC6', pick: () => setJ({ how: k }) })),
+      jIsTeam: J.how === 'team', jCanTeam: J.how === 'team',
+      jTeams: teams.map(([n, m]) => ({ n, m, on: J.team === n ? 'true' : 'false', bd: J.team === n ? '#1D4ED8' : '#E2E2DA', bg: J.team === n ? '#F4F7FE' : '#FFFFFF', pick: () => setJ({ team: n, newTeam: '' }) })),
+      jNewTeam: J.newTeam, jSetNew: (ev) => setJ({ newTeam: ev.target.value, team: '' }),
+      jFriends: friends.map(([n, k]) => ({ n, on: !!J.invites[k], toggle: () => { const iv = Object.assign({}, this.state.join.invites); iv[k] = !iv[k]; setJ({ invites: iv }); } })),
+      jCanCompete: e.comp !== 'fun', jCompete: !!J.compete, jToggleCompete: () => setJ({ compete: !J.compete }), jCompLabel: e.comp === 'league' ? 'Enter the group league (standings and fixtures)' : 'Enter the ladder and appear on the leaderboard',
+      jInPerson: inPerson || e.where === 'hybrid', jJoined: isJoined,
+      jRules: (inPerson || e.where === 'hybrid' ? ['Meets in a public place with a verified adult host.', 'Under 18: Wanjiru approves before your first in-person session.', 'Pick-up and drop-off by a family adult, listed with the host.'] : ['Online sessions are moderated; chat is visible to hosts.', 'No private messages between learners and adults.', 'You can leave any time.']).map((t) => ({ t })),
+      jConfirmLabel: isJoined ? 'Save changes' : (inPerson ? 'Ask Wanjiru to approve' : 'Join now'),
+      jConfirm: () => { const J2 = this.state.join; const team = J2.how === 'team' ? (J2.newTeam.trim() || J2.team) : ''; if (J2.how === 'team' && !team) { this.toast('Pick a team or name a new one.'); return; }
+        if (inPerson && !isJoined) { const id = 'club-' + e.id; this.write(this.read().filter((x) => x.id !== id).concat([{ id, kind: 'club', ref: e.id, title: 'Amani wants to join “' + e.t + '”, ' + e.when, detail: 'In person at ' + e.place + ' · host: ' + e.host + (team ? ' · team: ' + team : '') + '. Public venue, verified host.', from: 'Amani', at: 'Tue 3 Nov', status: 'pending' }])); this.setState({ join: null }); this.toast('Sent to Wanjiru. You’ll see it in My clubs once she approves.'); return; }
+        const j = Object.assign({}, this.state.joined); j[e.id] = { how: J2.how, team, compete: !!J2.compete }; this.setState({ joined: j, join: null }); this.toast(isJoined ? 'Saved.' : 'Joined “' + e.t + '”' + (J2.compete ? ' and entered the ' + (e.comp === 'league' ? 'league' : 'ladder') : '') + '.'); },
+      jLeave: () => { const j = Object.assign({}, this.state.joined); delete j[e.id]; this.setState({ joined: j, join: null }); this.toast('You left “' + e.t + '”.'); } });
+  }
+  openPlay(e) {
+    const k = e.pk; let g = { kind: k, id: e.id, title: e.t, cat: e.cat };
+    if (k === 'chess') g = Object.assign(g, { p: 0, sel: '', msg: 'White to move. Find checkmate in one.', solved: 0, hint: false });
+    if (k === '24') g = Object.assign(g, { p: 0, val: '', msg: '', solved: 0 });
+    if (k === 'debate') g = Object.assign(g, { m: 0, side: 'for', step: 'pick', open: '', qi: 0, ans: '', log: [] });
+    if (k === 'circuit') g = Object.assign(g, { v: 3, n: 2, par: false, on: true, ch: {} });
+    if (k === 'piano') g = Object.assign(g, { i: 0, miss: 0, last: '', done: false });
+    if (k === 'vocab') g = Object.assign(g, { lang: 'sw', i: 0, left: 6, score: 0, streak: 0, right: 0, started: false, done: false, last: null });
+    this.setState({ playing: g });
+  }
+  playVals() {
+    const st = this.state; const g = st.playing; const no = () => {};
+    const base = { pOpen: false, pTitle: '', pClose: no, pScoreLine: '', isChess: false, isP24: false, isDebate: false, isCircuit: false, isPiano: false, isVocab: false,
+      chName: '', chRows: [], chMsg: '', chHint: no, chHintText: '', chShowHint: false, chNext: no, chNextLabel: '', chFiles: [],
+      p24Nums: [], p24Val: '', p24Set: no, p24Key: no, p24Check: no, p24Msg: '', p24Next: no, p24MsgBg: '#FFFFFF', p24MsgFg: '#14161A', p24HasMsg: false,
+      dbPick: false, dbMotions: [], dbSides: [], dbStart: no, dbWrite: false, dbMotion: '', dbSide: '', dbOpen: '', dbSetOpen: no, dbWords: '', dbSubmit: no, dbAsk: false, dbLog: [], dbQ: '', dbAns: '', dbSetAns: no, dbReply: no, dbDone: false, dbScores: [], dbTotal: '', dbAgain: no,
+      ckV: '3', ckSetV: no, ckN: '2', ckSetN: no, ckPar: [], ckOn: 'true', ckToggle: no, ckBulbs: [], ckI: '', ckP: '', ckNote: '', ckCh: [],
+      pnKeys: [], pnBlack: [], pnSong: [], pnMsg: '', pnRestart: no,
+      vcLangs: [], vcStart: no, vcStarted: false, vcWord: '', vcOpts: [], vcLeft: '', vcMsg: '', vcDone: false, vcScore: '', vcAgain: no, vcProg: '', vcHasLast: false, vcLastBg: '#FFFFFF', vcLastFg: '#14161A', vcStartShow: false };
+    if (!g) return base; const setG = (o) => this.setState({ playing: Object.assign({}, this.state.playing, o) });
+    const out = Object.assign(base, { pOpen: true, pTitle: g.title, pClose: () => this.setState({ playing: null }), pScoreLine: 'Points today in ' + this.C[g.cat][0] + ': ' + (st.pts[g.cat] || 0) });
+    if (g.kind === 'chess') {
+      const P = this.chessPuzzles(); const pz = P[g.p]; const files = 'abcdefgh';
+      out.isChess = true; out.chName = 'Puzzle ' + (g.p + 1) + ' of ' + P.length + ': ' + pz.name; out.chMsg = g.msg; out.chShowHint = !!g.hint; out.chHintText = pz.hint; out.chHint = () => setG({ hint: true });
+      out.chFiles = files.split('').map((f) => ({ f }));
+      out.chRows = [8, 7, 6, 5, 4, 3, 2, 1].map((rk) => ({ rk: String(rk), cells: files.split('').map((f, fi) => { const sq = f + rk; const wp = pz.w[sq], bp = pz.b[sq]; const dark = (fi + rk) % 2 === 1 ? false : true; const sel = g.sel === sq;
+        return { piece: wp || bp || '', fg: wp ? '#FFFFFF' : '#14161A', shadow: wp ? '0 0 2px #14161A, 0 0 2px #14161A' : 'none', bg: sel ? '#F9A826' : (dark ? '#B9A27A' : '#F1E6CF'), aria: sq + (wp ? ', white piece' : (bp ? ', black piece' : '')),
+          pick: () => { const G2 = this.state.playing; if (G2.solved > G2.p) return; if (!G2.sel) { if (wp) setG({ sel: sq, msg: 'Now pick where it goes.' }); return; } if (pz.w[sq]) { setG({ sel: sq }); return; }
+            if (G2.sel === pz.sol[0] && sq === pz.sol[1]) { setG({ sel: '', msg: 'Checkmate! ' + pz.w[pz.sol[0]] + ' ' + pz.sol[0] + '–' + pz.sol[1] + '. +30 points.', solved: G2.p + 1 }); this.addPts('chess', 30); }
+            else setG({ sel: '', msg: 'Not mate: Black has an answer. Try another move.' }); } }; }) }));
+      out.chNextLabel = g.p < P.length - 1 ? 'Next puzzle' : 'Start again'; out.chNext = () => setG({ p: g.p < P.length - 1 ? g.p + 1 : 0, sel: '', hint: false, msg: 'White to move. Find checkmate in one.', solved: g.p < P.length - 1 ? g.solved : 0 });
+    }
+    if (g.kind === '24') {
+      const P = [[1, 2, 3, 4], [2, 3, 4, 6], [4, 4, 10, 10], [3, 3, 8, 8]]; const nums = P[g.p];
+      out.isP24 = true; out.p24Nums = nums.map((n) => ({ n: String(n) })); out.p24Val = g.val; out.p24Set = (e) => setG({ val: e.target.value, msg: '' });
+      const check = () => { const r = this.eval24(this.state.playing.val, nums); setG({ msg: r.msg, ok: r.ok }); if (r.ok && !this.state.playing.got) { this.addPts('games', g.p === 3 ? 60 : 20); setG({ msg: r.msg + (g.p === 3 ? ' That’s the hard one: +60.' : ' +20 points.'), ok: true, got: true }); } };
+      out.p24Check = check; out.p24Key = (e) => { if (e.key === 'Enter') { e.preventDefault(); check(); } };
+      out.p24HasMsg = !!g.msg; out.p24Msg = g.msg || ''; out.p24MsgBg = g.ok ? '#DDF4F1' : '#FEF1D9'; out.p24MsgFg = g.ok ? '#115E59' : '#92400E';
+      out.p24Next = () => setG({ p: (g.p + 1) % P.length, val: '', msg: '', ok: false, got: false });
+    }
+    if (g.kind === 'debate') {
+      const M = this.motions(); const m = M[g.m];
+      out.isDebate = true; out.dbPick = g.step === 'pick'; out.dbWrite = g.step === 'write'; out.dbAsk = g.step === 'ask'; out.dbDone = g.step === 'done';
+      out.dbMotions = M.map((x, i) => ({ t: x[0], on: g.m === i ? 'true' : 'false', bd: g.m === i ? '#1D4ED8' : '#E2E2DA', bg: g.m === i ? '#F4F7FE' : '#FFFFFF', pick: () => setG({ m: i }) }));
+      out.dbSides = [['for', 'For the motion'], ['against', 'Against']].map(([k, l]) => ({ label: l, pressed: g.side === k ? 'true' : 'false', bg: g.side === k ? '#14161A' : '#FFFFFF', fg: g.side === k ? '#FFFFFF' : '#14161A', bd: g.side === k ? '#14161A' : '#CFCFC6', pick: () => setG({ side: k }) }));
+      out.dbStart = () => setG({ step: 'write' }); out.dbMotion = m[0]; out.dbSide = g.side === 'for' ? 'You argue for' : 'You argue against';
+      out.dbOpen = g.open; out.dbSetOpen = (e) => setG({ open: e.target.value }); const wc = g.open.trim() ? g.open.trim().split(/\s+/).length : 0; out.dbWords = wc + ' words · aim for 60–150';
+      out.dbSubmit = () => { if (wc < 25) { this.toast('Write at least 25 words: a claim, a reason and an example.'); return; } setG({ step: 'ask', qi: 0, log: [] }); };
+      const Qs = g.side === 'for' ? m[1] : m[2]; out.dbQ = Qs[Math.min(g.qi, Qs.length - 1)]; out.dbAns = g.ans; out.dbSetAns = (e) => setG({ ans: e.target.value });
+      out.dbLog = g.log.map((x) => ({ q: x[0], a: x[1] }));
+      out.dbReply = () => { const a = this.state.playing.ans.trim(); if (a.split(/\s+/).length < 6) { this.toast('Answer Socrates in a full sentence or two.'); return; } const log = this.state.playing.log.concat([[Qs[g.qi], a]]);
+        if (g.qi + 1 >= Qs.length) { const sc = this.scoreDebate(this.state.playing.open + ' ' + log.map((x) => x[1]).join(' ')); const tot = sc.reduce((x, s) => x + s[1], 0); this.addPts('debate', tot * 5); setG({ step: 'done', log, ans: '', sc }); }
+        else setG({ qi: g.qi + 1, log, ans: '' }); };
+      const sc = g.sc || []; out.dbScores = sc.map((s) => ({ k: s[0], v: s[1] + ' of 4', w: s[1] * 25, tip: { Claim: 'Say exactly what you believe in the first sentence.', Evidence: 'Add a number, an example or something you saw yourself.', Rebuttal: 'Name the best argument against you, then answer it.', Clarity: 'Keep sentences short: one idea each.' }[s[0]] }));
+      out.dbTotal = sc.length ? sc.reduce((x, s) => x + s[1], 0) + ' of 16 · +' + sc.reduce((x, s) => x + s[1], 0) * 5 + ' points' : '';
+      out.dbAgain = () => setG({ step: 'pick', open: '', qi: 0, ans: '', log: [], sc: null });
+    }
+    if (g.kind === 'circuit') {
+      const r = this.circuit(g); out.isCircuit = true; out.ckV = String(g.v); out.ckN = String(g.n);
+      out.ckSetV = (e) => setG({ v: Number(e.target.value) }); out.ckSetN = (e) => setG({ n: Number(e.target.value) });
+      out.ckPar = [[false, 'Series'], [true, 'Parallel']].map(([k, l]) => ({ label: l, pressed: g.par === k ? 'true' : 'false', bg: g.par === k ? '#14161A' : '#FFFFFF', fg: g.par === k ? '#FFFFFF' : '#14161A', bd: g.par === k ? '#14161A' : '#CFCFC6', pick: () => setG({ par: k }) }));
+      out.ckOn = g.on ? 'true' : 'false'; out.ckToggle = () => setG({ on: !g.on });
+      out.ckBulbs = Array.from({ length: g.n }, (x, i) => ({ n: String(i + 1), glow: (0.12 + r.b * 0.88).toFixed(2), ring: r.b > 0.05 ? '0 0 ' + Math.round(8 + r.b * 26) + 'px ' + Math.round(r.b * 10) + 'px rgba(249,168,38,' + (0.25 + r.b * 0.5).toFixed(2) + ')' : 'none' }));
+      out.ckI = 'Current from the battery: ' + r.I + ' A'; out.ckP = 'Power in each bulb: ' + r.P + ' W'; out.ckNote = g.on ? (g.par ? 'In parallel every bulb gets the full ' + g.v + ' V, so adding bulbs keeps them bright but drains the battery faster.' : 'In series the ' + g.v + ' V is shared between ' + g.n + (g.n === 1 ? ' bulb' : ' bulbs') + ', so each one gets dimmer as you add more.') : 'Switch open: no complete loop, no current.';
+      const CH = [['Make 3 bulbs each as bright as one bulb on 3 V', (x) => x.n === 3 && x.par && x.v === 3 && x.on], ['Make 4 bulbs glow on the same battery with the least current', (x) => x.n === 4 && !x.par && x.on], ['Light 2 bulbs at full brightness using 6 V in series', (x) => x.n === 2 && !x.par && x.v === 6 && x.on]];
+      out.ckCh = CH.map((c, i) => { const done = !!g.ch[i]; const now = c[1](g); return { t: c[0], done: done ? '✓ Done' : (now ? 'Ready: check it' : 'Not yet'), fg: done ? '#115E59' : (now ? '#92400E' : '#62676F'), check: () => { if (done) return; if (c[1](this.state.playing)) { const ch = Object.assign({}, this.state.playing.ch); ch[i] = true; setG({ ch }); this.addPts('robotics', 25); this.toast('Challenge done: +25 points.'); } else this.toast('Not yet. Change the battery, the number of bulbs or the wiring.'); } }; });
+    }
+    if (g.kind === 'piano') {
+      const F = { C: 261.63, 'C#': 277.18, D: 293.66, 'D#': 311.13, E: 329.63, F: 349.23, 'F#': 369.99, G: 392.0, 'G#': 415.3, A: 440.0, 'A#': 466.16, B: 493.88, 'C2': 523.25 };
+      const song = ['E', 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', 'D', 'E', 'E', 'D', 'D']; const nxt = song[g.i];
+      const press = (k) => { this.tone(F[k]); const G2 = this.state.playing; if (G2.done) return; if (k === song[G2.i]) { const i = G2.i + 1; if (i >= song.length) { setG({ i, done: true, last: k }); this.addPts('music', Math.max(10, 40 - G2.miss * 3)); this.toast('Ode to Joy, first line: done. +' + Math.max(10, 40 - G2.miss * 3) + ' points.'); } else setG({ i, last: k }); } else setG({ miss: G2.miss + 1, last: k }); };
+      out.isPiano = true;
+      out.pnKeys = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C2'].map((k) => ({ k: k === 'C2' ? 'C' : k, aria: 'Play ' + (k === 'C2' ? 'high C' : k), bg: !g.done && nxt === k ? '#F9A826' : '#FFFFFF', press: () => press(k) }));
+      out.pnBlack = [['C#', 9.5], ['D#', 22], ['F#', 47], ['G#', 59.5], ['A#', 72]].map(([k, left]) => ({ aria: 'Play ' + k, left: String(left), press: () => press(k) }));
+      out.pnSong = song.map((n, i) => ({ n, bg: i < g.i ? '#DDF4F1' : (i === g.i ? '#FEF1D9' : '#F4F4EF'), fg: i < g.i ? '#115E59' : '#14161A' }));
+      out.pnMsg = g.done ? 'First line of Ode to Joy (Beethoven): played with ' + g.miss + (g.miss === 1 ? ' slip.' : ' slips.') : 'Follow the lit key. ' + g.i + ' of ' + song.length + ' notes · ' + g.miss + (g.miss === 1 ? ' slip' : ' slips');
+      out.pnRestart = () => setG({ i: 0, miss: 0, done: false, last: '' });
+    }
+    if (g.kind === 'vocab') {
+      const S = this.vocabSets(); const set = S[g.lang][1]; const w = set[Math.min(g.i, set.length - 1)];
+      out.isVocab = true; out.vcStartShow = !g.started; out.vcLangs = Object.keys(S).map((k) => ({ label: S[k][0], pressed: g.lang === k ? 'true' : 'false', bg: g.lang === k ? '#14161A' : '#FFFFFF', fg: g.lang === k ? '#FFFFFF' : '#14161A', bd: g.lang === k ? '#14161A' : '#CFCFC6', pick: () => { if (!g.started || g.done) setG({ lang: k, i: 0, score: 0, streak: 0, right: 0, done: false, started: false, last: null }); } }));
+      out.vcStart = () => setG({ started: true, i: 0, left: 6, score: 0, streak: 0, right: 0, done: false, last: null }); out.vcStarted = g.started && !g.done;
+      out.vcWord = w[0]; out.vcOpts = w[2].map((o, j) => ({ t: o, pick: () => this.vocabAnswer(j) })); out.vcLeft = g.left + ' s'; out.vcProg = 'Word ' + (g.i + 1) + ' of ' + set.length + ' · streak ' + g.streak;
+      out.vcHasLast = !!g.last; out.vcMsg = g.last ? (g.last.ok ? '✓ ' + g.last.word + ' = ' + g.last.ans : '✗ ' + g.last.word + ' means “' + g.last.ans + '”') : ''; out.vcLastBg = g.last && g.last.ok ? '#DDF4F1' : '#FEF1D9'; out.vcLastFg = g.last && g.last.ok ? '#115E59' : '#92400E';
+      out.vcDone = !!g.done; out.vcScore = g.right + ' of ' + set.length + ' right · ' + g.score + ' points'; out.vcAgain = () => setG({ started: true, i: 0, left: 6, score: 0, streak: 0, right: 0, done: false, last: null });
+    }
+    return out;
+  }
+  hostVals() {
+    const st = this.state; const H = st.host; const no = () => {};
+    const base = { hOpen: false, hClose: no, hKinds: [], hCats: [], hT: '', hSetT: no, hD: '', hSetD: no, hWhere: [], hWho: [], hWhen: '', hSetWhen: no, hPlace: '', hSetPlace: no, hIsInPerson: false, hCap: '', hSetCap: no, hAges: [], hSubmit: no, hNote: '', hIsPost: false, hNotPost: true, hSubmitLabel: '' };
+    if (!H) return base; const setH = (o) => this.setState({ host: Object.assign({}, this.state.host, o) }); const C = this.C;
+    const pr = (on) => ({ pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6' });
+    const isPost = H.kind === 'post';
+    return Object.assign(base, { hOpen: true, hClose: () => this.setState({ host: null }), hIsPost: isPost, hNotPost: !isPost,
+      hKinds: [['session', 'Host a session'], ['comp', 'Run a competition'], ['guide', 'Share a game guide'], ['post', 'Post an update or question']].map(([k, l]) => Object.assign(pr(H.kind === k), { label: l, pick: () => setH({ kind: k }) })),
+      hCats: Object.keys(C).map((k) => Object.assign(pr(H.cat === k), { label: C[k][0], pick: () => setH({ cat: k }) })),
+      hT: H.t, hSetT: (e) => setH({ t: e.target.value }), hD: H.d, hSetD: (e) => setH({ d: e.target.value }),
+      hWhere: [['online', 'Online'], ['inperson', 'In person'], ['hybrid', 'Both']].map(([k, l]) => Object.assign(pr(H.where === k), { label: l, pick: () => setH({ where: k }) })),
+      hWho: [['solo', 'Individuals'], ['team', 'Teams'], ['both', 'Either']].map(([k, l]) => Object.assign(pr(H.who === k), { label: l, pick: () => setH({ who: k }) })),
+      hWhen: H.when, hSetWhen: (e) => setH({ when: e.target.value }), hPlace: H.place, hSetPlace: (e) => setH({ place: e.target.value }), hIsInPerson: H.where !== 'online',
+      hCap: H.cap, hSetCap: (e) => setH({ cap: e.target.value }),
+      hAges: ['6–9', '10–13', '14–17', '18+'].map((a) => Object.assign(pr(H.age === a), { label: a, pick: () => setH({ age: a }) })),
+      hNote: isPost ? 'Posts are checked by a moderator before they appear. No phone numbers, addresses or links to private chats.' : (H.where !== 'online' ? 'In-person sessions run in public places with a verified adult host. Because you’re under 18, Nduta co-hosts and Wanjiru approves first.' : 'Online sessions are moderated. Because you’re under 18, a guide co-hosts.'),
+      hSubmitLabel: isPost ? 'Send for moderation' : 'Submit for review',
+      hSubmit: () => { const h = this.state.host; if (h.t.trim().length < 4) { this.toast('Give it a title.'); return; }
+        if (h.kind === 'post') { this.setState({ host: null, myPosts: [[h.cat, 'Amani M. (you)', h.t.trim() + (h.d.trim() ? ': ' + h.d.trim() : ''), 'just now', 0, true]].concat(this.state.myPosts) }); this.toast('Posted. A moderator will check it shortly.'); return; }
+        const id = 'mine-' + Date.now(); const when = h.when ? h.when.replace('T', ' ') : 'To be set';
+        const e = { id, cat: h.cat, t: h.t.trim(), d: (h.d.trim() || 'Hosted by Amani, co-hosted by Nduta.') + ' (in review)', who: h.who, where: h.where, play: ['live'], comp: h.kind === 'comp' ? (h.who === 'team' ? 'league' : 'ind') : 'fun', ages: h.age, lvl: 'All levels', host: 'Amani M. with Nduta', when, place: h.where === 'online' ? 'Online' : (h.place || 'Public venue to confirm'), members: 1, spots: Number(h.cap) || 10, mine: true };
+        this.setState({ host: null, created: [e].concat(this.state.created) });
+        if (h.where !== 'online') this.write(this.read().concat([{ id: 'host-' + id, kind: 'club', ref: id, title: 'Amani wants to host “' + e.t + '” in person', detail: 'At ' + e.place + ', ' + when + ', co-hosted by Nduta. Up to ' + e.spots + ' people, ages ' + e.age + '.', from: 'Amani', at: 'Tue 3 Nov', status: 'pending' }]));
+        this.toast(h.where !== 'online' ? 'Sent to Wanjiru and a moderator. It shows as “in review” until both say yes.' : 'Submitted. It’s listed as “in review” until a moderator checks it.'); } });
+  }
+  guideVals() {
+    const st = this.state; const no = () => {}; const base = { gOpen: false, gClose: no, gT: '', gOrigin: '', gMeta: '', gMat: '', gSteps: [], gNote: '', gHasNote: false, gHost: no };
+    if (!st.guide) return base; const g = this.GD.find((x) => x.id === st.guide);
+    return Object.assign(base, { gOpen: true, gClose: () => this.setState({ guide: null }), gT: g.t, gOrigin: g.origin, gMeta: g.players + ' players · ages ' + g.ages + ' · ' + g.where, gMat: g.mat, gSteps: g.steps.map((s, i) => ({ n: String(i + 1), t: s })), gNote: g.note, gHasNote: !!g.note,
+      gHost: () => this.setState({ guide: null, host: { kind: 'session', cat: 'culture', t: g.t.split(' (')[0] + ' afternoon', d: 'We’ll play ' + g.t + ' using the guide. Beginners welcome.', where: 'inperson', who: 'team', when: '2026-11-14T15:00', place: 'Kilimani Library', cap: '12', age: '10–13', step: 'form' } }) });
+  }
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+}
+return Component;
+});
+
+DC.mount("Clubs");
+</script>
+</body>
+</html>

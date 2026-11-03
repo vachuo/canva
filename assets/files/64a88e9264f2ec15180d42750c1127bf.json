@@ -1,0 +1,235 @@
+{
+  "learner": "Amani M.",
+  "issued": "2026-11-02",
+  "verify": "https://vachuo.app/v/RC-AM-7K2Q-9X",
+  "credentials": [
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      ],
+      "id": "https://vachuo.app/credentials/amani-m/1",
+      "type": [
+        "VerifiableCredential",
+        "OpenBadgeCredential"
+      ],
+      "issuer": {
+        "id": "https://vachuo.app/issuer",
+        "type": [
+          "Profile"
+        ],
+        "name": "Vachuo"
+      },
+      "validFrom": "2026-10-24T12:00:00Z",
+      "name": "Builds and tests a physical model",
+      "credentialSubject": {
+        "type": [
+          "AchievementSubject"
+        ],
+        "name": "Amani M.",
+        "achievement": {
+          "id": "https://vachuo.app/achievements/builds-and-tests-a-physical-model",
+          "type": [
+            "Achievement"
+          ],
+          "name": "Builds and tests a physical model",
+          "description": "Builds and tests a physical model. Area: Science · Making.",
+          "criteria": {
+            "narrative": "Demonstrated with evidence from more than one source; reviewed by a person."
+          }
+        },
+        "evidence": [
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Real world",
+            "description": "A rain gauge, built and calibrated over three weeks",
+            "audience": "Photo log and data sheet"
+          },
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Peer",
+            "description": "Build reviewed by Tomás and Neema",
+            "audience": "Peer review, Connects"
+          },
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Elder",
+            "description": "Checked against the weather station: a sound method",
+            "audience": "Dr. Wairimu, hydrologist"
+          }
+        ]
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      ],
+      "id": "https://vachuo.app/credentials/amani-m/2",
+      "type": [
+        "VerifiableCredential",
+        "OpenBadgeCredential"
+      ],
+      "issuer": {
+        "id": "https://vachuo.app/issuer",
+        "type": [
+          "Profile"
+        ],
+        "name": "Vachuo"
+      },
+      "validFrom": "2026-10-16T12:00:00Z",
+      "name": "Writes a persuasive essay in Kiswahili",
+      "credentialSubject": {
+        "type": [
+          "AchievementSubject"
+        ],
+        "name": "Amani M.",
+        "achievement": {
+          "id": "https://vachuo.app/achievements/writes-a-persuasive-essay-in-kiswahili",
+          "type": [
+            "Achievement"
+          ],
+          "name": "Writes a persuasive essay in Kiswahili",
+          "description": "Writes a persuasive essay in Kiswahili. Area: Kiswahili.",
+          "criteria": {
+            "narrative": "Demonstrated with evidence from more than one source; reviewed by a person."
+          }
+        },
+        "evidence": [
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Tutor",
+            "description": "Insha on single-use plastics, scored against the argument rubric",
+            "audience": "Vachuo tutor"
+          },
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Guide",
+            "description": "Read aloud and defended in conversation",
+            "audience": "Nduta Kamau, guide"
+          }
+        ]
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      ],
+      "id": "https://vachuo.app/credentials/amani-m/3",
+      "type": [
+        "VerifiableCredential",
+        "OpenBadgeCredential"
+      ],
+      "issuer": {
+        "id": "https://vachuo.app/issuer",
+        "type": [
+          "Profile"
+        ],
+        "name": "Vachuo"
+      },
+      "validFrom": "2026-10-09T12:00:00Z",
+      "name": "Explains moon phases with a working model",
+      "credentialSubject": {
+        "type": [
+          "AchievementSubject"
+        ],
+        "name": "Amani M.",
+        "achievement": {
+          "id": "https://vachuo.app/achievements/explains-moon-phases-with-a-working-model",
+          "type": [
+            "Achievement"
+          ],
+          "name": "Explains moon phases with a working model",
+          "description": "Explains moon phases with a working model. Area: Science.",
+          "criteria": {
+            "narrative": "Demonstrated with evidence from more than one source; reviewed by a person."
+          }
+        },
+        "evidence": [
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Real world",
+            "description": "Lamp-and-ball model with a recorded explanation",
+            "audience": "Video, 3 minutes"
+          },
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Tutor",
+            "description": "Predicted the next night’s phase from the model",
+            "audience": "Vachuo tutor"
+          }
+        ]
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      ],
+      "id": "https://vachuo.app/credentials/amani-m/4",
+      "type": [
+        "VerifiableCredential",
+        "OpenBadgeCredential"
+      ],
+      "issuer": {
+        "id": "https://vachuo.app/issuer",
+        "type": [
+          "Profile"
+        ],
+        "name": "Vachuo"
+      },
+      "validFrom": "2026-10-02T12:00:00Z",
+      "name": "Codes an interactive story",
+      "credentialSubject": {
+        "type": [
+          "AchievementSubject"
+        ],
+        "name": "Amani M.",
+        "achievement": {
+          "id": "https://vachuo.app/achievements/codes-an-interactive-story",
+          "type": [
+            "Achievement"
+          ],
+          "name": "Codes an interactive story",
+          "description": "Codes an interactive story. Area: Making · outside Vachuo.",
+          "criteria": {
+            "narrative": "Demonstrated with evidence from more than one source; reviewed by a person."
+          }
+        },
+        "evidence": [
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Open hours",
+            "description": "A Scratch story about her grandmother’s farm",
+            "audience": "Added by Amani"
+          },
+          {
+            "type": [
+              "Evidence"
+            ],
+            "name": "Peer",
+            "description": "Demonstrated to Mwangi, who taught her",
+            "audience": "Skill exchange, Connects"
+          }
+        ]
+      }
+    }
+  ]
+}

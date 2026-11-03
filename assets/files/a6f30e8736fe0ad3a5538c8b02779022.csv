@@ -1,0 +1,10 @@
+Group,Learners,Soil,Water poured (ml),Wait (min),Test 1 drained (ml),Test 2 drained (ml),Average drained (ml),Held in soil (ml)
+Kilimani A,"Amani, Neema, Tomás",Clay,200,10,62,58,60,140
+Kilimani A,"Amani, Neema, Tomás",Loam,200,10,118,122,120,80
+Kilimani A,"Amani, Neema, Tomás",Sand,200,10,168,172,170,30
+Kilimani B,"Mwangi, Johari",Clay,200,10,55,61,58,142
+Kilimani B,"Mwangi, Johari",Loam,200,10,125,119,122,78
+Kilimani B,"Mwangi, Johari",Sand,200,10,181,185,183,17
+Lavington,"Kim, Bob, Mateo",Clay,200,10,64,66,65,135
+Lavington,"Kim, Bob, Mateo",Loam,200,10,114,116,115,85
+Lavington,"Kim, Bob, Mateo",Sand (coarse),200,10,190,188,189,11

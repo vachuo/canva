@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vachuo · My notes</title>
+<title>Vachuo · My classes</title>
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
 <style>
+.flipin{animation:flipin .5s ease}.flipin2{animation:flipin .5s ease}@keyframes flipin{from{transform:perspective(900px) rotateY(-80deg);opacity:.2}to{transform:none;opacity:1}}
+.fadein2{animation:fadein .35s ease}
 .lcard{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .lcard:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(20,22,26,.5)}
 .kb{animation:kb 18s ease-in-out infinite alternate}
@@ -30,7 +33,7 @@ input[type=range]{accent-color:#F9A826}
 <body>
 <div id="app"></div>
 <template id="dc-Notes">
-<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
 <nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
@@ -39,14 +42,17 @@ input[type=range]{accent-color:#F9A826}
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
 <a href="today.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>Today</a>
-<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>Tutor session</a>
-<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My map</a>
-<a href="notes.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11 8h5M11 12h5"/></svg>My notes</a>
-<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16.5h6"/></svg>Passport</a>
+<a href="session.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>My tutor</a>
+<a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My learning map</a>
+<a href="notes.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; background: #E4ECFD; color: #1E40AF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M10.5 8.5v5l4-2.5z"/><path d="M8 20.5h8"/></svg>My classes</a>
+<a href="assessments.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14.6l2 2 4-4.2"/></svg>My assessments</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h2.5"/><path d="M13.5 16.3l1.4 1.4 2.4-2.7"/></svg>Report card</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Community</div>
 <a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
+<a href="clubs.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20h6M8 17h8l-1-6h-6zM10 11V8h4v3M12 4v4M10.5 5.5h3"/></svg>Clubs</a>
+<a href="showcase.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
@@ -56,7 +62,8 @@ input[type=range]{accent-color:#F9A826}
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
 <a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
 </div>
-<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<button type="button" role="switch" aria-checked="{{uiOn}}" onClick="{{uiToggle}}" style="margin-top: auto; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; background: transparent; color: #3F444C; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span style="flex: 1">Dark mode</span><span aria-hidden="true" style="position: relative; flex: none; width: 38px; height: 22px; border-radius: 999px; background: {{uiTrack}}; transition: background 160ms ease"><span style="position: absolute; top: 3px; left: {{uiKnob}}; width: 16px; height: 16px; border-radius: 50%; background: #FDFDFD; box-shadow: 0 1px 2px rgba(20,22,26,0.35); transition: left 160ms ease"></span></span></button>
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
 <img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD">
 <span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Amani M.</span><span style="font-size: 12.5px; color: #62676F">Learner · K→16 pathway</span></span>
 </div>
@@ -67,7 +74,7 @@ input[type=range]{accent-color:#F9A826}
 
 <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
 <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">My notes</span>
+<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">My classes</span>
 <h1 style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Every lesson, note and resource, in one place.</h1>
 <p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 680px; text-wrap: pretty">Watch, pause, write it down, ask. Lessons are arranged by subject, path and section, and your notes count as evidence only when you choose.</p>
 </div>
@@ -78,6 +85,8 @@ input[type=range]{accent-color:#F9A826}
 </div>
 </header>
 
+<dc-import name="Approvals" area="classes" embedded="{{ true }}" ui-theme="{{uiTheme}}"></dc-import>
+
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px">
 <div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
 <label for="nsearch" style="font-size: 13px; font-weight: 600; color: #3F444C">Search lessons, transcripts and notes</label>
@@ -86,34 +95,22 @@ input[type=range]{accent-color:#F9A826}
 <input id="nsearch" type="search" value="{{q}}" onChange="{{setQ}}" placeholder="Try “batches”, “ngeli” or “fair test”" style="width: 100%; min-height: 48px; box-sizing: border-box; padding: 0 16px 0 44px; border-radius: 14px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 15px; color: #14161A">
 </div>
 </div>
-<div role="group" aria-label="Subject" style="display: flex; flex-wrap: wrap; gap: 6px">
+<div role="group" aria-label="Subject" style="flex: 1 1 100%; width: 100%; min-width: 0; display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto; padding-bottom: 2px">
 <template data-for="{{subjChips}}" data-as="s">
-<button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 14px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{s.dot}}"></span>{{s.name}}</button>
+<button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="flex: 1 0 auto; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 13px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{s.dot}}"></span>{{s.name}}</button>
 </template>
 </div>
 </div>
 
 <section aria-labelledby="lesson-title" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
 <div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
-<div style="border-radius: 20px; overflow: hidden; background: #0B0D10; box-shadow: 0 24px 48px -32px rgba(20,22,26,0.7)">
-<div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: {{pBg}}">
-<span aria-hidden="true" style="position: absolute; width: 70%; aspect-ratio: 1; right: -18%; top: -45%; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.32)"></span>
-<span aria-hidden="true" style="position: absolute; width: 120%; aspect-ratio: 1; left: -55%; top: -95%; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span>
-<span aria-hidden="true" style="position: absolute; left: -20%; right: -20%; bottom: -22%; height: 42%; border-radius: 50%; background: #FBF7EE"></span>
-<div aria-hidden="true" class="{{kbCls}}" style="position: absolute; right: 6%; bottom: 4%; height: 78%; display: flex; align-items: flex-end; gap: 6px">
-<img src="{{pImg}}" alt="" style="display: block; height: 100%; width: auto">
-</div>
-<div style="position: absolute; left: 5%; top: 7%; max-width: 54%; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; gap: 6px">
-<span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.92); color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{pSubject}}</span>
-<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border-radius: 999px; background: {{pStatusBg}}; color: {{pStatusFg}}; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600"><template data-if="{{pLive}}"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: currentColor"></span></template>{{pStatus}}</span>
-</div>
-<span style="font-size: clamp(22px, 2.6vw, 34px); line-height: 1.08; font-weight: 600; letter-spacing: -0.01em; color: {{pTitleFg}}; text-wrap: balance">{{title}}</span>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: {{pTitleFg}}; opacity: 0.85">{{pHostLine}}</span>
-</div>
+<div ref="{{playerRef}}" style="border-radius: 20px; overflow: hidden; background: #0B0D10; box-shadow: 0 24px 48px -32px rgba(20,22,26,0.7)">
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0B0D10">
+<video ref="{{vidRefCb}}" src="{{vSrc}}" poster="{{vPoster}}" preload="metadata" playsInline="{{ true }}" aria-label="{{videoAria}}" onClick="{{togglePlay}}" onTimeUpdate="{{onTime}}" onPlay="{{onPlay}}" onPause="{{onPause}}" onEnded="{{onEnded}}" onLoadedMetadata="{{onMeta}}" onVolumeChange="{{onVol}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0B0D10; display: block; cursor: pointer"></video>
+<template data-if="{{showBigPlay}}"><div style="position: absolute; left: 14px; top: 14px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.92); color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{pSubject}}</span><span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border-radius: 999px; background: {{pStatusBg}}; color: {{pStatusFg}}; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600"><template data-if="{{pLive}}"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: currentColor"></span></template>{{pStatus}}</span></div></template>
 <template data-if="{{showBigPlay}}"><button type="button" class="bigplay" aria-label="{{playAria}}" onClick="{{togglePlay}}" style="position: absolute; left: 50%; top: 50%; width: 78px; height: 78px; margin: -39px 0 0 -39px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 34px -14px rgba(0,0,0,0.6)"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button></template>
 <template data-if="{{showCaption}}"><span aria-live="polite" style="position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); max-width: 86%; padding: 6px 12px; border-radius: 8px; background: rgba(11,13,16,0.78); color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.4; text-align: center">{{caption}}</span></template>
-<span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; height: 4px; width: {{pct}}%; background: #F9A826"></span>
+<span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; height: 4px; width: {{pct}}%; background: #F9A826; pointer-events: none"></span>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 14px; background: #14161A; color: #FFFFFF">
 <button type="button" aria-label="{{playAria}}" onClick="{{togglePlay}}" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: none; background: #F9A826; color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center">
@@ -129,6 +126,13 @@ input[type=range]{accent-color:#F9A826}
 </div>
 <button type="button" aria-label="{{speedAria}}" onClick="{{cycleSpeed}}" style="flex: none; min-width: 52px; height: 36px; border-radius: 999px; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px">{{speedText}}</button>
 <button type="button" aria-pressed="{{ccPressed}}" onClick="{{toggleCc}}" style="flex: none; min-width: 44px; height: 36px; border-radius: 8px; border: 1px solid {{ccBd}}; background: {{ccBg}}; color: {{ccFg}}; cursor: pointer; font-size: 12.5px; font-weight: 600">CC</button>
+<div role="group" aria-label="Sound" style="flex: none; display: flex; align-items: center; gap: 8px">
+<button type="button" aria-label="{{muteAria}}" aria-pressed="{{mutedA}}" onClick="{{toggleMute}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><template data-if="{{soundOn}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></template><template data-if="{{soundOff}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9l5 6M21 9l-5 6"/></svg></template></button>
+<label for="vol" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Volume</label>
+<input id="vol" type="range" min="0" max="100" step="1" value="{{vol100}}" onChange="{{setVol}}" style="width: 96px; margin: 0; cursor: pointer">
+<span style="min-width: 34px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; color: #DCE6FD">{{volText}}</span>
+</div>
+<button type="button" aria-label="Full screen" onClick="{{fullscreen}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
 </div>
 
@@ -149,11 +153,11 @@ input[type=range]{accent-color:#F9A826}
 <template data-if="{{isNext}}"><button type="button" aria-pressed="{{remindPressed}}" onClick="{{toggleRemind}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid {{remindBd}}; background: {{remindBg}}; color: {{remindFg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{remindLabel}}</button></template>
 <template data-if="{{canMark}}"><button type="button" onClick="{{markWatched}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer">{{markLabel}}</button></template>
 <a href="session.html" style="display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none">Ask the tutor about {{nowText}}</a>
-<button type="button" onClick="{{saveOffline}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer">{{offlineLabel}}</button>
+<a href="{{vSrc}}" download="{{vFile}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500; text-decoration: none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for offline</a>
 </div>
 <template data-if="{{hasIdeas}}">
 <div style="border-radius: 14px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
-<span style="display: inline-flex; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF"><img src="assets/img/6b7158ce9be36ad9a33a1085cc3b48e2.svg" alt="" style="width: 24px; height: 24px; border-radius: 50%">Key ideas · summary by the Vachuo tutor</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF"><img src="assets/img/6b7158ce9be36ad9a33a1085cc3b48e2.svg" alt="" style="width: 24px; height: 24px; border-radius: 50%">Key ideas · summary by Socrates</span>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 17px; line-height: 1.45">
 <template data-for="{{ideas}}" data-as="i"><li>{{i}}</li></template>
 </ul>
@@ -193,15 +197,52 @@ input[type=range]{accent-color:#F9A826}
 <div class="fadein" style="display: flex; flex-direction: column; gap: 12px">
 <label for="ndraft" style="font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: #3F444C">New note at {{nowText}}</label>
 <textarea id="ndraft" rows="3" value="{{draft}}" onChange="{{setDraft}}" placeholder="What clicked? What’s still fuzzy?" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<label style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>Attach files<input type="file" multiple="{{ true }}" accept="image/*,application/pdf,audio/*,video/*,.doc,.docx,.txt,.csv" onChange="{{addFiles}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"></label>
+<button type="button" aria-pressed="{{padOpenA}}" onClick="{{togglePad}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{padBd}}; background: {{padBg}}; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Draw or handwrite</button>
+</div>
+<template data-if="{{padOpen}}">
+<div class="fadein" style="display: flex; flex-direction: column; gap: 8px">
+<div style="position: relative; height: 240px; border-radius: 14px; border: 1px solid #93BBF3; background: #FFFFFF; background-image: linear-gradient(#ECECE6 1px, transparent 1px); background-size: 100% 28px; overflow: hidden">
+<span style="position: absolute; left: 10px; top: 8px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; color: #8A8F96">Finger, stylus or mouse · pressure-sensitive</span>
+<canvas ref="{{padRefCb}}" aria-label="Handwriting and drawing pad" onPointerDown="{{padDown}}" onPointerMove="{{padMove}}" onPointerUp="{{padUp}}" onPointerLeave="{{padUp}}" onPointerCancel="{{padUp}}" style="position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair"></canvas>
+</div>
+<div role="toolbar" aria-label="Pen tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif">
+<template data-for="{{tools}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template>
+<template data-for="{{inks}}" data-as="c"><button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 28px; height: 28px; border-radius: 50%; border: 3px solid {{c.ring}}; background: {{c.hex}}; cursor: pointer"></button></template>
+<button type="button" onClick="{{padUndoCb}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 12.5px; cursor: pointer">Undo</button>
+<button type="button" onClick="{{padClearCb}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 12.5px; cursor: pointer">Clear</button>
+<button type="button" onClick="{{padAttachCb}}" style="margin-left: auto; min-height: 34px; padding: 0 12px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer">Attach drawing</button>
+</div>
+</div>
+</template>
+<template data-if="{{hasPending}}">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{pendingList}}" data-as="a">
+<div style="display: flex; align-items: center; gap: 8px; padding: 6px 8px 6px 6px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FAFAF7; font-family: Geist, system-ui, sans-serif; font-size: 12.5px">
+<template data-if="{{a.isImg}}"><img src="{{a.url}}" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: #FFFFFF"></template>
+<template data-if="{{a.isFile}}"><span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 8px; background: #E4ECFD; color: #1E40AF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px">{{a.ext}}</span></template>
+<span style="display: flex; flex-direction: column; max-width: 160px"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{a.name}}</span><span style="color: #8A8F96">{{a.size}}</span></span>
+<button type="button" aria-label="{{a.aria}}" onClick="{{a.remove}}" style="width: 26px; height: 26px; border-radius: 50%; border: none; background: transparent; color: #8A8F96; cursor: pointer">×</button>
+</div>
+</template>
+</div>
+</template>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <button type="button" onClick="{{addNote}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Add note at {{nowText}}</button>
 <button type="button" aria-pressed="{{evPressed}}" onClick="{{toggleEvidence}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{evBd}}; background: {{evBg}}; color: {{evFg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{evLabel}}</button>
 </div>
-<template data-if="{{noNotes}}"><p style="margin: 0; padding: 14px; border-radius: 12px; background: #F4F4EF; font-size: 16px; color: #3F444C">No notes yet. Pause anywhere and write one; it’s pinned to that moment.</p></template>
+<template data-if="{{noNotes}}"><p style="margin: 0; padding: 14px; border-radius: 12px; background: #F4F4EF; font-size: 16px; color: #3F444C">No notes yet. Pause anywhere and write, draw or attach something; it’s pinned to that moment.</p></template>
 <template data-for="{{noteList}}" data-as="n">
 <div class="fadein" style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 12px; background: #FEF9EE; border: 1px solid #F6DFAE">
 <button type="button" onClick="{{n.seek}}" aria-label="{{n.aria}}" style="flex: none; min-height: 30px; padding: 0 8px; border-radius: 8px; border: none; background: #F9A826; color: #14161A; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; cursor: pointer">{{n.time}}</button>
-<span style="flex: 1; min-width: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.45">{{n.text}}</span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<template data-if="{{n.hasText}}"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.45">{{n.text}}</span></template>
+<template data-if="{{n.hasAtt}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{n.atts}}" data-as="a">
+<template data-if="{{a.isImg}}"><a href="{{a.url}}" download="{{a.name}}" title="{{a.name}}" style="display: block; border-radius: 10px; overflow: hidden; border: 1px solid #E2E2DA; background: #FFFFFF"><img src="{{a.url}}" alt="{{a.name}}" style="display: block; width: 120px; height: 84px; object-fit: contain"></a></template>
+<template data-if="{{a.isFile}}"><a href="{{a.url}}" download="{{a.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 12px; text-decoration: none">{{a.ext}} · {{a.name}}</a></template>
+</template></div></template>
+</div>
 <button type="button" aria-label="Delete note" onClick="{{n.del}}" style="flex: none; width: 30px; height: 30px; border-radius: 50%; border: none; background: transparent; color: #8A8F96; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 </div>
 </template>
@@ -218,6 +259,7 @@ input[type=range]{accent-color:#F9A826}
 <span aria-hidden="true" style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: {{r.bg}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{r.fg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 16.5px; font-weight: 600; line-height: 1.25">{{r.title}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{r.meta}}</span></span>
 <button type="button" onClick="{{r.open}}" style="flex: none; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer">{{r.cta}}</button>
+<template data-if="{{r.hasFile}}"><a href="{{r.url}}" download="{{r.file}}" aria-label="{{r.dlAria}}" style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; display: flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></template>
 </div>
 </template>
 </div>
@@ -250,7 +292,7 @@ input[type=range]{accent-color:#F9A826}
 <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-size: 16px; font-weight: 600">{{c.who}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: {{c.roleBg}}; color: {{c.roleFg}}">{{c.role}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #8A8F96">{{c.when}}</span></span>
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; line-height: 1.45">{{c.text}}</span>
 <span style="display: flex; flex-wrap: wrap; gap: 6px">
-<button type="button" aria-pressed="{{c.likedPressed}}" onClick="{{c.like}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{c.likeBd}}; background: {{c.likeBg}}; color: {{c.likeFg}}; font-size: 12.5px; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="{{c.heart}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>{{c.likes}}</button>
+<template data-for="{{c.reacts}}" data-as="x"><button type="button" aria-pressed="{{x.pressed}}" aria-label="{{x.aria}}" onClick="{{x.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{x.bd}}; background: {{x.bg}}; color: {{x.fg}}; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="{{x.fill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{x.icon}}"/></svg>{{x.label}}<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px">{{x.n}}</span></button></template>
 <button type="button" onClick="{{c.reply}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 12.5px; cursor: pointer">Reply</button>
 <template data-if="{{c.hasAt}}"><button type="button" onClick="{{c.seek}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: none; background: #F4F7FE; color: #1E40AF; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; cursor: pointer">at {{c.at}}</button></template>
 </span>
@@ -303,7 +345,7 @@ input[type=range]{accent-color:#F9A826}
 <section aria-labelledby="path-h" style="flex: 3 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
 <h2 id="path-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">{{outlineTitle}}</h2>
-<a href="map.html" style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500">See it on My map →</a>
+<a href="map.html" style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500">See it on My learning map →</a>
 </div>
 <div aria-hidden="true" style="height: 8px; border-radius: 4px; background: #ECECE6; overflow: hidden"><div style="width: {{outlinePct}}%; height: 100%; background: {{pColor}}; border-radius: 4px"></div></div>
 <span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{outlineMeta}}</span>
@@ -327,15 +369,27 @@ input[type=range]{accent-color:#F9A826}
 <span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{cardMeta}}</span>
 </div>
 <template data-if="{{hasCard}}">
-<button type="button" onClick="{{flip}}" aria-label="{{flipAria}}" style="position: relative; min-height: 190px; padding: 22px; border-radius: 18px; border: none; background: {{cardBg}}; color: {{cardFg}}; text-align: left; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; box-shadow: 0 16px 30px -22px rgba(20,22,26,0.6)">
+<div class="{{cardAnim}}" style="position: relative; min-height: 210px; padding: 22px; border-radius: 18px; background: {{cardBg}}; color: {{cardFg}}; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 16px 30px -22px rgba(20,22,26,0.6)">
 <span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8">{{cardSide}}</span>
-<template data-if="{{showFront}}"><span class="fadein" style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 600">{{cardFront}}</span></template>
-<template data-if="{{showBack}}"><span class="fadein" style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; line-height: 1.35">{{cardBack}}</span></template>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; opacity: 0.75">{{flipHint}}</span>
-</button>
+<template data-if="{{showFront}}">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 600">{{cardFront}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<label for="cardans" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your answer</label>
+<input id="cardans" type="text" value="{{cardAns}}" onChange="{{setCardAns}}" onKeyDown="{{cardKey}}" placeholder="Type your answer" autoComplete="off" style="flex: 1 1 180px; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: none; background: rgba(255,255,255,0.95); color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 15px">
+<button type="button" onClick="{{checkCard}}" style="flex: none; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Check</button>
+</div>
+<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: inherit; opacity: 0.8; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">Show the answer without typing</button>
+</template>
+<template data-if="{{showBack}}">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: {{verdictBg}}; color: {{verdictFg}}; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 700">{{verdict}}</span>
+<template data-if="{{hasMine}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">You wrote: <b>{{cardMine}}</b></span></template>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; line-height: 1.35">{{cardBack}}</span>
+<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">See the question again</button>
+</template>
+</div>
 <div style="display: flex; gap: 8px">
 <button type="button" onClick="{{again}}" style="flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid #F9A826; background: #FEF1D9; color: #92400E; font-size: 14px; font-weight: 600; cursor: pointer">Again</button>
-<button type="button" onClick="{{gotIt}}" style="flex: 1; min-height: 44px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Got it</button>
+<button type="button" onClick="{{gotIt}}" style="flex: 1; min-height: 44px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: {{gotRing}}">Got it</button>
 </div>
 </template>
 <template data-if="{{deckDone}}">
@@ -353,33 +407,128 @@ input[type=range]{accent-color:#F9A826}
 </div>
 
 </div>
+
+<template data-if="{{viewerOpen}}">
+<div role="dialog" aria-modal="true" aria-label="{{vwTitle}}" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.72); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(820px, 100%); max-height: calc(100vh - 32px); background: #FFFFFF; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 14px 16px; border-bottom: 1px solid #ECECE6">
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 19px; font-weight: 600; line-height: 1.2">{{vwTitle}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{vwMeta}}</span></div>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #3F444C">{{vwCount}}</span>
+<button type="button" onClick="{{vwZoom}}" aria-pressed="{{vwZoomA}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13px; cursor: pointer">{{vwZoomLabel}}</button>
+<a href="{{vwUrl}}" download="{{vwFile}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none">Download {{vwExt}}</a>
+<button type="button" aria-label="Close" onClick="{{vwClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; font-size: 18px">×</button>
+</div>
+<div style="flex: 1; min-height: 0; overflow: auto; background: #ECECE6; padding: 16px">
+<div style="position: relative; width: {{vwWidth}}; max-width: none; margin: 0 auto; aspect-ratio: 640 / 905; overflow: hidden; background: #FFFFFF; box-shadow: 0 10px 30px -18px rgba(20,22,26,0.5)">
+<img src="{{vwSheet}}" alt="{{vwAlt}}" style="position: absolute; width: 400%; height: 300%; left: {{vwLeft}}%; top: {{vwTop}}%; max-width: none"></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid #ECECE6; font-family: Geist, system-ui, sans-serif">
+<button type="button" onClick="{{vwPrev}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer; opacity: {{vwPrevOp}}">← Previous page</button>
+<span style="font-size: 12.5px; color: #62676F">{{vwHint}}</span>
+<button type="button" onClick="{{vwNext}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer; opacity: {{vwNextOp}}">Next page →</button>
+</div>
+</div>
+</div>
+</template>
+
+<template data-if="{{practiceOpen}}">
+<div role="dialog" aria-modal="true" aria-label="{{prTitle}}" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.72); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div class="fadein" style="width: min(620px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: #FFFFFF; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6)">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{prInk}}">{{prCount}}</span><span style="font-size: 22px; font-weight: 600; line-height: 1.2">{{prTitle}}</span></div><button type="button" aria-label="Close" onClick="{{prClose}}" style="flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; font-size: 18px">×</button></div>
+<div aria-hidden="true" style="display: flex; gap: 6px"><template data-for="{{prDots}}" data-as="d"><span style="flex: 1; height: 5px; border-radius: 3px; background: {{d.bg}}"></span></template></div>
+<template data-if="{{prActive}}">
+<p style="margin: 0; font-size: 21px; line-height: 1.35; font-weight: 600">{{prQ}}</p>
+<template data-if="{{prIsMc}}"><div role="group" aria-label="Choices" style="display: flex; flex-direction: column; gap: 8px"><template data-for="{{prOpts}}" data-as="o"><button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="min-height: 48px; padding: 8px 16px; border-radius: 14px; border: 1.5px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; text-align: left; font-family: Geist, system-ui, sans-serif; font-size: 15px; cursor: pointer">{{o.t}}</button></template></div></template>
+<template data-if="{{prIsNum}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><label for="prnum" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your answer</label><input id="prnum" type="text" inputMode="decimal" value="{{prVal}}" onChange="{{prSet}}" onKeyDown="{{prKey}}" placeholder="Your answer" style="flex: 1 1 160px; min-height: 46px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; font-size: 16px"><button type="button" onClick="{{prCheck}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Check</button></div></template>
+<template data-if="{{prAnswered}}"><div class="fadein" style="border-radius: 14px; padding: 12px 14px; background: {{prFbBg}}; display: flex; flex-direction: column; gap: 4px"><b style="font-size: 17px; color: {{prFbFg}}">{{prFb}}</b><span style="font-size: 16px; line-height: 1.45; color: #3F444C">{{prEx}}</span></div><button type="button" onClick="{{prNext}}" style="align-self: flex-end; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">{{prNextLabel}}</button></template>
+</template>
+<template data-if="{{prDone}}"><div class="fadein" style="border-radius: 16px; padding: 18px; background: #DDF4F1; display: flex; flex-direction: column; gap: 8px"><b style="font-size: 24px; color: #115E59">{{prScore}}</b><span style="font-size: 16.5px; line-height: 1.5; color: #134E4A">{{prDoneMsg}}</span><div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" onClick="{{prRetry}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #8FD3C9; background: #FFFFFF; color: #115E59; font-size: 14px; font-weight: 600; cursor: pointer">Try again</button><button type="button" onClick="{{prClose}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Done</button></div></div></template>
+</div>
+</div>
+</template>
 </main>
+</div>
+</template>
+<template id="dc-Approvals">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+<template data-if="{{isParent}}">
+<section aria-labelledby="ap-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="ap-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Waiting for your approval</h2>
+<span style="font-size: 13px; color: #62676F">{{pendingCount}}</span>
+</div>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person club sessions and job applications from your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
+<template data-for="{{pending}}" data-as="a">
+<div class="fadein" style="border: 1px solid #F3DDB0; background: #FEF9EE; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="padding: 2px 9px; border-radius: 999px; background: {{a.kBg}}; color: {{a.kFg}}; font-size: 12px; font-weight: 700">{{a.kind}}</span><span style="font-size: 12.5px; color: #3F444C">From {{a.from}} · {{a.at}}</span></div>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 19px; font-weight: 600; line-height: 1.25">{{a.title}}</span>
+<span style="font-size: 13.5px; line-height: 1.5; color: #3F444C">{{a.detail}}</span>
+<template data-if="{{a.hasAreas}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{a.areas}}" data-as="r"><span style="padding: 2px 8px; border-radius: 6px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 12px; color: #3F444C">{{r.t}}</span></template></div></template>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{a.approve}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">Approve</button><button type="button" onClick="{{a.decline}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Decline</button></div>
+</div>
+</template>
+<template data-if="{{noPending}}"><p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #F4F4EF; font-size: 14px; color: #3F444C">Nothing is waiting. Requests from My assessments, Report card, Clubs and Showcase will appear here.</p></template>
+<template data-if="{{hasDone}}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Decided</span>
+<template data-for="{{done}}" data-as="d"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; font-size: 13.5px"><span style="padding: 2px 8px; border-radius: 999px; background: {{d.sBg}}; color: {{d.sFg}}; font-size: 12px; font-weight: 700">{{d.status}}</span><span style="flex: 1 1 200px">{{d.title}}</span><button type="button" onClick="{{d.undo}}" style="min-height: 32px; padding: 0 10px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; text-decoration: underline; cursor: pointer">Undo</button></div></template>
+</div>
+</template>
+</section>
+</template>
+
+<template data-if="{{isStrip}}">
+<section aria-label="{{stripTitle}}" style="background: {{stripBg}}; border: 1px solid {{stripBd}}; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: {{chipBg}}; color: {{chipFg}}; font-size: 12px; font-weight: 700">{{chip}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 19px; font-weight: 600">{{stripTitle}}</span><span style="font-size: 12.5px; color: #62676F">{{stripSub}}</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{stripItems}}" data-as="s"><div style="flex: 1 1 240px; min-width: 0; padding: 10px 12px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 600; line-height: 1.3">{{s.t}}</span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{s.w}}</span></div></template>
+</div>
+</section>
+</template>
+
 </div>
 </template>
 <script>
 DC.component("Notes", function () {
 class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
   constructor(props) {
     super(props);
     this.L = this.lessons();
+    const V = this.vids();
+    this._vidCb = (el) => this.vidRef(el); this._playerCb = (el) => { this._player = el; }; this._padCb = (el) => this.padRef(el);
     const notes = {}, comments = {};
-    this.L.forEach((l) => { notes[l.id] = l.notes.slice(); comments[l.id] = l.com.slice(); });
-    this.state = { subj: 'all', q: '', cur: 'm-scale', t: 395, playing: false, speed: 1, cc: true, tab: 'transcript', tq: '',
-      notes, comments, draft: '', cdraft: '', liked: {}, sort: 'top', view: 'all', remind: {}, watched: {}, evidence: false, msg: '',
-      ci: 0, back: false, known: {}, again: 0 };
+    this.L.forEach((l) => {
+      const v = V[l.id]; let f = 1;
+      if (v) { if (l.status !== 'next') { f = v.vdur / l.dur; l.dur = Math.round(v.vdur); } l.vdur = v.vdur; l.video = v.v; l.poster = v.poster; l.ch = v.ch; l.tr = v.tr; }
+      notes[l.id] = l.notes.map((n) => [Math.round(n[0] * f), n[1]]);
+      comments[l.id] = l.com.map((c) => (c[5] >= 0 ? c.slice(0, 5).concat([Math.round(c[5] * f)]) : c.slice()));
+    });
+    const first = this.L.find((x) => x.id === 'm-scale');
+    this.state = { subj: 'all', q: '', cur: 'm-scale', t: first && first.tr[6] ? Math.floor(first.tr[6][0]) : 0, playing: false, speed: 1, cc: true, tab: 'transcript', tq: '',
+      notes, comments, draft: '', cdraft: '', liked: {}, react: {}, sort: 'top', view: 'all', remind: {}, watched: {}, evidence: false, msg: '',
+      ci: 0, back: false, known: {}, again: 0, cardAns: '', cardMine: '', cardOk: null,
+      vol: 0.9, muted: false, pending: [], padOpen: false, padDirty: false, tool: 'pen', ink: '#1D4ED8', viewer: null, pr: null };
   }
 
   componentDidMount() {
-    this._t = setInterval(() => {
-      if (!this.state.playing) return;
-      const l = this.cur();
-      const dur = this.durOf(l);
-      const t = this.state.t + 0.25 * this.state.speed;
-      if (t >= dur) { const w = Object.assign({}, this.state.watched); if (l.status !== 'next') w[l.id] = true; this.setState({ t: dur, playing: false, watched: w }); }
-      else this.setState({ t });
-    }, 250);
+    this._rs = () => this.sizePad();
+    window.addEventListener('resize', this._rs);
   }
-  componentWillUnmount() { clearInterval(this._t); }
+  componentWillUnmount() { this.themeOff(); window.removeEventListener('resize', this._rs); try { if (this._vid) this._vid.pause(); } catch (e) {} }
 
   subjects() {
     return {
@@ -387,17 +536,18 @@ class Component extends DCLogic {
       reading: { name: 'Reading', color: '#0D9488', tint: '#DDF4F1', ink: '#115E59', titleFg: '#FFFFFF', level: 'L8', path: 'Inference & discussion' },
       kiswahili: { name: 'Kiswahili', color: '#F9A826', tint: '#FEF1D9', ink: '#92400E', titleFg: '#14161A', level: 'L6', path: 'Upatanisho (agreement)' },
       science: { name: 'Science', color: '#1684E8', tint: '#E4ECFD', ink: '#1E40AF', titleFg: '#FFFFFF', level: 'L7', path: 'Fair tests' },
+      social: { name: 'Social Studies', color: '#92400E', tint: '#FEF1D9', ink: '#92400E', titleFg: '#FFFFFF', level: 'L7', path: 'Communities & history' },
       making: { name: 'Making', color: '#172F73', tint: '#E4ECFD', ink: '#172F73', titleFg: '#FFFFFF', level: 'L9', path: 'Simple circuits' }
     };
   }
 
   lessons() {
     const BOT = 'assets/img/0c75bc9692da27254751a0429889be23.webp';
-    const TUTOR = { name: 'Vachuo tutor', role: 'AI tutor · checked by a human teacher', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' };
+    const TUTOR = { name: 'Socrates', role: 'AI tutor · checked by a human teacher', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' };
     const L = (id, o) => Object.assign({ id, notes: [], com: [], ideas: [], refs: [], host: TUTOR, live: false }, o);
     return [
       L('m-scale', { subj: 'math', sec: 'Section 3 · Ratios', so: 3, title: 'Scaling recipes: why adding doesn’t work', dur: 860, status: 'now', day: 0, when: 'Started Sat 31 Oct · due before Wednesday’s reassessment', prog: 46,
-        img: 'assets/img/4029747382fc6c61ccd72a2172cd19f0.svg', host: { name: 'Vachuo tutor, with Grace', role: 'AI tutor · filmed in part at Grace’s bakery', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
+        img: 'assets/img/4029747382fc6c61ccd72a2172cd19f0.svg', host: { name: 'Socrates, with Grace', role: 'AI tutor · filmed in part at Grace’s bakery', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
         ch: [[0, 'Why 15 cups felt right'], [150, 'Batches, not differences'], [330, 'Ratio tables'], [520, 'At Grace’s bakery'], [700, 'Try it: 40 chapati'], [800, 'Recap']],
         tr: [[0, 'Tutor', 'Last Monday you said 20 chapati need 15 cups of flour. Today we find out why that felt right, and why it isn’t.'],
           [32, 'Tutor', 'Here’s the recipe: 3 cups of flour make 8 chapati. You added 12 chapati, so you added 12 cups. That’s adding the difference.'],
@@ -460,7 +610,7 @@ class Component extends DCLogic {
         res: [['reading', 'Before you watch: five famous metaphors', 'Reading · 1 page', 'you'], ['practice', 'Warm-up: literal or not?', '6 questions', 'you'], ['plan', 'Lesson plan', 'PDF · 1 page', 'guide']],
         refs: ['Lakoff, G. & Johnson, M. (1980). Metaphors We Live By. University of Chicago Press.'] }),
       L('k-kivi', { subj: 'kiswahili', sec: 'Sehemu ya 2 · Ngeli', so: 2, title: 'Ngeli ya KI-VI: vitu na vyombo', dur: 720, status: 'past', day: -5, when: 'Watched Wed 28 Oct', prog: 100, img: 'assets/img/65a0f4b355f066cff6c2b1eae9c72c33.svg',
-        host: { name: 'Mwalimu, Vachuo tutor', role: 'AI tutor · Kiswahili', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
+        host: { name: 'Mwalimu Socrates', role: 'AI tutor · Kiswahili', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
         ch: [[0, 'Karibu'], [240, 'Moja na wingi'], [420, 'Hiki na hivi'], [640, 'Kwa kifupi']],
         tr: [[0, 'Mwalimu', 'Habari! Leo tunajifunza ngeli ya KI-VI. (Today we learn the KI-VI class.)'], [90, 'Mwalimu', 'Kitabu, kiti, kikombe: wengi huanza na ki- au vi-. (Many start with ki- or vi-.)'], [240, 'Mwalimu', 'Kitabu kimoja, vitabu viwili. (One book, two books.)'], [420, 'Mwalimu', 'Kumbuka: kitabu hiki, vitabu hivi. (Remember: this book, these books.)'], [640, 'Mwalimu', 'Kwa kifupi: ki- kwa kimoja, vi- kwa vingi. (In short: ki- for one, vi- for many.)']],
         res: [['worksheet', 'Jedwali la KI-VI (KI-VI table)', 'PDF · 1 page', 'you'], ['practice', 'Practice set: KI-VI', 'Adaptive · about 10 min', 'you'], ['talk', 'Kitchen Kiswahili: name ten things with Bibi', 'Card', 'guide']],
@@ -468,7 +618,7 @@ class Component extends DCLogic {
         com: [['Mwangi', 'Learner', '5 days ago', 'Kikombe kimoja, vikombe vingi! I finally hear it.', 4, 240], ['Nduta Kamau', 'Guide', '5 days ago', 'Bibi will love this. Try describing her kitchen on Friday.', 3, -1]],
         notes: [[430, 'hiki = this (KI), hivi = these (VI)']], ideas: ['KI-VI nouns: ki- for one, vi- for many.', 'Adjectives copy the prefix: kiti kizuri.', '“This” is hiki; “these” is hivi.'] }),
       L('k-adj', { subj: 'kiswahili', sec: 'Sehemu ya 3 · Upatanisho', so: 3, title: 'Upatanisho wa vivumishi (adjective agreement)', dur: 690, status: 'next', day: 3, when: 'Premieres Thu 5 Nov · 10:00', prog: 0, img: 'assets/img/22033daaf123028b1b5f7e201a7028b0.svg',
-        host: { name: 'Mwalimu, Vachuo tutor', role: 'AI tutor · Kiswahili', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
+        host: { name: 'Mwalimu Socrates', role: 'AI tutor · Kiswahili', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' },
         ch: [[0, 'Kivuli'], [30, 'Kiti kizuri']],
         tr: [[0, 'Mwalimu', 'Kiti kizuri, viti vizuri. The adjective follows the noun’s class like a shadow.'], [30, 'Mwalimu', 'Leo tutasema vitu vitano jikoni kwa Bibi. (Today we’ll describe five things in Bibi’s kitchen.)']],
         res: [['reading', 'Before you watch: eight words first', 'Vocabulary · 1 page', 'you'], ['worksheet', 'Agreement match-up', 'PDF · 1 page', 'you'], ['plan', 'Lesson plan', 'PDF · 1 page', 'guide']],
@@ -493,6 +643,23 @@ class Component extends DCLogic {
         refs: ['Institute of Physics. Supporting Physics Teaching: Electricity, ages 11–14.'],
         com: [['Mwangi', 'Learner', '4 days ago', 'The finger-trace trick fixed my buzzer game.', 3, 210], ['Otieno', 'Host', '4 days ago', 'Same rule on a roof with solar panels. Bring this on Saturday.', 4, -1]],
         ideas: ['A circuit must be a closed loop.', 'A switch opens and closes the loop.', 'Trace the path to find the gap.'] }),
+      L('ss-sources', { subj: 'social', sec: 'Section 2 · Primary sources', so: 2, title: 'Who made this? Reading primary sources', dur: 690, status: 'past', day: -2, when: 'Watched Sat 31 Oct', prog: 100, img: 'assets/img/6ab3d26d29f9009ba1269cd62a3e4663.svg',
+        ch: [[0, 'Two sources, one day'], [160, 'Who, when, why'], [380, 'Primary or secondary?'], [600, 'Recap']],
+        tr: [[0, 'Tutor', 'Here are two sources about the same day in 1985: a letter from a Kilimani resident and a website written last year.'], [160, 'Tutor', 'Before you trust either one, ask three questions: who made it, when, and why?'], [260, 'Tutor', 'The letter was written that week by someone who was there. That makes it a primary source.'], [380, 'Tutor', 'The website was written decades later by someone summarising. That makes it secondary: useful, but one step further away.'], [600, 'Tutor', 'Recap: primary sources were made at the time. Every source has an author with a reason, so find it.']],
+        res: [['worksheet', 'Source detective sheet', 'PDF · 1 page', 'you'], ['practice', 'Practice set: primary or secondary?', 'Adaptive · about 10 min', 'you'], ['plan', 'Guide notes: finding family sources', 'PDF · 1 page', 'guide']],
+        refs: ['Wineburg, S. (2001). Historical Thinking and Other Unnatural Acts. Temple University Press.', 'KICD Competency-Based Curriculum, Social Studies: people, population and history strands.'],
+        com: [['Neema', 'Learner', '2 days ago', 'I asked my grandma for her school report card from 1979. Primary source!', 6, 260], ['Nduta Kamau', 'Guide', '2 days ago', 'Lovely find, Neema. Ask her why she kept it; that’s part of the source too.', 4, -1]],
+        notes: [[170, 'Who made it? When? Why?']], ideas: ['Primary sources were made at the time, by people who were there.', 'Ask who made a source, when and why.', 'Secondary sources summarise: useful, but further away.'] }),
+      L('ss-oral', { subj: 'social', sec: 'Section 3 · Oral history', so: 3, title: 'How to interview an elder', dur: 780, status: 'next', day: 3.4, when: 'Premieres Thu 5 Nov · 16:00', prog: 0, img: 'assets/img/21ef351959c7b27f73dae1d9e0a3393f.svg',
+        ch: [[0, 'Before you press record'], [30, 'Open questions']],
+        tr: [[0, 'Tutor', 'An interview isn’t a quiz. You’re there to listen, so plan questions that let someone tell a story.'], [30, 'Tutor', '“What was Kilimani like when you arrived?” works better than “Was it smaller?”']],
+        res: [['reading', 'Before you watch: ten open questions', 'Card', 'you'], ['worksheet', 'Consent and recording checklist', 'PDF · 1 page', 'you'], ['plan', 'Guide notes: interviewing family safely and kindly', 'PDF · 1 page', 'guide']],
+        refs: ['Oral History Association. Principles and Best Practices for Oral History.'] }),
+      L('ss-maps', { subj: 'social', sec: 'Section 4 · Mapping history', so: 4, title: 'Mapping stories onto streets', dur: 720, status: 'next', day: 5, when: 'Premieres Sat 7 Nov · 10:00', prog: 0, img: 'assets/img/cac9841562397b7ca613a7ffcdd03071.svg',
+        ch: [[0, 'A story has a place'], [30, 'Pins and layers']],
+        tr: [[0, 'Tutor', 'Every story your elders tell happened somewhere. Today we pin those stories to a map of Kilimani.'], [30, 'Tutor', 'One layer for places, one for dates, one for voices. Then we look for patterns.']],
+        res: [['reading', 'Before you watch: a map of Kilimani to annotate', 'Activity · 1 page', 'you'], ['worksheet', 'Story-pin template', 'PDF · 1 page', 'you'], ['plan', 'Lesson plan', 'PDF · 1 page', 'guide']],
+        refs: ['Wineburg, S. (2001). Historical Thinking and Other Unnatural Acts. Temple University Press.'] }),
       L('mk-led', { subj: 'making', sec: 'Section 2 · Components', so: 2, title: 'LEDs only go one way', dur: 570, status: 'next', day: 2.2, when: 'Premieres Wed 4 Nov · 16:00', prog: 0, img: 'assets/img/1faac0a7d16146a1a5b3b74c07d1a41a.svg',
         ch: [[0, 'A one-way door'], [30, 'Long leg, short leg']],
         tr: [[0, 'Tutor', 'An LED is a one-way door for electricity. Put it in backwards and it stays dark.'], [30, 'Tutor', 'The long leg goes to the positive side. Check it before you blame the battery.']],
@@ -507,23 +674,129 @@ class Component extends DCLogic {
       reading: [['What is an inference?', 'A guess you can defend with words from the text.'], ['Finish the sentence: “Because the text says…”', '“…, I think…” Point to the exact words.'], ['“The sky was a closed fist.” Literal or not?', 'Not literal. A metaphor for a dark, threatening sky.']],
       kiswahili: [['Kitabu ___ ni kipya.', 'hiki. Kitabu is KI-VI.'], ['Plural of kikombe?', 'vikombe.'], ['Kiti kizuri. Plural?', 'Viti vizuri.']],
       science: [['What makes a test fair?', 'Change one thing, keep everything else the same.'], ['Why predict first?', 'So the result can surprise you, and you can’t fool yourself.'], ['Your sand drained faster. What might be different?', 'A hidden variable, like grain size.']],
+      social: [['Is a 1985 letter from a Kilimani resident primary or secondary?', 'Primary: made at the time, by someone who was there.'], ['Three questions to ask any source?', 'Who made it, when, and why?'], ['“Nairobi was better in the old days.” Fact or opinion?', 'Opinion. You can check facts; opinions you can only weigh.']],
       making: [['Your LED stays dark. First check?', 'Turn it around. LEDs only go one way.'], ['What is an open circuit?', 'A loop with a gap, so no current flows.'], ['What does a switch do?', 'Opens and closes the loop.']]
     };
   }
 
+  vids() {
+    return {"m-scale": {"v": "assets/files/8d07a77081598c52e395d5918c3d54ed.mp4", "poster": "assets/img/a7415348835e50abb21a6d091605ab9b.jpg", "vdur": 120.9, "ch": [[0.0, "Why 15 cups felt right"], [30.6, "Batches, not differences"], [50.9, "Ratio tables"], [66.5, "At Grace’s bakery"], [87.8, "Try it: 40 chapati"], [108.2, "Recap"]], "tr": [[3.4, "Socrates", "Last Monday you said 20 chapati need 15 cups of flour. Today we find out why that felt right, and why it isn’t."], [11.4, "Socrates", "Here’s the recipe: 3 cups of flour make 8 chapati. You added 12 chapati, so you added 12 cups. That’s adding the difference."], [21.0, "Socrates", "Adding works for some things. If you’re 12 and your cousin is 15, you’ll always be three years apart. Recipes don’t work like ages."], [30.6, "Socrates", "Think in batches. One batch is 3 cups for 8 chapati. Two batches is 6 cups for 16. The cups and the chapati grow together."], [39.9, "Socrates", "So the question is never “how many more?” It’s “how many batches?”"], [44.6, "Socrates", "20 chapati is two and a half batches. Two and a half times 3 cups is seven and a half cups."], [50.9, "Socrates", "Let’s put that in a ratio table. Cups on top, chapati underneath. Whatever you do to one row, you do to the other."], [59.5, "Socrates", "Doubling, halving, multiplying by ten: all fine. Adding the same number to both rows: not fine."], [66.5, "Grace", "When a café orders 300 rolls, I don’t guess. I work out how many batches, then multiply every ingredient by the same number."], [75.6, "Grace", "If I added instead, the dough would be wrong before it reached the oven. Salt is the worst one to get wrong."], [82.5, "Grace", "Your turn. My notebook says 3 cups for 8. What would I write for 40?"], [87.8, "Socrates", "Pause here and try it. 40 chapati. How many batches is that?"], [97.9, "Socrates", "40 is five batches of 8, so five times 3 cups: 15 cups. Funny, isn’t it? 15 was wrong for 20, and right for 40."], [108.2, "Socrates", "Recap: ratios scale by multiplying. Ask how many batches, use a table, and check the answer makes sense in the kitchen."]]}, "m-unit": {"v": "assets/files/86544188d220a21faa8980cbf1f97163.mp4", "poster": "assets/img/e95b3c6e812404bcf20c905e7b8c43fa.jpg", "vdur": 56.6, "ch": [[0.0, "One question"], [13.8, "Divide to find one"], [25.0, "Compare rates"], [46.9, "Recap"]], "tr": [[3.4, "Socrates", "A unit rate answers one question: how much for one?"], [7.8, "Socrates", "Your rain gauge collected 12 millimetres in 3 days. How much fell in one day?"], [13.8, "Socrates", "Divide the total by the number of days. 12 divided by 3 is 4 millimetres a day."], [19.7, "Socrates", "Write the unit every time: millimetres per day. Units keep you honest."], [25.0, "Socrates", "Unit rates let you compare. Here it is 4 millimetres a day. Somewhere wetter, it might be 6."], [31.3, "Socrates", "Shopping works the same way. 2 kilos of sugar for 300 shillings, or 5 kilos for 700. Which is cheaper per kilo?"], [40.7, "Socrates", "150 shillings a kilo against 140. The bigger bag wins, just."], [46.9, "Socrates", "Recap: divide to find one, multiply to find many, and always say the unit."]]}, "m-eqfr": {"v": "assets/files/bd9f2ec1870746e6ddad075992b68392.mp4", "poster": "assets/img/5a8fbe660e97bbda6294dd1606cb6d06.jpg", "vdur": 53.4, "ch": [[0.0, "Two chapati"], [15.9, "Multiply top and bottom"], [28.8, "A trap"], [42.5, "Recap"]], "tr": [[3.4, "Socrates", "Cut one chapati into 3 equal pieces and take 2. Cut another into 6 pieces and take 4."], [10.3, "Socrates", "Same amount of chapati, different names: two thirds, and four sixths."], [15.9, "Socrates", "Multiply the top and the bottom by the same number, and the amount doesn’t change."], [21.6, "Socrates", "Two thirds is four sixths, six ninths, eight twelfths. All the same amount."], [28.8, "Socrates", "Here’s a trap. Is two thirds the same as four ninths? Draw it before you decide."], [36.3, "Socrates", "Four ninths is smaller. The bottom was multiplied by 3, but the top only by 2."], [42.5, "Socrates", "Recap: equivalent fractions are the same amount with a different name. Same number, top and bottom."]]}, "r-clues": {"v": "assets/files/976fa9f75d6ef2dbc3b537f9d772223d.mp4", "poster": "assets/img/48c31914b1a99f94608f40b93db6666a.jpg", "vdur": 56.1, "ch": [[0.0, "Hidden clues"], [20.8, "Defend your guess"], [33.8, "Sentence starter"], [46.2, "Recap"]], "tr": [[3.4, "Socrates", "Writers rarely tell you everything. They leave clues and trust you to find them."], [8.7, "Socrates", "Listen. Wanjiru looked at the cracked earth, then at the empty sky. She folded the seed bag and put it back on the shelf."], [16.5, "Socrates", "What does that tell you about the rain?"], [20.8, "Socrates", "An inference is a guess you can defend. Point to the words that prove it."], [25.8, "Socrates", "Cracked earth means no rain for a while. Empty sky means none is coming. Putting the seeds away means she isn’t planting yet."], [33.8, "Socrates", "Try this sentence starter: Because the text says, then the quote. I think, then your idea."], [41.0, "Socrates", "Because the text says the earth was cracked, I think the rains are late."], [46.2, "Socrates", "Recap: a clue, plus what you know, gives an inference. Always point to the words."]]}, "k-kivi": {"v": "assets/files/82431b075c03e5a65d1323cc26988237.mp4", "poster": "assets/img/ec4781c7cd00a994c87d084975b21791.jpg", "vdur": 52.5, "ch": [[0.0, "Karibu"], [18.2, "Moja na wingi"], [38.5, "Hiki na hivi"], [45.1, "Kwa kifupi"]], "tr": [[3.4, "Mwalimu Socrates", "Habari! Leo tunajifunza ngeli ya KI-VI. (Today we learn the KI-VI noun class.)"], [11.2, "Mwalimu Socrates", "Kitabu, kiti, kikombe. Many KI-VI words start with ki. (Book, chair, cup.)"], [18.2, "Mwalimu Socrates", "Kitabu kimoja, vitabu viwili. One book, two books. Ki becomes vi."], [24.9, "Mwalimu Socrates", "Kiti kimoja, viti vitatu. One chair, three chairs."], [30.6, "Mwalimu Socrates", "Adjectives copy the prefix too: kikombe kizuri, vikombe vizuri. (A good cup, good cups.)"], [38.5, "Mwalimu Socrates", "Kumbuka: kitabu hiki, vitabu hivi. (Remember: this book, these books.)"], [45.1, "Mwalimu Socrates", "Kwa kifupi: ki kwa kimoja, vi kwa vingi. (In short: ki for one, vi for many.)"]]}, "s-soil": {"v": "assets/files/53e429ff85ea866477191723935f3bbc.mp4", "poster": "assets/img/bb33346d09e3acf432dfe31f1ea5b431.jpg", "vdur": 58.9, "ch": [[0.0, "Three jars"], [14.3, "What stays the same"], [21.4, "Predict first"], [27.3, "Results"], [48.8, "Recap"]], "tr": [[3.4, "Dr. Wairimu", "Three jars, three soils: clay, loam and sand. Which one holds water longest?"], [9.9, "Dr. Wairimu", "Before we pour, what must stay the same?"], [14.3, "Dr. Wairimu", "The same amount of water, the same jar, the same time. The only thing that changes is the soil."], [21.4, "Dr. Wairimu", "Write your prediction first. Scientists who skip that step fool themselves."], [27.3, "Dr. Wairimu", "Now we pour 200 millilitres into each jar and wait ten minutes."], [35.5, "Dr. Wairimu", "Sand let through 170 millilitres. Loam, 120. Clay held on: only 60 came through."], [44.0, "Dr. Wairimu", "So clay held water longest. Now ask: is one test enough?"], [48.8, "Dr. Wairimu", "Recap: change one thing, measure one thing, keep everything else the same. Then do it again."]]}, "mk-open": {"v": "assets/files/8d38adfb6fae59489bda0763f0cac5a8.mp4", "poster": "assets/img/df9fa3589feaede3f2e8965a762ee733.jpg", "vdur": 50.0, "ch": [[0.0, "The loop"], [16.5, "Trace the path"], [22.6, "Find the gap"], [39.8, "Recap"]], "tr": [[3.4, "Socrates", "A circuit is a loop. Battery, wire, bulb, and back again."], [8.1, "Socrates", "Break the loop anywhere and nothing works."], [11.4, "Socrates", "A switch is just a polite way of breaking the loop."], [16.5, "Socrates", "Trace the path with your finger: battery, wire, bulb, wire, battery."], [22.6, "Socrates", "If your finger has to jump a gap, that’s an open circuit."], [26.8, "Socrates", "Here’s a buzzer game that won’t buzz. Can you spot the gap?"], [34.0, "Socrates", "The wire is loose at the buzzer. Push it in, the loop closes, and it buzzes."], [39.8, "Socrates", "Recap: closed loop, current flows. Open loop, nothing. Trace it to find the gap."]]}, "ss-sources": {"v": "assets/files/d20b9de7273b2ccbef6a80b2714c3aee.mp4", "poster": "assets/img/c1531d396a47bca7b48d7281c0a13f84.jpg", "vdur": 61.3, "ch": [[0.0, "Two sources, one week"], [11.8, "Who, when, why"], [23.1, "Primary or secondary?"], [50.7, "Recap"]], "tr": [[3.4, "Socrates", "Here are two sources about the same week in 1985: a letter from a Kilimani resident, and a website written last year."], [11.8, "Socrates", "Before you trust either one, ask three questions. Who made it? When? And why?"], [17.3, "Socrates", "The letter was written that week by someone who was there. That makes it a primary source."], [23.1, "Socrates", "The website was written decades later by someone summarising. That makes it secondary."], [29.3, "Socrates", "Secondary sources are useful. They’re just one step further away from what happened."], [35.3, "Socrates", "Your turn: your grandmother’s school report card from 1979. Primary or secondary?"], [45.3, "Socrates", "Primary. It was made at the time, by the school, about the person who was there."], [50.7, "Socrates", "Recap: primary sources were made at the time. Every source has an author with a reason. Find it."]]}, "m-tables": {"v": "assets/files/1d1ec2e892673d57bfd3622ec6efea01.mp4", "poster": "assets/img/d5b6e2059a50c986d3a5022f594d9d13.jpg", "vdur": 21.4, "ch": [[0.0, "Two tools"], [9.8, "300 rolls"], [15.0, "Coming Wednesday"]], "tr": [[2.6, "Socrates", "A ratio table is a list of matching pairs. A double number line draws the same pairs on two rulers."], [9.8, "Socrates", "We’ll use both to plan Grace’s biggest order yet: 300 rolls."], [15.0, "Socrates", "It premieres on Wednesday at ten. Bring your notebook."]]}, "m-maps": {"v": "assets/files/bfbbcd272e4667059b4e2f483bc64daa.mp4", "poster": "assets/img/1409ce40cd56af4d4b2a8f1403f5224b.jpg", "vdur": 20.5, "ch": [[0.0, "Welcome"], [8.4, "Pace your street"], [13.5, "Live on Friday"]], "tr": [[2.6, "Mr. Odhiambo", "A surveyor never trusts one measurement. Bring a tape, a notebook and a friend."], [8.4, "Mr. Odhiambo", "Before Friday, pace your street twice and write both numbers down."], [13.5, "Mr. Odhiambo", "We meet live on Friday at two. Six of you, one map."]]}, "r-metaphor": {"v": "assets/files/9f6b95c22958e8a8aa5d8877ccc6b6b6.mp4", "poster": "assets/img/69cf1871010aa2b0fb42fdf7bb454cbb.jpg", "vdur": 19.7, "ch": [[0.0, "A closed fist"], [8.9, "Spot the metaphor"], [14.2, "Coming Tuesday"]], "tr": [[2.6, "Socrates", "The sky was a closed fist. Nobody’s hand is in the sky. So what is the writer telling you?"], [8.9, "Socrates", "Metaphors say one thing is another, so you feel it instead of just knowing it."], [14.2, "Socrates", "It premieres on Tuesday at eleven."]]}, "k-adj": {"v": "assets/files/10f0cbe70a78f0de871eb547096c0854.mp4", "poster": "assets/img/cc2ab391dc36e625ba8b984d0f0296b6.jpg", "vdur": 20.0, "ch": [[0.0, "Kivuli"], [9.6, "Jikoni kwa Bibi"], [13.5, "Coming Thursday"]], "tr": [[2.6, "Mwalimu Socrates", "Kiti kizuri, viti vizuri. The adjective follows the noun’s class like a shadow."], [9.6, "Mwalimu Socrates", "Leo tutaeleza vitu vitano jikoni kwa Bibi. (Today we describe five things in Bibi’s kitchen.)"], [13.5, "Mwalimu Socrates", "It premieres on Thursday at ten. Karibu!"]]}, "s-vars": {"v": "assets/files/d1d1b49e3c8bf5418b655752c2f1309c.mp4", "poster": "assets/img/1abc9c22f7aa2c7a0026bd3683f1c54f.jpg", "vdur": 20.6, "ch": [[0.0, "The size of sand"], [9.9, "Hidden variables"], [15.1, "Coming Thursday"]], "tr": [[2.6, "Socrates", "Sometimes the thing that changed your result is the thing you never thought to measure. Like the size of the sand."], [9.9, "Socrates", "Before Thursday, find one thing in your soil test you didn’t keep the same."], [15.1, "Socrates", "It premieres on Thursday at two."]]}, "mk-led": {"v": "assets/files/11e9f45d7e17c4e0d0e125bc71692042.mp4", "poster": "assets/img/83ec9339de6ab6986117ece155bc8516.jpg", "vdur": 18.7, "ch": [[0.0, "A one-way door"], [8.2, "Long leg, short leg"], [13.5, "Coming Wednesday"]], "tr": [[2.6, "Socrates", "An LED is a one-way door for electricity. Put it in backwards and it stays dark."], [8.2, "Socrates", "The long leg goes to the positive side. Check it before you blame the battery."], [13.5, "Socrates", "It premieres on Wednesday at four."]]}, "ss-oral": {"v": "assets/files/82a10c561c2e5ba97cafcb67e1b8449b.mp4", "poster": "assets/img/abae205be28968048eb5a870e742a550.jpg", "vdur": 19.8, "ch": [[0.0, "Before you press record"], [9.4, "Open questions"], [14.4, "Coming Thursday"]], "tr": [[2.6, "Socrates", "An interview isn’t a quiz. You’re there to listen, so plan questions that let someone tell a story."], [9.4, "Socrates", "“What was Kilimani like when you arrived?” works better than “Was it smaller?”"], [14.4, "Socrates", "It premieres on Thursday at four."]]}, "ss-maps": {"v": "assets/files/5d96cdb3ef3ef4ea794dc9ff7de3e068.mp4", "poster": "assets/img/1cf7cba02603de7575f4e08209c143d9.jpg", "vdur": 20.6, "ch": [[0.0, "A story has a place"], [9.1, "Pins and layers"], [15.1, "Coming Saturday"]], "tr": [[2.6, "Socrates", "Every story your elders tell happened somewhere. Today we pin those stories to a map of Kilimani."], [9.1, "Socrates", "One layer for places, one for dates, one for voices. Then we look for patterns."], [15.1, "Socrates", "It premieres on Saturday at ten."]]}};
+  }
+  resFiles() {
+    return {"m-scale": {"0": {"url": "assets/files/f2c1ca924e9dbf7fe645104b5eb29503.pdf", "file": "m-scale-ratio-tables.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 0, 0], ["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 1, 0]]}, "2": {"url": "assets/files/b991ab5dc731772d5a74249e0e67dd45.pdf", "file": "m-scale-order-book.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 2, 0]]}, "3": {"url": "assets/files/f8004751c8b7f8fe29268afb9c70d806.pdf", "file": "m-scale-lesson-plan.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 3, 0]]}, "4": {"url": "assets/files/987d9db7d08e5a69e853f2f462ba7591.pdf", "file": "m-scale-answer-key.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 0, 1], ["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 1, 1]]}, "5": {"url": "assets/files/7a604c4a41404711ae55edd3b5378511.pdf", "file": "m-scale-kitchen-talk.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 2, 1]]}}, "m-unit": {"0": {"url": "assets/files/06172005e527a0cc54e5b5dcceecfcb7.pdf", "file": "m-unit-rain-gauge.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 3, 1]]}, "2": {"url": "assets/files/e2eb37ba3e16d03179bdb7f9fe616ef1.pdf", "file": "m-unit-guide-notes.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 0, 2]]}}, "m-eqfr": {"0": {"url": "assets/files/37d96b53d7c98d96b84f037e7e816a3e.pdf", "file": "m-eqfr-strips.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 1, 2]]}, "2": {"url": "assets/files/88e2f629e993927909abd44522b679ff.pdf", "file": "m-eqfr-answer-key.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 2, 2]]}}, "m-tables": {"0": {"url": "assets/files/c161103e2ca46668dc87b76d8f7ee405.pdf", "file": "m-tables-warmup.pdf", "pages": [["assets/img/411b2b864d094f18b194cf7c691ef68f.jpg", 3, 2]]}, "1": {"url": "assets/files/98f0262ffc3135c683180675b5bb303b.pdf", "file": "m-tables-dnl.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 0, 0]]}, "2": {"url": "assets/files/1ee577eadb82d5d343fbf3fbd71105bd.pdf", "file": "m-tables-plan.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 1, 0]]}}, "m-maps": {"0": {"url": "assets/files/7e75c6f084b89d542a7f49a014d0c0c2.pdf", "file": "m-maps-pace.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 2, 0]]}, "1": {"url": "assets/files/b6c2daf2e36f95502d7372023f521fd9.pdf", "file": "m-maps-grid.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 3, 0]]}, "2": {"url": "assets/files/f13ebf72812933614766929fce31141a.pdf", "file": "m-maps-surveyor.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 0, 1]]}}, "r-clues": {"0": {"url": "assets/files/90daef7b9ddd8b498dedc4164c3d6c62.pdf", "file": "r-clues-not-yet.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 1, 1], ["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 2, 1], ["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 3, 1], ["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 0, 2]]}, "2": {"url": "assets/files/e33c8bcd7321d9995f714a6486e1b85c.pdf", "file": "r-clues-discussion.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 1, 2]]}}, "r-metaphor": {"0": {"url": "assets/files/f551911d7c51defb4607988b1d07406b.pdf", "file": "r-metaphor-five.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 2, 2]]}, "2": {"url": "assets/files/47ffb91a4ba86a5af2b6168925c7731e.pdf", "file": "r-metaphor-plan.pdf", "pages": [["assets/img/f13c743a4cf5cb788ef5d98e4b6c72a2.jpg", 3, 2]]}}, "k-kivi": {"0": {"url": "assets/files/c1af172aea7a8aa5e66d18dbcf0f1ba2.pdf", "file": "k-kivi-jedwali.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 0, 0]]}, "2": {"url": "assets/files/23d2eb0743faffa9174f111bfd3fe765.pdf", "file": "k-kivi-kitchen.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 1, 0]]}}, "k-adj": {"0": {"url": "assets/files/67173088d74e42a8dd34004f34aae2c5.pdf", "file": "k-adj-words.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 2, 0]]}, "1": {"url": "assets/files/b98dd909860e12fee1269b9ab92465a4.pdf", "file": "k-adj-match.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 3, 0]]}, "2": {"url": "assets/files/39716e64b5737af7f7ef22fd462ed8f9.pdf", "file": "k-adj-plan.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 0, 1]]}}, "s-soil": {"0": {"url": "assets/files/5615985fdf1c9420bd0b9879124620f9.pdf", "file": "s-soil-planner.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 1, 1]]}, "2": {"url": "assets/files/fadd89e6a98206d6c1d1b56f02ceef43.pdf", "file": "s-soil-guide.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 2, 1], ["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 3, 1]]}, "1": {"url": "assets/files/a6f30e8736fe0ad3a5538c8b02779022.csv", "file": "soil-data-kilimani.csv", "pages": [["assets/img/1d153c49961795491761af1a1c517211.jpg", 0, 0]], "csv": true}}, "s-vars": {"0": {"url": "assets/files/77be4f9a0719ae3eb25c4ffb133150ab.pdf", "file": "s-vars-spot.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 0, 2]]}, "1": {"url": "assets/files/9e631e8093d0e3ce9dc3c24e60fe001e.pdf", "file": "s-vars-hunt.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 1, 2]]}, "2": {"url": "assets/files/e4b3d34d6e9d162bd38d2aa2e502ed81.pdf", "file": "s-vars-plan.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 2, 2]]}}, "mk-open": {"0": {"url": "assets/files/fd8a90bcf04873e1c684281c0a161a79.pdf", "file": "mk-open-tracing.pdf", "pages": [["assets/img/d70edb4001875c059d72aae4e88c646b.jpg", 3, 2]]}, "2": {"url": "assets/files/e7d62628a747e90e3a92afbe6bb93980.pdf", "file": "mk-open-safety.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 0, 0]]}}, "mk-led": {"0": {"url": "assets/files/ab166130795f90dfa7fd346b87f85bd0.pdf", "file": "mk-led-legs.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 1, 0]]}, "1": {"url": "assets/files/ceeeb7787cc22a2d440c23dc7f69c425.pdf", "file": "mk-led-build.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 2, 0]]}, "2": {"url": "assets/files/c5856b955c6152e05c6821ebd3b3ad20.pdf", "file": "mk-led-plan.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 3, 0]]}}, "ss-sources": {"0": {"url": "assets/files/832d47a8ab1ad4717d57f8e8f414279d.pdf", "file": "ss-sources-detective.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 0, 1]]}, "2": {"url": "assets/files/f316d30a16c5a212875a953bbf4eb5c6.pdf", "file": "ss-sources-guide.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 1, 1]]}}, "ss-oral": {"0": {"url": "assets/files/b1c011a6c13e6c33130b1ab368a65679.pdf", "file": "ss-oral-questions.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 2, 1]]}, "1": {"url": "assets/files/b2f8ac0b834e5877d957652cf8ee83d2.pdf", "file": "ss-oral-consent.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 3, 1]]}, "2": {"url": "assets/files/3adf634fb35db7168113184f833a386b.pdf", "file": "ss-oral-guide.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 0, 2]]}}, "ss-maps": {"0": {"url": "assets/files/fe2c36d5fd4d3f0ecca929cfd9d6dd77.pdf", "file": "ss-maps-annotate.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 1, 2]]}, "1": {"url": "assets/files/a7fdb90207d912b5b1b3e1a96c7beac6.pdf", "file": "ss-maps-pin.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 2, 2]]}, "2": {"url": "assets/files/0af221b260b42e34b2d324a560e04fa7.pdf", "file": "ss-maps-plan.pdf", "pages": [["assets/img/e6cf8789ea2a79d14cb3c83d4bb36668.jpg", 3, 2]]}}};
+  }
+  practice() {
+    const mc = (q, opts, ans, ex) => ({ q, kind: 'mc', opts, ans, ex });
+    const num = (q, ans, ex) => ({ q, kind: 'num', ans, ex });
+    return {
+      'm-scale': [num('3 cups of flour make 8 chapati. How many cups for 32 chapati?', 12, '32 is 4 batches of 8, so 4 × 3 = 12 cups.'), mc('Which move keeps a ratio the same?', ['Add 5 to both', 'Multiply both by 5', 'Add 5 to one, multiply the other'], 1, 'Multiply or divide both by the same number.'), num('2 cups of rice feed 5 people. How many cups for 15 people?', 6, '15 is 3 lots of 5, so 3 × 2 = 6 cups.'), num('4 eggs make 12 pancakes. How many pancakes from 6 eggs?', 18, '6 eggs is 1.5 lots of 4, so 1.5 × 12 = 18.')],
+      'm-unit': [num('12 mm of rain fell in 3 days. How many mm per day?', 4, '12 ÷ 3 = 4 mm per day.'), num('5 pencils cost 75 shillings. How much for one?', 15, '75 ÷ 5 = 15 shillings.'), mc('Which is cheaper per kilo?', ['2 kg for KSh 300', '5 kg for KSh 700'], 1, '150 a kilo against 140 a kilo.'), num('A matatu goes 12 km in 30 minutes. How far in one hour, in km?', 24, 'An hour is two lots of 30 minutes: 2 × 12 = 24 km.')],
+      'm-eqfr': [num('2/3 = ?/6', 4, 'Multiply top and bottom by 2.'), mc('Is 4/9 the same amount as 2/3?', ['Yes', 'No'], 1, 'No: the top was multiplied by 2, the bottom by 3.'), num('3/4 = ?/12', 9, 'Multiply top and bottom by 3.'), mc('Which is equivalent to 1/2?', ['2/3', '4/8', '3/5'], 1, '4/8: top and bottom both ×4.')],
+      'r-clues': [mc('“Juma wiped his forehead and reached for the water again.” What can you infer?', ['It is hot, or he has worked hard', 'He is sad', 'It is raining'], 0, 'Wiping sweat and drinking again are the clues.'), mc('“The classroom went silent when the head teacher walked in.” The pupils feel…', ['bored', 'respectful, or a little nervous', 'excited'], 1, 'Sudden silence is the clue.'), mc('Which is an inference, not a fact stated in “Not yet”?', ['Wanjiru folded the seed bag', 'The rains are late', 'Grandmother said “Not yet”'], 1, 'The story never says it. You worked it out from clues.'), mc('Best clue that the rains are late?', ['Otieno had a football', 'The soil had split into pieces', 'Grandmother made tea'], 1, 'Cracked soil means no rain for a while.')],
+      'r-metaphor': [mc('“The sky was a closed fist.”', ['Literal', 'Metaphor'], 1, 'The sky isn’t really a fist.'), mc('“The sky was grey and cloudy.”', ['Literal', 'Metaphor'], 0, 'That’s a plain description.'), mc('“My brother is a walking dictionary.”', ['Literal', 'Metaphor'], 1, 'He knows lots of words; he isn’t a book.'), mc('“The road was long and dusty.”', ['Literal', 'Metaphor'], 0, 'Plain description.')],
+      'k-kivi': [mc('Plural of kitabu?', ['vitabu', 'kitabu', 'mitabu'], 0, 'ki- becomes vi-.'), mc('Kiti ___ (this)', ['hiki', 'hivi', 'huyu'], 0, 'One KI-VI noun: hiki.'), mc('Vikombe ___ (good)', ['kizuri', 'vizuri', 'mizuri'], 1, 'The adjective copies vi-.'), mc('Which word is NOT in the KI-VI class?', ['kijiko', 'sufuria', 'kisu'], 1, 'Sufuria is in the N class.')],
+      'mk-open': [mc('A bulb, a battery and two wires. One wire is loose. Will the bulb light?', ['Yes', 'No'], 1, 'A gap opens the loop.'), mc('Where can a switch go to control the bulb?', ['Anywhere in the loop', 'Only next to the battery', 'Outside the loop'], 0, 'Breaking the loop anywhere stops the current.'), mc('Your buzzer won’t buzz. First check?', ['Buy a new battery', 'Trace the loop for a gap', 'Add another buzzer'], 1, 'Trace it first. Most faults are gaps.'), mc('A closed switch makes the circuit…', ['open', 'closed'], 1, 'Closed switch, closed loop, current flows.')],
+      'ss-sources': [mc('A photo taken at your grandmother’s wedding in 1972', ['Primary', 'Secondary'], 0, 'Made at the time, by someone who was there.'), mc('A 2024 website about Nairobi in the 1970s', ['Primary', 'Secondary'], 1, 'Written later by someone summarising.'), mc('Your textbook chapter on independence', ['Primary', 'Secondary'], 1, 'Textbooks pull many sources together.'), mc('A school report card from 1979', ['Primary', 'Secondary'], 0, 'Made by the school at the time.')]
+    };
+  }
+  cardAccept() {
+    return { math: ['\\b9\\b', '\\bno\\b|not', 'one|\\b1\\b|each|per', 'recipe|multipl', '\\b6\\b'], reading: ['defend|guess|clue|evidence|reason', 'i think', 'not|metaphor|figur'], kiswahili: ['hiki', 'vikombe', 'viti vizuri'], science: ['one|same', 'fool|surpris|honest|bias|cheat', 'grain|size|variable'], social: ['primary', 'who|when|why', 'opinion'], making: ['turn|round|flip|backward|direction|revers', 'gap|break|broke|no current', 'open|clos|break'] };
+  }
+  vid() { return this._vid || null; }
+  vidRef(el) {
+    this._vid = el;
+    if (!el) return;
+    el.playsInline = true;
+    if (el._vachuo) return;
+    el._vachuo = true;
+    el.volume = this.state.vol; el.muted = this.state.muted; el.playbackRate = this.state.speed;
+  }
+  onMeta(e) {
+    const v = e.currentTarget; const t = this.state.t;
+    if (t > 0 && t < (v.duration || 0) - 0.5) { try { v.currentTime = t; } catch (x) {} }
+    v.volume = this.state.vol; v.muted = this.state.muted; v.playbackRate = this.state.speed;
+    if (this._wantPlay) { this._wantPlay = false; const p = v.play(); if (p && p.catch) p.catch(() => this.setState({ playing: false })); }
+  }
+  play() { const v = this.vid(); if (!v) return; const p = v.play(); if (p && p.catch) p.catch(() => this.setState({ playing: false, msg: 'Your browser blocked playback. Press play again.' })); }
+  pause() { const v = this.vid(); if (v) v.pause(); }
+  seekTo(t, andPlay) { const v = this.vid(); const tt = Math.max(0, t); if (v) { try { v.currentTime = tt; } catch (x) {} } this.setState({ t: tt }); if (andPlay) this.play(); }
+  // ----- drawing pad for notes -----
+  padRef(el) {
+    if (!this._pad) this._pad = { strokes: [] };
+    if (!el) { this._pad.el = null; return; }
+    if (this._pad.el !== el) { this._pad.el = el; this.sizePad(); }
+  }
+  sizePad() { const p = this._pad; if (!p || !p.el) return; const r = p.el.getBoundingClientRect(); const d = window.devicePixelRatio || 1; p.el.width = Math.max(1, Math.round(r.width * d)); p.el.height = Math.max(1, Math.round(r.height * d)); this.redrawPad(); }
+  padPt(e, el) { const r = el.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height, p: e.pressure && e.pressure > 0 ? e.pressure : 0.5 }; }
+  padSeg(ctx, el, s, a, b) { const d = window.devicePixelRatio || 1; ctx.globalCompositeOperation = s.tool === 'eraser' ? 'destination-out' : 'source-over'; ctx.globalAlpha = s.tool === 'hl' ? 0.35 : 1; ctx.strokeStyle = s.tool === 'hl' ? '#F9A826' : s.color; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const base = s.tool === 'hl' ? 18 : (s.tool === 'eraser' ? 24 : 3); ctx.lineWidth = (s.tool === 'pen' ? base * (0.6 + b.p * 0.9) : base) * d; ctx.beginPath(); ctx.moveTo(a.x * el.width, a.y * el.height); ctx.lineTo(b.x * el.width, b.y * el.height); ctx.stroke(); }
+  redrawPad() { const p = this._pad; if (!p || !p.el) return; const el = p.el, ctx = el.getContext('2d'); ctx.clearRect(0, 0, el.width, el.height); p.strokes.forEach((s) => { const pts = s.pts.length === 1 ? [s.pts[0], { x: s.pts[0].x + 0.0001, y: s.pts[0].y, p: s.pts[0].p }] : s.pts; for (let i = 1; i < pts.length; i++) this.padSeg(ctx, el, s, pts[i - 1], pts[i]); }); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; }
+  padDown(e) { const el = e.currentTarget; const p = this._pad; if (!p) return; e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (x) {} const s = { tool: this.state.tool, color: this.state.ink, pts: [this.padPt(e, el)] }; p.cur = s; p.strokes.push(s); this.redrawPad(); if (!this.state.padDirty) this.setState({ padDirty: true }); }
+  padMove(e) { const el = e.currentTarget; const p = this._pad; if (!p || !p.cur) return; e.preventDefault(); const ctx = el.getContext('2d'); const evs = e.nativeEvent && e.nativeEvent.getCoalescedEvents ? e.nativeEvent.getCoalescedEvents() : []; (evs.length ? evs : [e]).forEach((ev) => { const q = this.padPt(ev, el); const a = p.cur.pts[p.cur.pts.length - 1]; p.cur.pts.push(q); this.padSeg(ctx, el, p.cur, a, q); }); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; }
+  padUp() { if (this._pad) this._pad.cur = null; }
+  padClear() { if (this._pad) { this._pad.strokes = []; this.redrawPad(); } this.setState({ padDirty: false }); }
+  padUndo() { if (this._pad && this._pad.strokes.length) { this._pad.strokes.pop(); this.redrawPad(); } }
+  padAttach() {
+    const p = this._pad; if (!p || !p.el || !p.strokes.length) return;
+    const c = document.createElement('canvas'); c.width = p.el.width; c.height = p.el.height; const x = c.getContext('2d'); x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, c.width, c.height); x.drawImage(p.el, 0, 0);
+    let url = ''; try { url = c.toDataURL('image/png'); } catch (e) { return; }
+    const n = (this.state.pending || []).filter((a) => a.kind === 'drawing').length + 1;
+    this.setState({ pending: (this.state.pending || []).concat([{ kind: 'drawing', name: 'Drawing ' + n + '.png', url, size: '' }]), padOpen: false, padDirty: false }); p.strokes = [];
+  }
+  addFiles(e) {
+    const files = Array.from((e.target && e.target.files) || []); if (!files.length) return;
+    const fmt = (b) => (b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB');
+    const add = files.slice(0, 6).map((f) => ({ kind: /^image\//.test(f.type) ? 'image' : (/^audio\//.test(f.type) ? 'audio' : 'file'), name: f.name, url: URL.createObjectURL(f), size: fmt(f.size), type: f.type }));
+    this.setState({ pending: (this.state.pending || []).concat(add) });
+    try { e.target.value = ''; } catch (x) {}
+  }
   cur() { return this.L.find((l) => l.id === this.state.cur) || this.L[0]; }
-  durOf(l) { return l.status === 'next' ? 60 : l.dur; }
+  durOf(l) { return l.vdur || (l.status === 'next' ? 60 : l.dur); }
   mmss(s) { s = Math.max(0, Math.floor(s)); const m = Math.floor(s / 60), x = s % 60; return (m < 10 ? '0' : '') + m + ':' + (x < 10 ? '0' : '') + x; }
   dur(s) { const m = Math.floor(s / 60), x = s % 60; return m + ':' + (x < 10 ? '0' : '') + x; }
 
   load(id) {
     const l = this.L.find((x) => x.id === id);
     const t = l.status === 'next' ? 0 : (l.prog >= 100 ? 0 : Math.round(l.dur * l.prog / 100));
-    this.setState({ cur: id, t, playing: false, tq: '', draft: '', cdraft: '', msg: '', ci: 0, back: false });
+    try { if (this._vid) this._vid.pause(); } catch (e) {}
+    this.setState({ cur: id, t, playing: false, tq: '', draft: '', cdraft: '', msg: '', ci: 0, back: false, cardAns: '', cardMine: '', cardOk: null, viewer: null, pr: null });
     try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { /* ignore */ }
   }
 
-  renderVals() {
+  modalVals(s) {
+    const st = this.state; const no = () => {};
+    const out = { viewerOpen: !!st.viewer, practiceOpen: !!st.pr,
+      vwTitle: '', vwMeta: '', vwCount: '', vwUrl: '', vwFile: '', vwExt: '', vwSheet: '', vwLeft: '0', vwTop: '0', vwAlt: '', vwWidth: '560px', vwZoomLabel: '', vwZoomA: 'false', vwHint: '', vwPrevOp: 1, vwNextOp: 1, vwZoom: no, vwClose: no, vwPrev: no, vwNext: no,
+      prTitle: '', prInk: '#14161A', prCount: '', prDots: [], prActive: false, prDone: false, prQ: '', prIsMc: false, prIsNum: false, prOpts: [], prVal: '', prSet: no, prKey: no, prCheck: no,
+      prAnswered: false, prFb: '', prFbBg: '#FFFFFF', prFbFg: '#14161A', prEx: '', prNextLabel: '', prNext: no, prScore: '', prDoneMsg: '', prRetry: no, prClose: no };
+    if (st.viewer) {
+      const v = st.viewer; const pages = v.f.pages; const pg = Math.min(v.page, pages.length - 1); const P = pages[pg];
+      Object.assign(out, { vwTitle: v.title, vwMeta: v.meta, vwCount: 'Page ' + (pg + 1) + ' of ' + pages.length, vwUrl: v.f.url, vwFile: v.f.file, vwExt: v.f.csv ? 'CSV' : 'PDF',
+        vwSheet: P[0], vwLeft: String(-P[1] * 100), vwTop: String(-P[2] * 100), vwAlt: v.title + ', page ' + (pg + 1), vwWidth: v.zoom ? '1100px' : 'min(560px, 100%)', vwZoomLabel: v.zoom ? 'Fit to window' : 'Zoom in', vwZoomA: v.zoom ? 'true' : 'false',
+        vwZoom: () => this.setState({ viewer: Object.assign({}, v, { zoom: !v.zoom }) }), vwClose: () => this.setState({ viewer: null }),
+        vwPrev: () => this.setState({ viewer: Object.assign({}, v, { page: Math.max(0, pg - 1) }) }), vwNext: () => this.setState({ viewer: Object.assign({}, v, { page: Math.min(pages.length - 1, pg + 1) }) }),
+        vwPrevOp: pg > 0 ? 1 : 0.4, vwNextOp: pg < pages.length - 1 ? 1 : 0.4, vwHint: v.f.csv ? 'Preview of the shared sheet. Download to open it in Excel or Google Sheets.' : 'Print it, or fill it in on a tablet.' });
+    }
+    if (st.pr) {
+      const l = this.cur(); const Q = this.practice()[l.id] || []; const pr = st.pr; const i = Math.min(pr.i, Q.length - 1); const q = Q[i];
+      const ansOf = (k) => (Q[k].kind === 'mc' ? pr.picks[k] : pr.vals[k]);
+      const isRight = (k) => { const a = ansOf(k); if (a == null || a === '') return null; return Q[k].kind === 'mc' ? a === Q[k].ans : Math.abs(parseFloat(String(a).replace(',', '.')) - Q[k].ans) < 0.01; };
+      const answered = pr.checked && pr.checked[i]; const right = isRight(i); const score = Q.filter((x, k) => isRight(k) === true).length;
+      const upd = (o) => this.setState({ pr: Object.assign({}, pr, o) });
+      const mark = () => { const c = (pr.checked || []).slice(); c[i] = true; upd({ checked: c }); };
+      Object.assign(out, { prTitle: pr.title, prInk: s.ink, prCount: pr.done ? 'Finished' : 'Question ' + (i + 1) + ' of ' + Q.length,
+        prDots: Q.map((x, k) => ({ bg: pr.checked && pr.checked[k] ? (isRight(k) ? '#0F766E' : '#F9A826') : (k === i && !pr.done ? s.color : '#ECECE6') })),
+        prActive: !pr.done && !!q, prDone: !!pr.done, prQ: q ? q.q : '', prIsMc: q && q.kind === 'mc', prIsNum: q && q.kind === 'num',
+        prOpts: q && q.kind === 'mc' ? q.opts.map((t, j) => { const sel = pr.picks[i] === j; const show = answered; const good = j === q.ans; return { t, pressed: sel ? 'true' : 'false', bd: show && good ? '#0D9488' : (sel ? (show ? '#F9A826' : s.color) : '#CFCFC6'), bg: show && good ? '#DDF4F1' : (sel ? (show ? '#FEF1D9' : '#F4F7FE') : '#FFFFFF'), pick: () => { if (answered) return; const pk = pr.picks.slice(); pk[i] = j; const c = (pr.checked || []).slice(); c[i] = true; upd({ picks: pk, checked: c }); } }; }) : [],
+        prVal: pr.vals[i] || '', prSet: (e) => { const vs = pr.vals.slice(); vs[i] = e.target.value; upd({ vals: vs }); }, prKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); mark(); } }, prCheck: mark,
+        prAnswered: !!answered, prFb: right ? 'Right.' : 'Not quite.', prFbBg: right ? '#DDF4F1' : '#FEF1D9', prFbFg: right ? '#115E59' : '#92400E', prEx: q ? (right ? q.ex : 'The answer is ' + (q.kind === 'mc' ? '“' + q.opts[q.ans] + '”' : q.ans) + '. ' + q.ex) : '',
+        prNextLabel: i < Q.length - 1 ? 'Next question' : 'See my score', prNext: () => (i < Q.length - 1 ? upd({ i: i + 1 }) : upd({ done: true })),
+        prScore: score + ' of ' + Q.length + ' right', prDoneMsg: score === Q.length ? 'All right. Practice sets don’t change your map, but this one says you’re ready.' : 'Practice doesn’t change your map. Look again at the ones you missed, then try once more.',
+        prRetry: () => this.setState({ pr: { title: pr.title, i: 0, picks: [], vals: [], done: false } }), prClose: () => this.setState({ pr: null }) });
+    }
+    return out;
+  }
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
     const st = this.state;
     const S = this.subjects();
     const l = this.cur();
@@ -551,31 +824,43 @@ class Component extends DCLogic {
       const isCur = i === curLine && (st.playing || t > 0);
       return { time: this.mmss(x[0]), who: x[1], text: x[2], current: isCur ? 'true' : 'false',
         bg: isCur ? '#F4F7FE' : (hit ? '#FEF1D9' : 'transparent'), edge: isCur ? '#1D4ED8' : (hit ? '#F9A826' : 'transparent'), op: tq && !hit ? 0.45 : 1,
-        pick: () => this.setState({ t: Math.min(x[0], dur), playing: true }) };
+        pick: () => this.seekTo(Math.min(x[0], dur), true) };
     });
     const tqCount = tq ? l.tr.filter((x) => x[2].toLowerCase().indexOf(tq) >= 0).length + ' found' : l.tr.length + ' lines';
 
     const myNotes = (st.notes[l.id] || []).slice().sort((a, b) => a[0] - b[0]);
-    const noteList = myNotes.map((n) => ({ time: this.mmss(n[0]), text: n[1], aria: 'Jump to ' + this.mmss(n[0]),
-      seek: () => this.setState({ t: Math.min(n[0], dur) }),
+    const extOf = (nm) => { const m = String(nm || '').match(/\.([a-z0-9]{1,4})$/i); return m ? m[1].toUpperCase() : 'FILE'; };
+    const attView = (a) => ({ url: a.url, name: a.name, ext: extOf(a.name), isImg: a.kind === 'image' || a.kind === 'drawing', isFile: !(a.kind === 'image' || a.kind === 'drawing') });
+    const noteList = myNotes.map((n) => ({ time: this.mmss(n[0]), text: n[1], hasText: !!n[1], atts: (n[2] || []).map(attView), hasAtt: !!(n[2] && n[2].length), aria: 'Jump to ' + this.mmss(n[0]),
+      seek: () => this.seekTo(Math.min(n[0], dur)),
       del: () => { const all = Object.assign({}, st.notes); all[l.id] = (all[l.id] || []).filter((x) => x !== n); this.setState({ notes: all }); } }));
 
     const youRes = l.res.filter((r) => r[3] === 'you'), guideRes = l.res.filter((r) => r[3] === 'guide');
-    const resItem = (r) => ({ title: r[1], meta: r[2], icon: RIC[r[0]] || RIC.worksheet, bg: r[3] === 'guide' ? '#FEF1D9' : s.tint, fg: r[3] === 'guide' ? '#92400E' : s.ink,
-      cta: r[0] === 'practice' ? 'Start' : 'Open', open: () => this.setState({ msg: (r[0] === 'practice' ? 'Starting “' : 'Opening “') + r[1] + '”. In this demo nothing downloads.' }) });
+    const RF = this.resFiles()[l.id] || {}; const PS = this.practice()[l.id];
+    const resItem = (r) => { const i = l.res.indexOf(r); const f = RF[i]; const isPr = r[0] === 'practice' && PS;
+      const meta = f ? (f.csv ? 'Spreadsheet · CSV · opens in Excel or Sheets' : r[2].replace(/^Image · /, 'PDF · ').replace(/^Card$/, 'PDF card').replace(/^Diagram$/, 'PDF diagram')) : (isPr ? PS.length + ' questions · instant feedback' : r[2]);
+      return { title: r[1], meta, icon: RIC[r[0]] || RIC.worksheet, bg: r[3] === 'guide' ? '#FEF1D9' : s.tint, fg: r[3] === 'guide' ? '#92400E' : s.ink,
+        cta: isPr ? 'Start' : 'Open', hasFile: !!f, url: f ? f.url : '', file: f ? f.file : '', dlAria: 'Download ' + r[1],
+        open: () => (isPr ? this.setState({ pr: { title: r[1], i: 0, picks: [], vals: [], done: false } }) : (f ? this.setState({ viewer: { title: r[1], meta: meta, f, page: 0, zoom: false } }) : this.setState({ msg: '“' + r[1] + '” opens in the live session.' }))) }; };
     const resGroups = [{ title: 'For you', items: youRes.map(resItem) }, { title: 'For your parent or guide', items: guideRes.map(resItem) }].filter((g) => g.items.length);
 
     const raw = (st.comments[l.id] || []).map((c, i) => ({ c, i }));
-    const ordered = st.sort === 'top' ? raw.slice().sort((a, b) => (b.c[4] + (st.liked[l.id + ':' + b.i] ? 1 : 0)) - (a.c[4] + (st.liked[l.id + ':' + a.i] ? 1 : 0))) : raw.slice().reverse();
+    const RX = st.react || {};
+    const score = (x) => { const r = RX[l.id + ':' + x.i] || {}; return x.c[4] + Math.floor(x.c[4] / 2) + (r.like ? 1 : 0) + (r.ins ? 1 : 0) - (r.down ? 1 : 0); };
+    const ordered = st.sort === 'top' ? raw.slice().sort((a, b) => score(b) - score(a)) : raw.slice().reverse();
+    const ICO = { like: 'M7 10v11H3V10zM7 10l4-7c1.7 0 3 1.3 3 3v3h5.2c1.3 0 2.3 1.2 2 2.5l-1.6 7c-.2.9-1 1.5-2 1.5H7', ins: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z', down: 'M17 14V3h4v11zM17 14l-4 7c-1.7 0-3-1.3-3-3v-3H4.8c-1.3 0-2.3-1.2-2-2.5l1.6-7c.2-.9 1-1.5 2-1.5H17' };
     const comments = ordered.map(({ c, i }) => {
       const k = l.id + ':' + i, liked = !!st.liked[k];
       const role = ROLE[c[1]] || ROLE.Learner;
-      return { who: c[0], role: c[1] === 'You' ? 'You' : c[1], when: c[2], text: c[3], likes: String(c[4] + (liked ? 1 : 0)),
+      const r = RX[k] || {}; const base = { like: c[4], ins: Math.floor(c[4] / 2), down: 0 };
+      const reacts = [['like', 'Like', 'Like this comment', '#E4ECFD', '#1E40AF', '#93BBF3'], ['ins', 'Insightful', 'Mark as insightful', '#FEF1D9', '#92400E', '#F9A826'], ['down', '', 'Not helpful', '#F4F4EF', '#3F444C', '#9A9E95']].map(([key, label, aria, bgOn, fgOn, bdOn]) => ({ label, aria: aria + (r[key] ? ', selected' : ''), n: String(base[key] + (r[key] ? 1 : 0)), pressed: r[key] ? 'true' : 'false', bg: r[key] ? bgOn : '#FFFFFF', fg: r[key] ? fgOn : '#3F444C', bd: r[key] ? bdOn : '#E2E2DA', fill: r[key] && key !== 'ins' ? 'currentColor' : 'none', icon: ICO[key],
+        pick: () => { const all = Object.assign({}, RX); const cur = Object.assign({}, all[k] || {}); cur[key] = !cur[key]; if (key === 'like' && cur.like) cur.down = false; if (key === 'down' && cur.down) cur.like = false; all[k] = cur; this.setState({ react: all }); } }));
+      return { who: c[0], role: c[1] === 'You' ? 'You' : c[1], when: c[2], text: c[3], likes: String(c[4] + (liked ? 1 : 0)), reacts,
         ini: c[0].split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase(), avBg: role[0], avFg: role[1], roleBg: role[0], roleFg: role[1],
         likedPressed: liked ? 'true' : 'false', likeBg: liked ? '#FEF1D9' : '#FFFFFF', likeFg: liked ? '#92400E' : '#3F444C', likeBd: liked ? '#F9A826' : '#E2E2DA', heart: liked ? '#F9A826' : 'none',
         like: () => { const lk = Object.assign({}, st.liked); lk[k] = !liked; this.setState({ liked: lk }); },
         reply: () => this.setState({ cdraft: '@' + c[0].split(' ')[0] + ' ' }),
-        hasAt: c[5] >= 0, at: c[5] >= 0 ? this.mmss(c[5]) : '', seek: () => this.setState({ t: Math.min(Math.max(c[5], 0), dur) }) };
+        hasAt: c[5] >= 0, at: c[5] >= 0 ? this.mmss(c[5]) : '', seek: () => this.seekTo(Math.min(Math.max(c[5], 0), dur), true) };
     });
 
     const tabDefs = [['transcript', 'Transcript', l.tr.length], ['notes', 'Notes', myNotes.length], ['resources', 'Resources', l.res.length], ['comments', 'Comments', raw.length]];
@@ -617,7 +902,7 @@ class Component extends DCLogic {
       const on = st.view === id;
       return { label, count: String(n), pressed: on ? 'true' : 'false', bg: on ? '#14161A' : 'transparent', fg: on ? '#FFFFFF' : '#3F444C', pick: () => this.setState({ view: id }) };
     });
-    const subjChips = [['all', 'All subjects', '#8A8F96']].concat(Object.keys(S).map((k) => [k, S[k].name + ' ' + S[k].level, S[k].color])).map(([id, name, dot]) => {
+    const subjChips = [['all', 'All', '#8A8F96']].concat(Object.keys(S).map((k) => [k, S[k].name + ' ' + S[k].level, S[k].color])).map(([id, name, dot]) => {
       const on = st.subj === id;
       return { name, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ subj: id }) };
     });
@@ -656,15 +941,26 @@ class Component extends DCLogic {
       pStatus: statusText, pLive: isNext && l.live, pStatusBg: isNext ? (l.live ? '#14161A' : 'rgba(255,255,255,0.92)') : (watched(l) ? 'rgba(255,255,255,0.92)' : '#F9A826'), pStatusFg: isNext && l.live ? '#FFFFFF' : '#14161A',
       title: l.title, pTitleFg: s.titleFg, pHostLine: l.host.name + (isNext ? ' · preview available' : ' · ' + this.dur(l.dur)),
       showBigPlay: !st.playing, playing: st.playing, paused: !st.playing, playAria: st.playing ? 'Pause' : (isNext ? 'Play the preview' : 'Play the lesson'),
-      togglePlay: () => this.setState({ playing: !st.playing, t: t >= dur ? 0 : t }),
-      back10: () => this.setState({ t: Math.max(0, t - 10) }),
+      togglePlay: () => { if (st.playing) this.pause(); else { if (t >= dur - 0.3) this.seekTo(0); this.play(); } },
+      back10: () => this.seekTo(Math.max(0, t - 10)),
+      vSrc: l.video || '', vPoster: l.poster || '', vFile: l.id + (isNext ? '-preview' : '') + '.mp4', videoAria: (isNext ? 'Preview: ' : 'Lesson video: ') + l.title,
+      vidRefCb: this._vidCb, playerRef: this._playerCb,
+      onTime: (e) => { const ct = e.currentTarget.currentTime; if (Math.abs(ct - this.state.t) > 0.2) this.setState({ t: ct }); },
+      onPlay: () => this.setState({ playing: true, msg: '' }), onPause: () => this.setState({ playing: false }),
+      onEnded: () => { const w = Object.assign({}, this.state.watched); if (l.status !== 'next') w[l.id] = true; this.setState({ playing: false, watched: w, t: dur }); },
+      onMeta: (e) => this.onMeta(e), onVol: (e) => { const v = e.currentTarget; if (Math.abs(v.volume - this.state.vol) > 0.01 || v.muted !== this.state.muted) this.setState({ vol: v.volume, muted: v.muted }); },
+      soundOn: !(st.muted || st.vol === 0), soundOff: st.muted || st.vol === 0, mutedA: st.muted ? 'true' : 'false', muteAria: st.muted ? 'Unmute' : 'Mute',
+      toggleMute: () => { const m = !st.muted; const v = this.vid(); if (v) { v.muted = m; if (!m && v.volume === 0) v.volume = 0.6; } this.setState({ muted: m, vol: !m && st.vol === 0 ? 0.6 : st.vol }); },
+      vol100: String(Math.round((st.muted ? 0 : st.vol) * 100)), volText: st.muted ? 'muted' : Math.round(st.vol * 100) + '%',
+      setVol: (e) => { const val = Number(e.target.value) / 100; const v = this.vid(); if (v) { v.volume = val; v.muted = val === 0; } this.setState({ vol: val, muted: val === 0 }); },
+      fullscreen: () => { const el = this._player; try { if (document.fullscreenElement) document.exitFullscreen(); else if (el && el.requestFullscreen) el.requestFullscreen().catch(() => this.setState({ msg: 'Full screen isn’t allowed in this preview.' })); } catch (e) { this.setState({ msg: 'Full screen isn’t allowed in this preview.' }); } },
       showCaption: ccOn && !!capLine && (st.playing || t > 0), caption: capLine ? capLine[2] : '',
       pct: (t / dur * 100).toFixed(2), timeText: this.mmss(t) + ' / ' + this.mmss(dur) + (isNext ? ' preview' : ''),
-      durMax: String(dur), tInt: String(Math.floor(t)), seek: (e) => this.setState({ t: Number(e.target.value) || 0 }),
+      durMax: String(Math.floor(dur)), tInt: String(Math.floor(t)), seek: (e) => this.seekTo(Number(e.target.value) || 0),
       ticks: l.ch.slice(1).map((c) => ({ left: (Math.min(c[0], dur) / dur * 100).toFixed(2) })),
-      speedText: st.speed + '×', speedAria: 'Playback speed ' + st.speed + 'x, change', cycleSpeed: () => { const sp = [0.75, 1, 1.25, 1.5]; this.setState({ speed: sp[(sp.indexOf(st.speed) + 1) % sp.length] }); },
+      speedText: st.speed + '×', speedAria: 'Playback speed ' + st.speed + 'x, change', cycleSpeed: () => { const sp = [0.75, 1, 1.25, 1.5]; const n = sp[(sp.indexOf(st.speed) + 1) % sp.length]; const v = this.vid(); if (v) v.playbackRate = n; this.setState({ speed: n }); },
       ccPressed: ccOn ? 'true' : 'false', ccBg: ccOn ? '#FFFFFF' : 'transparent', ccFg: ccOn ? '#14161A' : '#FFFFFF', ccBd: ccOn ? '#FFFFFF' : '#3F444C', toggleCc: () => this.setState({ cc: !ccOn }),
-      chapters: l.ch.map((c, i) => ({ time: this.mmss(c[0]), label: c[1], pressed: i === chIdx ? 'true' : 'false', bg: i === chIdx ? s.tint : '#FFFFFF', bd: i === chIdx ? s.color : '#E2E2DA', tc: s.ink, pick: () => this.setState({ t: Math.min(c[0], dur), playing: true }) })),
+      chapters: l.ch.map((c, i) => ({ time: this.mmss(c[0]), label: c[1], pressed: i === chIdx ? 'true' : 'false', bg: i === chIdx ? s.tint : '#FFFFFF', bd: i === chIdx ? s.color : '#E2E2DA', tc: s.ink, pick: () => this.seekTo(Math.min(c[0], dur), true) })),
       pInk: s.ink, pColor: s.color, pTint: s.tint, crumbSubject: s.name + ' ' + s.level, crumbPath: s.path, crumbSection: l.sec,
       hostImg: l.host.img, hostName: l.host.name, hostRole: l.host.role,
       metaLine: (isNext ? l.when + ' · ' + this.dur(l.dur) : l.when) + ' · ' + l.tr.length + (isNext ? ' preview lines' : ' transcript lines'),
@@ -680,7 +976,15 @@ class Component extends DCLogic {
       tabs, tabTranscript: st.tab === 'transcript', tabNotes: st.tab === 'notes', tabResources: st.tab === 'resources', tabComments: st.tab === 'comments',
       tq: st.tq, setTq: (e) => this.setState({ tq: e.target.value }), tqCount, isPreview: isNext, lines,
       draft: st.draft, setDraft: (e) => this.setState({ draft: e.target.value }),
-      addNote: () => { const txt = st.draft.trim(); if (!txt) return; const all = Object.assign({}, st.notes); all[l.id] = (all[l.id] || []).concat([[Math.floor(t), txt]]); this.setState({ notes: all, draft: '' }); },
+      addNote: () => { const txt = st.draft.trim(); const att = st.pending || []; if (!txt && !att.length) return; const all = Object.assign({}, st.notes); all[l.id] = (all[l.id] || []).concat([[Math.floor(t), txt, att]]); this.setState({ notes: all, draft: '', pending: [], padOpen: false }); },
+      addFiles: (e) => this.addFiles(e),
+      padOpen: st.padOpen, padOpenA: st.padOpen ? 'true' : 'false', padBg: st.padOpen ? '#E4ECFD' : '#FFFFFF', padBd: st.padOpen ? '#93BBF3' : '#CFCFC6', togglePad: () => this.setState({ padOpen: !st.padOpen }),
+      padRefCb: this._padCb, padDown: (e) => this.padDown(e), padMove: (e) => this.padMove(e), padUp: () => this.padUp(),
+      padUndoCb: () => this.padUndo(), padClearCb: () => this.padClear(), padAttachCb: () => this.padAttach(),
+      tools: [['pen', 'Pen'], ['hl', 'Highlighter'], ['eraser', 'Eraser']].map(([key, label]) => ({ label, pressed: st.tool === key ? 'true' : 'false', bg: st.tool === key ? '#14161A' : '#FFFFFF', fg: st.tool === key ? '#FFFFFF' : '#14161A', bd: st.tool === key ? '#14161A' : '#CFCFC6', pick: () => this.setState({ tool: key }) })),
+      inks: [['#1D4ED8', 'Blue ink'], ['#14161A', 'Black ink'], ['#0D9488', 'Teal ink'], ['#C2410C', 'Red ink']].map(([hex, name]) => ({ hex, name, pressed: st.ink === hex ? 'true' : 'false', ring: st.ink === hex ? '#F9A826' : '#FFFFFF', pick: () => this.setState({ ink: hex, tool: st.tool === 'eraser' ? 'pen' : st.tool }) })),
+      hasPending: (st.pending || []).length > 0,
+      pendingList: (st.pending || []).map((a, i) => Object.assign(attView(a), { size: a.size || 'Drawing', aria: 'Remove ' + a.name, remove: () => this.setState({ pending: st.pending.filter((x, j) => j !== i) }) })),
       noNotes: myNotes.length === 0, noteList,
       evPressed: st.evidence ? 'true' : 'false', evLabel: st.evidence ? '✓ Notes count as evidence' : 'Count my notes as evidence',
       evBg: st.evidence ? '#DDF4F1' : '#FFFFFF', evFg: st.evidence ? '#115E59' : '#3F444C', evBd: st.evidence ? '#8FD3C9' : '#CFCFC6', toggleEvidence: () => this.setState({ evidence: !st.evidence }),
@@ -695,18 +999,75 @@ class Component extends DCLogic {
       cardMeta: left > 0 ? left + ' of ' + deck.length + ' due · ' + s.name : 'All done · ' + s.name,
       hasCard: left > 0, deckDone: left === 0,
       cardBg: st.back ? '#FFFFFF' : s.color, cardFg: st.back ? '#14161A' : s.titleFg,
-      cardSide: st.back ? 'Answer' : 'Question', showFront: !st.back, showBack: st.back,
+      cardSide: st.back ? 'Answer' : 'Question ' + (kn + 1) + ' of ' + deck.length, showFront: !st.back, showBack: st.back,
+      cardAnim: st.back ? (st.ci % 2 ? 'flipin' : 'flipin2') : (st.ci % 2 ? 'fadein' : 'fadein2'),
       cardFront: deck[cardI] ? deck[cardI][0] : '', cardBack: deck[cardI] ? deck[cardI][1] : '',
-      flipHint: st.back ? 'Tap to see the question again' : 'Tap to flip', flipAria: st.back ? 'Show question' : 'Show answer', flip: () => this.setState({ back: !st.back }),
-      again: () => this.setState({ ci: st.ci + 1, back: false, again: st.again + 1 }),
-      gotIt: () => { const k = Object.assign({}, st.known); k[l.subj] = Math.min(deck.length, (k[l.subj] || 0) + 1); this.setState({ known: k, ci: st.ci + 1, back: false }); },
-      resetDeck: () => { const k = Object.assign({}, st.known); k[l.subj] = 0; this.setState({ known: k, ci: 0, back: false }); },
-      dots: deck.map((d, i) => ({ bg: i < kn ? '#0F766E' : (i === kn ? s.color : '#ECECE6') }))
+      cardAns: st.cardAns, setCardAns: (e) => this.setState({ cardAns: e.target.value }),
+      checkCard: () => { const a = (st.cardAns || '').trim(); const pat = (this.cardAccept()[l.subj] || [])[cardI]; const ok = a ? (pat ? new RegExp(pat, 'i').test(a) : false) : null; this.setState({ back: true, cardMine: a, cardOk: ok }); },
+      cardKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); const a = (st.cardAns || '').trim(); const pat = (this.cardAccept()[l.subj] || [])[cardI]; const ok = a ? (pat ? new RegExp(pat, 'i').test(a) : false) : null; this.setState({ back: true, cardMine: a, cardOk: ok }); } },
+      hasMine: !!st.cardMine, cardMine: st.cardMine,
+      verdict: st.cardOk === true ? '✓ Matches the answer' : (st.cardOk === false ? 'Not quite. Compare with the answer' : 'Answer'), verdictBg: st.cardOk === true ? '#DDF4F1' : (st.cardOk === false ? '#FEF1D9' : '#F4F4EF'), verdictFg: st.cardOk === true ? '#115E59' : (st.cardOk === false ? '#92400E' : '#3F444C'),
+      gotRing: st.back && st.cardOk === true ? '0 0 0 3px #A7DED6' : 'none',
+      flipHint: '', flipAria: st.back ? 'Show question' : 'Show answer', flip: () => this.setState({ back: !st.back }),
+      again: () => this.setState({ ci: st.ci + 1, back: false, again: st.again + 1, cardAns: '', cardMine: '', cardOk: null }),
+      gotIt: () => { const k = Object.assign({}, st.known); k[l.subj] = Math.min(deck.length, (k[l.subj] || 0) + 1); this.setState({ known: k, ci: st.ci + 1, back: false, cardAns: '', cardMine: '', cardOk: null }); },
+      resetDeck: () => { const k = Object.assign({}, st.known); k[l.subj] = 0; this.setState({ known: k, ci: 0, back: false, cardAns: '', cardMine: '', cardOk: null }); },
+      dots: deck.map((d, i) => ({ bg: i < kn ? '#0F766E' : (i === kn ? s.color : '#ECECE6') })),
+      ...this.modalVals(s)
     };
   }
 }
 return Component;
 });
+
+DC.component("Approvals", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  componentDidMount() {
+    this._sync = (e) => { if (!e || e.key === 'vachuo-approvals' || e.key === 'vachuo-theme') { this._uiT = undefined; this.forceUpdate(); } };
+    try { window.addEventListener('storage', this._sync); window.addEventListener('vachuo-approvals', this._sync); } catch (e) {}
+  }
+  componentWillUnmount() { try { window.removeEventListener('storage', this._sync); window.removeEventListener('vachuo-approvals', this._sync); } catch (e) {} }
+  read() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || this.seed(); }
+  write(list) { this._mem = list; try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {} this.forceUpdate(); }
+  seed() {
+    return [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', from: 'Amani', at: 'Mon 2 Nov', status: 'pending' },
+      { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending' }];
+  }
+  renderVals() {
+    const area = (this.props && this.props.area) || 'parent'; const list = this.read();
+    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'] };
+    const set = (id, status) => this.write(this.read().map((x) => (x.id === id ? Object.assign({}, x, { status, decidedAt: 'Tue 3 Nov' }) : x)));
+    const out = Object.assign(this.themeVals(), { isParent: area === 'parent', isStrip: false, pending: [], noPending: true, done: [], hasDone: false, pendingCount: '', stripTitle: '', stripSub: '', stripItems: [], stripBg: '#FFFFFF', stripBd: '#E2E2DA', chip: '', chipBg: '#FFFFFF', chipFg: '#14161A' });
+    if (area === 'parent') {
+      const pend = list.filter((x) => x.status === 'pending'); const done = list.filter((x) => x.status !== 'pending');
+      const AREA = { map: 'Learning map', classes: 'My classes', assess: 'My assessments', tutor: 'Socrates', clubs: 'Clubs and Connects' };
+      Object.assign(out, { pendingCount: pend.length ? pend.length + ' waiting' : 'All clear', noPending: !pend.length, hasDone: done.length > 0,
+        pending: pend.map((x) => { const k = K[x.kind] || K.job; const areas = x.payload && x.payload.items ? Object.keys(x.payload.items).filter((a) => x.payload.items[a].length).map((a) => ({ t: AREA[a] + ' · ' + x.payload.items[a].length })) : [];
+          return { kind: k[0], kBg: k[1], kFg: k[2], title: x.title, detail: x.detail, from: x.from, at: x.at, areas, hasAreas: areas.length > 0, approve: () => set(x.id, 'approved'), decline: () => set(x.id, 'declined') }; }),
+        done: done.slice(-5).reverse().map((x) => ({ title: x.title, status: x.status === 'approved' ? 'Approved' : 'Declined', sBg: x.status === 'approved' ? '#DDF4F1' : '#ECECE6', sFg: x.status === 'approved' ? '#115E59' : '#3F444C', undo: () => set(x.id, 'pending') })) });
+      return out;
+    }
+    const plans = list.filter((x) => x.kind === 'align' && x.payload && x.payload.items && (x.payload.items[area] || []).length);
+    const ap = plans.filter((x) => x.status === 'approved').slice(-1)[0]; const pe = plans.filter((x) => x.status === 'pending').slice(-1)[0];
+    const p = ap || pe; if (!p) return out;
+    const items = p.payload.items[area] || [];
+    Object.assign(out, { isStrip: true, chip: ap ? 'Added by your alignment plan' : 'Waiting for Wanjiru', chipBg: ap ? '#DDF4F1' : '#FEF1D9', chipFg: ap ? '#115E59' : '#92400E',
+      stripTitle: p.payload.label, stripSub: ap ? 'Approved by Wanjiru · ' + (ap.decidedAt || 'today') + ' · ' + items.length + ' added here' : items.length + ' will be added here once approved',
+      stripBg: ap ? '#F4F7FE' : '#FEF9EE', stripBd: ap ? '#DCE6FD' : '#F3DDB0', stripItems: items.map((x) => ({ t: x.t, w: x.w })) });
+    return out;
+  }
+}
+return Component;
+}, {"area": "parent", "embedded": false});
 
 DC.mount("Notes");
 </script>

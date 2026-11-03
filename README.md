@@ -26,11 +26,19 @@ Then open http://localhost:5180.
 | Learner | Today | `today.html` |
 | Learner | Tutor session | `session.html` |
 | Learner | My map | `map.html` |
-| Learner | My notes | `notes.html` |
-| Learner | Learning Passport | `passport.html` |
+| Learner | My classes | `notes.html` |
+| Learner | My assessments | `assessments.html` |
+| Learner | Set up a learner | `onboarding.html` |
+| Learner | Report card | `passport.html` |
 | World | Connects | `connects.html` |
 | World | Connects profile | `profile.html` (`?pid=library`, `?pid=grace`, …) |
 | Family | Parent copilot | `copilot.html` |
+| Family | Learner profile | `learner.html` |
+| People | Messages | `messages.html` |
+| Community | Clubs | `clubs.html` |
+| Community | Showcase | `showcase.html` |
+| Component | Curriculum comparison | `compare.html` |
+| Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |
 
 ## How a page is built
@@ -44,6 +52,7 @@ transitions, focus, typing and scroll-reveal state survive).
 - `{{name}}` fills text or an attribute from `renderVals()` (or the current loop item).
 - `onclick="{{handler}}"` binds any `on*` event to a function; `onchange` fires on every input.
 - `value="{{v}}"` and `checked="{{b}}"` on form fields stay in sync with component state.
+- `ref="{{fn}}"` calls `fn(element)` after render and `fn(null)` once the element is gone.
 - `<template data-for="{{list}}" data-as="item">` repeats; `<template data-if="{{flag}}">` shows conditionally.
 - `<dc-import name="Profile" pid="{{id}}" on-back="{{fn}}">` embeds another component
   (its template and class are included in the same page).
@@ -51,4 +60,7 @@ transitions, focus, typing and scroll-reveal state survive).
   `componentWillUnmount`.
 
 Shared base styles live in `assets/css/site.css`; page-specific styles sit in each page's
-`<head>`. Images are in `assets/img/`.
+`<head>`. `assets/css/theme.css` is the dark theme: pages set `data-theme="dark"` (saved in
+`localStorage` as `vachuo-theme`), and the theme recolours inline styles by matching their
+serialized form, which is why the runtime writes `style` attributes the way the browser does.
+Images are in `assets/img/`; lesson PDFs, videos and data files are in `assets/files/`.

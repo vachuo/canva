@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
 <style>
 html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
 .lnode{transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
@@ -35,7 +36,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <body>
 <div id="app"></div>
 <template id="dc-Landing">
-<div style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div data-theme="{{uiTheme}}" style="background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
 <header style="position: sticky; top: 0; z-index: 30; background: rgba(244,244,239,0.94); border-bottom: 1px solid #E2E2DA; box-shadow: {{headShadow}}">
 <div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 12px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
@@ -54,7 +55,8 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <a href="white-paper.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">About</a>
 </nav>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
-<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; text-decoration: none">Sign in</a>
+<button type="button" aria-label="Dark mode" aria-pressed="{{uiOn}}" onClick="{{uiToggle}}" style="flex: none; align-self: center; width: 44px; height: 44px; padding: 0; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><template data-if="{{uiLight}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></template><template data-if="{{uiDark}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></template></button>
+<a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #F9A826; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; text-decoration: none">Sign in</a>
 <a href="#access" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Request early access</a>
 </div>
 </div>
@@ -69,7 +71,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <p style="margin: 0; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: #3F444C; max-width: 640px; text-wrap: pretty">The operating system for individualized K–12 education: a validated CAP engine, persistent learner model, autonomous AI teachers, automated school administration, parent copilot, and human expertise available only when it adds value.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
 <a href="#access" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">Request early access<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<a href="today.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 16px; font-weight: 500; text-decoration: none">Take the product tour</a>
+<a href="today.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid #F9A826; background: #F9A826; color: #14161A; font-size: 16px; font-weight: 600; text-decoration: none">Take the product tour</a>
 </div>
 <p style="margin: 0; font-size: 14px; color: #62676F">Starting with homeschooling families. Built for every kind of school.</p>
 </div>
@@ -82,11 +84,11 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">week 9</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid #ECECE6">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #E4ECFD">James, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #E4ECFD">Bob, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C">Mastered multiplication; still confusing division remainders. Next week’s path now has three short prerequisite lessons.</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #FEF1D9">Sarah, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #FEF1D9">Johari, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #3F444C">Avoiding writing for four days. She can do it, so this looks behavioral, not a knowledge gap.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
 <span style="font-size: 12.5px; padding: 6px 10px; border-radius: 10px; border: 1px solid #E2E2DA">Projects around animals</span>
@@ -113,7 +115,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #DCE6FD">Meet the learners</span>
 <h2 id="learners-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Every child, every continent. One loop.</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DCE6FD; text-wrap: pretty">From Nairobi to Cusco, Seoul to Window Rock, every learner starts in a different place and moves at a different speed. Vachuo finds where each of them is, plans the next step, and brings in a person when it matters.</p>
-<a href="today.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #FFFFFF; color: #1E40AF; font-size: 15px; font-weight: 600; text-decoration: none">See Amani’s day<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="today.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #F9A826; color: #14161A; font-size: 15px; font-weight: 600; text-decoration: none">See Amani’s day<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 <div style="position: relative; flex: 1 1 100%; min-width: 0; height: clamp(220px, 26vw, 380px); box-sizing: border-box; padding: 8px 16px 18px; display: flex; justify-content: center; align-items: flex-end">
 <img src="assets/img/80b06694a121b52e5cf0510bfda36f44.svg" alt="Illustrated learners from all seven continents, in everyday, formal and traditional dress" style="display: block; max-height: 100%; max-width: 100%; width: auto; height: auto">
@@ -339,12 +341,12 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <div style="flex: 2 1 480px; min-width: 0; border-radius: 22px; border: 1.5px solid #1D4ED8; padding: 24px; display: flex; flex-direction: column; gap: 18px">
 <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">What a Parent Copilot says</span>
 <div style="display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #E4ECFD"><span style="font-size: 16px; font-weight: 600">James, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
-<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">James mastered multiplication this week but is repeatedly confusing division remainders. His confidence drops when word problems contain more than two steps. Vachuo has therefore adjusted next week’s learning path and inserted three short prerequisite lessons. No intervention is required from you right now.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/ee935388d47b6bf0d509293d4cba8892.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #E4ECFD"><span style="font-size: 16px; font-weight: 600">Bob, 9</span><span style="font-size: 12px; font-weight: 600; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px">No action needed</span></div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">Bob mastered multiplication this week but is repeatedly confusing division remainders. His confidence drops when word problems contain more than two steps. Vachuo has therefore adjusted next week’s learning path and inserted three short prerequisite lessons. No intervention is required from you right now.</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid #ECECE6">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9"><span style="font-size: 16px; font-weight: 600">Sarah, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
-<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">Sarah has been avoiding writing assignments for four days. Academically she can perform them, so this appears behavioral rather than a knowledge gap. Would you like Vachuo to adjust her projects around her interest in animals, schedule a 10-minute conversation with you, or connect her with a writing coach?</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><img src="assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9"><span style="font-size: 16px; font-weight: 600">Johari, 13</span><span style="font-size: 12px; font-weight: 600; color: #92400E; background: #FEF1D9; padding: 3px 10px; border-radius: 999px">Your call</span></div>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.6; text-wrap: pretty">Johari has been avoiding writing assignments for four days. Academically she can perform them, so this appears behavioral rather than a knowledge gap. Would you like Vachuo to adjust her projects around her interest in animals, schedule a 10-minute conversation with you, or connect her with a writing coach?</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <span style="font-size: 13.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #CFCFC6">Projects around animals</span>
 <span style="font-size: 13.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #CFCFC6">10-minute conversation</span>
@@ -407,7 +409,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <h2 id="deschool-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; color: #134E4A; text-wrap: balance">A school this powerful needs limits.</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #134E4A; text-wrap: pretty">After Ivan Illich’s Deschooling Society, the loop obeys rules that keep learners free: every inference is contestable, open time is never observed, learning in the world counts, and records belong to the learner.</p>
 </div>
-<a href="loop.html" style="flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Read the seven constraints<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="loop.html" style="flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #F9A826; color: #14161A; font-size: 15px; font-weight: 600; text-decoration: none">Read the seven constraints<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <img src="assets/img/f2d98c98ce8744c8f63eeb876bbf6246.svg" alt="" style="flex: none; align-self: flex-end; height: 190px; width: auto; margin-bottom: calc(-1 * clamp(24px, 4vw, 40px))">
 </div>
 </section>
@@ -423,7 +425,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <label for="email" style="font-size: 13.5px; font-weight: 600; color: #DCE6FD">Email</label>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <input id="email" type="email" autocomplete="email" placeholder="you@example.com" value="{{email}}" onChange="{{setEmail}}" onKeyDown="{{emailKey}}" aria-invalid="{{emailInvalid}}" aria-describedby="email-msg" style="flex: 1 1 220px; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 18px; border-radius: 14px; border: 2px solid {{emailBorder}}; background: #FFFFFF; font-size: 16px; color: #14161A">
-<button type="button" onClick="{{joinList}}" style="min-height: 52px; padding: 0 22px; border-radius: 14px; border: none; background: #14161A; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{joinLabel}}</button>
+<button type="button" onClick="{{joinList}}" style="min-height: 52px; padding: 0 22px; border-radius: 14px; border: none; background: #F9A826; color: #14161A; font-size: 15px; font-weight: 600; cursor: pointer">{{joinLabel}}</button>
 </div>
 <p id="email-msg" role="status" style="margin: 0; min-height: 22px; font-size: 14.5px; line-height: 1.5; color: #FFFFFF">{{emailMsg}}</p>
 </div>
@@ -449,7 +451,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <a href="pricing.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Pricing</a>
 <a href="careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Careers</a>
 <a href="sign-in.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">Sign in</a>
-<span style="display: inline-flex; align-items: center; min-height: 44px">[CONTACT EMAIL]</span>
+<a href="mailto:hello@vachuo.com" style="display: inline-flex; align-items: center; min-height: 44px; color: #3F444C; text-decoration: none">hello@vachuo.com</a>
 </nav>
 <nav aria-label="Vachuo on social media" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid #ECECE6">
 <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; margin-right: 8px">Follow Vachuo</span>
@@ -472,6 +474,19 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <script>
 DC.component("Landing", function () {
 class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
   constructor(props) {
     super(props);
     this.state = { step: 0, playing: true, email: '', joined: false, emailErr: false, scrolled: false, showTop: false,
@@ -511,7 +526,7 @@ class Component extends DCLogic {
       document.documentElement.classList.add('rv-on');
     }
   }
-  componentWillUnmount() {
+  componentWillUnmount() { this.themeOff();
     clearInterval(this._tick);
     clearInterval(this._tourT);
     clearTimeout(this._bt);
@@ -562,8 +577,8 @@ class Component extends DCLogic {
       ['p', 'Plan approved', 'The family decides', 'Amani’s parent approves the week’s plan and Thursday’s workshop visit in the Parent OS.'],
       ['m', '4 sessions booked', 'The school runs itself', 'The AI School Manager books four sessions, the workshop and Wednesday’s reassessment, and files the record.'],
       ['cap', 'Problem · check · approach', 'Content, Assessment, Pedagogy', 'CAP picks a chapati problem, a check question and a worked-example approach, all validated before Amani sees them.'],
-      ['lm', 'Ratios 0.42', 'The model knows how sure it is', 'Ratios is likely between 0.33 and 0.51. Not shown yet, so it’s worth this week’s time.'],
-      ['kg', 'Gap found', 'The graph finds the root', 'Wrong answers trace back to Equivalent fractions, a gap at 0.61, so that comes in first.'],
+      ['lm', 'Ratios 42%', 'The model knows how sure it is', 'Ratios is likely between 33% and 51%. Not shown yet, so it’s worth this week’s time.'],
+      ['kg', 'Gap found', 'The graph finds the root', 'Wrong answers trace back to Equivalent fractions, a gap at 61%, so that comes in first.'],
       ['t', 'Worked example', 'A tutor that asks why', 'An AI tutor agent teaches with a worked example and asks why an answer happened, not just whether it’s right.'],
       ['k', '15 cups for 40 ✓', 'Amani gets there', 'Amani scales 3 cups for 8 chapati to 15 cups for 40. The evidence flows back into the model.'],
       ['h', 'Wednesday check-in', 'People where people matter', 'Nduta, Amani’s human guide, checks in on Wednesday. Motivation and mentorship stay human.']
@@ -617,7 +632,7 @@ class Component extends DCLogic {
     const curView = st.ly === 'view' ? st.lyView : 'all';
     const lyViews = views.map(([id, label, dot]) => {
       const on = curView === id && (st.ly === 'view' || (id === 'all' && st.ly === 'idle'));
-      return { label, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6',
+      return { label, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#F9A826', fg: on ? '#F9A826' : '#14161A', bd: on ? '#14161A' : '#F9A826',
         pick: () => this.setState(id === 'all' ? { ly: 'idle', lyView: 'all', lyKey: '', tour: false } : { ly: 'view', lyView: id, lyKey: '', tour: false }) };
     });
     const INFO = [
@@ -654,7 +669,8 @@ class Component extends DCLogic {
     };
   }
 
-  renderVals() {
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
     const step = this.state.step;
     const caps = ['Find where the learner really is, not where the grade says.', 'Build the next path from their goals and their gaps.', 'Explain it in the way that suits this learner.', 'Watch how they work, not just what they answer.', 'Check understanding with fresh, well-made items.', 'Name the exact misconception behind an error.', 'Repair the gap with targeted practice.', 'Confirm the repair held, days later.', 'Update what Vachuo believes, and how sure it is.', 'Tell the family what happened and what needs them.', 'Then start again, for every child, every day.'];
     const names = ['Diagnose', 'Plan', 'Teach', 'Observe', 'Assess', 'Diagnose misconception', 'Remediate', 'Reassess', 'Update learner model', 'Inform parent', 'Repeat'];

@@ -11,6 +11,7 @@
  *   {{path.to.value}}            text or attribute value from renderVals() / loop scope
  *   onclick="{{handler}}"        any on* attribute bound to a function (onchange = every input)
  *   value="{{v}}" checked="{{b}}" on form fields are kept in sync as properties
+ *   ref="{{fn}}"                 fn(element) after render, fn(null) once it is removed
  *   <template data-for="{{list}}" data-as="item">   repeat
  *   <template data-if="{{flag}}">                   conditional
  *   <dc-import name="Other" prop="{{x}}" on-done="{{fn}}">   embed another component
@@ -59,6 +60,22 @@
     return s;
   }
 
+  // Write style attributes the way the browser serializes them
+  // ("background: rgb(244, 244, 239);"), as a CSSOM-driven page would. The
+  // dark theme stylesheet matches on that form with [style*="…"] selectors.
+  var styleProbe = document.createElement('div');
+  var styleCache = new Map();
+  function normalizeStyle(css) {
+    var out = styleCache.get(css);
+    if (out === undefined) {
+      styleProbe.style.cssText = css;
+      out = styleProbe.getAttribute('style') || '';
+      if (styleCache.size > 5000) styleCache.clear();
+      styleCache.set(css, out);
+    }
+    return out;
+  }
+
   // Prepare a template once: give every element a stable id, so re-renders can
   // match new elements to the ones already on the page, and park attributes
   // holding {{holes}} under a prefix so the browser never parses the raw
@@ -76,7 +93,10 @@
       if (el.tagName === 'DC-IMPORT') continue;
       var attrs = Array.prototype.slice.call(el.attributes);
       for (var j = 0; j < attrs.length; j++) {
-        if (attrs[j].value.indexOf('{{') === -1) continue;
+        if (attrs[j].value.indexOf('{{') === -1) {
+          if (attrs[j].name === 'style') el.setAttribute('style', normalizeStyle(attrs[j].value));
+          continue;
+        }
         el.removeAttribute(attrs[j].name);
         el.setAttribute(PARKED + attrs[j].name, attrs[j].value);
       }
@@ -85,8 +105,13 @@
 
   function dispatch(e) {
     var fn = this.__dcOn && this.__dcOn[e.type];
-    if (fn) fn.call(this, e);
+    if (!fn) return;
+    if (!e.nativeEvent) e.nativeEvent = e;
+    fn.call(this, e);
   }
+
+  // The component whose template is being rendered; owns the refs it binds.
+  var rendering = null;
 
   function processAttrs(el, scope, path) {
     el.__dcKey = el.getAttribute('data-dck') + path;
@@ -106,12 +131,19 @@
         el.addEventListener(type, dispatch);
         continue;
       }
+      if (name === 'ref' && whole) {
+        el.__dcRef = lookup(whole[1], scope);
+        el.__dcRefOwner = rendering;
+        el.setAttribute('data-dc-ref', '');
+        continue;
+      }
       if (whole) {
         var v = lookup(whole[1], scope);
         var stringly = name.slice(0, 5) === 'aria-' || name.slice(0, 5) === 'data-';
         if (v == null || (v === false && !stringly)) continue;
       }
-      el.setAttribute(name, fill(value, scope));
+      var filled = fill(value, scope);
+      el.setAttribute(name, name === 'style' ? normalizeStyle(filled) : filled);
     }
     el.__dcAttrs = Array.prototype.map.call(el.attributes, function (x) { return x.name; });
   }
@@ -230,6 +262,8 @@
       if (!old.__dcOn || !(types[t] in old.__dcOn)) old.addEventListener(types[t], dispatch);
     }
     old.__dcOn = n.__dcOn;
+    old.__dcRef = n.__dcRef;
+    old.__dcRefOwner = n.__dcRefOwner;
 
     if (old.tagName !== 'TEXTAREA') morphChildren(old, n);
     syncFormState(old, n, prev);
@@ -289,11 +323,41 @@
 
   DCLogic.prototype._render = function () {
     var tpl = registry[this._name].template;
-    var frag = renderFragment(tpl.content, this.renderVals(), '');
+    var vals = this.renderVals();
+    var outer = rendering;
+    rendering = this;
+    try {
+      var frag = renderFragment(tpl.content, vals, '');
+    } finally {
+      rendering = outer;
+    }
     morphChildren(this._host, frag);
     initFormState(this._host);
+    applyRefs(this);
     syncChildren(this);
   };
+
+  // Call ref callbacks like React: the new callback gets the element, a
+  // replaced or removed one gets null.
+  function setRef(el, fn) {
+    var prev = el.__dcRefApplied;
+    if (prev === fn) return;
+    el.__dcRefApplied = fn;
+    if (typeof prev === 'function') prev(null);
+    if (typeof fn === 'function') fn(el);
+  }
+
+  function applyRefs(inst) {
+    var live = new Set();
+    var els = inst._host ? inst._host.querySelectorAll('[data-dc-ref]') : [];
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].__dcRefOwner !== inst) continue;
+      live.add(els[i]);
+      setRef(els[i], els[i].__dcRef);
+    }
+    (inst._refEls || []).forEach(function (el) { if (!live.has(el)) setRef(el, null); });
+    inst._refEls = Array.from(live);
+  }
 
   DCLogic.prototype._update = function (prevProps, prevState) {
     this._render();
@@ -348,6 +412,8 @@
   function unmount(inst) {
     (inst._children || []).forEach(unmount);
     if (inst.componentWillUnmount) inst.componentWillUnmount();
+    (inst._refEls || []).forEach(function (el) { setRef(el, null); });
+    inst._refEls = null;
     if (inst._host) inst._host.__dcInstance = null;
     inst._host = null;
   }

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Messages</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Messages">
+<div data-theme="{{uiTheme}}" style="height: {{rootH}}; box-sizing: border-box; display: flex; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif; border-radius: {{rootRadius}}; border: {{rootBorder}}; overflow: hidden">
+
+<template data-if="{{showList}}">
+<aside aria-label="Conversations" style="flex: 0 0 300px; display: flex; flex-direction: column; border-right: 1px solid #E2E2DA; background: #FAFAF7; min-width: 0">
+<div style="padding: 18px 18px 12px; display: flex; flex-direction: column; gap: 10px">
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Messages</h1>
+<div role="group" aria-label="Viewing as" style="display: flex; gap: 6px">
+<template data-for="{{viewers}}" data-as="v"><button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{v.bd}}; background: {{v.bg}}; color: {{v.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{v.label}}</button></template>
+</div>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0 8px 12px; display: flex; flex-direction: column; gap: 2px; overflow-y: auto">
+<template data-for="{{threads}}" data-as="t">
+<li><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 12px; border: none; background: {{t.bg}}; color: #14161A; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; overflow: hidden; background: {{t.tint}}; color: {{t.ink}}; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px"><template data-if="{{t.hasFace}}"><img src="{{t.face}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template><template data-if="{{t.noFace}}">{{t.ini}}</template></span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-size: 14.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.name}}</span><span style="flex: none; font-size: 12px; color: #62676F">{{t.when}}</span></span><span style="font-size: 13px; color: #62676F; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.last}}</span></span>
+<template data-if="{{t.unread}}"><span aria-label="Unread" style="flex: none; width: 9px; height: 9px; border-radius: 50%; background: #1D4ED8"></span></template>
+</button></li>
+</template>
+</ul>
+</aside>
+</template>
+
+<section aria-label="{{convAria}}" style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column">
+<header style="flex: none; display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #E2E2DA; background: #FFFFFF">
+<span aria-hidden="true" style="flex: none; position: relative; width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: {{c.tint}}; color: {{c.ink}}; display: flex; align-items: center; justify-content: center; font-weight: 600"><template data-if="{{c.hasFace}}"><img src="{{c.face}}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></template><template data-if="{{c.noFace}}">{{c.ini}}</template></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.2">{{c.name}}</span>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #62676F"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{c.dot}}"></span>{{c.status}}</span>
+</div>
+<template data-if="{{c.hasProfile}}"><button type="button" onClick="{{c.profile}}" style="flex: none; min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer">Profile</button></template>
+<template data-if="{{canClose}}"><button type="button" aria-label="Close messages" onClick="{{close}}" style="flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></template>
+</header>
+<p style="flex: none; margin: 0; display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: #F4F7FE; border-bottom: 1px solid #E2E2DA; font-size: 12.5px; line-height: 1.4; color: #1E40AF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>{{c.safety}}</p>
+
+<div role="log" aria-live="polite" aria-label="Conversation" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: #FAFAF7">
+<template data-for="{{msgs}}" data-as="m">
+<template data-if="{{m.isDay}}"><div style="align-self: center; font-size: 12px; font-weight: 500; color: #62676F; padding: 2px 10px; border-radius: 999px; background: #ECECE6">{{m.day}}</div></template>
+<template data-if="{{m.isMsg}}">
+<div style="display: flex; flex-direction: column; align-items: {{m.align}}; gap: 3px">
+<template data-if="{{m.showWho}}"><span style="font-size: 12px; font-weight: 600; color: #62676F; padding: 0 4px">{{m.who}}</span></template>
+<div style="max-width: 82%; padding: 10px 14px; border-radius: {{m.radius}}; background: {{m.bg}}; color: {{m.fg}}; border: 1px solid {{m.bd}}; font-size: 15px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere">{{m.text}}<template data-if="{{m.hasFile}}"><span style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: {{m.fileBg}}; font-size: 13px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7L10 17.7a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>{{m.file}}</span></template><template data-if="{{m.hasImg}}"><img src="{{m.img}}" alt="{{m.file}}" style="display: block; margin-top: 8px; max-width: 220px; max-height: 180px; border-radius: 10px; object-fit: cover"></template></div>
+<template data-if="{{m.hasSlots}}">
+<div role="group" aria-label="Suggested times" style="display: flex; flex-wrap: wrap; gap: 6px; max-width: 82%">
+<template data-for="{{m.slots}}" data-as="s"><button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{s.label}}</button></template>
+</div>
+</template>
+<span style="font-size: 11.5px; color: #8A8F96; padding: 0 4px">{{m.time}}</span>
+</div>
+</template>
+</template>
+<template data-if="{{typing}}"><div style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 13.5px; color: #62676F"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A8F96"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #A3A8AE"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #CFCFC6"></span></span>{{typingText}}</div></template>
+<div ref="{{endRef}}" style="height: 1px; flex: none"></div>
+</div>
+
+<div style="flex: none; border-top: 1px solid #E2E2DA; background: #FFFFFF; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
+<div role="group" aria-label="Quick replies" style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px">
+<template data-for="{{quick}}" data-as="q"><button type="button" onClick="{{q.send}}" style="flex: none; min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #93BBF3; background: #F4F7FE; color: #1E40AF; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap">{{q.label}}</button></template>
+</div>
+<template data-if="{{hasPending}}"><div style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 10px; background: #F4F4EF; font-size: 13px; color: #3F444C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7L10 17.7a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{pendingName}}</span><button type="button" aria-label="Remove attachment" onClick="{{clearPending}}" style="border: none; background: transparent; color: #62676F; cursor: pointer; font-size: 13px; min-height: 28px">Remove</button></div></template>
+<div style="display: flex; align-items: flex-end; gap: 8px">
+<label style="position: relative; flex: none; width: 44px; height: 44px; box-sizing: border-box; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer" title="Attach a file"><input type="file" aria-label="Attach a file" onChange="{{attach}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7L10 17.7a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg></label>
+<label for="msg-draft" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Message {{c.first}}</label>
+<textarea id="msg-draft" rows="1" value="{{draft}}" onInput="{{setDraft}}" placeholder="{{placeholder}}" style="flex: 1; min-width: 0; min-height: 44px; max-height: 120px; box-sizing: border-box; padding: 11px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 15px; line-height: 1.4; resize: vertical"></textarea>
+<button type="button" onClick="{{send}}" aria-label="Send message" style="flex: none; height: 44px; padding: 0 16px; border-radius: 12px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>Send</button>
+</div>
+</div>
+</section>
+</div>
+</template>
+<script>
+DC.component("Messages", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  constructor(props) {
+    super(props);
+    this.P = this.people();
+    this.state = { viewer: null, contact: null, threads: this.seed(), draft: '', typing: '', pending: null, picked: {}, read: {} };
+    this._timers = [];
+    this.endRef = (el) => { this._end = el; };
+  }
+  componentDidUpdate(prev, prevState) {
+    if (prev.contact !== this.props.contact || prev.viewer !== this.props.viewer) this.setState({ contact: null, viewer: null, draft: '', pending: null });
+    const n = this.count();
+    if (n !== this._lastCount) { this._lastCount = n; try { if (this._end && this._end.parentNode) this._end.parentNode.scrollTop = this._end.parentNode.scrollHeight; } catch (e) {} }
+  }
+  componentDidMount() { this._lastCount = this.count(); try { if (this._end && this._end.parentNode) this._end.parentNode.scrollTop = this._end.parentNode.scrollHeight; } catch (e) {} }
+  componentWillUnmount() { this.themeOff(); this._timers.forEach((t) => clearTimeout(t)); }
+
+  people() {
+    return {
+      nduta: { name: 'Nduta Kamau', first: 'Nduta', role: 'Guide', face: 'assets/img/7c3e5e5436f406ce2f07609939b4f50a.svg', tint: '#DDF4F1', ink: '#115E59', status: 'Usually replies within 2 hours', dot: '#0D9488', pid: 'nduta' },
+      odhiambo: { name: 'Mr. Odhiambo', first: 'Mr. Odhiambo', role: 'Elder · Connects', face: 'assets/img/4f30d4067aaecee57f453efb4e4a13c6.svg', tint: '#DDF4F1', ink: '#115E59', status: 'Office hours Fridays · replies within a day', dot: '#F9A826', pid: 'odhiambo' },
+      achieng: { name: 'Achieng’s Tailoring Workshop', first: 'Achieng', role: 'Host · Connects', face: '', ini: 'AT', tint: '#FEF1D9', ink: '#92400E', status: 'Verified host · replies the same day', dot: '#0D9488', pid: 'achieng' },
+      kim: { name: 'Kim', first: 'Kim', role: 'Your son · self-directed', face: 'assets/img/52e1a52609aabe6b6af1b8329af92b96.svg', tint: '#DDF4F1', ink: '#115E59', status: 'Usually replies in the evening', dot: '#0D9488', pid: '' },
+      'rain-group': { name: 'Rain gauge, part two', first: 'the group', role: 'Peer group', face: '', ini: 'RG', tint: '#E4ECFD', ink: '#1E40AF', status: 'Tomás, Neema and you', dot: '#1684E8', pid: 'rain-group' }
+    };
+  }
+  seed() {
+    const M = (from, day, time, text, extra) => Object.assign({ from, day, time, text }, extra || {});
+    return {
+      learner: {
+        nduta: [M('them', 'Monday', '9:12', 'Morning Amani! How did the 40-chapati question go?'), M('me', 'Monday', '9:30', 'I got 15 cups. That was my WRONG answer for 20!'), M('them', 'Monday', '9:31', 'Ha! That’s the best kind of surprise. Bring it to Wednesday and tell me why it works for 40 but not for 20.'), M('them', 'Today', '7:45', 'Reminder: check-in is Wednesday at 4:00. Bring one thing that felt hard this week.')],
+        odhiambo: [M('them', 'Friday', '16:10', 'For next Friday’s group: pace your street twice and write both numbers down. A surveyor never trusts one measurement.'), M('me', 'Friday', '16:42', 'Do I count big steps or normal steps?'), M('them', 'Friday', '17:05', 'Normal steps. What matters is that your steps stay the same size. That’s what turns them into a unit.')],
+        'rain-group': [M('them', 'Saturday', '11:02', 'The logger arrived! Can we test it at the makerspace on Saturday?', { who: 'Tomás' }), M('them', 'Saturday', '11:10', 'Yes!! I’ll bring the funnel we printed.', { who: 'Neema' }), M('me', 'Saturday', '11:40', 'I’m in. I’ll bring last month’s readings so we can compare.')]
+      },
+      parent: {
+        nduta: [M('them', 'Sunday', '18:02', 'Hi Wanjiru. A quick note on Johari: she skipped writing again today but spent an hour drawing birds. I don’t think it’s a skills problem.'), M('me', 'Sunday', '18:20', 'Thank you. Should I bring it up with her?'), M('them', 'Sunday', '18:24', 'Gently, and without the missed work. The copilot has three options for you in this week’s briefing.'), M('them', 'Today', '8:05', 'Amani caught her own mistake in ratios today and was proud of it. Worth mentioning at dinner.')],
+        odhiambo: [M('them', 'Thursday', '15:30', 'Good afternoon, Mama Amani. Amani asked very good questions in office hours. Friday’s live session is at 2 pm, online, six learners.'), M('me', 'Thursday', '19:12', 'Thank you. Is there anything she should bring?'), M('them', 'Thursday', '19:40', 'A tape measure if you have one, and her notebook. Nothing else.')],
+        kim: [M('them', 'Saturday', '20:14', 'Mum, the controller is running on both beds now. Mama Njeri says thank you!'), M('me', 'Saturday', '20:30', 'So proud of you. Send a photo when you can?'), M('them', 'Saturday', '20:31', 'Will do. November summary on the 1st, as usual.')],
+        achieng: [M('them', 'Saturday', '10:15', 'Hello Mama Amani. Thursday’s visit is ready once you approve: three learners, 2–4 pm, scaling a shirt pattern.'), M('them', 'Saturday', '10:16', 'Bring a metre of cotton if she’d like to keep the shirt. Otherwise we have offcuts.')]
+      }
+    };
+  }
+  viewerOf() { return this.state.viewer || this.props.viewer || 'learner'; }
+  contactOf() {
+    const v = this.viewerOf(), ids = Object.keys(this.state.threads[v]);
+    const c = this.state.contact || this.props.contact || 'nduta';
+    return ids.indexOf(c) >= 0 ? c : ids[0];
+  }
+  count() { const v = this.viewerOf(), c = this.contactOf(); return (this.state.threads[v][c] || []).length + (this.state.typing ? 1 : 0); }
+  replyFor(c, text, v) {
+    const t = text.toLowerCase();
+    if (c === 'nduta') {
+      if (/move|resched|another time|change/.test(t)) return { text: 'Of course. Thursday is your workshop visit, so which works better?', slots: ['Wed 5:00 pm', 'Fri 3:30 pm'] };
+      if (/talk|call|meet/.test(t)) return { text: v === 'parent' ? 'Happy to. I have two slots this week. Pick one and I’ll send a link.' : 'Yes, let’s. Pick a time that suits you.', slots: ['Tue 6:30 pm', 'Thu 7:00 pm'] };
+      if (/stuck|hard|confus/.test(t)) return { text: 'Thanks for telling me. Stuck is part of it. Send me the exact question you’re on and we’ll look at it together on Wednesday, or sooner if you like.' };
+      if (/bother|sad|upset|worried|bad day/.test(t)) return { text: 'I’m really glad you told me. Do you want to talk today, or at Wednesday’s check-in? Nothing you tell me goes on your Report Card.' };
+      if (/bob/.test(t)) return { text: 'Bob is doing well. Multiplication is solid now; remainders are the next hill. The football-stats project is keeping him going.' };
+      if (/thank/.test(t)) return { text: 'Any time. Have a good week.' };
+      return { text: v === 'parent' ? 'Thanks, Wanjiru. I’ll read this properly after my 2 o’clock session and come back to you.' : 'Got it, Amani. I’ll read this properly after my 2 o’clock session.' };
+    }
+    if (c === 'odhiambo') return { text: /tape|bring|need/.test(t) ? 'A tape measure and your notebook. And a friend to check your numbers.' : 'Thank you for your message. I read messages on Thursday and Friday afternoons, so I’ll reply then.' };
+    if (c === 'kim') return { text: /photo|picture/.test(t) ? 'Sending one tonight. The moisture sensor is next.' : 'Thanks Mum. I’ll call you on Sunday.' };
+    if (c === 'achieng') return { text: /approve|yes|confirm/.test(t) ? 'Wonderful, we’ll see Amani on Thursday at 2. The shop is the blue door next to the pharmacy.' : 'Thank you! I’ll reply once I’m off the machine.' };
+    return { text: 'Nice. See you Saturday at the makerspace!', who: 'Neema' };
+  }
+  push(v, c, msg) {
+    const threads = Object.assign({}, this.state.threads);
+    threads[v] = Object.assign({}, threads[v]);
+    threads[v][c] = (threads[v][c] || []).concat([msg]);
+    return threads;
+  }
+  now() { const d = new Date(); return d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  sendText(text) {
+    const v = this.viewerOf(), c = this.contactOf(), pend = this.state.pending;
+    if (!text.trim() && !pend) return;
+    const mine = { from: 'me', day: 'Today', time: this.now(), text: text.trim(), file: pend ? pend.name : '', img: pend && pend.img ? pend.img : '' };
+    this.setState({ threads: this.push(v, c, mine), draft: '', pending: null });
+    const who = this.P[c].first;
+    const reply = this.replyFor(c, text || 'file', v);
+    this._timers.push(setTimeout(() => this.setState({ typing: (reply.who || who) + ' is typing…' }), 900));
+    this._timers.push(setTimeout(() => this.setState({ typing: '', threads: this.push(v, c, { from: 'them', day: 'Today', time: this.now(), text: reply.text, slots: reply.slots, who: reply.who }) }), 2600));
+  }
+
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
+    const st = this.state, P = this.P, v = this.viewerOf(), c = this.contactOf(), p = P[c];
+    const embedded = !!this.props.embedded;
+    const list = st.threads[v][c] || [];
+    const msgs = [];
+    let lastDay = '';
+    list.forEach((m, i) => {
+      if (m.day !== lastDay) { msgs.push({ isDay: true, isMsg: false, day: m.day }); lastDay = m.day; }
+      const me = m.from === 'me', key = v + ':' + c + ':' + i;
+      const slots = (m.slots || []).map((s) => {
+        const on = st.picked[key] === s;
+        return { label: on ? '✓ ' + s : s, pressed: on ? 'true' : 'false', bg: on ? '#1D4ED8' : '#FFFFFF', fg: on ? '#FFFFFF' : '#1E40AF', bd: on ? '#1D4ED8' : '#93BBF3',
+          pick: () => { const pk = Object.assign({}, st.picked); pk[key] = s; this.setState({ picked: pk, threads: this.push(v, c, { from: 'me', day: 'Today', time: this.now(), text: s + ' works for me.' }) }); this._timers.push(setTimeout(() => this.setState({ threads: this.push(v, c, { from: 'them', day: 'Today', time: this.now(), text: 'Booked: ' + s + '. It’s in your calendar and in Today.' }) }), 1600)); } };
+      });
+      msgs.push({ isDay: false, isMsg: true, text: m.text, time: m.time + (me && i === list.length - 1 ? ' · Seen' : ''), align: me ? 'flex-end' : 'flex-start',
+        bg: me ? '#1D4ED8' : '#FFFFFF', fg: me ? '#FFFFFF' : '#14161A', bd: me ? '#1D4ED8' : '#E2E2DA', radius: me ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
+        showWho: !me && !!m.who, who: m.who || '', hasFile: !!m.file && !m.img, hasImg: !!m.img, file: m.file || '', img: m.img || '', fileBg: me ? 'rgba(255,255,255,0.18)' : '#F4F4EF',
+        hasSlots: slots.length > 0, slots });
+    });
+    const QUICK = {
+      learner: { nduta: ['See you Wednesday', 'Can we move the check-in?', 'I’m stuck on ratios', 'Something’s bothering me'], odhiambo: ['What should I bring?', 'Thank you, Mr. Odhiambo'], 'rain-group': ['I’ll bring the data', 'What time on Saturday?'] },
+      parent: { nduta: ['Can we talk this week?', 'How is Bob doing?', 'Thanks, Nduta'], odhiambo: ['What should she bring?', 'Thank you'], achieng: ['Yes, I approve the visit', 'Is fabric needed?'], kim: ['Proud of you', 'Can you send a photo?'] }
+    };
+    const quick = ((QUICK[v] || {})[c] || []).map((label) => ({ label, send: () => this.sendText(label) }));
+    const threads = Object.keys(st.threads[v]).map((id) => {
+      const pp = P[id], arr = st.threads[v][id], last = arr[arr.length - 1] || { text: '', day: '' }, on = id === c;
+      return { name: pp.name, face: pp.face, hasFace: !!pp.face, noFace: !pp.face, ini: pp.ini || '', tint: pp.tint, ink: pp.ink,
+        last: (last.from === 'me' ? 'You: ' : '') + (last.text || last.file || ''), when: last.day === 'Today' ? last.time : last.day.slice(0, 3),
+        unread: !on && last.from === 'them' && last.day === 'Today' && !st.read[v + id], pressed: on ? 'true' : 'false', bg: on ? '#E4ECFD' : 'transparent',
+        pick: () => { const r = Object.assign({}, st.read); r[v + id] = true; this.setState({ contact: id, read: r, draft: '', pending: null }); } };
+    });
+    const safety = v === 'learner'
+      ? (c === 'nduta' ? 'Your guide is ID-verified. Be honest; Nduta is here for the hard days too.' : 'Messages with adults you met on Connects are shared with your parent, Wanjiru.')
+      : 'Messages about your children are kept with your family records. Learners can read what concerns them.';
+    return {
+      rootH: embedded ? '560px' : '720px', rootRadius: embedded ? '16px' : '0', rootBorder: embedded ? '1px solid #E2E2DA' : 'none',
+      showList: !embedded, canClose: embedded && typeof this.props.onClose === 'function', close: () => { if (this.props.onClose) this.props.onClose(); },
+      viewers: [['learner', 'Amani (learner)'], ['parent', 'Wanjiru (parent)']].map(([id, label]) => { const on = v === id; return { label, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#14161A' : '#CFCFC6', pick: () => this.setState({ viewer: id, contact: null, draft: '', pending: null }) }; }),
+      threads, convAria: 'Conversation with ' + p.name,
+      c: { name: p.name, first: p.first, face: p.face, hasFace: !!p.face, noFace: !p.face, ini: p.ini || '', tint: p.tint, ink: p.ink, status: p.role + ' · ' + p.status, dot: p.dot, safety,
+        hasProfile: typeof this.props.onProfile === 'function' && !!p.pid && c !== 'rain-group', profile: () => { if (this.props.onProfile) this.props.onProfile(p.pid); } },
+      msgs, typing: !!st.typing, typingText: st.typing, endRef: this.endRef, quick,
+      draft: st.draft, setDraft: (e) => this.setState({ draft: e.target.value }), placeholder: 'Message ' + p.first + '…',
+      send: () => this.sendText(st.draft),
+      hasPending: !!st.pending, pendingName: st.pending ? st.pending.name + ' · ' + st.pending.size : '', clearPending: () => this.setState({ pending: null }),
+      attach: (e) => {
+        const f = e.target.files && e.target.files[0]; if (!f) return;
+        const size = f.size > 1048576 ? (f.size / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(f.size / 1024)) + ' KB';
+        let img = '';
+        try { if (/^image\//.test(f.type)) img = URL.createObjectURL(f); } catch (err) {}
+        this.setState({ pending: { name: f.name, size, img } });
+        try { e.target.value = ''; } catch (err) {}
+      }
+    };
+  }
+}
+return Component;
+}, {"contact": "nduta", "viewer": "learner", "embedded": false});
+
+DC.mount("Messages");
+</script>
+</body>
+</html>
