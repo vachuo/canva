@@ -30,7 +30,7 @@ Then open http://localhost:5180.
 | Learner | My classes | `notes.html` |
 | Learner | My assessments | `assessments.html` |
 | Learner | Set up a learner | `onboarding.html` |
-| Learner | Report card | `passport.html` |
+| Learner | Portfolio | `passport.html` |
 | World | Connects | `connects.html` |
 | World | Connects profile | `profile.html` (`?pid=library`, `?pid=grace`, …) |
 | Family | Parent copilot | `copilot.html` |
