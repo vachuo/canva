@@ -153,7 +153,7 @@ class Component extends DCLogic {
       if (/move|resched|another time|change/.test(t)) return { text: 'Of course. Thursday is your workshop visit, so which works better?', slots: ['Wed 5:00 pm', 'Fri 3:30 pm'] };
       if (/talk|call|meet/.test(t)) return { text: v === 'parent' ? 'Happy to. I have two slots this week. Pick one and I’ll send a link.' : 'Yes, let’s. Pick a time that suits you.', slots: ['Tue 6:30 pm', 'Thu 7:00 pm'] };
       if (/stuck|hard|confus/.test(t)) return { text: 'Thanks for telling me. Stuck is part of it. Send me the exact question you’re on and we’ll look at it together on Wednesday, or sooner if you like.' };
-      if (/bother|sad|upset|worried|bad day/.test(t)) return { text: 'I’m really glad you told me. Do you want to talk today, or at Wednesday’s check-in? Nothing you tell me goes on your Report Card.' };
+      if (/bother|sad|upset|worried|bad day/.test(t)) return { text: 'I’m really glad you told me. Do you want to talk today, or at Wednesday’s check-in? Nothing you tell me goes in your Portfolio.' };
       if (/bob/.test(t)) return { text: 'Bob is doing well. Multiplication is solid now; remainders are the next hill. The football-stats project is keeping him going.' };
       if (/thank/.test(t)) return { text: 'Any time. Have a good week.' };
       return { text: v === 'parent' ? 'Thanks, Wanjiru. I’ll read this properly after my 2 o’clock session and come back to you.' : 'Got it, Amani. I’ll read this properly after my 2 o’clock session.' };

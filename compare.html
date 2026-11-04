@@ -87,7 +87,7 @@
 </template>
 <template data-if="{{isReport}}">
 <div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
-<div style="flex: 1.3 1 380px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">How this Report Card reads in {{convName}}</span>
+<div style="flex: 1.3 1 380px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">How this Portfolio reads in {{convName}}</span>
 <template data-for="{{conv}}" data-as="c"><div style="display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; font-size: 13px"><span style="flex: 1 1 160px; font-weight: 600">{{c.v}}</span><span style="flex: 1 1 140px; color: #3F444C">Kenya: {{c.ke}}</span><span style="flex: 1 1 160px; color: #1E40AF; font-weight: 600">{{c.t}}</span></div></template>
 <span style="font-size: 12px; line-height: 1.5; color: #62676F">A guide for the receiving school, printed on the transcript. Final placement is always the school’s decision.</span></div>
 <div style="flex: 1 1 280px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">Documents schools usually ask for</span><template data-for="{{docs}}" data-as="d"><span style="display: flex; gap: 8px; font-size: 13.5px; line-height: 1.45"><span aria-hidden="true" style="color: #0F766E">✓</span>{{d.t}}</span></template><span style="font-size: 12px; line-height: 1.5; color: #62676F">Check the school or education office for the exact list. Vachuo can prepare the transcript and portfolio; visas and residence are outside what it advises on.</span></div>
@@ -319,7 +319,7 @@ class Component extends DCLogic {
       }
       if (dual) add('tutor', 'Dual-track: Kenyan CBC first, ' + sys.short + ' extras second', 'Nothing in CBC is dropped. The ' + sys.short + ' items are added as stretch work, at most 3 hours a week.');
     }
-    if (ke.family === 'alt') add('assess', 'Placement check and portfolio for ' + ke.short, ke.short + ' programmes don’t use grades, so receiving schools ask for a placement check and samples of work. Vachuo builds both from her Report Card.');
+    if (ke.family === 'alt') add('assess', 'Placement check and portfolio for ' + ke.short, ke.short + ' programmes don’t use grades, so receiving schools ask for a placement check and samples of work. Vachuo builds both from her Portfolio.');
     if (ke.family === 'brit' && st.to === 'uk') add('tutor', 'Keep the same Year group and exam board', 'Cambridge or Pearson programmes line up with England’s Key Stages; transfer is year for year.');
     if (ke.family === 'amer' && st.to === 'us') add('tutor', 'Keep credits and transcripts in US format', 'An American-curriculum school in Kenya already reports in grades and credits, so placement is grade for grade.');
     add('clubs', 'Pen-pal in ' + (inbound ? 'Kenya' : R.name) + ' through Connects', 'A moderated exchange with a learner the same age, so the first day isn’t the first conversation.');
@@ -374,7 +374,7 @@ class Component extends DCLogic {
     const regKeys = Object.keys(S[st.to].regions);
     return Object.assign(this.themeVals(), {
       isReport: ctx === 'report', isAssess: ctx !== 'report',
-      eyebrow: ctx === 'report' ? 'Report Card · curriculum fit' : 'My assessments · curriculum fit',
+      eyebrow: ctx === 'report' ? 'Portfolio · curriculum fit' : 'My assessments · curriculum fit',
       title: 'How ' + nm + '’s learning lines up, at home and abroad',
       sub: 'Compare ' + nm + ' with Kenya and with the United States, United Kingdom or China, by age and by curriculum. Choose a move or a dual track, and Vachuo drafts the changes. Nothing is applied until Wanjiru approves.',
       learnerChips: Object.keys(L).map((k) => Object.assign(pressed(st.lid === k), { label: L[k].name + ', ' + this.ageOn(L[k].dob, this.TODAY), pick: () => this.setState({ lid: k, picks: {} }) })),
@@ -397,7 +397,7 @@ class Component extends DCLogic {
       score: v.score + '%', after: v.after + '%', scoreW: v.score, afterW: v.after, fitNote: v.score >= 85 ? 'Strong fit already.' : (v.score >= 65 ? 'A good fit with a few gaps to close.' : 'Real gaps to close, and time to close them.'),
       asmHere: asmRows('ke'), asmThere: asmRows(there === 'ke' ? st.to : there), asmThereName: there === 'ke' ? S[st.to].name : S[there].name,
       conv: CONV[there === 'ke' ? st.to : there].map((c, i) => ({ v: c[0], t: c[1], ke: CONV.ke[i][1] })), convName: there === 'ke' ? S[st.to].name : S[there].name,
-      docs: (v.inbound ? ['Vachuo Report Card and transcript', 'Birth certificate', 'Previous school reports (translated where needed)', 'KNQA equivalence for foreign certificates, for older learners', 'Immunisation record'] : (st.to === 'us' ? ['Vachuo transcript, with grades shown in US form', 'Birth certificate and immunisation records (US schools require them)', 'Proof of address in the school district', 'English-learner screening if the school asks', 'Portfolio for advanced placement'] : (st.to === 'uk' ? ['Vachuo transcript with Year-group equivalents', 'Birth certificate', 'Proof of address for the local authority application', 'Samples of work for setting in maths and English'] : ['Vachuo transcript with Chinese level equivalents', 'Birth certificate and health record', 'Residence registration documents the school asks for', 'Language placement for Chinese (or an international school application)']))).map((t) => ({ t })),
+      docs: (v.inbound ? ['Vachuo Portfolio and transcript', 'Birth certificate', 'Previous school reports (translated where needed)', 'KNQA equivalence for foreign certificates, for older learners', 'Immunisation record'] : (st.to === 'us' ? ['Vachuo transcript, with grades shown in US form', 'Birth certificate and immunisation records (US schools require them)', 'Proof of address in the school district', 'English-learner screening if the school asks', 'Portfolio for advanced placement'] : (st.to === 'uk' ? ['Vachuo transcript with Year-group equivalents', 'Birth certificate', 'Proof of address for the local authority application', 'Samples of work for setting in maths and English'] : ['Vachuo transcript with Chinese level equivalents', 'Birth certificate and health record', 'Residence registration documents the school asks for', 'Language placement for Chinese (or an international school application)']))).map((t) => ({ t })),
       groups, nChosen: String(v.nChosen),
       family,
       planLabel: label,

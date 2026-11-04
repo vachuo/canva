@@ -31,7 +31,7 @@
 <a href="map.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8.5 6.3l7 .5M7 8.4l1.4 7.2M16.5 9.1l-5.8 7"/></svg>My learning map</a>
 <a href="notes.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M10.5 8.5v5l4-2.5z"/><path d="M8 20.5h8"/></svg>My classes</a>
 <a href="assessments.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14.6l2 2 4-4.2"/></svg>My assessments</a>
-<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h2.5"/><path d="M13.5 16.3l1.4 1.4 2.4-2.7"/></svg>Report card</a>
+<a href="passport.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #C9CCD0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h2.5"/><path d="M13.5 16.3l1.4 1.4 2.4-2.7"/></svg>Portfolio</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Community</div>
@@ -209,7 +209,7 @@ class Component extends DCLogic {
       today: { label: 'Today', href: 'today.html' },
       session: { label: 'My tutor', href: 'session.html' },
       map: { label: 'My learning map', href: 'map.html' },
-      passport: { label: 'Report card', href: 'passport.html' },
+      passport: { label: 'Portfolio', href: 'passport.html' },
       webs: { label: 'Connects', href: 'connects.html' },
       copilot: { label: 'Parent copilot', href: 'copilot.html' }
     };
@@ -245,7 +245,7 @@ class Component extends DCLogic {
         { n: '02', title: 'Every inference is contestable', text: 'Learners see what the model believes about them, and can challenge it. A challenge is evidence, not defiance.', where: [screen.session, screen.map] },
         { n: '03', title: 'Observation needs consent', text: 'Open hours are never tracked. The Observe step runs only inside commitments the learner agreed to.', where: [screen.today] },
         { n: '04', title: 'The world counts', text: 'Evidence from Connects updates the model exactly like a lesson. Things, skill exchanges, peers and elders are part of the school.', where: [screen.webs] },
-        { n: '05', title: 'Records belong to the learner', text: 'Maps and Report Cards are portable, exportable and deletable by their owner. No certification monopoly.', where: [screen.passport, screen.map] },
+        { n: '05', title: 'Records belong to the learner', text: 'Maps and Portfolios are portable, exportable and deletable by their owner. No certification monopoly.', where: [screen.passport, screen.map] },
         { n: '06', title: 'People own meaning', text: 'AI runs instruction and operations. Guides, elders and parents own motivation, mentorship and inspiration.', where: [screen.copilot] },
         { n: '07', title: 'Convivial by design', text: 'Success is a learner who needs Vachuo less each year. North star: self-direction, not time on platform.', where: [screen.copilot, screen.today] }
       ]

@@ -135,7 +135,7 @@
 <section aria-labelledby="lp-card" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 6px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 6px">
 <h2 id="lp-card" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600">Recently shown</h2>
-<template data-if="{{L.hasCardLink}}"><a href="passport.html" style="font-size: 14px; font-weight: 500">Open the full Report Card</a></template>
+<template data-if="{{L.hasCardLink}}"><a href="passport.html" style="font-size: 14px; font-weight: 500">Open the full Portfolio</a></template>
 </div>
 <template data-for="{{L.shown}}" data-as="k">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 14px 0; border-top: 1px solid #ECECE6">
@@ -244,7 +244,7 @@ class Component extends DCLogic {
         week: [['Mon', 70, 25], ['Tue', 80, 20], ['Wed', 60, 40], ['Thu', 70, 20], ['Fri', 75, 30], ['Sat', 0, 90], ['Sun', 0, 0]],
         openHours: '15 hours of open time', checkins: [['Mon', 'Excited about the chapati thing'], ['Wed', 'Tired but okay'], ['Fri', 'Proud I found my own mistake']],
         privacyIntro: 'Amani is 12, so you see her learning plans, progress and decisions that need a parent. She can read everything this page says about her.',
-        shares: [['Learning plans and progress', 'You and her guide', 'Shared'], ['Decisions that need a parent', 'Visits, new adults, spending', 'Shared'], ['Report Card', 'Owned by Amani; you and Nduta can view', 'Shared'], ['Messages with her guide', 'Private between Amani and Nduta, except safety concerns', 'Private'], ['Open hours', 'Never tracked', 'Not recorded']] },
+        shares: [['Learning plans and progress', 'You and her guide', 'Shared'], ['Decisions that need a parent', 'Visits, new adults, spending', 'Shared'], ['Portfolio', 'Owned by Amani; you and Nduta can view', 'Shared'], ['Messages with her guide', 'Private between Amani and Nduta, except safety concerns', 'Private'], ['Open hours', 'Never tracked', 'Not recorded']] },
       johari: { name: 'Johari W.', first: 'Johari', age: 13, ageGrade: 7, face: 'assets/img/725b564d3bb6eb6c8797c70a327e8bf7.svg', tint: '#FEF1D9', band: '#0D9488',
         status: 'Your call', statusTone: 'amber', meta: '13 · K→16 pathway, ahead in science · guided by Nduta Kamau · learning with Vachuo since September 2025',
         interests: ['Animals and wildlife', 'Bird drawing', 'Nature photography'], msgLabel: 'Message Nduta about Johari',
@@ -288,7 +288,7 @@ class Component extends DCLogic {
         shown: [['Engineering', 'Designs and installs a solar irrigation controller', 'Field test at Mama Njeri’s farm; mentor sign-off', 'Shown · 28 Oct'], ['Physics', 'Works safely with mains-adjacent circuits', 'Innovation Lab assessment', 'Shown · 14 Oct'], ['Making', 'Teaches soldering to beginners', 'Makerspace volunteer log', 'Shown · Oct']], hasCardLink: false,
         week: [], openHours: '', checkins: [],
         privacyIntro: 'Kim is 19 and runs his own learning. He decides what you see, and has chosen a monthly summary. You can ask for more; he decides.',
-        shares: [['Monthly summary', 'Kim chose this', 'Shared'], ['Report Card highlights', 'Kim chooses each item', 'Shared'], ['Weekly time and sessions', 'Kim keeps this private', 'Private'], ['Messages and mentors’ notes', 'Private to Kim', 'Private'], ['Check-ins', 'Private to Kim', 'Private']],
+        shares: [['Monthly summary', 'Kim chose this', 'Shared'], ['Portfolio highlights', 'Kim chooses each item', 'Shared'], ['Weekly time and sessions', 'Kim keeps this private', 'Private'], ['Messages and mentors’ notes', 'Private to Kim', 'Private'], ['Check-ins', 'Private to Kim', 'Private']],
         lockedText: 'Kim is an adult learner and has chosen not to share his weekly time or check-ins. You can ask him to share more from the privacy tab; he decides.' }
     };
   }
@@ -328,7 +328,7 @@ class Component extends DCLogic {
       legend: [{ name: 'With the AI tutor', c: '#1D4ED8' }, { name: 'With people and places', c: '#0D9488' }],
       openHours: d.openHours, checkins: d.checkins.map((c) => ({ day: c[0], text: c[1] })), privacyIntro: d.privacyIntro, lockedText: d.lockedText || ''
     };
-    const tabsDef = [['overview', 'Overview'], ['subjects', 'Subjects'], ['card', 'Report Card'], ['week', 'This week'], ['privacy', 'Privacy & sharing']];
+    const tabsDef = [['overview', 'Overview'], ['subjects', 'Subjects'], ['card', 'Portfolio'], ['week', 'This week'], ['privacy', 'Privacy & sharing']];
     const locked = (id) => !!d.selfDirected && id === 'week';
     const tab = st.tab;
     const tabs = tabsDef.map(([id, label]) => { const on = tab === id; return { label, locked: locked(id), selected: on ? 'true' : 'false', bg: on ? '#14161A' : 'transparent', fg: on ? '#FFFFFF' : '#3F444C', pick: () => this.setState({ tab: id }) }; });
