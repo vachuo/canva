@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
+<style>
+@media (min-width:800px){.vside{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}}
+</style>
 <script src="assets/js/dc.js"></script>
 </head>
 <body class="theme-dark">
@@ -17,9 +20,9 @@
 <template id="dc-Engine">
 <div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #111315; color: #EDEDE8; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
-<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #16181B; border-right: 1px solid #2A2E33; display: flex; flex-direction: column; gap: 24px">
+<nav aria-label="Vachuo" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #16181B; border-right: 1px solid #2A2E33; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #EDEDE8">
-<img src="assets/img/logo-white.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo-white.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Geist, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #C9CCD0">™</span></span>
 </a>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A3A8AE; padding: 0 12px 6px">Learn</div>

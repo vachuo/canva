@@ -27,6 +27,7 @@
 .wave{display:inline-flex;align-items:center;gap:3px;height:18px}.wave i{display:block;width:3px;height:6px;border-radius:2px;background:currentColor;animation:wv .9s ease-in-out infinite}.wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}.wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}@keyframes wv{50%{height:18px}}
 .dots i{display:block;width:7px;height:7px;border-radius:50%;background:#9A9E95;animation:dt 1s ease-in-out infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}@keyframes dt{50%{transform:translateY(-4px);opacity:.5}}
 @media (prefers-reduced-motion:reduce){.fadein,.livedot,.bob,.eyes,.talk .mouth,.talk .ring,.talk .ant,.pulse,.wave i,.dots i,.pop{animation:none}.fi{animation:none;opacity:1}.dw{animation:none;stroke-dashoffset:0}}
+@media (min-width:800px){.vside{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -35,9 +36,9 @@
 <template id="dc-Session">
 <div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
-<nav aria-label="Vachuo" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<nav aria-label="Vachuo" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
-<img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto">
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Geist, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
 </a>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
