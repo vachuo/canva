@@ -8,7 +8,7 @@ Use the below Format
 
 -12-column grid
 
-Brand: Light Purple (#8B5CF6) + Green (#22C55E)
+Brand:  #1D4ED8; #1684E8; #0D9488; #F9A826.
 Typography: Poppins (Headings) + Inter (Body)
 
 🟦 0. LANDING & AUTH
@@ -16,11 +16,11 @@ Typography: Poppins (Headings) + Inter (Body)
 
 Header (Sticky)
 
-Logo: Vachuo Education (AI-Native Learning)
+Logo: Vachuo (AI-Native Learning)
 
 Nav: Product | For Students | For Teachers | Institutions | Pricing | About
 
-CTA: Sign In | Get Started
+CTA: Sign In | Request early access | Take the product tour
 
 Hero Section
 
