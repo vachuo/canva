@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
 <script src="assets/js/dc.js"></script>
@@ -15,7 +15,7 @@
 <body>
 <div id="app"></div>
 <template id="dc-Learner">
-<div data-theme="{{uiTheme}}" style="background: #F4F4EF; color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif; box-sizing: border-box; padding: {{rootPad}}">
+<div data-theme="{{uiTheme}}" style="background: #F4F4EF; color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; box-sizing: border-box; padding: {{rootPad}}">
 <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
 
 <template data-if="{{embedded}}">
@@ -45,7 +45,7 @@
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{L.interests}}" data-as="i"><span style="font-size: 12.5px; font-weight: 500; color: #115E59; background: #DDF4F1; padding: 4px 10px; border-radius: 999px">{{i}}</span></template></div>
 </div>
 <div style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 8px">
-<button type="button" onClick="{{messageGuide}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>{{L.msgLabel}}</button>
+<button type="button" onClick="{{messageGuide}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z"/></svg>{{L.msgLabel}}</button>
 <button type="button" aria-pressed="{{talkPressed}}" onClick="{{toggleTalk}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{talkBd}}; background: {{talkBg}}; color: {{talkFg}}; font-size: 14px; font-weight: 500; cursor: pointer">{{talkLabel}}</button>
 </div>
 </div>
@@ -88,7 +88,7 @@
 <h2 id="lp-next" style="margin: 0 0 6px; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Coming up</h2>
 <template data-for="{{L.upcoming}}" data-as="u">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 0; border-top: 1px solid #ECECE6">
-<span style="flex: none; width: 108px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #3F444C">{{u.when}}</span>
+<span style="flex: none; width: 108px; font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; color: #3F444C">{{u.when}}</span>
 <span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{u.title}}</span><span style="font-size: 13px; color: #62676F">{{u.where}}</span></span>
 <span style="flex: none; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{u.bg}}; color: {{u.fg}}">{{u.tag}}</span>
 </div>
@@ -120,7 +120,7 @@
 <section aria-label="Subjects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
 <template data-for="{{L.subjects}}" data-as="s">
 <article style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{s.color}}"></span>{{s.name}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px; font-weight: 500">Level {{s.level}}</span></div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{s.color}}"></span>{{s.name}}</span><span style="font-family: ui-monospace, Menlo, monospace; font-size: 14px; font-weight: 500">Level {{s.level}}</span></div>
 <div aria-hidden="true" style="position: relative; height: 10px; border-radius: 5px; background: #ECECE6"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: {{s.pct}}; border-radius: 5px; background: {{s.color}}"></div><div style="position: absolute; left: {{s.age}}; top: -4px; bottom: -4px; border-left: 2px dashed #F9A826"></div></div>
 <span style="font-size: 12.5px; color: #62676F">{{s.vsAge}}</span>
 <p style="margin: 0; font-size: 15px; line-height: 1.5"><span style="font-weight: 600">Now:</span> {{s.now}}</p>
@@ -153,7 +153,7 @@
 <div role="img" aria-label="{{L.weekAria}}" style="display: flex; align-items: flex-end; gap: 12px; height: 180px; padding-top: 10px; border-bottom: 1px solid #CFCFC6">
 <template data-for="{{L.week}}" data-as="d">
 <div style="flex: 1 1 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px">
-<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; color: #3F444C">{{d.label}}</span>
+<span style="font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; color: #3F444C">{{d.label}}</span>
 <div style="width: 100%; max-width: 44px; display: flex; flex-direction: column-reverse; border-radius: 6px 6px 0 0; overflow: hidden; height: {{d.h}}"><template data-for="{{d.parts}}" data-as="p"><span style="display: block; height: {{p.h}}; background: {{p.c}}"></span></template></div>
 </div>
 </template>

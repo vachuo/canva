@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · School and microschool console</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<style>
+@media (min-width:800px){.vside{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-School">
+<div data-theme="{{uiTheme}}" lang="{{svLang}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+<nav aria-label="School console" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">School</div>
+<template data-for="{{tabs}}" data-as="t">
+<button type="button" aria-current="{{t.current}}" onClick="{{t.pick}}" style="display: flex; align-items: center; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; text-align: left; font-size: 15px; font-weight: 500; cursor: pointer; background: {{t.bg}}; color: {{t.fg}}">{{t.label}}</button>
+</template>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Open as</div>
+<a href="guide.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C">Guide workspace</a>
+<a href="pricing.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C">Plan and billing</a>
+</div>
+<button type="button" role="switch" aria-checked="{{uiOn}}" onClick="{{uiToggle}}" style="margin-top: auto; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; background: transparent; color: #3F444C; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span style="flex: 1">Dark mode</span><span aria-hidden="true" style="position: relative; flex: none; width: 38px; height: 22px; border-radius: 999px; background: {{uiTrack}}"><span style="position: absolute; top: 3px; left: {{uiKnob}}; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></button>
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #DDF4F1; color: #115E59; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">O</span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Otieno A.</span><span style="font-size: 12.5px; color: #62676F">Lead · Kilimani Learning Hub</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Kilimani Learning Hub · microschool · term 3, week 9 · demo data</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">How your cohorts are learning, not just how long they log in.</h1>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; line-height: 1.55; color: #3F444C; max-width: 760px">Mastery comes from evidence your guides have checked. Families see their own child only; this view never shows another family’s learner by name outside their cohort.</p>
+</header>
+
+<template data-if="{{isOverview}}">
+<section aria-label="Term so far" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+<template data-for="{{metrics}}" data-as="m">
+<div style="padding: 16px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #62676F">{{m.label}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 34px; font-weight: 600; line-height: 1">{{m.value}}</span><span style="font-size: 12.5px; color: #3F444C">{{m.note}}</span></div>
+</template>
+</section>
+<section aria-labelledby="s-dist" style="padding: 20px 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="s-dist" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">Mastery distribution by subject</h2><span style="font-size: 13px; color: #62676F">Share of this term’s skills at each level, all cohorts</span></div>
+<div aria-hidden="true" style="display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: #3F444C">
+<template data-for="{{legend}}" data-as="g"><span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: {{g.c}}"></span>{{g.name}}</span></template>
+</div>
+<template data-for="{{dist}}" data-as="d">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px"><span style="flex: 0 0 140px; font-size: 14px; font-weight: 500">{{d.subject}}</span>
+<div role="img" aria-label="{{d.aria}}" style="flex: 1 1 360px; min-width: 0; display: flex; height: 22px; border-radius: 6px; overflow: hidden; gap: 2px">
+<template data-for="{{d.parts}}" data-as="p"><span style="width: {{p.w}}; background: {{p.c}}"></span></template>
+</div>
+<span style="flex: 0 0 96px; font-family: ui-monospace, monospace; font-size: 12.5px; color: #3F444C; text-align: right">{{d.secure}} secure+</span></div>
+</template>
+</section>
+<section aria-labelledby="s-time" style="padding: 20px 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 12px">
+<h2 id="s-time" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">Time to mastery</h2>
+<p style="margin: 0; font-size: 13.5px; color: #3F444C">Median days from a skill’s first lesson to a checked “secure”, this term against last.</p>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px">
+<thead><tr><th scope="col" style="text-align: left; padding: 8px 10px; border-bottom: 1px solid #E2E2DA; font-weight: 600">Skill</th><th scope="col" style="text-align: right; padding: 8px 10px; border-bottom: 1px solid #E2E2DA; font-weight: 600">This term</th><th scope="col" style="text-align: right; padding: 8px 10px; border-bottom: 1px solid #E2E2DA; font-weight: 600">Last term</th><th scope="col" style="text-align: left; padding: 8px 10px; border-bottom: 1px solid #E2E2DA; font-weight: 600">Most common stumble</th></tr></thead>
+<tbody>
+<template data-for="{{ttm}}" data-as="r"><tr><td style="padding: 8px 10px; border-bottom: 1px solid #ECECE6">{{r.skill}}</td><td style="padding: 8px 10px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace">{{r.now}}</td><td style="padding: 8px 10px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace; color: #62676F">{{r.before}}</td><td style="padding: 8px 10px; border-bottom: 1px solid #ECECE6; color: #3F444C">{{r.stumble}}</td></tr></template>
+</tbody></table></div>
+</section>
+</template>
+
+<template data-if="{{isCohorts}}">
+<section aria-labelledby="s-cohorts" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="s-cohorts" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Cohorts</h2><span style="font-size: 13px; color: #62676F">Microschools usually run cohorts. Larger schools can add departments too.</span></div>
+<div role="group" aria-label="Choose a cohort" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{cohorts}}" data-as="c"><button type="button" aria-pressed="{{c.on}}" onClick="{{c.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 14px; font-weight: 500; cursor: pointer">{{c.name}} · {{c.size}}</button></template>
+</div>
+<article style="padding: 20px 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px"><h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{cur.name}}</h3><span style="font-size: 13.5px; color: #3F444C">{{cur.meta}}</span></div>
+<p style="margin: 0; font-size: 14px; color: #3F444C">Focus skill this fortnight: <span style="font-weight: 600; color: #14161A">{{cur.focus}}</span></p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 10px">
+<template data-for="{{cur.learners}}" data-as="l"><div style="padding: 10px 12px; border-radius: 12px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">{{l.name}}</span><span style="padding: 2px 8px; align-self: flex-start; border-radius: 999px; background: {{l.bg}}; color: {{l.fg}}; font-size: 12px; font-weight: 700">{{l.level}}</span></div></template>
+</div>
+</article>
+</section>
+</template>
+
+<template data-if="{{isDepts}}">
+<section aria-labelledby="s-depts" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="s-depts" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Departments</h2><span style="font-size: 14px; color: #62676F">Group subjects and guides. Cohorts still decide who learns together.</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px"><template data-for="{{depts}}" data-as="d"><article style="padding: 18px 20px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 12px"><div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 12px; height: 34px; border-radius: 4px; background: {{d.color}}"></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600">{{d.name}}</span><span style="font-size: 13px; color: #62676F">{{d.subjects}}</span></span></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px"><span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 11.5px; color: #62676F">Secure or better</span><span style="font-size: 18px; font-weight: 600">{{d.secure}}</span></span><span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 11.5px; color: #62676F">Time to mastery</span><span style="font-size: 18px; font-weight: 600">{{d.ttm}}</span></span><span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 11.5px; color: #62676F">Guides</span><span style="font-size: 18px; font-weight: 600">{{d.guides}}</span></span></div><span style="font-size: 13.5px; color: #3F444C">Lead: <span style="font-weight: 600; color: #14161A">{{d.lead}}</span> · Cohorts: {{d.cohorts}}</span><span style="font-size: 13px; line-height: 1.45; color: #62676F">Watch: {{d.watch}}</span></article></template></div>
+<form onSubmit="{{addDept}}" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; padding: 18px 20px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; gap: 12px"><label style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; font-weight: 600">New department<input value="{{newDept}}" onChange="{{setNewDept}}" placeholder="e.g. Creative arts" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px"></label><button type="submit" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #14161A; background: transparent; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Add department</button><span role="status" style="flex: 1 1 100%; font-size: 13px; color: #115E59">{{deptMsg}}</span></form>
+</section>
+</template>
+
+<template data-if="{{isGuides}}">
+<section aria-labelledby="s-guides" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="s-guides" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Guides</h2><span style="font-size: 13px; color: #62676F">Load and marking turnaround, so no one is overstretched.</span></div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 620px; border-collapse: collapse; font-size: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 14px">
+<thead><tr><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Guide</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Learners</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">To mark</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Median turnaround</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Agrees with Socrates</th></tr></thead>
+<tbody>
+<template data-for="{{guides}}" data-as="g"><tr><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6"><span style="font-weight: 600">{{g.name}}</span><span style="display: block; font-size: 12.5px; color: #62676F">{{g.role}}</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace">{{g.learners}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace">{{g.queue}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace">{{g.turn}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: ui-monospace, monospace">{{g.agree}}</td></tr></template>
+</tbody></table></div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #3F444C">“Agrees with Socrates” is how often a guide’s mark matches the suggestion. A low number is not a problem in itself: it is where the suggestions need the most review.</p>
+</section>
+</template>
+
+</div>
+
+<footer style="margin-top: 56px; padding-top: 12px; border-top: 1px solid #E2E2DA; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F"><nav aria-label="{{svT.policies}}" style="display: flex; flex-wrap: wrap; gap: 0 18px"><a href="mailto:hello@vachuo.com?subject=Help" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.help}}</a><a href="privacy.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.privacy}}</a><a href="terms.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.terms}}</a><a href="mailto:hello@vachuo.com" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.contact}}</a></nav><span style="margin-left: auto">© 2026 Vachuo™</span><div role="group" aria-label="{{svT.language}}" style="display: inline-flex; align-items: center; gap: 2px; padding: 3px 3px 3px 12px; border-radius: 999px; background: #ECECE6; color: #3F444C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" style="margin-right: 4px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><button type="button" aria-pressed="{{svEnOn}}" onClick="{{svLangEn}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svEnBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">English</button><button type="button" aria-pressed="{{svSwOn}}" onClick="{{svLangSw}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svSwBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">Kiswahili</button></div></footer>
+</main>
+</div>
+</template>
+<script>
+DC.component("School", function () {
+class Component extends DCLogic {
+  svDict() { return {"en": {"navHow": "How the system works", "navPricing": "Pricing", "navAbout": "About", "abWp": "White paper", "abWpD": "The full argument and the evidence", "abBlog": "Blog", "abBlogD": "The Vachuo Journal", "abNews": "Newsroom", "abNewsD": "News, press kit and channels", "abCar": "Careers", "abCarD": "Build the school with us", "abVis": "Vision, mission & values", "abVisD": "Why we exist and how we work", "signIn": "Sign in", "access": "Request early access", "darkMode": "Dark mode", "home": "Vachuo home", "tagline": "The operating system for individualised learning.", "fProduct": "Product", "fTour": "Product tour", "fLoop": "The loop inside Vachuo", "fCopilot": "Parent copilot", "fStart": "Get started", "fSetup": "Set up a learner", "fLearn": "Learn", "fToday": "Today", "fTutor": "My tutor", "fMap": "My learning map", "fClasses": "My classes", "fAssess": "My assessments", "fPortfolio": "Portfolio", "fCommunity": "Community", "fClubs": "Clubs", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Trust and safety", "fSafety": "Children’s safety", "fPrivacyAI": "AI and data privacy", "fApprovals": "How approvals work", "fAbout": "About", "fSupport": "Support", "fPress": "Press kit", "fFollow": "Follow Vachuo", "terms": "Terms of use", "privacy": "Privacy policy", "cookies": "Cookie choices", "language": "Language", "help": "Help", "contact": "Contact", "policies": "Help and policies", "swNotice": "", "ckTitle": "Cookie choices", "ckBody": "Vachuo uses essential cookies to keep you signed in and remember your settings. With your permission we would also use analytics cookies to learn which pages help families most. We never use advertising cookies.", "ckEss": "Essential only", "ckAll": "Allow analytics", "ckChoose": "Choose", "ckEssT": "Essential", "ckEssD": "Sign-in, security, and your theme and language.", "ckAlways": "Always on", "ckAnaT": "Analytics", "ckAnaD": "Counts of page visits that don’t identify you. Off unless you turn it on.", "ckSave": "Save choices", "ckCancel": "Cancel", "ckLater": "You can change this at any time from Cookie choices at the bottom of every page.", "ckOn": "On", "ckOff": "Off"}, "sw": {"navHow": "Jinsi mfumo unavyofanya kazi", "navPricing": "Bei", "navAbout": "Kuhusu", "abWp": "Waraka rasmi", "abWpD": "Hoja kamili na ushahidi wake", "abBlog": "Blogu", "abBlogD": "Jarida la Vachuo", "abNews": "Habari", "abNewsD": "Habari, vifaa vya wanahabari na chaneli", "abCar": "Ajira", "abCarD": "Jenga shule pamoja nasi", "abVis": "Maono, dhamira na maadili", "abVisD": "Kwa nini tupo na jinsi tunavyofanya kazi", "signIn": "Ingia", "access": "Omba nafasi ya mapema", "darkMode": "Hali ya giza", "home": "Ukurasa wa mwanzo wa Vachuo", "tagline": "Mfumo endeshi wa ujifunzaji unaomlenga kila mwanafunzi.", "fProduct": "Bidhaa", "fTour": "Ziara ya bidhaa", "fLoop": "Mzunguko ndani ya Vachuo", "fCopilot": "Msaidizi wa mzazi", "fStart": "Anza hapa", "fSetup": "Mwandikishe mwanafunzi", "fLearn": "Jifunze", "fToday": "Leo", "fTutor": "Mkufunzi wangu", "fMap": "Ramani yangu ya kujifunza", "fClasses": "Madarasa yangu", "fAssess": "Tathmini zangu", "fPortfolio": "Jalada la kazi", "fCommunity": "Jamii", "fClubs": "Vilabu", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Usalama na uaminifu", "fSafety": "Usalama wa watoto", "fPrivacyAI": "AI na faragha ya data", "fApprovals": "Jinsi idhini zinavyofanya kazi", "fAbout": "Kuhusu", "fSupport": "Msaada", "fPress": "Vifaa vya wanahabari", "fFollow": "Fuata Vachuo", "terms": "Masharti ya matumizi", "privacy": "Sera ya faragha", "cookies": "Chaguo za vidakuzi", "language": "Lugha", "help": "Msaada", "contact": "Wasiliana nasi", "policies": "Msaada na sera", "swNotice": "Baadhi ya maandishi ya ukurasa huu bado yako kwa Kiingereza. Tunaendelea kutafsiri.", "ckTitle": "Chaguo za vidakuzi", "ckBody": "Vachuo hutumia vidakuzi muhimu ili uendelee kuingia na mipangilio yako ikumbukwe. Ukiruhusu, tungetumia pia vidakuzi vya takwimu kujua kurasa zipi zinasaidia familia zaidi. Hatutumii kamwe vidakuzi vya matangazo.", "ckEss": "Muhimu pekee", "ckAll": "Ruhusu takwimu", "ckChoose": "Chagua", "ckEssT": "Muhimu", "ckEssD": "Kuingia, usalama, pamoja na mandhari na lugha yako.", "ckAlways": "Kila wakati", "ckAnaT": "Takwimu", "ckAnaD": "Hesabu za kutembelea kurasa zisizokutambulisha. Huzimwa hadi uziwashe.", "ckSave": "Hifadhi chaguo", "ckCancel": "Ghairi", "ckLater": "Unaweza kubadilisha hili wakati wowote kupitia Chaguo za vidakuzi chini ya kila ukurasa.", "ckOn": "Imewashwa", "ckOff": "Imezimwa"}}; }
+  siteVals() {
+    if (this._svOn === undefined) {
+      this._svOn = true; this._svD = this.svDict();
+      let lg = 'en', ck = null;
+      try { if (window.localStorage.getItem('vachuo-lang') === 'sw') lg = 'sw'; } catch (e) {}
+      try { ck = JSON.parse(window.localStorage.getItem('vachuo-cookies') || 'null'); } catch (e) {}
+      this._svLg = lg; this._svCk = ck; this._svPanel = false; this._svAna = !!(ck && ck.analytics);
+      const save = (k, v) => { try { window.localStorage.setItem(k, v); } catch (e) {} };
+      const setLang = (l) => { this._svLg = l; save('vachuo-lang', l); this.forceUpdate(); };
+      const setCk = (a) => { this._svCk = { analytics: a, decided: true }; this._svAna = a; this._svPanel = false; save('vachuo-cookies', JSON.stringify(this._svCk)); this.forceUpdate(); };
+      this._svSync = (e) => {
+        if (!e) return;
+        if (e.key === 'vachuo-lang') { this._svLg = e.newValue === 'sw' ? 'sw' : 'en'; this.forceUpdate(); }
+        if (e.key === 'vachuo-cookies') { try { this._svCk = JSON.parse(e.newValue || 'null'); } catch (x) {} this.forceUpdate(); }
+      };
+      try { window.addEventListener('storage', this._svSync); } catch (e) {}
+      this._svH = {
+        svLangEn: () => setLang('en'), svLangSw: () => setLang('sw'),
+        svCkAll: () => setCk(true), svCkEss: () => setCk(false),
+        svCkOpen: () => { this._svPanel = true; this._svAna = !!(this._svCk && this._svCk.analytics); this.forceUpdate(); },
+        svCkClose: () => { this._svPanel = false; this.forceUpdate(); },
+        svCkFlip: () => { this._svAna = !this._svAna; this.forceUpdate(); },
+        svCkSave: () => setCk(this._svAna)
+      };
+    }
+    const sw = this._svLg === 'sw', ana = this._svAna;
+    return Object.assign({}, this._svH, {
+      svT: sw ? this._svD.sw : this._svD.en, svLang: sw ? 'sw' : 'en',
+      svEnOn: sw ? 'false' : 'true', svSwOn: sw ? 'true' : 'false',
+      svEnBg: sw ? 'transparent' : '#EDEDE8', svEnFg: sw ? '#C9CCD0' : '#0B0D10', svSwBg: sw ? '#EDEDE8' : 'transparent', svSwFg: sw ? '#0B0D10' : '#C9CCD0',
+      svEnBgL: sw ? 'transparent' : '#FFFFFF', svSwBgL: sw ? '#FFFFFF' : 'transparent',
+      svSwNotice: sw && !this._svFull, svCkBanner: !this._svCk && !this._svPanel, svCkPanel: this._svPanel,
+      svCkAnaOn: ana ? 'true' : 'false', svCkAnaLabel: ana ? (sw ? this._svD.sw.ckOn : this._svD.en.ckOn) : (sw ? this._svD.sw.ckOff : this._svD.en.ckOff),
+      svCkTrack: ana ? '#1D4ED8' : '#8A8F96', svCkKnob: ana ? '19px' : '3px'
+    });
+  }
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  constructor(props) { super(props); this.state = { tab: 'overview', cohort: 'upper' }; }
+  componentWillUnmount() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals(), this.deptVals()); }
+  deptVals() {
+    const st = this.state;
+    const D = [['Maths and Science', 'Maths · Science · Making', '#1D4ED8', '64%', '11 days', '2', 'Nduta K.', 'Upper, Middle', 'Map scale is slowing Upper cohort; add a practical.'],
+      ['Languages', 'English · Reading · Kiswahili', '#B45309', '71%', '9 days', '2', 'Achieng O.', 'All cohorts', 'Kiswahili adjective agreement is the most common stumble.'],
+      ['Humanities', 'Social Studies · History · Geography', '#0F766E', '58%', '14 days', '1', 'Baraka M.', 'Upper, Middle', 'Source questioning improves after field visits.']]
+      .concat((st.extra || []).map((n) => [n, 'No subjects yet', '#62676F', '–', '–', '0', 'Not assigned', 'None yet', 'Add subjects and a lead to start.']));
+    return { depts: D.map((d) => ({ name: d[0], subjects: d[1], color: d[2], secure: d[3], ttm: d[4], guides: d[5], lead: d[6], cohorts: d[7], watch: d[8] })),
+      newDept: st.newDept || '', setNewDept: (e) => this.setState({ newDept: e.target.value, deptMsg: '' }), deptMsg: st.deptMsg || '',
+      addDept: (e) => { e.preventDefault(); const n = (st.newDept || '').trim(); if (!n) return; this.setState({ extra: (st.extra || []).concat([n]), newDept: '', deptMsg: '“' + n + '” added. Assign subjects and a lead next.' }); } };
+  }
+  pageVals() {
+    const st = this.state;
+    const tabs = [['overview', 'Overview'], ['cohorts', 'Cohorts'], ['depts', 'Departments'], ['guides', 'Guides']].map(([id, label]) => ({ label, current: st.tab === id ? 'page' : 'false', bg: st.tab === id ? '#E4ECFD' : 'transparent', fg: st.tab === id ? '#1E40AF' : '#3F444C', pick: () => this.setState({ tab: id }) }));
+    const LV = [['Not yet', '#ECECE6'], ['Developing', '#F9A826'], ['Secure', '#1684E8'], ['Mastered', '#0D9488']];
+    const D = [['Mathematics', [12, 30, 38, 20]], ['English', [8, 24, 44, 24]], ['Kiswahili', [10, 34, 36, 20]], ['Science', [18, 36, 32, 14]]];
+    const dist = D.map(([subject, v]) => ({ subject, secure: (v[2] + v[3]) + '%', aria: subject + ': ' + LV.map((l, i) => l[0] + ' ' + v[i] + '%').join(', '), parts: v.map((n, i) => ({ w: n + '%', c: LV[i][1] })) }));
+    const C = {
+      lower: { name: 'Lower primary', size: '12 learners', meta: 'Ages 7–9 · Guide: Achieng O.', focus: 'Place value to 1,000', learners: [['Bob', 2], ['Wairimu', 2], ['Tariq', 3], ['Lena', 1], ['Baraka', 2], ['Zawadi', 3]] },
+      upper: { name: 'Upper primary', size: '14 learners', meta: 'Ages 10–12 · Guide: Nduta K.', focus: 'Ratios and rates', learners: [['Amani', 2], ['Kioko', 3], ['Imani', 1], ['Femi', 2], ['Neema', 3], ['Ali', 2]] },
+      junior: { name: 'Junior secondary', size: '12 learners', meta: 'Ages 13–15 · Guide: Daniel M.', focus: 'Linear equations', learners: [['Johari', 3], ['Sifa', 2], ['Omar', 3], ['Nia', 1], ['Jabari', 2], ['Rehema', 3]] }
+    };
+    const cur = C[st.cohort];
+    return {
+      tabs, isOverview: st.tab === 'overview', isCohorts: st.tab === 'cohorts', isGuides: st.tab === 'guides', isDepts: st.tab === 'depts',
+      metrics: [
+        { label: 'Learners', value: '38', note: 'In 3 cohorts · 31 families' },
+        { label: 'Guides', value: '4', note: 'One learner lead per cohort' },
+        { label: 'Skills secure this term', value: '412', note: 'Checked by a guide' },
+        { label: 'Waiting for a parent', value: '6', note: 'Visits, listings and plan changes' }
+      ],
+      legend: LV.map(([name, c]) => ({ name, c })), dist,
+      ttm: [
+        { skill: 'Equivalent fractions', now: '9 days', before: '13 days', stumble: 'Adding numerators and denominators' },
+        { skill: 'Ratios and rates', now: '14 days', before: '15 days', stumble: 'Additive scaling instead of multiplicative' },
+        { skill: 'Persuasive paragraph', now: '11 days', before: '16 days', stumble: 'Naming a counter-argument without answering it' },
+        { skill: 'Division with remainders', now: '17 days', before: '—', stumble: 'Ignoring the remainder in context' }
+      ],
+      cohorts: Object.keys(C).map((id) => { const on = st.cohort === id; return { name: C[id].name, size: C[id].size, on: on ? 'true' : 'false', bg: on ? '#1D4ED8' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#1D4ED8' : '#CFCFC6', pick: () => this.setState({ cohort: id }) }; }),
+      cur: { name: cur.name, meta: cur.meta, focus: cur.focus, learners: cur.learners.map(([name, i]) => ({ name, level: LV[i][0], bg: ['#ECECE6', '#FEF1D9', '#E4ECFD', '#DDF4F1'][i], fg: ['#3F444C', '#92400E', '#1E40AF', '#115E59'][i] })) },
+      guides: [
+        { name: 'Nduta K.', role: 'Upper primary lead', learners: '14', queue: '3', turn: '1.2 days', agree: '78%' },
+        { name: 'Achieng O.', role: 'Lower primary lead', learners: '12', queue: '5', turn: '1.8 days', agree: '84%' },
+        { name: 'Daniel M.', role: 'Junior secondary lead', learners: '12', queue: '2', turn: '0.9 days', agree: '71%' },
+        { name: 'Mzee Kariuki', role: 'Kiswahili and clubs, part time', learners: '20', queue: '1', turn: '2.4 days', agree: '88%' }
+      ]
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("School");
+</script>
+</body>
+</html>

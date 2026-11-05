@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
 <style>
@@ -34,11 +34,11 @@
 <body>
 <div id="app"></div>
 <template id="dc-Session">
-<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div data-theme="{{uiTheme}}" lang="{{svLang}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
 <nav aria-label="Vachuo" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
-<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Geist, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
 </a>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
@@ -54,10 +54,6 @@
 <a href="connects.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>Connects</a>
 <a href="clubs.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20h6M8 17h8l-1-6h-6zM10 11V8h4v3M12 4v4M10.5 5.5h3"/></svg>Clubs</a>
 <a href="showcase.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
-</div>
-<div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
-<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
@@ -77,7 +73,7 @@
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
 <h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.015em; font-weight: 600">Scaling a chapati recipe</h1>
 <div style="display: flex; align-items: center; gap: 10px">
-<span role="timer" aria-live="off" style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{timerText}}</span>
+<span role="timer" aria-live="off" style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{timerText}}</span>
 <button type="button" aria-pressed="{{pausedA}}" onClick="{{togglePause}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">{{pauseLabel}}</button>
 </div>
 </div>
@@ -87,9 +83,9 @@
 
 <section aria-labelledby="loop-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
-<h2 id="loop-h" style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">The loop, on Ratios</h2>
+<h2 id="loop-h" style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">The loop, on Ratios</h2>
 <div style="display: flex; align-items: center; gap: 6px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F; margin-right: 6px">{{loopMeta}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F; margin-right: 6px">{{loopMeta}}</span>
 <button type="button" aria-label="Previous step" onClick="{{stepPrev}}" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
 <button type="button" aria-label="Next step" onClick="{{stepNext}}" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
 <button type="button" aria-expanded="{{stepOpenA}}" onClick="{{toggleStep}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 13px; font-weight: 500; cursor: pointer">{{stepToggleLabel}}</button>
@@ -97,7 +93,7 @@
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
 <template data-for="{{loop}}" data-as="s">
-<li><button type="button" aria-pressed="{{s.pressed}}" aria-current="{{s.current}}" onClick="{{s.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 500; background: {{s.bg}}; color: {{s.fg}}; border: 1px solid {{s.bd}}; box-shadow: {{s.ring}}; cursor: pointer"><span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; opacity: 0.8">{{s.n}}</span>{{s.name}}<template data-if="{{s.done}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></template></button></li>
+<li><button type="button" aria-pressed="{{s.pressed}}" aria-current="{{s.current}}" onClick="{{s.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 500; background: {{s.bg}}; color: {{s.fg}}; border: 1px solid {{s.bd}}; box-shadow: {{s.ring}}; cursor: pointer"><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; opacity: 0.8">{{s.n}}</span>{{s.name}}<template data-if="{{s.done}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></template></button></li>
 </template>
 </ol>
 <div aria-hidden="true" style="height: 4px; border-radius: 2px; background: #ECECE6; overflow: hidden"><div style="width: {{loopPct}}%; height: 100%; background: #1D4ED8; transition: width .5s ease"></div></div>
@@ -105,9 +101,9 @@
 <template data-if="{{stepOpen}}">
 <div class="fadein" style="border-top: 1px solid #ECECE6; padding-top: 16px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px">
-<span style="display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px; border-radius: 999px; background: {{st.sbg}}; color: {{st.sfg}}; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{st.status}}</span>
+<span style="display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px; border-radius: 999px; background: {{st.sbg}}; color: {{st.sfg}}; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{st.status}}</span>
 <h3 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.01em">{{st.n}} · {{st.name}}</h3>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{st.when}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{st.when}}</span>
 </div>
 <p style="margin: 0; font-size: 17.5px; line-height: 1.5; color: #3F444C; max-width: 860px">{{st.what}}</p>
 
@@ -115,8 +111,8 @@
 <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
 <ol style="flex: 3 1 420px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px">
 <template data-for="{{diagItems}}" data-as="d">
-<li><button type="button" aria-pressed="{{d.pressed}}" onClick="{{d.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 6px 12px; border-radius: 12px; border: 1px solid {{d.bd}}; background: {{d.bg}}; color: #14161A; text-align: left; cursor: pointer; font-family: Geist, system-ui, sans-serif">
-<span style="flex: none; width: 22px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{d.n}}</span>
+<li><button type="button" aria-pressed="{{d.pressed}}" onClick="{{d.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 6px 12px; border-radius: 12px; border: 1px solid {{d.bd}}; background: {{d.bg}}; color: #14161A; text-align: left; cursor: pointer; font-family: Inter, system-ui, sans-serif">
+<span style="flex: none; width: 22px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: #62676F">{{d.n}}</span>
 <span style="flex: 1; min-width: 0; font-size: 14px">{{d.q}}</span>
 <span style="flex: none; font-size: 12px; color: #62676F">{{d.skill}}</span>
 <span style="flex: none; min-width: 64px; text-align: right; font-size: 12.5px; font-weight: 600; color: {{d.rc}}">{{d.res}}</span>
@@ -124,30 +120,30 @@
 </template>
 </ol>
 <div style="flex: 2 1 300px; min-width: 0; border-radius: 14px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 16px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF">Item {{di.n}} · {{di.skill}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF">Item {{di.n}} · {{di.skill}}</span>
 <p style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600">{{di.q}}</p>
 <p style="margin: 0; font-size: 16px">Amani answered <b>{{di.ans}}</b> in {{di.time}}.</p>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">{{di.revealed}}</p>
 </div>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600"><span style="padding: 6px 12px; border-radius: 999px; background: #E4ECFD; color: #1E40AF">Placed: Ratios, Level 6</span><span style="padding: 6px 12px; border-radius: 999px; background: #FEF1D9; color: #92400E">Gap: Equivalent fractions, 61%</span><span style="padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #115E59">Strong: Unit rates, 86%</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600"><span style="padding: 6px 12px; border-radius: 999px; background: #E4ECFD; color: #1E40AF">Placed: Ratios, Level 6</span><span style="padding: 6px 12px; border-radius: 999px; background: #FEF1D9; color: #92400E">Gap: Equivalent fractions, 61%</span><span style="padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #115E59">Strong: Unit rates, 86%</span></div>
 </template>
 
 <template data-if="{{s2}}">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px">
 <template data-for="{{planDays}}" data-as="d">
 <div style="border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 10px; display: flex; flex-direction: column; gap: 6px; min-height: 120px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{d.day}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{d.day}}</span>
 <template data-for="{{d.items}}" data-as="it">
-<div style="border-radius: 10px; padding: 8px 10px; background: {{it.bg}}; border: 1px solid {{it.bd}}; opacity: {{it.op}}; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600; line-height: 1.25; text-decoration: {{it.strike}}">{{it.title}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #3F444C">{{it.meta}}</span></div>
+<div style="border-radius: 10px; padding: 8px 10px; background: {{it.bg}}; border: 1px solid {{it.bd}}; opacity: {{it.op}}; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600; line-height: 1.25; text-decoration: {{it.strike}}">{{it.title}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #3F444C">{{it.meta}}</span></div>
 </template>
 </div>
 </template>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: Geist, system-ui, sans-serif; font-size: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: Inter, system-ui, sans-serif; font-size: 14px">
 <template data-for="{{planOpts}}" data-as="o"><label style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; cursor: pointer"><input type="checkbox" checked="{{o.on}}" onChange="{{o.toggle}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">{{o.label}}</label></template>
 </div>
-<p role="status" style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #115E59">{{planSummary}}</p>
+<p role="status" style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #115E59">{{planSummary}}</p>
 </template>
 
 <template data-if="{{s3}}">
@@ -156,17 +152,17 @@
 </div>
 <div class="fadein" style="border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 16px; display: flex; flex-direction: column; gap: 8px">
 <p style="margin: 0; font-size: 18px; line-height: 1.5">{{ped.sample}}</p>
-<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{ped.when}}</p>
+<p style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{ped.when}}</p>
 </div>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C">Why Socratic today: Amani explains well out loud, and after her last two worked-example sessions she recalled only 44% three days later. Questions that make her find the contradiction herself tend to stick.</p>
-<a href="notes.html" style="align-self: flex-start; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">Watch the lesson video in My classes →</a>
+<a href="notes.html" style="align-self: flex-start; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500">Watch the lesson video in My classes →</a>
 </template>
 
 <template data-if="{{s4}}">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px">
-<template data-for="{{signals}}" data-as="g"><div style="border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">{{g.label}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px">{{g.value}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #3F444C">{{g.note}}</span></div></template>
+<template data-for="{{signals}}" data-as="g"><div style="border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">{{g.label}}</span><span style="font-family: ui-monospace, Menlo, monospace; font-size: 22px">{{g.value}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #3F444C">{{g.note}}</span></div></template>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-family: Inter, system-ui, sans-serif">
 <label for="conf" style="font-size: 14px; font-weight: 600">How sure are you right now?</label>
 <input id="conf" type="range" min="1" max="5" step="1" value="{{conf}}" onChange="{{setConf}}" style="flex: 1 1 200px; max-width: 320px; accent-color: #F9A826">
 <span style="font-size: 14px; font-weight: 600; color: #92400E">{{confLabel}}</span>
@@ -176,12 +172,12 @@
 
 <template data-if="{{s5}}">
 <div style="border-radius: 14px; border: 1px solid #DCE6FD; background: #F4F7FE; padding: 16px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF">Assessment item · Ratios · transfer</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF">Assessment item · Ratios · transfer</span>
 <p style="margin: 0; font-size: 21px; line-height: 1.35; font-weight: 600">8 chapati need 3 cups of flour. How many cups for 20 chapati?</p>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif">
 <label for="assess" style="font-size: 14px; font-weight: 600">Cups</label>
 <input id="assess" type="text" inputMode="decimal" value="{{assessAns}}" onChange="{{setAssess}}" onKeyDown="{{assessKey}}" placeholder="e.g. 9" style="width: 140px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; font-size: 16px">
-<button type="button" onClick="{{checkAssess}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Check</button>
+<button type="button" onClick="{{checkAssess}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">Check</button>
 </div>
 <template data-if="{{assessShown}}"><p role="status" style="margin: 0; font-size: 16.5px; line-height: 1.5; color: {{assessColor}}">{{assessMsg}}</p></template>
 </div>
@@ -198,36 +194,36 @@
 <template data-for="{{hypos}}" data-as="h"><button type="button" aria-pressed="{{h.pressed}}" onClick="{{h.pick}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{h.bd}}; background: {{h.bg}}; color: {{h.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{h.label}} · {{h.p}}</button></template>
 </div>
 <div class="fadein" style="border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 14px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 16px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">If it were this, Vachuo would expect</span><b>{{hy.predict}}</b></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">What Amani did</span><b>15 cups, explained as “add 12”</b></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">Fit</span><b style="color: {{hy.fc}}">{{hy.fit}}</b></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">If it were this, Vachuo would expect</span><b>{{hy.predict}}</b></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">What Amani did</span><b>15 cups, explained as “add 12”</b></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">Fit</span><b style="color: {{hy.fc}}">{{hy.fit}}</b></div>
 </div>
 </template>
 
 <template data-if="{{s7}}">
 <p style="margin: 0; font-size: 16.5px; line-height: 1.5">A counter-example on numbers she trusts, then the full recipe on a double number line. Fill in the missing cups:</p>
-<div style="display: grid; grid-template-columns: auto repeat(4, minmax(64px, 1fr)); gap: 8px 12px; align-items: center; max-width: 560px; padding: 14px 16px; border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 16px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Chapati</span><span>0</span><span>8</span><span>16</span><span>20</span>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">Cups</span><span>0</span><span>3</span>
+<div style="display: grid; grid-template-columns: auto repeat(4, minmax(64px, 1fr)); gap: 8px 12px; align-items: center; max-width: 560px; padding: 14px 16px; border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; font-family: ui-monospace, Menlo, monospace; font-size: 16px">
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">Chapati</span><span>0</span><span>8</span><span>16</span><span>20</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">Cups</span><span>0</span><span>3</span>
 <input aria-label="Cups for 16 chapati" inputMode="decimal" value="{{remA}}" onChange="{{setRemA}}" style="width: 70px; min-height: 40px; box-sizing: border-box; padding: 0 8px; border-radius: 8px; border: 1px solid #CFCFC6; font-size: 16px">
 <input aria-label="Cups for 20 chapati" inputMode="decimal" value="{{remB}}" onChange="{{setRemB}}" style="width: 70px; min-height: 40px; box-sizing: border-box; padding: 0 8px; border-radius: 8px; border: 1px solid #CFCFC6; font-size: 16px">
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{checkRem}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Check</button><span role="status" style="font-size: 16px; color: {{remColor}}">{{remMsg}}</span></div>
-<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Next in remediation: three recipes Amani chooses, mixed difficulty, Thursday at Grace’s bakery.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{checkRem}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">Check</button><span role="status" style="font-size: 16px; color: {{remColor}}">{{remMsg}}</span></div>
+<p style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Next in remediation: three recipes Amani chooses, mixed difficulty, Thursday at Grace’s bakery.</p>
 </template>
 
 <template data-if="{{s8}}">
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
-<div style="flex: 1 1 280px; border-radius: 14px; background: #FEF1D9; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #92400E">Scheduled</span><b style="font-size: 20px">Wed 4 Nov · 10:00, with Nduta watching</b><span style="font-size: 15.5px; color: #3F444C">A day’s gap checks it stuck, not just that it was fresh.</span></div>
-<div style="flex: 1 1 280px; border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">What it will ask</span><span style="font-size: 16px">A real order from Grace’s notebook in a new context, plus one question in reverse.</span></div>
+<div style="flex: 1 1 280px; border-radius: 14px; background: #FEF1D9; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #92400E">Scheduled</span><b style="font-size: 20px">Wed 4 Nov · 10:00, with Nduta watching</b><span style="font-size: 15.5px; color: #3F444C">A day’s gap checks it stuck, not just that it was fresh.</span></div>
+<div style="flex: 1 1 280px; border-radius: 14px; background: #FAFAF7; border: 1px solid #ECECE6; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">What it will ask</span><span style="font-size: 16px">A real order from Grace’s notebook in a new context, plus one question in reverse.</span></div>
 </div>
 <button type="button" aria-expanded="{{practiceOnA}}" onClick="{{togglePractice}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #F9A826; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">{{practiceLabel}}</button>
 <template data-if="{{practiceOn}}">
 <div class="fadein" style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 14px; border: 1px solid #ECECE6">
 <template data-for="{{pq}}" data-as="q">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px"><span style="flex: 1 1 340px; font-size: 17px">{{q.text}}</span><input aria-label="{{q.aria}}" inputMode="decimal" value="{{q.val}}" onChange="{{q.set}}" style="width: 110px; min-height: 42px; box-sizing: border-box; padding: 0 10px; border-radius: 10px; border: 1px solid {{q.bd}}; font-size: 16px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: {{q.rc}}">{{q.res}}</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px"><span style="flex: 1 1 340px; font-size: 17px">{{q.text}}</span><input aria-label="{{q.aria}}" inputMode="decimal" value="{{q.val}}" onChange="{{q.set}}" style="width: 110px; min-height: 42px; box-sizing: border-box; padding: 0 10px; border-radius: 10px; border: 1px solid {{q.bd}}; font-size: 16px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: {{q.rc}}">{{q.res}}</span></div>
 </template>
-<button type="button" onClick="{{checkPractice}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Check my answers</button>
+<button type="button" onClick="{{checkPractice}}" style="align-self: flex-start; min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">Check my answers</button>
 <p role="status" style="margin: 0; font-size: 16px; color: #115E59">{{practiceMsg}}</p>
 </div>
 </template>
@@ -244,10 +240,10 @@
 <div style="position: absolute; left: {{k.lo}}%; width: {{k.span}}%; top: 5px; height: 12px; border-radius: 6px; background: {{k.band}}; transition: all .5s ease"></div>
 <div style="position: absolute; left: {{k.pt}}%; top: 2px; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: {{k.col}}; border: 3px solid #FFFFFF; box-shadow: 0 1px 3px rgba(20,22,26,.3); transition: left .5s ease"></div>
 </div>
-<span style="flex: none; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px">{{k.label}}</span>
+<span style="flex: none; font-family: ui-monospace, Menlo, monospace; font-size: 14px">{{k.label}}</span>
 </div>
 </template>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Grey line: 80%, where the next skills open up. The band is how unsure Vachuo still is.</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Grey line: 80%, where the next skills open up. The band is how unsure Vachuo still is.</span>
 </div>
 <div role="group" aria-label="See how one answer moves the model" style="display: flex; flex-wrap: wrap; gap: 6px">
 <template data-for="{{sims}}" data-as="s"><button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{s.label}}</button></template>
@@ -258,14 +254,14 @@
 <template data-if="{{s10}}">
 <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
 <article aria-label="Message preview" style="flex: 3 1 380px; min-width: 0; border-radius: 18px; background: #14161A; color: #FFFFFF; padding: 18px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #A3A8AE">Vachuo · to Wanjiru{{copyLine}} · 7:00 pm</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #A3A8AE">Vachuo · to Wanjiru{{copyLine}} · 7:00 pm</span>
 <b style="font-size: 21px">Amani is rethinking ratios, and it’s going well</b>
 <p style="margin: 0; font-size: 16.5px; line-height: 1.5; color: #DCE6FD">{{parentBody}}</p>
-<template data-if="{{shareClip}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #22262D; font-family: Geist, system-ui, sans-serif; font-size: 13px">▶ 0:24 · Amani explains two batches</span></template>
-<template data-if="{{shareEvid}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #A3A8AE">Evidence: 3 answers, 1 explanation, Monday’s check</span></template>
+<template data-if="{{shareClip}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #22262D; font-family: Inter, system-ui, sans-serif; font-size: 13px">▶ 0:24 · Amani explains two batches</span></template>
+<template data-if="{{shareEvid}}"><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #A3A8AE">Evidence: 3 answers, 1 explanation, Monday’s check</span></template>
 <p style="margin: 0; font-size: 16px; color: #FDE7B8">At dinner: ask her to double the mandazi recipe out loud.</p>
 </article>
-<div style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 14px">
+<div style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 6px; font-family: Inter, system-ui, sans-serif; font-size: 14px">
 <template data-for="{{shareOpts}}" data-as="o"><label style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; cursor: pointer"><input type="checkbox" checked="{{o.on}}" onChange="{{o.toggle}}" style="width: 18px; height: 18px; accent-color: #1D4ED8">{{o.label}}</label></template>
 <button type="button" onClick="{{sendParent}}" style="align-self: flex-start; margin-top: 6px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: {{sendBg}}; color: {{sendFg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{sendLabel}}</button>
 <a href="copilot.html" style="font-weight: 500">Open Parent copilot →</a>
@@ -275,13 +271,13 @@
 
 <template data-if="{{s11}}">
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
-<template data-for="{{reviews}}" data-as="r"><span style="display: inline-flex; flex-direction: column; gap: 2px; padding: 8px 12px; border-radius: 12px; background: {{r.bg}}; border: 1px solid {{r.bd}}; font-family: Geist, system-ui, sans-serif"><b style="font-size: 13px">{{r.d}}</b><span style="font-size: 12.5px; color: #3F444C">{{r.what}}</span></span></template>
+<template data-for="{{reviews}}" data-as="r"><span style="display: inline-flex; flex-direction: column; gap: 2px; padding: 8px 12px; border-radius: 12px; background: {{r.bg}}; border: 1px solid {{r.bd}}; font-family: Inter, system-ui, sans-serif"><b style="font-size: 13px">{{r.d}}</b><span style="font-size: 12.5px; color: #3F444C">{{r.what}}</span></span></template>
 </div>
-<div style="border-radius: 14px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #1E40AF">Next on the map</span><b style="font-size: 20px">Percentages from ratios</b><span style="font-size: 16px; color: #3F444C">Opens when Proportional reasoning reaches 80%. Then the loop runs again, starting with Diagnose.</span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{queueNext}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: {{nextBg}}; color: {{nextFg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{nextLabel}}</button><a href="map.html" style="font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 500">See it on My learning map →</a></div>
+<div style="border-radius: 14px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #1E40AF">Next on the map</span><b style="font-size: 20px">Percentages from ratios</b><span style="font-size: 16px; color: #3F444C">Opens when Proportional reasoning reaches 80%. Then the loop runs again, starting with Diagnose.</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{queueNext}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: {{nextBg}}; color: {{nextFg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{nextLabel}}</button><a href="map.html" style="font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500">See it on My learning map →</a></div>
 </template>
 
-<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Feeds into: {{st.feeds}}</p>
+<p style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">Feeds into: {{st.feeds}}</p>
 </div>
 </template>
 </section>
@@ -290,7 +286,7 @@
 
 <section aria-labelledby="convo" style="flex: 3 1 {{convBasis}}; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; display: flex; flex-direction: column">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 20px; border-bottom: 1px solid #ECECE6">
-<div style="display: flex; align-items: center; gap: 8px"><h2 id="convo" style="margin: 0; font-size: 15px; font-weight: 600">Socrates</h2><template data-if="{{pedWorked}}"><span style="padding: 3px 9px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">Worked-example mode</span></template></div>
+<div style="display: flex; align-items: center; gap: 8px"><h2 id="convo" style="margin: 0; font-size: 15px; font-weight: 600">Socrates</h2><template data-if="{{pedWorked}}"><span style="padding: 3px 9px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600">Worked-example mode</span></template></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
 <div role="group" aria-label="How to talk to Socrates" style="display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4EF">
 <button type="button" aria-pressed="{{chatOnA}}" onClick="{{toChat}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: none; background: {{chatBg}}; color: {{chatFg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">Chat</button>
@@ -306,7 +302,7 @@
 <div style="flex: 1 1 340px; min-width: 0; position: relative; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: #172F73">
 <span aria-hidden="true" style="position: absolute; width: 120%; aspect-ratio: 1; left: -10%; top: -70%; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18)"></span>
 <span aria-hidden="true" style="position: absolute; left: -20%; right: -20%; bottom: -30%; height: 50%; border-radius: 50%; background: #1D4ED8; opacity: 0.55"></span>
-<div style="position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #EF4444; color: #FFFFFF"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF"></span>Live</span><span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.16); color: #FFFFFF">Socrates · {{langLabel}}</span></div>
+<div style="position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #EF4444; color: #FFFFFF"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF"></span>Live</span><span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.16); color: #FFFFFF">Socrates · {{langLabel}}</span></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
 <svg class="{{talkCls}}" viewBox="0 0 220 220" style="width: 62%; max-width: 300px; overflow: visible">
 <circle class="ring r1" cx="110" cy="112" r="96" fill="none" stroke="#7DB4FF" stroke-width="3"/>
@@ -326,22 +322,22 @@
 <div style="position: absolute; right: 12px; top: 12px; width: 26%; aspect-ratio: 3 / 4; border-radius: 12px; overflow: hidden; background: #E4ECFD; box-shadow: 0 0 0 3px {{micRing}}">
 <template data-if="{{camOn}}"><video ref="{{camRef}}" aria-label="Your camera" style="width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1)"></video></template>
 <template data-if="{{camOff}}"><img src="assets/img/22d577aff3134a6d7b711af0ce472bd6.svg" alt="Amani" style="width: 100%; height: 100%; object-fit: cover"></template>
-<span style="position: absolute; left: 6px; bottom: 6px; padding: 2px 8px; border-radius: 999px; background: rgba(11,13,16,0.7); color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 11px">You</span>
+<span style="position: absolute; left: 6px; bottom: 6px; padding: 2px 8px; border-radius: 999px; background: rgba(11,13,16,0.7); color: #FFFFFF; font-family: Inter, system-ui, sans-serif; font-size: 11px">You</span>
 </div>
 <template data-if="{{showCap}}">
-<p aria-live="polite" style="position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0; padding: 10px 14px; border-radius: 12px; background: rgba(11,13,16,0.78); font-family: Geist, system-ui, sans-serif; font-size: 15px; line-height: 1.45; text-align: center"><template data-for="{{capWords}}" data-as="w"><span style="color: {{w.c}}">{{w.t}} </span></template></p>
+<p aria-live="polite" style="position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0; padding: 10px 14px; border-radius: 12px; background: rgba(11,13,16,0.78); font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.45; text-align: center"><template data-for="{{capWords}}" data-as="w"><span style="color: {{w.c}}">{{w.t}} </span></template></p>
 </template>
 </div>
 
 <div style="flex: 1.35 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
 <div style="position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E2DA; background-image: radial-gradient(#E2E2DA 1px, transparent 1px); background-size: 22px 22px">
-<span style="position: absolute; left: 12px; top: 10px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">Shared whiteboard · Socrates draws, you draw</span>
+<span style="position: absolute; left: 12px; top: 10px; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">Shared whiteboard · Socrates draws, you draw</span>
 
 <template data-if="{{bRecipe}}">
 <svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%">
-<g class="fi" style="animation-delay: .1s" font-family="Geist, system-ui, sans-serif"><text x="40" y="72" font-size="20" fill="#62676F">Aunt’s recipe</text></g>
+<g class="fi" style="animation-delay: .1s" font-family="Inter, system-ui, sans-serif"><text x="40" y="72" font-size="20" fill="#62676F">Aunt’s recipe</text></g>
 <g class="fi" style="animation-delay: .3s"><path d="M44 96h34l-4 40h-26z M92 96h34l-4 40h-26z M140 96h34l-4 40h-26z" fill="#F4EFE2" stroke="#1E40AF" stroke-width="3"/></g>
-<g class="fi" style="animation-delay: .5s"><circle cx="230" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="270" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="310" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="350" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><text x="384" y="124" font-family="Geist, system-ui, sans-serif" font-size="20" fill="#14161A">× 2 = 8 chapati</text></g>
+<g class="fi" style="animation-delay: .5s"><circle cx="230" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="270" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="310" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><circle cx="350" cy="116" r="18" fill="#E9C48A" stroke="#B98543" stroke-width="2"/><text x="384" y="124" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#14161A">× 2 = 8 chapati</text></g>
 <text class="fi" style="animation-delay: .7s" x="40" y="200" font-family="EB Garamond, Georgia, serif" font-size="40" font-weight="600" fill="#14161A">3 cups → 8 chapati</text>
 <text class="fi" style="animation-delay: 1.1s" x="40" y="270" font-family="EB Garamond, Georgia, serif" font-size="40" font-weight="600" fill="#1D4ED8">? cups → 20 chapati</text>
 <path class="dw" d="M40 290 C140 300 260 284 380 292" fill="none" stroke="#F9A826" stroke-width="6" stroke-linecap="round" style="animation-delay: 1.4s"/>
@@ -349,7 +345,7 @@
 </template>
 
 <template data-if="{{bTwo}}">
-<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Geist, system-ui, sans-serif">
+<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Inter, system-ui, sans-serif">
 <rect class="fi" x="40" y="60" width="250" height="150" rx="16" fill="#F4F7FE" stroke="#93BBF3" stroke-width="2"/>
 <rect class="fi" style="animation-delay: .4s" x="320" y="60" width="250" height="150" rx="16" fill="#F4F7FE" stroke="#93BBF3" stroke-width="2"/>
 <text class="fi" x="62" y="96" font-size="18" font-weight="600" fill="#1E40AF">Batch 1</text><text class="fi" style="animation-delay: .4s" x="342" y="96" font-size="18" font-weight="600" fill="#1E40AF">Batch 2</text>
@@ -361,7 +357,7 @@
 </template>
 
 <template data-if="{{bDnl}}">
-<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Geist, system-ui, sans-serif">
+<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Inter, system-ui, sans-serif">
 <text class="fi" x="40" y="70" font-size="20" fill="#62676F">Double number line</text>
 <path class="dw" d="M110 150 L600 150" stroke="#14161A" stroke-width="4"/><path class="dw" style="animation-delay: .3s" d="M110 280 L600 280" stroke="#14161A" stroke-width="4"/>
 <text class="fi" x="40" y="158" font-size="18" fill="#62676F">chapati</text><text class="fi" x="40" y="288" font-size="18" fill="#62676F">cups</text>
@@ -372,7 +368,7 @@
 </template>
 
 <template data-if="{{bDone}}">
-<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Geist, system-ui, sans-serif">
+<svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" font-family="Inter, system-ui, sans-serif">
 <path d="M110 150 L600 150 M110 280 L600 280" stroke="#14161A" stroke-width="4"/>
 <g font-size="26" font-weight="600" text-anchor="middle"><path d="M130 136v28M290 136v28M450 136v28M550 136v28M130 266v28M290 266v28M450 266v28M550 266v28" stroke="#14161A" stroke-width="3"/><text x="130" y="122">0</text><text x="290" y="122">8</text><text x="450" y="122">16</text><text x="550" y="122" fill="#1D4ED8">20</text><text x="130" y="330">0</text><text x="290" y="330">3</text><text x="450" y="330">6</text></g>
 <circle class="pop" cx="550" cy="322" r="34" fill="#DDF4F1"/><text class="pop" x="550" y="333" text-anchor="middle" font-size="30" font-weight="700" fill="#0F766E">7.5</text>
@@ -383,7 +379,7 @@
 
 <template data-if="{{bUnit}}">
 <svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%">
-<text class="fi" x="40" y="80" font-family="Geist, system-ui, sans-serif" font-size="20" fill="#62676F">Another way: find one first</text>
+<text class="fi" x="40" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#62676F">Another way: find one first</text>
 <text class="fi" style="animation-delay: .4s" x="40" y="170" font-family="EB Garamond, Georgia, serif" font-size="42" font-weight="600" fill="#14161A">3 ÷ 8 = 0.375 cups each</text>
 <text class="fi" style="animation-delay: 1.2s" x="40" y="260" font-family="EB Garamond, Georgia, serif" font-size="42" font-weight="600" fill="#1D4ED8">20 × 0.375 = 7.5 cups</text>
 <path class="dw" style="animation-delay: 1.8s" d="M40 284 C160 294 300 278 430 286" fill="none" stroke="#F9A826" stroke-width="6" stroke-linecap="round"/>
@@ -392,49 +388,49 @@
 
 <template data-if="{{bOwn}}">
 <svg viewBox="0 0 640 400" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%">
-<text class="fi" x="40" y="80" font-family="Geist, system-ui, sans-serif" font-size="20" fill="#62676F">Your recipe</text>
+<text class="fi" x="40" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#62676F">Your recipe</text>
 <text class="fi" style="animation-delay: .3s" x="40" y="170" font-family="EB Garamond, Georgia, serif" font-size="40" font-weight="600" fill="#14161A">{{ownLine1}}</text>
 <text class="fi" style="animation-delay: .8s" x="40" y="250" font-family="EB Garamond, Georgia, serif" font-size="40" font-weight="600" fill="#1D4ED8">{{ownLine2}}</text>
-<text class="fi" style="animation-delay: 1.2s" x="40" y="330" font-family="Geist, system-ui, sans-serif" font-size="22" fill="#0F766E">{{ownLine3}}</text>
+<text class="fi" style="animation-delay: 1.2s" x="40" y="330" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#0F766E">{{ownLine3}}</text>
 </svg>
 </template>
 
 <canvas ref="{{avPad}}" aria-label="Whiteboard. Draw or write with your finger, pen or mouse." onPointerDown="{{padDown}}" onPointerMove="{{padMove}}" onPointerUp="{{padUp}}" onPointerLeave="{{padUp}}" onPointerCancel="{{padUp}}" style="position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair"></canvas>
 </div>
-<div role="toolbar" aria-label="Drawing tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif">
+<div role="toolbar" aria-label="Drawing tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{tools}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{t.label}}</button></template>
 <span aria-hidden="true" style="width: 1px; height: 24px; background: #E2E2DA"></span>
 <template data-for="{{inks}}" data-as="c"><button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 30px; height: 30px; border-radius: 50%; border: 3px solid {{c.ring}}; background: {{c.hex}}; cursor: pointer"></button></template>
 <span aria-hidden="true" style="width: 1px; height: 24px; background: #E2E2DA"></span>
 <button type="button" onClick="{{padUndoAv}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 13px; cursor: pointer">Undo</button>
 <button type="button" onClick="{{padClearAv}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 13px; cursor: pointer">Clear</button>
-<button type="button" onClick="{{padSendAv}}" style="margin-left: auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer">Send my drawing</button>
+<button type="button" onClick="{{padSendAv}}" style="margin-left: auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13px; font-weight: 600; cursor: pointer">Send my drawing</button>
 </div>
 </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: #F4F4EF; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: #F4F4EF; font-family: Inter, system-ui, sans-serif">
 <button type="button" aria-pressed="{{listeningA}}" onClick="{{listen}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 14px; border-radius: 999px; border: none; background: {{micBg}}; color: {{micFg}}; font-size: 15px; font-weight: 600; cursor: pointer"><span aria-hidden="true" style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span>{{micLabel}}<template data-if="{{listening}}"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></template></button>
 <button type="button" aria-pressed="{{camOnA}}" onClick="{{toggleCam}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer">{{camLabel}}</button>
 <span aria-hidden="true" style="width: 1px; height: 28px; background: #CFCFC6"></span>
 <button type="button" aria-pressed="{{voiceOffA}}" aria-label="{{muteAria}}" onClick="{{toggleVoice}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center"><template data-if="{{voiceOn}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></template><template data-if="{{voiceOff}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></template></button>
 <label for="tvol" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Socrates volume</label>
 <input id="tvol" type="range" min="0" max="100" value="{{vol100}}" onChange="{{setVol}}" style="width: 110px; accent-color: #1D4ED8">
-<button type="button" aria-label="{{rateAria}}" onClick="{{cycleRate}}" style="min-width: 54px; min-height: 40px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; cursor: pointer">{{rateText}}</button>
+<button type="button" aria-label="{{rateAria}}" onClick="{{cycleRate}}" style="min-width: 54px; min-height: 40px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; cursor: pointer">{{rateText}}</button>
 <button type="button" aria-pressed="{{ccA}}" onClick="{{toggleCc}}" style="min-width: 44px; min-height: 40px; border-radius: 8px; border: 1px solid #CFCFC6; background: {{ccBg}}; color: {{ccFg}}; font-size: 12.5px; font-weight: 700; cursor: pointer">CC</button>
 <button type="button" onClick="{{replay}}" style="min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Replay</button>
 <button type="button" onClick="{{stopTalk}}" style="min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Stop</button>
 </div>
 <template data-if="{{listening}}"><p aria-live="polite" style="margin: 0; padding: 0 6px; font-size: 18px; font-style: italic; color: #1E40AF">{{interimShown}}</p></template>
 <template data-if="{{hasMicMsg}}">
-<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 14px; background: #FEF1D9; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 14px; background: #FEF1D9; font-family: Inter, system-ui, sans-serif">
 <span style="font-size: 13.5px; color: #92400E">{{micMsg}}</span>
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{voiceSamples}}" data-as="v"><button type="button" onClick="{{v.say}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #F6DFAE; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Say “{{v.t}}”</button></template></div>
 </div>
 </template>
 <div style="display: flex; flex-direction: column; gap: 6px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Just said</span>
-<template data-for="{{recent}}" data-as="m"><p style="margin: 0; font-size: 15.5px; line-height: 1.45; color: {{m.c}}"><b style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px">{{m.who}}</b> {{m.text}}</p></template>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Just said</span>
+<template data-for="{{recent}}" data-as="m"><p style="margin: 0; font-size: 15.5px; line-height: 1.45; color: {{m.c}}"><b style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px">{{m.who}}</b> {{m.text}}</p></template>
 </div>
 </div>
 </template>
@@ -445,32 +441,32 @@
 <template data-if="{{m.tutor}}">
 <div class="fadein" style="display: flex; align-items: flex-start; gap: 10px; max-width: 640px">
 <img src="{{m.face}}" alt="Socrates" style="flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FEF1D9; margin-top: 2px">
-<div style="display: flex; flex-direction: column; gap: 4px"><p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">{{m.text}}</p><button type="button" onClick="{{m.listen}}" style="align-self: flex-start; min-height: 30px; padding: 0 10px; border-radius: 999px; border: none; background: transparent; color: #1D4ED8; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; cursor: pointer">▶ Listen</button></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><p style="margin: 0; background: #F4F4EF; border-radius: 4px 16px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">{{m.text}}</p><button type="button" onClick="{{m.listen}}" style="align-self: flex-start; min-height: 30px; padding: 0 10px; border-radius: 999px; border: none; background: transparent; color: #1D4ED8; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; cursor: pointer">▶ Listen</button></div>
 </div>
 </template>
 <template data-if="{{m.me}}">
 <div class="fadein" style="align-self: flex-end; max-width: 460px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px">
 <template data-if="{{m.hasImg}}"><img src="{{m.img}}" alt="Your drawing" style="width: 280px; max-width: 100%; border-radius: 14px; border: 2px solid #1D4ED8; background: #FFFFFF"></template>
 <template data-if="{{m.hasText}}"><p style="margin: 0; background: #1D4ED8; color: #FFFFFF; border-radius: 16px 4px 16px 16px; padding: 12px 16px; font-size: 16.5px; line-height: 1.55">{{m.text}}</p></template>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; color: #62676F">{{m.via}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; color: #62676F">{{m.via}}</span>
 </div>
 </template>
-<template data-if="{{m.note}}"><p class="fadein" style="margin: 0; align-self: center; padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-family: Geist, system-ui, sans-serif; font-size: 12.5px">{{m.text}}</p></template>
+<template data-if="{{m.note}}"><p class="fadein" style="margin: 0; align-self: center; padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-family: Inter, system-ui, sans-serif; font-size: 12.5px">{{m.text}}</p></template>
 </template>
 <template data-if="{{thinking}}"><div class="dots" aria-label="Socrates is thinking" style="display: flex; gap: 5px; padding: 12px 16px; border-radius: 16px; background: #F4F4EF; align-self: flex-start; margin-left: 50px"><i></i><i></i><i></i></div></template>
 </div>
 <template data-if="{{padOpen}}">
 <div class="fadein" style="margin: 0 20px 12px; display: flex; flex-direction: column; gap: 8px">
 <div style="position: relative; height: 260px; border-radius: 16px; border: 1px solid #93BBF3; background: #FFFFFF; background-image: radial-gradient(#E2E2DA 1px, transparent 1px); background-size: 22px 22px; overflow: hidden">
-<span style="position: absolute; left: 12px; top: 10px; font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">Draw or write your working</span>
+<span style="position: absolute; left: 12px; top: 10px; font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">Draw or write your working</span>
 <canvas ref="{{chatPad}}" aria-label="Drawing pad. Draw or write with your finger, pen or mouse." onPointerDown="{{padDown}}" onPointerMove="{{padMove}}" onPointerUp="{{padUp}}" onPointerLeave="{{padUp}}" onPointerCancel="{{padUp}}" style="position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair"></canvas>
 </div>
-<div role="toolbar" aria-label="Drawing tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif">
+<div role="toolbar" aria-label="Drawing tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{tools}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{t.label}}</button></template>
 <template data-for="{{inks}}" data-as="c"><button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 30px; height: 30px; border-radius: 50%; border: 3px solid {{c.ring}}; background: {{c.hex}}; cursor: pointer"></button></template>
 <button type="button" onClick="{{padUndoChat}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 13px; cursor: pointer">Undo</button>
 <button type="button" onClick="{{padClearChat}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 13px; cursor: pointer">Clear</button>
-<button type="button" onClick="{{padSendChat}}" style="margin-left: auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer">Send drawing</button>
+<button type="button" onClick="{{padSendChat}}" style="margin-left: auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13px; font-weight: 600; cursor: pointer">Send drawing</button>
 </div>
 </div>
 </template>
@@ -483,10 +479,11 @@
 <div style="display: flex; gap: 8px">
 <button type="button" aria-label="Draw it" aria-pressed="{{padOpenA}}" onClick="{{openDraw}}" style="width: 48px; height: 48px; border-radius: 12px; border: 1px solid {{drawBd}}; background: {{drawBg}}; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button>
 <button type="button" aria-label="Say it" aria-pressed="{{listeningA}}" onClick="{{listen}}" style="width: 48px; height: 48px; border-radius: 12px; border: 1px solid {{sayBd}}; background: {{sayBg}}; color: {{sayFg}}; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
-<button type="button" aria-label="Send" onClick="{{sendDraft}}" style="width: 48px; height: 48px; border-radius: 12px; border: none; background: #1D4ED8; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg></button>
+<button type="button" aria-label="Send" onClick="{{sendDraft}}" style="width: 48px; height: 48px; border-radius: 12px; border: none; background: #F9A826; color: #14161A; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg></button>
 </div>
 </div>
-<template data-if="{{chatMicNote}}"><p role="status" style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #92400E">{{micMsgShort}}</p></template>
+<template data-if="{{chatMicNote}}"><p role="status" style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #92400E">{{micMsgShort}}</p></template>
+<div role="group" aria-label="Quick actions" style="display: flex; flex-wrap: wrap; gap: 8px"><template data-for="{{quick}}" data-as="c"><button type="button" title="{{c.tip}}" onClick="{{c.go}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">{{c.t}}</button></template></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <template data-for="{{chips}}" data-as="c"><button type="button" onClick="{{c.say}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.t}}</button></template>
 </div>
@@ -507,7 +504,7 @@
 <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
 <template data-for="{{causes}}" data-as="c">
 <li style="display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-size: 14px; line-height: 1.4">{{c.label}}</span><span style="flex: none; font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{c.p}}</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-size: 14px; line-height: 1.4">{{c.label}}</span><span style="flex: none; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{c.p}}</span></div>
 <div aria-hidden="true" style="height: 6px; border-radius: 3px; background: #ECECE6"><div style="height: 6px; border-radius: 3px; width: {{c.w}}; background: {{c.bar}}; transition: width .5s ease"></div></div>
 <span style="font-size: 12.5px; color: #62676F">{{c.kind}}</span>
 </li>
@@ -521,7 +518,7 @@
 </ol>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px; background: #FAFAF7; border: 1px solid #ECECE6">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 14px; font-weight: 600">Proportional reasoning</span><span style="font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px">{{estFrom}} → <span style="color: {{estColor}}; font-weight: 500">{{estTo}}</span></span></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 14px; font-weight: 600">Proportional reasoning</span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px">{{estFrom}} → <span style="color: {{estColor}}; font-weight: 500">{{estTo}}</span></span></div>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">How sure Socrates is that you’ve got this skill. One answer moved it; it moves back the moment you show it.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
@@ -534,7 +531,7 @@
 <label for="contest" style="font-size: 13.5px; font-weight: 600">Tell Vachuo what it missed</label>
 <textarea id="contest" rows="3" value="{{contestText}}" onChange="{{setContest}}" placeholder="I typed 15 by mistake. I meant 7.5." style="box-sizing: border-box; width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; font-size: 16px; line-height: 1.5; color: #14161A; resize: vertical"></textarea>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
-<button type="button" onClick="{{sendContest}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Send to Vachuo</button>
+<button type="button" onClick="{{sendContest}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">Send to Vachuo</button>
 <span role="status" style="font-size: 13px; color: {{contestColor}}">{{contestMsg}}</span>
 </div>
 </div>
@@ -547,11 +544,13 @@
 </template>
 
 </div>
+
+<footer style="margin-top: 56px; padding-top: 12px; border-top: 1px solid #E2E2DA; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F"><nav aria-label="{{svT.policies}}" style="display: flex; flex-wrap: wrap; gap: 0 18px"><a href="mailto:hello@vachuo.com?subject=Help" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.help}}</a><a href="privacy.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.privacy}}</a><a href="terms.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.terms}}</a><a href="mailto:hello@vachuo.com" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.contact}}</a></nav><span style="margin-left: auto">© 2026 Vachuo™</span><div role="group" aria-label="{{svT.language}}" style="display: inline-flex; align-items: center; gap: 2px; padding: 3px 3px 3px 12px; border-radius: 999px; background: #ECECE6; color: #3F444C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" style="margin-right: 4px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><button type="button" aria-pressed="{{svEnOn}}" onClick="{{svLangEn}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svEnBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">English</button><button type="button" aria-pressed="{{svSwOn}}" onClick="{{svLangSw}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svSwBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">Kiswahili</button></div></footer>
 </main>
 </div>
 </template>
 <template id="dc-Approvals">
-<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
 
 <template data-if="{{isParent}}">
 <section aria-labelledby="ap-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
@@ -559,7 +558,7 @@
 <h2 id="ap-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Waiting for your approval</h2>
 <span style="font-size: 13px; color: #62676F">{{pendingCount}}</span>
 </div>
-<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person club sessions and job applications from your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person sessions and job applications for your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
 <template data-for="{{pending}}" data-as="a">
 <div class="fadein" style="border: 1px solid #F3DDB0; background: #FEF9EE; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="padding: 2px 9px; border-radius: 999px; background: {{a.kBg}}; color: {{a.kFg}}; font-size: 12px; font-weight: 700">{{a.kind}}</span><span style="font-size: 12.5px; color: #3F444C">From {{a.from}} · {{a.at}}</span></div>
@@ -591,7 +590,7 @@
 </div>
 </template>
 <template id="dc-Messages">
-<div data-theme="{{uiTheme}}" style="height: {{rootH}}; box-sizing: border-box; display: flex; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif; border-radius: {{rootRadius}}; border: {{rootBorder}}; overflow: hidden">
+<div data-theme="{{uiTheme}}" style="height: {{rootH}}; box-sizing: border-box; display: flex; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; border-radius: {{rootRadius}}; border: {{rootBorder}}; overflow: hidden">
 
 <template data-if="{{showList}}">
 <aside aria-label="Conversations" style="flex: 0 0 300px; display: flex; flex-direction: column; border-right: 1px solid #E2E2DA; background: #FAFAF7; min-width: 0">
@@ -653,8 +652,8 @@
 <div style="display: flex; align-items: flex-end; gap: 8px">
 <label style="position: relative; flex: none; width: 44px; height: 44px; box-sizing: border-box; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; display: flex; align-items: center; justify-content: center; cursor: pointer" title="Attach a file"><input type="file" aria-label="Attach a file" onChange="{{attach}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7L10 17.7a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg></label>
 <label for="msg-draft" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Message {{c.first}}</label>
-<textarea id="msg-draft" rows="1" value="{{draft}}" onInput="{{setDraft}}" placeholder="{{placeholder}}" style="flex: 1; min-width: 0; min-height: 44px; max-height: 120px; box-sizing: border-box; padding: 11px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 15px; line-height: 1.4; resize: vertical"></textarea>
-<button type="button" onClick="{{send}}" aria-label="Send message" style="flex: none; height: 44px; padding: 0 16px; border-radius: 12px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>Send</button>
+<textarea id="msg-draft" rows="1" value="{{draft}}" onInput="{{setDraft}}" placeholder="{{placeholder}}" style="flex: 1; min-width: 0; min-height: 44px; max-height: 120px; box-sizing: border-box; padding: 11px 14px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FAFAF7; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.4; resize: vertical"></textarea>
+<button type="button" onClick="{{send}}" aria-label="Send message" style="flex: none; height: 44px; padding: 0 16px; border-radius: 12px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>Send</button>
 </div>
 </div>
 </section>
@@ -663,6 +662,43 @@
 <script>
 DC.component("Session", function () {
 class Component extends DCLogic {
+  svDict() { return {"en": {"navHow": "How the system works", "navPricing": "Pricing", "navAbout": "About", "abWp": "White paper", "abWpD": "The full argument and the evidence", "abBlog": "Blog", "abBlogD": "The Vachuo Journal", "abNews": "Newsroom", "abNewsD": "News, press kit and channels", "abCar": "Careers", "abCarD": "Build the school with us", "abVis": "Vision, mission & values", "abVisD": "Why we exist and how we work", "signIn": "Sign in", "access": "Request early access", "darkMode": "Dark mode", "home": "Vachuo home", "tagline": "The operating system for individualised learning.", "fProduct": "Product", "fTour": "Product tour", "fLoop": "The loop inside Vachuo", "fCopilot": "Parent copilot", "fStart": "Get started", "fSetup": "Set up a learner", "fLearn": "Learn", "fToday": "Today", "fTutor": "My tutor", "fMap": "My learning map", "fClasses": "My classes", "fAssess": "My assessments", "fPortfolio": "Portfolio", "fCommunity": "Community", "fClubs": "Clubs", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Trust and safety", "fSafety": "Children’s safety", "fPrivacyAI": "AI and data privacy", "fApprovals": "How approvals work", "fAbout": "About", "fSupport": "Support", "fPress": "Press kit", "fFollow": "Follow Vachuo", "terms": "Terms of use", "privacy": "Privacy policy", "cookies": "Cookie choices", "language": "Language", "help": "Help", "contact": "Contact", "policies": "Help and policies", "swNotice": "", "ckTitle": "Cookie choices", "ckBody": "Vachuo uses essential cookies to keep you signed in and remember your settings. With your permission we would also use analytics cookies to learn which pages help families most. We never use advertising cookies.", "ckEss": "Essential only", "ckAll": "Allow analytics", "ckChoose": "Choose", "ckEssT": "Essential", "ckEssD": "Sign-in, security, and your theme and language.", "ckAlways": "Always on", "ckAnaT": "Analytics", "ckAnaD": "Counts of page visits that don’t identify you. Off unless you turn it on.", "ckSave": "Save choices", "ckCancel": "Cancel", "ckLater": "You can change this at any time from Cookie choices at the bottom of every page.", "ckOn": "On", "ckOff": "Off"}, "sw": {"navHow": "Jinsi mfumo unavyofanya kazi", "navPricing": "Bei", "navAbout": "Kuhusu", "abWp": "Waraka rasmi", "abWpD": "Hoja kamili na ushahidi wake", "abBlog": "Blogu", "abBlogD": "Jarida la Vachuo", "abNews": "Habari", "abNewsD": "Habari, vifaa vya wanahabari na chaneli", "abCar": "Ajira", "abCarD": "Jenga shule pamoja nasi", "abVis": "Maono, dhamira na maadili", "abVisD": "Kwa nini tupo na jinsi tunavyofanya kazi", "signIn": "Ingia", "access": "Omba nafasi ya mapema", "darkMode": "Hali ya giza", "home": "Ukurasa wa mwanzo wa Vachuo", "tagline": "Mfumo endeshi wa ujifunzaji unaomlenga kila mwanafunzi.", "fProduct": "Bidhaa", "fTour": "Ziara ya bidhaa", "fLoop": "Mzunguko ndani ya Vachuo", "fCopilot": "Msaidizi wa mzazi", "fStart": "Anza hapa", "fSetup": "Mwandikishe mwanafunzi", "fLearn": "Jifunze", "fToday": "Leo", "fTutor": "Mkufunzi wangu", "fMap": "Ramani yangu ya kujifunza", "fClasses": "Madarasa yangu", "fAssess": "Tathmini zangu", "fPortfolio": "Jalada la kazi", "fCommunity": "Jamii", "fClubs": "Vilabu", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Usalama na uaminifu", "fSafety": "Usalama wa watoto", "fPrivacyAI": "AI na faragha ya data", "fApprovals": "Jinsi idhini zinavyofanya kazi", "fAbout": "Kuhusu", "fSupport": "Msaada", "fPress": "Vifaa vya wanahabari", "fFollow": "Fuata Vachuo", "terms": "Masharti ya matumizi", "privacy": "Sera ya faragha", "cookies": "Chaguo za vidakuzi", "language": "Lugha", "help": "Msaada", "contact": "Wasiliana nasi", "policies": "Msaada na sera", "swNotice": "Baadhi ya maandishi ya ukurasa huu bado yako kwa Kiingereza. Tunaendelea kutafsiri.", "ckTitle": "Chaguo za vidakuzi", "ckBody": "Vachuo hutumia vidakuzi muhimu ili uendelee kuingia na mipangilio yako ikumbukwe. Ukiruhusu, tungetumia pia vidakuzi vya takwimu kujua kurasa zipi zinasaidia familia zaidi. Hatutumii kamwe vidakuzi vya matangazo.", "ckEss": "Muhimu pekee", "ckAll": "Ruhusu takwimu", "ckChoose": "Chagua", "ckEssT": "Muhimu", "ckEssD": "Kuingia, usalama, pamoja na mandhari na lugha yako.", "ckAlways": "Kila wakati", "ckAnaT": "Takwimu", "ckAnaD": "Hesabu za kutembelea kurasa zisizokutambulisha. Huzimwa hadi uziwashe.", "ckSave": "Hifadhi chaguo", "ckCancel": "Ghairi", "ckLater": "Unaweza kubadilisha hili wakati wowote kupitia Chaguo za vidakuzi chini ya kila ukurasa.", "ckOn": "Imewashwa", "ckOff": "Imezimwa"}}; }
+  siteVals() {
+    if (this._svOn === undefined) {
+      this._svOn = true; this._svD = this.svDict();
+      let lg = 'en', ck = null;
+      try { if (window.localStorage.getItem('vachuo-lang') === 'sw') lg = 'sw'; } catch (e) {}
+      try { ck = JSON.parse(window.localStorage.getItem('vachuo-cookies') || 'null'); } catch (e) {}
+      this._svLg = lg; this._svCk = ck; this._svPanel = false; this._svAna = !!(ck && ck.analytics);
+      const save = (k, v) => { try { window.localStorage.setItem(k, v); } catch (e) {} };
+      const setLang = (l) => { this._svLg = l; save('vachuo-lang', l); this.forceUpdate(); };
+      const setCk = (a) => { this._svCk = { analytics: a, decided: true }; this._svAna = a; this._svPanel = false; save('vachuo-cookies', JSON.stringify(this._svCk)); this.forceUpdate(); };
+      this._svSync = (e) => {
+        if (!e) return;
+        if (e.key === 'vachuo-lang') { this._svLg = e.newValue === 'sw' ? 'sw' : 'en'; this.forceUpdate(); }
+        if (e.key === 'vachuo-cookies') { try { this._svCk = JSON.parse(e.newValue || 'null'); } catch (x) {} this.forceUpdate(); }
+      };
+      try { window.addEventListener('storage', this._svSync); } catch (e) {}
+      this._svH = {
+        svLangEn: () => setLang('en'), svLangSw: () => setLang('sw'),
+        svCkAll: () => setCk(true), svCkEss: () => setCk(false),
+        svCkOpen: () => { this._svPanel = true; this._svAna = !!(this._svCk && this._svCk.analytics); this.forceUpdate(); },
+        svCkClose: () => { this._svPanel = false; this.forceUpdate(); },
+        svCkFlip: () => { this._svAna = !this._svAna; this.forceUpdate(); },
+        svCkSave: () => setCk(this._svAna)
+      };
+    }
+    const sw = this._svLg === 'sw', ana = this._svAna;
+    return Object.assign({}, this._svH, {
+      svT: sw ? this._svD.sw : this._svD.en, svLang: sw ? 'sw' : 'en',
+      svEnOn: sw ? 'false' : 'true', svSwOn: sw ? 'true' : 'false',
+      svEnBg: sw ? 'transparent' : '#EDEDE8', svEnFg: sw ? '#C9CCD0' : '#0B0D10', svSwBg: sw ? '#EDEDE8' : 'transparent', svSwFg: sw ? '#0B0D10' : '#C9CCD0',
+      svEnBgL: sw ? 'transparent' : '#FFFFFF', svSwBgL: sw ? '#FFFFFF' : 'transparent',
+      svSwNotice: sw && !this._svFull, svCkBanner: !this._svCk && !this._svPanel, svCkPanel: this._svPanel,
+      svCkAnaOn: ana ? 'true' : 'false', svCkAnaLabel: ana ? (sw ? this._svD.sw.ckOn : this._svD.en.ckOn) : (sw ? this._svD.sw.ckOff : this._svD.en.ckOff),
+      svCkTrack: ana ? '#1D4ED8' : '#8A8F96', svCkKnob: ana ? '19px' : '3px'
+    });
+  }
   themeVals() {
     if (this._uiT === undefined) {
       let t = 'light';
@@ -759,6 +795,9 @@ class Component extends DCLogic {
   respond(raw) {
     const t = raw.toLowerCase(); const n = this.parseNum(t); const node = this.state.node;
     const stuck = /stuck|help|don.?t know|not sure|sijui|hint|nimekwama/.test(t);
+    if (this.state.prac && n != null) { const ok = Math.abs(n - this.state.prac.ans) < 0.01; return ok ? { node, prac: null, say: 'Right: 30 ÷ 12 = 2.5 lots, and 2.5 × 2 = 5 cups. Practice doesn’t change your map, but it says you’re ready. Back to the chapati: ' + this.nodes()[node].en } : { node, say: 'Not yet. How many lots of 12 make 30? Then multiply the flour by that.' }; }
+    if (/^test me$/.test(t)) return { node, prac: { ans: 5 }, say: 'Practice round, it won’t count: 12 mandazi need 2 cups of flour. How many cups for 30 mandazi? Type a number, or tap “Give me a hint”.' };
+    if (/show an example|example/.test(t)) return { node, say: 'An example from the kitchen: 2 cups of rice feed 4 people. For 12 people that’s 3 lots of 4, so 3 × 2 = 6 cups. Now try ours: ' + this.nodes()[node].en };
     if (/answer in kiswahili|kwa kiswahili/.test(t)) return { lang: 'sw', node, say: 'Sawa, tutaendelea kwa Kiswahili. ' + this.nodes()[node].sw, keep: true };
     if (/answer in english|in english/.test(t)) return { lang: 'en', node, say: 'Okay, back to English. ' + this.nodes()[node].en, keep: true };
     if (/own recipe|mapishi yangu/.test(t)) return { node: 'own' };
@@ -796,6 +835,7 @@ class Component extends DCLogic {
     const msgs = this.state.msgs.concat([{ who: 'tutor', face: F[nd.face] || F.curious, text: say }]);
     const ups = { msgs, node, lang, thinking: false };
     if (r.own) ups.own = r.own;
+    if (r.prac !== undefined) ups.prac = r.prac;
     if (node === 'done' && this.state.node !== 'done') { msgs.push({ who: 'note', text: r.own ? 'Evidence logged · you scaled your own recipe' : 'Evidence logged · Proportional reasoning 47% → 61%' }); }
     this.setState(ups);
     if (this.state.mode === 'av') this.speak(say, lang);
@@ -880,7 +920,7 @@ class Component extends DCLogic {
     clearTimeout(this._think); this._think = setTimeout(() => this.reply({ node: this.state.node, say: (this.state.lang === 'sw' ? 'Asante, ninaona mchoro wako. ' : 'Thanks, I can see your drawing. ') + (this.state.node === 'done' ? 'Nice table. Want to try your own recipe?' : 'Now tell me the number you got, so I can check it with you.') }), 700);
   }
 
-  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals()); }
   pageVals() {
     const st = this.state; const N = this.nodes();
     const mm = (s) => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
@@ -1045,6 +1085,7 @@ class Component extends DCLogic {
       draft: st.draft, setDraft: (e) => this.setState({ draft: e.target.value }), draftKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this.submit(st.draft, 'Typed'); } }, sendDraft: () => this.submit(st.draft, 'Typed'),
       placeholder: st.lang === 'sw' ? 'Andika, chora au sema unavyofikiri' : 'Type, draw or say your thinking',
       chips: baseChips.concat(extra),
+      quick: [['Explain it another way', 'Hear the idea from a different angle'], ['Give me a hint', 'A nudge, never the answer'], ['Show an example', 'An everyday example'], ['Test me', 'Practice only. It never counts and never runs during an assessment.']].map(([t, tip]) => ({ t, tip, go: () => this.submit(t, 'Quick action') })),
       noticed: NOTICED[st.node] || NOTICED.q3,
       causes: causes.map((c) => ({ label: c[0], p: Math.round(c[1] * 100) + '%', w: Math.round(c[1] * 100) + '%', bar: c[2], kind: c[3] })),
       trying, estFrom: est[0], estTo: est[1], estColor: parseFloat(est[1]) >= parseFloat(est[0]) ? '#0F766E' : '#92400E',
@@ -1084,7 +1125,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const area = (this.props && this.props.area) || 'parent'; const list = this.read();
-    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'] };
+    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'], session: ['In-person session', '#DDF4F1', '#115E59'] };
     const set = (id, status) => this.write(this.read().map((x) => (x.id === id ? Object.assign({}, x, { status, decidedAt: 'Tue 3 Nov' }) : x)));
     const out = Object.assign(this.themeVals(), { isParent: area === 'parent', isStrip: false, pending: [], noPending: true, done: [], hasDone: false, pendingCount: '', stripTitle: '', stripSub: '', stripItems: [], stripBg: '#FFFFFF', stripBd: '#E2E2DA', chip: '', chipBg: '#FFFFFF', chipFg: '#14161A' });
     if (area === 'parent') {

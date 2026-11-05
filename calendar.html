@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Shared calendar</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Calendar">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, sans-serif">
+<section aria-labelledby="cal2-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 id="cal2-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">{{title}}</h2><span style="font-size: 13px; color: #62676F">One calendar for lesson premieres, club sessions and assessments</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<div role="group" aria-label="View" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: #ECECE6"><template data-for="{{views}}" data-as="v"><button type="button" aria-pressed="{{v.on}}" onClick="{{v.pick}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">{{v.label}}</button></template></div>
+<button type="button" aria-label="{{prevLabel}}" onClick="{{prev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{prevOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" aria-label="{{nextLabel}}" onClick="{{next}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{nextOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+</div></div>
+<div role="group" aria-label="Show" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{filters}}" data-as="f"><button type="button" aria-pressed="{{f.on}}" onClick="{{f.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{f.bd}}; background: {{f.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 3px; background: {{f.dot}}"></span>{{f.label}} <span style="color: #62676F; font-weight: 500">{{f.n}}</span></button></template>
+</div>
+<template data-if="{{isWeek}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+<template data-for="{{days}}" data-as="d"><div style="display: flex; flex-direction: column; gap: 6px; min-height: 180px; padding: 8px; border-radius: 14px; background: {{d.bg}}; border: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; color: #3F444C">{{d.label}}</span>
+<template data-for="{{d.ev}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-direction: column; gap: 2px; width: 100%; padding: 6px 8px; border-radius: 10px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer"><span style="font-size: 11.5px; font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span style="font-size: 12.5px; line-height: 1.3">{{e.title}}</span></button></template>
+</div></template>
+</div></div>
+</template>
+<template data-if="{{isMonth}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<template data-for="{{dow}}" data-as="w"><span style="padding: 0 4px; font-size: 12px; font-weight: 600; color: #62676F">{{w}}</span></template>
+<template data-for="{{cells}}" data-as="c"><button type="button" aria-pressed="{{c.on}}" aria-label="{{c.aria}}" onClick="{{c.pick}}" style="display: flex; flex-direction: column; align-items: stretch; gap: 4px; min-height: 92px; padding: 6px; border-radius: 12px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer; opacity: {{c.op}}"><span style="font-size: 13px; font-weight: 600">{{c.n}}</span><template data-for="{{c.ev}}" data-as="e"><span style="display: block; padding: 2px 6px; border-radius: 6px; background: {{e.bg}}; color: {{e.fg}}; font-size: 11px; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{e.title}}</span></template><template data-if="{{c.hasMore}}"><span style="font-size: 11px; color: #62676F">{{c.more}}</span></template></button></template>
+</div></div>
+<template data-if="{{hasDay}}"><div style="display: flex; flex-direction: column; gap: 6px"><h3 style="margin: 0; font-size: 15px; font-weight: 600">{{dayLabel}}</h3><template data-for="{{dayEv}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 44px; padding: 6px 12px; border-radius: 12px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; font-size: 14px; cursor: pointer"><span style="font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span>{{e.title}}</span></button></template><template data-if="{{dayEmpty}}"><p style="margin: 0; font-size: 14px; color: #62676F">Nothing on this day.</p></template></div></template>
+</template>
+<template data-if="{{hasSel}}">
+<div aria-live="polite" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 16px; border-radius: 14px; background: {{sel.bg}}">
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: {{sel.fg}}">{{sel.kindLabel}} · {{sel.subject}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600; line-height: 1.2">{{sel.title}}</span><span style="font-size: 13.5px; color: #3F444C">{{sel.when}} · {{sel.where}}</span><template data-if="{{sel.hasNote}}"><span style="font-size: 13.5px; color: {{sel.fg}}; font-weight: 600">{{sel.note}}</span></template></div>
+<template data-if="{{sel.useBtn}}"><button type="button" onClick="{{sel.open}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">{{sel.openLabel}}</button></template>
+<template data-if="{{sel.useLink}}"><a href="{{sel.href}}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; text-decoration: none">{{sel.openLabel}}</a></template>
+</div>
+</template>
+</section>
+</div>
+</template>
+<script>
+DC.component("Calendar", function () {
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { wk: 0, mo: 0, f: null, sel: null, day: null, view: null }; }
+  themeVals() {
+    if (this._uiT === undefined) { let t = 'light'; try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {} this._uiT = t; }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  events() {
+    const E = (id, kind, ref, d, time, title, subject, where, note) => ({ id, kind, ref, d, time, title, subject, where, note: note || '' });
+    return [
+      E('l1', 'lesson', 'r-metaphor', '2026-11-03', '11:00', 'Metaphors that hide in plain sight', 'Reading', 'Premiere in My classes'),
+      E('l2', 'lesson', 'm-tables', '2026-11-04', '10:00', 'Ratio tables and double number lines', 'Maths', 'Premiere in My classes'),
+      E('l3', 'lesson', 'k-adj', '2026-11-05', '10:00', 'Upatanisho wa vivumishi', 'Kiswahili', 'Premiere in My classes'),
+      E('l4', 'lesson', 'ss-maps', '2026-11-07', '10:00', 'Mapping stories onto streets', 'Social Studies', 'Premiere in My classes'),
+      E('c1', 'club', 'scratch', '2026-11-03', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c2', 'club', 'chess-ladder', '2026-11-05', '17:00', 'Chess ladder · round 4', 'Games', 'Online'),
+      E('c3', 'club', 'kisw-circle', '2026-11-06', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c4', 'club', 'bao', '2026-11-07', '10:00', 'Bao la Kiswahili', 'Games', 'Kilimani Library · in person', 'In person: waits for a parent’s yes'),
+      E('c5', 'club', 'virtual-run', '2026-11-08', '07:00', 'Virtual 5 km run', 'Sport', 'Anywhere'),
+      E('c6', 'club', 'scratch', '2026-11-10', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c7', 'club', 'chess-ladder', '2026-11-12', '17:00', 'Chess ladder · round 5', 'Games', 'Online'),
+      E('c8', 'club', 'kisw-circle', '2026-11-13', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c9', 'club', 'scratch', '2026-11-17', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('a1', 'assess', 'm-re', '2026-11-04', '10:30', 'Reassessment · Scaling recipes', 'Maths', 'Closed workspace · 20 min'),
+      E('a2', 'assess', 'k-wk9', '2026-11-05', '17:00', 'Andika · Wiki 9 due', 'Kiswahili', 'Take-home'),
+      E('a3', 'assess', 'm-wk9', '2026-11-06', '17:00', 'Problem set 9 due', 'Maths', 'Take-home'),
+      E('a4', 'assess', 'k-cat3', '2026-11-09', '10:00', 'CAT 3 · Vivumishi', 'Kiswahili', 'Closed workspace · 25 min'),
+      E('a5', 'assess', 'r-cat3', '2026-11-10', '11:00', 'CAT 3 · Metaphor', 'Reading', 'Closed workspace · 25 min'),
+      E('a6', 'assess', 'sc-cat3', '2026-11-11', '10:00', 'CAT 3 · Soil and water', 'Science', 'Closed workspace · 25 min'),
+      E('a7', 'assess', 'm-cat4', '2026-11-12', '10:00', 'CAT 4 · Map scale', 'Maths', 'Closed workspace · 30 min'),
+      E('a8', 'assess', 'k-wk10', '2026-11-12', '17:00', 'Andika · Wiki 10 due', 'Kiswahili', 'Take-home'),
+      E('a9', 'assess', 'sc-prac2', '2026-11-13', '14:00', 'Practical · Soil drainage', 'Science', 'With Dr. Wairimu · 90 min'),
+      E('a10', 'assess', 'm-wk10', '2026-11-13', '17:00', 'Problem set 10 due', 'Maths', 'Take-home'),
+      E('a11', 'assess', 'k-wk11', '2026-11-19', '17:00', 'Andika · Wiki 11 due', 'Kiswahili', 'Take-home'),
+      E('a12', 'assess', 'm-wk11', '2026-11-20', '17:00', 'Problem set 11 due', 'Maths', 'Take-home'),
+      E('a13', 'assess', 'm-final', '2026-11-23', '09:00', 'Final exam · Maths', 'Maths', 'Closed workspace · 75 min'),
+      E('a14', 'assess', 'k-final', '2026-11-24', '09:00', 'Mtihani wa mwisho · Kiswahili', 'Kiswahili', 'Closed workspace · 60 min'),
+      E('a15', 'assess', 'r-final', '2026-11-24', '11:30', 'Final exam · Reading', 'Reading', 'Closed workspace · 60 min'),
+      E('a16', 'assess', 'm-proj', '2026-11-25', '15:00', 'Project · Lunch for 40 due', 'Maths', 'Group and individual'),
+      E('a17', 'assess', 'sc-final', '2026-11-25', '09:00', 'Final exam · Science', 'Science', 'Closed workspace · 60 min')
+    ].sort((a, b) => (a.d + a.time < b.d + b.time ? -1 : 1));
+  }
+  renderVals() {
+    const st = this.state, P = this.props || {};
+    const K = { lesson: ['Lesson premiere', 'Lesson', '#E4ECFD', '#1E40AF', '#7FA2EE', 'notes.html', 'Open in My classes'], club: ['Club session', 'Club', '#DDF4F1', '#115E59', '#8FD3C9', 'clubs.html', 'Open in Clubs'], assess: ['Assessment', 'Test', '#FEF1D9', '#92400E', '#F6DFAE', 'assessments.html', 'Open in My assessments'] };
+    const focus = P.focus && P.focus !== 'all' ? P.focus : null;
+    const f = st.f || 'all';
+    const view = st.view || (focus === 'assess' ? 'month' : 'week');
+    const all = this.events();
+    const shown = all.filter((e) => f === 'all' || e.kind === f);
+    const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const mk = (y, m, d) => new Date(Date.UTC(y, m, d));
+    const iso = (dt) => dt.toISOString().slice(0, 10);
+    const add = (dt, n) => new Date(dt.getTime() + n * 86400000);
+    const dowOf = (dt) => (dt.getUTCDay() + 6) % 7;
+    const nice = (s) => { const dt = new Date(s + 'T00:00:00Z'); return DOW[dowOf(dt)] + ' ' + dt.getUTCDate() + ' ' + MON[dt.getUTCMonth()]; };
+    const ev = (e) => { const k = K[e.kind], on = st.sel === e.id; return { title: e.title, time: e.time, kindShort: k[1], bg: k[2], fg: k[3], bd: on ? '#14161A' : k[4], on: on ? 'true' : 'false', pick: () => this.setState({ sel: on ? null : e.id }) }; };
+    const out = Object.assign(this.themeVals(), { isWeek: view === 'week', isMonth: view === 'month', days: [], cells: [], dow: DOW, hasDay: false, dayLabel: '', dayEv: [], dayEmpty: false, hasSel: false, sel: {} });
+    out.views = [['week', 'Week'], ['month', 'Month']].map(([id, label]) => ({ label, on: view === id ? 'true' : 'false', bg: view === id ? '#FFFFFF' : 'transparent', pick: () => this.setState({ view: id, sel: null, day: null }) }));
+    out.filters = [['all', 'All', '#14161A'], ['lesson', 'Lessons', '#1D4ED8'], ['club', 'Clubs', '#0D9488'], ['assess', 'Assessments', '#F9A826']].map(([id, label, dot]) => ({ label, dot, n: String(id === 'all' ? all.length : all.filter((e) => e.kind === id).length), on: f === id ? 'true' : 'false', bg: f === id ? '#F4F4EF' : '#FFFFFF', bd: f === id ? '#14161A' : '#CFCFC6', pick: () => this.setState({ f: id, sel: null }) }));
+    if (view === 'week') {
+      const wk = Math.max(0, Math.min(3, st.wk)); const start = add(mk(2026, 10, 2), wk * 7); const end = add(start, 6);
+      out.title = (wk === 0 ? 'This week · ' : 'Week of ') + start.getUTCDate() + '–' + end.getUTCDate() + ' ' + MON[end.getUTCMonth()];
+      out.days = DOW.map((w, i) => { const dt = add(start, i), s = iso(dt); return { label: w + ' ' + dt.getUTCDate(), bg: s === '2026-11-04' ? '#F4F7FE' : '#FBFBF8', ev: shown.filter((e) => e.d === s).map(ev) }; });
+      Object.assign(out, { prev: () => this.setState({ wk: Math.max(0, wk - 1), sel: null }), next: () => this.setState({ wk: Math.min(3, wk + 1), sel: null }), prevOp: wk === 0 ? 0.4 : 1, nextOp: wk === 3 ? 0.4 : 1, prevLabel: 'Previous week', nextLabel: 'Next week' });
+    } else {
+      const first = mk(2026, 10, 1); const start = add(first, -dowOf(first));
+      out.title = 'November 2026';
+      out.cells = Array.from({ length: 35 }, (x, i) => { const dt = add(start, i), s = iso(dt), inM = dt.getUTCMonth() === 10; const es = shown.filter((e) => e.d === s); const on = st.day === s;
+        return { n: String(dt.getUTCDate()), aria: nice(s) + ', ' + es.length + (es.length === 1 ? ' event' : ' events'), ev: es.slice(0, 2).map(ev), hasMore: es.length > 2, more: '+' + (es.length - 2) + ' more', bg: s === '2026-11-04' ? '#F4F7FE' : '#FFFFFF', bd: on ? '#14161A' : '#ECECE6', op: inM ? 1 : 0.5, on: on ? 'true' : 'false', pick: () => this.setState({ day: on ? null : s, sel: null }) }; });
+      if (st.day) { const es = shown.filter((e) => e.d === st.day); Object.assign(out, { hasDay: true, dayLabel: nice(st.day), dayEv: es.map(ev), dayEmpty: !es.length }); }
+      Object.assign(out, { prev: () => {}, next: () => {}, prevOp: 0.4, nextOp: 0.4, prevLabel: 'Previous month', nextLabel: 'Next month' });
+    }
+    const se = all.find((e) => e.id === st.sel);
+    if (se) { const k = K[se.kind]; const own = focus === se.kind && typeof P.onOpen === 'function';
+      out.hasSel = true; out.sel = { title: se.title, kindLabel: k[0], subject: se.subject, when: nice(se.d) + ' · ' + se.time, where: se.where, note: se.note, hasNote: !!se.note, bg: k[2], fg: k[3],
+        useBtn: own, useLink: !own && focus !== se.kind, href: k[5], openLabel: own ? (se.kind === 'assess' ? 'Open the brief' : (se.kind === 'lesson' ? 'Open the lesson' : 'Open the club')) : k[6], open: () => { try { P.onOpen({ kind: se.kind, ref: se.ref }); } catch (e) {} } }; }
+    return out;
+  }
+}
+return Component;
+}, {"focus": "all"});
+
+DC.mount("Calendar");
+</script>
+</body>
+</html>

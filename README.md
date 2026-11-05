@@ -38,6 +38,19 @@ Then open http://localhost:5180.
 | People | Messages | `messages.html` |
 | Community | Clubs | `clubs.html` |
 | Community | Showcase | `showcase.html` |
+| Website | Join as a guide or school | `join.html` |
+| Website | Terms of use | `terms.html` |
+| Website | Privacy policy | `privacy.html` |
+| Parent | Approvals (rules by age, decision record) | `parent-approvals.html` |
+| Parent | Money (plan, earnings held, spending limits) | `parent-money.html` |
+| Parent | Family and settings | `parent-family.html` |
+| Live | Live room (class, club and check-in) | `live-room.html` |
+| Design system | Tokens and components | `design-system.html` |
+| Component | Shared calendar | `calendar.html` |
+| Component | Strengths radar and misconception heatmap | `strengths.html` |
+| Guide | Guide workspace (learners, marking queue, schedule, create a lesson) | `guide.html` |
+| School | School and microschool console | `school.html` |
+| Internal | Ops console (moderation, accounts, AI cost and safety) | `ops.html` |
 | Component | Curriculum comparison | `compare.html` |
 | Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |

@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Caveat:wght@500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;family=Caveat:wght@500;600&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
 <style>
@@ -30,11 +30,11 @@
 <body>
 <div id="app"></div>
 <template id="dc-Clubs">
-<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div data-theme="{{uiTheme}}" lang="{{svLang}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
 <nav aria-label="Vachuo" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
-<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Geist, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
 </a>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
@@ -52,10 +52,6 @@
 <a href="showcase.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
-<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
-</div>
-<div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
 <a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
 </div>
@@ -71,25 +67,27 @@
 
 <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
 <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Clubs</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Clubs</span>
 <h1 style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Play, make and compete, on your own or together.</h1>
 <p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 700px; text-wrap: pretty">Coding, chess, art, music, sport, languages, debate and the games your grandparents played. Join online or in person, practise in a simulator, climb a ladder or play in a league. In-person sessions for under-18s always need a parent’s OK.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
-<template data-for="{{stats}}" data-as="s"><div style="min-width: 112px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{s.v}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">{{s.l}}</span></div></template>
+<template data-for="{{stats}}" data-as="s"><div style="min-width: 112px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{s.v}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">{{s.l}}</span></div></template>
 </div>
 </header>
 
 <template data-if="{{hasMy}}">
 <section aria-labelledby="my-h" style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="my-h" style="margin: 0; font-size: 24px; font-weight: 600">My clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post something</button></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="my-h" style="margin: 0; font-size: 24px; font-weight: 600">My clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post something</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{myClubs}}" data-as="m"><div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{m.color}}"></span><span style="flex: 1; font-size: 14px; font-weight: 600; line-height: 1.3">{{m.t}}</span></div><span style="font-size: 12.5px; color: #3F444C">{{m.sub}}</span><div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="padding: 2px 8px; border-radius: 999px; background: {{m.stBg}}; color: {{m.stFg}}; font-size: 12px; font-weight: 700">{{m.st}}</span><button type="button" onClick="{{m.open}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">{{m.cta}}</button></div></div></template>
 </div>
 </section>
 </template>
+<dc-import name="Calendar" focus="club" ui-theme="{{uiTheme}}"></dc-import>
 
-<section aria-label="Filter clubs" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: Geist, system-ui, sans-serif">
+
+<section aria-label="Filter clubs" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
 <template data-for="{{catChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 50%; background: {{c.dot}}"></span>{{c.label}} <span style="opacity: 0.7">{{c.n}}</span></button></template>
 </div>
@@ -105,20 +103,20 @@
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
 <template data-for="{{cards}}" data-as="c">
 <article class="acard" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 9px">
-<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="flex: none; width: 38px; height: 38px; border-radius: 11px; background: {{c.tint}}; color: {{c.ink}}; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"/></svg></span><span style="flex: 1; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: {{c.ink}}">{{c.cat}}</span><template data-if="{{c.isNew}}"><span style="padding: 2px 8px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">Yours · in review</span></template><template data-if="{{c.hasSt}}"><span style="padding: 2px 8px; border-radius: 999px; background: {{c.stBg}}; color: {{c.stFg}}; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">{{c.stLabel}}</span></template></div>
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="flex: none; width: 38px; height: 38px; border-radius: 11px; background: {{c.tint}}; color: {{c.ink}}; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"/></svg></span><span style="flex: 1; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: {{c.ink}}">{{c.cat}}</span><template data-if="{{c.isNew}}"><span style="padding: 2px 8px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">Yours · in review</span></template><template data-if="{{c.hasSt}}"><span style="padding: 2px 8px; border-radius: 999px; background: {{c.stBg}}; color: {{c.stFg}}; font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 700">{{c.stLabel}}</span></template></div>
 <h3 style="margin: 0; font-size: 19.5px; line-height: 1.2; font-weight: 600">{{c.t}}</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #3F444C">{{c.d}}</p>
-<div style="display: flex; flex-wrap: wrap; gap: 5px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600"><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.who}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.where}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F7FE; color: #1E40AF">{{c.play}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #FBF7EE; color: #92400E">{{c.comp}}</span><span style="padding: 2px 8px; border-radius: 6px; border: 1px solid #E2E2DA; color: #3F444C">{{c.ages}} · {{c.lvl}}</span></div>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #62676F">{{c.when}} · {{c.place}} · host {{c.host}} · {{c.members}}</span>
-<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif"><button type="button" onClick="{{c.join}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">{{c.cta}}</button><template data-if="{{c.canPlay}}"><button type="button" onClick="{{c.play1}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Play now</button></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 5px; font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600"><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.who}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F4EF; color: #3F444C">{{c.where}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F7FE; color: #1E40AF">{{c.play}}</span><span style="padding: 2px 8px; border-radius: 6px; background: #FBF7EE; color: #92400E">{{c.comp}}</span><span style="padding: 2px 8px; border-radius: 6px; border: 1px solid #E2E2DA; color: #3F444C">{{c.ages}} · {{c.lvl}}</span></div>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #62676F">{{c.when}} · {{c.place}} · host {{c.host}} · {{c.members}}</span>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-family: Inter, system-ui, sans-serif"><button type="button" onClick="{{c.join}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">{{c.cta}}</button><template data-if="{{c.canPlay}}"><button type="button" onClick="{{c.play1}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #14161A; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Play now</button></template></div>
 </article>
 </template>
 </div>
-<template data-if="{{hasMore}}"><button type="button" onClick="{{toggleMore}}" style="align-self: flex-start; min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; cursor: pointer">{{moreLabel}}</button></template>
+<template data-if="{{hasMore}}"><button type="button" onClick="{{toggleMore}}" style="align-self: flex-start; min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; cursor: pointer">{{moreLabel}}</button></template>
 <template data-if="{{empty}}"><div style="padding: 24px; border-radius: 16px; border: 1px dashed #CFCFC6; background: #FFFFFF; font-size: 17px">Nothing matches. Try fewer filters, or <button type="button" onClick="{{openHost}}" style="border: none; background: transparent; color: #1D4ED8; font-size: 17px; text-decoration: underline; cursor: pointer; padding: 0">host it yourself</button>.</div></template>
 </section>
 
-<section aria-labelledby="lb-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<section aria-labelledby="lb-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="lb-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">Leaderboards</h2><p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">The same table in every category: rank, player or team, club, rating or points, games played, win rate and trend. Age bands keep it fair. Learners under 13 appear by first name and initial, and parents can hide a child from public boards.</p></div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{lbTabs}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{t.label}}</button></template></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px"><div style="display: flex; gap: 4px"><template data-for="{{lbWho}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div><div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{lbAge}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div><div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{lbScope}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template></div></div>
@@ -126,7 +124,7 @@
 <div role="table" aria-label="Leaderboard" style="min-width: 640px; display: grid; grid-template-columns: 64px 1.4fr 1.2fr 100px 80px 80px 60px; font-size: 13.5px">
 <span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Rank</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Player or team</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Club</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">{{lbHead}}</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Played</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Win rate</span><span role="columnheader" style="padding: 9px 12px; background: #FAFAF7; font-weight: 600; color: #62676F">Trend</span>
 <template data-for="{{lbRows}}" data-as="r">
-<span role="cell" style="padding: 8px 12px; background: {{r.bg}}"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 50%; background: {{r.medal}}; color: {{r.mFg}}; font-weight: 700; font-size: 12.5px">{{r.rank}}</span></span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-weight: {{r.fw}}">{{r.name}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.club}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-weight: 600">{{r.val}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.played}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.win}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: {{r.tFg}}; font-weight: 700">{{r.trend}}</span>
+<span role="cell" style="padding: 8px 12px; background: {{r.bg}}"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 50%; background: {{r.medal}}; color: {{r.mFg}}; font-weight: 700; font-size: 12.5px">{{r.rank}}</span></span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-weight: {{r.fw}}">{{r.name}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.club}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; font-family: ui-monospace, Menlo, monospace; font-weight: 600">{{r.val}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.played}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: #3F444C">{{r.win}}</span><span role="cell" style="padding: 8px 12px; background: {{r.bg}}; color: {{r.tFg}}; font-weight: 700">{{r.trend}}</span>
 </template>
 </div>
 </div>
@@ -135,20 +133,20 @@
 
 <section aria-labelledby="gd-h" style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="gd-h" style="margin: 0; font-size: 26px; font-weight: 600">Traditional and cultural games</h2><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3F444C; max-width: 760px">How to play games from Kenya, across Africa and around the world, in person or online. Rules vary from place to place; each guide gives one common version and says where it comes from.</p></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; font-family: Geist, system-ui, sans-serif">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{guides}}" data-as="g"><button type="button" class="acard" onClick="{{g.open}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #14161A; text-align: left; cursor: pointer"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.2">{{g.t}}</span><span style="font-size: 12.5px; line-height: 1.4; color: #3F444C">{{g.origin}}</span><span style="font-size: 12px; color: #62676F">{{g.players}} · {{g.ages}} · {{g.where}}</span></button></template>
 </div>
 </section>
 
 <section aria-labelledby="ps-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="ps-h" style="margin: 0; font-size: 26px; font-weight: 600">From the clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post</button></div>
-<template data-for="{{posts}}" data-as="p"><div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FBFBF8"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-family: Geist, system-ui, sans-serif; font-size: 12.5px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{p.color}}"></span><span style="font-weight: 600">{{p.who}}</span><span style="color: #62676F">{{p.cat}} · {{p.when}} · {{p.replies}}</span><template data-if="{{p.hasPending}}"><span style="padding: 1px 7px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-size: 11.5px; font-weight: 700">Waiting for a moderator</span></template></div><span style="font-size: 16px; line-height: 1.45">{{p.t}}</span></div></template>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="ps-h" style="margin: 0; font-size: 26px; font-weight: 600">From the clubs</h2><button type="button" onClick="{{openHost}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer">Host or post</button></div>
+<template data-for="{{posts}}" data-as="p"><div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #FBFBF8"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-family: Inter, system-ui, sans-serif; font-size: 12.5px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{p.color}}"></span><span style="font-weight: 600">{{p.who}}</span><span style="color: #62676F">{{p.cat}} · {{p.when}} · {{p.replies}}</span><template data-if="{{p.hasPending}}"><span style="padding: 1px 7px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-size: 11.5px; font-weight: 700">Waiting for a moderator</span></template></div><span style="font-size: 16px; line-height: 1.45">{{p.t}}</span></div></template>
 </section>
 </div>
 
 <template data-if="{{jOpen}}">
 <div role="dialog" aria-modal="true" aria-labelledby="j-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
-<div class="fadein" style="width: min(560px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div class="fadein" style="width: min(560px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="j-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{jTitle}}</h2><span style="font-size: 13px; color: #62676F">{{jSub}}</span></div><button type="button" aria-label="Close" onClick="{{jClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
 <div role="group" aria-label="How you’ll take part" style="display: flex; gap: 6px"><template data-for="{{jHow}}" data-as="h"><button type="button" aria-pressed="{{h.pressed}}" onClick="{{h.pick}}" style="flex: 1; min-height: 42px; border-radius: 12px; border: 1px solid {{h.bd}}; background: {{h.bg}}; color: {{h.fg}}; font-size: 14px; font-weight: 600; cursor: pointer">{{h.label}}</button></template></div>
 <template data-if="{{jIsTeam}}">
@@ -167,7 +165,7 @@
 
 <template data-if="{{pOpen}}">
 <div role="dialog" aria-modal="true" aria-labelledby="p-h" style="position: fixed; inset: 0; z-index: 85; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
-<div class="fadein" style="width: min(720px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; font-family: Geist, system-ui, sans-serif">
+<div class="fadein" style="width: min(720px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="p-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">{{pTitle}}</h2><span style="font-size: 12.5px; color: #62676F">{{pScoreLine}}</span></div><button type="button" aria-label="Close" onClick="{{pClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
 
 <template data-if="{{isChess}}">
@@ -182,8 +180,8 @@
 
 <template data-if="{{isP24}}">
 <span style="font-size: 14px; color: #3F444C">Use all four numbers once each, with + − × ÷ and brackets, to make 24.</span>
-<div style="display: flex; gap: 10px"><template data-for="{{p24Nums}}" data-as="n"><span style="width: 64px; height: 76px; border-radius: 12px; background: #DDF4F1; color: #115E59; display: flex; align-items: center; justify-content: center; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 30px; font-weight: 600">{{n.n}}</span></template></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 260px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your expression</span><input type="text" value="{{p24Val}}" onChange="{{p24Set}}" onKeyDown="{{p24Key}}" placeholder="e.g. (6 ÷ 2 + 3) × 4" autoComplete="off" style="flex: 1; min-width: 0; min-height: 46px; padding: 0 14px; border-radius: 12px; border: 2px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 17px"></label><button type="button" onClick="{{p24Check}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Check</button><button type="button" onClick="{{p24Next}}" style="min-height: 46px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Next numbers</button></div>
+<div style="display: flex; gap: 10px"><template data-for="{{p24Nums}}" data-as="n"><span style="width: 64px; height: 76px; border-radius: 12px; background: #DDF4F1; color: #115E59; display: flex; align-items: center; justify-content: center; font-family: ui-monospace, Menlo, monospace; font-size: 30px; font-weight: 600">{{n.n}}</span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><label style="flex: 1 1 260px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your expression</span><input type="text" value="{{p24Val}}" onChange="{{p24Set}}" onKeyDown="{{p24Key}}" placeholder="e.g. (6 ÷ 2 + 3) × 4" autoComplete="off" style="flex: 1; min-width: 0; min-height: 46px; padding: 0 14px; border-radius: 12px; border: 2px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: ui-monospace, Menlo, monospace; font-size: 17px"></label><button type="button" onClick="{{p24Check}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Check</button><button type="button" onClick="{{p24Next}}" style="min-height: 46px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Next numbers</button></div>
 <template data-if="{{p24HasMsg}}"><p role="status" style="margin: 0; padding: 10px 12px; border-radius: 12px; background: {{p24MsgBg}}; color: {{p24MsgFg}}; font-size: 14.5px">{{p24Msg}}</p></template>
 </template>
 
@@ -220,14 +218,14 @@
 <button type="button" role="switch" aria-checked="{{ckOn}}" onClick="{{ckToggle}}" style="min-height: 38px; padding: 0 12px; border-radius: 8px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer">Switch</button>
 </div>
 <div style="padding: 22px 16px; border-radius: 16px; background: #14161A; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px"><template data-for="{{ckBulbs}}" data-as="b"><span role="img" aria-label="Bulb {{b.n}}" style="width: 54px; height: 54px; border-radius: 50%; background: #F9A826; opacity: {{b.glow}}; box-shadow: {{b.ring}}"></span></template></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13.5px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace">{{ckI}}</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace">{{ckP}}</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13.5px"><span style="font-family: ui-monospace, Menlo, monospace">{{ckI}}</span><span style="font-family: ui-monospace, Menlo, monospace">{{ckP}}</span></div>
 <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F444C">{{ckNote}} Each bulb is 6 Ω in this simulator.</p>
 <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #3F444C">Challenges</span><template data-for="{{ckCh}}" data-as="c"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="flex: 1 1 240px; font-size: 13.5px">{{c.t}}</span><span style="font-size: 12.5px; font-weight: 700; color: {{c.fg}}">{{c.done}}</span><button type="button" onClick="{{c.check}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 12.5px; font-weight: 700; cursor: pointer">Check</button></div></template></div>
 </template>
 
 <template data-if="{{isPiano}}">
 <span role="status" style="font-size: 14px; color: #3F444C">{{pnMsg}}</span>
-<div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{pnSong}}" data-as="n"><span style="min-width: 28px; padding: 4px 6px; border-radius: 6px; background: {{n.bg}}; color: {{n.fg}}; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; text-align: center">{{n.n}}</span></template></div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px"><template data-for="{{pnSong}}" data-as="n"><span style="min-width: 28px; padding: 4px 6px; border-radius: 6px; background: {{n.bg}}; color: {{n.fg}}; font-family: ui-monospace, Menlo, monospace; font-size: 13px; text-align: center">{{n.n}}</span></template></div>
 <div style="position: relative; height: 180px; display: flex; border-radius: 10px; overflow: hidden; border: 2px solid #14161A">
 <template data-for="{{pnKeys}}" data-as="k"><button type="button" aria-label="{{k.aria}}" onClick="{{k.press}}" style="flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; border: none; border-right: 1px solid #9A9E95; background: {{k.bg}}; color: #3F444C; font-size: 13px; font-weight: 600; cursor: pointer">{{k.k}}</button></template>
 <template data-for="{{pnBlack}}" data-as="k"><button type="button" aria-label="{{k.aria}}" onClick="{{k.press}}" style="position: absolute; top: 0; left: {{k.left}}%; width: 7%; height: 60%; border: none; border-radius: 0 0 6px 6px; background: #14161A; cursor: pointer"></button></template>
@@ -238,7 +236,7 @@
 <template data-if="{{isVocab}}">
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{vcLangs}}" data-as="l"><button type="button" aria-pressed="{{l.pressed}}" onClick="{{l.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{l.bd}}; background: {{l.bg}}; color: {{l.fg}}; font-size: 13px; cursor: pointer">{{l.label}}</button></template></div>
 <template data-if="{{vcStarted}}">
-<div style="display: flex; justify-content: space-between; font-size: 13px; color: #3F444C"><span>{{vcProg}}</span><span role="timer" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-weight: 700">{{vcLeft}}</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #3F444C"><span>{{vcProg}}</span><span role="timer" style="font-family: ui-monospace, Menlo, monospace; font-weight: 700">{{vcLeft}}</span></div>
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 40px; font-weight: 600; text-align: center">{{vcWord}}</span>
 <div style="display: flex; flex-direction: column; gap: 6px"><template data-for="{{vcOpts}}" data-as="o"><button type="button" onClick="{{o.pick}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 16px; cursor: pointer">{{o.t}}</button></template></div>
 </template>
@@ -252,12 +250,12 @@
 
 <template data-if="{{hOpen}}">
 <div role="dialog" aria-modal="true" aria-labelledby="h-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
-<div class="fadein" style="width: min(640px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div class="fadein" style="width: min(640px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; align-items: flex-start; gap: 10px"><h2 id="h-h" style="flex: 1; margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Host or post</h2><button type="button" aria-label="Close" onClick="{{hClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{hKinds}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 13px; font-weight: 600; cursor: pointer">{{k.label}}</button></template></div>
 <div style="display: flex; flex-wrap: wrap; gap: 5px"><template data-for="{{hCats}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div>
 <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Title<input type="text" value="{{hT}}" onChange="{{hSetT}}" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14.5px"></label>
-<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Details<textarea rows="3" value="{{hD}}" onChange="{{hSetD}}" style="padding: 10px 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Details<textarea rows="3" value="{{hD}}" onChange="{{hSetD}}" style="padding: 10px 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px"></textarea></label>
 <template data-if="{{hNotPost}}">
 <div style="display: flex; flex-wrap: wrap; gap: 10px 16px"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Where</span><div style="display: flex; gap: 4px"><template data-for="{{hWhere}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Who</span><div style="display: flex; gap: 4px"><template data-for="{{hWho}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 600; color: #3F444C">Ages</span><div style="display: flex; gap: 4px"><template data-for="{{hAges}}" data-as="k"><button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid {{k.bd}}; background: {{k.bg}}; color: {{k.fg}}; font-size: 12.5px; cursor: pointer">{{k.label}}</button></template></div></div></div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px"><label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">When<input type="datetime-local" value="{{hWhen}}" onChange="{{hSetWhen}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label><label style="flex: 0 1 120px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #3F444C">Places<input type="number" min="2" max="60" value="{{hCap}}" onChange="{{hSetCap}}" style="min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></label></div>
@@ -272,24 +270,101 @@
 <template data-if="{{gOpen}}">
 <div role="dialog" aria-modal="true" aria-labelledby="g-h" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
 <div class="fadein" style="width: min(620px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: #FFFFFF; border-radius: 20px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="g-h" style="margin: 0; font-size: 26px; font-weight: 600">{{gT}}</h2><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{gOrigin}}</span></div><button type="button" aria-label="Close" onClick="{{gClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{gMeta}}</span>
+<div style="display: flex; align-items: flex-start; gap: 10px"><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><h2 id="g-h" style="margin: 0; font-size: 26px; font-weight: 600">{{gT}}</h2><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{gOrigin}}</span></div><button type="button" aria-label="Close" onClick="{{gClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 18px; cursor: pointer">×</button></div>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{gMeta}}</span>
 <p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #FBF7EE; font-size: 16px; line-height: 1.5"><strong>You need:</strong> {{gMat}}</p>
-<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><template data-for="{{gSteps}}" data-as="s"><li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5"><span style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: #FEF1D9; color: #92400E; display: flex; align-items: center; justify-content: center; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 700">{{s.n}}</span><span>{{s.t}}</span></li></template></ol>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><template data-for="{{gSteps}}" data-as="s"><li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5"><span style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: #FEF1D9; color: #92400E; display: flex; align-items: center; justify-content: center; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700">{{s.n}}</span><span>{{s.t}}</span></li></template></ol>
 <template data-if="{{gHasNote}}"><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #62676F">{{gNote}}</p></template>
-<button type="button" onClick="{{gHost}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Host a game</button>
+<button type="button" onClick="{{gHost}}" style="align-self: flex-start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Host a game</button>
 </div>
 </div>
 </template>
 
-<div aria-live="polite" style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 120; pointer-events: none; max-width: calc(100% - 32px)"><template data-if="{{hasToast}}"><div class="fadein" style="padding: 12px 18px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 1.4">{{toast}}</div></template></div>
+<div aria-live="polite" style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 120; pointer-events: none; max-width: calc(100% - 32px)"><template data-if="{{hasToast}}"><div class="fadein" style="padding: 12px 18px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.4">{{toast}}</div></template></div>
+
+<footer style="margin-top: 56px; padding-top: 12px; border-top: 1px solid #E2E2DA; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F"><nav aria-label="{{svT.policies}}" style="display: flex; flex-wrap: wrap; gap: 0 18px"><a href="mailto:hello@vachuo.com?subject=Help" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.help}}</a><a href="privacy.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.privacy}}</a><a href="terms.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.terms}}</a><a href="mailto:hello@vachuo.com" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.contact}}</a></nav><span style="margin-left: auto">© 2026 Vachuo™</span><div role="group" aria-label="{{svT.language}}" style="display: inline-flex; align-items: center; gap: 2px; padding: 3px 3px 3px 12px; border-radius: 999px; background: #ECECE6; color: #3F444C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" style="margin-right: 4px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><button type="button" aria-pressed="{{svEnOn}}" onClick="{{svLangEn}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svEnBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">English</button><button type="button" aria-pressed="{{svSwOn}}" onClick="{{svLangSw}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svSwBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">Kiswahili</button></div></footer>
 </main>
 
+</div>
+</template>
+<template id="dc-Calendar">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, sans-serif">
+<section aria-labelledby="cal2-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 id="cal2-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">{{title}}</h2><span style="font-size: 13px; color: #62676F">One calendar for lesson premieres, club sessions and assessments</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<div role="group" aria-label="View" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: #ECECE6"><template data-for="{{views}}" data-as="v"><button type="button" aria-pressed="{{v.on}}" onClick="{{v.pick}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">{{v.label}}</button></template></div>
+<button type="button" aria-label="{{prevLabel}}" onClick="{{prev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{prevOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" aria-label="{{nextLabel}}" onClick="{{next}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{nextOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+</div></div>
+<div role="group" aria-label="Show" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{filters}}" data-as="f"><button type="button" aria-pressed="{{f.on}}" onClick="{{f.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{f.bd}}; background: {{f.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 3px; background: {{f.dot}}"></span>{{f.label}} <span style="color: #62676F; font-weight: 500">{{f.n}}</span></button></template>
+</div>
+<template data-if="{{isWeek}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+<template data-for="{{days}}" data-as="d"><div style="display: flex; flex-direction: column; gap: 6px; min-height: 180px; padding: 8px; border-radius: 14px; background: {{d.bg}}; border: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; color: #3F444C">{{d.label}}</span>
+<template data-for="{{d.ev}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-direction: column; gap: 2px; width: 100%; padding: 6px 8px; border-radius: 10px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer"><span style="font-size: 11.5px; font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span style="font-size: 12.5px; line-height: 1.3">{{e.title}}</span></button></template>
+</div></template>
+</div></div>
+</template>
+<template data-if="{{isMonth}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<template data-for="{{dow}}" data-as="w"><span style="padding: 0 4px; font-size: 12px; font-weight: 600; color: #62676F">{{w}}</span></template>
+<template data-for="{{cells}}" data-as="c"><button type="button" aria-pressed="{{c.on}}" aria-label="{{c.aria}}" onClick="{{c.pick}}" style="display: flex; flex-direction: column; align-items: stretch; gap: 4px; min-height: 92px; padding: 6px; border-radius: 12px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer; opacity: {{c.op}}"><span style="font-size: 13px; font-weight: 600">{{c.n}}</span><template data-for="{{c.ev}}" data-as="e"><span style="display: block; padding: 2px 6px; border-radius: 6px; background: {{e.bg}}; color: {{e.fg}}; font-size: 11px; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{e.title}}</span></template><template data-if="{{c.hasMore}}"><span style="font-size: 11px; color: #62676F">{{c.more}}</span></template></button></template>
+</div></div>
+<template data-if="{{hasDay}}"><div style="display: flex; flex-direction: column; gap: 6px"><h3 style="margin: 0; font-size: 15px; font-weight: 600">{{dayLabel}}</h3><template data-for="{{dayEv}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 44px; padding: 6px 12px; border-radius: 12px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; font-size: 14px; cursor: pointer"><span style="font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span>{{e.title}}</span></button></template><template data-if="{{dayEmpty}}"><p style="margin: 0; font-size: 14px; color: #62676F">Nothing on this day.</p></template></div></template>
+</template>
+<template data-if="{{hasSel}}">
+<div aria-live="polite" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 16px; border-radius: 14px; background: {{sel.bg}}">
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: {{sel.fg}}">{{sel.kindLabel}} · {{sel.subject}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600; line-height: 1.2">{{sel.title}}</span><span style="font-size: 13.5px; color: #3F444C">{{sel.when}} · {{sel.where}}</span><template data-if="{{sel.hasNote}}"><span style="font-size: 13.5px; color: {{sel.fg}}; font-weight: 600">{{sel.note}}</span></template></div>
+<template data-if="{{sel.useBtn}}"><button type="button" onClick="{{sel.open}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">{{sel.openLabel}}</button></template>
+<template data-if="{{sel.useLink}}"><a href="{{sel.href}}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; text-decoration: none">{{sel.openLabel}}</a></template>
+</div>
+</template>
+</section>
 </div>
 </template>
 <script>
 DC.component("Clubs", function () {
 class Component extends DCLogic {
+  svDict() { return {"en": {"navHow": "How the system works", "navPricing": "Pricing", "navAbout": "About", "abWp": "White paper", "abWpD": "The full argument and the evidence", "abBlog": "Blog", "abBlogD": "The Vachuo Journal", "abNews": "Newsroom", "abNewsD": "News, press kit and channels", "abCar": "Careers", "abCarD": "Build the school with us", "abVis": "Vision, mission & values", "abVisD": "Why we exist and how we work", "signIn": "Sign in", "access": "Request early access", "darkMode": "Dark mode", "home": "Vachuo home", "tagline": "The operating system for individualised learning.", "fProduct": "Product", "fTour": "Product tour", "fLoop": "The loop inside Vachuo", "fCopilot": "Parent copilot", "fStart": "Get started", "fSetup": "Set up a learner", "fLearn": "Learn", "fToday": "Today", "fTutor": "My tutor", "fMap": "My learning map", "fClasses": "My classes", "fAssess": "My assessments", "fPortfolio": "Portfolio", "fCommunity": "Community", "fClubs": "Clubs", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Trust and safety", "fSafety": "Children’s safety", "fPrivacyAI": "AI and data privacy", "fApprovals": "How approvals work", "fAbout": "About", "fSupport": "Support", "fPress": "Press kit", "fFollow": "Follow Vachuo", "terms": "Terms of use", "privacy": "Privacy policy", "cookies": "Cookie choices", "language": "Language", "help": "Help", "contact": "Contact", "policies": "Help and policies", "swNotice": "", "ckTitle": "Cookie choices", "ckBody": "Vachuo uses essential cookies to keep you signed in and remember your settings. With your permission we would also use analytics cookies to learn which pages help families most. We never use advertising cookies.", "ckEss": "Essential only", "ckAll": "Allow analytics", "ckChoose": "Choose", "ckEssT": "Essential", "ckEssD": "Sign-in, security, and your theme and language.", "ckAlways": "Always on", "ckAnaT": "Analytics", "ckAnaD": "Counts of page visits that don’t identify you. Off unless you turn it on.", "ckSave": "Save choices", "ckCancel": "Cancel", "ckLater": "You can change this at any time from Cookie choices at the bottom of every page.", "ckOn": "On", "ckOff": "Off"}, "sw": {"navHow": "Jinsi mfumo unavyofanya kazi", "navPricing": "Bei", "navAbout": "Kuhusu", "abWp": "Waraka rasmi", "abWpD": "Hoja kamili na ushahidi wake", "abBlog": "Blogu", "abBlogD": "Jarida la Vachuo", "abNews": "Habari", "abNewsD": "Habari, vifaa vya wanahabari na chaneli", "abCar": "Ajira", "abCarD": "Jenga shule pamoja nasi", "abVis": "Maono, dhamira na maadili", "abVisD": "Kwa nini tupo na jinsi tunavyofanya kazi", "signIn": "Ingia", "access": "Omba nafasi ya mapema", "darkMode": "Hali ya giza", "home": "Ukurasa wa mwanzo wa Vachuo", "tagline": "Mfumo endeshi wa ujifunzaji unaomlenga kila mwanafunzi.", "fProduct": "Bidhaa", "fTour": "Ziara ya bidhaa", "fLoop": "Mzunguko ndani ya Vachuo", "fCopilot": "Msaidizi wa mzazi", "fStart": "Anza hapa", "fSetup": "Mwandikishe mwanafunzi", "fLearn": "Jifunze", "fToday": "Leo", "fTutor": "Mkufunzi wangu", "fMap": "Ramani yangu ya kujifunza", "fClasses": "Madarasa yangu", "fAssess": "Tathmini zangu", "fPortfolio": "Jalada la kazi", "fCommunity": "Jamii", "fClubs": "Vilabu", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Usalama na uaminifu", "fSafety": "Usalama wa watoto", "fPrivacyAI": "AI na faragha ya data", "fApprovals": "Jinsi idhini zinavyofanya kazi", "fAbout": "Kuhusu", "fSupport": "Msaada", "fPress": "Vifaa vya wanahabari", "fFollow": "Fuata Vachuo", "terms": "Masharti ya matumizi", "privacy": "Sera ya faragha", "cookies": "Chaguo za vidakuzi", "language": "Lugha", "help": "Msaada", "contact": "Wasiliana nasi", "policies": "Msaada na sera", "swNotice": "Baadhi ya maandishi ya ukurasa huu bado yako kwa Kiingereza. Tunaendelea kutafsiri.", "ckTitle": "Chaguo za vidakuzi", "ckBody": "Vachuo hutumia vidakuzi muhimu ili uendelee kuingia na mipangilio yako ikumbukwe. Ukiruhusu, tungetumia pia vidakuzi vya takwimu kujua kurasa zipi zinasaidia familia zaidi. Hatutumii kamwe vidakuzi vya matangazo.", "ckEss": "Muhimu pekee", "ckAll": "Ruhusu takwimu", "ckChoose": "Chagua", "ckEssT": "Muhimu", "ckEssD": "Kuingia, usalama, pamoja na mandhari na lugha yako.", "ckAlways": "Kila wakati", "ckAnaT": "Takwimu", "ckAnaD": "Hesabu za kutembelea kurasa zisizokutambulisha. Huzimwa hadi uziwashe.", "ckSave": "Hifadhi chaguo", "ckCancel": "Ghairi", "ckLater": "Unaweza kubadilisha hili wakati wowote kupitia Chaguo za vidakuzi chini ya kila ukurasa.", "ckOn": "Imewashwa", "ckOff": "Imezimwa"}}; }
+  siteVals() {
+    if (this._svOn === undefined) {
+      this._svOn = true; this._svD = this.svDict();
+      let lg = 'en', ck = null;
+      try { if (window.localStorage.getItem('vachuo-lang') === 'sw') lg = 'sw'; } catch (e) {}
+      try { ck = JSON.parse(window.localStorage.getItem('vachuo-cookies') || 'null'); } catch (e) {}
+      this._svLg = lg; this._svCk = ck; this._svPanel = false; this._svAna = !!(ck && ck.analytics);
+      const save = (k, v) => { try { window.localStorage.setItem(k, v); } catch (e) {} };
+      const setLang = (l) => { this._svLg = l; save('vachuo-lang', l); this.forceUpdate(); };
+      const setCk = (a) => { this._svCk = { analytics: a, decided: true }; this._svAna = a; this._svPanel = false; save('vachuo-cookies', JSON.stringify(this._svCk)); this.forceUpdate(); };
+      this._svSync = (e) => {
+        if (!e) return;
+        if (e.key === 'vachuo-lang') { this._svLg = e.newValue === 'sw' ? 'sw' : 'en'; this.forceUpdate(); }
+        if (e.key === 'vachuo-cookies') { try { this._svCk = JSON.parse(e.newValue || 'null'); } catch (x) {} this.forceUpdate(); }
+      };
+      try { window.addEventListener('storage', this._svSync); } catch (e) {}
+      this._svH = {
+        svLangEn: () => setLang('en'), svLangSw: () => setLang('sw'),
+        svCkAll: () => setCk(true), svCkEss: () => setCk(false),
+        svCkOpen: () => { this._svPanel = true; this._svAna = !!(this._svCk && this._svCk.analytics); this.forceUpdate(); },
+        svCkClose: () => { this._svPanel = false; this.forceUpdate(); },
+        svCkFlip: () => { this._svAna = !this._svAna; this.forceUpdate(); },
+        svCkSave: () => setCk(this._svAna)
+      };
+    }
+    const sw = this._svLg === 'sw', ana = this._svAna;
+    return Object.assign({}, this._svH, {
+      svT: sw ? this._svD.sw : this._svD.en, svLang: sw ? 'sw' : 'en',
+      svEnOn: sw ? 'false' : 'true', svSwOn: sw ? 'true' : 'false',
+      svEnBg: sw ? 'transparent' : '#EDEDE8', svEnFg: sw ? '#C9CCD0' : '#0B0D10', svSwBg: sw ? '#EDEDE8' : 'transparent', svSwFg: sw ? '#0B0D10' : '#C9CCD0',
+      svEnBgL: sw ? 'transparent' : '#FFFFFF', svSwBgL: sw ? '#FFFFFF' : 'transparent',
+      svSwNotice: sw && !this._svFull, svCkBanner: !this._svCk && !this._svPanel, svCkPanel: this._svPanel,
+      svCkAnaOn: ana ? 'true' : 'false', svCkAnaLabel: ana ? (sw ? this._svD.sw.ckOn : this._svD.en.ckOn) : (sw ? this._svD.sw.ckOff : this._svD.en.ckOff),
+      svCkTrack: ana ? '#1D4ED8' : '#8A8F96', svCkKnob: ana ? '19px' : '3px'
+    });
+  }
   themeVals() {
     if (this._uiT === undefined) {
       let t = 'light';
@@ -729,10 +804,95 @@ class Component extends DCLogic {
     return Object.assign(base, { gOpen: true, gClose: () => this.setState({ guide: null }), gT: g.t, gOrigin: g.origin, gMeta: g.players + ' players · ages ' + g.ages + ' · ' + g.where, gMat: g.mat, gSteps: g.steps.map((s, i) => ({ n: String(i + 1), t: s })), gNote: g.note, gHasNote: !!g.note,
       gHost: () => this.setState({ guide: null, host: { kind: 'session', cat: 'culture', t: g.t.split(' (')[0] + ' afternoon', d: 'We’ll play ' + g.t + ' using the guide. Beginners welcome.', where: 'inperson', who: 'team', when: '2026-11-14T15:00', place: 'Kilimani Library', cap: '12', age: '10–13', step: 'form' } }) });
   }
-  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals()); }
 }
 return Component;
 });
+
+DC.component("Calendar", function () {
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { wk: 0, mo: 0, f: null, sel: null, day: null, view: null }; }
+  themeVals() {
+    if (this._uiT === undefined) { let t = 'light'; try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {} this._uiT = t; }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  events() {
+    const E = (id, kind, ref, d, time, title, subject, where, note) => ({ id, kind, ref, d, time, title, subject, where, note: note || '' });
+    return [
+      E('l1', 'lesson', 'r-metaphor', '2026-11-03', '11:00', 'Metaphors that hide in plain sight', 'Reading', 'Premiere in My classes'),
+      E('l2', 'lesson', 'm-tables', '2026-11-04', '10:00', 'Ratio tables and double number lines', 'Maths', 'Premiere in My classes'),
+      E('l3', 'lesson', 'k-adj', '2026-11-05', '10:00', 'Upatanisho wa vivumishi', 'Kiswahili', 'Premiere in My classes'),
+      E('l4', 'lesson', 'ss-maps', '2026-11-07', '10:00', 'Mapping stories onto streets', 'Social Studies', 'Premiere in My classes'),
+      E('c1', 'club', 'scratch', '2026-11-03', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c2', 'club', 'chess-ladder', '2026-11-05', '17:00', 'Chess ladder · round 4', 'Games', 'Online'),
+      E('c3', 'club', 'kisw-circle', '2026-11-06', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c4', 'club', 'bao', '2026-11-07', '10:00', 'Bao la Kiswahili', 'Games', 'Kilimani Library · in person', 'In person: waits for a parent’s yes'),
+      E('c5', 'club', 'virtual-run', '2026-11-08', '07:00', 'Virtual 5 km run', 'Sport', 'Anywhere'),
+      E('c6', 'club', 'scratch', '2026-11-10', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c7', 'club', 'chess-ladder', '2026-11-12', '17:00', 'Chess ladder · round 5', 'Games', 'Online'),
+      E('c8', 'club', 'kisw-circle', '2026-11-13', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c9', 'club', 'scratch', '2026-11-17', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('a1', 'assess', 'm-re', '2026-11-04', '10:30', 'Reassessment · Scaling recipes', 'Maths', 'Closed workspace · 20 min'),
+      E('a2', 'assess', 'k-wk9', '2026-11-05', '17:00', 'Andika · Wiki 9 due', 'Kiswahili', 'Take-home'),
+      E('a3', 'assess', 'm-wk9', '2026-11-06', '17:00', 'Problem set 9 due', 'Maths', 'Take-home'),
+      E('a4', 'assess', 'k-cat3', '2026-11-09', '10:00', 'CAT 3 · Vivumishi', 'Kiswahili', 'Closed workspace · 25 min'),
+      E('a5', 'assess', 'r-cat3', '2026-11-10', '11:00', 'CAT 3 · Metaphor', 'Reading', 'Closed workspace · 25 min'),
+      E('a6', 'assess', 'sc-cat3', '2026-11-11', '10:00', 'CAT 3 · Soil and water', 'Science', 'Closed workspace · 25 min'),
+      E('a7', 'assess', 'm-cat4', '2026-11-12', '10:00', 'CAT 4 · Map scale', 'Maths', 'Closed workspace · 30 min'),
+      E('a8', 'assess', 'k-wk10', '2026-11-12', '17:00', 'Andika · Wiki 10 due', 'Kiswahili', 'Take-home'),
+      E('a9', 'assess', 'sc-prac2', '2026-11-13', '14:00', 'Practical · Soil drainage', 'Science', 'With Dr. Wairimu · 90 min'),
+      E('a10', 'assess', 'm-wk10', '2026-11-13', '17:00', 'Problem set 10 due', 'Maths', 'Take-home'),
+      E('a11', 'assess', 'k-wk11', '2026-11-19', '17:00', 'Andika · Wiki 11 due', 'Kiswahili', 'Take-home'),
+      E('a12', 'assess', 'm-wk11', '2026-11-20', '17:00', 'Problem set 11 due', 'Maths', 'Take-home'),
+      E('a13', 'assess', 'm-final', '2026-11-23', '09:00', 'Final exam · Maths', 'Maths', 'Closed workspace · 75 min'),
+      E('a14', 'assess', 'k-final', '2026-11-24', '09:00', 'Mtihani wa mwisho · Kiswahili', 'Kiswahili', 'Closed workspace · 60 min'),
+      E('a15', 'assess', 'r-final', '2026-11-24', '11:30', 'Final exam · Reading', 'Reading', 'Closed workspace · 60 min'),
+      E('a16', 'assess', 'm-proj', '2026-11-25', '15:00', 'Project · Lunch for 40 due', 'Maths', 'Group and individual'),
+      E('a17', 'assess', 'sc-final', '2026-11-25', '09:00', 'Final exam · Science', 'Science', 'Closed workspace · 60 min')
+    ].sort((a, b) => (a.d + a.time < b.d + b.time ? -1 : 1));
+  }
+  renderVals() {
+    const st = this.state, P = this.props || {};
+    const K = { lesson: ['Lesson premiere', 'Lesson', '#E4ECFD', '#1E40AF', '#7FA2EE', 'notes.html', 'Open in My classes'], club: ['Club session', 'Club', '#DDF4F1', '#115E59', '#8FD3C9', 'clubs.html', 'Open in Clubs'], assess: ['Assessment', 'Test', '#FEF1D9', '#92400E', '#F6DFAE', 'assessments.html', 'Open in My assessments'] };
+    const focus = P.focus && P.focus !== 'all' ? P.focus : null;
+    const f = st.f || 'all';
+    const view = st.view || (focus === 'assess' ? 'month' : 'week');
+    const all = this.events();
+    const shown = all.filter((e) => f === 'all' || e.kind === f);
+    const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const mk = (y, m, d) => new Date(Date.UTC(y, m, d));
+    const iso = (dt) => dt.toISOString().slice(0, 10);
+    const add = (dt, n) => new Date(dt.getTime() + n * 86400000);
+    const dowOf = (dt) => (dt.getUTCDay() + 6) % 7;
+    const nice = (s) => { const dt = new Date(s + 'T00:00:00Z'); return DOW[dowOf(dt)] + ' ' + dt.getUTCDate() + ' ' + MON[dt.getUTCMonth()]; };
+    const ev = (e) => { const k = K[e.kind], on = st.sel === e.id; return { title: e.title, time: e.time, kindShort: k[1], bg: k[2], fg: k[3], bd: on ? '#14161A' : k[4], on: on ? 'true' : 'false', pick: () => this.setState({ sel: on ? null : e.id }) }; };
+    const out = Object.assign(this.themeVals(), { isWeek: view === 'week', isMonth: view === 'month', days: [], cells: [], dow: DOW, hasDay: false, dayLabel: '', dayEv: [], dayEmpty: false, hasSel: false, sel: {} });
+    out.views = [['week', 'Week'], ['month', 'Month']].map(([id, label]) => ({ label, on: view === id ? 'true' : 'false', bg: view === id ? '#FFFFFF' : 'transparent', pick: () => this.setState({ view: id, sel: null, day: null }) }));
+    out.filters = [['all', 'All', '#14161A'], ['lesson', 'Lessons', '#1D4ED8'], ['club', 'Clubs', '#0D9488'], ['assess', 'Assessments', '#F9A826']].map(([id, label, dot]) => ({ label, dot, n: String(id === 'all' ? all.length : all.filter((e) => e.kind === id).length), on: f === id ? 'true' : 'false', bg: f === id ? '#F4F4EF' : '#FFFFFF', bd: f === id ? '#14161A' : '#CFCFC6', pick: () => this.setState({ f: id, sel: null }) }));
+    if (view === 'week') {
+      const wk = Math.max(0, Math.min(3, st.wk)); const start = add(mk(2026, 10, 2), wk * 7); const end = add(start, 6);
+      out.title = (wk === 0 ? 'This week · ' : 'Week of ') + start.getUTCDate() + '–' + end.getUTCDate() + ' ' + MON[end.getUTCMonth()];
+      out.days = DOW.map((w, i) => { const dt = add(start, i), s = iso(dt); return { label: w + ' ' + dt.getUTCDate(), bg: s === '2026-11-04' ? '#F4F7FE' : '#FBFBF8', ev: shown.filter((e) => e.d === s).map(ev) }; });
+      Object.assign(out, { prev: () => this.setState({ wk: Math.max(0, wk - 1), sel: null }), next: () => this.setState({ wk: Math.min(3, wk + 1), sel: null }), prevOp: wk === 0 ? 0.4 : 1, nextOp: wk === 3 ? 0.4 : 1, prevLabel: 'Previous week', nextLabel: 'Next week' });
+    } else {
+      const first = mk(2026, 10, 1); const start = add(first, -dowOf(first));
+      out.title = 'November 2026';
+      out.cells = Array.from({ length: 35 }, (x, i) => { const dt = add(start, i), s = iso(dt), inM = dt.getUTCMonth() === 10; const es = shown.filter((e) => e.d === s); const on = st.day === s;
+        return { n: String(dt.getUTCDate()), aria: nice(s) + ', ' + es.length + (es.length === 1 ? ' event' : ' events'), ev: es.slice(0, 2).map(ev), hasMore: es.length > 2, more: '+' + (es.length - 2) + ' more', bg: s === '2026-11-04' ? '#F4F7FE' : '#FFFFFF', bd: on ? '#14161A' : '#ECECE6', op: inM ? 1 : 0.5, on: on ? 'true' : 'false', pick: () => this.setState({ day: on ? null : s, sel: null }) }; });
+      if (st.day) { const es = shown.filter((e) => e.d === st.day); Object.assign(out, { hasDay: true, dayLabel: nice(st.day), dayEv: es.map(ev), dayEmpty: !es.length }); }
+      Object.assign(out, { prev: () => {}, next: () => {}, prevOp: 0.4, nextOp: 0.4, prevLabel: 'Previous month', nextLabel: 'Next month' });
+    }
+    const se = all.find((e) => e.id === st.sel);
+    if (se) { const k = K[se.kind]; const own = focus === se.kind && typeof P.onOpen === 'function';
+      out.hasSel = true; out.sel = { title: se.title, kindLabel: k[0], subject: se.subject, when: nice(se.d) + ' · ' + se.time, where: se.where, note: se.note, hasNote: !!se.note, bg: k[2], fg: k[3],
+        useBtn: own, useLink: !own && focus !== se.kind, href: k[5], openLabel: own ? (se.kind === 'assess' ? 'Open the brief' : (se.kind === 'lesson' ? 'Open the lesson' : 'Open the club')) : k[6], open: () => { try { P.onOpen({ kind: se.kind, ref: se.ref }); } catch (e) {} } }; }
+    return out;
+  }
+}
+return Component;
+}, {"focus": "all"});
 
 DC.mount("Clubs");
 </script>
