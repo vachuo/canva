@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Strengths and misconceptions</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Strengths">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="st-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 id="st-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{title}}</h2><p style="margin: 0; font-size: 14px; line-height: 1.5; color: #62676F">Each point is a skill. The further out, the stronger. The dashed ring is 85%, where a skill counts as secure.</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min({{cardMin}}, 100%), 1fr)); gap: 14px">
+<template data-for="{{radars}}" data-as="r"><div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FBFBF8; border: 1px solid #ECECE6">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{r.color}}"></span>{{r.name}}</span><span style="font-size: 12px; color: #62676F">{{r.done}}</span></div>
+<svg viewBox="0 0 240 220" role="img" aria-label="{{r.aria}}" style="color: #3F444C; width: 100%; max-width: {{svgMax}}; height: auto; align-self: center">
+<template data-for="{{r.rings}}" data-as="g"><polygon points="{{g.pts}}" fill="none" stroke="#9A9E95" stroke-opacity="0.45" stroke-width="1"></polygon></template>
+<polygon points="{{r.secure}}" fill="none" stroke="#9A9E95" stroke-width="1.2" stroke-dasharray="4 3"></polygon>
+<template data-for="{{r.axes}}" data-as="a"><line x1="120" y1="110" x2="{{a.x2}}" y2="{{a.y2}}" stroke="#9A9E95" stroke-opacity="0.45" stroke-width="1"></line><text x="{{a.lx}}" y="{{a.ly}}" text-anchor="{{a.anchor}}" font-size="10.5" font-family="Inter, system-ui, sans-serif" fill="currentColor">{{a.short}}</text></template>
+<polygon points="{{r.poly}}" fill="{{r.color}}" fill-opacity="0.22" stroke="{{r.color}}" stroke-width="2"></polygon>
+<template data-for="{{r.dots}}" data-as="d"><circle cx="{{d.x}}" cy="{{d.y}}" r="3.2" fill="{{r.color}}"></circle></template>
+</svg>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px">
+<template data-for="{{r.skills}}" data-as="k"><li style="display: flex; justify-content: space-between; gap: 8px"><span style="color: #3F444C">{{k.name}}</span><span style="font-weight: 600; color: {{k.fg}}">{{k.pct}}%</span></li></template>
+</ul>
+</div></template>
+</div>
+</section>
+<section aria-labelledby="mis-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 id="mis-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Misconceptions, week by week</h2><p style="margin: 0; font-size: 14px; line-height: 1.5; color: #62676F">How often each mistake showed up in practice and assessments. Darker means more often. Socrates plans short lessons for anything still rising.</p></div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 620px; border-collapse: separate; border-spacing: 4px; font-size: 13px">
+<thead><tr><th scope="col" style="text-align: left; padding: 4px 6px; font-weight: 600; color: #62676F">Misconception</th><template data-for="{{weeks}}" data-as="w"><th scope="col" style="width: 52px; padding: 4px; font-weight: 600; color: #62676F">{{w}}</th></template><th scope="col" style="width: 76px; padding: 4px 6px; text-align: left; font-weight: 600; color: #62676F">Trend</th></tr></thead>
+<tbody><template data-for="{{rows}}" data-as="m"><tr><th scope="row" style="text-align: left; padding: 6px; font-weight: 500; line-height: 1.35"><span style="display: block; font-size: 11.5px; font-weight: 600; color: {{m.ink}}">{{m.subject}}</span>{{m.text}}</th><template data-for="{{m.cells}}" data-as="c"><td aria-label="{{c.aria}}" style="height: 38px; border-radius: 8px; background: {{c.bg}}; color: {{c.fg}}; text-align: center; font-weight: 600">{{c.n}}</td></template><td style="padding: 4px 6px; font-weight: 600; color: {{m.tfg}}">{{m.trend}}</td></tr></template></tbody>
+</table></div>
+<div aria-hidden="true" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; color: #62676F"><span>Less often</span><template data-for="{{legend}}" data-as="l"><span style="width: 22px; height: 14px; border-radius: 4px; background: {{l}}; border: 1px solid #ECECE6"></span></template><span>More often</span></div>
+</section>
+</div>
+</template>
+<script>
+DC.component("Strengths", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) { let t = 'light'; try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {} this._uiT = t; }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  data() {
+    return [
+      { id: 'math', name: 'Maths', color: '#1D4ED8', ink: '#1E40AF', done: 68, sk: [['Equiv. fractions', 'Equivalent fractions', 92], ['Ratio language', 'Ratio language and notation', 78], ['Ratio tables', 'Ratio tables', 61], ['Unit rates', 'Unit rates', 55], ['Scaling', 'Scaling quantities', 47], ['Map scale', 'Map scale', 22]] },
+      { id: 'reading', name: 'Reading', color: '#0F766E', ink: '#115E59', done: 74, sk: [['Main idea', 'Main idea', 86], ['Inference', 'Inference', 81], ['Vocabulary', 'Vocabulary in context', 74], ['Summarising', 'Summarising', 69], ['Metaphor', 'Metaphor and figurative language', 52]] },
+      { id: 'kiswahili', name: 'Kiswahili', color: '#B45309', ink: '#92400E', done: 61, sk: [['Ngeli', 'Ngeli (noun classes)', 84], ['Kusoma', 'Reading aloud', 80], ['Vivumishi', 'Vivumishi (adjectives)', 66], ['Insha', 'Insha (persuasive writing)', 64], ['Upatanisho', 'Upatanisho (agreement)', 58]] },
+      { id: 'science', name: 'Science', color: '#1684E8', ink: '#1E40AF', done: 70, sk: [['Moon phases', 'Moon phases', 91], ['Models', 'Building and testing models', 88], ['Fair tests', 'Fair tests', 76], ['Data tables', 'Reading data tables', 70], ['Soil, water', 'Soil and water', 49]] },
+      { id: 'social', name: 'Social Studies', color: '#92400E', ink: '#92400E', done: 55, sk: [['Communities', 'Communities', 80], ['Sources', 'Questioning sources', 72], ['Timelines', 'Timelines', 63], ['Map stories', 'Mapping stories', 44]] },
+      { id: 'making', name: 'Making', color: '#172F73', ink: '#172F73', done: 50, sk: [['Circuits', 'Simple circuits', 73], ['Design', 'Design and sketching', 69], ['Testing', 'Testing and fixing', 58], ['Tools', 'Safe use of tools', 90]] }
+    ];
+  }
+  misc() {
+    return [
+      ['math', 'Adds instead of multiplying when scaling a recipe', [3, 3, 2, 2, 1, 0]],
+      ['math', 'Reads a ratio as a fraction of the whole', [0, 2, 2, 1, 1, 1]],
+      ['math', 'Map scale: multiplies the wrong way', [0, 0, 0, 1, 2, 3]],
+      ['kiswahili', 'Adjective doesn’t agree with the noun class', [2, 2, 3, 2, 2, 1]],
+      ['reading', 'Takes a metaphor literally', [0, 0, 1, 2, 2, 1]],
+      ['science', 'Changes two things at once in a test', [1, 2, 1, 0, 0, 0]],
+      ['social', 'Treats a source as fact, not a viewpoint', [1, 1, 1, 1, 0, 0]],
+      ['making', 'Leaves a circuit open and expects it to work', [0, 1, 0, 0, 0, 0]]
+    ];
+  }
+  renderVals() {
+    const P = this.props || {}; const sub = P.subject && P.subject !== 'all' ? P.subject : null;
+    const D = this.data(); const list = sub ? D.filter((d) => d.id === sub) : D;
+    const cx = 120, cy = 110, R = 78;
+    const pt = (i, n, v) => { const a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + Math.cos(a) * R * v / 100, cy + Math.sin(a) * R * v / 100]; };
+    const poly = (n, f) => Array.from({ length: n }, (x, i) => pt(i, n, f(i)).map((q) => q.toFixed(1)).join(',')).join(' ');
+    const radars = list.map((d) => { const n = d.sk.length;
+      return { name: d.name, color: d.color, done: 'Lessons done ' + d.done + '%',
+        aria: d.name + ': ' + d.sk.map((k) => k[1] + ' ' + k[2] + '%').join(', '),
+        rings: [25, 50, 75, 100].map((v) => ({ pts: poly(n, () => v) })), secure: poly(n, () => 85), poly: poly(n, (i) => d.sk[i][2]),
+        axes: d.sk.map((k, i) => { const e = pt(i, n, 100), l = pt(i, n, 118); const dx = l[0] - cx; return { x2: e[0].toFixed(1), y2: e[1].toFixed(1), lx: l[0].toFixed(1), ly: (l[1] + 4).toFixed(1), anchor: Math.abs(dx) < 8 ? 'middle' : (dx > 0 ? 'start' : 'end'), short: k[0] }; }),
+        dots: d.sk.map((k, i) => { const p = pt(i, n, k[2]); return { x: p[0].toFixed(1), y: p[1].toFixed(1) }; }),
+        skills: d.sk.map((k) => ({ name: k[1], pct: String(k[2]), fg: k[2] >= 85 ? '#115E59' : (k[2] < 50 ? '#92400E' : '#14161A') })) }; });
+    const SCALE = [['#FBFBF8', '#62676F'], ['#FEF9EE', '#78350F'], ['#FEF1D9', '#78350F'], ['#F9A826', '#14161A'], ['#B45309', '#FFFFFF']];
+    const W = ['Wk 4', 'Wk 5', 'Wk 6', 'Wk 7', 'Wk 8', 'Wk 9'];
+    const SUB = {}; D.forEach((d) => { SUB[d.id] = d; });
+    const rows = this.misc().filter((m) => !sub || m[0] === sub).map((m) => { const c = m[2]; const last = c[5], prev = c[3] + c[4];
+      const trend = last === 0 ? 'Gone' : (last > c[4] ? 'Rising' : (last < c[4] || prev > last * 2 ? 'Fading' : 'Steady'));
+      return { subject: SUB[m[0]].name, ink: SUB[m[0]].ink, text: m[1], trend, tfg: trend === 'Rising' ? '#92400E' : (trend === 'Gone' || trend === 'Fading' ? '#115E59' : '#3F444C'),
+        cells: c.map((v, i) => ({ n: v ? String(v) : '', bg: SCALE[Math.min(4, v)][0], fg: SCALE[Math.min(4, v)][1], aria: W[i] + ': seen ' + v + (v === 1 ? ' time' : ' times') })) }; });
+    return Object.assign(this.themeVals(), { title: sub ? (list[0] ? list[0].name : '') + ' at a glance' : 'Strengths by subject', radars, rows, weeks: W, legend: SCALE.map((x) => x[0]), cardMin: sub ? '320px' : '250px', svgMax: sub ? '360px' : '260px' });
+  }
+}
+return Component;
+}, {"subject": "all"});
+
+DC.mount("Strengths");
+</script>
+</body>
+</html>

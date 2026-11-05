@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
 <style>
@@ -34,11 +34,11 @@ input[type=range]{accent-color:#F9A826}
 <body>
 <div id="app"></div>
 <template id="dc-Notes">
-<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div data-theme="{{uiTheme}}" lang="{{svLang}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 
 <nav aria-label="Vachuo" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
 <a href="today.html" aria-label="Vachuo, back to Today" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
-<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Geist, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
 </a>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Learn</div>
@@ -56,10 +56,6 @@ input[type=range]{accent-color:#F9A826}
 <a href="showcase.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0 2.7 2.7 0 0 1-4 0z"/><path d="M5.5 12.5V20h13v-7.5M10 20v-4h4v4"/></svg>Showcase</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Family</div>
-<a href="copilot.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14.2c2.4.3 4 2.4 4 5.3"/></svg>Parent copilot</a>
-</div>
-<div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Inside Vachuo</div>
 <a href="loop.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4.5V9h-4.5"/></svg>The loop</a>
 </div>
@@ -75,14 +71,14 @@ input[type=range]{accent-color:#F9A826}
 
 <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
 <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">My classes</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">My classes</span>
 <h1 style="margin: 0; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Every lesson, note and resource, in one place.</h1>
 <p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C; max-width: 680px; text-wrap: pretty">Watch, pause, write it down, ask. Lessons are arranged by subject, path and section, and your notes count as evidence only when you choose.</p>
 </div>
 <div style="display: flex; gap: 10px">
-<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statWatched}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">watched this week</span></div>
-<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statNotes}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">notes taken</span></div>
-<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statDue}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">cards to review</span></div>
+<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statWatched}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">watched this week</span></div>
+<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statNotes}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">notes taken</span></div>
+<div style="min-width: 104px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 22px; line-height: 1">{{statDue}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">cards to review</span></div>
 </div>
 </header>
 
@@ -104,13 +100,34 @@ input[type=range]{accent-color:#F9A826}
 </div>
 
 <section aria-labelledby="lesson-title" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
-<div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<section aria-labelledby="path-h" aria-label="Module outline" style="flex: 1 1 250px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 id="path-h" style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">{{outlineTitle}}</h2>
+<a href="map.html" style="font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 500">See it on My learning map →</a>
+</div>
+<div aria-hidden="true" style="height: 8px; border-radius: 4px; background: #ECECE6; overflow: hidden"><div style="width: {{outlinePct}}%; height: 100%; background: {{pColor}}; border-radius: 4px"></div></div>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{outlineMeta}}</span>
+<template data-for="{{outline}}" data-as="s">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 6px 0 2px; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #3F444C">{{s.name}}</h3>
+<template data-for="{{s.items}}" data-as="o">
+<button type="button" class="tline" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 6px 10px; border-radius: 12px; border: 1px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: {{o.iconBg}}; color: {{o.iconFg}}; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="{{o.icon}}"/></svg></span>
+<span style="flex: 1; min-width: 0; font-size: 16.5px; font-weight: 600">{{o.title}}</span>
+<span style="flex: none; font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F; text-align: right">{{o.meta}}</span>
+</button>
+</template>
+</div>
+</template>
+</section>
+
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <div ref="{{playerRef}}" style="border-radius: 20px; overflow: hidden; background: #0B0D10; box-shadow: 0 24px 48px -32px rgba(20,22,26,0.7)">
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0B0D10">
 <video ref="{{vidRefCb}}" src="{{vSrc}}" poster="{{vPoster}}" preload="metadata" playsInline="{{ true }}" aria-label="{{videoAria}}" onClick="{{togglePlay}}" onTimeUpdate="{{onTime}}" onPlay="{{onPlay}}" onPause="{{onPause}}" onEnded="{{onEnded}}" onLoadedMetadata="{{onMeta}}" onVolumeChange="{{onVol}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0B0D10; display: block; cursor: pointer"></video>
-<template data-if="{{showBigPlay}}"><div style="position: absolute; left: 14px; top: 14px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.92); color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{pSubject}}</span><span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border-radius: 999px; background: {{pStatusBg}}; color: {{pStatusFg}}; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600"><template data-if="{{pLive}}"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: currentColor"></span></template>{{pStatus}}</span></div></template>
+<template data-if="{{showBigPlay}}"><div style="position: absolute; left: 14px; top: 14px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.92); color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600">{{pSubject}}</span><span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border-radius: 999px; background: {{pStatusBg}}; color: {{pStatusFg}}; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600"><template data-if="{{pLive}}"><span class="livedot" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: currentColor"></span></template>{{pStatus}}</span></div></template>
 <template data-if="{{showBigPlay}}"><button type="button" class="bigplay" aria-label="{{playAria}}" onClick="{{togglePlay}}" style="position: absolute; left: 50%; top: 50%; width: 78px; height: 78px; margin: -39px 0 0 -39px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: #14161A; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 34px -14px rgba(0,0,0,0.6)"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button></template>
-<template data-if="{{showCaption}}"><span aria-live="polite" style="position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); max-width: 86%; padding: 6px 12px; border-radius: 8px; background: rgba(11,13,16,0.78); color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.4; text-align: center">{{caption}}</span></template>
+<template data-if="{{showCaption}}"><span aria-live="polite" style="position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); max-width: 86%; padding: 6px 12px; border-radius: 8px; background: rgba(11,13,16,0.78); color: #FFFFFF; font-family: Inter, system-ui, sans-serif; font-size: 14.5px; line-height: 1.4; text-align: center">{{caption}}</span></template>
 <span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; height: 4px; width: {{pct}}%; background: #F9A826; pointer-events: none"></span>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 14px; background: #14161A; color: #FFFFFF">
@@ -118,20 +135,20 @@ input[type=range]{accent-color:#F9A826}
 <template data-if="{{playing}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></template>
 <template data-if="{{paused}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></template>
 </button>
-<button type="button" aria-label="Back 10 seconds" onClick="{{back10}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px">−10</button>
-<span style="flex: none; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #DCE6FD">{{timeText}}</span>
+<button type="button" aria-label="Back 10 seconds" onClick="{{back10}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; font-family: ui-monospace, Menlo, monospace; font-size: 11px">−10</button>
+<span style="flex: none; font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #DCE6FD">{{timeText}}</span>
 <div style="flex: 1 1 200px; min-width: 160px; position: relative; display: flex; align-items: center">
 <label for="scrub" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Seek</label>
 <input id="scrub" type="range" min="0" max="{{durMax}}" step="1" value="{{tInt}}" onChange="{{seek}}" style="width: 100%; margin: 0; cursor: pointer">
 <template data-for="{{ticks}}" data-as="k"><span aria-hidden="true" style="position: absolute; left: {{k.left}}%; top: -8px; width: 2px; height: 6px; border-radius: 1px; background: #7DB4FF; pointer-events: none"></span></template>
 </div>
-<button type="button" aria-label="{{speedAria}}" onClick="{{cycleSpeed}}" style="flex: none; min-width: 52px; height: 36px; border-radius: 999px; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px">{{speedText}}</button>
+<button type="button" aria-label="{{speedAria}}" onClick="{{cycleSpeed}}" style="flex: none; min-width: 52px; height: 36px; border-radius: 999px; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">{{speedText}}</button>
 <button type="button" aria-pressed="{{ccPressed}}" onClick="{{toggleCc}}" style="flex: none; min-width: 44px; height: 36px; border-radius: 8px; border: 1px solid {{ccBd}}; background: {{ccBg}}; color: {{ccFg}}; cursor: pointer; font-size: 12.5px; font-weight: 600">CC</button>
 <div role="group" aria-label="Sound" style="flex: none; display: flex; align-items: center; gap: 8px">
 <button type="button" aria-label="{{muteAria}}" aria-pressed="{{mutedA}}" onClick="{{toggleMute}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><template data-if="{{soundOn}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></template><template data-if="{{soundOff}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9l5 6M21 9l-5 6"/></svg></template></button>
 <label for="vol" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Volume</label>
 <input id="vol" type="range" min="0" max="100" step="1" value="{{vol100}}" onChange="{{setVol}}" style="width: 96px; margin: 0; cursor: pointer">
-<span style="min-width: 34px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; color: #DCE6FD">{{volText}}</span>
+<span style="min-width: 34px; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; color: #DCE6FD">{{volText}}</span>
 </div>
 <button type="button" aria-label="Full screen" onClick="{{fullscreen}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
@@ -139,56 +156,54 @@ input[type=range]{accent-color:#F9A826}
 
 <div role="group" aria-label="Chapters" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px">
 <template data-for="{{chapters}}" data-as="c">
-<button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 52px; max-width: 220px; padding: 8px 12px; border-radius: 12px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; color: {{c.tc}}">{{c.time}}</span><span style="font-size: 13.5px; font-weight: 500; line-height: 1.25">{{c.label}}</span></button>
+<button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 52px; max-width: 220px; padding: 8px 12px; border-radius: 12px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; color: {{c.tc}}">{{c.time}}</span><span style="font-size: 13.5px; font-weight: 500; line-height: 1.25">{{c.label}}</span></button>
 </template>
 </div>
 
 <div style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 12px">
-<nav aria-label="Where this lesson sits" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F"><span style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: {{pInk}}"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{pColor}}"></span>{{crumbSubject}}</span><span aria-hidden="true">›</span><span>{{crumbPath}}</span><span aria-hidden="true">›</span><span>{{crumbSection}}</span></nav>
+<nav aria-label="Where this lesson sits" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F"><span style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: {{pInk}}"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{pColor}}"></span>{{crumbSubject}}</span><span aria-hidden="true">›</span><span>{{crumbPath}}</span><span aria-hidden="true">›</span><span>{{crumbSection}}</span></nav>
 <h2 id="lesson-title" style="margin: 0; font-size: clamp(26px, 2.6vw, 32px); line-height: 1.1; font-weight: 600; letter-spacing: -0.01em">{{title}}</h2>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px">
-<span style="display: inline-flex; align-items: center; gap: 10px"><img src="{{hostImg}}" alt="" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: top; background: {{pTint}}"><span style="display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 600">{{hostName}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{hostRole}}</span></span></span>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{metaLine}}</span>
+<span style="display: inline-flex; align-items: center; gap: 10px"><img src="{{hostImg}}" alt="" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: top; background: {{pTint}}"><span style="display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 600">{{hostName}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{hostRole}}</span></span></span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{metaLine}}</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <template data-if="{{isNext}}"><button type="button" aria-pressed="{{remindPressed}}" onClick="{{toggleRemind}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid {{remindBd}}; background: {{remindBg}}; color: {{remindFg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{remindLabel}}</button></template>
 <template data-if="{{canMark}}"><button type="button" onClick="{{markWatched}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 500; cursor: pointer">{{markLabel}}</button></template>
-<a href="session.html" style="display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px; background: #1D4ED8; color: #FFFFFF; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none">Ask the tutor about {{nowText}}</a>
-<a href="{{vSrc}}" download="{{vFile}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500; text-decoration: none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for offline</a>
+<a href="session.html" style="display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none">Ask the tutor about {{nowText}}</a>
+<a href="{{vSrc}}" download="{{vFile}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 500; text-decoration: none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for offline</a>
 </div>
 <template data-if="{{hasIdeas}}">
 <div style="border-radius: 14px; background: #F4F7FE; border: 1px solid #DCE6FD; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
-<span style="display: inline-flex; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF"><img src="assets/img/6b7158ce9be36ad9a33a1085cc3b48e2.svg" alt="" style="width: 24px; height: 24px; border-radius: 50%">Key ideas · summary by Socrates</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1E40AF"><img src="assets/img/6b7158ce9be36ad9a33a1085cc3b48e2.svg" alt="" style="width: 24px; height: 24px; border-radius: 50%">Key ideas · summary by Socrates</span>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 17px; line-height: 1.45">
 <template data-for="{{ideas}}" data-as="i"><li>{{i}}</li></template>
 </ul>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">Check it against the lesson. If something’s off, say so in the comments.</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">Check it against the lesson. If something’s off, say so in the comments.</span>
 </div>
 </template>
-<p role="status" style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #115E59">{{statusMsg}}</p>
+<p role="status" style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #115E59">{{statusMsg}}</p>
 </div>
-</div>
-
-<aside aria-label="Lesson materials" style="flex: 2 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden">
+<aside aria-label="Lesson materials" style="min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden">
 <div role="group" aria-label="Materials" style="display: flex; gap: 4px; padding: 10px; border-bottom: 1px solid #ECECE6; overflow-x: auto">
 <template data-for="{{tabs}}" data-as="t">
-<button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 10px; border: none; background: {{t.bg}}; color: {{t.fg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{t.label}}<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; padding: 1px 6px; border-radius: 999px; background: {{t.cbg}}">{{t.count}}</span></button>
+<button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 10px; border: none; background: {{t.bg}}; color: {{t.fg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{t.label}}<span style="font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; padding: 1px 6px; border-radius: 999px; background: {{t.cbg}}">{{t.count}}</span></button>
 </template>
 </div>
-<div style="height: 760px; overflow-y: auto; padding: 14px 16px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<div style="height: 520px; overflow-y: auto; padding: 14px 16px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
 
 <template data-if="{{tabTranscript}}">
 <div class="fadein" style="display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; align-items: center; gap: 8px">
 <label for="tfind" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Find in transcript</label>
 <input id="tfind" type="search" value="{{tq}}" onChange="{{setTq}}" placeholder="Find in transcript" style="flex: 1; min-width: 0; min-height: 40px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; font-size: 14px">
-<span style="flex: none; font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F">{{tqCount}}</span>
+<span style="flex: none; font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #62676F">{{tqCount}}</span>
 </div>
-<template data-if="{{isPreview}}"><p style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #FEF1D9; font-family: Geist, system-ui, sans-serif; font-size: 13px; line-height: 1.5; color: #92400E">Preview transcript. The full transcript appears when the lesson premieres.</p></template>
+<template data-if="{{isPreview}}"><p style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #FEF1D9; font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 1.5; color: #92400E">Preview transcript. The full transcript appears when the lesson premieres.</p></template>
 <template data-for="{{lines}}" data-as="l">
 <button type="button" class="tline" aria-current="{{l.current}}" onClick="{{l.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; padding: 8px 8px; border-radius: 10px; border: none; border-left: 3px solid {{l.edge}}; background: {{l.bg}}; color: #14161A; text-align: left; cursor: pointer; opacity: {{l.op}}">
-<span style="flex: none; min-width: 42px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #1E40AF; padding-top: 3px">{{l.time}}</span>
-<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; color: #62676F">{{l.who}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; line-height: 1.45">{{l.text}}</span></span>
+<span style="flex: none; min-width: 42px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: #1E40AF; padding-top: 3px">{{l.time}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; color: #62676F">{{l.who}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; line-height: 1.45">{{l.text}}</span></span>
 </button>
 </template>
 </div>
@@ -196,19 +211,19 @@ input[type=range]{accent-color:#F9A826}
 
 <template data-if="{{tabNotes}}">
 <div class="fadein" style="display: flex; flex-direction: column; gap: 12px">
-<label for="ndraft" style="font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: #3F444C">New note at {{nowText}}</label>
-<textarea id="ndraft" rows="3" value="{{draft}}" onChange="{{setDraft}}" placeholder="What clicked? What’s still fuzzy?" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<label for="ndraft" style="font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: #3F444C">New note at {{nowText}}</label>
+<textarea id="ndraft" rows="3" value="{{draft}}" onChange="{{setDraft}}" placeholder="What clicked? What’s still fuzzy?" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; font-family: Inter, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: Inter, system-ui, sans-serif">
 <label style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>Attach files<input type="file" multiple="{{ true }}" accept="image/*,application/pdf,audio/*,video/*,.doc,.docx,.txt,.csv" onChange="{{addFiles}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden"></label>
 <button type="button" aria-pressed="{{padOpenA}}" onClick="{{togglePad}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{padBd}}; background: {{padBg}}; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Draw or handwrite</button>
 </div>
 <template data-if="{{padOpen}}">
 <div class="fadein" style="display: flex; flex-direction: column; gap: 8px">
 <div style="position: relative; height: 240px; border-radius: 14px; border: 1px solid #93BBF3; background: #FFFFFF; background-image: linear-gradient(#ECECE6 1px, transparent 1px); background-size: 100% 28px; overflow: hidden">
-<span style="position: absolute; left: 10px; top: 8px; font-family: Geist, system-ui, sans-serif; font-size: 11.5px; color: #8A8F96">Finger, stylus or mouse · pressure-sensitive</span>
+<span style="position: absolute; left: 10px; top: 8px; font-family: Inter, system-ui, sans-serif; font-size: 11.5px; color: #8A8F96">Finger, stylus or mouse · pressure-sensitive</span>
 <canvas ref="{{padRefCb}}" aria-label="Handwriting and drawing pad" onPointerDown="{{padDown}}" onPointerMove="{{padMove}}" onPointerUp="{{padUp}}" onPointerLeave="{{padUp}}" onPointerCancel="{{padUp}}" style="position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair"></canvas>
 </div>
-<div role="toolbar" aria-label="Pen tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif">
+<div role="toolbar" aria-label="Pen tools" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{tools}}" data-as="t"><button type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 12.5px; cursor: pointer">{{t.label}}</button></template>
 <template data-for="{{inks}}" data-as="c"><button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 28px; height: 28px; border-radius: 50%; border: 3px solid {{c.ring}}; background: {{c.hex}}; cursor: pointer"></button></template>
 <button type="button" onClick="{{padUndoCb}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 12.5px; cursor: pointer">Undo</button>
@@ -220,7 +235,7 @@ input[type=range]{accent-color:#F9A826}
 <template data-if="{{hasPending}}">
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <template data-for="{{pendingList}}" data-as="a">
-<div style="display: flex; align-items: center; gap: 8px; padding: 6px 8px 6px 6px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FAFAF7; font-family: Geist, system-ui, sans-serif; font-size: 12.5px">
+<div style="display: flex; align-items: center; gap: 8px; padding: 6px 8px 6px 6px; border-radius: 12px; border: 1px solid #E2E2DA; background: #FAFAF7; font-family: Inter, system-ui, sans-serif; font-size: 12.5px">
 <template data-if="{{a.isImg}}"><img src="{{a.url}}" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: #FFFFFF"></template>
 <template data-if="{{a.isFile}}"><span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 8px; background: #E4ECFD; color: #1E40AF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px">{{a.ext}}</span></template>
 <span style="display: flex; flex-direction: column; max-width: 160px"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{a.name}}</span><span style="color: #8A8F96">{{a.size}}</span></span>
@@ -230,18 +245,18 @@ input[type=range]{accent-color:#F9A826}
 </div>
 </template>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
-<button type="button" onClick="{{addNote}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Add note at {{nowText}}</button>
+<button type="button" onClick="{{addNote}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Add note at {{nowText}}</button>
 <button type="button" aria-pressed="{{evPressed}}" onClick="{{toggleEvidence}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{evBd}}; background: {{evBg}}; color: {{evFg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{evLabel}}</button>
 </div>
 <template data-if="{{noNotes}}"><p style="margin: 0; padding: 14px; border-radius: 12px; background: #F4F4EF; font-size: 16px; color: #3F444C">No notes yet. Pause anywhere and write, draw or attach something; it’s pinned to that moment.</p></template>
 <template data-for="{{noteList}}" data-as="n">
 <div class="fadein" style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 12px; background: #FEF9EE; border: 1px solid #F6DFAE">
-<button type="button" onClick="{{n.seek}}" aria-label="{{n.aria}}" style="flex: none; min-height: 30px; padding: 0 8px; border-radius: 8px; border: none; background: #F9A826; color: #14161A; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; cursor: pointer">{{n.time}}</button>
+<button type="button" onClick="{{n.seek}}" aria-label="{{n.aria}}" style="flex: none; min-height: 30px; padding: 0 8px; border-radius: 8px; border: none; background: #F9A826; color: #14161A; font-family: ui-monospace, Menlo, monospace; font-size: 12px; cursor: pointer">{{n.time}}</button>
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px">
 <template data-if="{{n.hasText}}"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.45">{{n.text}}</span></template>
 <template data-if="{{n.hasAtt}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{n.atts}}" data-as="a">
 <template data-if="{{a.isImg}}"><a href="{{a.url}}" download="{{a.name}}" title="{{a.name}}" style="display: block; border-radius: 10px; overflow: hidden; border: 1px solid #E2E2DA; background: #FFFFFF"><img src="{{a.url}}" alt="{{a.name}}" style="display: block; width: 120px; height: 84px; object-fit: contain"></a></template>
-<template data-if="{{a.isFile}}"><a href="{{a.url}}" download="{{a.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 12px; text-decoration: none">{{a.ext}} · {{a.name}}</a></template>
+<template data-if="{{a.isFile}}"><a href="{{a.url}}" download="{{a.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #1E40AF; font-family: Inter, system-ui, sans-serif; font-size: 12px; text-decoration: none">{{a.ext}} · {{a.name}}</a></template>
 </template></div></template>
 </div>
 <button type="button" aria-label="Delete note" onClick="{{n.del}}" style="flex: none; width: 30px; height: 30px; border-radius: 50%; border: none; background: transparent; color: #8A8F96; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -254,11 +269,11 @@ input[type=range]{accent-color:#F9A826}
 <div class="fadein" style="display: flex; flex-direction: column; gap: 14px">
 <template data-for="{{resGroups}}" data-as="g">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<h3 style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{g.title}}</h3>
+<h3 style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{g.title}}</h3>
 <template data-for="{{g.items}}" data-as="r">
 <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; border: 1px solid #ECECE6">
 <span aria-hidden="true" style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: {{r.bg}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{r.fg}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"/></svg></span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 16.5px; font-weight: 600; line-height: 1.25">{{r.title}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{r.meta}}</span></span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 16.5px; font-weight: 600; line-height: 1.25">{{r.title}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{r.meta}}</span></span>
 <button type="button" onClick="{{r.open}}" style="flex: none; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; font-weight: 500; cursor: pointer">{{r.cta}}</button>
 <template data-if="{{r.hasFile}}"><a href="{{r.url}}" download="{{r.file}}" aria-label="{{r.dlAria}}" style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; display: flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></template>
 </div>
@@ -266,7 +281,7 @@ input[type=range]{accent-color:#F9A826}
 </div>
 </template>
 <div style="display: flex; flex-direction: column; gap: 8px">
-<h3 style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">References</h3>
+<h3 style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">References</h3>
 <ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15.5px; line-height: 1.45; color: #3F444C">
 <template data-for="{{refs}}" data-as="f"><li>{{f}}</li></template>
 </ol>
@@ -276,11 +291,11 @@ input[type=range]{accent-color:#F9A826}
 
 <template data-if="{{tabComments}}">
 <div class="fadein" style="display: flex; flex-direction: column; gap: 12px">
-<p style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #F4F4EF; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #3F444C">{{commentNote}}</p>
+<p style="margin: 0; padding: 10px 12px; border-radius: 10px; background: #F4F4EF; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #3F444C">{{commentNote}}</p>
 <label for="cdraft" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Write a comment</label>
-<textarea id="cdraft" rows="2" value="{{cdraft}}" onChange="{{setCdraft}}" placeholder="Ask a question or share what helped" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; font-family: Geist, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
+<textarea id="cdraft" rows="2" value="{{cdraft}}" onChange="{{setCdraft}}" placeholder="Ask a question or share what helped" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; font-family: Inter, system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
-<button type="button" onClick="{{postComment}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer">Post at {{nowText}}</button>
+<button type="button" onClick="{{postComment}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Post at {{nowText}}</button>
 <div role="group" aria-label="Sort comments" style="display: flex; gap: 4px">
 <template data-for="{{sorts}}" data-as="s"><button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="min-height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 12.5px; font-weight: 500; cursor: pointer">{{s.label}}</button></template>
 </div>
@@ -288,14 +303,14 @@ input[type=range]{accent-color:#F9A826}
 <template data-if="{{noComments}}"><p style="margin: 0; padding: 14px; border-radius: 12px; background: #F4F4EF; font-size: 16px; color: #3F444C">No comments yet. Questions you post now go to the tutor first.</p></template>
 <template data-for="{{comments}}" data-as="c">
 <div class="fadein" style="display: flex; gap: 10px; align-items: flex-start; padding-top: 12px; border-top: 1px solid #ECECE6">
-<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: {{c.avBg}}; color: {{c.avFg}}; display: flex; align-items: center; justify-content: center; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 600">{{c.ini}}</span>
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: {{c.avBg}}; color: {{c.avFg}}; display: flex; align-items: center; justify-content: center; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600">{{c.ini}}</span>
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
-<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-size: 16px; font-weight: 600">{{c.who}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: {{c.roleBg}}; color: {{c.roleFg}}">{{c.role}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #8A8F96">{{c.when}}</span></span>
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-size: 16px; font-weight: 600">{{c.who}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: {{c.roleBg}}; color: {{c.roleFg}}">{{c.role}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #8A8F96">{{c.when}}</span></span>
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16.5px; line-height: 1.45">{{c.text}}</span>
 <span style="display: flex; flex-wrap: wrap; gap: 6px">
-<template data-for="{{c.reacts}}" data-as="x"><button type="button" aria-pressed="{{x.pressed}}" aria-label="{{x.aria}}" onClick="{{x.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{x.bd}}; background: {{x.bg}}; color: {{x.fg}}; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="{{x.fill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{x.icon}}"/></svg>{{x.label}}<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px">{{x.n}}</span></button></template>
+<template data-for="{{c.reacts}}" data-as="x"><button type="button" aria-pressed="{{x.pressed}}" aria-label="{{x.aria}}" onClick="{{x.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid {{x.bd}}; background: {{x.bg}}; color: {{x.fg}}; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="{{x.fill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{x.icon}}"/></svg>{{x.label}}<span style="font-family: ui-monospace, Menlo, monospace; font-size: 11.5px">{{x.n}}</span></button></template>
 <button type="button" onClick="{{c.reply}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #E2E2DA; background: #FFFFFF; color: #3F444C; font-size: 12.5px; cursor: pointer">Reply</button>
-<template data-if="{{c.hasAt}}"><button type="button" onClick="{{c.seek}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: none; background: #F4F7FE; color: #1E40AF; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; cursor: pointer">at {{c.at}}</button></template>
+<template data-if="{{c.hasAt}}"><button type="button" onClick="{{c.seek}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: none; background: #F4F7FE; color: #1E40AF; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; cursor: pointer">at {{c.at}}</button></template>
 </span>
 </div>
 </div>
@@ -304,19 +319,32 @@ input[type=range]{accent-color:#F9A826}
 </template>
 </div>
 </aside>
+</div>
+
+<aside aria-labelledby="soc-h" style="flex: 1 1 290px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+<div style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid #ECECE6"><img src="assets/img/2e56785cbdd423153ab096cdead1668c.svg" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #E4ECFD"><span style="display: flex; flex-direction: column; gap: 1px; min-width: 0"><h2 id="soc-h" style="margin: 0; font-size: 16px; font-weight: 600">Socrates</h2><span style="font-size: 12.5px; color: #62676F">{{socCtx}}</span></span></div>
+<div aria-live="polite" style="height: 420px; overflow-y: auto; padding: 14px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px"><template data-for="{{socMsgs}}" data-as="m"><div style="align-self: {{m.align}}; max-width: 92%; padding: 10px 12px; border-radius: 14px; background: {{m.bg}}; font-size: 14px; line-height: 1.5; color: #14161A">{{m.text}}</div></template></div>
+<div style="padding: 12px 16px 16px; border-top: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 10px"><div role="group" aria-label="Quick actions" style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{socChips}}" data-as="c"><button type="button" title="{{c.tip}}" onClick="{{c.go}}" style="min-height: 44px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">{{c.label}}</button></template></div><div style="display: flex; gap: 8px"><label for="socq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Ask Socrates about this lesson</label><input id="socq" value="{{socDraft}}" onChange="{{socSet}}" onKeyDown="{{socKey}}" placeholder="Ask about this lesson…" style="flex: 1; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px"><button type="button" aria-label="Send to Socrates" onClick="{{socSend}}" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: none; background: #F9A826; color: #14161A; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></div><span style="font-size: 12px; line-height: 1.45; color: #62676F">Suggested by Socrates. “Test me” is practice only, and in assessments Socrates gives no answers.</span></div>
+</aside>
+
+</section>
+
+<section aria-labelledby="paths-h" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="paths-h" style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.015em">Your subject paths</h2><span style="font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F">One path per subject. Pick up where you stopped.</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 14px"><template data-for="{{paths}}" data-as="p"><div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; border-radius: 18px; background: #FFFFFF; border: 1.5px solid {{p.bd}}"><span style="display: flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: {{p.ink}}"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{p.color}}"></span>{{p.name}} · {{p.level}}</span><span style="font-size: 20px; font-weight: 600; line-height: 1.2">{{p.path}}</span><span aria-hidden="true" style="display: block; height: 8px; border-radius: 4px; background: #ECECE6; overflow: hidden"><span style="display: block; width: {{p.pct}}%; height: 100%; border-radius: 4px; background: {{p.color}}"></span></span><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #3F444C">{{p.pctLabel}}</span><span style="display: flex; flex-direction: column; gap: 2px; padding-top: 8px; border-top: 1px solid #ECECE6"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{p.nowLabel}}</span><span style="font-size: 16px; line-height: 1.3">{{p.resumeTitle}}</span></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Next lesson</span><span style="font-size: 15px; line-height: 1.3; color: #3F444C">{{p.nextTitle}}</span></span><button type="button" aria-pressed="{{p.pressed}}" onClick="{{p.resume}}" style="align-self: flex-start; margin-top: auto; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #14161A; background: transparent; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">{{p.resumeLabel}}</button></div></template></div>
 </section>
 
 <section aria-labelledby="lessons-h" style="display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
 <h2 id="lessons-h" style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.015em">Your lessons</h2>
 <div role="group" aria-label="Show" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">
-<template data-for="{{views}}" data-as="v"><button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: {{v.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{v.label}}<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; opacity: 0.75">{{v.count}}</span></button></template>
+<template data-for="{{views}}" data-as="v"><button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: {{v.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{v.label}}<span style="font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; opacity: 0.75">{{v.count}}</span></button></template>
 </div>
 </div>
 <template data-if="{{noCards}}"><p style="margin: 0; padding: 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 17px; color: #3F444C">Nothing matches. Try another subject or a different word.</p></template>
 <template data-for="{{groups}}" data-as="g">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<h3 style="margin: 6px 0 0; display: flex; align-items: center; gap: 8px; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{g.color}}"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{g.color}}"></span>{{g.title}}</h3>
+<h3 style="margin: 6px 0 0; display: flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{g.color}}"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{g.color}}"></span>{{g.title}}</h3>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 14px">
 <template data-for="{{g.cards}}" data-as="c">
 <button type="button" class="lcard" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="display: flex; flex-direction: column; padding: 0; border-radius: 16px; overflow: hidden; border: 1.5px solid {{c.bd}}; background: #FFFFFF; color: #14161A; text-align: left; cursor: pointer">
@@ -324,16 +352,16 @@ input[type=range]{accent-color:#F9A826}
 <span aria-hidden="true" style="position: absolute; width: 70%; aspect-ratio: 1; right: -20%; top: -50%; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span>
 <span aria-hidden="true" style="position: absolute; left: -20%; right: -20%; bottom: -26%; height: 46%; border-radius: 50%; background: #FBF7EE"></span>
 <img src="{{c.img}}" alt="" style="position: absolute; right: 8%; bottom: 4%; height: 82%; width: auto">
-<span style="position: absolute; left: 10px; top: 10px; display: inline-flex; align-items: center; gap: 5px; min-height: 22px; padding: 0 8px; border-radius: 999px; background: {{c.badgeBg}}; color: {{c.badgeFg}}; font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 600">{{c.badge}}</span>
-<span style="position: absolute; left: 10px; bottom: 10px; min-height: 20px; padding: 1px 7px; border-radius: 6px; background: rgba(11,13,16,0.78); color: #FFFFFF; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px">{{c.dur}}</span>
+<span style="position: absolute; left: 10px; top: 10px; display: inline-flex; align-items: center; gap: 5px; min-height: 22px; padding: 0 8px; border-radius: 999px; background: {{c.badgeBg}}; color: {{c.badgeFg}}; font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 600">{{c.badge}}</span>
+<span style="position: absolute; left: 10px; bottom: 10px; min-height: 20px; padding: 1px 7px; border-radius: 6px; background: rgba(11,13,16,0.78); color: #FFFFFF; font-family: ui-monospace, Menlo, monospace; font-size: 11px">{{c.dur}}</span>
 <span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; height: 4px; width: {{c.prog}}%; background: #F9A826"></span>
 </span>
 <span style="display: flex; flex-direction: column; gap: 5px; padding: 12px 14px 14px">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; color: {{c.ink}}">{{c.subj}} · {{c.section}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; color: {{c.ink}}">{{c.subj}} · {{c.section}}</span>
 <span style="font-size: 18px; font-weight: 600; line-height: 1.2">{{c.title}}</span>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{c.when}}</span>
-<template data-if="{{c.hasHit}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #92400E; background: #FEF1D9; padding: 4px 8px; border-radius: 8px">{{c.hit}}</span></template>
-<span style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 2px; font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #3F444C"><span>{{c.notes}} notes</span><span>{{c.res}} resources</span><span>{{c.com}} comments</span></span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{c.when}}</span>
+<template data-if="{{c.hasHit}}"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #92400E; background: #FEF1D9; padding: 4px 8px; border-radius: 8px">{{c.hit}}</span></template>
+<span style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 2px; font-family: Inter, system-ui, sans-serif; font-size: 12px; color: #3F444C"><span>{{c.notes}} notes</span><span>{{c.res}} resources</span><span>{{c.com}} comments</span></span>
 </span>
 </button>
 </template>
@@ -342,50 +370,33 @@ input[type=range]{accent-color:#F9A826}
 </template>
 </section>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
-<section aria-labelledby="path-h" style="flex: 3 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
-<h2 id="path-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">{{outlineTitle}}</h2>
-<a href="map.html" style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; font-weight: 500">See it on My learning map →</a>
-</div>
-<div aria-hidden="true" style="height: 8px; border-radius: 4px; background: #ECECE6; overflow: hidden"><div style="width: {{outlinePct}}%; height: 100%; background: {{pColor}}; border-radius: 4px"></div></div>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{outlineMeta}}</span>
-<template data-for="{{outline}}" data-as="s">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<h3 style="margin: 6px 0 2px; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #3F444C">{{s.name}}</h3>
-<template data-for="{{s.items}}" data-as="o">
-<button type="button" class="tline" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 6px 10px; border-radius: 12px; border: 1px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; text-align: left; cursor: pointer">
-<span aria-hidden="true" style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: {{o.iconBg}}; color: {{o.iconFg}}; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="{{o.icon}}"/></svg></span>
-<span style="flex: 1; min-width: 0; font-size: 16.5px; font-weight: 600">{{o.title}}</span>
-<span style="flex: none; font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #62676F; text-align: right">{{o.meta}}</span>
-</button>
-</template>
-</div>
-</template>
-</section>
 
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+
+
+<div style="flex: 3 1 520px; min-width: 0"><dc-import name="Calendar" focus="lesson" ui-theme="{{uiTheme}}" on-open="{{calOpen}}"></dc-import></div>
 <section aria-labelledby="cards-h" style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
 <h2 id="cards-h" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Review cards</h2>
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{cardMeta}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{cardMeta}}</span>
 </div>
 <template data-if="{{hasCard}}">
 <div class="{{cardAnim}}" style="position: relative; min-height: 210px; padding: 22px; border-radius: 18px; background: {{cardBg}}; color: {{cardFg}}; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 16px 30px -22px rgba(20,22,26,0.6)">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8">{{cardSide}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8">{{cardSide}}</span>
 <template data-if="{{showFront}}">
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 600">{{cardFront}}</span>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <label for="cardans" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your answer</label>
-<input id="cardans" type="text" value="{{cardAns}}" onChange="{{setCardAns}}" onKeyDown="{{cardKey}}" placeholder="Type your answer" autoComplete="off" style="flex: 1 1 180px; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: none; background: rgba(255,255,255,0.95); color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 15px">
-<button type="button" onClick="{{checkCard}}" style="flex: none; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Check</button>
+<input id="cardans" type="text" value="{{cardAns}}" onChange="{{setCardAns}}" onKeyDown="{{cardKey}}" placeholder="Type your answer" autoComplete="off" style="flex: 1 1 180px; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: none; background: rgba(255,255,255,0.95); color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 15px">
+<button type="button" onClick="{{checkCard}}" style="flex: none; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">Check</button>
 </div>
-<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: inherit; opacity: 0.8; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">Show the answer without typing</button>
+<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: inherit; opacity: 0.8; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">Show the answer without typing</button>
 </template>
 <template data-if="{{showBack}}">
-<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: {{verdictBg}}; color: {{verdictFg}}; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; font-weight: 700">{{verdict}}</span>
-<template data-if="{{hasMine}}"><span style="font-family: Geist, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">You wrote: <b>{{cardMine}}</b></span></template>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: {{verdictBg}}; color: {{verdictFg}}; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; font-weight: 700">{{verdict}}</span>
+<template data-if="{{hasMine}}"><span style="font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #3F444C">You wrote: <b>{{cardMine}}</b></span></template>
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; line-height: 1.35">{{cardBack}}</span>
-<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: #1E40AF; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">See the question again</button>
+<button type="button" onClick="{{flip}}" style="align-self: flex-start; min-height: 32px; padding: 0; border: none; background: transparent; color: #1E40AF; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; text-decoration: underline; cursor: pointer">See the question again</button>
 </template>
 </div>
 <div style="display: flex; gap: 8px">
@@ -403,7 +414,7 @@ input[type=range]{accent-color:#F9A826}
 <div aria-hidden="true" style="display: flex; gap: 6px">
 <template data-for="{{dots}}" data-as="d"><span style="flex: 1; height: 5px; border-radius: 3px; background: {{d.bg}}"></span></template>
 </div>
-<p style="margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #62676F">Cards are made from your lessons and notes. Spaced retrieval: the ones you miss come back sooner.</p>
+<p style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; color: #62676F">Cards are made from your lessons and notes. Spaced retrieval: the ones you miss come back sooner.</p>
 </section>
 </div>
 
@@ -413,17 +424,17 @@ input[type=range]{accent-color:#F9A826}
 <div role="dialog" aria-modal="true" aria-label="{{vwTitle}}" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.72); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
 <div class="fadein" style="width: min(820px, 100%); max-height: calc(100vh - 32px); background: #FFFFFF; border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6)">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 14px 16px; border-bottom: 1px solid #ECECE6">
-<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 19px; font-weight: 600; line-height: 1.2">{{vwTitle}}</span><span style="font-family: Geist, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{vwMeta}}</span></div>
-<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #3F444C">{{vwCount}}</span>
-<button type="button" onClick="{{vwZoom}}" aria-pressed="{{vwZoomA}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13px; cursor: pointer">{{vwZoomLabel}}</button>
-<a href="{{vwUrl}}" download="{{vwFile}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none">Download {{vwExt}}</a>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 19px; font-weight: 600; line-height: 1.2">{{vwTitle}}</span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: #62676F">{{vwMeta}}</span></div>
+<span style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; color: #3F444C">{{vwCount}}</span>
+<button type="button" onClick="{{vwZoom}}" aria-pressed="{{vwZoomA}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; cursor: pointer">{{vwZoomLabel}}</button>
+<a href="{{vwUrl}}" download="{{vwFile}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none">Download {{vwExt}}</a>
 <button type="button" aria-label="Close" onClick="{{vwClose}}" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; font-size: 18px">×</button>
 </div>
 <div style="flex: 1; min-height: 0; overflow: auto; background: #ECECE6; padding: 16px">
 <div style="position: relative; width: {{vwWidth}}; max-width: none; margin: 0 auto; aspect-ratio: 640 / 905; overflow: hidden; background: #FFFFFF; box-shadow: 0 10px 30px -18px rgba(20,22,26,0.5)">
 <img src="{{vwSheet}}" alt="{{vwAlt}}" style="position: absolute; width: 400%; height: 300%; left: {{vwLeft}}%; top: {{vwTop}}%; max-width: none"></div>
 </div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid #ECECE6; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid #ECECE6; font-family: Inter, system-ui, sans-serif">
 <button type="button" onClick="{{vwPrev}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer; opacity: {{vwPrevOp}}">← Previous page</button>
 <span style="font-size: 12.5px; color: #62676F">{{vwHint}}</span>
 <button type="button" onClick="{{vwNext}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13px; cursor: pointer; opacity: {{vwNextOp}}">Next page →</button>
@@ -435,23 +446,25 @@ input[type=range]{accent-color:#F9A826}
 <template data-if="{{practiceOpen}}">
 <div role="dialog" aria-modal="true" aria-label="{{prTitle}}" style="position: fixed; inset: 0; z-index: 80; background: rgba(11,13,16,0.72); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
 <div class="fadein" style="width: min(620px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: #FFFFFF; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6)">
-<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{prInk}}">{{prCount}}</span><span style="font-size: 22px; font-weight: 600; line-height: 1.2">{{prTitle}}</span></div><button type="button" aria-label="Close" onClick="{{prClose}}" style="flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; font-size: 18px">×</button></div>
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{prInk}}">{{prCount}}</span><span style="font-size: 22px; font-weight: 600; line-height: 1.2">{{prTitle}}</span></div><button type="button" aria-label="Close" onClick="{{prClose}}" style="flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; font-size: 18px">×</button></div>
 <div aria-hidden="true" style="display: flex; gap: 6px"><template data-for="{{prDots}}" data-as="d"><span style="flex: 1; height: 5px; border-radius: 3px; background: {{d.bg}}"></span></template></div>
 <template data-if="{{prActive}}">
 <p style="margin: 0; font-size: 21px; line-height: 1.35; font-weight: 600">{{prQ}}</p>
-<template data-if="{{prIsMc}}"><div role="group" aria-label="Choices" style="display: flex; flex-direction: column; gap: 8px"><template data-for="{{prOpts}}" data-as="o"><button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="min-height: 48px; padding: 8px 16px; border-radius: 14px; border: 1.5px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; text-align: left; font-family: Geist, system-ui, sans-serif; font-size: 15px; cursor: pointer">{{o.t}}</button></template></div></template>
-<template data-if="{{prIsNum}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><label for="prnum" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your answer</label><input id="prnum" type="text" inputMode="decimal" value="{{prVal}}" onChange="{{prSet}}" onKeyDown="{{prKey}}" placeholder="Your answer" style="flex: 1 1 160px; min-height: 46px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; font-size: 16px"><button type="button" onClick="{{prCheck}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Check</button></div></template>
+<template data-if="{{prIsMc}}"><div role="group" aria-label="Choices" style="display: flex; flex-direction: column; gap: 8px"><template data-for="{{prOpts}}" data-as="o"><button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="min-height: 48px; padding: 8px 16px; border-radius: 14px; border: 1.5px solid {{o.bd}}; background: {{o.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; font-size: 15px; cursor: pointer">{{o.t}}</button></template></div></template>
+<template data-if="{{prIsNum}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><label for="prnum" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">Your answer</label><input id="prnum" type="text" inputMode="decimal" value="{{prVal}}" onChange="{{prSet}}" onKeyDown="{{prKey}}" placeholder="Your answer" style="flex: 1 1 160px; min-height: 46px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid #CFCFC6; font-size: 16px"><button type="button" onClick="{{prCheck}}" style="min-height: 46px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">Check</button></div></template>
 <template data-if="{{prAnswered}}"><div class="fadein" style="border-radius: 14px; padding: 12px 14px; background: {{prFbBg}}; display: flex; flex-direction: column; gap: 4px"><b style="font-size: 17px; color: {{prFbFg}}">{{prFb}}</b><span style="font-size: 16px; line-height: 1.45; color: #3F444C">{{prEx}}</span></div><button type="button" onClick="{{prNext}}" style="align-self: flex-end; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #14161A; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">{{prNextLabel}}</button></template>
 </template>
 <template data-if="{{prDone}}"><div class="fadein" style="border-radius: 16px; padding: 18px; background: #DDF4F1; display: flex; flex-direction: column; gap: 8px"><b style="font-size: 24px; color: #115E59">{{prScore}}</b><span style="font-size: 16.5px; line-height: 1.5; color: #134E4A">{{prDoneMsg}}</span><div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" onClick="{{prRetry}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #8FD3C9; background: #FFFFFF; color: #115E59; font-size: 14px; font-weight: 600; cursor: pointer">Try again</button><button type="button" onClick="{{prClose}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: #0F766E; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Done</button></div></div></template>
 </div>
 </div>
 </template>
+
+<footer style="margin-top: 56px; padding-top: 12px; border-top: 1px solid #E2E2DA; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F"><nav aria-label="{{svT.policies}}" style="display: flex; flex-wrap: wrap; gap: 0 18px"><a href="mailto:hello@vachuo.com?subject=Help" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.help}}</a><a href="privacy.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.privacy}}</a><a href="terms.html" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.terms}}</a><a href="mailto:hello@vachuo.com" style="color: #3F444C; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">{{svT.contact}}</a></nav><span style="margin-left: auto">© 2026 Vachuo™</span><div role="group" aria-label="{{svT.language}}" style="display: inline-flex; align-items: center; gap: 2px; padding: 3px 3px 3px 12px; border-radius: 999px; background: #ECECE6; color: #3F444C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" style="margin-right: 4px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><button type="button" aria-pressed="{{svEnOn}}" onClick="{{svLangEn}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svEnBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">English</button><button type="button" aria-pressed="{{svSwOn}}" onClick="{{svLangSw}}" style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: none; background: {{svSwBgL}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">Kiswahili</button></div></footer>
 </main>
 </div>
 </template>
 <template id="dc-Approvals">
-<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
 
 <template data-if="{{isParent}}">
 <section aria-labelledby="ap-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
@@ -490,9 +503,84 @@ input[type=range]{accent-color:#F9A826}
 
 </div>
 </template>
+<template id="dc-Calendar">
+<div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, sans-serif">
+<section aria-labelledby="cal2-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 id="cal2-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600">{{title}}</h2><span style="font-size: 13px; color: #62676F">One calendar for lesson premieres, club sessions and assessments</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<div role="group" aria-label="View" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: #ECECE6"><template data-for="{{views}}" data-as="v"><button type="button" aria-pressed="{{v.on}}" onClick="{{v.pick}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">{{v.label}}</button></template></div>
+<button type="button" aria-label="{{prevLabel}}" onClick="{{prev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{prevOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" aria-label="{{nextLabel}}" onClick="{{next}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; cursor: pointer; opacity: {{nextOp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+</div></div>
+<div role="group" aria-label="Show" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{filters}}" data-as="f"><button type="button" aria-pressed="{{f.on}}" onClick="{{f.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{f.bd}}; background: {{f.bg}}; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 3px; background: {{f.dot}}"></span>{{f.label}} <span style="color: #62676F; font-weight: 500">{{f.n}}</span></button></template>
+</div>
+<template data-if="{{isWeek}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+<template data-for="{{days}}" data-as="d"><div style="display: flex; flex-direction: column; gap: 6px; min-height: 180px; padding: 8px; border-radius: 14px; background: {{d.bg}}; border: 1px solid #ECECE6">
+<span style="font-size: 12.5px; font-weight: 600; color: #3F444C">{{d.label}}</span>
+<template data-for="{{d.ev}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-direction: column; gap: 2px; width: 100%; padding: 6px 8px; border-radius: 10px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer"><span style="font-size: 11.5px; font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span style="font-size: 12.5px; line-height: 1.3">{{e.title}}</span></button></template>
+</div></template>
+</div></div>
+</template>
+<template data-if="{{isMonth}}">
+<div style="overflow-x: auto"><div style="min-width: 700px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<template data-for="{{dow}}" data-as="w"><span style="padding: 0 4px; font-size: 12px; font-weight: 600; color: #62676F">{{w}}</span></template>
+<template data-for="{{cells}}" data-as="c"><button type="button" aria-pressed="{{c.on}}" aria-label="{{c.aria}}" onClick="{{c.pick}}" style="display: flex; flex-direction: column; align-items: stretch; gap: 4px; min-height: 92px; padding: 6px; border-radius: 12px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; cursor: pointer; opacity: {{c.op}}"><span style="font-size: 13px; font-weight: 600">{{c.n}}</span><template data-for="{{c.ev}}" data-as="e"><span style="display: block; padding: 2px 6px; border-radius: 6px; background: {{e.bg}}; color: {{e.fg}}; font-size: 11px; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{e.title}}</span></template><template data-if="{{c.hasMore}}"><span style="font-size: 11px; color: #62676F">{{c.more}}</span></template></button></template>
+</div></div>
+<template data-if="{{hasDay}}"><div style="display: flex; flex-direction: column; gap: 6px"><h3 style="margin: 0; font-size: 15px; font-weight: 600">{{dayLabel}}</h3><template data-for="{{dayEv}}" data-as="e"><button type="button" aria-pressed="{{e.on}}" onClick="{{e.pick}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 44px; padding: 6px 12px; border-radius: 12px; border: 1.5px solid {{e.bd}}; background: {{e.bg}}; color: #14161A; text-align: left; font-family: Inter, system-ui, sans-serif; font-size: 14px; cursor: pointer"><span style="font-weight: 700; color: {{e.fg}}">{{e.time}} · {{e.kindShort}}</span><span>{{e.title}}</span></button></template><template data-if="{{dayEmpty}}"><p style="margin: 0; font-size: 14px; color: #62676F">Nothing on this day.</p></template></div></template>
+</template>
+<template data-if="{{hasSel}}">
+<div aria-live="polite" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 16px; border-radius: 14px; background: {{sel.bg}}">
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: {{sel.fg}}">{{sel.kindLabel}} · {{sel.subject}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600; line-height: 1.2">{{sel.title}}</span><span style="font-size: 13.5px; color: #3F444C">{{sel.when}} · {{sel.where}}</span><template data-if="{{sel.hasNote}}"><span style="font-size: 13.5px; color: {{sel.fg}}; font-weight: 600">{{sel.note}}</span></template></div>
+<template data-if="{{sel.useBtn}}"><button type="button" onClick="{{sel.open}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer">{{sel.openLabel}}</button></template>
+<template data-if="{{sel.useLink}}"><a href="{{sel.href}}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; text-decoration: none">{{sel.openLabel}}</a></template>
+</div>
+</template>
+</section>
+</div>
+</template>
 <script>
 DC.component("Notes", function () {
 class Component extends DCLogic {
+  svDict() { return {"en": {"navHow": "How the system works", "navPricing": "Pricing", "navAbout": "About", "abWp": "White paper", "abWpD": "The full argument and the evidence", "abBlog": "Blog", "abBlogD": "The Vachuo Journal", "abNews": "Newsroom", "abNewsD": "News, press kit and channels", "abCar": "Careers", "abCarD": "Build the school with us", "abVis": "Vision, mission & values", "abVisD": "Why we exist and how we work", "signIn": "Sign in", "access": "Request early access", "darkMode": "Dark mode", "home": "Vachuo home", "tagline": "The operating system for individualised learning.", "fProduct": "Product", "fTour": "Product tour", "fLoop": "The loop inside Vachuo", "fCopilot": "Parent copilot", "fStart": "Get started", "fSetup": "Set up a learner", "fLearn": "Learn", "fToday": "Today", "fTutor": "My tutor", "fMap": "My learning map", "fClasses": "My classes", "fAssess": "My assessments", "fPortfolio": "Portfolio", "fCommunity": "Community", "fClubs": "Clubs", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Trust and safety", "fSafety": "Children’s safety", "fPrivacyAI": "AI and data privacy", "fApprovals": "How approvals work", "fAbout": "About", "fSupport": "Support", "fPress": "Press kit", "fFollow": "Follow Vachuo", "terms": "Terms of use", "privacy": "Privacy policy", "cookies": "Cookie choices", "language": "Language", "help": "Help", "contact": "Contact", "policies": "Help and policies", "swNotice": "", "ckTitle": "Cookie choices", "ckBody": "Vachuo uses essential cookies to keep you signed in and remember your settings. With your permission we would also use analytics cookies to learn which pages help families most. We never use advertising cookies.", "ckEss": "Essential only", "ckAll": "Allow analytics", "ckChoose": "Choose", "ckEssT": "Essential", "ckEssD": "Sign-in, security, and your theme and language.", "ckAlways": "Always on", "ckAnaT": "Analytics", "ckAnaD": "Counts of page visits that don’t identify you. Off unless you turn it on.", "ckSave": "Save choices", "ckCancel": "Cancel", "ckLater": "You can change this at any time from Cookie choices at the bottom of every page.", "ckOn": "On", "ckOff": "Off"}, "sw": {"navHow": "Jinsi mfumo unavyofanya kazi", "navPricing": "Bei", "navAbout": "Kuhusu", "abWp": "Waraka rasmi", "abWpD": "Hoja kamili na ushahidi wake", "abBlog": "Blogu", "abBlogD": "Jarida la Vachuo", "abNews": "Habari", "abNewsD": "Habari, vifaa vya wanahabari na chaneli", "abCar": "Ajira", "abCarD": "Jenga shule pamoja nasi", "abVis": "Maono, dhamira na maadili", "abVisD": "Kwa nini tupo na jinsi tunavyofanya kazi", "signIn": "Ingia", "access": "Omba nafasi ya mapema", "darkMode": "Hali ya giza", "home": "Ukurasa wa mwanzo wa Vachuo", "tagline": "Mfumo endeshi wa ujifunzaji unaomlenga kila mwanafunzi.", "fProduct": "Bidhaa", "fTour": "Ziara ya bidhaa", "fLoop": "Mzunguko ndani ya Vachuo", "fCopilot": "Msaidizi wa mzazi", "fStart": "Anza hapa", "fSetup": "Mwandikishe mwanafunzi", "fLearn": "Jifunze", "fToday": "Leo", "fTutor": "Mkufunzi wangu", "fMap": "Ramani yangu ya kujifunza", "fClasses": "Madarasa yangu", "fAssess": "Tathmini zangu", "fPortfolio": "Jalada la kazi", "fCommunity": "Jamii", "fClubs": "Vilabu", "fShowcase": "Showcase", "fConnects": "Connects", "fTrust": "Usalama na uaminifu", "fSafety": "Usalama wa watoto", "fPrivacyAI": "AI na faragha ya data", "fApprovals": "Jinsi idhini zinavyofanya kazi", "fAbout": "Kuhusu", "fSupport": "Msaada", "fPress": "Vifaa vya wanahabari", "fFollow": "Fuata Vachuo", "terms": "Masharti ya matumizi", "privacy": "Sera ya faragha", "cookies": "Chaguo za vidakuzi", "language": "Lugha", "help": "Msaada", "contact": "Wasiliana nasi", "policies": "Msaada na sera", "swNotice": "Baadhi ya maandishi ya ukurasa huu bado yako kwa Kiingereza. Tunaendelea kutafsiri.", "ckTitle": "Chaguo za vidakuzi", "ckBody": "Vachuo hutumia vidakuzi muhimu ili uendelee kuingia na mipangilio yako ikumbukwe. Ukiruhusu, tungetumia pia vidakuzi vya takwimu kujua kurasa zipi zinasaidia familia zaidi. Hatutumii kamwe vidakuzi vya matangazo.", "ckEss": "Muhimu pekee", "ckAll": "Ruhusu takwimu", "ckChoose": "Chagua", "ckEssT": "Muhimu", "ckEssD": "Kuingia, usalama, pamoja na mandhari na lugha yako.", "ckAlways": "Kila wakati", "ckAnaT": "Takwimu", "ckAnaD": "Hesabu za kutembelea kurasa zisizokutambulisha. Huzimwa hadi uziwashe.", "ckSave": "Hifadhi chaguo", "ckCancel": "Ghairi", "ckLater": "Unaweza kubadilisha hili wakati wowote kupitia Chaguo za vidakuzi chini ya kila ukurasa.", "ckOn": "Imewashwa", "ckOff": "Imezimwa"}}; }
+  siteVals() {
+    if (this._svOn === undefined) {
+      this._svOn = true; this._svD = this.svDict();
+      let lg = 'en', ck = null;
+      try { if (window.localStorage.getItem('vachuo-lang') === 'sw') lg = 'sw'; } catch (e) {}
+      try { ck = JSON.parse(window.localStorage.getItem('vachuo-cookies') || 'null'); } catch (e) {}
+      this._svLg = lg; this._svCk = ck; this._svPanel = false; this._svAna = !!(ck && ck.analytics);
+      const save = (k, v) => { try { window.localStorage.setItem(k, v); } catch (e) {} };
+      const setLang = (l) => { this._svLg = l; save('vachuo-lang', l); this.forceUpdate(); };
+      const setCk = (a) => { this._svCk = { analytics: a, decided: true }; this._svAna = a; this._svPanel = false; save('vachuo-cookies', JSON.stringify(this._svCk)); this.forceUpdate(); };
+      this._svSync = (e) => {
+        if (!e) return;
+        if (e.key === 'vachuo-lang') { this._svLg = e.newValue === 'sw' ? 'sw' : 'en'; this.forceUpdate(); }
+        if (e.key === 'vachuo-cookies') { try { this._svCk = JSON.parse(e.newValue || 'null'); } catch (x) {} this.forceUpdate(); }
+      };
+      try { window.addEventListener('storage', this._svSync); } catch (e) {}
+      this._svH = {
+        svLangEn: () => setLang('en'), svLangSw: () => setLang('sw'),
+        svCkAll: () => setCk(true), svCkEss: () => setCk(false),
+        svCkOpen: () => { this._svPanel = true; this._svAna = !!(this._svCk && this._svCk.analytics); this.forceUpdate(); },
+        svCkClose: () => { this._svPanel = false; this.forceUpdate(); },
+        svCkFlip: () => { this._svAna = !this._svAna; this.forceUpdate(); },
+        svCkSave: () => setCk(this._svAna)
+      };
+    }
+    const sw = this._svLg === 'sw', ana = this._svAna;
+    return Object.assign({}, this._svH, {
+      svT: sw ? this._svD.sw : this._svD.en, svLang: sw ? 'sw' : 'en',
+      svEnOn: sw ? 'false' : 'true', svSwOn: sw ? 'true' : 'false',
+      svEnBg: sw ? 'transparent' : '#EDEDE8', svEnFg: sw ? '#C9CCD0' : '#0B0D10', svSwBg: sw ? '#EDEDE8' : 'transparent', svSwFg: sw ? '#0B0D10' : '#C9CCD0',
+      svEnBgL: sw ? 'transparent' : '#FFFFFF', svSwBgL: sw ? '#FFFFFF' : 'transparent',
+      svSwNotice: sw && !this._svFull, svCkBanner: !this._svCk && !this._svPanel, svCkPanel: this._svPanel,
+      svCkAnaOn: ana ? 'true' : 'false', svCkAnaLabel: ana ? (sw ? this._svD.sw.ckOn : this._svD.en.ckOn) : (sw ? this._svD.sw.ckOff : this._svD.en.ckOff),
+      svCkTrack: ana ? '#1D4ED8' : '#8A8F96', svCkKnob: ana ? '19px' : '3px'
+    });
+  }
   themeVals() {
     if (this._uiT === undefined) {
       let t = 'light';
@@ -520,7 +608,7 @@ class Component extends DCLogic {
     });
     const first = this.L.find((x) => x.id === 'm-scale');
     this.state = { subj: 'all', q: '', cur: 'm-scale', t: first && first.tr[6] ? Math.floor(first.tr[6][0]) : 0, playing: false, speed: 1, cc: true, tab: 'transcript', tq: '',
-      notes, comments, draft: '', cdraft: '', liked: {}, react: {}, sort: 'top', view: 'all', remind: {}, watched: {}, evidence: false, msg: '',
+      notes, comments, draft: '', cdraft: '', liked: {}, react: {}, sort: 'top', view: 'all', remind: {}, watched: {}, evidence: false, msg: '', soc: {}, socDraft: '',
       ci: 0, back: false, known: {}, again: 0, cardAns: '', cardMine: '', cardOk: null,
       vol: 0.9, muted: false, pending: [], padOpen: false, padDirty: false, tool: 'pen', ink: '#1D4ED8', viewer: null, pr: null };
   }
@@ -544,7 +632,7 @@ class Component extends DCLogic {
 
   lessons() {
     const BOT = 'assets/img/0c75bc9692da27254751a0429889be23.webp';
-    const TUTOR = { name: 'Socrates', role: 'AI tutor · checked by a human teacher', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' };
+    const TUTOR = { name: 'Socrates', role: 'AI tutor · your guide decides what counts', img: 'assets/img/2e56785cbdd423153ab096cdead1668c.svg' };
     const L = (id, o) => Object.assign({ id, notes: [], com: [], ideas: [], refs: [], host: TUTOR, live: false }, o);
     return [
       L('m-scale', { subj: 'math', sec: 'Section 3 · Ratios', so: 3, title: 'Scaling recipes: why adding doesn’t work', dur: 860, status: 'now', day: 0, when: 'Started Sat 31 Oct · due before Wednesday’s reassessment', prog: 46,
@@ -796,7 +884,45 @@ class Component extends DCLogic {
     }
     return out;
   }
-  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals(), this.pathVals(), this.socVals()); }
+  pathVals() {
+    const st = this.state, S = this.subjects(), cur = this.cur();
+    const watched = (x) => x.status === 'past' || !!st.watched[x.id];
+    const paths = Object.keys(S).map((k) => {
+      const ss = S[k]; const ls = this.L.filter((x) => x.subj === k).sort((a, b) => a.so - b.so || a.day - b.day);
+      if (!ls.length) return null;
+      const done = ls.filter(watched).length;
+      const now = ls.find((x) => x.status === 'now' && !st.watched[x.id]) || ls.find((x) => x.status !== 'next' && !watched(x));
+      const up = ls.filter((x) => x.status === 'next').sort((a, b) => a.day - b.day);
+      const resume = now || up[0] || ls[ls.length - 1];
+      const nxt = (now ? up[0] : up[1]) || null;
+      const on = cur.subj === k;
+      return { name: ss.name, level: 'Level ' + ss.level.slice(1), path: ss.path, color: ss.color, ink: ss.ink, pct: String(Math.round(done / ls.length * 100)), pctLabel: done + ' of ' + ls.length + ' lessons watched',
+        nowLabel: now ? 'Up now' : (up[0] ? 'Coming up' : 'Last watched'), resumeTitle: resume.title,
+        nextTitle: nxt ? nxt.title + ' · ' + nxt.when.replace('Premieres ', '') : 'Your guide plans the next lessons after this one.',
+        resumeLabel: now ? ((now.prog || 0) > 0 ? 'Resume' : 'Start') : (up[0] ? 'Preview' : 'Watch again'), resume: () => this.load(resume.id), pressed: on ? 'true' : 'false', bd: on ? ss.color : '#E2E2DA' };
+    }).filter(Boolean);
+    return { paths, calOpen: (e) => { if (e && e.kind === 'lesson' && this.L.some((x) => x.id === e.ref)) this.load(e.ref); } };
+  }
+  socVals() {
+    const st = this.state, l = this.cur(), S = this.subjects(), ss = S[l.subj];
+    const t = Math.min(st.t, this.durOf(l)); const at = this.mmss(t);
+    const ideas = l.ideas || [];
+    const EX = { math: 'A matatu fare: if 3 trips cost 150 shillings, 1 trip costs 50, so 7 trips cost 350. Find the cost of one first.', reading: 'A proverb works the same way: “Haba na haba hujaza kibaba” says small things add up without saying it directly.', kiswahili: 'Kitabu kizuri, vitabu vizuri: the adjective changes with the noun class, ki- to vi-.', science: 'Two bean plants, same soil and water, one in the dark: only the light changes, so it is a fair test.', social: 'Your route to the market is a map story: where you start, what you pass, and why the road bends.', making: 'A torch is a simple circuit: battery, switch, bulb, and wires that make a full loop.' };
+    const seed = [{ who: 'tutor', text: 'I’m following along at ' + at + '. Ask me anything about “' + l.title + '”, or pick one of these.' }];
+    const msgs = (st.soc[l.id] || seed);
+    const push = (mine, reply) => { const list = (st.soc[l.id] || seed).concat(mine ? [{ who: 'me', text: mine }] : [], [{ who: 'tutor', text: reply }]); const soc = Object.assign({}, st.soc); soc[l.id] = list; this.setState({ soc, socDraft: '' }); };
+    const ask = () => { const q = (st.socDraft || '').trim(); if (!q) return; push(q, 'Good question. Before I answer, what do you already know about it? Point me to the moment in the lesson where you got stuck, around ' + at + '.'); };
+    const PS = this.practice()[l.id];
+    const chips = [
+      ['Explain it another way', 'Hear the idea from a different angle', () => push('Explain it another way', 'Another way to see it: ' + (ideas[0] || l.title) + ' Can you say it back to me in your own words?')],
+      ['Give me a hint', 'A nudge, never the answer', () => push('Give me a hint', 'A hint, not the answer: ' + (ideas[1] || ideas[0] || 'look at what stays the same and what changes') + ' What would you try first?')],
+      ['Show an example', 'An everyday example', () => push('Show an example', EX[l.subj] || EX.math)],
+      ['Test me', 'Practice only. It never counts and never runs during an assessment.', () => { if (PS && PS.length) { push('Test me', 'Practice round, it won’t change your map. Opening ' + PS.length + ' questions on this lesson.'); this.setState({ pr: { title: 'Test me · ' + l.title, i: 0, picks: [], vals: [], done: false } }); } else push('Test me', 'There’s no practice set for this lesson yet. Quick check instead: explain “' + (ideas[0] || l.title) + '” in one sentence, and I’ll tell you what’s missing.'); }]
+    ].map(([label, tip, go]) => ({ label, tip, go }));
+    return { socCtx: ss.name + ' · ' + l.title + ' · at ' + at, socMsgs: msgs.map((m) => ({ text: m.text, align: m.who === 'me' ? 'flex-end' : 'flex-start', bg: m.who === 'me' ? '#FEF1D9' : '#F4F7FE' })), socChips: chips,
+      socDraft: st.socDraft || '', socSet: (e) => this.setState({ socDraft: e.target.value }), socKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); ask(); } }, socSend: ask };
+  }
   pageVals() {
     const st = this.state;
     const S = this.subjects();
@@ -1069,6 +1195,91 @@ class Component extends DCLogic {
 }
 return Component;
 }, {"area": "parent", "embedded": false});
+
+DC.component("Calendar", function () {
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { wk: 0, mo: 0, f: null, sel: null, day: null, view: null }; }
+  themeVals() {
+    if (this._uiT === undefined) { let t = 'light'; try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {} this._uiT = t; }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT;
+    return { uiTheme: t };
+  }
+  events() {
+    const E = (id, kind, ref, d, time, title, subject, where, note) => ({ id, kind, ref, d, time, title, subject, where, note: note || '' });
+    return [
+      E('l1', 'lesson', 'r-metaphor', '2026-11-03', '11:00', 'Metaphors that hide in plain sight', 'Reading', 'Premiere in My classes'),
+      E('l2', 'lesson', 'm-tables', '2026-11-04', '10:00', 'Ratio tables and double number lines', 'Maths', 'Premiere in My classes'),
+      E('l3', 'lesson', 'k-adj', '2026-11-05', '10:00', 'Upatanisho wa vivumishi', 'Kiswahili', 'Premiere in My classes'),
+      E('l4', 'lesson', 'ss-maps', '2026-11-07', '10:00', 'Mapping stories onto streets', 'Social Studies', 'Premiere in My classes'),
+      E('c1', 'club', 'scratch', '2026-11-03', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c2', 'club', 'chess-ladder', '2026-11-05', '17:00', 'Chess ladder · round 4', 'Games', 'Online'),
+      E('c3', 'club', 'kisw-circle', '2026-11-06', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c4', 'club', 'bao', '2026-11-07', '10:00', 'Bao la Kiswahili', 'Games', 'Kilimani Library · in person', 'In person: waits for a parent’s yes'),
+      E('c5', 'club', 'virtual-run', '2026-11-08', '07:00', 'Virtual 5 km run', 'Sport', 'Anywhere'),
+      E('c6', 'club', 'scratch', '2026-11-10', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('c7', 'club', 'chess-ladder', '2026-11-12', '17:00', 'Chess ladder · round 5', 'Games', 'Online'),
+      E('c8', 'club', 'kisw-circle', '2026-11-13', '16:00', 'Kiswahili reading circle', 'Kiswahili', 'Online'),
+      E('c9', 'club', 'scratch', '2026-11-17', '16:00', 'Scratch club', 'Making', 'Online'),
+      E('a1', 'assess', 'm-re', '2026-11-04', '10:30', 'Reassessment · Scaling recipes', 'Maths', 'Closed workspace · 20 min'),
+      E('a2', 'assess', 'k-wk9', '2026-11-05', '17:00', 'Andika · Wiki 9 due', 'Kiswahili', 'Take-home'),
+      E('a3', 'assess', 'm-wk9', '2026-11-06', '17:00', 'Problem set 9 due', 'Maths', 'Take-home'),
+      E('a4', 'assess', 'k-cat3', '2026-11-09', '10:00', 'CAT 3 · Vivumishi', 'Kiswahili', 'Closed workspace · 25 min'),
+      E('a5', 'assess', 'r-cat3', '2026-11-10', '11:00', 'CAT 3 · Metaphor', 'Reading', 'Closed workspace · 25 min'),
+      E('a6', 'assess', 'sc-cat3', '2026-11-11', '10:00', 'CAT 3 · Soil and water', 'Science', 'Closed workspace · 25 min'),
+      E('a7', 'assess', 'm-cat4', '2026-11-12', '10:00', 'CAT 4 · Map scale', 'Maths', 'Closed workspace · 30 min'),
+      E('a8', 'assess', 'k-wk10', '2026-11-12', '17:00', 'Andika · Wiki 10 due', 'Kiswahili', 'Take-home'),
+      E('a9', 'assess', 'sc-prac2', '2026-11-13', '14:00', 'Practical · Soil drainage', 'Science', 'With Dr. Wairimu · 90 min'),
+      E('a10', 'assess', 'm-wk10', '2026-11-13', '17:00', 'Problem set 10 due', 'Maths', 'Take-home'),
+      E('a11', 'assess', 'k-wk11', '2026-11-19', '17:00', 'Andika · Wiki 11 due', 'Kiswahili', 'Take-home'),
+      E('a12', 'assess', 'm-wk11', '2026-11-20', '17:00', 'Problem set 11 due', 'Maths', 'Take-home'),
+      E('a13', 'assess', 'm-final', '2026-11-23', '09:00', 'Final exam · Maths', 'Maths', 'Closed workspace · 75 min'),
+      E('a14', 'assess', 'k-final', '2026-11-24', '09:00', 'Mtihani wa mwisho · Kiswahili', 'Kiswahili', 'Closed workspace · 60 min'),
+      E('a15', 'assess', 'r-final', '2026-11-24', '11:30', 'Final exam · Reading', 'Reading', 'Closed workspace · 60 min'),
+      E('a16', 'assess', 'm-proj', '2026-11-25', '15:00', 'Project · Lunch for 40 due', 'Maths', 'Group and individual'),
+      E('a17', 'assess', 'sc-final', '2026-11-25', '09:00', 'Final exam · Science', 'Science', 'Closed workspace · 60 min')
+    ].sort((a, b) => (a.d + a.time < b.d + b.time ? -1 : 1));
+  }
+  renderVals() {
+    const st = this.state, P = this.props || {};
+    const K = { lesson: ['Lesson premiere', 'Lesson', '#E4ECFD', '#1E40AF', '#7FA2EE', 'notes.html', 'Open in My classes'], club: ['Club session', 'Club', '#DDF4F1', '#115E59', '#8FD3C9', 'clubs.html', 'Open in Clubs'], assess: ['Assessment', 'Test', '#FEF1D9', '#92400E', '#F6DFAE', 'assessments.html', 'Open in My assessments'] };
+    const focus = P.focus && P.focus !== 'all' ? P.focus : null;
+    const f = st.f || 'all';
+    const view = st.view || (focus === 'assess' ? 'month' : 'week');
+    const all = this.events();
+    const shown = all.filter((e) => f === 'all' || e.kind === f);
+    const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const mk = (y, m, d) => new Date(Date.UTC(y, m, d));
+    const iso = (dt) => dt.toISOString().slice(0, 10);
+    const add = (dt, n) => new Date(dt.getTime() + n * 86400000);
+    const dowOf = (dt) => (dt.getUTCDay() + 6) % 7;
+    const nice = (s) => { const dt = new Date(s + 'T00:00:00Z'); return DOW[dowOf(dt)] + ' ' + dt.getUTCDate() + ' ' + MON[dt.getUTCMonth()]; };
+    const ev = (e) => { const k = K[e.kind], on = st.sel === e.id; return { title: e.title, time: e.time, kindShort: k[1], bg: k[2], fg: k[3], bd: on ? '#14161A' : k[4], on: on ? 'true' : 'false', pick: () => this.setState({ sel: on ? null : e.id }) }; };
+    const out = Object.assign(this.themeVals(), { isWeek: view === 'week', isMonth: view === 'month', days: [], cells: [], dow: DOW, hasDay: false, dayLabel: '', dayEv: [], dayEmpty: false, hasSel: false, sel: {} });
+    out.views = [['week', 'Week'], ['month', 'Month']].map(([id, label]) => ({ label, on: view === id ? 'true' : 'false', bg: view === id ? '#FFFFFF' : 'transparent', pick: () => this.setState({ view: id, sel: null, day: null }) }));
+    out.filters = [['all', 'All', '#14161A'], ['lesson', 'Lessons', '#1D4ED8'], ['club', 'Clubs', '#0D9488'], ['assess', 'Assessments', '#F9A826']].map(([id, label, dot]) => ({ label, dot, n: String(id === 'all' ? all.length : all.filter((e) => e.kind === id).length), on: f === id ? 'true' : 'false', bg: f === id ? '#F4F4EF' : '#FFFFFF', bd: f === id ? '#14161A' : '#CFCFC6', pick: () => this.setState({ f: id, sel: null }) }));
+    if (view === 'week') {
+      const wk = Math.max(0, Math.min(3, st.wk)); const start = add(mk(2026, 10, 2), wk * 7); const end = add(start, 6);
+      out.title = (wk === 0 ? 'This week · ' : 'Week of ') + start.getUTCDate() + '–' + end.getUTCDate() + ' ' + MON[end.getUTCMonth()];
+      out.days = DOW.map((w, i) => { const dt = add(start, i), s = iso(dt); return { label: w + ' ' + dt.getUTCDate(), bg: s === '2026-11-04' ? '#F4F7FE' : '#FBFBF8', ev: shown.filter((e) => e.d === s).map(ev) }; });
+      Object.assign(out, { prev: () => this.setState({ wk: Math.max(0, wk - 1), sel: null }), next: () => this.setState({ wk: Math.min(3, wk + 1), sel: null }), prevOp: wk === 0 ? 0.4 : 1, nextOp: wk === 3 ? 0.4 : 1, prevLabel: 'Previous week', nextLabel: 'Next week' });
+    } else {
+      const first = mk(2026, 10, 1); const start = add(first, -dowOf(first));
+      out.title = 'November 2026';
+      out.cells = Array.from({ length: 35 }, (x, i) => { const dt = add(start, i), s = iso(dt), inM = dt.getUTCMonth() === 10; const es = shown.filter((e) => e.d === s); const on = st.day === s;
+        return { n: String(dt.getUTCDate()), aria: nice(s) + ', ' + es.length + (es.length === 1 ? ' event' : ' events'), ev: es.slice(0, 2).map(ev), hasMore: es.length > 2, more: '+' + (es.length - 2) + ' more', bg: s === '2026-11-04' ? '#F4F7FE' : '#FFFFFF', bd: on ? '#14161A' : '#ECECE6', op: inM ? 1 : 0.5, on: on ? 'true' : 'false', pick: () => this.setState({ day: on ? null : s, sel: null }) }; });
+      if (st.day) { const es = shown.filter((e) => e.d === st.day); Object.assign(out, { hasDay: true, dayLabel: nice(st.day), dayEv: es.map(ev), dayEmpty: !es.length }); }
+      Object.assign(out, { prev: () => {}, next: () => {}, prevOp: 0.4, nextOp: 0.4, prevLabel: 'Previous month', nextLabel: 'Next month' });
+    }
+    const se = all.find((e) => e.id === st.sel);
+    if (se) { const k = K[se.kind]; const own = focus === se.kind && typeof P.onOpen === 'function';
+      out.hasSel = true; out.sel = { title: se.title, kindLabel: k[0], subject: se.subject, when: nice(se.d) + ' · ' + se.time, where: se.where, note: se.note, hasNote: !!se.note, bg: k[2], fg: k[3],
+        useBtn: own, useLink: !own && focus !== se.kind, href: k[5], openLabel: own ? (se.kind === 'assess' ? 'Open the brief' : (se.kind === 'lesson' ? 'Open the lesson' : 'Open the club')) : k[6], open: () => { try { P.onOpen({ kind: se.kind, ref: se.ref }); } catch (e) {} } }; }
+    return out;
+  }
+}
+return Component;
+}, {"focus": "all"});
 
 DC.mount("Notes");
 </script>

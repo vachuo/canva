@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
 <script src="assets/js/dc.js"></script>
@@ -17,12 +17,12 @@
 <template id="dc-Compare">
 <section data-theme="{{uiTheme}}" aria-labelledby="cmp-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; overflow: hidden; color: #14161A; font-family: 'EB Garamond', Garamond, Georgia, serif">
 <div style="padding: 20px 22px 16px; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid #ECECE6">
-<span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">{{eyebrow}}</span>
+<span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">{{eyebrow}}</span>
 <h2 id="cmp-h" style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; font-weight: 600">{{title}}</h2>
 <p style="margin: 0; font-size: 16.5px; line-height: 1.5; color: #3F444C; max-width: 820px">{{sub}}</p>
 </div>
 
-<div style="padding: 16px 22px; display: flex; flex-direction: column; gap: 10px; background: #FAFAF7; border-bottom: 1px solid #ECECE6; font-family: Geist, system-ui, sans-serif">
+<div style="padding: 16px 22px; display: flex; flex-direction: column; gap: 10px; background: #FAFAF7; border-bottom: 1px solid #ECECE6; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Learner</span><template data-for="{{learnerChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">In Kenya, learns with</span><template data-for="{{keChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{c.label}}</button></template></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px"><span style="width: 128px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Compare with</span><template data-for="{{toChips}}" data-as="c"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 13.5px; font-weight: 600; cursor: pointer">{{c.label}}</button></template></div>
@@ -32,13 +32,13 @@
 
 <div style="padding: 18px 22px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
-<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{keName}}</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{keNote}}</span></div>
-<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{stdName}} · standards and tests</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{stdText}}</span></div>
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{keName}}</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{keNote}}</span></div>
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px; border-radius: 14px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #62676F">{{stdName}} · standards and tests</span><span style="font-size: 15.5px; line-height: 1.5; color: #3F444C">{{stdText}}</span></div>
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
 <h3 style="margin: 0; font-size: 21px; font-weight: 600">By age: where {{ageNow}}, and {{ageAt}}</h3>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{placeCards}}" data-as="p">
 <div style="flex: 1 1 320px; min-width: 0; padding: 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="font-size: 15px; font-weight: 700">{{p.h}}</span><span style="font-size: 12px; color: #62676F">{{p.sub}}</span></div>
@@ -48,7 +48,7 @@
 </div>
 </template>
 </div>
-<div style="padding: 12px 14px 16px; border-radius: 14px; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="padding: 12px 14px 16px; border-radius: 14px; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 8px; font-family: Inter, system-ui, sans-serif">
 <template data-for="{{timelines}}" data-as="t">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px"><span style="flex: 0 0 170px; font-size: 12.5px; font-weight: 600">{{t.name}}</span><div style="flex: 1 1 400px; position: relative; height: 26px; border-radius: 6px; background: #F4F4EF"><template data-for="{{t.bars}}" data-as="b"><span title="{{b.t}}" style="position: absolute; top: 2px; bottom: 2px; left: {{b.left}}%; width: {{b.w}}%; border-radius: 5px; background: {{b.c}}; color: #14161A; font-size: 11px; font-weight: 600; display: flex; align-items: center; padding: 0 6px; box-sizing: border-box; overflow: hidden; white-space: nowrap; border-right: 2px solid #FFFFFF">{{b.t}}</span></template></div></div>
 </template>
@@ -58,9 +58,9 @@
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">By curriculum: subject by subject</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{rowsHead}}</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">By curriculum: subject by subject</h3><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{rowsHead}}</span></div>
 <div style="overflow-x: auto; border: 1px solid #E2E2DA; border-radius: 14px">
-<div style="min-width: 760px; display: grid; grid-template-columns: 150px 1fr 1.2fr 150px; font-family: Geist, system-ui, sans-serif; font-size: 13px">
+<div style="min-width: 760px; display: grid; grid-template-columns: 150px 1fr 1.2fr 150px; font-family: Inter, system-ui, sans-serif; font-size: 13px">
 <span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">Subject · level</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">In Kenya</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">There, at that age</span><span style="padding: 10px 12px; background: #FAFAF7; font-weight: 600; color: #62676F; border-bottom: 1px solid #E2E2DA">Fit</span>
 <template data-for="{{rows}}" data-as="r">
 <span style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13.5px">{{r.name}}</strong><span style="color: #62676F">{{r.lv}}</span></span>
@@ -70,7 +70,7 @@
 </template>
 </div>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border-radius: 14px; background: #F4F7FE; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border-radius: 14px; background: #F4F7FE; font-family: Inter, system-ui, sans-serif">
 <span style="font-size: 13px; font-weight: 600; color: #1E3A8A">Curriculum fit</span>
 <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px"><div aria-hidden="true" style="position: relative; height: 12px; border-radius: 999px; background: #DCE6FD"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{afterW}}%; border-radius: 999px; background: #93BBF3"></span><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{scoreW}}%; border-radius: 999px; background: #1D4ED8"></span></div><span style="font-size: 12.5px; color: #1E3A8A">{{score}} now · about {{after}} with the plan below · {{fitNote}}</span></div>
 </div>
@@ -79,14 +79,14 @@
 <template data-if="{{isAssess}}">
 <div style="display: flex; flex-direction: column; gap: 10px">
 <h3 style="margin: 0; font-size: 21px; font-weight: 600">Assessments, side by side</h3>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <div style="flex: 1 1 320px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 700">Kenya</span><template data-for="{{asmHere}}" data-as="a"><div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 13.5px; font-weight: 600">{{a.n}} <span style="font-weight: 400; color: #62676F">· {{a.when}}</span></span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{a.t}}</span></div></template></div>
 <div style="flex: 1 1 320px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 700">{{asmThereName}}</span><template data-for="{{asmThere}}" data-as="a"><div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8"><span style="font-size: 13.5px; font-weight: 600">{{a.n}} <span style="font-weight: 400; color: #62676F">· {{a.when}}</span></span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{a.t}}</span></div></template></div>
 </div>
 </div>
 </template>
 <template data-if="{{isReport}}">
-<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-family: Inter, system-ui, sans-serif">
 <div style="flex: 1.3 1 380px; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; font-weight: 600">How this Portfolio reads in {{convName}}</span>
 <template data-for="{{conv}}" data-as="c"><div style="display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; font-size: 13px"><span style="flex: 1 1 160px; font-weight: 600">{{c.v}}</span><span style="flex: 1 1 140px; color: #3F444C">Kenya: {{c.ke}}</span><span style="flex: 1 1 160px; color: #1E40AF; font-weight: 600">{{c.t}}</span></div></template>
 <span style="font-size: 12px; line-height: 1.5; color: #62676F">A guide for the receiving school, printed on the transcript. Final placement is always the school’s decision.</span></div>
@@ -95,10 +95,10 @@
 </template>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">What the plan would change</h3><span style="font-family: Geist, system-ui, sans-serif; font-size: 13px; color: #62676F">{{nChosen}} changes selected · untick anything you don’t want</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h3 style="margin: 0; font-size: 21px; font-weight: 600">What the plan would change</h3><span style="font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #62676F">{{nChosen}} changes selected · untick anything you don’t want</span></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px">
 <template data-for="{{groups}}" data-as="g">
-<div style="padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="padding: 12px 14px; border-radius: 14px; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 8px; font-family: Inter, system-ui, sans-serif">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 13.5px; font-weight: 700">{{g.label}}</span><a href="{{g.href}}" style="font-size: 12.5px">Open →</a></div>
 <template data-for="{{g.items}}" data-as="i"><label style="display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 10px; background: #FBFBF8; cursor: pointer"><input type="checkbox" checked="{{i.on}}" onChange="{{i.toggle}}" style="flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: #1D4ED8"><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13.5px; font-weight: 600; line-height: 1.35">{{i.t}}</span><span style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{i.w}}</span></span></label></template>
 </div>
@@ -106,7 +106,7 @@
 </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 16px; border-radius: 16px; background: #FEF9EE; border: 1px solid #F3DDB0; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 16px; border-radius: 16px; background: #FEF9EE; border: 1px solid #F3DDB0; font-family: Inter, system-ui, sans-serif">
 <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 700">{{planLabel}}</span>
 <template data-if="{{stNone}}"><span style="font-size: 13px; color: #3F444C">Send it to Wanjiru. Once she approves, each change appears on the page it belongs to.</span></template>
 <template data-if="{{stDeclined}}"><span style="font-size: 13px; color: #92400E">Wanjiru declined the last version. Adjust it and send again.</span></template>
@@ -114,11 +114,11 @@
 <template data-if="{{stApproved}}"><span style="font-size: 13px; color: #115E59">Approved by Wanjiru and applied.</span></template>
 </div>
 <template data-if="{{stNone}}"><button type="button" onClick="{{propose}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Send to Wanjiru for approval</button></template>
-<template data-if="{{stPending}}"><button type="button" onClick="{{approveDemo}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Approve as Wanjiru (signed in here)</button><button type="button" onClick="{{withdraw}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Withdraw</button></template>
+<template data-if="{{stPending}}"><button type="button" onClick="{{approveDemo}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #14161A; background: transparent; color: #14161A; font-size: 14px; font-weight: 700; cursor: pointer">Approve as Wanjiru (signed in here)</button><button type="button" onClick="{{withdraw}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; cursor: pointer">Withdraw</button></template>
 <template data-if="{{stApproved}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{appliedLinks}}" data-as="l"><a href="{{l.href}}" style="display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 12.5px; text-decoration: none">{{l.t}} →</a></template><button type="button" onClick="{{withdraw}}" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 12.5px; cursor: pointer">Remove plan</button></div></template>
 </div>
 
-<div style="display: flex; flex-direction: column; gap: 8px; font-family: Geist, system-ui, sans-serif">
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: Inter, system-ui, sans-serif">
 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">Everyone in the family, same comparison</span>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px">
 <template data-for="{{family}}" data-as="f"><button type="button" onClick="{{f.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 1px solid #E2E2DA; background: {{f.bg}}; color: #14161A; text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 700">{{f.name}} · {{f.age}}</span><span style="font-size: 12.5px; color: #3F444C">Kenya {{f.ke}} · there {{f.there}}</span><span style="font-size: 12px; color: #62676F">{{f.lv}}</span></button></template>
