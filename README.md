@@ -16,6 +16,7 @@ Then open http://localhost:5180.
 | --- | --- | --- |
 | Website | Thesis landing page | `index.html` |
 | Website | How the system works | `how-it-works.html` |
+| Website | About (our plan and the Vachuo Charter) | `about.html` |
 | Website | Vision, mission & values | `vision.html` |
 | Website | White paper | `white-paper.html` |
 | Website | Pricing | `pricing.html` |
@@ -51,6 +52,9 @@ Then open http://localhost:5180.
 | Guide | Guide workspace (learners, marking queue, schedule, create a lesson) | `guide.html` |
 | School | School and microschool console | `school.html` |
 | Internal | Ops console (moderation, accounts, AI cost and safety) | `ops.html` |
+| Admin | Organisation admin (people, roles, policies, connections, billing, audit) | `admin.html` |
+| Internal | Super admin (organisations, plans, flags, models, regions, staff access) | `super-admin.html` |
+| Internal | Blog admin (posts, editor, review, categories, media, newsletter) | `blog-admin.html` |
 | Component | Curriculum comparison | `compare.html` |
 | Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |
