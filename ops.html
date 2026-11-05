@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo internal · Ops console</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Ops">
+<div data-theme="{{uiTheme}}" style="min-height: 100vh; background: #F4F4EF; color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+<header style="background: #14161A; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 10px clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<span style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px"><img src="assets/img/mark-white.png" alt="Vachuo" style="display: block; width: 34px; height: auto"><span style="font-size: 15px; font-weight: 600">Ops console</span><span style="padding: 2px 8px; border-radius: 6px; background: #F9A826; color: #14161A; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Staff only</span></span>
+<nav aria-label="Ops" style="display: flex; flex-wrap: wrap; gap: 4px; margin-right: auto">
+<template data-for="{{tabs}}" data-as="t"><button type="button" aria-current="{{t.current}}" onClick="{{t.pick}}" style="min-height: 44px; padding: 0 14px; border: none; border-radius: 10px; background: {{t.bg}}; color: #FFFFFF; font-size: 14.5px; font-weight: 500; cursor: pointer">{{t.label}}</button></template>
+</nav>
+<button type="button" aria-label="Dark mode" aria-pressed="{{uiOn}}" onClick="{{uiToggle}}" style="width: 44px; height: 44px; padding: 0; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<span style="font-size: 13px; color: #C9CCD1">Mwende · Trust and safety</span>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 40px) 72px; display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; padding: 10px 14px; border-radius: 12px; background: #FEF9EE; border: 1px solid #F3DDB0; font-size: 13.5px; line-height: 1.5; color: #3F444C">Separate app and login, never linked from the customer product. Every action here is written to the audit log with your name. Demo data.</p>
+
+<template data-if="{{isMod}}">
+<section aria-labelledby="o-mod" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h1 id="o-mod" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; font-weight: 600">Moderation queue</h1><span style="font-size: 13px; color: #62676F">{{modCount}}</span></div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F444C; max-width: 760px">Items reach this queue after a parent or guide has already seen them, or when a safety check stops something before anyone sees it. Children’s contact details stay hidden here too.</p>
+<template data-for="{{mods}}" data-as="m">
+<article style="padding: 16px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="padding: 2px 9px; border-radius: 999px; background: {{m.kBg}}; color: {{m.kFg}}; font-size: 12px; font-weight: 700">{{m.kind}}</span><span style="font-size: 12.5px; color: #3F444C">{{m.source}} · {{m.at}}</span><template data-if="{{m.urgent}}"><span style="padding: 2px 9px; border-radius: 999px; background: #14161A; color: #FFFFFF; font-size: 12px; font-weight: 700">Safeguarding: within 1 hour</span></template></div>
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 19px; font-weight: 600; line-height: 1.3">{{m.title}}</span>
+<span style="font-size: 13.5px; line-height: 1.5; color: #3F444C">{{m.detail}}</span>
+<span style="font-size: 12.5px; color: #62676F">Policy: {{m.policy}}</span>
+<template data-if="{{m.open}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{m.allow}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">{{m.allowLabel}}</button><button type="button" onClick="{{m.remove}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; font-weight: 600; cursor: pointer">Remove</button><button type="button" onClick="{{m.escalate}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">Escalate to safeguarding lead</button></div></template>
+<template data-if="{{m.closed}}"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13.5px"><span style="padding: 2px 9px; border-radius: 999px; background: #DDF4F1; color: #115E59; font-size: 12px; font-weight: 700">{{m.outcome}}</span><span style="color: #3F444C">Logged as Mwende · Tue 3 Nov</span><button type="button" onClick="{{m.undo}}" style="min-height: 32px; padding: 0 10px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; text-decoration: underline; cursor: pointer">Undo</button></div></template>
+</article>
+</template>
+</section>
+</template>
+
+<template data-if="{{isUsers}}">
+<section aria-labelledby="o-users" style="display: flex; flex-direction: column; gap: 14px">
+<h1 id="o-users" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; font-weight: 600">Accounts</h1>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px">
+<label for="o-q" style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600">Search by name or account<input id="o-q" type="search" value="{{q}}" onChange="{{setQ}}" placeholder="Wanjiru, Nduta, Kilimani…" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 400"></label>
+<div role="group" aria-label="Account type" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{roles}}" data-as="r"><button type="button" aria-pressed="{{r.on}}" onClick="{{r.pick}}" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid {{r.bd}}; background: {{r.bg}}; color: {{r.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer">{{r.name}}</button></template>
+</div>
+</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<thead><tr><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Name</th><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Type</th><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Account</th><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Consent</th><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Sign-in</th></tr></thead>
+<tbody>
+<template data-for="{{users}}" data-as="u"><tr><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; font-weight: 600">{{u.name}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6">{{u.role}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; color: #3F444C">{{u.account}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6"><span style="padding: 2px 8px; border-radius: 999px; background: {{u.cBg}}; color: {{u.cFg}}; font-size: 12px; font-weight: 700">{{u.consent}}</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; color: #3F444C">{{u.signin}}</td></tr></template>
+</tbody></table></div>
+<template data-if="{{noUsers}}"><p style="margin: 0; font-size: 14px; color: #3F444C">No accounts match.</p></template>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #3F444C">Learners under 13 have no login of their own: they sign in through their family account, so they are listed under it.</p>
+</section>
+</template>
+
+<template data-if="{{isAi}}">
+<section aria-labelledby="o-ai" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h1 id="o-ai" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; font-weight: 600">AI cost and safety</h1><span style="font-size: 13px; color: #62676F">Last 7 days</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px">
+<template data-for="{{evals}}" data-as="e"><div style="padding: 16px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #62676F">Evaluation · {{e.name}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; font-weight: 600; line-height: 1">{{e.score}}</span><span style="font-size: 12.5px; color: #3F444C">{{e.note}}</span></div></template>
+</div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<thead><tr><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Account</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Learners</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Socrates turns</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">AI cost</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Per learner</th><th scope="col" style="text-align: right; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Safety flags</th><th scope="col" style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #E2E2DA">Limit</th></tr></thead>
+<tbody>
+<template data-for="{{tenants}}" data-as="t"><tr><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; font-weight: 600">{{t.name}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: 'Geist Mono', ui-monospace, monospace">{{t.learners}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: 'Geist Mono', ui-monospace, monospace">{{t.turns}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: 'Geist Mono', ui-monospace, monospace">{{t.cost}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: 'Geist Mono', ui-monospace, monospace">{{t.per}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6; text-align: right; font-family: 'Geist Mono', ui-monospace, monospace">{{t.flags}}</td><td style="padding: 10px 12px; border-bottom: 1px solid #ECECE6"><span style="padding: 2px 8px; border-radius: 999px; background: {{t.lBg}}; color: {{t.lFg}}; font-size: 12px; font-weight: 700">{{t.limit}}</span></td></tr></template>
+</tbody></table></div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #3F444C">Every Socrates turn passes a policy check before and after the model. A flag means the check stopped or changed a reply; flagged chats go to the account’s guide and, for safeguarding, to the moderation queue.</p>
+</section>
+</template>
+
+</main>
+</div>
+</template>
+<script>
+DC.component("Ops", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  constructor(props) { super(props); this.state = { tab: 'mod', done: {}, q: '', role: 'all' }; }
+  componentWillUnmount() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
+    const st = this.state;
+    const tabs = [['mod', 'Moderation'], ['users', 'Accounts'], ['ai', 'AI cost and safety']].map(([id, label]) => ({ label, current: st.tab === id ? 'page' : 'false', bg: st.tab === id ? '#2F343B' : 'transparent', pick: () => this.setState({ tab: id }) }));
+    const K = { chat: ['Socrates chat', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], job: ['Opportunity finder', '#ECECE6', '#3F444C'], report: ['Connects report', '#DDF4F1', '#115E59'] };
+    const M = [
+      { id: 'c1', kind: 'chat', urgent: true, source: 'Safety check, after the model', at: 'Tue 3 Nov, 09:12', title: 'A learner, 11, wrote that “nobody at home talks to me any more”', detail: 'Socrates answered kindly and suggested talking to their guide. The guide has been told. The learner’s name is visible to the safeguarding lead only.', policy: 'Wellbeing disclosure: a person reviews every one', allowLabel: 'Mark reviewed' },
+      { id: 'l1', kind: 'listing', urgent: false, source: 'Parent approved · Wanjiru M.', at: 'Mon 2 Nov, 18:40', title: 'Watercolour “Rain over Kilimani”, A4, KSh 1,200', detail: 'Photo shows the painting only. Pickup is set to the guardian’s chosen point; the learner’s school uniform is not in frame.', policy: 'Listings by under-18s: no faces, uniforms or home addresses', allowLabel: 'Allow listing' },
+      { id: 'j1', kind: 'job', urgent: false, source: 'Opportunity finder', at: 'Mon 2 Nov, 14:05', title: 'Weekend café assistant, Westlands, “16+, evening shifts until 22:00”', detail: 'Found on a public job board. Evening hours past 20:00 conflict with the rules for 16- and 17-year-olds, so it has not been shown to any learner.', policy: 'Jobs for 16 and over: daytime, no alcohol, a named employer', allowLabel: 'Show to learners' },
+      { id: 'r1', kind: 'report', urgent: false, source: 'Reported by a parent', at: 'Sun 1 Nov, 20:30', title: 'Event “Robotics meet-up” lists a personal phone number', detail: 'Contact details in Connects should go through guardian-only messages. The organiser is a verified library partner.', policy: 'No direct contact details on community pages', allowLabel: 'Keep as is' }
+    ];
+    const set = (id, v) => { const d = Object.assign({}, st.done); if (v) d[id] = v; else delete d[id]; this.setState({ done: d }); };
+    const mods = M.map((m) => { const k = K[m.kind]; const o = st.done[m.id];
+      return Object.assign({}, m, { kind: k[0], kBg: k[1], kFg: k[2], urgent: m.urgent && !o, open: !o, closed: !!o, outcome: o || '', allow: () => set(m.id, m.allowLabel === 'Mark reviewed' ? 'Reviewed' : 'Allowed'), remove: () => set(m.id, 'Removed'), escalate: () => set(m.id, 'Escalated'), undo: () => set(m.id, null) }); });
+    const open = M.filter((m) => !st.done[m.id]).length;
+    const U = [
+      ['Wanjiru M.', 'family', 'Family · 4 learners', 'Guardian consent on file', 'Passkey'],
+      ['Amani (12)', 'learner', 'Wanjiru M.’s family', 'Covered by guardian', 'Through family account'],
+      ['Kim (16)', 'learner', 'Wanjiru M.’s family', 'Own consent, 16+', 'Passkey'],
+      ['Nduta K.', 'guide', 'Kilimani Learning Hub', 'Background check passed', 'Passkey'],
+      ['Achieng O.', 'guide', 'Kilimani Learning Hub', 'Background check due 30 Nov', 'Password and code'],
+      ['Kilimani Learning Hub', 'school', 'Microschool · 38 learners', 'Data agreement signed', 'Single sign-on'],
+      ['Baraka family', 'family', 'Family · 2 learners', 'Consent pending', 'Not signed in yet']
+    ];
+    const q = st.q.trim().toLowerCase();
+    const users = U.filter((u) => (st.role === 'all' || u[1] === st.role) && (!q || (u[0] + ' ' + u[2]).toLowerCase().includes(q))).map((u) => {
+      const warn = /pending|due/.test(u[3]);
+      return { name: u[0], role: { family: 'Family', learner: 'Learner', guide: 'Guide', school: 'School' }[u[1]], account: u[2], consent: u[3], signin: u[4], cBg: warn ? '#FEF1D9' : '#DDF4F1', cFg: warn ? '#92400E' : '#115E59' };
+    });
+    const roles = [['all', 'All'], ['family', 'Families'], ['learner', 'Learners'], ['guide', 'Guides'], ['school', 'Schools']].map(([id, name]) => { const on = st.role === id; return { name, on: on ? 'true' : 'false', bg: on ? '#1D4ED8' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#1D4ED8' : '#CFCFC6', pick: () => this.setState({ role: id }) }; });
+    return {
+      tabs, isMod: st.tab === 'mod', isUsers: st.tab === 'users', isAi: st.tab === 'ai',
+      mods, modCount: open ? open + ' open' : 'All clear',
+      q: st.q, setQ: (e) => this.setState({ q: e.target.value }), roles, users, noUsers: users.length === 0,
+      evals: [
+        { name: 'no answers in assessments', score: '100%', note: '412 of 412 test prompts refused correctly' },
+        { name: 'age-appropriate language', score: '99.3%', note: '3 replies rewritten by the after-model check' },
+        { name: 'correct mathematics', score: '97.8%', note: 'Run on every prompt change before release' }
+      ],
+      tenants: [
+        { name: 'Kilimani Learning Hub', learners: '38', turns: '9,840', cost: '$41.20', per: '$1.08', flags: '4', limit: 'Within limit', lBg: '#DDF4F1', lFg: '#115E59' },
+        { name: 'Wanjiru M. (family)', learners: '4', turns: '1,212', cost: '$5.10', per: '$1.28', flags: '1', limit: 'Within limit', lBg: '#DDF4F1', lFg: '#115E59' },
+        { name: 'Riverside Homeschool Co-op', learners: '22', turns: '7,305', cost: '$33.90', per: '$1.54', flags: '2', limit: '85% of limit', lBg: '#FEF1D9', lFg: '#92400E' },
+        { name: 'Pilot families, Mombasa', learners: '11', turns: '2,140', cost: '$9.60', per: '$0.87', flags: '0', limit: 'Within limit', lBg: '#DDF4F1', lFg: '#115E59' }
+      ]
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Ops");
+</script>
+</body>
+</html>

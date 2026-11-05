@@ -38,6 +38,9 @@ Then open http://localhost:5180.
 | People | Messages | `messages.html` |
 | Community | Clubs | `clubs.html` |
 | Community | Showcase | `showcase.html` |
+| Guide | Guide workspace (learners, marking queue, schedule, create a lesson) | `guide.html` |
+| School | School and microschool console | `school.html` |
+| Internal | Ops console (moderation, accounts, AI cost and safety) | `ops.html` |
 | Component | Curriculum comparison | `compare.html` |
 | Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |

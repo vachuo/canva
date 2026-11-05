@@ -770,7 +770,7 @@
 <h2 id="ap-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Waiting for your approval</h2>
 <span style="font-size: 13px; color: #62676F">{{pendingCount}}</span>
 </div>
-<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person club sessions and job applications from your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person sessions and job applications for your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
 <template data-for="{{pending}}" data-as="a">
 <div class="fadein" style="border: 1px solid #F3DDB0; background: #FEF9EE; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="padding: 2px 9px; border-radius: 999px; background: {{a.kBg}}; color: {{a.kFg}}; font-size: 12px; font-weight: 700">{{a.kind}}</span><span style="font-size: 12.5px; color: #3F444C">From {{a.from}} · {{a.at}}</span></div>
@@ -1961,7 +1961,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const area = (this.props && this.props.area) || 'parent'; const list = this.read();
-    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'] };
+    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'], session: ['In-person session', '#DDF4F1', '#115E59'] };
     const set = (id, status) => this.write(this.read().map((x) => (x.id === id ? Object.assign({}, x, { status, decidedAt: 'Tue 3 Nov' }) : x)));
     const out = Object.assign(this.themeVals(), { isParent: area === 'parent', isStrip: false, pending: [], noPending: true, done: [], hasDone: false, pendingCount: '', stripTitle: '', stripSub: '', stripItems: [], stripBg: '#FFFFFF', stripBd: '#E2E2DA', chip: '', chipBg: '#FFFFFF', chipFg: '#14161A' });
     if (area === 'parent') {

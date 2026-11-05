@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo · Guide workspace</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<style>
+@media (min-width:800px){.vside{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-Guide">
+<div data-theme="{{uiTheme}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: Geist, system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+<nav aria-label="Guide workspace" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<a href="index.html" aria-label="Vachuo home" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
+<span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
+</a>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Guide</div>
+<template data-for="{{tabs}}" data-as="t">
+<button type="button" aria-current="{{t.current}}" onClick="{{t.pick}}" style="display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; text-align: left; font-size: 15px; font-weight: 500; cursor: pointer; background: {{t.bg}}; color: {{t.fg}}"><span style="flex: 1">{{t.label}}</span><template data-if="{{t.hasCount}}"><span style="min-width: 22px; padding: 1px 7px; border-radius: 999px; background: #FEF1D9; color: #92400E; font-size: 12px; font-weight: 700; text-align: center">{{t.count}}</span></template></button>
+</template>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">Shared with families</div>
+<a href="messages.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C">Messages</a>
+<a href="loop.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-size: 15px; font-weight: 500; color: #3F444C">The loop</a>
+</div>
+<button type="button" role="switch" aria-checked="{{uiOn}}" onClick="{{uiToggle}}" style="margin-top: auto; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; background: transparent; color: #3F444C; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span style="flex: 1">Dark mode</span><span aria-hidden="true" style="position: relative; flex: none; width: 38px; height: 22px; border-radius: 999px; background: {{uiTrack}}"><span style="position: absolute; top: 3px; left: {{uiKnob}}; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></button>
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 12px 0; border-top: 1px solid #E2E2DA">
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #E4ECFD; color: #1E40AF; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">N</span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">Nduta K.</span><span style="font-size: 12.5px; color: #62676F">Guide · 4 learners</span></span>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px clamp(16px, 4vw, 48px) 72px">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F">Guide workspace · Tuesday 3 November</span>
+<h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Good morning, Nduta. Socrates teaches; you decide what counts.</h1>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; line-height: 1.55; color: #3F444C; max-width: 760px">Socrates suggests a mark for every piece of drawn or written work. Nothing reaches a learner or a parent until you publish it, and anything in person waits for a parent’s yes.</p>
+</header>
+
+<section aria-label="This week" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+<template data-for="{{metrics}}" data-as="m">
+<div style="padding: 16px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #62676F">{{m.label}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 34px; font-weight: 600; line-height: 1">{{m.value}}</span><span style="font-size: 12.5px; color: #3F444C">{{m.note}}</span></div>
+</template>
+</section>
+
+<template data-if="{{isLearners}}">
+<section aria-labelledby="g-learners" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="g-learners" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Your learners</h2><span style="font-size: 13px; color: #62676F">Mastery per skill and how they are doing. No rankings.</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 14px">
+<template data-for="{{learners}}" data-as="l">
+<article style="padding: 18px 20px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; background: {{l.tint}}; color: {{l.ink}}; display: flex; align-items: center; justify-content: center; font-weight: 600">{{l.initial}}</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">{{l.name}}</span><span style="font-size: 13px; color: #62676F">{{l.meta}}</span></span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{l.skills}}" data-as="s">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px"><span>{{s.name}}</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; color: #3F444C">{{s.pct}}</span></div><div aria-hidden="true" style="height: 8px; border-radius: 999px; background: #ECECE6; overflow: hidden"><div style="height: 100%; width: {{s.pct}}; border-radius: 999px; background: {{s.bar}}"></div></div></div>
+</template>
+</div>
+<p style="margin: 0; padding: 10px 12px; border-radius: 12px; background: #FBFBF8; font-size: 13.5px; line-height: 1.5; color: #3F444C"><span style="font-weight: 600; color: #14161A">How they are doing: </span>{{l.wellbeing}}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #3F444C"><span>Next check-in: {{l.next}}</span><a href="messages.html" style="margin-left: auto; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; color: #14161A; text-decoration: none; font-weight: 500">Message family</a></div>
+</article>
+</template>
+</div>
+</section>
+</template>
+
+<template data-if="{{isMarking}}">
+<section aria-labelledby="g-marking" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="g-marking" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Marking queue</h2><span style="font-size: 13px; color: #62676F">Socrates’ suggestion sits beside yours. Yours is the mark.</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<div role="list" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{queue}}" data-as="q">
+<div role="listitem"><button type="button" aria-pressed="{{q.selected}}" onClick="{{q.pick}}" style="width: 100%; padding: 12px 14px; border-radius: 14px; border: 1px solid {{q.bd}}; background: {{q.bg}}; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 4px; color: #14161A"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 14.5px; font-weight: 600">{{q.learner}}</span><span style="padding: 2px 8px; border-radius: 999px; background: {{q.chipBg}}; color: {{q.chipFg}}; font-size: 11.5px; font-weight: 700">{{q.status}}</span></span><span style="font-size: 13.5px; color: #3F444C">{{q.task}}</span><span style="font-size: 12px; color: #62676F">{{q.when}}</span></button></div>
+</template>
+</div>
+<article style="flex: 999 1 460px; min-width: 0; padding: 20px 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #62676F">{{cur.kind}} · {{cur.learner}}</span><h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; line-height: 1.2">{{cur.task}}</h3></div>
+<div style="padding: 12px 14px; border-radius: 12px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12.5px; font-weight: 600; color: #62676F">The question</span><span style="font-size: 14.5px; line-height: 1.5">{{cur.prompt}}</span></div>
+<div style="padding: 12px 14px; border-radius: 12px; background: #FBFBF8; border: 1px solid #ECECE6; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12.5px; font-weight: 600; color: #62676F">{{cur.learner}}’s answer</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 17px; line-height: 1.55; white-space: pre-line">{{cur.answer}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12.5px; font-weight: 600; color: #62676F">Rubric</span>
+<template data-for="{{cur.rubric}}" data-as="r"><div style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.45"><span style="flex: none; width: 22px; font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 600">{{r.n}}</span><span style="color: #3F444C">{{r.t}}</span></div></template>
+</div>
+<div style="padding: 12px 14px; border-radius: 12px; background: #F4F7FE; border: 1px solid #DCE6FD; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12.5px; font-weight: 700; color: #1E40AF">Suggested by Socrates · {{cur.ai}} of 4</span><span style="font-size: 13.5px; line-height: 1.5; color: #23272E">{{cur.aiWhy}}</span></div>
+<template data-if="{{curOpen}}">
+<div style="display: flex; flex-direction: column; gap: 8px"><span id="g-score" style="font-size: 13.5px; font-weight: 600">Your mark</span>
+<div role="group" aria-labelledby="g-score" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template data-for="{{scores}}" data-as="s"><button type="button" aria-pressed="{{s.on}}" onClick="{{s.pick}}" style="min-width: 48px; min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid {{s.bd}}; background: {{s.bg}}; color: {{s.fg}}; font-size: 15px; font-weight: 600; cursor: pointer">{{s.n}}</button></template>
+</div>
+<label for="g-feedback" style="font-size: 13.5px; font-weight: 600">Feedback for {{cur.learner}}</label>
+<textarea id="g-feedback" rows="3" value="{{feedback}}" onChange="{{setFeedback}}" placeholder="What she did well, and one thing to try next" style="box-sizing: border-box; width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14.5px; line-height: 1.5; resize: vertical"></textarea>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button type="button" onClick="{{publish}}" disabled="{{publishOff}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Publish to {{cur.learner}} and family</button><span style="font-size: 12.5px; color: #62676F">{{publishHint}}</span></div>
+</div>
+</template>
+<template data-if="{{curDone}}">
+<p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #DDF4F1; color: #115E59; font-size: 14px; line-height: 1.5">{{doneLine}}</p>
+</template>
+</article>
+</div>
+</section>
+</template>
+
+<template data-if="{{isSchedule}}">
+<section aria-labelledby="g-schedule" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="g-schedule" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">This week</h2><span style="font-size: 13px; color: #62676F">Online check-ins are booked straight away. In-person sessions wait for a parent.</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<div role="list" style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<template data-for="{{sessions}}" data-as="s">
+<div role="listitem" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 12px 16px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E2DA"><span style="flex: none; width: 92px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: #3F444C">{{s.when}}</span><span style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14.5px; font-weight: 600">{{s.title}}</span><span style="font-size: 12.5px; color: #62676F">{{s.where}}</span></span><span style="padding: 2px 9px; border-radius: 999px; background: {{s.chipBg}}; color: {{s.chipFg}}; font-size: 12px; font-weight: 700">{{s.status}}</span></div>
+</template>
+</div>
+<form onSubmit="{{addSession}}" style="flex: 1 1 280px; min-width: 0; padding: 18px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 21px; font-weight: 600">Book a session</h3>
+<label for="g-who" style="font-size: 13px; font-weight: 600">Learner</label>
+<select id="g-who" value="{{fWho}}" onChange="{{setWho}}" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><option value="Amani">Amani</option><option value="Johari">Johari</option><option value="Bob">Bob</option><option value="Kim">Kim</option></select>
+<label for="g-type" style="font-size: 13px; font-weight: 600">Kind</label>
+<select id="g-type" value="{{fType}}" onChange="{{setType}}" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><option value="online">Online check-in</option><option value="person">In person</option></select>
+<label for="g-when" style="font-size: 13px; font-weight: 600">When</label>
+<input id="g-when" type="text" value="{{fWhen}}" onChange="{{setWhen}}" placeholder="Thu 5 Nov, 16:00" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px">
+<template data-if="{{fPerson}}"><label for="g-where" style="font-size: 13px; font-weight: 600">Where</label><input id="g-where" type="text" value="{{fWhere}}" onChange="{{setWhere}}" placeholder="Kilimani Library, reading room" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"></template>
+<button type="submit" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">{{bookLabel}}</button>
+<span aria-live="polite" style="font-size: 12.5px; line-height: 1.45; color: #3F444C">{{bookNote}}</span>
+</form>
+</div>
+</section>
+</template>
+
+<template data-if="{{isCreate}}">
+<section aria-labelledby="g-create" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px"><h2 id="g-create" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; font-weight: 600">Create a lesson or loop</h2><span style="font-size: 13px; color: #62676F">Objectives map to a curriculum standard; every item carries a Bloom level.</span></div>
+<form onSubmit="{{saveDraft}}" style="padding: 20px 22px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<label for="g-title" style="font-size: 13px; font-weight: 600">Title</label>
+<input id="g-title" type="text" value="{{lTitle}}" onChange="{{setTitle}}" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px">
+<label for="g-std" style="font-size: 13px; font-weight: 600">Curriculum standard</label>
+<select id="g-std" value="{{lStd}}" onChange="{{setStd}}" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px"><option value="cbc">Kenya CBC · Grade 6 Mathematics · Ratios</option><option value="us">US Common Core · 6.RP.A.1 · Ratio language</option><option value="uk">England NC · KS3 · Ratio and proportion</option></select>
+<label for="g-obj" style="font-size: 13px; font-weight: 600">What the learner will be able to do</label>
+<textarea id="g-obj" rows="3" value="{{lObj}}" onChange="{{setObj}}" style="box-sizing: border-box; width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; line-height: 1.5; resize: vertical"></textarea>
+<label for="g-ctx" style="font-size: 13px; font-weight: 600">What Socrates should know</label>
+<textarea id="g-ctx" rows="3" value="{{lCtx}}" onChange="{{setCtx}}" style="box-sizing: border-box; width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; line-height: 1.5; resize: vertical"></textarea>
+<span style="font-size: 12.5px; line-height: 1.45; color: #62676F">Socrates uses this to tutor. It never gives answers during an assessment.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 600">Practice items</span>
+<template data-for="{{items}}" data-as="it"><div style="display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 12px; background: #FBFBF8; border: 1px solid #ECECE6"><span style="flex: none; padding: 2px 8px; border-radius: 6px; background: #E4ECFD; color: #1E40AF; font-size: 11.5px; font-weight: 700">{{it.bloom}}</span><span style="flex: 1; font-size: 13.5px; line-height: 1.45">{{it.t}}</span><button type="button" aria-label="Remove item" onClick="{{it.remove}}" style="flex: none; width: 32px; height: 32px; border: none; border-radius: 8px; background: transparent; color: #62676F; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></template>
+<label for="g-item" style="font-size: 13px; font-weight: 600">New item</label>
+<input id="g-item" type="text" value="{{newItem}}" onChange="{{setNewItem}}" placeholder="A recipe for 4 uses 3 cups of flour. How much for 10?" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px">
+<div role="group" aria-label="Bloom level" style="display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{blooms}}" data-as="b"><button type="button" aria-pressed="{{b.on}}" onClick="{{b.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid {{b.bd}}; background: {{b.bg}}; color: {{b.fg}}; font-size: 13px; font-weight: 500; cursor: pointer">{{b.name}}</button></template>
+</div>
+<button type="button" onClick="{{addItem}}" style="align-self: flex-start; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 14px; font-weight: 500; cursor: pointer">Add item</button>
+</div>
+<div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 6px; border-top: 1px solid #ECECE6">
+<button type="submit" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14.5px; font-weight: 700; cursor: pointer">Save draft</button>
+<span aria-live="polite" style="font-size: 13px; color: #3F444C">{{draftNote}}</span>
+</div>
+</form>
+</section>
+</template>
+
+</div>
+</main>
+</div>
+</template>
+<script>
+DC.component("Guide", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      tab: 'marking', sel: 'm1', score: null, feedback: '', marked: {},
+      fWho: 'Amani', fType: 'person', fWhen: 'Sat 7 Nov, 10:00', fWhere: 'Kilimani Library, reading room', bookNote: '', added: [],
+      lTitle: 'Scaling recipes with ratios', lStd: 'cbc', lObj: 'Use a ratio table to scale a recipe up or down, and explain why adding the same amount to each ingredient does not work.', lCtx: 'Amani mixes up additive and multiplicative change. Start from a real recipe she cooks at home.',
+      items: [{ t: 'Fill in a ratio table for a recipe that serves 4, scaled to 2, 8 and 10.', bloom: 'Apply' }, { t: 'A friend adds 2 cups to every ingredient to double a recipe. Explain what goes wrong.', bloom: 'Analyse' }],
+      newItem: '', bloom: 'Understand', draftNote: ''
+    };
+    this._sync = (e) => { if (!e || e.key === 'vachuo-approvals') this.forceUpdate(); };
+  }
+  componentDidMount() { try { window.addEventListener('storage', this._sync); window.addEventListener('vachuo-approvals', this._sync); } catch (e) {} }
+  componentWillUnmount() { try { window.removeEventListener('storage', this._uiSync); window.removeEventListener('storage', this._sync); window.removeEventListener('vachuo-approvals', this._sync); } catch (e) {} }
+  // Same store and starting items as the parent's approvals inbox
+  approvals() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || this.seed(); }
+  seed() {
+    return [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', from: 'Amani', at: 'Mon 2 Nov', status: 'pending' },
+      { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending' }];
+  }
+  request(item) {
+    const list = this.approvals().concat([item]); this._mem = list;
+    try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {}
+  }
+  queueData() {
+    return [
+      { id: 'm1', learner: 'Amani', kind: 'Drawn work', task: 'Ratios: scale a chapati recipe from 4 to 10', when: 'Submitted Mon 2 Nov, 17:40', prompt: 'A recipe for 4 chapatis uses 2 cups of flour and 1 cup of water. How much of each do you need for 10? Show how you know.', answer: 'For 4 → 2 flour, 1 water. Halve it: 2 chapatis → 1 flour, ½ water.\nTimes 5: 10 chapatis → 5 cups flour, 2½ cups water.\nI first added 6 to everything but that made too much water, so I used the table.', ai: 3, aiWhy: 'Correct quantities and a working ratio table. She explains her first additive mistake herself. Not yet a 4: she does not say why adding fails in general.', rubric: [{ n: '4', t: 'Correct, with a general reason why multiplicative scaling works' }, { n: '3', t: 'Correct, with a working method shown' }, { n: '2', t: 'Partly correct, or correct without a method' }, { n: '1', t: 'An attempt with additive reasoning' }] },
+      { id: 'm2', learner: 'Johari', kind: 'Essay', task: 'Persuasive paragraph: should Nairobi close one road on Sundays?', when: 'Submitted Mon 2 Nov, 20:15', prompt: 'Write one persuasive paragraph with a claim, two reasons and a counter-argument.', answer: 'Nairobi should close Ngong Road on Sunday mornings. Families would have a safe place to cycle, and the air would be cleaner for a few hours. Some drivers will say it slows them down, but most traffic on Sunday morning is light and other roads are open.', ai: 4, aiWhy: 'Clear claim, two distinct reasons, and the counter-argument is answered rather than just named.', rubric: [{ n: '4', t: 'Claim, two reasons, a counter-argument that is answered' }, { n: '3', t: 'Claim and two reasons; counter-argument named only' }, { n: '2', t: 'Claim and one reason' }, { n: '1', t: 'An opinion without reasons' }] },
+      { id: 'm3', learner: 'Bob', kind: 'Practice set', task: 'Division with remainders: 5 word problems', when: 'Submitted Tue 3 Nov, 08:05', prompt: '23 learners go on a trip. Each minibus takes 6. How many minibuses are needed?', answer: '23 ÷ 6 = 3 remainder 5, so 3 minibuses.', ai: 1, aiWhy: 'The division is right but the remainder is ignored: 5 learners are left behind. This is the misconception on his map.', rubric: [{ n: '4', t: 'Correct, and the remainder is interpreted in context' }, { n: '3', t: 'Correct answer with a small slip in the working' }, { n: '2', t: 'Correct division; remainder interpreted wrongly' }, { n: '1', t: 'Remainder ignored' }] }
+    ];
+  }
+  renderVals() { return Object.assign(this.themeVals(), this.pageVals()); }
+  pageVals() {
+    const st = this.state; const q = this.queueData(); const cur = q.find((x) => x.id === st.sel) || q[0];
+    const toMark = q.filter((x) => !st.marked[x.id]).length;
+    const ap = this.approvals(); const mine = ap.filter((x) => x.kind === 'session' && x.from === 'Nduta (guide)');
+    const waiting = mine.filter((x) => x.status === 'pending').length;
+    const T = [['learners', 'Learners', 0], ['marking', 'Marking queue', toMark], ['schedule', 'Schedule', waiting], ['create', 'Create a lesson', 0]];
+    const tabs = T.map(([id, label, n]) => ({ label, count: n, hasCount: n > 0, current: st.tab === id ? 'page' : 'false', bg: st.tab === id ? '#E4ECFD' : 'transparent', fg: st.tab === id ? '#1E40AF' : '#3F444C', pick: () => this.setState({ tab: id }) }));
+    const L = [
+      { name: 'Amani', initial: 'A', meta: '12 · Math L6 · Reading L8', tint: '#E4ECFD', ink: '#1E40AF', skills: [['Ratios', 62], ['Fractions', 88], ['Persuasive writing', 71]], wellbeing: 'Confident this week; asked for harder ratio problems on Monday.', next: 'Wed 4 Nov, 16:00' },
+      { name: 'Johari', initial: 'J', meta: '14 · Math L8 · Reading L9', tint: '#DDF4F1', ink: '#115E59', skills: [['Linear equations', 80], ['Essay structure', 92], ['Chemistry: mixtures', 54]], wellbeing: 'Writing paused for a week; her parent chose a new topic with her.', next: 'Thu 5 Nov, 15:30' },
+      { name: 'Bob', initial: 'B', meta: '9 · Math L4 · Reading L5', tint: '#FEF1D9', ink: '#92400E', skills: [['Division with remainders', 38], ['Multiplication facts', 94], ['Reading fluency', 67]], wellbeing: 'Gets frustrated after two wrong answers; short sets work better.', next: 'Wed 4 Nov, 10:00' },
+      { name: 'Kim', initial: 'K', meta: '16 · Math L9 · Reading L10', tint: '#ECECE6', ink: '#3F444C', skills: [['Statistics', 76], ['Physics: forces', 69], ['Kiswahili insha', 83]], wellbeing: 'Shares a monthly summary only, by his choice.', next: 'Mon 9 Nov, 14:00' }
+    ].map((l) => Object.assign({}, l, { skills: l.skills.map(([name, v]) => ({ name, pct: v + '%', bar: v >= 80 ? '#0D9488' : v >= 60 ? '#1684E8' : '#F9A826' })) }));
+    const queue = q.map((x) => { const m = st.marked[x.id]; const on = x.id === cur.id;
+      return { learner: x.learner, task: x.task, when: x.when, status: m ? 'Published' : 'Needs a person', chipBg: m ? '#DDF4F1' : '#FEF1D9', chipFg: m ? '#115E59' : '#92400E', selected: on ? 'true' : 'false', bg: on ? '#F4F7FE' : '#FFFFFF', bd: on ? '#93BBF3' : '#E2E2DA', pick: () => this.setState({ sel: x.id, score: null, feedback: '' }) }; });
+    const done = st.marked[cur.id];
+    const scores = [0, 1, 2, 3, 4].map((n) => { const on = st.score === n; return { n: String(n), on: on ? 'true' : 'false', bg: on ? '#1D4ED8' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14161A', bd: on ? '#1D4ED8' : '#CFCFC6', pick: () => this.setState({ score: n }) }; });
+    const base = [
+      { when: 'Tue 16:00', title: 'Check-in with Bob', where: 'Online · 20 min', status: 'Booked', chipBg: '#DDF4F1', chipFg: '#115E59' },
+      { when: 'Wed 10:00', title: 'Remainders workshop · Bob', where: 'Online · 30 min', status: 'Booked', chipBg: '#DDF4F1', chipFg: '#115E59' },
+      { when: 'Wed 16:00', title: 'Check-in with Amani', where: 'Online · 20 min', status: 'Booked', chipBg: '#DDF4F1', chipFg: '#115E59' }
+    ];
+    const asked = mine.map((x) => ({ when: x.when || '', title: x.short || x.title, where: x.where || 'In person', status: x.status === 'approved' ? 'Parent approved' : x.status === 'declined' ? 'Parent declined' : 'Waiting for a parent', chipBg: x.status === 'approved' ? '#DDF4F1' : x.status === 'declined' ? '#ECECE6' : '#FEF1D9', chipFg: x.status === 'approved' ? '#115E59' : x.status === 'declined' ? '#3F444C' : '#92400E' }));
+    const BL = ['Remember', 'Understand', 'Apply', 'Analyse', 'Evaluate', 'Create'];
+    return {
+      tabs,
+      metrics: [
+        { label: 'To mark', value: String(toMark), note: 'Socrates has suggested a mark for each' },
+        { label: 'Check-ins this week', value: '4', note: 'Online, 20 minutes each' },
+        { label: 'Waiting for a parent', value: String(waiting), note: 'In-person sessions you booked' },
+        { label: 'Lessons in draft', value: st.draftNote ? '1' : '0', note: 'Not visible to learners yet' }
+      ],
+      isLearners: st.tab === 'learners', isMarking: st.tab === 'marking', isSchedule: st.tab === 'schedule', isCreate: st.tab === 'create',
+      learners: L, queue, cur, scores, curOpen: !done, curDone: !!done,
+      doneLine: done ? 'Marked by Nduta: ' + done.score + ' of 4 · Socrates suggested ' + cur.ai + '. Sent to ' + cur.learner + ' and her family, and added to the evidence on her map.' : '',
+      feedback: st.feedback, setFeedback: (e) => this.setState({ feedback: e.target.value }),
+      publishOff: st.score === null, publishHint: st.score === null ? 'Choose a mark first.' : (st.score === cur.ai ? 'Same as Socrates’ suggestion.' : 'Different from Socrates’ suggestion of ' + cur.ai + '; your mark is the one that counts.'),
+      publish: () => { if (st.score === null) return; const m = Object.assign({}, st.marked); m[cur.id] = { score: st.score, feedback: st.feedback }; const next = q.find((x) => !m[x.id]); this.setState({ marked: m, score: null, feedback: '', sel: next ? next.id : cur.id }); },
+      sessions: base.concat(asked),
+      fWho: st.fWho, fType: st.fType, fWhen: st.fWhen, fWhere: st.fWhere, fPerson: st.fType === 'person',
+      setWho: (e) => this.setState({ fWho: e.target.value }), setType: (e) => this.setState({ fType: e.target.value }), setWhen: (e) => this.setState({ fWhen: e.target.value }), setWhere: (e) => this.setState({ fWhere: e.target.value }),
+      bookLabel: st.fType === 'person' ? 'Ask the parent' : 'Book check-in', bookNote: st.bookNote,
+      addSession: (e) => { e.preventDefault(); const when = st.fWhen.trim() || 'This week';
+        if (st.fType === 'person') {
+          const where = st.fWhere.trim() || 'Place to be agreed';
+          this.request({ id: 'g-' + Date.now(), kind: 'session', title: 'In-person session with Nduta for ' + st.fWho + ', ' + when, short: 'In-person session · ' + st.fWho, when, where, detail: where + ' · Nduta (guide) · a parent can join. Nothing is booked until you approve.', from: 'Nduta (guide)', at: 'Tue 3 Nov', status: 'pending' });
+          this.setState({ bookNote: 'Sent to ' + st.fWho + '’s parent in Parent copilot. It shows as booked once they approve.' });
+        } else { this.setState({ bookNote: 'Online check-in with ' + st.fWho + ' booked for ' + when + '.' }); }
+      },
+      lTitle: st.lTitle, lStd: st.lStd, lObj: st.lObj, lCtx: st.lCtx, newItem: st.newItem, draftNote: st.draftNote,
+      setTitle: (e) => this.setState({ lTitle: e.target.value }), setStd: (e) => this.setState({ lStd: e.target.value }), setObj: (e) => this.setState({ lObj: e.target.value }), setCtx: (e) => this.setState({ lCtx: e.target.value }), setNewItem: (e) => this.setState({ newItem: e.target.value }),
+      items: st.items.map((it, i) => ({ t: it.t, bloom: it.bloom, remove: () => this.setState({ items: st.items.filter((_, j) => j !== i) }) })),
+      blooms: BL.map((b) => { const on = st.bloom === b; return { name: b, on: on ? 'true' : 'false', bg: on ? '#E4ECFD' : '#FFFFFF', fg: on ? '#1E40AF' : '#3F444C', bd: on ? '#93BBF3' : '#CFCFC6', pick: () => this.setState({ bloom: b }) }; }),
+      addItem: () => { const t = st.newItem.trim(); if (!t) return; this.setState({ items: st.items.concat([{ t, bloom: st.bloom }]), newItem: '' }); },
+      saveDraft: (e) => { e.preventDefault(); this.setState({ draftNote: '“' + (st.lTitle.trim() || 'Untitled lesson') + '” saved as a draft with ' + st.items.length + ' items. Learners see it only after you publish.' }); }
+    };
+  }
+}
+return Component;
+});
+
+DC.mount("Guide");
+</script>
+</body>
+</html>
