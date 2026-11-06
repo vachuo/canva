@@ -40,6 +40,7 @@ Then open http://localhost:5180.
 | Community | Clubs | `clubs.html` |
 | Community | Showcase | `showcase.html` |
 | Website | Join as a guide or school | `join.html` |
+| Website | Contribute curriculum materials (Pre-K to Grade 12) | `contribute.html` |
 | Website | Terms of use | `terms.html` |
 | Website | Privacy policy | `privacy.html` |
 | Parent | Approvals (rules by age, decision record) | `parent-approvals.html` |
@@ -55,6 +56,7 @@ Then open http://localhost:5180.
 | Admin | Organisation admin (people, roles, policies, connections, billing, audit) | `admin.html` |
 | Internal | Super admin (organisations, plans, flags, models, regions, staff access) | `super-admin.html` |
 | Internal | Blog admin (posts, editor, review, categories, media, newsletter) | `blog-admin.html` |
+| Internal | Content studio (item bank, model lab, test bench, experiments, revenue share) | `studio.html` |
 | Component | Curriculum comparison | `compare.html` |
 | Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |
