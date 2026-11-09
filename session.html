@@ -550,9 +550,11 @@
 <button type="button" class="mode" aria-pressed="{{tdIsDebate}}" onClick="{{tdModeDebate}}" style="flex: 1"><span style="font-size: 30px">🎙️</span><span style="font-size: 22px; font-weight: 700">Debate</span><span style="color: #B5B9BF; font-size: 15px; line-height: 1.45">Argue a motion against Socrates in timed rounds, or take a short oral test. Pick the topic or let Socrates choose.</span></button></div>
 
 <template data-if="{{tdIsTeachB}}"><div class="card"><span style="font-size: 13px; font-weight: 700; color: #B5B9BF">WHAT SHOULD SOCRATES TEACH?</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-for="{{tdLessons}}" data-as="l"><button type="button" class="tdb" aria-pressed="{{l.pressed}}" onClick="{{l.pick}}"><span style="display: block; font-size: 11.5px; color: #B5B9BF">{{l.subj}}</span>{{l.t}}</button></template></div>
+<label for="td-ct" style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">OR DESCRIBE IT YOURSELF</label><input id="td-ct" class="tdin" value="{{tdCustomT}}" onChange="{{tdSetCustomT}}" placeholder="e.g. Photosynthesis for a 10-year-old, or long division with remainders" autocomplete="off" style="max-width: 640px"><span style="font-size: 12.5px; color: #8A94A6">{{tdCustomTNote}}</span>
 <span style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">HOW LONG?</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-for="{{tdLens}}" data-as="n"><button type="button" class="tdb" aria-pressed="{{n.pressed}}" onClick="{{n.pick}}">{{n.label}}</button></template></div></div></template>
 <template data-if="{{tdIsDebateB}}"><div class="card"><span style="font-size: 13px; font-weight: 700; color: #B5B9BF">FORMAT</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" class="tdb" aria-pressed="{{tdFmtDebA}}" onClick="{{tdFmtDeb}}">Debate · opening, rebuttal, closing</button><button type="button" class="tdb" aria-pressed="{{tdFmtOralA}}" onClick="{{tdFmtOral}}">Oral test · five questions</button></div>
 <span style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">TOPIC</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" class="tdb" aria-pressed="{{tdAutoA}}" onClick="{{tdAuto}}">🎲 Let Socrates choose</button><template data-for="{{tdMotions}}" data-as="m"><button type="button" class="tdb" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}">{{m.t}}</button></template></div>
+<label for="td-cm" style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">OR WRITE YOUR OWN TOPIC</label><input id="td-cm" class="tdin" value="{{tdCustomM}}" onChange="{{tdSetCustomM}}" placeholder="e.g. School uniforms should be optional" autocomplete="off" style="max-width: 640px"><span style="font-size: 12.5px; color: #8A94A6">{{tdCustomMNote}}</span>
 <template data-if="{{tdFmtIsDeb}}"><span style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">YOUR SIDE</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-for="{{tdSides}}" data-as="s"><button type="button" class="tdb" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}">{{s.label}}</button></template></div></template>
 <span style="font-size: 13px; font-weight: 700; color: #B5B9BF; margin-top: 6px">HOW LONG?</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-for="{{tdLens}}" data-as="n"><button type="button" class="tdb" aria-pressed="{{n.pressed}}" onClick="{{n.pick}}">{{n.label}}</button></template></div></div></template>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center"><button type="button" class="tdb go" onClick="{{tdStart}}" style="min-height: 48px; padding: 0 22px; font-size: 16px">{{tdStartLabel}}</button><span style="font-size: 13px; color: #B5B9BF">{{tdStartNote}}</span></div></div></template>
@@ -1057,12 +1059,21 @@ class Component extends DCLogic {
       { t: 'Exams are the fairest way to measure learning.', pro: ['Everyone faces the same questions on the same day.', 'They are hard to fake and cheap to compare.'], con: ['They measure one afternoon, not a year of growth.', 'Families who can pay for coaching gain an advantage.'], qs: ['What does an exam measure well?', 'What does it miss?', 'Give one alternative and its weakness.', 'How would you reduce the coaching advantage?', 'Should exams decide who goes to university?'] },
       { t: 'Every child should learn to code.', pro: ['Code is the grammar of the modern world.', 'It teaches precise thinking and debugging of ideas.'], con: ['AI now writes most routine code; the scarce skill is knowing what to build.', 'Time spent coding is time not spent reading, making or moving.'], qs: ['What does coding teach besides coding?', 'Will AI make coding less important?', 'At what age should it start?', 'What should it replace in the timetable?', 'Who is most likely to miss out?'] },
       { t: 'Learning should happen outside school as much as inside.', pro: ['Most of what humans learned for sixty thousand years was learned by doing, beside adults.', 'Museums, workshops and farms teach things a classroom cannot.'], con: ['Not every family can offer rich experiences; school is the great equaliser.', 'Skills like reading need structured, patient teaching.'], qs: ['Name one thing you learned outside school.', 'What can only be learned in school?', 'How would you keep it fair for every family?', 'How would a guide track learning outside?', 'Should it count toward grades?'] } ];
+    const S = this._td || {}, ct = (S.customT || '').trim(), cm = (S.customM || '').trim();
+    if (ct) { const t = ct.replace(/[.!?]+$/, ''); L.push({ id: 'custom', subj: 'Your topic', t: t.charAt(0).toUpperCase() + t.slice(1), steps: [
+      { board: ['Today: ' + t, 'Step 1 · What do you already know?'], say: 'We are going to work on ' + t + '. Before I explain anything, tell me what you already know or have heard about it, even if you are not sure.', q: 'What do you already know?', keys: [''], hint: 'Anything at all: a word, an example, where you met it.', model: 'Starting from what you know lets me teach only what is missing.' },
+      { board: ['Step 2 · The idea in one sentence', 'Say it in your own words.'], say: 'Here is the heart of it, and then it is your turn. ' + t + ' is best understood by asking what it is for and what it is made of. Try to say what ' + t + ' is in one sentence of your own.', q: 'Say it in one sentence.', keys: [''], hint: 'Start with “It is…” or “It means…”.', model: 'A definition in your own words is worth ten copied ones.' },
+      { board: ['Step 3 · An example', 'Give one from your own life.'], say: 'Ideas stick to examples. Give me one real example of ' + t + ' from home, school or the street.', q: 'Give me an example.', keys: [''], hint: 'Where have you seen or used this?', model: 'An example you chose yourself is one you will remember.' },
+      { board: ['Step 4 · Where it goes wrong', 'Spot the common mistake.'], say: 'Every topic has a trap. For ' + t + ', what mistake do you think people make most often, and why?', q: 'What is the common mistake?', keys: [''], hint: 'Think about what is easy to mix up or skip.', model: 'Knowing the trap is half of avoiding it.' },
+      { board: ['Step 5 · Teach it back', 'Explain ' + t + ' to a younger learner.'], say: 'Last step, and the real test. Explain ' + t + ' to me as if I were eight years old. Short words, one example.', q: 'Teach it back.', keys: [''], hint: 'What would you say first? Then one example.', model: 'If you can teach it, you have it.' } ] }); }
+    if (cm) { const t = cm.replace(/[.!?]+$/, ''); M.push({ t: t + '.', custom: true, pro: ['The case for: it answers a real need, and the cost of doing nothing is paid by someone.', 'Where it has been tried, those closest to it tend to support it.'], con: ['The case against: the benefits are easy to claim and hard to measure.', 'There is usually a smaller change that gets most of the benefit with less risk.'], qs: ['What exactly is being proposed, in one sentence?', 'Who gains most, and who might lose?', 'What is the strongest argument against your view?', 'What evidence would change your mind?', 'What would you do first if you were in charge?'] }); }
     return { L, M };
   }
   tdMin(n) { const m = Math.floor(n / 60), s = n % 60; return (m ? m + (m === 1 ? ' minute' : ' minutes') : '') + (m && s ? ' and ' : '') + (s ? s + ' seconds' : ''); }
   tdInit() {
     let mode = ''; try { const h = (window.location.hash || '').replace('#', ''); if (h === 'teach' || h === 'debate') mode = h; } catch (e) {}
     if (!mode) { try { const v = window.localStorage.getItem('vachuo-td'); if (v === 'teach' || v === 'debate') { mode = v; window.localStorage.removeItem('vachuo-td'); } } catch (e) {} }
+    if (!this._tdWakeOn) { this._tdWakeOn = true; const w = () => { if (this.tdWake()) this.forceUpdate(); }; ['storage', 'focus', 'pageshow', 'visibilitychange'].forEach((ev) => { try { window.addEventListener(ev, w); } catch (e) {} }); try { document.addEventListener('visibilitychange', w); } catch (e) {} this._tdWakeT = setInterval(w, 1500); }
     if (!this._tdHash) { this._tdHash = () => { const h = (window.location.hash || '').replace('#', ''); if ((h === 'teach' || h === 'debate') && this._td) { this._td.on = true; this._td.mode = h; this._td.stage = this._td.stage === 'run' ? 'run' : 'pick'; this.forceUpdate(); } }; try { window.addEventListener('hashchange', this._tdHash); } catch (e) {} }
     return { on: !!mode, mode: mode || 'teach', lesson: 'scale', fmt: 'debate', motion: -1, side: 'for', len: mode === 'debate' ? 8 : 15, stage: 'pick', voice: true,
       secs: 0, total: 0, phase: 0, pIdx: 0, pLeft: 0, step: 0, misses: 0, board: [], cap: '', log: [], draft: '', interim: '', listening: false, micNote: '', talking: false, face: 'explaining', hits: 0, asked: 0, words: 0, turns: 0, addressed: 0, score: 0 };
@@ -1080,7 +1091,8 @@ class Component extends DCLogic {
     try { const el = document.documentElement; if (el.requestFullscreen && !document.fullscreenElement) el.requestFullscreen().catch(() => {}); } catch (e) {}
     if (S.mode === 'teach') { this.tdTeachStep(0); }
     else {
-      if (S.motion < 0 || S.auto) { S.motion = Math.floor(Math.random() * D.M.length); S.auto = true; }
+      if (S.motion === -2 && (S.customM || '').trim()) S.motion = D.M.length - 1;
+      else if (S.motion < 0 || S.auto) { const n = D.M.filter((m) => !m.custom).length; S.motion = Math.floor(Math.random() * n); S.auto = true; }
       if (S.side === 'random') S.side = Math.random() < 0.5 ? 'for' : 'against';
       const m = D.M[S.motion];
       if (S.fmt === 'debate') { const per = Math.floor(S.total / 6); S.plan = [['Your opening', per, 'me'], ['Socrates responds', Math.floor(per * 0.6), 'ai'], ['Your rebuttal', per, 'me'], ['Socrates rebuts', Math.floor(per * 0.6), 'ai'], ['Your closing', per, 'me'], ['Socrates sums up', S.total - per * 3 - Math.floor(per * 0.6) * 2, 'ai']]; S.board = ['MOTION: ' + m.t, 'You argue ' + (S.side === 'for' ? 'FOR' : 'AGAINST') + '.', 'Rounds: opening · rebuttal · closing']; this.tdSay('The motion is: ' + m.t + ' You are ' + (S.side === 'for' ? 'for' : 'against') + ' it. You have ' + Math.round(S.plan[0][1] / 60 * 10) / 10 + ' minutes for your opening. Make a claim, give a reason, give evidence. Begin when you are ready; the clock is running.', 'curious'); }
@@ -1107,11 +1119,11 @@ class Component extends DCLogic {
     if (/^(example|show me)/.test(low)) { this.tdSay('An example. ' + st.model + ' Now you try: ' + st.q, 'explaining'); return; }
     if (/^(why|how come)/.test(low) && low.length < 24) { this.tdSay(st.hint + ' Have a go: ' + st.q, 'thinking'); return; }
     if (/^(got it|next|ok|okay|yes|understood|skip)\b/.test(low)) { this.tdSay('Then on we go.', 'happy'); S.board = S.board.concat(['✓ ' + st.q]); setTimeout(() => this.tdTeachStep(S.step + 1), 900); return; }
-    const hit = st.keys.some((k) => low.indexOf(k) >= 0);
+    const hit = st.keys.some((k) => (k === '' ? low.split(/\s+/).filter(Boolean).length >= 4 : low.indexOf(k) >= 0));
     if (hit) { S.hits += 1; S.score += Math.max(1, 3 - S.misses); S.board = S.board.concat(['✓ ' + st.model]); this.tdSay(['Yes.', 'Exactly.', 'That is it.'][S.hits % 3] + ' ' + st.model + (S.step + 1 < L.steps.length ? ' Next step.' : ' That was the last step.'), 'happy'); setTimeout(() => this.tdTeachStep(S.step + 1), 2600); return; }
     S.misses += 1;
     if (S.misses >= 2) { S.board = S.board.concat(['→ ' + st.model]); this.tdSay('Let me show you. ' + st.model + ' Say it back to me, then we move on.', 'explaining'); S.pending = Object.assign({}, st, { keys: st.keys.concat(['']), misses: 2 }); return; }
-    this.tdSay('Not yet. ' + st.hint + ' ' + st.q, 'thinking');
+    this.tdSay((st.keys.includes('') ? 'A little more. ' : 'Not yet. ') + st.hint + ' ' + st.q, 'thinking');
   }
   tdNextPhase(timedOut) {
     const S = this._td, D = this.tdData(), m = D.M[S.motion];
@@ -1165,10 +1177,19 @@ class Component extends DCLogic {
     try { if (window.location.hash === '#teach' || window.location.hash === '#debate') history.replaceState(null, '', window.location.pathname); } catch (e) {}
     this._td = Object.assign(this.tdInit(), { on: false }); this.forceUpdate();
   }
+  tdWake() {
+    // a Teach / Debate request left by another page (the floating panel) while this page was already open
+    const S = this._td; if (!S || S.on) return false;
+    let v = null; try { v = window.localStorage.getItem('vachuo-td'); } catch (e) {}
+    if (v !== 'teach' && v !== 'debate') { try { const h = (window.location.hash || '').replace('#', ''); if (h === 'teach' || h === 'debate') v = h; } catch (e) {} }
+    if (v !== 'teach' && v !== 'debate') return false;
+    try { window.localStorage.removeItem('vachuo-td'); } catch (e) {}
+    S.on = true; S.mode = v; S.stage = 'pick'; return true;
+  }
   tdVals() {
-    const S = this._td || (this._td = this.tdInit()), D = this.tdData(), F = this.sfFaces ? this.sfFaces() : {}, fu = () => this.forceUpdate();
+    const S = this._td || (this._td = this.tdInit()); this.tdWake(); const D = this.tdData(), F = this.sfFaces ? this.sfFaces() : {}, fu = () => this.forceUpdate();
     const mm = (n) => Math.floor(Math.max(0, n) / 60) + ':' + String(Math.max(0, n) % 60).padStart(2, '0');
-    const lesson = D.L.find((x) => x.id === S.lesson) || D.L[0], motion = S.motion >= 0 ? D.M[S.motion] : null;
+    const lesson = D.L.find((x) => x.id === S.lesson) || D.L[0], motion = S.motion >= 0 ? D.M[S.motion] : (S.motion === -2 && (S.customM || '').trim() ? D.M[D.M.length - 1] : null);
     const lens = S.mode === 'teach' ? [10, 15, 20] : S.fmt === 'oral' ? [5, 8, 10] : [6, 8, 12];
     if (!lens.includes(S.len)) S.len = lens[1];
     const chips = S.mode === 'teach' ? [['Got it, next', 'Got it'], ['Slower', 'Slower'], ['Example', 'Example'], ['Why?', 'Why?']] : S.fmt === 'oral' ? [['Pass', 'I don’t know.']] : [['Done with this round', 'done']];
@@ -1185,14 +1206,16 @@ class Component extends DCLogic {
       tdClose: () => this.tdClose(), tdKey: (e) => { if (e.key === 'Escape') { e.preventDefault(); if (S.stage === 'run') this.tdEnd('stopped'); else this.tdClose(); } },
       tdIsTeach: S.mode === 'teach' ? 'true' : 'false', tdIsDebate: S.mode === 'debate' ? 'true' : 'false', tdIsTeachB: S.mode === 'teach', tdIsDebateB: S.mode === 'debate',
       tdModeTeach: () => { S.mode = 'teach'; S.len = 15; fu(); }, tdModeDebate: () => { S.mode = 'debate'; S.len = S.fmt === 'oral' ? 8 : 8; fu(); },
-      tdLessons: D.L.map((l) => ({ t: l.t, subj: l.subj, pressed: l.id === S.lesson ? 'true' : 'false', pick: () => { S.lesson = l.id; fu(); } })),
+      tdLessons: D.L.filter((l) => l.id !== 'custom').map((l) => ({ t: l.t, subj: l.subj, pressed: l.id === S.lesson ? 'true' : 'false', pick: () => { S.lesson = l.id; S.customT = ''; fu(); } })),
+      tdCustomT: S.customT || '', tdSetCustomT: (e) => { S.customT = e.target.value; S.lesson = S.customT.trim() ? 'custom' : (S.lesson === 'custom' ? 'scale' : S.lesson); fu(); }, tdCustomTNote: (S.customT || '').trim() ? 'Socrates will teach “' + S.customT.trim() + '” in five steps: what you know, the idea, an example, the common mistake, teach it back.' : 'Type a topic and it replaces the choice above.',
+      tdCustomM: S.customM || '', tdSetCustomM: (e) => { S.customM = e.target.value; if (S.customM.trim()) { S.auto = false; S.motion = -2; } else if (S.motion === -2) { S.motion = -1; S.auto = true; } fu(); }, tdCustomMNote: (S.customM || '').trim() ? 'You will debate “' + S.customM.trim() + '”. Socrates argues the other side with general points; bring your own evidence.' : 'Type a motion and it replaces the choice above.',
       tdLens: lens.map((n) => ({ label: n + ' min', pressed: n === S.len ? 'true' : 'false', pick: () => { S.len = n; fu(); } })),
       tdFmtDebA: S.fmt === 'debate' ? 'true' : 'false', tdFmtOralA: S.fmt === 'oral' ? 'true' : 'false', tdFmtIsDeb: S.fmt === 'debate', tdFmtDeb: () => { S.fmt = 'debate'; S.len = 8; fu(); }, tdFmtOral: () => { S.fmt = 'oral'; S.len = 8; fu(); },
-      tdAutoA: S.auto || S.motion < 0 ? 'true' : 'false', tdAuto: () => { S.auto = true; S.motion = -1; fu(); },
-      tdMotions: D.M.map((m, i) => ({ t: m.t, pressed: !S.auto && S.motion === i ? 'true' : 'false', pick: () => { S.motion = i; S.auto = false; fu(); } })),
+      tdAutoA: (S.auto || S.motion < 0) && S.motion !== -2 ? 'true' : 'false', tdAuto: () => { S.auto = true; S.motion = -1; S.customM = ''; fu(); },
+      tdMotions: D.M.filter((m) => !m.custom).map((m, i) => ({ t: m.t, pressed: !S.auto && S.motion === i ? 'true' : 'false', pick: () => { S.motion = i; S.auto = false; S.customM = ''; fu(); } })),
       tdSides: [['for', 'For'], ['against', 'Against'], ['random', 'Flip a coin']].map(([k, label]) => ({ label, pressed: S.side === k ? 'true' : 'false', pick: () => { S.side = k; fu(); } })),
       tdStart: () => this.tdStart(), tdStartLabel: S.mode === 'teach' ? 'Start the lesson · ' + S.len + ' min' : (S.fmt === 'oral' ? 'Start the oral test · ' : 'Start the debate · ') + S.len + ' min',
-      tdStartNote: S.mode === 'teach' ? 'Socrates talks and writes on the board; you answer by voice or text after each step.' : (S.auto || S.motion < 0 ? 'Socrates will pick the topic when you start.' : 'Strictly timed rounds. The clock moves you on.'),
+      tdStartNote: S.mode === 'teach' ? 'Socrates talks and writes on the board; you answer by voice or text after each step.' : (S.motion === -2 ? 'Your own motion. Strictly timed rounds.' : (S.auto || S.motion < 0 ? 'Socrates will pick the topic when you start.' : 'Strictly timed rounds. The clock moves you on.')),
       tdBoard: S.board.map((t, i) => ({ t, cls: /^✓/.test(t) ? 'em' : /^→/.test(t) ? 'em' : i < S.board.length - 1 && S.mode === 'teach' && S.board.length > 3 ? '' : '' })),
       tdCap: S.cap, tdLogTitle: S.mode === 'teach' ? 'Your answers' : (S.fmt === 'oral' ? 'Your answers' : 'The exchange'), tdLog: S.log.map((m) => ({ t: m.t, cls: m.who === 'me' ? 'me' : 'ai' })),
       tdChips: chips.map(([label, text]) => ({ label, go: () => this.tdSubmit(text) })),
@@ -1200,7 +1223,7 @@ class Component extends DCLogic {
       tdPh: S.mode === 'teach' ? 'Answer, or ask Socrates…' : 'Speak or type your argument…', tdListen: () => this.tdListen(), tdListenA: S.listening ? 'true' : 'false', tdMicLabel: S.listening ? 'Listening… tap to send' : 'Tap to talk', tdMicNoteOn: !!S.micNote, tdMicNote: S.micNote,
       tdEndTitle: S.why === 'time' ? 'Time is up.' : S.why === 'stopped' ? 'Session stopped.' : (S.mode === 'teach' ? 'Lesson complete.' : 'That is the end of the ' + (S.fmt === 'oral' ? 'test.' : 'debate.')),
       tdEndText: S.mode === 'teach' ? (S.hits >= Math.max(1, S.asked) * 0.7 ? 'You answered most checks on the first or second try. Next time, try teaching this step to someone else; that is the real test.' : 'Some steps needed showing. That is what the board is for. Run the lesson again tomorrow: spaced practice is how it sticks.') : (S.fmt === 'oral' ? 'An oral test rewards one habit: give a reason with every answer. “Because” is the most useful word in it.' : (S.addressed ? 'You answered the other side, which is what separates argument from assertion. Keep doing that.' : 'You made your case but did not answer mine. In the next debate, start your rebuttal with my strongest point and knock it down.')),
-      tdStats: stats, tdAgain: () => { const keep = { mode: S.mode, lesson: S.lesson, fmt: S.fmt, motion: S.auto ? -1 : S.motion, auto: S.auto, side: S.side, len: S.len, voice: S.voice }; this._td = Object.assign(this.tdInit(), keep, { on: true, stage: 'pick' }); fu(); },
+      tdStats: stats, tdAgain: () => { const keep = { mode: S.mode, lesson: S.lesson, fmt: S.fmt, motion: S.auto ? -1 : ((S.customM || '').trim() ? -2 : S.motion), auto: S.auto, side: S.side, len: S.len, voice: S.voice, customT: S.customT, customM: S.customM }; this._td = Object.assign(this.tdInit(), keep, { on: true, stage: 'pick' }); fu(); },
       tdOpen: () => { S.on = true; S.stage = 'pick'; fu(); }, tdOpenTeach: () => { S.on = true; S.mode = 'teach'; S.stage = 'pick'; fu(); }, tdOpenDebate: () => { S.on = true; S.mode = 'debate'; S.stage = 'pick'; fu(); }
     });
   }
@@ -1252,7 +1275,7 @@ class Component extends DCLogic {
   componentDidUpdate() {
     if (this._log && this._logLen !== this.state.msgs.length + (this.state.thinking ? 1 : 0)) { this._logLen = this.state.msgs.length + (this.state.thinking ? 1 : 0); this._log.scrollTop = this._log.scrollHeight; }
   }
-  componentWillUnmount() { if (this.sfOff) this.sfOff(); clearInterval(this._tdClock); clearTimeout(this._tdTalk); try { window.removeEventListener('hashchange', this._tdHash); } catch (e) {}
+  componentWillUnmount() { if (this.sfOff) this.sfOff(); clearInterval(this._tdClock); clearTimeout(this._tdTalk); clearInterval(this._tdWakeT); try { window.removeEventListener('hashchange', this._tdHash); } catch (e) {}
     this.themeOff(); clearInterval(this._clock); clearInterval(this._capT); clearInterval(this._fakeMic); clearTimeout(this._think);
     window.removeEventListener('resize', this._rs); this.stopTalk(); this.stopCam(); try { if (this._rec) this._rec.abort(); } catch (e) {}
   }
