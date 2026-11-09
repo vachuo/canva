@@ -259,6 +259,12 @@ class Component extends DCLogic {
       industry: ['#ECECE6', '#3F444C']
     };
     const raw = [
+      ['history-education', 'History of education', 'learn', 8, 'A Short History of Education: Sixty Thousand Years of Learning From Each Other', 'Education is far older than school. Tracing it from fireside and apprenticeship to tablet, academy and classroom shows what has stayed constant, and what each age added.'],
+      ['history-schooling', 'History of schooling', 'learn', 8, 'Where the Classroom Came From: A History of Schooling in Eight Inventions', 'Rows of desks, age grades, the blackboard, the bell, the exam: each piece of the modern school was invented somewhere, for a reason. Knowing the reasons is the first step to deciding what to keep.'],
+      ['history-learning', 'History of learning', 'learn', 8, 'How We Learned How We Learn: A History of the Science of Learning', 'From Ebbinghaus memorising nonsense syllables to today’s cognitive science, the study of learning has overturned common sense again and again. Its best findings are still waiting to be used.'],
+      ['history-edtech', 'History of EdTech', 'industry', 8, 'The Machine That Will Replace the Teacher: A History of Education Technology', 'Film, radio, teaching machines, television, computers, MOOCs: each arrived with a promise to transform schooling, and each was absorbed by it. The history is a guide to what AI must do differently.'],
+      ['ai-nations', 'AI around the world', 'learn', 9, 'Who Is Ahead? Eight Education Systems Putting AI to Work, and What Each Is Betting On', 'Singapore, South Korea, Estonia, China, the UAE, Finland, the UK and the US have all moved AI from pilot to policy. Their bets differ, and the differences are the useful part.'],
+      ['literacy-divide', 'Literacy and AI', 'work', 8, 'In the AI Age, Literacy Might Be the New Class Divide', 'When a machine can read, write and explain for you, the people who can still do those things themselves pull ahead. The evidence on how children use AI suggests the gap is already opening.'],
       ['education', 'Education', 'learn', 7, 'What Is Education For? Three Purposes, One Child', 'Before we automate schooling, we should be clear about what it is for. Gert Biesta’s three purposes of education offer a test every AI system should pass.'],
       ['learning-teaching', 'Learning and teaching', 'learn', 7, 'What the Science of Learning Asks of Every Teacher and Tutor', 'Retrieval, spacing, worked examples and well-judged feedback are among the best-replicated findings in education research. Most classrooms and apps still underuse them.'],
       ['homeschooling', 'Homeschooling', 'learn', 7, 'Homeschooling’s Second Wave: What the Evidence Can and Cannot Tell Us', 'Home education is growing again, and its families are more varied than the stereotypes. The research base has not kept up.'],
@@ -279,6 +285,12 @@ class Component extends DCLogic {
     const band = { learn: '#1D4ED8', work: '#0D9488', safe: '#F9A826', industry: '#172F73' };
     const B = (id) => 'assets/img/' + id + '.svg';
     const art = {
+      'history-education': B('734c48226a9d32aaeebc02194bddd245'),
+      'history-schooling': B('cac9841562397b7ca613a7ffcdd03071'),
+      'history-learning': B('3131eb41702479241dc132be8c19c769'),
+      'history-edtech': B('46e5e779174aa0ddfd4f477b9c75cf42'),
+      'ai-nations': B('65a0f4b355f066cff6c2b1eae9c72c33'),
+      'literacy-divide': B('cc13f9d919b0933cc82b960722e0d690'),
       'education': B('734c48226a9d32aaeebc02194bddd245'), 'learning-teaching': B('3131eb41702479241dc132be8c19c769'),
       'homeschooling': B('0a1435c5059775e636726ec8ea6ae1bf'), 'ai-schools': B('1faac0a7d16146a1a5b3b74c07d1a41a'),
       'international-schools': B('d42b6aeb08200a8796692a2ce1cd239f'), 'education-policy': B('d5b3c1bf64b6df3171cd40d4ea6cd3d7'),
