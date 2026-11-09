@@ -49,14 +49,14 @@
 
 <section aria-labelledby="lp-name" style="position: relative; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 24px">
 <div aria-hidden="true" style="height: 120px; position: relative; overflow: hidden; background: {{L.band}}"><span style="position: absolute; width: 420px; height: 420px; right: -120px; top: -300px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3)"></span><span style="position: absolute; width: 720px; height: 720px; left: -260px; top: -560px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2)"></span></div>
-<div style="padding: 0 clamp(18px, 3vw, 32px) 26px; display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-end; margin-top: -64px; position: relative">
-<img src="{{L.face}}" alt="{{L.name}}" style="flex: none; width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: top; background: {{L.tint}}; border: 5px solid #FFFFFF; box-shadow: 0 10px 24px -14px rgba(20,22,26,0.5)">
+<div style="padding: 14px clamp(18px, 3vw, 32px) 26px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: flex-start; position: relative">
+<img src="{{L.face}}" alt="{{L.name}}" style="flex: none; margin-top: -78px; width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: top; background: {{L.tint}}; border: 5px solid #FFFFFF; box-shadow: 0 10px 24px -14px rgba(20,22,26,0.5)">
 <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding-bottom: 4px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
 <h1 id="lp-name" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3.4vw, 40px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em">{{L.name}}</h1>
 <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: {{L.statusFg}}; background: {{L.statusBg}}; padding: 5px 12px; border-radius: 999px"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: {{L.statusDot}}"></span>{{L.status}}</span>
 </div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F444C">{{L.meta}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F444C; overflow-wrap: anywhere">{{L.meta}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{L.interests}}" data-as="i"><span style="font-size: 12.5px; font-weight: 500; color: #115E59; background: #DDF4F1; padding: 4px 10px; border-radius: 999px">{{i}}</span></template></div>
 </div>
 <div style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 8px">
