@@ -23,12 +23,14 @@
 <h2 id="ap-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600">Waiting for your approval</h2>
 <span style="font-size: 13px; color: #62676F">{{pendingCount}}</span>
 </div>
-<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person sessions and job applications for your learners land here. Nothing goes live, gets paid or meets anyone until you say yes.</p>
+<p style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; line-height: 1.5; color: #3F444C">Alignment plans, Showcase listings, in-person sessions and job applications land here, with what your child said about each one. Learners can propose changes too. Nothing goes live, gets paid or meets anyone until you say yes.</p>
 <template data-for="{{pending}}" data-as="a">
 <div class="fadein" style="border: 1px solid #F3DDB0; background: #FEF9EE; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="padding: 2px 9px; border-radius: 999px; background: {{a.kBg}}; color: {{a.kFg}}; font-size: 12px; font-weight: 700">{{a.kind}}</span><span style="font-size: 12.5px; color: #3F444C">From {{a.from}} · {{a.at}}</span></div>
 <span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 19px; font-weight: 600; line-height: 1.25">{{a.title}}</span>
 <span style="font-size: 13.5px; line-height: 1.5; color: #3F444C">{{a.detail}}</span>
+<template data-if="{{a.hasSays}}"><p style="margin: 0; padding: 8px 12px; border-left: 3px solid #0D9488; background: #FFFFFF; border-radius: 0 10px 10px 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 16px; font-style: italic; line-height: 1.45; color: #134E4A">“{{a.says}}” <span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-style: normal; color: #62676F">{{a.saysWho}}</span></p></template>
+<template data-if="{{a.noSays}}"><span style="font-size: 12.5px; color: #8A8F96">Nothing from {{a.from}} on this yet. You could ask before deciding.</span></template>
 <template data-if="{{a.hasAreas}}"><div style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{a.areas}}" data-as="r"><span style="padding: 2px 8px; border-radius: 6px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 12px; color: #3F444C">{{r.t}}</span></template></div></template>
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{a.approve}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 13.5px; font-weight: 700; cursor: pointer">Approve</button><button type="button" onClick="{{a.decline}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">Decline</button></div>
 </div>
@@ -74,8 +76,8 @@ class Component extends DCLogic {
   read() { try { const v = JSON.parse(window.localStorage.getItem('vachuo-approvals') || 'null'); if (Array.isArray(v)) return v; } catch (e) {} return this._mem || this.seed(); }
   write(list) { this._mem = list; try { window.localStorage.setItem('vachuo-approvals', JSON.stringify(list)); window.dispatchEvent(new Event('vachuo-approvals')); } catch (e) {} this.forceUpdate(); }
   seed() {
-    return [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', from: 'Amani', at: 'Mon 2 Nov', status: 'pending' },
-      { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending' }];
+    return [{ id: 'seed-club', kind: 'club', title: 'Amani wants to join “Bao la Kiswahili” at Kilimani Library, Sat 7 Nov, 10:00', detail: 'In person · group of 8 · run by Mzee Kariuki with a library volunteer present. Her first in-person club session.', says: 'Mzee Kariuki knows openings my grandfather never taught me. Please can I go?', from: 'Amani', at: 'Mon 2 Nov', status: 'pending' },
+      { id: 'seed-list', kind: 'listing', title: 'Showcase listing: “Rain over Kilimani”, watercolour, A4, KSh 1,200', detail: 'Amani’s first listing. Payment would go to you; buyers message you, never Amani.', says: 'I want to save for a microscope. I’d put half of it towards that.', from: 'Amani', at: 'Sun 1 Nov', status: 'pending' }];
   }
   renderVals() {
     const area = (this.props && this.props.area) || 'parent'; const list = this.read();
@@ -87,7 +89,7 @@ class Component extends DCLogic {
       const AREA = { map: 'Learning map', classes: 'My classes', assess: 'My assessments', tutor: 'Socrates', clubs: 'Clubs and Connects' };
       Object.assign(out, { pendingCount: pend.length ? pend.length + ' waiting' : 'All clear', noPending: !pend.length, hasDone: done.length > 0,
         pending: pend.map((x) => { const k = K[x.kind] || K.job; const areas = x.payload && x.payload.items ? Object.keys(x.payload.items).filter((a) => x.payload.items[a].length).map((a) => ({ t: AREA[a] + ' · ' + x.payload.items[a].length })) : [];
-          return { kind: k[0], kBg: k[1], kFg: k[2], title: x.title, detail: x.detail, from: x.from, at: x.at, areas, hasAreas: areas.length > 0, approve: () => set(x.id, 'approved'), decline: () => set(x.id, 'declined') }; }),
+          const says = x.says || (x.payload && x.payload.says) || ''; return { kind: k[0], kBg: k[1], kFg: k[2], title: x.title, detail: x.detail, says, hasSays: !!says, noSays: !says, saysWho: (x.from || 'The learner').split(' ')[0] + ', in their words', from: x.from, at: x.at, areas, hasAreas: areas.length > 0, approve: () => set(x.id, 'approved'), decline: () => set(x.id, 'declined') }; }),
         done: done.slice(-5).reverse().map((x) => ({ title: x.title, status: x.status === 'approved' ? 'Approved' : 'Declined', sBg: x.status === 'approved' ? '#DDF4F1' : '#ECECE6', sFg: x.status === 'approved' ? '#115E59' : '#3F444C', undo: () => set(x.id, 'pending') })) });
       return out;
     }
