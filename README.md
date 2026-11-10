@@ -56,7 +56,7 @@ Then open http://localhost:5180.
 | Admin | Organisation admin (people, roles, policies, connections, billing, audit) | `admin.html` |
 | Internal | Super admin (organisations, plans, flags, models, regions, staff access) | `super-admin.html` |
 | Internal | Blog admin (posts, editor, review, categories, media, newsletter) | `blog-admin.html` |
-| Internal | Content studio (item bank, model lab, test bench, experiments, revenue share) | `studio.html` |
+| Internal | Vachuo Studio (item bank, model lab, test bench, experiments, revenue share) | `studio.html` |
 | Component | Curriculum comparison | `compare.html` |
 | Component | Approvals | `approvals.html` |
 | Inside Vachuo | The loop | `loop.html` |
