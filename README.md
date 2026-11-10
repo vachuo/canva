@@ -24,7 +24,7 @@ Then open http://localhost:5180.
 | Website | Sign in | `sign-in.html` |
 | Website | Blog (Vachuo Journal) | `blog.html` |
 | Website | Newsroom | `newsroom.html` |
-| Journal | Twenty-two essays | `blog-<topic>.html` |
+| Journal | Thirty-two essays | `blog-<topic>.html` |
 | Learner | Today | `today.html` |
 | Learner | Tutor session | `session.html` |
 | Learner | My map | `map.html` |
