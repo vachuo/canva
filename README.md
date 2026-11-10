@@ -15,7 +15,7 @@ Then open http://localhost:5180.
 | Section | Page | File |
 | --- | --- | --- |
 | Website | Thesis landing page | `index.html` |
-| Website | How the system works | `how-it-works.html` |
+| Website | How Vachuo works | `how-it-works.html` |
 | Website | About (our plan and the Vachuo Charter) | `about.html` |
 | Website | Vision, mission & values | `vision.html` |
 | Website | White paper | `white-paper.html` |
