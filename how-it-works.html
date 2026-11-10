@@ -13,11 +13,11 @@
 <style>
 html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}html.rv-on [data-rv]:not([data-shown]){opacity:0;transform:translateY(28px)}
 .lnode{transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
-.lnode:hover{transform:translateY(-3px)}
+.lnode:hover{transform:translateY(-3px)}.lnode:focus-visible{outline:2px solid #7FA2EE;outline-offset:3px}.dvu{left:-3px;animation-name:dvu}@keyframes dvu{0%{top:calc(100% - 4px);opacity:0}15%{opacity:1}85%{opacity:1}100%{top:-4px;opacity:0}}.antvu{animation:antvu .8s linear infinite}@keyframes antvu{to{background-position:0 -12px}}.anthr{animation:anthr .8s linear infinite}@keyframes anthr{to{background-position:12px 0}}.lyseg{transition:background-color .25s ease,color .25s ease,box-shadow .25s ease}.lyseg:hover{background:#F4F4EF}.lyseg[aria-pressed="true"]:hover{background:#14161A}.lybar{transition:background-color .3s ease,transform .2s ease}.lybar:hover{transform:scaleY(1.6)}.lyfill{transform-origin:0 50%;animation:lyfill 2.8s linear both}@keyframes lyfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}.lyin{animation:lyin .45s cubic-bezier(.2,.8,.2,1) both}@keyframes lyin{from{opacity:0;transform:translateY(8px)}}@media (max-width:760px){#layers-diagram{zoom:.62}}@media (max-width:520px){#layers-diagram{zoom:.47}}
 .lnode.pre,.lyedge.pre{opacity:0 !important}
 .lnode.pre{transform:translateY(16px) scale(.96)}
 .lyedge{transition:opacity .4s ease,background-color .3s ease}
-.dv,.dh,.dhr{position:absolute;width:8px;height:8px;border-radius:50%;animation-duration:1.8s;animation-timing-function:linear;animation-iteration-count:infinite}
+.dv,.dvu,.dh,.dhr{position:absolute;width:8px;height:8px;border-radius:50%;animation-duration:1.8s;animation-timing-function:linear;animation-iteration-count:infinite}
 .dv{left:-3px;animation-name:dv}.dh{top:-3px;animation-name:dh}.dhr{top:-3px;animation-name:dhr}
 @keyframes dv{0%{top:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:calc(100% - 4px);opacity:0}}
 @keyframes dh{0%{left:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 4px);opacity:0}}
@@ -29,7 +29,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 .pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
 .lyrow{transition:background .2s ease}.lyrow:hover{background:#F4F4EF}
 .unfold{animation:unfold .35s ease}@keyframes unfold{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dv,.dh,.dhr{display:none}.antv,.anth,.ripple,.pop,.unfold{animation:none}.lnode:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dv,.dvu,.dh,.dhr{display:none}.antv,.anth,.antvu,.anthr,.ripple,.pop,.unfold,.lyfill,.lyin{animation:none}.lnode:hover{transform:none}}
 .vmenu{position:relative}.vmenu>summary{list-style:none;cursor:pointer}.vmenu>summary::-webkit-details-marker{display:none}
 .vm-panel{display:none;position:absolute;left:-14px;top:100%;z-index:60}
 .vmenu[open]>.vm-panel{display:flex}
@@ -43,6 +43,8 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 .vlang-list button:hover{background:#F4F4EF!important}[data-theme="dark"] .vlang-list button:hover{background:#22262D!important}
 .vfoot a.fl{display:inline-flex;align-items:center;min-height:30px;font-size:13.5px;line-height:1.3;color:#B5B9BF;text-decoration:none}.vfoot a.fl:hover{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 .vfoot .soc{opacity:.85}.vfoot .soc:hover{opacity:1;background:#1A1D20}
+.hw-card{transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .45s ease,box-shadow .45s ease,background-color .45s ease,border-color .45s ease;transform-origin:50% 100%}.hw-in{transition:opacity .35s ease}.hw-back:hover{border-color:#3A4049!important}.hw-stack:focus-visible{outline:2px solid #7DB4FF;outline-offset:8px;border-radius:28px}.hw-pill{transition:flex-grow .45s ease,background-color .35s ease,border-color .35s ease,color .35s ease}.hw-pill:hover{border-color:#7DB4FF!important}.hw-btn:hover{background:#1A1D20!important}.hw-bar{transform-origin:0 50%;animation:hw-fill 3.2s linear both}@keyframes hw-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}.hw-pop{animation:hw-pop .5s cubic-bezier(.2,.8,.2,1) both}@keyframes hw-pop{from{opacity:0;transform:translateY(8px)}}.hw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media (max-width:640px){.hw-lbl{display:none}.hw-pilln{display:none}}@media (prefers-reduced-motion:reduce){.hw-card,.hw-in,.hw-pill{transition:none}.hw-bar,.hw-pop{animation:none}}
+.dk-card{transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s ease,box-shadow .4s ease,background-color .4s ease;transform-origin:50% 100%}.dk-in{transition:opacity .3s ease}.dk-back:hover{box-shadow:0 16px 30px -20px rgba(20,22,26,.5)!important}.dk-stack:focus-visible{outline:2px solid #7FA2EE;outline-offset:8px;border-radius:26px}.dk-ix{transition:background-color .2s ease,border-color .2s ease}.dk-ix:hover{background:#FFFFFF!important;border-color:#CFCFC6!important}.dk-dot{transition:width .3s ease,background-color .3s ease}.dk-btn:hover{background:#F4F4EF!important}.dk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}[data-theme="dark"] .dk-btn{background:#22262D!important;border-color:#3A4049!important;color:#EDEDE8!important}@media (max-width:760px){.dk-index{display:none!important}}@media (max-width:520px){.dk-lbl{display:none}.dk-btn{padding:0 12px!important}}@media (prefers-reduced-motion:reduce){.dk-card,.dk-in,.dk-dot{transition:none}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -84,20 +86,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <h2 id="moat-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance">A tutor answers. A learner needs more.</h2>
 <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; color: #C9CCD0; text-wrap: pretty">Every child will soon have an AI tutor. What she also needs is a loop that starts with her question, brings in real people and places, ends in rest, and is built to be needed less over time.</p>
 </div>
-<ol aria-label="The closed loop" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 10px">
-<template data-for="{{loop}}" data-as="s">
-<li style="display: flex">
-<button type="button" aria-current="{{s.cur}}" onClick="{{s.pick}}" style="flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 18px; min-height: 104px; box-sizing: border-box; padding: 14px; border-radius: 14px; background: {{s.bg}}; border: 1px solid {{s.bd}}; color: #EDEDE8; text-align: left; cursor: pointer; transform: {{s.tf}}; transition: background .35s ease, border-color .35s ease, transform .35s ease">
-<span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: {{s.c}}">{{s.n}}</span>
-<span style="font-size: 16px; font-weight: 600; line-height: 1.25">{{s.name}}</span>
-</button>
-</li>
-</template>
-</ol>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: -20px">
-<button type="button" onClick="{{loopToggle}}" aria-pressed="{{loopPressed}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; background: transparent; color: #EDEDE8; font-size: 14px; font-weight: 500; cursor: pointer">{{loopToggleLabel}}</button>
-<p aria-live="polite" style="flex: 1 1 320px; margin: 0; font-size: 16px; line-height: 1.5; color: #C9CCD0"><span style="color: #AFD0FF; font-weight: 600">{{loopNow}}.</span> {{loopCaption}}</p>
-</div>
+<div style="display: flex; flex-direction: column; gap: 22px"><ol aria-label="The loop, thirteen steps" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; font-family: Inter, system-ui, sans-serif"><template data-for="{{hwRail}}" data-as="r"><li style="display: flex; flex: {{r.grow}} 1 0; min-width: 0"><button type="button" class="hw-pill" aria-current="{{r.cur}}" aria-label="{{r.aria}}" onClick="{{r.pick}}" style="flex: 1; min-width: 0; height: 40px; box-sizing: border-box; padding: 0 10px; border-radius: 12px; border: 1px solid {{r.bd}}; background: {{r.bg}}; color: {{r.fg}}; display: flex; align-items: center; justify-content: center; gap: 8px; overflow: hidden; white-space: nowrap; cursor: pointer"><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px">{{r.n}}</span><template data-if="{{r.on}}"><span class="hw-pilln hw-pop" style="font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis">{{r.name}}</span></template></button></li></template></ol><div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch"><div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px"><div id="hw-stack" class="hw-stack" role="region" aria-roledescription="carousel" aria-label="The loop, one step at a time" tabindex="0" onKeyDown="{{hwKey}}" onPointerDown="{{hwDown}}" onPointerUp="{{hwUp}}" style="position: relative; padding-bottom: 48px; touch-action: pan-y; user-select: none"><template data-for="{{hwCards}}" data-as="c"><article class="hw-card {{c.cls}}" role="group" aria-roledescription="slide" aria-label="{{c.aria}}" aria-hidden="{{c.hidden}}" onClick="{{c.pick}}" style="position: {{c.pos}}; left: 0; right: 0; top: 0; bottom: 48px; z-index: {{c.z}}; transform: {{c.tf}}; opacity: {{c.op}}; pointer-events: {{c.pe}}; cursor: {{c.cursor}}; background: {{c.bg}}; border: 1px solid {{c.bd}}; box-shadow: {{c.sh}}; box-sizing: border-box; min-height: 340px; border-radius: 24px; padding: 28px 30px 26px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 4px; background: {{c.ac}}"></span><div class="hw-in" style="opacity: {{c.cop}}; flex: 1; display: flex; flex-direction: column; gap: 16px"><div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px"><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(56px, 6vw, 84px); line-height: 0.82; font-weight: 600; letter-spacing: -0.03em; color: {{c.ac}}">{{c.n}}</span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ownFg}}; background: {{c.ownBg}}; padding: 4px 10px; border-radius: 999px">{{c.owner}}</span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #8A8F96">Step {{c.n}} of 13</span></span></div><h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(30px, 3vw, 42px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; color: #FFFFFF">{{c.name}}</h3><p style="margin: 0; font-size: clamp(17px, 1.4vw, 19px); line-height: 1.5; color: #C9CCD0">{{c.cap}}</p><div style="margin-top: auto; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid #2A2E33; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ac}}">On Amani’s ratios</span><span style="font-size: 16.5px; line-height: 1.5; color: #EDEDE8">{{c.ex}}</span></div><template data-if="{{c.timer}}"><div aria-hidden="true" style="height: 3px; border-radius: 2px; background: #2A2E33; overflow: hidden"><template data-if="{{c.tA}}"><div class="hw-bar" style="height: 100%; background: {{c.ac}}"></div></template><template data-if="{{c.tB}}"><div class="hw-bar" style="height: 100%; background: {{c.ac}}"></div></template></div></template></div></article></template></div><div style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 12px"><span style="display: inline-flex; gap: 8px"><button type="button" onClick="{{hwPrev}}" aria-label="Previous step" class="hw-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; background: transparent; color: #EDEDE8; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" onClick="{{loopToggle}}" aria-pressed="{{loopPressed}}" class="hw-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; background: transparent; color: #EDEDE8; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><template data-if="{{hwPlaying}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></template><template data-if="{{hwPaused}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></template><span class="hw-lbl">{{loopToggleLabel}}</span></button><button type="button" onClick="{{hwNext}}" aria-label="Next step" class="hw-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #2B4A94; background: transparent; color: #EDEDE8; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #A3A8AE">{{hwCount}}</span></div><p aria-live="polite" class="hw-sr">{{hwLive}}</p></div><aside aria-label="Who each step belongs to" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px; font-family: Inter, system-ui, sans-serif"><div style="padding: 18px; border-radius: 20px; border: 1px solid #2A2E33; background: #15181B; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A3A8AE">Whose step is it?</span><span style="display: flex; align-items: flex-start; gap: 10px"><span aria-hidden="true" style="flex: none; margin-top: 4px; width: 12px; height: 12px; border-radius: 4px; background: #F9A826"></span><span style="font-size: 14.5px; line-height: 1.45; color: #EDEDE8"><b>The learner and her family.</b> Wonder, Talk it over with the family, and Rest belong to them.</span></span><span style="display: flex; align-items: flex-start; gap: 10px"><span aria-hidden="true" style="flex: none; margin-top: 4px; width: 12px; height: 12px; border-radius: 4px; background: #7DB4FF"></span><span style="font-size: 14.5px; line-height: 1.45; color: #EDEDE8"><b>Vachuo and Socrates, with people.</b> The other ten, always open to her view and her “I disagree”.</span></span></div><div style="padding: 18px; border-radius: 20px; border: 1px solid #2A2E33; background: #15181B; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A3A8AE">Where she is now</span><div aria-hidden="true" style="height: 6px; border-radius: 3px; background: #2A2E33; overflow: hidden"><div style="height: 100%; width: {{hwPct}}%; background: linear-gradient(90deg, #7DB4FF, {{hwAc}}); transition: width .6s ease"></div></div><span style="font-size: 14.5px; line-height: 1.45; color: #C9CCD0">{{hwWhere}}</span></div><span style="font-size: 13px; line-height: 1.5; color: #8A8F96">Tap a step, a card behind, swipe, or use the arrow keys. It plays on its own until you do.</span></aside></div></div>
 <div style="display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 15px; color: #A3A8AE">For every learner, across</span>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
@@ -114,20 +103,35 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <h2 id="layers-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">Three columns of teaching, and the learner who directs them</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C; text-wrap: pretty">Mortimer Adler divided good teaching into three columns: instruction, coaching and seminar. Vachuo uses AI for the first two and people for the third, and puts the learner in charge of all of them. The seven layers underneath are the machinery.</p>
 </div>
-<ol aria-label="Who teaches what" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px"><li style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 18px; background: #E4ECFD"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Instruction</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; line-height: 1.15">Socrates and lessons</span><span style="font-size: 14.5px; line-height: 1.5; color: #3F444C">Explains on request, briefly, then hands the problem back.</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 18px; background: #E4ECFD"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1E40AF">Coaching</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; line-height: 1.15">Socrates, with guides</span><span style="font-size: 14.5px; line-height: 1.5; color: #3F444C">Practice, feedback and habits of reading, reasoning and speaking.</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 18px; background: #DDF4F1"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #115E59">Seminar</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; line-height: 1.15">People and peers</span><span style="font-size: 14.5px; line-height: 1.5; color: #3F444C">Conversation about ideas: the Agora, clubs, elders, family dinners.</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 18px; background: #FEF1D9"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #92400E">Direction</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 600; line-height: 1.15">The learner</span><span style="font-size: 14.5px; line-height: 1.5; color: #3F444C">Her questions, her destinations, and what gets recorded.</span></li></ol>
-<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
-<div style="flex: 1 1 720px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<div role="group" aria-label="Highlight a path" style="display: flex; flex-wrap: wrap; gap: 8px">
-<template data-for="{{lyViews}}" data-as="v">
-<button type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{v.bd}}; background: {{v.bg}}; color: {{v.fg}}; font-size: 13.5px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{v.dot}}"></span>{{v.label}}</button>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 13.5px; color: #62676F">{{clHint}}</span><button type="button" aria-pressed="{{clAllA}}" onClick="{{clToggleAll}}" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">{{clAllLabel}}</button></div>
+<template data-if="{{clDeck}}">
+<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start">
+<ol class="dk-index" aria-label="Three columns of teaching" style="flex: 1 1 250px; max-width: 360px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-family: Inter, system-ui, sans-serif"><template data-for="{{clList}}" data-as="x"><li><button type="button" class="dk-ix" aria-current="{{x.cur}}" onClick="{{x.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 12px; border-radius: 14px; border: 1px solid {{x.bd}}; background: {{x.bg}}; color: #14161A; text-align: left; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 4px; height: 34px; border-radius: 2px; background: {{x.bar}}"></span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{x.ink}}">{{x.col}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.2">{{x.who}}</span></span></button></li></template></ol>
+<div style="flex: 2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div id="cl-stack" class="dk-stack" role="region" aria-roledescription="carousel" aria-label="Three columns of teaching, one at a time" tabindex="0" onKeyDown="{{clKey}}" onPointerDown="{{clDown}}" onPointerUp="{{clUp}}" style="position: relative; padding-bottom: 44px; touch-action: pan-y; user-select: none"><template data-for="{{clCards}}" data-as="c"><article class="dk-card {{c.cls}}" role="group" aria-roledescription="slide" aria-label="{{c.aria}}" aria-hidden="{{c.hidden}}" onClick="{{c.pick}}" style="position: {{c.pos}}; left: 0; right: 0; top: 0; bottom: 44px; z-index: {{c.z}}; transform: {{c.tf}}; opacity: {{c.op}}; pointer-events: {{c.pe}}; cursor: {{c.cursor}}; background: {{c.bg}}; box-shadow: {{c.sh}}; box-sizing: border-box; min-height: 300px; border: 1px solid #E2E2DA; border-radius: 22px; padding: 26px 28px 24px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{c.ac}}"></span><div class="dk-in" style="opacity: {{c.cop}}; flex: 1; display: flex; flex-direction: column; gap: 14px"><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ink}}; background: {{c.tint}}; padding: 5px 12px; border-radius: 999px">{{c.col}}</span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">{{c.pos3}}</span></div><h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em">{{c.who}}</h3><p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C">{{c.text}}</p><div style="border-radius: 14px; background: {{c.tint}}; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{c.ink}}">What it looks like</span><span style="font-size: 15.5px; line-height: 1.5; color: #14161A">{{c.ex}}</span></div><div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 12.5px; color: #62676F">Where in Vachuo</span><template data-for="{{c.where}}" data-as="w"><a href="{{w.href}}" tabindex="{{c.tab}}" style="font-size: 12.5px; font-weight: 500; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px; text-decoration: none">{{w.label}}</a></template></div></div></article></template></div>
+<div style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 12px; font-family: Inter, system-ui, sans-serif"><button type="button" onClick="{{clPrev}}" aria-label="Previous" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span class="dk-lbl">Previous</span></button><div role="group" aria-label="Choose a card" style="display: flex; align-items: center; gap: 6px"><template data-for="{{clList}}" data-as="x"><button type="button" class="dk-dot" aria-label="{{x.aria}}" aria-current="{{x.cur}}" onClick="{{x.pick}}" style="width: {{x.dw}}; height: 8px; padding: 0; border: none; border-radius: 999px; background: {{x.dot}}; cursor: pointer"></button></template><span style="margin-left: 8px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: #62676F">{{clCount}}</span></div><button type="button" onClick="{{clNext}}" aria-label="Next" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><span class="dk-lbl">Next</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+<p role="status" aria-live="polite" class="dk-sr">{{clLive}}</p>
+</div>
+</div>
+</template>
+<template data-if="{{clAll}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px"><template data-for="{{clGrid}}" data-as="c"><article class="dk-card {{c.cls}}" role="group" aria-roledescription="slide" aria-label="{{c.aria}}" style="position: relative; background: #FFFFFF; box-sizing: border-box; min-height: 300px; border: 1px solid #E2E2DA; border-radius: 22px; padding: 26px 28px 24px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{c.ac}}"></span><div class="dk-in" style="opacity: {{c.cop}}; flex: 1; display: flex; flex-direction: column; gap: 14px"><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ink}}; background: {{c.tint}}; padding: 5px 12px; border-radius: 999px">{{c.col}}</span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: #62676F">{{c.pos3}}</span></div><h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em">{{c.who}}</h3><p style="margin: 0; font-size: 17.5px; line-height: 1.55; color: #3F444C">{{c.text}}</p><div style="border-radius: 14px; background: {{c.tint}}; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{c.ink}}">What it looks like</span><span style="font-size: 15.5px; line-height: 1.5; color: #14161A">{{c.ex}}</span></div><div style="margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 12.5px; color: #62676F">Where in Vachuo</span><template data-for="{{c.where}}" data-as="w"><a href="{{w.href}}" tabindex="{{c.tab}}" style="font-size: 12.5px; font-weight: 500; color: #1E40AF; background: #E4ECFD; padding: 3px 10px; border-radius: 999px; text-decoration: none">{{w.label}}</a></template></div></div></article></template></div>
 </template>
 </div>
-<div style="overflow-x: auto; background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 22px; padding: 24px 0">
-<div id="layers-diagram" role="group" aria-label="Seven layers. Parent OS at the top branches to the AI School Manager and to Human help on demand. The AI School Manager drives Content, Assessment and Pedagogy, which feed the Learner model, then the Knowledge and skill graph, then AI tutor agents, then the individual child. Human help reaches the child directly with motivation and mentorship. Select a layer to trace its path." style="position: relative; width: 720px; height: 760px; margin: 0 auto; font-size: 14px; line-height: 18px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 720px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div role="group" aria-label="Highlight a path" style="align-self: flex-start; display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">
+<template data-for="{{lyViews}}" data-as="v">
+<button type="button" class="lyseg" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 14px; border-radius: 999px; border: none; background: {{v.bg}}; color: {{v.fg}}; font-size: 13.5px; font-weight: 600; cursor: pointer"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{v.dot}}"></span>{{v.label}}</button>
+</template>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF radial-gradient(#E8E8E1 1px, transparent 1.2px) 0 0 / 18px 18px; border: 1px solid #E2E2DA; border-radius: 22px; padding: 24px 0; box-shadow: 0 30px 60px -48px rgba(20,22,26,.35)">
+<div id="layers-diagram" role="group" aria-label="Seven layers with the learner at the top. Beneath her, AI tutor agents, the knowledge and skill graph and the learner model serve her directly; below them Content, Assessment and Pedagogy, then the AI School Manager and Human help on demand, with Parent OS at the base. Human help reaches the learner directly with motivation and mentorship, and her questions and choices reach the family and the plan. Select a layer to trace its path." style="position: relative; width: 720px; height: 760px; margin: 0 auto; font-size: 14px; line-height: 18px">
 <template data-for="{{lyEdges}}" data-as="e">
 <span aria-hidden="true" class="{{e.cls}}" style="position: absolute; left: {{e.l}}px; top: {{e.t}}px; width: {{e.w}}px; height: {{e.h}}px; background: {{e.bg}}; opacity: {{e.op}}"><template data-if="{{e.dot}}"><span class="{{e.dotCls}}" style="background: {{e.dotCol}}; animation-delay: {{e.delay}}s"></span></template></span>
 </template>
-<span aria-hidden="true" class="{{arrowCls}}" style="position: absolute; left: 401px; top: 711px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid {{arrowCol}}; opacity: {{arrowOp}}"></span>
+<span aria-hidden="true" class="{{arrowCls}}" style="position: absolute; left: 401px; top: 39px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid {{arrowCol}}; opacity: {{arrowOp}}"></span>
 <template data-for="{{lyNodes}}" data-as="n">
 <button type="button" class="{{n.cls}}" aria-pressed="{{n.pressed}}" aria-label="{{n.aria}}" onClick="{{n.pick}}" style="position: absolute; left: {{n.x}}px; top: {{n.y}}px; width: {{n.w}}px; height: 56px; box-sizing: border-box; margin: 0; padding: 6px 10px; display: flex; align-items: center; justify-content: center; gap: 6px; text-align: center; border-radius: 12px; background: {{n.bg}}; border: {{n.bd}}; color: {{n.fg}}; box-shadow: {{n.shadow}}; opacity: {{n.op}}; transition-delay: {{n.delay}}ms; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 14px; line-height: 18px; cursor: pointer">
 <template data-if="{{n.active}}"><span class="ripple" aria-hidden="true" style="border-color: {{n.accent}}"></span></template>
@@ -135,16 +139,15 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <template data-if="{{n.hasBadge}}"><span class="pop" aria-hidden="true" style="position: absolute; right: -12px; top: -15px; white-space: nowrap; padding: 3px 9px; border-radius: 999px; background: #F9A826; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(20,22,26,0.6)">{{n.badge}}</span></template>
 </button>
 </template>
-<span aria-hidden="true" style="position: absolute; left: 572px; top: 446px; width: 132px; font-size: 13px; line-height: 16px; color: #115E59; opacity: {{humanLabelOp}}; transition: opacity .3s ease">Motivation and mentorship</span>
+<span aria-hidden="true" style="position: absolute; left: 572px; top: 282px; width: 132px; font-size: 13px; line-height: 16px; color: #115E59; opacity: {{humanLabelOp}}; transition: opacity .3s ease">Motivation and mentorship</span><span aria-hidden="true" style="position: absolute; left: 18px; top: 296px; width: 128px; font-size: 13px; line-height: 16px; color: #92400E; opacity: {{sayLabelOp}}; transition: opacity .3s ease">Her questions and her say reach the family and the plan</span><span aria-hidden="true" class="{{arrowCls}}" style="position: absolute; left: 272px; top: 711px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid {{sayArrowCol}}; opacity: {{sayArrowOp}}"></span>
 </div>
 </div>
 </div>
 <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <div style="border-radius: 20px; background: #14161A; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7DB4FF">Follow one signal</span><span style="font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: #A3A8AE">{{tourCount}}</span></div>
-<p style="margin: 0; font-size: 20px; line-height: 1.25; font-weight: 600">{{tourTitle}}</p>
-<p aria-live="polite" style="margin: 0; min-height: 72px; font-size: 16px; line-height: 1.5; color: #DCE6FD">{{tourText}}</p>
-<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px"><template data-for="{{tourBars}}" data-as="b"><span style="height: 4px; border-radius: 2px; background: {{b.bg}}; transition: background .3s ease"></span></template></div>
+<template data-if="{{tourEven}}"><div class="lyin" style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-size: 21px; line-height: 1.25; font-weight: 600">{{tourTitle}}</p><p style="margin: 0; min-height: 72px; font-size: 16px; line-height: 1.5; color: #DCE6FD">{{tourText}}</p></div></template><template data-if="{{tourOdd}}"><div class="lyin" style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-size: 21px; line-height: 1.25; font-weight: 600">{{tourTitle}}</p><p style="margin: 0; min-height: 72px; font-size: 16px; line-height: 1.5; color: #DCE6FD">{{tourText}}</p></div></template><p aria-live="polite" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">{{tourTitle}}. {{tourText}}</p>
+<div role="group" aria-label="Journey steps" style="display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 4px"><template data-for="{{tourBars}}" data-as="b"><button type="button" class="lybar" aria-label="{{b.aria}}" aria-current="{{b.cur}}" onClick="{{b.pick}}" style="position: relative; height: 6px; padding: 0; border: none; border-radius: 3px; background: {{b.bg}}; overflow: hidden; cursor: pointer"><template data-if="{{b.fillA}}"><span class="lyfill" aria-hidden="true" style="position: absolute; inset: 0; background: {{b.fc}}"></span></template><template data-if="{{b.fillB}}"><span class="lyfill" aria-hidden="true" style="position: absolute; inset: 0; background: {{b.fc}}"></span></template></button></template></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <button type="button" aria-label="Previous step" onClick="{{tourPrev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3F444C; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
 <button type="button" aria-pressed="{{tourPressed}}" onClick="{{tourToggle}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: none; background: #F9A826; color: #14161A; font-size: 14px; font-weight: 600; cursor: pointer">{{tourLabel}}</button>
@@ -181,9 +184,53 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <h2 id="cap-title" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance">The CAP problem is more subtle than “generate lessons.”</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3F444C">For Vachuo, CAP is three interconnected graphs.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 20px; align-items: start">
-
-<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 13.5px; color: #62676F">{{cpHint}}</span><button type="button" aria-pressed="{{cpAllA}}" onClick="{{cpToggleAll}}" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">{{cpAllLabel}}</button></div>
+<template data-if="{{cpDeck}}"><div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start">
+<ol class="dk-index" aria-label="The three graphs" style="flex: 1 1 250px; max-width: 340px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-family: Inter, system-ui, sans-serif"><template data-for="{{cpList}}" data-as="x"><li><button type="button" class="dk-ix" aria-current="{{x.cur}}" onClick="{{x.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 12px; border-radius: 14px; border: 1px solid {{x.bd}}; background: {{x.bg}}; color: #14161A; text-align: left; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: {{x.ibg}}; color: {{x.ifg}}; display: inline-flex; align-items: center; justify-content: center; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 22px; font-weight: 700">{{x.letter}}</span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; color: {{x.ac}}">{{x.n}}</span><span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.2">{{x.title}}</span><span style="font-size: 12.5px; color: #62676F">{{x.sub}}</span></span></button></li></template><li style="padding: 8px 12px 0; font-size: 12.5px; line-height: 1.5; color: #62676F">Content and Assessment both feed Pedagogy, which decides the next step of the loop.</li></ol>
+<div style="flex: 2 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div id="cp-stack" class="dk-stack" role="region" aria-roledescription="carousel" aria-label="The three graphs, one at a time" tabindex="0" onKeyDown="{{cpKey}}" onPointerDown="{{cpDown}}" onPointerUp="{{cpUp}}" style="position: relative; padding-bottom: 44px; touch-action: pan-y; user-select: none"><article class="dk-card {{cpA.cls}}" role="group" aria-roledescription="slide" aria-label="{{cpA.aria}}" aria-hidden="{{cpA.hidden}}" onClick="{{cpA.pick}}" style="position: {{cpA.pos}}; left: 0; right: 0; top: 0; bottom: 44px; z-index: {{cpA.z}}; transform: {{cpA.tf}}; opacity: {{cpA.op}}; pointer-events: {{cpA.pe}}; cursor: {{cpA.cursor}}; background: {{cpA.bg}}; box-shadow: {{cpA.sh}}; box-sizing: border-box; min-height: 340px; border: 1px solid #E2E2DA; border-radius: 24px; padding: 28px 30px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{cpA.ac}}"></span><div class="dk-in" style="opacity: {{cpA.cop}}; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">01</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Content graph</h3>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #62676F">Not</span>
+<span style="font-size: 16px; color: #62676F; text-decoration: line-through; text-decoration-color: #0D9488">“Here is Grade 5 math.”</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #62676F">Instead</span>
+<ol aria-label="Example concept chain" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+<template data-for="{{chain}}" data-as="c">
+<li style="display: flex; align-items: center; gap: 4px">
+<span style="font-size: 14.5px; font-weight: 500; padding: 7px 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E2E2DA">{{c.name}}</span>
+<template data-if="{{c.more}}"><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 7h12M9 2.5L13.5 7 9 11.5" fill="none" stroke="#9A9E95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></template>
+</li>
+</template>
+</ol>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every concept needs prerequisites, learning objectives, standards, examples, misconceptions, difficulty levels and applications.</p>
+</div></article><article class="dk-card {{cpB.cls}}" role="group" aria-roledescription="slide" aria-label="{{cpB.aria}}" aria-hidden="{{cpB.hidden}}" onClick="{{cpB.pick}}" style="position: {{cpB.pos}}; left: 0; right: 0; top: 0; bottom: 44px; z-index: {{cpB.z}}; transform: {{cpB.tf}}; opacity: {{cpB.op}}; pointer-events: {{cpB.pe}}; cursor: {{cpB.cursor}}; background: {{cpB.bg}}; box-shadow: {{cpB.sh}}; box-sizing: border-box; min-height: 340px; border: 1px solid #E2E2DA; border-radius: 24px; padding: 28px 30px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{cpB.ac}}"></span><div class="dk-in" style="opacity: {{cpB.cop}}; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">02</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Assessment graph</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every interaction updates a probability:</p>
+<span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: clamp(16px, 1.6vw, 19px); padding: 14px 16px; border-radius: 12px; background: #14161A; color: #7DB4FF">P(student understands skill X)</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">A wrong answer isn’t merely <span style="font-family: ui-monospace, Menlo, monospace">0 points</span>. It might mean:</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="{{causes}}" data-as="c"><li style="font-size: 13.5px; padding: 6px 11px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">{{c}}</li></template>
+</ul>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #14161A; font-weight: 500">Those lead to completely different interventions.</p><p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #DDF4F1; color: #115E59; font-size: 15px; line-height: 1.5">The learner sees this estimate in words, gives her own view first, and can challenge it. A challenge counts as evidence.</p>
+</div></article><article class="dk-card {{cpC.cls}}" role="group" aria-roledescription="slide" aria-label="{{cpC.aria}}" aria-hidden="{{cpC.hidden}}" onClick="{{cpC.pick}}" style="position: {{cpC.pos}}; left: 0; right: 0; top: 0; bottom: 44px; z-index: {{cpC.z}}; transform: {{cpC.tf}}; opacity: {{cpC.op}}; pointer-events: {{cpC.pe}}; cursor: {{cpC.cursor}}; background: {{cpC.bg}}; box-shadow: {{cpC.sh}}; box-sizing: border-box; min-height: 340px; border: 1px solid #E2E2DA; border-radius: 24px; padding: 28px 30px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{cpC.ac}}"></span><div class="dk-in" style="opacity: {{cpC.cop}}; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">03</span>
+<h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Pedagogy graph</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Then the AI determines:</p>
+<ol style="margin: 0; padding: 0 0 0 22px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.4">
+<template data-for="{{questions}}" data-as="q"><li>{{q}}</li></template>
+</ol>
+<p style="margin: 0; padding: 14px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 16px; line-height: 1.55">This is much harder than content generation, and no one has convincingly solved it across K–12 yet.</p>
+</div></article></div>
+<div style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 12px; font-family: Inter, system-ui, sans-serif"><button type="button" onClick="{{cpPrev}}" aria-label="Previous graph" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span class="dk-lbl">Previous</span></button><div role="group" aria-label="Choose a graph" style="display: flex; align-items: center; gap: 6px"><template data-for="{{cpList}}" data-as="x"><button type="button" class="dk-dot" aria-label="{{x.aria}}" aria-current="{{x.cur}}" onClick="{{x.pick}}" style="width: {{x.dw}}; height: 8px; padding: 0; border: none; border-radius: 999px; background: {{x.dot}}; cursor: pointer"></button></template><span style="margin-left: 8px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: #62676F">{{cpCount}}</span></div><button type="button" onClick="{{cpNext}}" aria-label="Next graph" class="dk-btn" style="display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><span class="dk-lbl">Next</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+<p role="status" aria-live="polite" class="dk-sr">{{cpLive}}</p>
+</div></div></template>
+<template data-if="{{cpAll}}"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 20px; align-items: start"><article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">01</span>
 <h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Content graph</h3>
 <div style="display: flex; flex-direction: column; gap: 6px">
@@ -202,9 +249,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 </ol>
 </div>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every concept needs prerequisites, learning objectives, standards, examples, misconceptions, difficulty levels and applications.</p>
-</article>
-
-<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+</article><article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">02</span>
 <h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Assessment graph</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Every interaction updates a probability:</p>
@@ -214,9 +259,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <template data-for="{{causes}}" data-as="c"><li style="font-size: 13.5px; padding: 6px 11px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E2DA">{{c}}</li></template>
 </ul>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #14161A; font-weight: 500">Those lead to completely different interventions.</p>
-</article>
-
-<article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+</article><article style="background: #F4F4EF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #1D4ED8">03</span>
 <h3 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Pedagogy graph</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3F444C">Then the AI determines:</p>
@@ -224,7 +267,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <template data-for="{{questions}}" data-as="q"><li>{{q}}</li></template>
 </ol>
 <p style="margin: 0; padding: 14px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E2DA; font-size: 16px; line-height: 1.55">This is much harder than content generation, and no one has convincingly solved it across K–12 yet.</p>
-</article>
+</article></div></template>
 </div>
 </div>
 </section>
@@ -348,7 +391,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) this.setState({ playing: false, tour: false, ly: 'idle' });
-    this._tourT = setInterval(() => { if (this.state.ly === 'tour' && this.state.tour && this.state.built && !document.hidden) this.setState({ tstep: (this.state.tstep + 1) % 8 }); }, 2800);
+    this._tourT = setInterval(() => { if (this.state.ly === 'tour' && this.state.tour && this.state.built && !document.hidden) this.setState({ tstep: (this.state.tstep + 1) % 9 }); }, 2800);
     if (!reduce && window.innerHeight < 1600 && 'IntersectionObserver' in window) {
       const dg = document.getElementById('layers-diagram');
       if (dg && dg.getBoundingClientRect().top > window.innerHeight * 0.85) {
@@ -362,7 +405,7 @@ class Component extends DCLogic {
         this._io2.observe(dg);
       }
     }
-    this._tick = setInterval(() => { if (this.state.playing && !document.hidden) this.setState({ step: (this.state.step + 1) % 13 }); }, 2000);
+    this._tick = setInterval(() => { if (this.state.playing && !document.hidden) this.setState({ step: (this.state.step + 1) % 13 }); }, 3200);
     this._onScroll = () => {
       if (this._raf) return;
       this._raf = requestAnimationFrame(() => {
@@ -395,52 +438,56 @@ class Component extends DCLogic {
   layerVals() {
     const st = this.state;
     const N = {
-      p: { x: 280, y: 16, w: 240, l: 'L1', name: 'Parent OS', bg: '#14161A', bd: 'none', fg: '#FFFFFF', tag: '#7DB4FF', accent: '#14161A', lv: 0, key: 'p' },
-      m: { x: 170, y: 136, w: 220, l: 'L2', name: 'AI School Manager', bg: '#E4ECFD', bd: '1px solid #93BBF3', fg: '#172F73', tag: '#172F73', accent: '#1D4ED8', lv: 1, key: 'm' },
-      h: { x: 450, y: 136, w: 220, l: 'L2', name: 'Human help on demand', bg: '#DDF4F1', bd: '1px solid #8FD3C9', fg: '#134E4A', tag: '#134E4A', accent: '#0D9488', lv: 1, key: 'h' },
-      c: { x: 22, y: 256, w: 156, l: 'L3', name: 'Content', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
-      a: { x: 202, y: 256, w: 156, l: 'L3', name: 'Assessment', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
-      g: { x: 382, y: 256, w: 156, l: 'L3', name: 'Pedagogy', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 2, key: 'cap' },
-      lm: { x: 160, y: 376, w: 240, l: 'L4', name: 'Learner model', bg: '#1D4ED8', bd: 'none', fg: '#FFFFFF', tag: '#C7D7FB', accent: '#1D4ED8', lv: 3, key: 'lm' },
-      kg: { x: 160, y: 480, w: 240, l: 'L5', name: 'Knowledge / Skill graph', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 4, key: 'kg' },
-      t: { x: 160, y: 584, w: 240, l: 'L6', name: 'AI tutor agents', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 5, key: 't' },
-      k: { x: 160, y: 688, w: 240, l: 'L7', name: 'Individual child', bg: '#DDF4F1', bd: '1.5px solid #0D9488', fg: '#134E4A', tag: '#134E4A', accent: '#0D9488', lv: 6, key: 'k' }
+      p: { x: 280, y: 688, w: 240, l: 'L7', name: 'Parent OS', bg: '#14161A', bd: 'none', fg: '#FFFFFF', tag: '#7DB4FF', accent: '#14161A', lv: 6, key: 'p' },
+      m: { x: 170, y: 568, w: 220, l: 'L6', name: 'AI School Manager', bg: '#E4ECFD', bd: '1px solid #93BBF3', fg: '#172F73', tag: '#172F73', accent: '#1D4ED8', lv: 5, key: 'm' },
+      h: { x: 450, y: 568, w: 220, l: 'L6', name: 'Human help on demand', bg: '#DDF4F1', bd: '1px solid #8FD3C9', fg: '#134E4A', tag: '#134E4A', accent: '#0D9488', lv: 5, key: 'h' },
+      c: { x: 22, y: 448, w: 156, l: 'L5', name: 'Content', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 4, key: 'cap' },
+      a: { x: 202, y: 448, w: 156, l: 'L5', name: 'Assessment', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 4, key: 'cap' },
+      g: { x: 382, y: 448, w: 156, l: 'L5', name: 'Pedagogy', bg: '#FFFFFF', bd: '1.5px solid #1D4ED8', fg: '#14161A', tag: '#1E40AF', accent: '#1D4ED8', lv: 4, key: 'cap' },
+      lm: { x: 160, y: 328, w: 240, l: 'L4', name: 'Learner model', bg: '#1D4ED8', bd: 'none', fg: '#FFFFFF', tag: '#C7D7FB', accent: '#1D4ED8', lv: 3, key: 'lm' },
+      kg: { x: 160, y: 224, w: 240, l: 'L3', name: 'Knowledge / Skill graph', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 2, key: 'kg' },
+      t: { x: 160, y: 120, w: 240, l: 'L2', name: 'AI tutor agents', bg: '#FFFFFF', bd: '1px solid #CFCFC6', fg: '#14161A', tag: '#62676F', accent: '#3F444C', lv: 1, key: 't' },
+      k: { x: 160, y: 16, w: 240, l: 'L1', name: 'The learner', bg: '#0F766E', bd: 'none', fg: '#FFFFFF', tag: '#CFF1EC', accent: '#0D9488', lv: 0, key: 'k' }
     };
     // [id, from, to, kind, x1, y1, x2, y2, human, delay]
     const E = [
-      ['e1', 'p', 'j1', 'v', 400, 72, 400, 104, 0, 0], ['e2a', 'j1', 'jl', 'h', 400, 104, 280, 104, 0, 0.3], ['e2b', 'j1', 'jr', 'h', 400, 104, 560, 104, 1, 0.3],
-      ['e3', 'jl', 'm', 'v', 280, 104, 280, 136, 0, 0.6], ['e4', 'jr', 'h', 'v', 560, 104, 560, 136, 1, 0.6], ['e5', 'm', 'j2', 'v', 280, 192, 280, 224, 0, 0.9],
-      ['e6a', 'j2', 'j2l', 'h', 280, 224, 100, 224, 0, 1.2], ['e6b', 'j2', 'j2r', 'h', 280, 224, 460, 224, 0, 1.2],
-      ['e7', 'j2l', 'c', 'v', 100, 224, 100, 256, 0, 1.5], ['e8', 'j2', 'a', 'v', 280, 224, 280, 256, 0, 1.5], ['e9', 'j2r', 'g', 'v', 460, 224, 460, 256, 0, 1.5],
-      ['e10', 'c', 'j3l', 'v', 100, 312, 100, 344, 0, 0], ['e11', 'a', 'j3', 'v', 280, 312, 280, 344, 0, 0], ['e12', 'g', 'j3r', 'v', 460, 312, 460, 344, 0, 0],
-      ['e13a', 'j3l', 'j3', 'h', 100, 344, 280, 344, 0, 0.3], ['e13b', 'j3r', 'j3', 'h', 460, 344, 280, 344, 0, 0.3], ['e14', 'j3', 'lm', 'v', 280, 344, 280, 376, 0, 0.6],
-      ['e15', 'lm', 'kg', 'v', 280, 432, 280, 480, 0, 0.9], ['e16', 'kg', 't', 'v', 280, 536, 280, 584, 0, 1.2], ['e17', 't', 'k', 'v', 280, 640, 280, 688, 0, 1.5],
-      ['e18', 'h', 'j4', 'v', 560, 192, 560, 716, 2, 0], ['e19', 'j4', 'k', 'h', 560, 716, 409, 716, 2, 0.9]
+      ['e1', 'p', 'j1', 'v', 400, 688, 400, 656, 0, 0], ['e2a', 'j1', 'jl', 'h', 400, 656, 280, 656, 0, 0.3], ['e2b', 'j1', 'jr', 'h', 400, 656, 560, 656, 1, 0.3],
+      ['e3', 'jl', 'm', 'v', 280, 656, 280, 624, 0, 0.6], ['e4', 'jr', 'h', 'v', 560, 656, 560, 624, 1, 0.6], ['e5', 'm', 'j2', 'v', 280, 568, 280, 536, 0, 0.9],
+      ['e6a', 'j2', 'j2l', 'h', 280, 536, 100, 536, 0, 1.2], ['e6b', 'j2', 'j2r', 'h', 280, 536, 460, 536, 0, 1.2],
+      ['e7', 'j2l', 'c', 'v', 100, 536, 100, 504, 0, 1.5], ['e8', 'j2', 'a', 'v', 280, 536, 280, 504, 0, 1.5], ['e9', 'j2r', 'g', 'v', 460, 536, 460, 504, 0, 1.5],
+      ['e10', 'c', 'j3l', 'v', 100, 448, 100, 416, 0, 0], ['e11', 'a', 'j3', 'v', 280, 448, 280, 416, 0, 0], ['e12', 'g', 'j3r', 'v', 460, 448, 460, 416, 0, 0],
+      ['e13a', 'j3l', 'j3', 'h', 100, 416, 280, 416, 0, 0.3], ['e13b', 'j3r', 'j3', 'h', 460, 416, 280, 416, 0, 0.3], ['e14', 'j3', 'lm', 'v', 280, 416, 280, 384, 0, 0.6],
+      ['e15', 'lm', 'kg', 'v', 280, 328, 280, 280, 0, 0.9], ['e16', 'kg', 't', 'v', 280, 224, 280, 176, 0, 1.2], ['e17', 't', 'k', 'v', 280, 120, 280, 72, 0, 1.5],
+      ['e18', 'h', 'j4', 'v', 560, 568, 560, 44, 2, 0], ['e19', 'j4', 'k', 'h', 560, 44, 409, 44, 2, 0.9],
+      ['e20', 'k', 'j5', 'h', 160, 44, 10, 44, 3, 0], ['e21', 'j5', 'j6', 'v', 10, 44, 10, 716, 3, 0], ['e22', 'j6', 'p', 'h', 10, 716, 272, 716, 3, 0]
     ];
+    const EF = E.filter((e) => e[8] !== 3);
     const groups = { p: ['p'], m: ['m'], h: ['h'], cap: ['c', 'a', 'g'], lm: ['lm'], kg: ['kg'], t: ['t'], k: ['k'] };
     const reach = (start, fwd) => {
       const seen = new Set(start), q = start.slice();
-      while (q.length) { const n = q.shift(); E.forEach((e) => { const a = fwd ? e[1] : e[2], b = fwd ? e[2] : e[1]; if (a === n && !seen.has(b)) { seen.add(b); q.push(b); } }); }
+      while (q.length) { const n = q.shift(); EF.forEach((e) => { const a = fwd ? e[1] : e[2], b = fwd ? e[2] : e[1]; if (a === n && !seen.has(b)) { seen.add(b); q.push(b); } }); }
       return seen;
     };
-    const up = (ids) => { const A = reach(ids, false); return { e: new Set(E.filter((e) => A.has(e[2])).map((e) => e[0])), n: A }; };
-    const route = (ids) => { const u = up(ids), D = reach(ids, true); const es = new Set(u.e); E.forEach((e) => { if (D.has(e[1])) es.add(e[0]); }); D.forEach((x) => u.n.add(x)); return { e: es, n: u.n }; };
+    const up = (ids) => { const A = reach(ids, false); return { e: new Set(EF.filter((e) => A.has(e[2])).map((e) => e[0])), n: A }; };
+    const route = (ids) => { const u = up(ids), D = reach(ids, true); const es = new Set(u.e); EF.forEach((e) => { if (D.has(e[1])) es.add(e[0]); }); D.forEach((x) => u.n.add(x)); return { e: es, n: u.n }; };
     const humanSet = () => { const u = up(['h']); u.e.add('e18'); u.e.add('e19'); u.n.add('k'); return u; };
+    const saySet = () => ({ e: new Set(['e20', 'e21', 'e22']), n: new Set(['k', 'p']) });
     const TOUR = [
-      ['p', 'Plan approved', 'The family decides', 'Amani’s parent approves the week’s plan and Thursday’s workshop visit in the Parent OS.'],
-      ['m', '4 sessions booked', 'The school runs itself', 'The AI School Manager books four sessions, the workshop and Wednesday’s reassessment, and files the record.'],
-      ['cap', 'Problem · check · approach', 'Content, Assessment, Pedagogy', 'CAP picks a chapati problem, a check question and a worked-example approach, all validated before Amani sees them.'],
-      ['lm', 'Ratios 42%', 'The model knows how sure it is', 'Ratios is likely between 33% and 51%. Not shown yet, so it’s worth this week’s time.'],
-      ['kg', 'Gap found', 'The graph finds the root', 'Wrong answers trace back to Equivalent fractions, a gap at 61%, so that comes in first.'],
-      ['t', 'Worked example', 'A tutor that asks why', 'An AI tutor agent teaches with a worked example and asks why an answer happened, not just whether it’s right.'],
-      ['k', '15 cups for 40 ✓', 'Amani gets there', 'Amani scales 3 cups for 8 chapati to 15 cups for 40. The evidence flows back into the model.'],
-      ['h', 'Wednesday check-in', 'People where people matter', 'Nduta, Amani’s human guide, checks in on Wednesday. Motivation and mentorship stay human.']
+      ['q', 'Her question', 'It starts with Amani', 'Amani asks how Grace scales a recipe for 40 people. Her question, not a grade, sets the week, and it reaches the family.'],
+      ['p', 'Plan approved', 'The family decides', 'Wanjiru approves the week’s plan and Thursday’s visit to Grace’s bakery in Parent copilot.'],
+      ['m', 'Visit booked', 'The school runs itself', 'The AI School Manager books the bakery visit and Wednesday’s check-in, and leaves three hours a day open.'],
+      ['cap', 'Problem · check · approach', 'Content, Assessment, Pedagogy', 'CAP picks a chapati problem, a check question and a Socratic approach, all validated before Amani sees them.'],
+      ['lm', 'Early days', 'The model knows how unsure it is', 'Vachuo’s estimate for ratios, in words: “early days, still unsure.” Amani says “getting there,” and she can challenge it.'],
+      ['kg', 'Gap found', 'The graph finds the root', 'Wrong answers trace back to equivalent fractions, so that comes in first.'],
+      ['t', 'Asks first', 'A tutor that asks why', 'Socrates asks before it tells: will 20 chapati need more or less than double the flour? Then, why?'],
+      ['k', '15 cups for 40 ✓', 'Amani gets there', 'Amani scales 3 cups for 8 to 15 cups for 40 and explains it in her own words. The evidence flows back into her map.'],
+      ['h', 'Wednesday check-in', 'People where people matter', 'Nduta, Amani’s guide, checks in on Wednesday. Motivation and mentorship stay human.']
     ];
     let hl = null, focus = [], badgeOn = '', badgeText = '';
     if (st.ly === 'tour') {
       const s = TOUR[st.tstep];
-      hl = s[0] === 'h' ? humanSet() : up(groups[s[0]]);
-      focus = groups[s[0]]; badgeOn = s[0] === 'cap' ? 'a' : groups[s[0]][0]; badgeText = s[1];
+      hl = s[0] === 'h' ? humanSet() : (s[0] === 'q' ? saySet() : up(groups[s[0]]));
+      focus = s[0] === 'q' ? ['k'] : groups[s[0]]; badgeOn = s[0] === 'cap' ? 'a' : (s[0] === 'q' ? 'k' : groups[s[0]][0]); badgeText = s[1];
     } else if (st.ly === 'sel' && st.lyKey) {
       hl = st.lyKey === 'h' ? (() => { const r = humanSet(); r.e.add('e1'); return r; })() : route(groups[st.lyKey]);
       focus = groups[st.lyKey];
@@ -448,20 +495,22 @@ class Component extends DCLogic {
       hl = { e: new Set(E.filter((e) => !e[8]).map((e) => e[0])), n: new Set(Object.keys(N).filter((k) => k !== 'h')) };
     } else if (st.ly === 'view' && st.lyView === 'human') {
       hl = humanSet();
+    } else if (st.ly === 'view' && st.lyView === 'say') {
+      hl = saySet();
     }
     const pre = !st.built;
     const lyEdges = E.map((e) => {
       const on = !hl || hl.e.has(e[0]);
-      const human = e[8] > 0, dashed = e[8] === 2;
-      const col = hl ? (on ? (human ? '#0D9488' : '#1D4ED8') : '#DCDCD3') : (dashed ? '#0D9488' : '#9A9E95');
+      const human = e[8] > 0, dashed = e[8] >= 2, say = e[8] === 3;
+      const col = hl ? (on ? (say ? '#B45309' : (human ? '#0D9488' : '#1D4ED8')) : '#DCDCD3') : (say ? '#B45309' : (dashed ? '#0D9488' : '#9A9E95'));
       const v = e[3] === 'v';
       const x1 = e[4], y1 = e[5], x2 = e[6], y2 = e[7];
       const g = {
         l: v ? x1 - 1 : Math.min(x1, x2), t: v ? Math.min(y1, y2) : y1 - 1, w: v ? 2 : Math.abs(x2 - x1), h: v ? Math.abs(y2 - y1) : 2,
         bg: dashed ? 'repeating-linear-gradient(' + (v ? 'to bottom' : 'to right') + ', ' + col + ' 0 6px, transparent 6px 12px)' : col,
         op: hl && !on ? 0.6 : 1,
-        cls: 'lyedge' + (dashed ? (v ? ' antv' : ' anth') : '') + (pre ? ' pre' : ''),
-        dot: !dashed && on && !pre, dotCls: v ? 'dv' : (x2 > x1 ? 'dh' : 'dhr'), dotCol: human ? '#0D9488' : '#1D4ED8', delay: e[9]
+        cls: 'lyedge' + (dashed ? (v ? (y2 < y1 ? ' antvu' : ' antv') : (x2 > x1 ? ' anthr' : ' anth')) : '') + (pre ? ' pre' : ''),
+        dot: !dashed && on && !pre, dotCls: v ? (y2 < y1 ? 'dvu' : 'dv') : (x2 > x1 ? 'dh' : 'dhr'), dotCol: human ? '#0D9488' : '#1D4ED8', delay: e[9]
       };
       return g;
     });
@@ -481,24 +530,24 @@ class Component extends DCLogic {
         pick: () => this.setState(st.ly === 'sel' && st.lyKey === n.key ? { ly: 'idle', lyKey: '' } : { ly: 'sel', lyKey: n.key, tour: false })
       };
     });
-    const views = [['all', 'Whole system', '#9A9E95'], ['ai', 'The AI loop', '#1D4ED8'], ['human', 'The human path', '#0D9488']];
+    const views = [['all', 'Whole system', '#9A9E95'], ['ai', 'The AI loop', '#1D4ED8'], ['human', 'The human path', '#0D9488'], ['say', 'The learner’s say', '#B45309']];
     const curView = st.ly === 'view' ? st.lyView : 'all';
     const lyViews = views.map(([id, label, dot]) => {
       const on = curView === id && (st.ly === 'view' || (id === 'all' && st.ly === 'idle'));
-      return { label, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : '#F9A826', fg: on ? '#F9A826' : '#14161A', bd: on ? '#14161A' : '#F9A826',
+      return { label, dot, pressed: on ? 'true' : 'false', bg: on ? '#14161A' : 'transparent', fg: on ? '#FFFFFF' : '#3F444C', bd: 'transparent',
         pick: () => this.setState(id === 'all' ? { ly: 'idle', lyView: 'all', lyKey: '', tour: false } : { ly: 'view', lyView: id, lyKey: '', tour: false }) };
     });
     const INFO = [
-      ['p', 'L1', '#3F444C', 'Parent OS', 'The family’s view: narrative briefings, decisions and approvals instead of dashboards.', ['A weekly briefing in plain words', 'Approves plans, visits and anything in person', 'Sees evidence, never surveillance'], 'copilot.html', 'See the Parent Copilot'],
-      ['m', 'L2', '#1D4ED8', 'AI School Manager', 'Planning, scheduling, records and compliance, run automatically.', ['Builds the week around goals and gaps', 'Books sessions, workshops and reassessments', 'Keeps the records local rules require'], 'today.html', 'See a learner’s week'],
-      ['h', 'L2', '#0D9488', 'Human help on demand', 'Guides, coaches and elders, brought in only when they add value.', ['A named guide for every learner', 'Hosts, peers and elders through Connects', 'Called in for motivation, not for drills'], 'connects.html', 'See Connects'],
-      ['cap', 'L3', '#1D4ED8', 'Content · Assessment · Pedagogy', 'The CAP engine: three linked graphs, validated before anything reaches a child.', ['Content: what to learn, at every level', 'Assessment: how Vachuo knows, from more than one kind of evidence', 'Pedagogy: how to teach it to this learner'], 'loop.html', 'See the loop'],
-      ['lm', 'L4', '#1D4ED8', 'Learner model', 'One persistent model per child: what they know, and how sure Vachuo is.', ['A probability for every skill, with a range', 'Updates after every lesson, visit and log', 'Belongs to the learner and travels with them'], 'map.html', 'See a learner’s map'],
-      ['kg', 'L5', '#3F444C', 'Knowledge / Skill graph', 'Every concept, prerequisite and standard from K to 12.', ['Concepts linked by what depends on what', 'Traces a wrong answer to the gap behind it', 'Mapped to each curriculum Vachuo supports'], '', ''],
-      ['t', 'L6', '#3F444C', 'AI tutor agents', 'Teach inside the graph’s constraints, in more than one pedagogy.', ['Socratic, worked example, project and more', 'Asks why a wrong answer happened', 'Hands the conversation to a person when it should'], 'session.html', 'See a tutor session'],
-      ['k', 'L7', '#0D9488', 'Individual child', 'Who all of it is for.', ['Learns at their level, not their age', 'Chooses destinations and can correct the map', 'Has adults who know them, not only software'], 'today.html', 'See a learner’s day']
+      ['k', 'L1', '#0D9488', 'The learner', 'Who all of it is for, and who directs it: at the top, with her questions and choices reaching the family and the plan.', ['Learns at her level, not her age', 'Asks the questions and chooses destinations', 'Can correct the map or keep a skill to herself'], 'today.html', 'See a learner’s day'],
+      ['t', 'L2', '#3F444C', 'AI tutor agents', 'Teach inside the graph’s constraints, in more than one pedagogy.', ['Socratic first; worked example, project and more', 'Asks why a wrong answer happened', 'Hands the conversation to a person when it should'], 'session.html', 'See a tutor session'],
+      ['kg', 'L3', '#3F444C', 'Knowledge / Skill graph', 'Every concept, prerequisite and standard from K to 16.', ['Concepts linked by what depends on what', 'Traces a wrong answer to the gap behind it', 'Mapped to each curriculum Vachuo supports'], '', ''],
+      ['lm', 'L4', '#1D4ED8', 'Learner model', 'One persistent model per child: what they know, and how sure Vachuo is.', ['An estimate for every skill, and how unsure it still is', 'Shown to her in words, after her own view; she can challenge it', 'Belongs to the learner and travels with her'], 'map.html', 'See a learner’s map'],
+      ['cap', 'L5', '#1D4ED8', 'Content · Assessment · Pedagogy', 'The CAP engine: three linked graphs, validated before anything reaches a child.', ['Content: what to learn, at every level', 'Assessment: how Vachuo knows, from more than one kind of evidence', 'Pedagogy: how to teach it to this learner'], 'loop.html', 'See the loop'],
+      ['m', 'L6', '#1D4ED8', 'AI School Manager', 'Planning, scheduling, records and compliance, run automatically.', ['Builds the week around goals and gaps', 'Books sessions, workshops and reassessments', 'Keeps the records local rules require'], 'today.html', 'See a learner’s week'],
+      ['h', 'L6', '#0D9488', 'Human help on demand', 'Guides, coaches and elders, brought in only when they add value.', ['A named guide for every learner', 'Hosts, peers and elders through Connects', 'Called in for motivation, not for drills'], 'connects.html', 'See Connects'],
+      ['p', 'L7', '#3F444C', 'Parent OS', 'The family’s view: narrative briefings, decisions and approvals instead of dashboards.', ['A weekly briefing in plain words', 'Approves plans, visits and anything in person', 'Sees evidence, never surveillance'], 'copilot.html', 'See the Parent Copilot']
     ];
-    const openKey = st.ly === 'sel' ? st.lyKey : (st.ly === 'tour' ? TOUR[st.tstep][0] : '');
+    const openKey = st.ly === 'sel' ? st.lyKey : (st.ly === 'tour' ? (TOUR[st.tstep][0] === 'q' ? 'k' : TOUR[st.tstep][0]) : '');
     const lyList = INFO.map(([key, n, c, name, text, bullets, href, link]) => {
       const open = openKey === key;
       return { n, c, name, text, bullets, href, link, isOpen: open, expanded: open ? 'true' : 'false', rot: open ? 180 : 0, bg: open ? '#F4F7FE' : 'transparent',
@@ -509,20 +558,88 @@ class Component extends DCLogic {
     return {
       lyEdges, lyNodes, lyViews, lyList,
       arrowCol: hl ? (e19on ? '#0D9488' : '#DCDCD3') : '#0D9488', arrowOp: hl && !e19on ? 0.6 : 1, arrowCls: 'lyedge' + (pre ? ' pre' : ''),
-      humanLabelOp: hl && !hl.e.has('e18') ? 0.3 : 1,
-      tourCount: touring ? 'Step ' + (st.tstep + 1) + ' of 8' : (st.ly === 'sel' ? 'Exploring' : 'Paused'),
-      tourTitle: touring ? s[2] : (st.ly === 'sel' ? 'Tracing one layer' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'The AI loop' : 'The human path') : 'Seven layers, one child')),
-      tourText: touring ? s[3] : (st.ly === 'sel' ? 'The lit path shows what feeds this layer and what it feeds. Play the journey to watch one signal travel from the family to the child.' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'Plans flow down from the family through the school manager and CAP into the learner model, the graph, the tutors and the child.' : 'Guides, hosts and elders reach the child directly, for motivation and mentorship, with the family approving.') : 'Select any layer to trace its path, or play the journey.')),
-      tourBars: TOUR.map((x, i) => ({ bg: touring && i <= st.tstep ? (i === 7 ? '#0D9488' : '#F9A826') : '#3F444C' })),
+      humanLabelOp: hl && !hl.e.has('e18') ? 0.3 : 1, sayLabelOp: hl && !hl.e.has('e21') ? 0.3 : 1,
+      sayArrowCol: hl ? (hl.e.has('e22') ? '#B45309' : '#DCDCD3') : '#B45309', sayArrowOp: hl && !hl.e.has('e22') ? 0.6 : 1,
+      tourEven: st.tstep % 2 === 0, tourOdd: st.tstep % 2 === 1,
+      tourCount: touring ? 'Step ' + (st.tstep + 1) + ' of 9' : (st.ly === 'sel' ? 'Exploring' : 'Paused'),
+      tourTitle: touring ? s[2] : (st.ly === 'sel' ? 'Tracing one layer' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'The AI loop' : (st.lyView === 'say' ? 'The learner’s say' : 'The human path')) : 'One learner, at the top')),
+      tourText: touring ? s[3] : (st.ly === 'sel' ? 'The lit path shows what feeds this layer and what it feeds. Play the journey to watch one question travel through the system and back.' : (st.ly === 'view' ? (st.lyView === 'ai' ? 'Everything rises to serve her: the family’s plan runs through the school manager and CAP into the learner model, the graph and the tutors, up to the learner.' : (st.lyView === 'say' ? 'Her questions, her “I disagree” and her choices about what to keep private reach the family and the plan. Nothing beneath her is final without her.' : 'Guides, hosts and elders reach the learner directly, for motivation and mentorship, with the family approving.')) : 'Select any layer to trace its path, or play the journey.')),
+      tourBars: TOUR.map((x, i) => { const col = x[0] === 'h' ? '#0D9488' : (x[0] === 'q' || x[0] === 'k' ? '#F9A826' : '#7DB4FF'), cur = touring && i === st.tstep, play = cur && st.tour;
+        return { bg: touring && i < st.tstep ? col : (cur && !st.tour ? col : '#3F444C'), fc: col, fillA: play && i % 2 === 0, fillB: play && i % 2 === 1, cur: cur ? 'step' : 'false', aria: 'Journey step ' + (i + 1) + ': ' + x[2], pick: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: i }) }; }),
       tourPressed: touring && st.tour ? 'true' : 'false',
       tourLabel: touring && st.tour ? 'Pause the journey' : 'Play the journey',
       tourToggle: () => this.setState(touring && st.tour ? { tour: false } : { ly: 'tour', tour: true, lyKey: '', lyView: 'all', tstep: touring ? st.tstep : 0 }),
-      tourPrev: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 7) % 8 : 0 }),
-      tourNext: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 1) % 8 : 0 })
+      tourPrev: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 8) % 9 : 0 }),
+      tourNext: () => this.setState({ ly: 'tour', tour: false, lyKey: '', tstep: touring ? (st.tstep + 1) % 9 : 0 })
     };
   }
 
-  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals()); }
+  hwVals() {
+    const st = this.state || {}; const step = st.step || 0, N = 13, pad = (k) => String(k).padStart(2, '0');
+    const names = ['Wonder', 'Diagnose', 'Plan', 'Teach', 'Observe, with consent', 'Assess', 'Diagnose misconception', 'Untangle', 'Reassess', 'Update learner model', 'Talk it over with the family', 'Repeat', 'Rest'];
+    const caps = ['Start from her own question: what does she want to figure out?', 'Find where she really is, not where the grade says.', 'Build the next path from her goals and her gaps, with open time left alone.', 'Ask before telling, in the way that suits her, and hand the problem back as soon as she can carry it.', 'Notice how she works, not just what she answers, and only after her yes. She can pause it.', 'Check understanding with fresh, well-made items. She says how sure she is first.', 'A mistake is information: name the idea behind the error.', 'Help aimed at the reason, not the answer. She says when it’s untangled.', 'Confirm it held, days later and in a new setting.', 'Update what Vachuo believes and how sure it is. She sees it in words and can challenge it.', 'Talk it over with the family, in plain words, with the decisions left to them.', 'Then start again, from her next question.', 'Stop. Open time is hers: never scheduled over, never tracked.'];
+    const ex = ['She asks how Grace scales a recipe for 40 people.', 'A short, untimed check: solid on unit rates, shaky on equivalent fractions.', 'A week built around her question, with Grace’s bakery on Thursday and open time left alone.', 'Socrates asks: will 20 chapati need more or less than double the flour?', 'With her yes, Vachuo notices she changed 12 to 15 before sending.', 'She says she’s “sure”, then answers 15 cups for 20 chapati.', 'She added 12 instead of multiplying by 2.5: an idea, not a slip.', 'A double number line she fills in herself. She says when it clicks.', 'A day later, a real order for 40 at the bakery.', 'Her view first: “getting there.” Vachuo agrees, in words, and she can disagree.', 'Wanjiru gets a plain note and a dinner question: what changes if we double the mandazi?', 'Spaced review keeps it. Her next question opens the next loop.', 'The afternoon is hers. Nothing is counted.'];
+    const own = ['The learner', 'Vachuo', 'Vachuo, with the family', 'Socrates', 'Vachuo, with her yes', 'Vachuo', 'Socrates', 'Socrates and a guide', 'Vachuo', 'Vachuo, open to her', 'The family', 'Vachuo', 'The learner'];
+    const human = (i) => i === 0 || i === 10 || i === 12;
+    const go = (i) => this.setState({ step: ((i % N) + N) % N, playing: false });
+    const hwCards = names.map((name, i) => { const d = (i - step + N) % N, h = human(i), ac = h ? '#F9A826' : '#7DB4FF';
+      const c = { n: pad(i + 1), name, cap: caps[i], ex: ex[i], owner: own[i], ac, ownFg: h ? '#1A1206' : '#0B1A3A', ownBg: ac, aria: 'Step ' + pad(i + 1) + ' of 13: ' + name, timer: false, tA: false, tB: false };
+      if (d === 0) return Object.assign(c, { pos: 'relative', z: 20, tf: 'none', op: 1, pe: 'auto', cursor: 'default', bg: h ? '#211A0E' : '#141B2B', bd: h ? '#8C6416' : '#2B4A94', sh: '0 40px 80px -40px rgba(0,0,0,.9)', cop: 1, hidden: 'false', cls: '', pick: () => {}, timer: !!st.playing, tA: step % 2 === 0, tB: step % 2 === 1 });
+      if (d <= 3) return Object.assign(c, { pos: 'absolute', z: 20 - d, tf: 'translateY(' + (d * 15) + 'px) scale(' + (1 - d * 0.045).toFixed(3) + ')', op: 1 - d * 0.18, pe: 'auto', cursor: 'pointer', bg: h ? '#2A2112' : '#172038', bd: h ? '#5A4316' : '#24365F', sh: '0 18px 30px -24px rgba(0,0,0,.8)', cop: 0, hidden: 'true', cls: 'hw-back', pick: () => go(i) });
+      if (d === N - 1) return Object.assign(c, { pos: 'absolute', z: 30, tf: 'translateX(-90px) rotate(-6deg) scale(.96)', op: 0, pe: 'none', cursor: 'default', bg: '#141B2B', bd: '#2B4A94', sh: 'none', cop: 0, hidden: 'true', cls: '', pick: () => {} });
+      return Object.assign(c, { pos: 'absolute', z: 1, tf: 'translateY(60px) scale(.84)', op: 0, pe: 'none', cursor: 'default', bg: '#172038', bd: '#24365F', sh: 'none', cop: 0, hidden: 'true', cls: '', pick: () => {} }); });
+    const hwRail = names.map((name, i) => { const on = i === step, h = human(i), ac = h ? '#F9A826' : '#7DB4FF';
+      return { n: pad(i + 1), name, on, grow: on ? 5 : 1, cur: on ? 'step' : 'false', aria: 'Step ' + pad(i + 1) + ': ' + name, bg: on ? ac : (i < step ? (h ? '#2A2112' : '#172038') : 'transparent'), bd: on ? ac : (h ? '#5A4316' : '#2A2E33'), fg: on ? (h ? '#1A1206' : '#0B1A3A') : (i < step ? ac : '#8A8F96'), pick: () => go(i) }; });
+    const key = (e) => { const k = e.key; if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); go(step + 1); } else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); go(step - 1); } else if (k === 'Home') { e.preventDefault(); go(0); } else if (k === 'End') { e.preventDefault(); go(N - 1); } };
+    return { hwCards, hwRail, hwKey: key, hwPrev: () => go(step - 1), hwNext: () => go(step + 1), hwPlaying: !!st.playing, hwPaused: !st.playing,
+      hwCount: pad(step + 1) + ' / 13', hwPct: Math.round(((step + 1) / N) * 100), hwAc: human(step) ? '#F9A826' : '#7DB4FF',
+      hwWhere: 'Step ' + pad(step + 1) + ', ' + names[step] + '. ' + (human(step) ? 'This one is hers and her family’s.' : 'Vachuo leads this one, and she can question it.'),
+      hwDown: (e) => { this._hwX = e.clientX; }, hwUp: (e) => { const x0 = this._hwX; this._hwX = null; if (x0 == null) return; const dx = e.clientX - x0; if (Math.abs(dx) > 40) go(dx < 0 ? step + 1 : step - 1); },
+      hwLive: 'Step ' + pad(step + 1) + ' of 13: ' + names[step] + '. ' + caps[step] };
+  }
+  clData() {
+    const L = { tutor: { label: 'My tutor', href: 'session.html' }, classes: { label: 'My classes', href: 'notes.html' }, guide: { label: 'Guides', href: 'guide.html' }, webs: { label: 'Connects', href: 'connects.html' }, clubs: { label: 'Clubs', href: 'clubs.html' }, today: { label: 'Today', href: 'today.html' }, map: { label: 'My learning map', href: 'map.html' } };
+    return [
+      { col: 'Instruction', who: 'Socrates and lessons', text: 'Explains on request, briefly, then hands the problem back.', ex: 'Amani asks why it’s 2.5 batches. Socrates explains in two sentences, then asks her to try 12 chapati herself.', where: [L.tutor, L.classes], ac: '#1D4ED8', tint: '#E4ECFD', ink: '#1E40AF' },
+      { col: 'Coaching', who: 'Socrates, with guides', text: 'Practice, feedback and habits of reading, reasoning and speaking.', ex: 'At Nduta’s Wednesday check-in, Amani explains her double number line out loud and Nduta asks one better question.', where: [L.tutor, L.guide], ac: '#1684E8', tint: '#E7F1FB', ink: '#1E40AF' },
+      { col: 'Seminar', who: 'People and peers', text: 'Conversation about ideas: the Agora, clubs, elders, family dinners.', ex: '“Is it fair that a child pays the same bus fare as an adult?” Thursday at Kilimani Library, with people of every age.', where: [L.webs, L.clubs], ac: '#0F766E', tint: '#DDF4F1', ink: '#115E59' },
+      { col: 'Direction', who: 'The learner', text: 'Her questions, her destinations, and what gets recorded.', ex: 'She keeps “Map scale” to herself for now, and adds a question about how big a jiko needs to be for 40 chapati.', where: [L.today, L.map], ac: '#B45309', tint: '#FEF1D9', ink: '#92400E' }
+    ];
+  }
+  clGo(i) { const D = this.clData(); const N = D.length; const R = this._cl || (this._cl = { i: 0, all: false }); R.i = ((i % N) + N) % N; this.forceUpdate(); }
+  clVals() {
+    const R = this._cl || (this._cl = { i: 0, all: false }); const D = this.clData(); const N = D.length, cur = R.i;
+    const pad = (k) => String(k).padStart(2, '0');
+    const base = (r, i) => Object.assign({}, r, { aria: r.col + ': ' + r.who, pos3: pad(i + 1) + ' of ' + pad(N) });
+    const cards = D.map((r, i) => { const d = (i - cur + N) % N; const c = base(r, i);
+      if (d === 0) return Object.assign(c, { pos: 'relative', z: 20, tf: 'none', op: 1, pe: 'auto', cursor: 'default', bg: '#FFFFFF', sh: '0 30px 60px -34px rgba(20,22,26,.42)', cop: 1, hidden: 'false', tab: '0', cls: 'dk-front', pick: () => {} });
+      if (d <= 3) return Object.assign(c, { pos: 'absolute', z: 20 - d, tf: 'translateY(' + (d * 14) + 'px) scale(' + (1 - d * 0.045).toFixed(3) + ')', op: 1, pe: 'auto', cursor: 'pointer', bg: c.tint, sh: '0 10px 24px -20px rgba(20,22,26,.35)', cop: 0, hidden: 'true', tab: '-1', cls: 'dk-back', pick: () => this.clGo(i) });
+      if (d === N - 1) return Object.assign(c, { pos: 'absolute', z: 30, tf: 'translateX(-80px) rotate(-6deg) scale(.96)', op: 0, pe: 'none', cursor: 'default', bg: '#FFFFFF', sh: 'none', cop: 0, hidden: 'true', tab: '-1', cls: '', pick: () => {} });
+      return Object.assign(c, { pos: 'absolute', z: 1, tf: 'translateY(56px) scale(.84)', op: 0, pe: 'none', cursor: 'default', bg: c.tint, sh: 'none', cop: 0, hidden: 'true', tab: '-1', cls: '', pick: () => {} }); });
+    const list = D.map((r, i) => { const on = i === cur; return Object.assign({}, r, { aria: r.col + ': ' + r.who, cur: on ? 'true' : 'false', bg: on ? '#FFFFFF' : 'transparent', bd: on ? '#E2E2DA' : 'transparent', bar: on ? r.ac : '#E2E2DA', dw: on ? '24px' : '8px', dot: on ? r.ac : '#CFCFC6', ibg: on ? r.ac : r.tint, ifg: on ? '#FFFFFF' : r.ac, pick: () => this.clGo(i) }); });
+    const key = (e) => { const k = e.key; if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); this.clGo(cur + 1); } else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); this.clGo(cur - 1); } else if (k === 'Home') { e.preventDefault(); this.clGo(0); } else if (k === 'End') { e.preventDefault(); this.clGo(N - 1); } };
+    return { clCards: cards, clList: list, clGrid: D.map((r, i) => Object.assign(base(r, i), { cop: 1, tab: '0', cls: '' })), clDeck: !R.all, clAll: !!R.all, clAllA: R.all ? 'true' : 'false',
+      clAllLabel: R.all ? 'Back to the deck' : 'Show all four', clToggleAll: () => { R.all = !R.all; this.forceUpdate(); },
+      clHint: R.all ? 'All four, side by side.' : 'Tap a card behind, swipe, or use the arrow keys.',
+      clPrev: () => this.clGo(cur - 1), clNext: () => this.clGo(cur + 1), clKey: key, clCount: pad(cur + 1) + ' / ' + pad(N),
+      clDown: (e) => { this._clX = e.clientX; }, clUp: (e) => { const x0 = this._clX; this._clX = null; if (x0 == null) return; const dx = e.clientX - x0; if (Math.abs(dx) > 40) this.clGo(dx < 0 ? cur + 1 : cur - 1); },
+      clLive: D[cur].col + ': ' + D[cur].who + ' (' + (cur + 1) + ' of ' + N + ')' };
+  }
+  cpGo(i) { const R = this._cp || (this._cp = { i: 0, all: false }); R.i = ((i % 3) + 3) % 3; this.forceUpdate(); }
+  cpVals() {
+    const R = this._cp || (this._cp = { i: 0, all: false }); const cur = R.i, N = 3;
+    const G = [{ letter: 'C', title: 'Content graph', sub: 'What there is to learn', ac: '#1D4ED8', tint: '#E4ECFD' }, { letter: 'A', title: 'Assessment graph', sub: 'What this learner knows', ac: '#0F766E', tint: '#DDF4F1' }, { letter: 'P', title: 'Pedagogy graph', sub: 'What to do next', ac: '#B45309', tint: '#FEF1D9' }];
+    const pos = (i) => { const d = (i - cur + N) % N, g = G[i], c = { ac: g.ac, aria: g.title + ', ' + (i + 1) + ' of 3: ' + g.sub };
+      if (d === 0) return Object.assign(c, { pos: 'relative', z: 20, tf: 'none', op: 1, pe: 'auto', cursor: 'default', bg: '#F4F4EF', sh: '0 30px 60px -34px rgba(20,22,26,.42)', cop: 1, hidden: 'false', cls: 'dk-front', pick: () => {} });
+      return Object.assign(c, { pos: 'absolute', z: 20 - d, tf: 'translateY(' + (d * 16) + 'px) scale(' + (1 - d * 0.05).toFixed(3) + ')', op: 1, pe: 'auto', cursor: 'pointer', bg: g.tint, sh: '0 10px 24px -20px rgba(20,22,26,.35)', cop: 0, hidden: 'true', cls: 'dk-back', pick: () => this.cpGo(i) }); };
+    const cpList = G.map((g, i) => { const on = i === cur; return { letter: g.letter, title: g.title, sub: g.sub, n: '0' + (i + 1), ac: g.ac, aria: g.title + ': ' + g.sub, cur: on ? 'true' : 'false', bg: on ? '#FFFFFF' : 'transparent', bd: on ? '#E2E2DA' : 'transparent', ibg: on ? g.ac : g.tint, ifg: on ? '#FFFFFF' : g.ac, dw: on ? '24px' : '8px', dot: on ? g.ac : '#CFCFC6', pick: () => { R.all = false; this.cpGo(i); } }; });
+    const key = (e) => { const k = e.key; if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); this.cpGo(cur + 1); } else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); this.cpGo(cur - 1); } };
+    return { cpA: pos(0), cpB: pos(1), cpC: pos(2), cpList, cpDeck: !R.all, cpAll: !!R.all, cpAllA: R.all ? 'true' : 'false', cpAllLabel: R.all ? 'Back to the deck' : 'Show all three', cpToggleAll: () => { R.all = !R.all; this.forceUpdate(); },
+      cpHint: R.all ? 'All three graphs, side by side.' : 'Tap a graph, a card behind, swipe, or use the arrow keys.', cpPrev: () => this.cpGo(cur - 1), cpNext: () => this.cpGo(cur + 1), cpKey: key, cpCount: (cur + 1) + ' / 3',
+      cpDown: (e) => { this._cpX = e.clientX; }, cpUp: (e) => { const x0 = this._cpX; this._cpX = null; if (x0 == null) return; const dx = e.clientX - x0; if (Math.abs(dx) > 40) this.cpGo(dx < 0 ? cur + 1 : cur - 1); },
+      cpLive: G[cur].title + ', ' + (cur + 1) + ' of 3: ' + G[cur].sub };
+  }
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals(), this.hwVals(), this.clVals(), this.cpVals()); }
   pageVals() {
     const step = this.state.step;
     const caps = ['Start from the learner’s own question: what does she want to figure out?', 'Find where the learner really is, not where the grade says.', 'Build the next path from their goals and their gaps.', 'Explain it in the way that suits this learner.', 'Watch how they work, not just what they answer.', 'Check understanding with fresh, well-made items.', 'Name the exact misconception behind an error.', 'Repair the gap with targeted practice.', 'Confirm the repair held, days later.', 'Update what Vachuo believes, and how sure it is.', 'Talk it over with the family, in plain words, with the decisions left to them.', 'Then start again, from her next question.', 'Stop. Open time is hers: never scheduled over, never tracked.'];

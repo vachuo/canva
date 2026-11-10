@@ -29,6 +29,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 .vlang-list button:hover{background:#F4F4EF!important}[data-theme="dark"] .vlang-list button:hover{background:#22262D!important}
 .vfoot a.fl{display:inline-flex;align-items:center;min-height:30px;font-size:13.5px;line-height:1.3;color:#B5B9BF;text-decoration:none}.vfoot a.fl:hover{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 .vfoot .soc{opacity:.85}.vfoot .soc:hover{opacity:1;background:#1A1D20}
+.vrail{display:flex;gap:var(--vg,14px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 12px;margin:-4px -2px -8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.vrail::-webkit-scrollbar{display:none}.vrail>*{flex:0 0 min(var(--vw,300px),84vw);box-sizing:border-box;scroll-snap-align:start;min-width:0}.vrailbtn{width:40px;height:40px;border-radius:50%;border:1px solid #CFCFC6;background:#FFFFFF;color:#14161A;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}.vrailbtn:hover{background:#F4F4EF}[data-theme="dark"] .vrailbtn{background:#22262D;border-color:#3A4049;color:#EDEDE8}@media (prefers-reduced-motion:reduce){.vrail{scroll-behavior:auto}}@media print{.vrail{flex-wrap:wrap;overflow:visible}.vrail>*{flex:1 1 260px}.vrailnav{display:none!important}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -289,7 +290,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 </form>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr)); gap: 12px">
+<div data-vrail="1" style="display: flex; flex-direction: column; gap: 10px; min-width: 0"><div class="vrailnav" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px"><span style="font-family: Inter, system-ui, sans-serif; font-size: 13.5px; color: #62676F">Swipe or use the arrows.</span><span style="display: inline-flex; gap: 6px"><button type="button" class="vrailbtn" aria-label="Scroll back" onClick="{{vrPrev}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="vrailbtn" aria-label="Scroll forward" onClick="{{vrNext}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></span></div><div class="vrail" style="--vw: 290px; --vg: 12px" aria-label="Where to follow Vachuo">
 <template data-for="{{channels}}" data-as="c">
 <article class="chcard" style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E2E2DA">
 <div style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 12px; background: {{c.tint}}; color: {{c.ink}}; display: flex; align-items: center; justify-content: center"><template data-if="{{c.hasLogo}}"><span style="display: block; width: 24px; height: 24px; background-color: currentColor; -webkit-mask-image: {{c.logoUrl}}; mask-image: {{c.logoUrl}}; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center"></span></template><template data-if="{{c.noLogo}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"/></svg></template></span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><h3 style="margin: 0; font-size: 22px; line-height: 1.15; font-weight: 600">{{c.name}}</h3><span style="font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #1E40AF">{{c.handle}}</span></span></div>
@@ -298,7 +299,7 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-family: Inter, system-ui, sans-serif"><a href="{{c.href}}" target="{{c.target}}" rel="noopener noreferrer" aria-label="{{c.cta}} Vachuo on {{c.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: #14161A; color: #FFFFFF; font-size: 13.5px; font-weight: 600; text-decoration: none">{{c.cta}}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a><button type="button" onClick="{{c.copy}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-size: 13.5px; cursor: pointer">{{c.copyLabel}}</button></div>
 </article>
 </template>
-</div>
+</div></div>
 <p style="margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #3F444C">Press, partnerships and speaking: <a href="mailto:hello@vachuo.com">hello@vachuo.com</a> · Brand assets and boilerplate are in the press kit above.</p>
 </section>
 </main>
@@ -429,7 +430,8 @@ class Component extends DCLogic {
     const done = (m) => { this.setState({ copied: key, copyMsg: m }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ copied: '', copyMsg: '' }), 2200); };
     try { navigator.clipboard.writeText(text).then(() => done('Copied'), () => done('Copy failed')); } catch (e) { done('Copy failed'); }
   }
-  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.uxVals(), this.pageVals(), this.followVals()); }
+  _vrail(e, dir) { try { const w = e && e.currentTarget && e.currentTarget.closest('[data-vrail]'); const el = w && w.querySelector('.vrail'); if (el) el.scrollBy({ left: dir * Math.max(200, el.clientWidth - 40), behavior: 'smooth' }); } catch (x) {} }
+  renderVals() { return Object.assign({ vrPrev: (e) => this._vrail(e, -1), vrNext: (e) => this._vrail(e, 1) }, this.themeVals(), this.siteVals(), this.uxVals(), this.pageVals(), this.followVals()); }
   followVals() {
     const st = this.state;
     const I = { work: 'M4 8h16v11H4zM9 8V5h6v3M4 13h16', people: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5M16 11a2.5 2.5 0 1 0 0-5M17 14c2.2.4 3.5 2.2 3.5 5', camera: 'M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z', chat: 'M4 5h16v11H9l-5 4z', clip: 'M9 5v10a3 3 0 1 1-2-2.8M9 5c1 2 3 3 5 3', play: 'M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM10 9l5 3-5 3z', phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z', thread: 'M12 21a9 9 0 1 1 6.4-2.6M16 12a4 4 0 1 1-1.2-2.8M16 12v1.5a2 2 0 0 0 4 0V12', head: 'M4 15v-3a8 8 0 0 1 16 0v3M4 15h3v5H5a1 1 0 0 1-1-1zM20 15h-3v5h2a1 1 0 0 0 1-1z', mic: 'M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5 11a7 7 0 0 0 14 0M12 18v3' };
