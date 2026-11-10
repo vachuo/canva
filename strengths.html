@@ -10,15 +10,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/theme.css">
+<style>
+.st-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 10px;margin:-4px -2px -6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.st-rail::-webkit-scrollbar{display:none}.st-rail>*{flex:0 0 min(330px,82vw);box-sizing:border-box;scroll-snap-align:start}.st-rail.st-one>*{flex:1 1 100%}.st-railbtn{width:40px;height:40px;border-radius:50%;border:1px solid #CFCFC6;background:#FFFFFF;color:#14161A;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.st-railbtn:hover{background:#F4F4EF}[data-theme="dark"] .st-railbtn{background:#22262D;border-color:#3A4049;color:#EDEDE8}@media (prefers-reduced-motion:reduce){.st-rail{scroll-behavior:auto}}@media print{.st-rail{flex-wrap:wrap;overflow:visible}.st-rail>*{flex:1 1 260px}.st-railnav{display:none!important}}
+</style>
 <script src="assets/js/dc.js"></script>
 </head>
 <body>
 <div id="app"></div>
 <template id="dc-Strengths">
 <div data-theme="{{uiTheme}}" style="color: #14161A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 20px">
-<section aria-labelledby="st-h" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<section aria-labelledby="st-h" data-rail="1" style="background: #FFFFFF; border: 1px solid #E2E2DA; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="st-h" style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{title}}</h2><p style="margin: 0; font-size: 14px; line-height: 1.5; color: #62676F">Each point is a skill. The further out, the stronger. The dashed ring is 85%, where a skill counts as secure.</p></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min({{cardMin}}, 100%), 1fr)); gap: 14px">
+<template data-if="{{multi}}"><div class="st-railnav" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px"><span style="font-size: 13.5px; color: #62676F">Swipe or use the arrows.</span><span style="display: inline-flex; gap: 6px"><button type="button" class="st-railbtn" aria-label="Scroll back" onClick="{{railPrev}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="st-railbtn" aria-label="Scroll forward" onClick="{{railNext}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></span></div></template>
+<div class="st-rail {{railCls}}" aria-label="Strengths by subject">
 <template data-for="{{radars}}" data-as="r"><div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FBFBF8; border: 1px solid #ECECE6">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{r.color}}"></span>{{r.name}}</span><span style="font-size: 12px; color: #62676F">{{r.done}}</span></div>
 <svg viewBox="0 0 240 220" role="img" aria-label="{{r.aria}}" style="color: #3F444C; width: 100%; max-width: {{svgMax}}; height: auto; align-self: center">
@@ -74,6 +78,7 @@ class Component extends DCLogic {
       ['making', 'Leaves a circuit open and expects it to work', [0, 1, 0, 0, 0, 0]]
     ];
   }
+  _rail(e, dir) { try { const w = e && e.currentTarget && e.currentTarget.closest('[data-rail]'); const el = w && w.querySelector('.st-rail'); if (el) el.scrollBy({ left: dir * Math.max(200, el.clientWidth - 40), behavior: 'smooth' }); } catch (x) {} }
   renderVals() {
     const P = this.props || {}; const sub = P.subject && P.subject !== 'all' ? P.subject : null;
     const D = this.data(); const list = sub ? D.filter((d) => d.id === sub) : D;
@@ -95,7 +100,7 @@ class Component extends DCLogic {
       const done = !!((this.state || {}).untangled || {})[m[1]];
       return { subject: SUB[m[0]].name, ink: SUB[m[0]].ink, text: m[1], trend, mine: done ? 'true' : 'false', markLabel: done ? '✓ Untangled' : 'I’ve untangled it', bg: done ? '#DDF4F1' : '#FFFFFF', fg: done ? '#115E59' : '#14161A', bd: done ? '#8FD3C9' : '#CFCFC6', mark: () => { const u = Object.assign({}, (this.state || {}).untangled); u[m[1]] = !done; this.setState({ untangled: u }); }, tfg: trend === 'Rising' ? '#92400E' : (trend === 'Gone' || trend === 'Fading' ? '#115E59' : '#3F444C'),
         cells: c.map((v, i) => ({ n: v ? String(v) : '', bg: SCALE[Math.min(4, v)][0], fg: SCALE[Math.min(4, v)][1], aria: W[i] + ': seen ' + v + (v === 1 ? ' time' : ' times') })) }; });
-    return Object.assign(this.themeVals(), { title: sub ? (list[0] ? list[0].name : '') + ' at a glance' : 'Strengths by subject', radars, rows, weeks: W, legend: SCALE.map((x) => x[0]), cardMin: sub ? '320px' : '250px', svgMax: sub ? '360px' : '260px' });
+    return Object.assign(this.themeVals(), { title: sub ? (list[0] ? list[0].name : '') + ' at a glance' : 'Strengths by subject', radars, multi: radars.length > 1, railCls: radars.length > 1 ? '' : 'st-one', railPrev: (e) => this._rail(e, -1), railNext: (e) => this._rail(e, 1), rows, weeks: W, legend: SCALE.map((x) => x[0]), cardMin: sub ? '320px' : '250px', svgMax: sub ? '360px' : '260px' });
   }
 }
 return Component;
