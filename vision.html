@@ -29,6 +29,48 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 .vlang-list button:hover{background:#F4F4EF!important}[data-theme="dark"] .vlang-list button:hover{background:#22262D!important}
 .vfoot a.fl{display:inline-flex;align-items:center;min-height:30px;padding:3px 0;box-sizing:border-box;font-size:13.5px;line-height:1.3;color:#B5B9BF;text-decoration:none}.vfoot a.fl:hover{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 .vfoot .soc{opacity:.85}.vfoot .soc:hover{opacity:1;background:#1A1D20}
+.vl-card{transition:transform .65s cubic-bezier(.2,.85,.25,1),opacity .45s ease,box-shadow .45s ease,background-color .45s ease;transform-origin:50% 0;will-change:transform}
+.vl-stack.drag .vl-card{transition:opacity .45s ease,background-color .45s ease}
+.vl-stack.drag .vl-front{cursor:grabbing!important}
+.vl-front{cursor:grab}
+.vl-in{transition:opacity .3s ease}
+.vl-back:hover{box-shadow:0 18px 34px -22px rgba(20,22,26,.55)!important}
+.vl-front .vl-k{animation:vlUp .55s cubic-bezier(.2,.8,.2,1) .05s both}
+.vl-front .vl-t{animation:vlUp .6s cubic-bezier(.2,.8,.2,1) .11s both}
+.vl-front .vl-p{animation:vlUp .6s cubic-bezier(.2,.8,.2,1) .17s both}
+.vl-front .vl-pr{animation:vlUp .6s cubic-bezier(.2,.8,.2,1) .25s both}
+.vl-front .vl-a{animation:vlUp .6s cubic-bezier(.2,.8,.2,1) .31s both}
+.vl-front .vl-ghost{animation:vlGhost .9s cubic-bezier(.2,.8,.2,1) both}
+.vl-front .vl-ic{animation:vlPop .6s cubic-bezier(.2,1.4,.4,1) .08s both}
+@keyframes vlUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes vlGhost{from{opacity:0;transform:translateX(24px)}to{opacity:.09;transform:none}}
+@keyframes vlGhostD{from{opacity:0;transform:translateX(24px)}to{opacity:.16;transform:none}}
+[data-theme="dark"] .vl-ghost{opacity:.16!important}[data-theme="dark"] .vl-front .vl-ghost{animation-name:vlGhostD}
+@keyframes vlPop{from{opacity:0;transform:scale(.6) rotate(-12deg)}to{opacity:1;transform:none}}
+.vl-ghost{position:absolute;right:-6px;bottom:-46px;font-family:'EB Garamond',Garamond,Georgia,serif;font-size:230px;line-height:1;font-weight:600;letter-spacing:-.04em;pointer-events:none;user-select:none}
+.vl-stack:focus-visible{outline:2px solid #7FA2EE;outline-offset:10px;border-radius:30px}
+.vl-ix{position:relative;transition:background-color .25s ease,color .25s ease}
+.vl-ix:hover{background:#F4F4EF!important}
+.vl-ix-bar{transition:transform .35s cubic-bezier(.2,.8,.2,1);transform-origin:50% 50%}
+.vl-ix-n{transition:color .25s ease}
+.vl-btn{transition:background-color .2s ease,border-color .2s ease,transform .2s ease}.vl-btn:hover{background:#F4F4EF!important;border-color:#B9B9AF!important}.vl-round:active{transform:scale(.94)}
+.vl-sg{position:relative;flex:1 1 0;min-width:6px;height:22px;padding:0;border:none;background:transparent;cursor:pointer;display:flex;align-items:center}
+.vl-sg::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:999px;background:#E2E2DA}
+.vl-sg-f{position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:999px;transform-origin:0 50%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.vl-sg:hover::before{background:#CFCFC6}
+.vl-sg.run .vl-sg-f{transition:none;animation:vlFill 6s linear forwards}
+@keyframes vlFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.vl-gc{animation:vlUp .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--k) * 45ms);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
+.vl-gc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(20,22,26,.5)}
+.vl-a{transition:gap .2s ease}.vl-a:hover{gap:10px!important}
+@media (min-width:1180px){.vl-gridall{grid-template-columns:repeat(5,minmax(0,1fr))!important}.vl-gridall h3{font-size:23px!important}.vl-gridall p{font-size:16px!important}.vl-gridall p:last-of-type{font-size:13px!important}}
+@media (max-width:640px){.vl-gridall{grid-template-columns:minmax(0,1fr)!important}}
+.vl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+[data-theme="dark"] .vl-sg::before{background:#2A2E35}[data-theme="dark"] .vl-sg:hover::before{background:#3A4049}
+[data-theme="dark"] .vl-ix:hover{background:#22262D!important}[data-theme="dark"] .vl-btn:hover{background:#22262D!important;border-color:#4A515C!important}
+@media (max-width:899px){.vl-index{display:none!important}.vl-layout{grid-template-columns:minmax(0,1fr)!important}}
+@media (max-width:560px){.vl-count{display:none}.vl-segs{gap:4px!important}.vl-ghost{font-size:150px;bottom:-28px}.vl-t{font-size:30px!important}.vl-p{font-size:17px!important}.vl-lbl{display:none}.vl-card{padding:24px 20px 22px!important}.vl-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.vl-card,.vl-in,.vl-ix-bar,.vl-sg-f,.vl-gc{transition:none}.vl-front .vl-k,.vl-front .vl-t,.vl-front .vl-p,.vl-front .vl-pr,.vl-front .vl-a,.vl-front .vl-ghost,.vl-front .vl-ic,.vl-gc{animation:none}.vl-sg.run .vl-sg-f{animation:none;transform:scaleX(1)}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -216,15 +258,22 @@ html.rv-on [data-rv]{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.
 <p style="margin: 0; font-size: 20px; line-height: 1.65; color: #23272E; text-wrap: pretty">They decide what we build, what we measure and whom we hire. When two of them conflict, the child’s freedom wins.</p>
 </div>
 </div>
-<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 14px">
-<template data-for="{{values}}" data-as="v">
-<li style="border-radius: 18px; background: #F4F4EF; padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; color: {{v.c}}">{{v.n}}</span>
-<span style="font-size: 25px; line-height: 1.15; font-weight: 600">{{v.title}}</span>
-<span style="font-size: 17.5px; line-height: 1.5; color: #3F444C">{{v.text}}</span>
-</li>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; font-family: Inter, system-ui, sans-serif"><span class="vl-hint" style="font-size: 13.5px; color: #62676F">{{vlHint}}</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><template data-if="{{vlDeck}}"><button type="button" aria-pressed="{{vlPlayP}}" onClick="{{vlPlay}}" class="vl-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><template data-if="{{vlPlaying}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></template><template data-if="{{vlPaused}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg></template>{{vlPlayL}}</button></template><button type="button" aria-pressed="{{vlAllA}}" onClick="{{vlToggleAll}}" class="vl-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer"><template data-if="{{vlDeck}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></template><template data-if="{{vlAll}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M6 6h12M8 3h8"/></svg></template>{{vlAllLabel}}</button></div></div>
+<template data-if="{{vlDeck}}">
+<div class="vl-layout" style="display: grid; grid-template-columns: minmax(250px, 330px) minmax(0, 1fr); gap: clamp(24px, 4vw, 60px); align-items: start">
+<ol class="vl-index" aria-label="The ten values" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; font-family: Inter, system-ui, sans-serif"><template data-for="{{vlList}}" data-as="x"><li><button type="button" class="vl-ix" aria-current="{{x.cur}}" onClick="{{x.pick}}" style="width: 100%; display: flex; align-items: center; gap: 14px; min-height: 46px; padding: 6px 12px 6px 18px; border: none; border-radius: 12px; background: {{x.bg}}; color: {{x.fg}}; text-align: left; cursor: pointer"><span class="vl-ix-bar" aria-hidden="true" style="position: absolute; left: 6px; top: 10px; bottom: 10px; width: 3px; border-radius: 999px; background: {{x.ac}}; transform: scaleY({{x.bar}})"></span><span class="vl-ix-n" style="flex: none; width: 22px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: {{x.nc}}">{{x.n}}</span><span style="flex: 1; min-width: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 18.5px; line-height: 1.2; font-weight: {{x.fw}}">{{x.title}}</span></button></li></template></ol>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div id="vl-stack" class="vl-stack" role="region" aria-roledescription="carousel" aria-label="Our values, one at a time" tabindex="0" onKeyDown="{{vlKey}}" onPointerDown="{{vlDown}}" onPointerMove="{{vlMove}}" onPointerUp="{{vlUp}}" onPointerCancel="{{vlUp}}" style="position: relative; padding-top: 42px; touch-action: pan-y; user-select: none"><template data-for="{{vlCards}}" data-as="c"><article class="vl-card {{c.cls}}" role="group" aria-roledescription="slide" aria-label="{{c.aria}}" aria-hidden="{{c.hidden}}" onClick="{{c.pick}}" style="position: {{c.pos}}; left: 0; right: 0; top: {{c.top}}; bottom: 0; z-index: {{c.z}}; transform: {{c.tf}}; opacity: {{c.op}}; pointer-events: {{c.pe}}; background: {{c.bg}}; box-shadow: {{c.sh}}; box-sizing: border-box; min-height: 430px; border: 1px solid #E2E2DA; border-radius: 26px; padding: 30px 32px 26px; display: flex; flex-direction: column; overflow: hidden"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 5px; background: {{c.ac}}"></span><span aria-hidden="true" class="vl-ghost" style="color: {{c.ac}}; opacity: .09">{{c.n}}</span><div class="vl-in" style="position: relative; opacity: {{c.cop}}; flex: 1; display: flex; flex-direction: column; gap: 16px"><div class="vl-k" style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="display: inline-flex; align-items: center; gap: 12px"><span class="vl-ic" aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 15px; background: {{c.tint}}; color: {{c.ink}}; display: inline-flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{c.icon}}"/></svg></span><span style="font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ink}}">Value {{c.n}}</span></span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: #62676F">{{c.pos3}}</span></div><h3 class="vl-t" style="margin: 0; font-size: clamp(32px, 3.2vw, 44px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance; max-width: 18ch">{{c.title}}</h3><p class="vl-p" style="margin: 0; max-width: 34em; font-size: 20px; line-height: 1.55; color: #23272E; text-wrap: pretty">{{c.text}}</p><div class="vl-pr" style="margin-top: auto; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; background: {{c.tint}}; max-width: 560px; font-family: Inter, system-ui, sans-serif"><span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{c.ink}}">In practice</span><span style="font-size: 15px; line-height: 1.5; color: #14161A">{{c.practice}}</span></div><a class="vl-a" href="{{c.href}}" tabindex="{{c.tab}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; font-family: Inter, system-ui, sans-serif; font-size: 14.5px; font-weight: 600; color: #1D4ED8; text-decoration: none">{{c.cta}}<span aria-hidden="true">→</span></a></div></article></template></div>
+<div style="display: flex; align-items: center; gap: 14px; font-family: Inter, system-ui, sans-serif"><button type="button" onClick="{{vlPrev}}" aria-label="Previous value" class="vl-btn vl-round" style="flex: none; width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><div class="vl-segs" role="group" aria-label="Choose a value" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px"><template data-for="{{vlList}}" data-as="x"><button type="button" class="vl-sg {{x.run}}" aria-label="{{x.aria}}" aria-current="{{x.cur}}" onClick="{{x.pick}}"><span class="vl-sg-f" style="background: {{x.ac}}; transform: scaleX({{x.fill}})"></span></button></template></div><span class="vl-count" style="flex: none; min-width: 58px; text-align: center; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3F444C">{{vlCount}}</span><button type="button" onClick="{{vlNext}}" aria-label="Next value" class="vl-btn vl-round" style="flex: none; width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+<p role="status" aria-live="polite" class="vl-sr">{{vlLive}}</p>
+</div>
+</div>
 </template>
-</ol>
+<template data-if="{{vlAll}}">
+<ol class="vl-gridall" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px"><template data-for="{{vlGrid}}" data-as="c"><li class="vl-gc" style="--k: {{c.k}}; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; padding: 24px 24px 20px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E2E2DA; box-sizing: border-box"><span aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 4px; background: {{c.ac}}"></span><div style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 12px; background: {{c.tint}}; color: {{c.ink}}; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{c.icon}}"/></svg></span><span style="font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: {{c.ink}}">{{c.n}}</span></div><h3 style="margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em">{{c.title}}</h3><p style="margin: 0; font-size: 17.5px; line-height: 1.5; color: #3F444C">{{c.text}}</p><p style="margin: auto 0 0; padding-top: 12px; border-top: 1px solid #ECECE6; font-family: Inter, system-ui, sans-serif; font-size: 13.5px; line-height: 1.5; color: #3F444C"><span style="font-weight: 700; color: {{c.ink}}">In practice. </span>{{c.practice}}</p><a class="vl-a" href="{{c.href}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #1D4ED8; text-decoration: none">{{c.cta}}<span aria-hidden="true">→</span></a></li></template></ol>
+</template>
+</div>
 </div>
 </section>
 
@@ -338,28 +387,78 @@ class Component extends DCLogic {
       document.documentElement.classList.add('rv-on');
     }
   }
-  componentWillUnmount() { this.themeOff();
+  componentWillUnmount() { this.themeOff(); this.vlStop();
     window.removeEventListener('scroll', this._onScroll);
     if (this._io) this._io.disconnect();
     document.documentElement.classList.remove('rv-on');
   }
-  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals()); }
-  pageVals() {
-    const blue = '#1E40AF', amber = '#92400E', teal = '#115E59';
+  renderVals() { return Object.assign(this.themeVals(), this.siteVals(), this.pageVals(), this.vlVals()); }
+  vlData() {
+    const B = { ac: '#1D4ED8', tint: '#E4ECFD', ink: '#1E40AF' }, A = { ac: '#F9A826', tint: '#FEF1D9', ink: '#92400E' }, T = { ac: '#0D9488', tint: '#DDF4F1', ink: '#115E59' };
     const v = [
-      ['Learning over schooling', 'We measure what a child can do, never how long she sat or how old she is.', blue],
-      ['Every mind is equal', 'We start from the equality of intelligence, not toward it. Our tutors ask before they tell, and we never label a child.', blue],
-      ['Know the child, never own the child', 'Every inference is visible and contestable, and every record belongs to the learner.', amber],
-      ['The world is the classroom', 'Workshops, markets, forests and neighbours count as much as lessons do.', teal],
-      ['Leisure is the point', 'Open time is the centre of the week, not the leftover. We never schedule over it or track it.', teal],
-      ['Hands count', 'Making, fixing and apprenticeship are learning, recorded as fully as any lesson.', amber],
-      ['People for meaning', 'AI for instruction and coaching; people and peers for conversation, mentorship and meaning.', teal],
-      ['Evidence over enthusiasm', 'We validate before we teach, and we publish what we find, including what fails.', blue],
-      ['Independence is the goal', 'Success means a learner taking the lead more!', amber],
-      ['Every child, every place', 'Built for low bandwidth, many languages and every family budget.', teal]
+      ['Learning over schooling', 'We measure what a child can do, never how long she sat or how old she is.', B, 'Progress shows as skills she has mastered, with the evidence behind each one. Hours logged and grade level never appear.', 'See her learning record', 'passport.html', 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18z M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10z M12 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2z'],
+      ['Every mind is equal', 'We start from the equality of intelligence, not toward it. Our tutors ask before they tell, and we never label a child.', B, 'Socrates asks a question before it explains anything. No learner is ranked, streamed or given a label.', 'How Socrates teaches', 'how-it-works.html', 'M5 9.5h14 M5 14.5h14'],
+      ['Know the child, never own the child', 'Every inference is visible and contestable, and every record belongs to the learner.', A, 'Each thing Vachuo infers is shown with its evidence. Learners and parents can question it, download it or delete it.', 'Read our privacy promise', 'privacy.html', 'M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6z'],
+      ['The world is the classroom', 'Workshops, markets, forests and neighbours count as much as lessons do.', T, 'A morning at a market stall or a workshop can be recorded as evidence and count towards mastery.', 'Explore Connects', 'connects.html', 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18z M3 12h18 M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z'],
+      ['Leisure is the point', 'Open time is the centre of the week, not the leftover. We never schedule over it or track it.', T, 'Open time is held on the weekly plan first. Nothing can be booked into it, and nothing in it is measured.', 'See a sample week', 'index.html#schole', 'M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8z M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4'],
+      ['Hands count', 'Making, fixing and apprenticeship are learning, recorded as fully as any lesson.', A, 'A repaired bicycle or a season as an apprentice sits in her record next to maths and reading, with the same weight.', 'See what learners make', 'showcase.html', 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z'],
+      ['People for meaning', 'AI for instruction and coaching; people and peers for conversation, mentorship and meaning.', T, 'Socrates handles practice and feedback. Guides, mentors and friends lead the conversations that matter, and they make the final call.', 'Become a guide', 'join.html', 'M4 5h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z M19 9h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-4-3h-3'],
+      ['Evidence over enthusiasm', 'We validate before we teach, and we publish what we find, including what fails.', B, 'New ways of teaching are tested before they reach learners, and the results are published, good or bad.', 'Read the white paper', 'white-paper.html', 'M4 20h16 M7 16v-5 M12 16V7 M17 16v-3'],
+      ['Independence is the goal', 'Success means a learner taking the lead more!', A, 'Each term she sets more of her own goals and plans more of her own week, and the record shows it.', 'See her learning map', 'map.html', 'M5 21V4 M5 4h11l-2 4 2 4H5'],
+      ['Every child, every place', 'Built for low bandwidth, many languages and every family budget.', T, 'Vachuo works on slow connections and shared phones, speaks many languages and has a price for every family.', 'See plans and prices', 'pricing.html', 'M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z M12 7.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5z']
     ];
+    return v.map((x, i) => Object.assign({ n: String(i + 1).padStart(2, '0'), title: x[0], text: x[1], practice: x[3], cta: x[4], href: x[5], icon: x[6] }, x[2]));
+  }
+  vlS() { return this._vl || (this._vl = { i: 0, all: false, play: false }); }
+  vlGo(i, keep) { const N = this.vlData().length, R = this.vlS(); R.i = ((i % N) + N) % N; if (!keep) this.vlStop(); this.forceUpdate(); }
+  vlStop() { clearInterval(this._vlT); this._vlT = 0; if (this._vl) this._vl.play = false; }
+  vlToggle() {
+    const R = this.vlS(), N = this.vlData().length;
+    if (R.play) { this.vlStop(); this.forceUpdate(); return; }
+    if (R.i >= N - 1) R.i = 0; R.play = true; this.forceUpdate();
+    clearInterval(this._vlT); this._vlT = setInterval(() => { const n = this.vlS().i + 1; if (n >= N) { this.vlStop(); this.forceUpdate(); return; } this.vlGo(n, true); }, 6000);
+  }
+  vlEl() { return document.getElementById('vl-stack'); }
+  vlDown(e) {
+    this._vlP = null; if (e.button > 0) return; const t = e.target;
+    if (!t || !t.closest || !t.closest('.vl-front') || t.closest('a, button')) return;
+    this._vlP = { x: e.clientX, y: e.clientY, id: e.pointerId, drag: false };
+  }
+  vlMove(e) {
+    const P = this._vlP; if (!P) return; const dx = e.clientX - P.x, dy = e.clientY - P.y, el = this.vlEl(); if (!el) return;
+    if (!P.drag) { if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { this._vlP = null; return; } if (Math.abs(dx) < 6) return; P.drag = true; this.vlStop(); el.classList.add('drag'); try { el.setPointerCapture(P.id); } catch (x) {} }
+    el.style.setProperty('--vl-dx', dx + 'px'); el.style.setProperty('--vl-r', (dx / 26).toFixed(2) + 'deg');
+  }
+  vlUp(e) {
+    const P = this._vlP; this._vlP = null; if (!P || !P.drag) return; const el = this.vlEl(), dx = e.clientX - P.x;
+    if (el) { el.classList.remove('drag'); el.style.setProperty('--vl-dx', '0px'); el.style.setProperty('--vl-r', '0deg'); try { el.releasePointerCapture(P.id); } catch (x) {} }
+    if (Math.abs(dx) > 70) this.vlGo(this.vlS().i + (dx < 0 ? 1 : -1)); else this.forceUpdate();
+  }
+  vlVals() {
+    const R = this.vlS(), D = this.vlData(), N = D.length, cur = R.i, pad = (k) => String(k).padStart(2, '0'), play = !!R.play;
+    const base = (r, i) => Object.assign({}, r, { pos3: pad(i + 1) + ' / ' + pad(N), aria: 'Value ' + (i + 1) + ' of ' + N + ': ' + r.title });
+    const cards = D.map((r, i) => { const d = (i - cur + N) % N, c = base(r, i);
+      if (d === 0) return Object.assign(c, { pos: 'relative', top: 'auto', z: 20, tf: 'translate3d(var(--vl-dx, 0px), 0, 0) rotate(var(--vl-r, 0deg))', op: 1, pe: 'auto', bg: '#FFFFFF', sh: '0 34px 70px -40px rgba(20,22,26,.5), 0 2px 6px -2px rgba(20,22,26,.08)', cop: 1, hidden: 'false', tab: '0', cls: 'vl-front', pick: () => {} });
+      if (d <= 3) return Object.assign(c, { pos: 'absolute', top: '42px', z: 20 - d, tf: 'translate3d(0, ' + (-d * 14) + 'px, 0) scale(' + (1 - d * 0.045).toFixed(3) + ')', op: 1 - (d - 1) * 0.12, pe: 'auto', bg: c.tint, sh: '0 10px 24px -20px rgba(20,22,26,.35)', cop: 0, hidden: 'true', tab: '-1', cls: 'vl-back', pick: () => this.vlGo(i) });
+      if (d === N - 1) return Object.assign(c, { pos: 'absolute', top: '42px', z: 30, tf: 'translate3d(-115%, 30px, 0) rotate(-9deg)', op: 0, pe: 'none', bg: '#FFFFFF', sh: 'none', cop: 1, hidden: 'true', tab: '-1', cls: 'vl-gone', pick: () => {} });
+      return Object.assign(c, { pos: 'absolute', top: '42px', z: 1, tf: 'translate3d(0, -60px, 0) scale(.82)', op: 0, pe: 'none', bg: c.tint, sh: 'none', cop: 0, hidden: 'true', tab: '-1', cls: '', pick: () => {} }); });
+    const list = D.map((r, i) => { const on = i === cur;
+      return { n: r.n, title: r.title, ac: r.ac, aria: 'Value ' + (i + 1) + ': ' + r.title, cur: on ? 'true' : 'false', bg: on ? '#F4F4EF' : 'transparent', fg: on ? '#14161A' : '#3F444C', nc: on ? r.ink : '#8A8F96', fw: on ? '600' : '500', bar: on ? '1' : '0',
+        fill: i < cur || (on && !play) ? '1' : '0', run: on && play ? 'run' : '', pick: () => this.vlGo(i) }; });
+    const key = (e) => { const k = e.key; if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); this.vlGo(cur + 1); } else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); this.vlGo(cur - 1); } else if (k === 'Home') { e.preventDefault(); this.vlGo(0); } else if (k === 'End') { e.preventDefault(); this.vlGo(N - 1); } };
     return {
-      values: v.map((x, i) => ({ n: String(i + 1).padStart(2, '0'), title: x[0], text: x[1], c: x[2] })),
+      vlCards: cards, vlList: list, vlGrid: D.map((r, i) => Object.assign(base(r, i), { k: String(i) })),
+      vlDeck: !R.all, vlAll: !!R.all, vlAllA: R.all ? 'true' : 'false', vlAllLabel: R.all ? 'Back to the deck' : 'Show all ten',
+      vlToggleAll: () => { R.all = !R.all; this.vlStop(); this.forceUpdate(); },
+      vlHint: R.all ? 'All ten, side by side.' : 'Drag the card, tap one behind it, or use the arrow keys.',
+      vlPlay: () => this.vlToggle(), vlPlayP: play ? 'true' : 'false', vlPlaying: play, vlPaused: !play, vlPlayL: play ? 'Pause' : (cur >= N - 1 ? 'Play again' : 'Play all ten'),
+      vlPrev: () => this.vlGo(cur - 1), vlNext: () => this.vlGo(cur + 1), vlKey: key, vlCount: pad(cur + 1) + ' / ' + pad(N),
+      vlDown: (e) => this.vlDown(e), vlMove: (e) => this.vlMove(e), vlUp: (e) => this.vlUp(e),
+      vlLive: 'Value ' + (cur + 1) + ' of ' + N + ': ' + D[cur].title + '. ' + D[cur].text
+    };
+  }
+  pageVals() {
+    return {
       headShadow: this.state.scrolled ? '0 10px 30px -18px rgba(20,22,26,0.35)' : 'none',
       showTop: this.state.showTop,
       toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' })
