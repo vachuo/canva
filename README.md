@@ -2,6 +2,12 @@
 
 Static site for Vachuo, built from the "Vachuo — End-to-End AI School" design canvas.
 
+## Live site
+
+Published with GitHub Pages from the `canva` branch (root folder) at
+https://vachuo.github.io/canva/. Every merge into `canva` redeploys the site within a
+minute or two. `.nojekyll` tells Pages to serve the files exactly as they are.
+
 ## Run locally
 
 ```bash
