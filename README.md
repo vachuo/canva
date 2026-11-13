@@ -19,11 +19,13 @@ Then open http://localhost:5180.
 ## Temporary home page
 
 For now the "Coming soon" page is the home page (`index.html`) and the thesis landing
-page is `landing.html`. The canvas still builds the landing page as `index.html`, so after
-every rebuild run `python tools/site_edits.py`: it moves the landing page to `landing.html`,
-restores the Coming soon page from `tools/coming-soon.html` and points every link at
-`landing.html`. To edit the Coming soon page, change `index.html` and copy it over
-`tools/coming-soon.html`. To end the arrangement, see the notes at the top of
+page is `landing.html`. Both are boards on the design canvas: the Coming soon page is
+`ComingSoon.dc.html`, next to the landing page. The canvas still builds the landing page as
+`index.html`, so after every rebuild run `python tools/site_edits.py`: it moves the landing
+page to `landing.html`, moves the rebuilt Coming soon page to `index.html` and points every
+link at `landing.html`. To change the Coming soon page, edit its board on the canvas and
+rebuild. `tools/coming-soon.html` is an older hand-made copy, used only if a rebuild has no
+Coming soon page. To end the arrangement, see the notes at the top of
 `tools/site_edits.py`.
 
 ## Pages
