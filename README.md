@@ -16,11 +16,22 @@ python -m http.server 5180
 
 Then open http://localhost:5180.
 
+## Temporary home page
+
+For now the "Coming soon" page is the home page (`index.html`) and the thesis landing
+page is `landing.html`. The canvas still builds the landing page as `index.html`, so after
+every rebuild run `python tools/site_edits.py`: it moves the landing page to `landing.html`,
+restores the Coming soon page from `tools/coming-soon.html` and points every link at
+`landing.html`. To edit the Coming soon page, change `index.html` and copy it over
+`tools/coming-soon.html`. To end the arrangement, see the notes at the top of
+`tools/site_edits.py`.
+
 ## Pages
 
 | Section | Page | File |
 | --- | --- | --- |
-| Website | Thesis landing page | `index.html` |
+| Website | Coming soon (temporary home page; not linked from other pages; its Alpha Testing button opens `landing.html`) | `index.html` |
+| Website | Thesis landing page (every "home" link points here for now) | `landing.html` |
 | Website | How Vachuo works | `how-it-works.html` |
 | Website | About (our plan and the Vachuo Charter) | `about.html` |
 | Website | Vision, mission & values | `vision.html` |
