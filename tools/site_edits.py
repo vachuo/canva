@@ -18,15 +18,22 @@ canvas builds as index.html lives at landing.html instead, and every link that
 pointed to index.html (index.html#access, #signed-out, #schole, ...) points to
 landing.html. The Coming soon page's "Alpha Testing" button opens landing.html.
 
-  - swap_home(): when a rebuild has written the thesis landing page to
-    index.html, it moves it to landing.html and puts the Coming soon page back
-    at index.html, copied from tools/coming-soon.html.
-  - link_landing(): rewrites links to index.html as landing.html on every page
-    except index.html itself.
+The Coming soon page is a board on the design canvas (ComingSoon.dc.html, next
+to the thesis landing page), so it is rebuilt like every other page.
 
-tools/coming-soon.html is the Coming soon page's source. If you edit
-index.html, copy it over tools/coming-soon.html too, or a rebuild will bring
-back the older version.
+  - swap_home(): when a rebuild has written the thesis landing page to
+    index.html, it moves it to landing.html. It then moves the rebuilt Coming
+    soon page (whatever file name the builder gave it) to index.html, so it
+    exists only as index.html. If a rebuild has no Coming soon page and
+    index.html is missing, it copies the older hand-made version from
+    tools/coming-soon.html as a fallback.
+  - link_landing(): rewrites links to index.html as landing.html on every page,
+    including the rebuilt Coming soon page (its Alpha Testing button). Only the
+    hand-made fallback is skipped; its links are already right.
+
+To change the Coming soon page, edit its board on the canvas and rebuild.
+tools/coming-soon.html is only the fallback. Once a rebuild has produced the
+canvas version (the script says so), the fallback can be deleted.
 
 To end the arrangement: empty SWAP_HOME_ON and EVERY_PAGE below, delete
 tools/coming-soon.html, then rebuild from the canvas.
@@ -73,8 +80,9 @@ def sub(html, pattern, repl, label, flags=0):
 
 
 # --- Temporary home page: Coming soon at index.html, thesis landing at landing.html ---
-COMING_SOON = ROOT / 'tools' / 'coming-soon.html'
+COMING_SOON = ROOT / 'tools' / 'coming-soon.html'  # fallback: the older hand-made page
 LANDING_MARK = '<template id="dc-Landing"'  # only the canvas-built thesis landing page has this
+SOON_MARK = '<template id="dc-ComingSoon"'  # only the canvas-built Coming soon page has this
 
 
 def swap_home():
@@ -82,10 +90,17 @@ def swap_home():
     if index.exists() and LANDING_MARK in index.read_text(encoding='utf-8'):
         index.replace(landing)
         print('site_edits: moved the rebuilt thesis landing page from index.html to landing.html')
-    if not index.exists():
+    built = [f for f in sorted(ROOT.glob('*.html')) if f.name != 'index.html' and SOON_MARK in f.read_text(encoding='utf-8')]
+    if built:
+        built[0].replace(index)
+        print(f'site_edits: index.html is the Coming soon page from the canvas (was {built[0].name})')
+        for extra in built[1:]:
+            extra.unlink()
+            print(f'site_edits: removed a second copy of the Coming soon page: {extra.name}')
+    elif not index.exists():
         if COMING_SOON.exists():
             shutil.copyfile(COMING_SOON, index)
-            print('site_edits: index.html is the Coming soon page (from tools/coming-soon.html)')
+            print('site_edits: index.html is the Coming soon page (hand-made fallback from tools/coming-soon.html)')
         else:
             notes.append('tools/coming-soon.html (index.html is missing)')
 
@@ -97,7 +112,12 @@ def link_landing(html):
 
 SWAP_HOME_ON = True
 EVERY_PAGE = [link_landing]
-EVERY_PAGE_SKIPS = {'index.html'}  # the Coming soon page keeps its own text
+
+
+def skip_every_page(name, html):
+    """The hand-made fallback at index.html keeps its own text; the canvas-built one gets the edits."""
+    return name == 'index.html' and SOON_MARK not in html
+
 PAGE_EDITS = {}
 
 
@@ -111,7 +131,7 @@ def main():
     for f in pages:
         html = f.read_text(encoding='utf-8')
         new = html
-        edits = ([] if f.name in EVERY_PAGE_SKIPS else EVERY_PAGE) + PAGE_EDITS.get(f.name, [])
+        edits = ([] if skip_every_page(f.name, html) else EVERY_PAGE) + PAGE_EDITS.get(f.name, [])
         for edit in edits:
             new = edit(new)
         if new != html:

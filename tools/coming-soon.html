@@ -7,7 +7,7 @@
   Vachuo · temporary "Coming soon" page (one self-contained file).
   Put it at the root of your domain as index.html (with og-image.png beside it) while the full site is staged elsewhere.
   Settings live in VACHUO_SOON near the bottom of this file:
-    formEndpoint ''        → the email form opens an email to hello@vachuo.com (works anywhere)
+    formEndpoint ''        → the email form opens an email to vachuoinc@gmail.com (works anywhere)
                  'netlify' → Netlify Forms collects sign-ups (form name: early-access)
                  a URL     → POSTs the form to that address (Formspree, Getform, your own API)
     alphaUrl     address of the staging / alpha site; the "Alpha Testing" button opens it (empty = an email asking to join)
@@ -208,7 +208,7 @@ footer{background:var(--foot);color:#EDEDE8}
           <span class="one" data-t="waBadge">Fastest</span><span class="arr" aria-hidden="true">→</span>
         </a>
         <p class="or" data-t="or">or get an email</p>
-        <form id="ea" name="early-access" method="post" action="mailto:hello@vachuo.com?subject=Early%20access" enctype="text/plain" data-netlify="true" netlify-honeypot="company" novalidate>
+        <form id="ea" name="early-access" method="post" action="mailto:vachuoinc@gmail.com?subject=Early%20access" enctype="text/plain" data-netlify="true" netlify-honeypot="company" novalidate>
           <input type="hidden" name="form-name" value="early-access">
           <input type="hidden" name="language" id="f-lang" value="en">
           <p class="hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
@@ -915,9 +915,9 @@ footer{background:var(--foot);color:#EDEDE8}
 <script>
 /* ---------------------------------------------------------------- settings */
 const VACHUO_SOON = {
-  formEndpoint: '',    // '' = email to hello@vachuo.com · 'netlify' = Netlify Forms · or a form service / API URL
+  formEndpoint: '',    // '' = email to vachuoinc@gmail.com · 'netlify' = Netlify Forms · or a form service / API URL
   alphaUrl: 'landing.html', // where the "Alpha Testing" button goes (for now, the thesis landing page). Empty = an email asking to join alpha testing
-  contactEmail: 'hello@vachuo.com'
+  contactEmail: 'vachuoinc@gmail.com'
 };
 
 /* ---------------------------------------------------------------- words */
