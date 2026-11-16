@@ -28,6 +28,13 @@ rebuild. `tools/coming-soon.html` is an older hand-made copy, used only if a reb
 Coming soon page. To end the arrangement, see the notes at the top of
 `tools/site_edits.py`.
 
+## Live web search in My tutor
+
+My tutor's Audio-visual mode has a "Look it up" panel. On the website it searches the web live
+through Keenable (`assets/js/keenable.js`, added to `session.html` by `tools/site_edits.py`).
+It uses Keenable's keyless endpoint, so there is no API key in the page, and only the learner's
+question is sent. On the design canvas the panel shows saved example results instead.
+
 ## Pages
 
 | Section | Page | File |
@@ -48,6 +55,8 @@ Coming soon page. To end the arrangement, see the notes at the top of
 | Learner | Tutor session | `session.html` |
 | Learner | My map | `map.html` |
 | Learner | My classes | `notes.html` |
+| Learner | My notes (notebook for classes, lessons and projects; guide and parent views) | `notebook.html` |
+| Learner | My Studio (books, stories, comics, pictures, videos; private until shared) | `my-studio.html` |
 | Learner | My assessments | `assessments.html` |
 | Learner | Set up a learner | `onboarding.html` |
 | Learner | Set up learners in bulk (spreadsheet, paste or type; invitations and tracking) | `enrol.html` |
