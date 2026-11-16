@@ -38,6 +38,12 @@ canvas version (the script says so), the fallback can be deleted.
 To end the arrangement: empty SWAP_HOME_ON and EVERY_PAGE below, delete
 tools/coming-soon.html, then rebuild from the canvas.
 
+Live web search in My tutor (since 13 Nov 2026). The canvas can't reach the
+network, so the tutor's "Look it up" panel shows saved examples there. On the
+website, add_keenable() puts assets/js/keenable.js on session.html; that file
+calls Keenable's keyless search, so live results appear with no API key in the
+page. Delete the PAGE_EDITS entry and the file to switch it off.
+
 The press removals that used to live here (Sign in's Media portal, Newsroom's
 press contacts and the "press kit" wording) are now in the canvas itself.
 
@@ -110,6 +116,16 @@ def link_landing(html):
     return re.sub(r'(?<![\w./-])index\.html', 'landing.html', html)
 
 
+KEENABLE_TAG = '<script src="assets/js/keenable.js"></script>'
+
+
+def add_keenable(html):
+    """Live Keenable search for My tutor's Look it up panel (see assets/js/keenable.js)."""
+    if KEENABLE_TAG in html:
+        return html
+    return sub(html, r'</body>', KEENABLE_TAG + '\n</body>', 'session.html: </body>', 0)
+
+
 SWAP_HOME_ON = True
 EVERY_PAGE = [link_landing]
 
@@ -118,7 +134,7 @@ def skip_every_page(name, html):
     """The hand-made fallback at index.html keeps its own text; the canvas-built one gets the edits."""
     return name == 'index.html' and SOON_MARK not in html
 
-PAGE_EDITS = {}
+PAGE_EDITS = {'session.html': [add_keenable]}
 
 
 def main():

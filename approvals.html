@@ -81,7 +81,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const area = (this.props && this.props.area) || 'parent'; const list = this.read();
-    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'], session: ['In-person session', '#DDF4F1', '#115E59'] };
+    const K = { align: ['Alignment plan', '#E4ECFD', '#1E40AF'], listing: ['Showcase listing', '#FEF1D9', '#92400E'], club: ['Club session', '#DDF4F1', '#115E59'], job: ['Job application', '#ECECE6', '#3F444C'], onboard: ['New learner', '#E4ECFD', '#172F73'], session: ['In-person session', '#DDF4F1', '#115E59'], studio: ['My Studio share', '#EEF2FF', '#1E3A8A'] };
     const set = (id, status) => this.write(this.read().map((x) => (x.id === id ? Object.assign({}, x, { status, decidedAt: 'Tue 3 Nov' }) : x)));
     const out = Object.assign(this.themeVals(), { isParent: area === 'parent', isStrip: false, pending: [], noPending: true, done: [], hasDone: false, pendingCount: '', stripTitle: '', stripSub: '', stripItems: [], stripBg: '#FFFFFF', stripBd: '#E2E2DA', chip: '', chipBg: '#FFFFFF', chipFg: '#14161A' });
     if (area === 'parent') {
