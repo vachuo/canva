@@ -57,7 +57,7 @@ question is sent. On the design canvas the panel shows saved example results ins
 | Learner | My map | `map.html` |
 | Learner | My classes | `notes.html` |
 | Learner | My notes (notebook for classes, lessons and projects; guide and parent views) | `notebook.html` |
-| Learner | My Studio (books, stories, comics, pictures, videos; private until shared) | `my-studio.html` |
+| Learner | My Studio (books, stories, comics, pictures, videos; private until shared; AI samples to remix) | `my-studio.html` |
 | Learner | My assessments | `assessments.html` |
 | Learner | Set up a learner | `onboarding.html` |
 | Learner | Set up learners in bulk (spreadsheet, paste or type; invitations and tracking) | `enrol.html` |
