@@ -13,6 +13,7 @@
 <style>
 @media (min-width:800px){.vside{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}}
 .vlang-list button:hover{background:#F4F4EF!important}[data-theme="dark"] .vlang-list button:hover{background:#22262D!important}
+/* v324-mob */.hb-x{display:none}.vs-open .hb-x,.vside-open .hb-x{display:block}.vs-open .hb-m,.vside-open .hb-m{display:none}.vs-burger:hover,.vside-burger:hover{border-color:#8A8F96!important}.vside-burger{display:none}@media (max-width:799.98px){.vside{position:sticky;top:0;z-index:60;flex:1 1 100%!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important;padding:8px 12px!important;max-height:100vh;max-height:100dvh;overflow-y:auto;overscroll-behavior:contain;border-right:none!important;border-bottom:1px solid rgba(127,127,127,.25)!important}.vside>:first-child{flex:1 1 auto!important;min-width:0;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important}.vside>:first-child>*{align-self:center!important}.vside>.vside-burger{display:inline-flex;margin-left:auto}.vside:not(.vside-open)>:nth-child(n+3){display:none!important}.vside.vside-open>:nth-child(n+3){flex:1 0 100%!important;max-width:100%;box-sizing:border-box}.vside.vside-open{z-index:96;padding-bottom:20px!important;box-shadow:0 24px 48px -28px rgba(20,22,26,.55)}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -21,10 +22,10 @@
 <template id="dc-School">
 <div data-theme="{{uiTheme}}" lang="{{svLang}}" style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F4F4EF; color: #14161A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
 
-<nav aria-label="School console" class="vside" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px">
+<nav aria-label="School console" class="vside {{sbCls}}" style="flex: 1 1 232px; max-width: 100%; box-sizing: border-box; padding: 24px 12px; background: #FAFAF7; border-right: 1px solid #E2E2DA; display: flex; flex-direction: column; gap: 24px" onClick="{{sbNavClick}}" onKeyDown="{{sbKey}}">
 <a href="school.html" aria-label="Vachuo home" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; text-decoration: none; color: #14161A">
 <span style="display: inline-flex; align-items: flex-start; gap: 1px; flex: none"><img src="assets/img/logo.png" alt="Vachuo" style="display: block; height: 40px; width: auto"><span aria-hidden="true" style="font-size: 10.5px; font-weight: 600; line-height: 1; color: #3F444C">™</span></span>
-</a>
+</a><button type="button" class="vside-burger" aria-label="{{sbLabel}}" aria-expanded="{{sbOpenA}}" onClick="{{sbToggle}}" style="flex: none; width: 44px; height: 44px; padding: 0; border-radius: 12px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A; align-items: center; justify-content: center; cursor: pointer"><svg class="hb-m" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="hb-x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #62676F; padding: 0 12px 6px">School</div>
 <template data-for="{{tabs}}" data-as="t">
@@ -164,6 +165,28 @@ class Component extends DCLogic {
       svCkTrack: ana ? '#1D4ED8' : '#8A8F96', svCkKnob: ana ? '19px' : '3px'
     });
   }
+  // ---- Mobile sidebar menu (v324)
+  _sbMob() {
+    if (!this._sbMH) {
+      const shut = (back) => {
+        this._sbOpen = false; this.forceUpdate();
+        if (back) setTimeout(() => { try { const b = document.querySelector('.vside-burger'); if (b) b.focus(); } catch (e) {} }, 30);
+      };
+      this._sbMH = {
+        sbToggle: () => { this._sbOpen = !this._sbOpen; this.forceUpdate(); },
+        sbNavClick: (e) => { const t = e && e.target; if (this._sbOpen && t && t.closest && t.closest('a')) shut(false); },
+        sbKey: (e) => { if (e && e.key === 'Escape' && this._sbOpen) shut(true); }
+      };
+      try {
+        const mq = window.matchMedia('(max-width: 799.98px)'), on = () => { if (!mq.matches && this._sbOpen) shut(false); };
+        if (mq.addEventListener) mq.addEventListener('change', on); else if (mq.addListener) mq.addListener(on);
+      } catch (e) {}
+      this._sbEsc = (e) => { if (e && e.key === 'Escape' && this._sbOpen) shut(true); };
+      try { document.addEventListener('keydown', this._sbEsc); } catch (e) {}
+    }
+    const o = !!this._sbOpen;
+    return Object.assign({ sbCls: o ? 'vside-open' : '', sbOpenA: o ? 'true' : 'false', sbLabel: o ? 'Close menu' : 'Open menu' }, this._sbMH);
+  }
   navVals() {
     if (this._nvOn === undefined) {
       this._nvOn = true; this._nvOpen = false;
@@ -172,7 +195,7 @@ class Component extends DCLogic {
         roomLearner: go('learner', 'class'), roomParent: go('parent', 'class'), roomGuide: go('guide', 'class'), roomGuideCheckin: go('guide', 'checkin'), roomModerator: go('moderator', 'class'), roomClub: go('learner', 'club'), roomSchool: go('moderator', 'class'),
         msgParent: () => { try { window.localStorage.setItem('vachuo-viewer', 'parent'); } catch (e) {} }, msgLearner: () => { try { window.localStorage.setItem('vachuo-viewer', 'learner'); } catch (e) {} } };
     }
-    return Object.assign({ navMenuOpen: this._nvOpen ? 'true' : 'false', navMenuShown: !!this._nvOpen }, this._nvH);
+    return Object.assign({ navMenuOpen: this._nvOpen ? 'true' : 'false', navMenuShown: !!this._nvOpen }, this._nvH, this._sbMob());
   }
   themeVals() {
     if (this._uiT === undefined) {
