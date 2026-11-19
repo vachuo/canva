@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vachuo app · Parent (390)</title>
+<link rel="icon" type="image/png" href="assets/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<style>
+html,body{margin:0;background:#F4F4EF}
+.mb{font-family:Inter,system-ui,sans-serif;color:#14161A}
+.mb button{font-family:inherit}
+.mb-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:58px;border:none;background:none;color:#62676F;font-size:11px;font-weight:600;cursor:pointer;position:relative}
+.mb-tab[aria-selected="true"]{color:#1D4ED8}
+.mb-tab[aria-selected="true"]::before{content:"";position:absolute;top:0;left:28%;right:28%;height:3px;border-radius:0 0 3px 3px;background:#1D4ED8}
+.mb-card{background:#FFFFFF;border:1px solid #E2E2DA;border-radius:18px;padding:14px}
+.mb-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:700}
+.mb-btn{min-height:44px;padding:0 16px;border-radius:999px;border:none;background:#14161A;color:#FFFFFF;font-size:14px;font-weight:600;cursor:pointer}
+.mb-btn2{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #CFCFC6;background:#FFFFFF;color:#14161A;font-size:14px;font-weight:600;cursor:pointer}
+.mb-btn:disabled,.mb-btn2:disabled{opacity:.45;cursor:not-allowed}
+.mb-in{width:100%;box-sizing:border-box;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid #CFCFC6;background:#FFFFFF;color:#14161A;font:15px Inter,system-ui,sans-serif}
+.mb-ta{width:100%;box-sizing:border-box;min-height:140px;padding:12px;border-radius:14px;border:1px solid #CFCFC6;background:#FFFFFF;color:#14161A;font:15px/1.5 Inter,system-ui,sans-serif;resize:none}
+.mb-chip{min-height:34px;padding:0 12px;border-radius:999px;border:1px solid #CFCFC6;background:#FFFFFF;color:#3F444C;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.mb-chip[aria-pressed="true"]{background:#14161A;color:#FFFFFF;border-color:#14161A}
+.mb-b{max-width:82%;padding:9px 12px;border-radius:16px;font-size:14px;line-height:1.45;white-space:pre-line}
+.mb-in-b{align-self:flex-start;background:#FFFFFF;border:1px solid #E2E2DA;border-top-left-radius:5px}
+.mb-out-b{align-self:flex-end;background:#1D4ED8;color:#FFFFFF;border-top-right-radius:5px}
+.mb-err-b{align-self:flex-end;background:#FDECEA;color:#7A1D14;border:1px solid #F5C2BC;border-top-right-radius:5px;cursor:pointer}
+.mb-sheet{position:absolute;left:0;right:0;bottom:0;z-index:20;max-height:86%;overflow:auto;box-sizing:border-box;padding:16px 16px 22px;border-radius:22px 22px 0 0;background:#FFFFFF;box-shadow:0 -20px 40px -20px rgba(20,22,26,.45);display:flex;flex-direction:column;gap:12px}
+.mb-scrim{position:absolute;inset:0;z-index:19;background:rgba(20,22,26,.4)}
+.mb-row{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 4px;border:none;border-bottom:1px solid #ECECE6;background:none;color:inherit;text-align:left;font-size:15px;cursor:pointer;text-decoration:none;width:100%}
+.mb-tg{position:relative;width:44px;height:26px;flex:none;border-radius:999px;border:none;background:#8A8F96;cursor:pointer;padding:0}
+.mb-tg[aria-checked="true"]{background:#0F766E}
+.mb-tg::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;transition:left .15s}
+.mb-tg[aria-checked="true"]::after{left:21px}
+@keyframes mb-sh{0%{background-position:-200px 0}100%{background-position:200px 0}}
+.mb-sk{border-radius:12px;background:linear-gradient(90deg,#ECECE6 0,#F6F6F1 50%,#ECECE6 100%);background-size:400px 100%;animation:mb-sh 1.1s linear infinite}
+@keyframes mb-spin{to{transform:rotate(360deg)}}.mb-spin{flex:none;animation:mb-spin .8s linear infinite}
+@media (prefers-reduced-motion:reduce){.mb-sk,.mb-spin{animation:none}.mb-tg::after{transition:none}}
+.mb-dots{display:inline-flex;gap:3px}.mb-dots span{width:9px;height:9px;border-radius:50%;background:#E2E2DA}.mb-dots span.on{background:#0F766E}
+[data-theme="dark"] .mb-card{background:#171A1F;border-color:#2B3038}
+[data-theme="dark"] .mb-in,[data-theme="dark"] .mb-ta{background:#0F1114;border-color:#3A4049;color:#EDEDE8}
+[data-theme="dark"] .mb-in-b{background:#171A1F;border-color:#2B3038;color:#EDEDE8}
+[data-theme="dark"] .mb-sheet{background:#171A1F;color:#EDEDE8}
+[data-theme="dark"] .mb-btn{background:#EDEDE8;color:#14161A}
+[data-theme="dark"] .mb-btn2,[data-theme="dark"] .mb-chip{background:#171A1F;color:#EDEDE8;border-color:#3A4049}
+[data-theme="dark"] .mb-chip[aria-pressed="true"]{background:#EDEDE8;color:#14161A}
+[data-theme="dark"] .mb-row{border-color:#2B3038}
+[data-theme="dark"] .mb-sk{background:linear-gradient(90deg,#1B1E23 0,#262A31 50%,#1B1E23 100%);background-size:400px 100%}
+[data-theme="dark"] .mb-tab[aria-selected="true"]{color:#8EB0FF}[data-theme="dark"] .mb-tab[aria-selected="true"]::before{background:#8EB0FF}
+/* v325-states */[data-pgs-root]:has(.pgs)>:not(.pgs):not(:has(.pgs)):not(footer):not(.vside):not(:has(.vside)):not(.vs-hdr):not(:has(.vs-hdr)):not([data-sf]){display:none!important}@keyframes pgs-sh{0%{background-position:-300px 0}100%{background-position:300px 0}}.pgs-sk{border-radius:14px;background:linear-gradient(90deg,#ECECE6 0,#F6F6F1 50%,#ECECE6 100%);background-size:600px 100%;animation:pgs-sh 1.2s linear infinite}[data-theme="dark"] .pgs-sk{background:linear-gradient(90deg,#1B1E23 0,#262A31 50%,#1B1E23 100%);background-size:600px 100%}.pgs button[aria-pressed="true"]{background:#14161A!important;color:#FFFFFF!important;border-color:#14161A!important}@media (prefers-reduced-motion:reduce){.pgs-sk{animation:none}}
+</style>
+<script src="assets/js/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-MobileParent">
+<div data-theme="{{uiTheme}}" class="mb" lang="{{mbLang}}" style="position: relative; height: 100vh; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; background: #F4F4EF; overflow: hidden">
+<div aria-hidden="true" style="flex: none; height: 26px; display: flex; justify-content: space-between; align-items: center; padding: 0 18px; font-size: 12px; font-weight: 600"><span>9:41</span><span>{{mbNetIcon}}</span></div>
+<header style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 16px 10px">
+<div style="display: flex; flex-direction: column; gap: 1px; min-width: 0"><span style="font-size: 12px; font-weight: 600; color: #62676F">{{mbKicker}}</span><h1 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 28px; line-height: 1.05; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{mbTitle}}</h1></div>
+<button type="button" aria-label="{{mbThemeLabel}}" onClick="{{uiToggle}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 17px; cursor: pointer">{{mbThemeIcon}}</button>
+</header>
+<template data-if="{{mbNetBanner}}"><div role="status" style="flex: none; margin: 0 16px 8px; padding: 9px 12px; border-radius: 12px; background: {{mbNetBg}}; color: {{mbNetFg}}; font-size: 13px; line-height: 1.4; font-weight: 600">{{mbNetText}}</div></template>
+<main id="mb-main" style="flex: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 20px; display: flex; flex-direction: column; gap: 12px" data-pgs-root><template data-if="{{pgsOn}}"><section class="pgs" aria-label="Page state preview" style="box-sizing: border-box; width: 100%; max-width: 720px; margin: clamp(24px, 6vh, 64px) auto; padding: 0 16px; display: flex; flex-direction: column; gap: 14px; font-family: Inter, system-ui, sans-serif; color: #14161A"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #62676F">Preview · {{pgsKindLabel}}</span><div role="group" aria-label="Preview a page state" style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{pgsKinds}}" data-as="s"><button type="button" aria-pressed="{{s.on}}" onClick="{{s.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 12.5px; font-weight: 600; cursor: pointer">{{s.t}}</button></template><button type="button" onClick="{{pgsLeave}}" style="min-height: 32px; padding: 0 10px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; font-weight: 600; cursor: pointer">Leave preview</button></div></div><template data-if="{{pgsLoading}}"><div role="status" aria-busy="true" aria-label="{{pgsLoadLabel}}" style="display: flex; flex-direction: column; gap: 12px"><div class="pgs-sk" style="height: 46px; width: 62%"></div><div class="pgs-sk" style="height: 130px"></div><div style="display: flex; gap: 12px"><div class="pgs-sk" style="flex: 1; height: 90px"></div><div class="pgs-sk" style="flex: 1; height: 90px"></div></div><div class="pgs-sk" style="height: 90px"></div></div></template><template data-if="{{pgsCard}}"><div role="{{pgsRole}}" style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: clamp(28px, 5vw, 48px) 24px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E2E2DA; text-align: center"><span aria-hidden="true" style="font-size: 44px; line-height: 1">{{pgsIcon}}</span><h2 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(26px, 3vw, 34px); line-height: 1.1; font-weight: 600">{{pgsTitle}}</h2><p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.55; color: #3F444C">{{pgsBody}}</p><div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center"><template data-if="{{pgsIsEmpty}}"><a href="{{pgsActHref}}" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; background: #14161A; color: #FFFFFF">{{pgsActT}}</a></template><template data-if="{{pgsNotEmpty}}"><button type="button" onClick="{{pgsRetry}}" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; background: #14161A; color: #FFFFFF">Try again</button><a href="status.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A">Service status</a></template></div><template data-if="{{pgsHasRef}}"><span style="font-size: 12.5px; color: #62676F">{{pgsRef}}</span></template></div></template></section></template><template data-if="{{pgsOffline}}"><div role="status" style="position: fixed; left: 16px; bottom: 16px; z-index: 99; box-sizing: border-box; max-width: min(460px, calc(100% - 32px)); display: flex; gap: 10px; align-items: center; padding: 10px 10px 10px 14px; border-radius: 14px; background: #14161A; color: #FFFFFF; font: 600 13.5px/1.4 Inter, system-ui, sans-serif; box-shadow: 0 16px 34px -14px rgba(20,22,26,.6)"><span aria-hidden="true">📴</span><span style="flex: 1">{{pgsOffText}}</span><button type="button" aria-label="Dismiss" onClick="{{pgsDismiss}}" style="flex: none; width: 32px; height: 32px; border: none; border-radius: 50%; background: rgba(255,255,255,.12); color: #FFFFFF; font-size: 16px; cursor: pointer">×</button></div></template>
+<template data-if="{{mbLoading}}"><div aria-busy="true" aria-label="Loading" style="display: flex; flex-direction: column; gap: 12px"><div class="mb-sk" style="height: 96px"></div><div class="mb-sk" style="height: 64px"></div><div class="mb-sk" style="height: 64px"></div><div class="mb-sk" style="height: 120px"></div></div></template>
+<template data-if="{{mbReady}}">
+<template data-if="{{isHome}}">
+<template data-if="{{hasPending}}"><button type="button" class="mb-card" onClick="{{goApprove}}" style="display: flex; gap: 12px; align-items: center; text-align: left; cursor: pointer; color: inherit; background: #FEF1D9; border-color: #F3C98B"><span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #F9A826; color: #14161A; display: inline-flex; align-items: center; justify-content: center; font-weight: 700">{{pendingN}}</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14.5px; color: #78350F">{{pendingText}}</strong><span style="font-size: 12.5px; color: #78350F">Nothing happens until you decide.</span></span><span aria-hidden="true" style="color: #78350F">›</span></button></template>
+<template data-for="{{kids}}" data-as="k"><button type="button" class="mb-card" onClick="{{k.open}}" style="display: flex; flex-direction: column; gap: 10px; text-align: left; cursor: pointer; color: inherit"><span style="display: flex; gap: 12px; align-items: center; width: 100%"><span aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; background: {{k.av}}; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 700">{{k.ini}}</span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><strong style="font-size: 15.5px">{{k.n}}</strong><span style="font-size: 12.5px; color: #62676F">{{k.sub}}</span></span><span class="mb-pill" style="background: {{k.pillBg}}; color: {{k.pillFg}}">{{k.pill}}</span></span><span style="display: flex; gap: 8px; width: 100%"><template data-for="{{k.stats}}" data-as="s"><span style="flex: 1; padding: 8px; border-radius: 12px; background: #F4F4EF; display: flex; flex-direction: column; gap: 1px"><strong style="font-size: 16px">{{s.v}}</strong><span style="font-size: 11.5px; color: #62676F">{{s.l}}</span></span></template></span></button></template>
+<button type="button" class="mb-card" onClick="{{openBrief}}" style="display: flex; gap: 12px; align-items: center; text-align: left; cursor: pointer; color: inherit"><span aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 14px; background: #E4ECFD; display: inline-flex; align-items: center; justify-content: center; font-size: 20px">📬</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14.5px">Sunday briefing</strong><span style="font-size: 12.5px; color: #62676F">What your children learned this week, in 2 minutes</span></span><span aria-hidden="true">›</span></button>
+</template>
+
+<template data-if="{{isApprove}}">
+<template data-if="{{noPending}}"><div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 30px 16px 10px; text-align: center"><span aria-hidden="true" style="font-size: 40px">✅</span><strong style="font-size: 17px">All caught up</strong><span style="font-size: 14px; color: #62676F">New requests from your children appear here, and we tell you by {{reachBy}}.</span></div></template>
+<template data-for="{{reqs}}" data-as="r"><div class="mb-card" style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between; gap: 8px"><span class="mb-pill" style="background: #E4ECFD; color: #1E40AF">{{r.kind}}</span><span style="font-size: 12px; color: #62676F">{{r.who}} · {{r.when}}</span></div><strong style="font-size: 15.5px; line-height: 1.3">{{r.t}}</strong><span style="font-size: 13.5px; line-height: 1.45; color: #3F444C">{{r.d}}</span><template data-if="{{r.hasQuote}}"><span style="padding: 8px 10px; border-left: 3px solid #F9A826; background: #FAFAF7; font-size: 13.5px; font-style: italic; color: #3F444C">“{{r.q}}”</span></template><template data-if="{{r.open}}"><div style="display: flex; gap: 8px"><button type="button" class="mb-btn" onClick="{{r.yes}}" disabled="{{mbOff}}" style="flex: 1; background: #0F766E">Approve</button><button type="button" class="mb-btn2" onClick="{{r.no}}" disabled="{{mbOff}}" style="flex: 1">Decline</button><button type="button" class="mb-btn2" onClick="{{r.ask}}" aria-label="Ask a question" style="flex: none; width: 44px; padding: 0">?</button></div><template data-if="{{mbOff}}"><span style="font-size: 12.5px; color: #62676F">Approvals need a connection. Or reply 1 or 2 to our SMS.</span></template></template><template data-if="{{r.closed}}"><span role="status" style="font-size: 13.5px; font-weight: 600; color: {{r.outInk}}">{{r.out}}</span></template></div></template>
+</template>
+
+<template data-if="{{isMsgs}}">
+<template data-if="{{inList}}"><div class="mb-card" style="padding: 4px 14px"><template data-for="{{threads}}" data-as="t"><button type="button" class="mb-row" onClick="{{t.open}}" style="min-height: 68px"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: {{t.av}}; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 700">{{t.ini}}</span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between; gap: 6px"><strong style="font-size: 14.5px">{{t.n}}</strong><span style="font-size: 12px; color: #62676F">{{t.when}}</span></span><span style="font-size: 12px; color: #115E59; font-weight: 600">{{t.badge}}</span><span style="font-size: 13px; color: #62676F; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{t.last}}</span></span></button></template></div></template>
+<template data-if="{{inThread}}"><button type="button" onClick="{{backList}}" style="align-self: flex-start; padding: 0; border: none; background: none; color: #1D4ED8; font-size: 14px; font-weight: 600; cursor: pointer">‹ All messages</button><div style="display: flex; gap: 10px; align-items: center"><strong style="font-size: 16px">{{th.n}}</strong><span class="mb-pill" style="background: #DDF4F1; color: #115E59">{{th.badge}}</span></div><div role="log" aria-live="polite" style="display: flex; flex-direction: column; gap: 8px"><template data-for="{{th.msgs}}" data-as="m"><div class="mb-b {{m.c}}">{{m.t}}<template data-if="{{m.queued}}"><span style="display: block; margin-top: 4px; font-size: 11px; opacity: .85">Waiting to send</span></template></div></template></div><form onSubmit="{{sendMsg}}" style="position: sticky; bottom: -20px; margin: 0 -16px -20px; padding: 10px 16px 14px; background: #F4F4EF; border-top: 1px solid #E2E2DA; display: flex; gap: 8px"><input class="mb-in" aria-label="Message" placeholder="Message {{th.first}}" value="{{msgDraft}}" onChange="{{setMsgDraft}}"><button type="submit" aria-label="Send" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: none; background: #1D4ED8; color: #FFFFFF; font-size: 16px; cursor: pointer">➤</button></form></template>
+</template>
+
+<template data-if="{{isPay}}">
+<div class="mb-card" style="display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; align-items: baseline"><strong style="font-size: 17px">Family plan</strong><span style="font-size: 15px; font-weight: 700">KES 1,500<span style="font-size: 12px; font-weight: 500; color: #62676F"> / month</span></span></div><span style="font-size: 13px; color: #3F444C">3 learners · renews 19 Dec 2026 · M-Pesa 0712 ••• 678</span><div style="display: flex; gap: 8px; padding-top: 4px"><button type="button" class="mb-btn" onClick="{{payNow}}" disabled="{{mbOff}}" style="flex: 1; background: #0F766E">{{payNowT}}</button><a href="checkout.html" class="mb-btn2" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; text-decoration: none">Change plan</a></div><template data-if="{{mbOff}}"><span style="font-size: 12.5px; color: #62676F">Payments need a connection. Or dial *826# and choose 5.</span></template></div>
+<h2 style="margin: 4px 0 0; font-size: 15px">Receipts</h2>
+<div class="mb-card" style="padding: 4px 14px"><template data-for="{{receipts}}" data-as="r"><button type="button" class="mb-row" onClick="{{r.open}}"><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-weight: 600">{{r.what}}</span><span style="font-size: 12.5px; color: #62676F">{{r.date}} · {{r.by}}</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><strong style="font-size: 14px">{{r.amt}}</strong><span style="font-size: 11.5px; font-weight: 600; color: {{r.ink}}">{{r.st}}</span></span></button></template></div>
+<a href="checkout.html#billing" style="font-size: 14px; color: #1D4ED8">Ask for a refund or see all payments</a>
+</template>
+
+<template data-if="{{isMore}}">
+<div class="mb-card" style="padding: 4px 14px">
+<a class="mb-row" href="notifications.html"><span style="flex: 1">Notification settings</span><span aria-hidden="true">›</span></a>
+<a class="mb-row" href="guide-checks.html#parent"><span style="flex: 1">How guides are checked</span><span aria-hidden="true">›</span></a>
+<a class="mb-row" href="any-phone.html"><span style="flex: 1">WhatsApp, SMS and USSD</span><span aria-hidden="true">›</span></a>
+<a class="mb-row" href="help.html"><span style="flex: 1">Help centre</span><span aria-hidden="true">›</span></a>
+<a class="mb-row" href="status.html" style="border-bottom: none"><span style="flex: 1">Service status</span><span style="font-size: 12px; font-weight: 600; color: #B45309">SMS delayed</span></a>
+</div>
+<div class="mb-card" style="padding: 4px 14px">
+<div class="mb-row" style="cursor: default"><span style="flex: 1">Data saver</span><button type="button" role="switch" class="mb-tg" aria-label="Data saver" aria-checked="{{saver}}" onClick="{{saverFlip}}"></button></div>
+<div class="mb-row" style="cursor: default; border-bottom: none"><span style="flex: 1">Use SMS when there’s no data</span><button type="button" role="switch" class="mb-tg" aria-label="Use SMS when there is no data" aria-checked="{{smsFb}}" onClick="{{smsFbFlip}}"></button></div>
+</div>
+<div class="mb-card" style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #62676F">Demo: phone connection</span><div role="group" aria-label="Demo connection" style="display: flex; gap: 6px"><template data-for="{{mbNets}}" data-as="n"><button type="button" class="mb-chip" aria-pressed="{{n.on}}" onClick="{{n.pick}}">{{n.t}}</button></template></div></div>
+<a href="landing.html#signed-out" class="mb-btn2" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none">Sign out</a>
+</template>
+</template>
+</main>
+<nav aria-label="App" style="flex: none; display: flex; border-top: 1px solid #E2E2DA; background: #FFFFFF; padding-bottom: 6px" role="tablist"><template data-for="{{mbTabs}}" data-as="t"><button type="button" role="tab" class="mb-tab" aria-selected="{{t.on}}" onClick="{{t.pick}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{t.d}}"/></svg>{{t.t}}<template data-if="{{t.badge}}"><span style="position: absolute; top: 6px; left: 55%; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #F9A826; color: #14161A; font-size: 10px; line-height: 16px">{{t.badge}}</span></template></button></template></nav>
+<template data-if="{{mbSheet}}"><div class="mb-scrim" onClick="{{mbCloseSheet}}"></div><div class="mb-sheet" role="dialog" aria-modal="true" aria-label="{{mbSheetTitle}}"><template data-if="{{shBrief}}"><strong style="font-size: 18px">Your Sunday briefing</strong><template data-for="{{brief}}" data-as="b"><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14.5px">{{b.n}}</strong><span style="font-size: 13.5px; line-height: 1.5; color: #3F444C">{{b.t}}</span></div></template><button type="button" class="mb-btn" onClick="{{mbCloseSheet}}">Done</button></template>
+<template data-if="{{shKid}}"><strong style="font-size: 18px">{{kid.n}}</strong><span style="font-size: 13.5px; color: #62676F">{{kid.sub}}</span><ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45"><template data-for="{{kid.lines}}" data-as="l"><li>{{l}}</li></template></ul><a href="learner.html" class="mb-btn2" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none">Open the full learner page</a></template>
+<template data-if="{{shAsk}}"><strong style="font-size: 18px">Ask before deciding</strong><span style="font-size: 13.5px; color: #3F444C">{{askTo}}</span><textarea class="mb-ta" aria-label="Your question" value="{{askDraft}}" onChange="{{setAskDraft}}" placeholder="What would you like to know?"></textarea><div style="display: flex; gap: 8px; justify-content: flex-end"><button type="button" class="mb-btn2" onClick="{{mbCloseSheet}}">Cancel</button><button type="button" class="mb-btn" onClick="{{sendAsk}}" disabled="{{askEmpty}}">Send</button></div></template>
+<template data-if="{{shPay}}"><strong style="font-size: 18px">Pay KES 1,500 with M-Pesa</strong>
+<template data-if="{{payIdle}}"><span style="font-size: 13.5px; color: #3F444C">We’ll send a payment request to 0712 ••• 678. Enter your PIN on the phone, not here.</span><button type="button" class="mb-btn" onClick="{{payGo}}" style="background: #0F766E">Send payment request</button></template>
+<template data-if="{{payWait}}"><div role="status" style="display: flex; gap: 10px; align-items: center; padding: 12px; border-radius: 12px; background: #E4ECFD; color: #1E40AF; font-size: 14px"><span class="mb-spin" aria-hidden="true" style="width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid rgba(29,78,216,.25); border-top-color: #1D4ED8"></span>Check your phone and enter your M-Pesa PIN…</div></template>
+<template data-if="{{payDone}}"><div role="status" style="padding: 12px; border-radius: 12px; background: #DDF4F1; color: #115E59; font-size: 14px; line-height: 1.5"><strong>Paid. Receipt VCH-2026-000128.</strong><br>M-Pesa code {{payCode}}. We sent the receipt by SMS.</div><button type="button" class="mb-btn" onClick="{{mbCloseSheet}}">Done</button></template>
+</template>
+<template data-if="{{shRc}}"><strong style="font-size: 18px">Receipt {{rc.id}}</strong><dl style="margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; font-size: 14px"><dt style="color: #62676F">Date</dt><dd style="margin: 0">{{rc.date}}</dd><dt style="color: #62676F">For</dt><dd style="margin: 0">{{rc.what}}</dd><dt style="color: #62676F">Paid with</dt><dd style="margin: 0">{{rc.by}}</dd><dt style="color: #62676F">VAT 16%</dt><dd style="margin: 0">{{rc.vat}}</dd><dt style="color: #62676F">Total</dt><dd style="margin: 0; font-weight: 700">{{rc.amt}}</dd></dl><button type="button" class="mb-btn2" onClick="{{rcShare}}">Send to me by SMS</button></template></div></template>
+<template data-if="{{mbToast}}"><div role="status" style="position: absolute; left: 16px; right: 16px; bottom: 78px; z-index: 30; padding: 12px 14px; border-radius: 14px; background: #14161A; color: #FFFFFF; font-size: 14px; text-align: center">{{mbToastText}}</div></template>
+</div>
+</template>
+<script>
+DC.component("MobileParent", function () {
+class Component extends DCLogic {
+  themeVals() {
+    if (this._uiT === undefined) {
+      let t = 'light';
+      try { if (window.localStorage.getItem('vachuo-theme') === 'dark') t = 'dark'; } catch (e) {}
+      this._uiT = t;
+      this._uiSync = (e) => { if (e && e.key === 'vachuo-theme') { const n = e.newValue === 'dark' ? 'dark' : 'light'; if (n !== this._uiT) { this._uiT = n; this.forceUpdate(); } } };
+      try { window.addEventListener('storage', this._uiSync); } catch (e) {}
+      this._uiFlip = () => { this._uiT = this._uiT === 'dark' ? 'light' : 'dark'; try { window.localStorage.setItem('vachuo-theme', this._uiT); } catch (e) {} this.forceUpdate(); };
+    }
+    const p = (this.props || {}).uiTheme, t = p === 'dark' || p === 'light' ? p : this._uiT, d = t === 'dark';
+    return { uiTheme: t, uiDark: d, uiLight: !d, uiOn: d ? 'true' : 'false', uiToggle: this._uiFlip, uiTrack: d ? '#1D4ED8' : '#8A8F96', uiKnob: d ? '19px' : '3px' };
+  }
+  themeOff() { try { window.removeEventListener('storage', this._uiSync); } catch (e) {} }
+  constructor(props) {
+    super(props);
+    this.state = {"mbTab": "home", "mbLoaded": {}, "mbNet": "on", "mbRealOff": false, "mbSheetKind": "", "mbToastText": "", "kidOpen": "", "askIdx": -1, "askDraft": "", "thread": "", "msgDraft": "", "payStage": "idle", "paid": false, "payCode": "", "rcOpen": "", "saver": true, "smsFb": true, "reqs": [{"kind": "Meet-up", "who": "Amani", "when": "2 h ago", "guide": "Nduta K.", "t": "Robotics club meet-up, Sat 29 Nov, 10 am", "d": "Kilimani Learning Hub, with guide Nduta K. (verified guide). 6 learners. Ends 12:30.", "q": "We’re testing the solar ovens outside. Can I go?", "out": ""}, {"kind": "Showcase", "who": "Amani", "when": "Yesterday", "guide": "the Showcase team", "t": "List “Party on the moon” comic for KES 150", "d": "Amani made it in My Studio. It passed the licence check. Earnings go to her savings pot.", "q": "People liked it in class!", "out": ""}, {"kind": "Club", "who": "Johari", "when": "Monday", "guide": "Brian O.", "t": "Join the Kiswahili poetry club (online)", "d": "Wednesdays 5 pm, online only, with guide Brian O. (checks in progress: online only).", "q": "", "out": ""}], "threads": [{"id": "t1", "n": "Nduta K.", "ini": "NK", "av": "#0F766E", "badge": "✓ Verified guide", "when": "3:12 pm", "msgs": [{"me": false, "t": "Hi Wanjiru, Amani explained ratios to the whole club today. She was brilliant."}, {"me": false, "t": "Can we move Thursday’s session to 5 pm?"}]}, {"id": "t2", "n": "Vachuo support", "ini": "V", "av": "#14161A", "badge": "Replies in about 10 min", "when": "Mon", "msgs": [{"me": true, "t": "Was I charged twice in October?"}, {"me": false, "t": "No, just once on 19 Oct. The second line was a cancelled request. Here’s the receipt: VCH-2026-000118."}]}, {"id": "t3", "n": "Brian O.", "ini": "BO", "av": "#1D4ED8", "badge": "Checks in progress", "when": "Sun", "msgs": [{"me": false, "t": "Karibu! Johari asked about the poetry club. Sessions are online and recorded for you."}]}]};
+    if (this.mbPageInit) this.mbPageInit();
+  }
+
+  mbInit(tab) { this.state.mbLoaded = {}; this.state.mbTab = tab; }
+  mbGo(tab) {
+    const L = Object.assign({}, this.state.mbLoaded);
+    if (!L[tab]) { clearTimeout(this._mbLT); this._mbLT = setTimeout(() => { const M = Object.assign({}, this.state.mbLoaded); M[tab] = 1; this.setState({ mbLoaded: M }); }, this.state.mbNet === 'slow' ? 900 : 350); }
+    this.setState({ mbTab: tab, mbSheetKind: '' });
+    try { const m = document.getElementById('mb-main'); if (m) m.scrollTop = 0; } catch (e) {}
+  }
+  mbToastMsg(t) { clearTimeout(this._mbTT); this.setState({ mbToastText: t }); this._mbTT = setTimeout(() => this.setState({ mbToastText: '' }), 2400); }
+  componentDidMount() {
+    this.mbGo(this.state.mbTab);
+    this._mbOn = () => this.setState({ mbRealOff: false }); this._mbOff = () => this.setState({ mbRealOff: true });
+    try { window.addEventListener('online', this._mbOn); window.addEventListener('offline', this._mbOff); if (navigator.onLine === false) this.setState({ mbRealOff: true }); } catch (e) {}
+    if (this.mbMount) this.mbMount();
+  }
+  componentWillUnmount() { this.themeOff(); clearTimeout(this._mbLT); clearTimeout(this._mbTT); try { window.removeEventListener('online', this._mbOn); window.removeEventListener('offline', this._mbOff); } catch (e) {} if (this.mbUnmount) this.mbUnmount(); }
+  mbNetVals() {
+    const n = this.state.mbRealOff ? 'off' : (this.state.mbNet || 'on');
+    const M = { on: ['', '', '', '5G ▮▮▮▮'], slow: ['Slow connection. Data saver is on: text first, no video.', '#FEF1D9', '#78350F', '2G ▮▮'], off: [this.state.mbRealOff ? 'Your device is offline. Showing what’s saved; changes sync when you’re back.' : 'Offline. Showing what’s saved on this phone; changes sync when you’re back.', '#ECECE6', '#3F444C', '✈︎'] }[n];
+    const d = this.state.uiT === 'dark' || this._uiT === 'dark';
+    return { mbOff: n === 'off', mbSlow: n === 'slow', mbNetBanner: n !== 'on', mbNetText: M[0], mbNetBg: M[1], mbNetFg: M[2], mbNetIcon: M[3],
+      mbLoading: !(this.state.mbLoaded || {})[this.state.mbTab], mbReady: !!(this.state.mbLoaded || {})[this.state.mbTab],
+      mbThemeLabel: d ? 'Light theme' : 'Dark theme', mbThemeIcon: d ? '☀' : '☾',
+      mbToast: !!this.state.mbToastText, mbToastText: this.state.mbToastText || '',
+      mbSheet: !!this.state.mbSheetKind, mbCloseSheet: () => this.setState({ mbSheetKind: '' }),
+      mbNets: [['on', 'Online'], ['slow', 'Slow 2G'], ['off', 'Offline']].map(([k, t]) => ({ t, on: (this.state.mbNet || 'on') === k ? 'true' : 'false', pick: () => this.mbSetNet(k) })) };
+  }
+
+  mbSetNet(k) {
+    const was = this.state.mbNet; this.setState({ mbNet: k });
+    if (k !== 'off' && was === 'off') {
+      const T = (this.state.threads || []).map((t) => Object.assign({}, t, { msgs: t.msgs.map((m) => Object.assign({}, m, { queued: false })) }));
+      const n = (this.state.threads || []).reduce((a, t) => a + t.msgs.filter((m) => m.queued).length, 0);
+      if (n) setTimeout(() => { this.setState({ threads: T }); this.mbToastMsg(n + ' message' + (n > 1 ? 's' : '') + ' sent.'); }, 900);
+    }
+  }
+  pageVals() {
+    const st = this.state, tab = st.mbTab;
+    const ICON = {today: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z', tutor: 'M4 5h16v11H8l-4 4z', map: 'M9 4l6 2 5-2v14l-5 2-6-2-5 2V6z M9 4v14 M15 6v14', notes: 'M6 3h9l4 4v14H6z M14 3v5h5 M9 12h7 M9 16h5', me: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6', home: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z', approve: 'M5 12l4 4 10-10', msgs: 'M4 5h16v11H8l-4 4z', pay: 'M3 7h18v12H3z M3 11h18 M7 15h4', more: 'M5 12h.01 M12 12h.01 M19 12h.01'};
+    const reqs = st.reqs || [];
+    const pend = reqs.filter((r) => !r.out).length;
+    const titles = { home: 'Habari, Wanjiru', approve: 'Approvals', msgs: 'Messages', pay: 'Payments', more: 'More' };
+    const kick = { home: 'Wednesday 19 November', approve: pend ? pend + ' waiting' : 'Nothing waiting', msgs: 'Guides and Vachuo', pay: 'Family account VCH-WM-0042', more: 'Settings and help' };
+    const KIDS = [['Amani', 'Grade 6 · Nairobi', 'AM', '#F9A826', 'On track', '#DDF4F1', '#115E59', [['4', 'skills this week'], ['3 h', 'learning'], ['2', 'guide sessions']], ['Secured ratios and fractions of amounts.', 'Reading charts needs another look; Nduta K. has it on Thursday.', 'Joined the Robotics club’s solar oven project.']],
+      ['Johari', 'Grade 4 · Nairobi', 'JM', '#1D4ED8', 'Needs a nudge', '#FEF1D9', '#78350F', [['1', 'skill this week'], ['1 h', 'learning'], ['0', 'guide sessions']], ['Only 1 hour this week, down from 3.', 'Started multiplication tables; stopped at 7s.', 'Suggestion: a 20-minute session with a guide this weekend.']],
+      ['Bob', 'Grade 2 · Nairobi', 'BM', '#0F766E', 'On track', '#DDF4F1', '#115E59', [['3', 'skills this week'], ['2 h', 'learning'], ['1', 'guide session']], ['Reads 3-letter words on his own now.', 'Loves the counting game; asked for it twice.', 'Picture password changed on Tuesday.']]];
+    const kid = KIDS.find((k) => k[0] === st.kidOpen) || KIDS[0];
+    const threads = st.threads || [];
+    const th = threads.find((t) => t.id === st.thread);
+    const RC = [['VCH-2026-000127', '19 Nov 2026', 'Family plan · November', 'M-Pesa 0712 ••• 678', 1500, 'Paid'], ['VCH-2026-000126', '10 Nov 2026', 'Guide sessions · Johari', 'M-Pesa 0712 ••• 678', 900, 'Paid'], ['VCH-2026-000118', '19 Oct 2026', 'Family plan · October', 'M-Pesa 0712 ••• 678', 1500, 'Paid'], ['VCH-2026-000071', '30 Aug 2026', 'Guide session pack', 'Visa •••• 4242', 900, 'Refunded']];
+    const rc = RC.find((r) => r[0] === st.rcOpen) || RC[0];
+    const kes = (n) => 'KES ' + n.toLocaleString('en-US');
+    return {
+      mbLang: 'en', mbTitle: titles[tab], mbKicker: kick[tab],
+      mbTabs: [['home', 'Home', 'home'], ['approve', 'Approvals', 'approve'], ['msgs', 'Messages', 'msgs'], ['pay', 'Pay', 'pay'], ['more', 'More', 'more']].map(([k, t, ic]) => ({ t, d: ICON[ic], on: tab === k ? 'true' : 'false', pick: () => { this.mbGo(k); if (k === 'msgs') this.setState({ thread: '' }); }, badge: k === 'approve' && pend ? String(pend) : '' })),
+      isHome: tab === 'home', isApprove: tab === 'approve', isMsgs: tab === 'msgs', isPay: tab === 'pay', isMore: tab === 'more',
+      hasPending: pend > 0, pendingN: pend, pendingText: pend === 1 ? '1 request needs you' : pend + ' requests need you', goApprove: () => this.mbGo('approve'),
+      kids: KIDS.map((k) => ({ n: k[0], sub: k[1], ini: k[2], av: k[3], pill: k[4], pillBg: k[5], pillFg: k[6], stats: k[7].map(([v, l]) => ({ v, l })), open: () => this.setState({ kidOpen: k[0], mbSheetKind: 'kid' }) })),
+      openBrief: () => this.setState({ mbSheetKind: 'brief' }),
+      brief: KIDS.map((k) => ({ n: k[0], t: k[8].join(' ') })),
+      shBrief: st.mbSheetKind === 'brief', shKid: st.mbSheetKind === 'kid', shAsk: st.mbSheetKind === 'ask', shPay: st.mbSheetKind === 'pay', shRc: st.mbSheetKind === 'rc',
+      mbSheetTitle: { brief: 'Sunday briefing', kid: kid[0], ask: 'Ask a question', pay: 'Pay with M-Pesa', rc: 'Receipt' }[st.mbSheetKind] || '',
+      kid: { n: kid[0], sub: kid[1] + ' · this week', lines: kid[8] },
+      noPending: pend === 0, reachBy: 'app notification, SMS and WhatsApp',
+      reqs: reqs.map((r, i) => ({ kind: r.kind, who: r.who, when: r.when, t: r.t, d: r.d, q: r.q, hasQuote: !!r.q, open: !r.out, closed: !!r.out, out: r.out || '', outInk: /Approved/.test(r.out || '') ? '#115E59' : (/Declined/.test(r.out || '') ? '#7A1D14' : '#1E40AF'),
+        yes: () => { const R = reqs.slice(); R[i] = Object.assign({}, r, { out: 'Approved. ' + r.who + ' and the guide can see it now.' }); this.setState({ reqs: R }); },
+        no: () => { const R = reqs.slice(); R[i] = Object.assign({}, r, { out: 'Declined. ' + r.who + ' sees your decision.' }); this.setState({ reqs: R }); },
+        ask: () => this.setState({ mbSheetKind: 'ask', askIdx: i, askDraft: '' }) })),
+      askTo: reqs[st.askIdx] ? 'Your question goes to ' + (reqs[st.askIdx].guide || 'the guide') + '. Your number stays private.' : '',
+      askDraft: st.askDraft || '', setAskDraft: (e) => this.setState({ askDraft: e.target.value.slice(0, 500) }), askEmpty: !(st.askDraft || '').trim(),
+      sendAsk: () => { const i = st.askIdx; const R = reqs.slice(); if (R[i]) R[i] = Object.assign({}, R[i], { out: 'Question sent. The request waits until you decide.' }); this.setState({ reqs: R, mbSheetKind: '' }); this.mbToastMsg('Sent.'); setTimeout(() => { const R2 = (this.state.reqs || []).slice(); if (R2[i]) { R2[i] = Object.assign({}, R2[i], { out: '' }); this.setState({ reqs: R2 }); } }, 2600); },
+      inList: !th, inThread: !!th,
+      threads: threads.map((t) => ({ n: t.n, ini: t.ini, av: t.av, badge: t.badge, when: t.when, last: t.msgs[t.msgs.length - 1].t, open: () => this.setState({ thread: t.id }) })),
+      th: th ? { n: th.n, first: th.n.split(' ')[0], badge: th.badge, msgs: th.msgs.map((m) => ({ c: m.me ? 'mb-out-b' : 'mb-in-b', t: m.t, queued: !!m.queued })) } : { msgs: [] },
+      backList: () => this.setState({ thread: '' }),
+      msgDraft: st.msgDraft || '', setMsgDraft: (e) => this.setState({ msgDraft: e.target.value.slice(0, 600) }),
+      sendMsg: (e) => { if (e && e.preventDefault) e.preventDefault(); const t = (st.msgDraft || '').trim(); if (!t || !th) return; const off = st.mbNet === 'off'; const T = threads.map((x) => (x.id === th.id ? Object.assign({}, x, { when: 'now', msgs: x.msgs.concat([{ me: true, t, queued: off }]) }) : x)); this.setState({ threads: T, msgDraft: '' }); if (!off && th.id === 't1') setTimeout(() => { const T2 = (this.state.threads || []).map((x) => (x.id === 't1' ? Object.assign({}, x, { msgs: x.msgs.concat([{ me: false, t: 'Thanks, Wanjiru! I’ll check with Amani and reply tonight.' }]) }) : x)); this.setState({ threads: T2 }); }, 1500); },
+      payNowT: st.paid ? 'Paid for November ✓' : 'Pay now', payNow: () => this.setState({ mbSheetKind: 'pay', payStage: 'idle' }),
+      payIdle: (st.payStage || 'idle') === 'idle', payWait: st.payStage === 'wait', payDone: st.payStage === 'done', payCode: st.payCode || '',
+      payGo: () => { this.setState({ payStage: 'wait' }); setTimeout(() => this.setState({ payStage: 'done', paid: true, payCode: 'TK19' + Math.random().toString(36).slice(2, 8).toUpperCase() }), 2200); },
+      receipts: RC.map((r) => ({ what: r[2], date: r[1], by: r[3], amt: kes(r[4]), st: r[5], ink: r[5] === 'Paid' ? '#115E59' : '#62676F', open: () => this.setState({ rcOpen: r[0], mbSheetKind: 'rc' }) })),
+      rc: { id: rc[0], date: rc[1], what: rc[2], by: rc[3], amt: kes(rc[4]), vat: kes(Math.round(rc[4] * 16 / 116)) },
+      rcShare: () => { this.setState({ mbSheetKind: '' }); this.mbToastMsg('Receipt sent by SMS. (Demo)'); },
+      saver: st.saver ? 'true' : 'false', saverFlip: () => this.setState({ saver: !st.saver }),
+      smsFb: st.smsFb ? 'true' : 'false', smsFbFlip: () => this.setState({ smsFb: !st.smsFb })
+    };
+  }
+  // ---- Page states: loading, empty, error, offline (v325)
+  pgsVals() {
+    if (!this._pgsInit) {
+      this._pgsInit = true;
+      const up = () => { try { this.forceUpdate(); } catch (e) {} };
+      try { window.addEventListener('hashchange', up); window.addEventListener('online', () => { this._pgsHide = false; up(); }); window.addEventListener('offline', () => { this._pgsHide = false; up(); }); } catch (e) {}
+    }
+    const C = {"label": "the parent app", "et": "All caught up", "eb": "Nothing needs you right now.", "at": "Back home", "ah": "mobile-parent.html"};
+    const emb = !!(this.props && this.props.embedded);
+    let k = '';
+    try { const m = (String(window.location.hash || '') + '&' + String(window.location.search || '')).match(/(?:^|[#&?])state=(loading|empty|error|offline)/); k = m ? m[1] : ''; } catch (e) {}
+    if (emb) k = '';
+    let off = false;
+    try { off = !emb && !this._pgsHide && navigator.onLine === false; } catch (e) {}
+    const set = (s) => { try { const h = String(window.location.hash || '').replace(/^#/, '').split('&').filter((x) => x && x.indexOf('state=') !== 0); if (s) h.push('state=' + s); window.location.hash = h.join('&'); } catch (e) {} this.forceUpdate(); };
+    const cap = C.label.charAt(0).toUpperCase() + C.label.slice(1);
+    const T = { empty: ['🗂️', C.et, C.eb], error: ['⚠️', 'We couldn’t load ' + C.label + '.', 'It’s not you, and nothing you did was lost. Try again in a moment. If it keeps happening, check the service status or give us the reference below.'],
+      offline: ['📴', 'You’re offline', cap + ' needs a connection. Downloaded lessons, your notes and anything you’ve opened before still work, and changes sync when you’re back.'] };
+    const t = T[k] || ['', '', ''];
+    return {
+      pgsOn: !!k, pgsLoading: k === 'loading', pgsCard: !!k && k !== 'loading', pgsLoadLabel: 'Loading ' + C.label,
+      pgsKindLabel: { loading: 'Loading state', empty: 'Empty state', error: 'Error state', offline: 'Offline state' }[k] || '',
+      pgsRole: k === 'error' ? 'alert' : 'status', pgsIcon: t[0], pgsTitle: t[1], pgsBody: t[2],
+      pgsIsEmpty: k === 'empty', pgsNotEmpty: k === 'error' || k === 'offline', pgsActT: C.at, pgsActHref: C.ah,
+      pgsRetry: () => set(''), pgsHasRef: k === 'error', pgsRef: 'Reference VCH-ERR-' + '2D1E' + ' · ' + new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC',
+      pgsKinds: [['loading', 'Loading'], ['empty', 'Empty'], ['error', 'Error'], ['offline', 'Offline']].map(([s, x]) => ({ t: x, on: k === s ? 'true' : 'false', pick: () => set(s) })),
+      pgsLeave: () => set(''),
+      pgsOffline: off && !k, pgsDismiss: () => { this._pgsHide = true; this.forceUpdate(); },
+      pgsOffText: 'You’re offline. Showing what’s saved on this device; changes sync when you’re back.'
+    };
+  }
+  renderVals() { return Object.assign(this.renderValsPgs0(), this.pgsVals()); }
+  renderValsPgs0() { return Object.assign(this.themeVals(), this.mbNetVals(), this.pageVals()); }
+}
+return Component;
+});
+
+DC.mount("MobileParent");
+</script>
+</body>
+</html>

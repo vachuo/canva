@@ -135,6 +135,7 @@
 @media (max-width:1020px){.cs .hero{grid-template-columns:1fr}.cs .soon-h{font-size:min(13vw,96px)}.cs[lang="sw"] .soon-h{font-size:min(10vw,76px)}.cs .card{max-width:none}}
 @media (max-width:640px){.cs .follow{flex-direction:column;align-items:flex-start;gap:6px}.cs .fin{flex-direction:column;align-items:flex-start}.cs .row{grid-template-columns:1fr}.cs .cta{width:100%}.cs .wa .one{display:none}.cs .done{flex-wrap:wrap}.cs .ghost{margin-left:62px}}
 @media (prefers-reduced-motion:reduce){.cs *,.cs *::before,.cs *::after{animation:none!important;transition:none!important}.cs .swoosh path{stroke-dashoffset:0}}
+/* v325-states */[data-pgs-root]:has(.pgs)>:not(.pgs):not(:has(.pgs)):not(footer):not(.vside):not(:has(.vside)):not(.vs-hdr):not(:has(.vs-hdr)):not([data-sf]){display:none!important}@keyframes pgs-sh{0%{background-position:-300px 0}100%{background-position:300px 0}}.pgs-sk{border-radius:14px;background:linear-gradient(90deg,#ECECE6 0,#F6F6F1 50%,#ECECE6 100%);background-size:600px 100%;animation:pgs-sh 1.2s linear infinite}[data-theme="dark"] .pgs-sk{background:linear-gradient(90deg,#1B1E23 0,#262A31 50%,#1B1E23 100%);background-size:600px 100%}.pgs button[aria-pressed="true"]{background:#14161A!important;color:#FFFFFF!important;border-color:#14161A!important}@media (prefers-reduced-motion:reduce){.pgs-sk{animation:none}}
 </style>
 <script src="assets/js/dc.js"></script>
 </head>
@@ -151,7 +152,7 @@
   </a>
 </header>
 
-<main>
+<main data-pgs-root><template data-if="{{pgsOn}}"><section class="pgs" aria-label="Page state preview" style="box-sizing: border-box; width: 100%; max-width: 720px; margin: clamp(24px, 6vh, 64px) auto; padding: 0 16px; display: flex; flex-direction: column; gap: 14px; font-family: Inter, system-ui, sans-serif; color: #14161A"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #62676F">Preview · {{pgsKindLabel}}</span><div role="group" aria-label="Preview a page state" style="display: flex; flex-wrap: wrap; gap: 6px"><template data-for="{{pgsKinds}}" data-as="s"><button type="button" aria-pressed="{{s.on}}" onClick="{{s.pick}}" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px solid #CFCFC6; background: #FFFFFF; color: #3F444C; font-size: 12.5px; font-weight: 600; cursor: pointer">{{s.t}}</button></template><button type="button" onClick="{{pgsLeave}}" style="min-height: 32px; padding: 0 10px; border: none; background: transparent; color: #1D4ED8; font-size: 12.5px; font-weight: 600; cursor: pointer">Leave preview</button></div></div><template data-if="{{pgsLoading}}"><div role="status" aria-busy="true" aria-label="{{pgsLoadLabel}}" style="display: flex; flex-direction: column; gap: 12px"><div class="pgs-sk" style="height: 46px; width: 62%"></div><div class="pgs-sk" style="height: 130px"></div><div style="display: flex; gap: 12px"><div class="pgs-sk" style="flex: 1; height: 90px"></div><div class="pgs-sk" style="flex: 1; height: 90px"></div></div><div class="pgs-sk" style="height: 90px"></div></div></template><template data-if="{{pgsCard}}"><div role="{{pgsRole}}" style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: clamp(28px, 5vw, 48px) 24px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E2E2DA; text-align: center"><span aria-hidden="true" style="font-size: 44px; line-height: 1">{{pgsIcon}}</span><h2 style="margin: 0; font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: clamp(26px, 3vw, 34px); line-height: 1.1; font-weight: 600">{{pgsTitle}}</h2><p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.55; color: #3F444C">{{pgsBody}}</p><div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center"><template data-if="{{pgsIsEmpty}}"><a href="{{pgsActHref}}" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; background: #14161A; color: #FFFFFF">{{pgsActT}}</a></template><template data-if="{{pgsNotEmpty}}"><button type="button" onClick="{{pgsRetry}}" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; background: #14161A; color: #FFFFFF">Try again</button><a href="status.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1px solid #CFCFC6; background: #FFFFFF; color: #14161A">Service status</a></template></div><template data-if="{{pgsHasRef}}"><span style="font-size: 12.5px; color: #62676F">{{pgsRef}}</span></template></div></template></section></template><template data-if="{{pgsOffline}}"><div role="status" style="position: fixed; left: 16px; bottom: 16px; z-index: 99; box-sizing: border-box; max-width: min(460px, calc(100% - 32px)); display: flex; gap: 10px; align-items: center; padding: 10px 10px 10px 14px; border-radius: 14px; background: #14161A; color: #FFFFFF; font: 600 13.5px/1.4 Inter, system-ui, sans-serif; box-shadow: 0 16px 34px -14px rgba(20,22,26,.6)"><span aria-hidden="true">📴</span><span style="flex: 1">{{pgsOffText}}</span><button type="button" aria-label="Dismiss" onClick="{{pgsDismiss}}" style="flex: none; width: 32px; height: 32px; border: none; border-radius: 50%; background: rgba(255,255,255,.12); color: #FFFFFF; font-size: 16px; cursor: pointer">×</button></div></template>
   <div class="wrap hero">
     <section aria-labelledby="h1">
       <h1 id="h1" class="soon-h"><span class="w1">{{t.h1a}}</span> <span class="nw"><span class="w2"><span>{{t.h1b}}</span><svg class="swoosh" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 30 C 90 8, 230 4, 394 22"/></svg><svg class="spark s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><svg class="spark s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><svg class="spark s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg></span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></span></h1>
@@ -897,7 +898,39 @@ class Component extends DCLogic {
     try { window.removeEventListener('storage', this._sync); } catch (e) {}
     clearTimeout(this._copyTimer);
   }
-  renderVals() {
+  // ---- Page states: loading, empty, error, offline (v325)
+  pgsVals() {
+    if (!this._pgsInit) {
+      this._pgsInit = true;
+      const up = () => { try { this.forceUpdate(); } catch (e) {} };
+      try { window.addEventListener('hashchange', up); window.addEventListener('online', () => { this._pgsHide = false; up(); }); window.addEventListener('offline', () => { this._pgsHide = false; up(); }); } catch (e) {}
+    }
+    const C = {"label": "this page", "et": "Nothing to show yet", "eb": "We’re getting ready. Leave your email and we’ll tell you first.", "at": "Back to the start", "ah": "coming-soon.html"};
+    const emb = !!(this.props && this.props.embedded);
+    let k = '';
+    try { const m = (String(window.location.hash || '') + '&' + String(window.location.search || '')).match(/(?:^|[#&?])state=(loading|empty|error|offline)/); k = m ? m[1] : ''; } catch (e) {}
+    if (emb) k = '';
+    let off = false;
+    try { off = !emb && !this._pgsHide && navigator.onLine === false; } catch (e) {}
+    const set = (s) => { try { const h = String(window.location.hash || '').replace(/^#/, '').split('&').filter((x) => x && x.indexOf('state=') !== 0); if (s) h.push('state=' + s); window.location.hash = h.join('&'); } catch (e) {} this.forceUpdate(); };
+    const cap = C.label.charAt(0).toUpperCase() + C.label.slice(1);
+    const T = { empty: ['🗂️', C.et, C.eb], error: ['⚠️', 'We couldn’t load ' + C.label + '.', 'It’s not you, and nothing you did was lost. Try again in a moment. If it keeps happening, check the service status or give us the reference below.'],
+      offline: ['📴', 'You’re offline', cap + ' needs a connection. Downloaded lessons, your notes and anything you’ve opened before still work, and changes sync when you’re back.'] };
+    const t = T[k] || ['', '', ''];
+    return {
+      pgsOn: !!k, pgsLoading: k === 'loading', pgsCard: !!k && k !== 'loading', pgsLoadLabel: 'Loading ' + C.label,
+      pgsKindLabel: { loading: 'Loading state', empty: 'Empty state', error: 'Error state', offline: 'Offline state' }[k] || '',
+      pgsRole: k === 'error' ? 'alert' : 'status', pgsIcon: t[0], pgsTitle: t[1], pgsBody: t[2],
+      pgsIsEmpty: k === 'empty', pgsNotEmpty: k === 'error' || k === 'offline', pgsActT: C.at, pgsActHref: C.ah,
+      pgsRetry: () => set(''), pgsHasRef: k === 'error', pgsRef: 'Reference VCH-ERR-' + '4044' + ' · ' + new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC',
+      pgsKinds: [['loading', 'Loading'], ['empty', 'Empty'], ['error', 'Error'], ['offline', 'Offline']].map(([s, x]) => ({ t: x, on: k === s ? 'true' : 'false', pick: () => set(s) })),
+      pgsLeave: () => set(''),
+      pgsOffline: off && !k, pgsDismiss: () => { this._pgsHide = true; this.forceUpdate(); },
+      pgsOffText: 'You’re offline. Showing what’s saved on this device; changes sync when you’re back.'
+    };
+  }
+  renderVals() { return Object.assign(this.renderValsPgs0(), this.pgsVals()); }
+  renderValsPgs0() {
     const T = {
       en: {
         title: 'Vachuo · Coming soon', h1a: 'Coming', h1b: 'soon', slogan: 'Honour every genius!', tagline: 'One school that follows the learner.',
