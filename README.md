@@ -47,6 +47,7 @@ question is sent. On the design canvas the panel shows saved example results ins
 | Website | Vision, mission & values | `vision.html` |
 | Website | White paper | `white-paper.html` |
 | Website | Pricing | `pricing.html` |
+| Website | Checkout (M-Pesa or card, receipts, refunds; demo: nothing is charged) | `checkout.html` |
 | Website | Careers | `careers.html` |
 | Website | Sign in | `sign-in.html` |
 | Website | Blog (Vachuo Journal) | `blog.html` |
@@ -58,6 +59,9 @@ question is sent. On the design canvas the panel shows saved example results ins
 | Learner | My classes | `notes.html` |
 | Learner | My notes (notebook for classes, lessons and projects; guide and parent views) | `notebook.html` |
 | Learner | My Studio (books, stories, comics, pictures, videos; private until shared; AI samples to remix) | `my-studio.html` |
+| Settings | Notifications (parent, learner and guide) | `notifications.html` |
+| Mobile | Learner app at phone size (390 px) | `mobile-learner.html` |
+| Mobile | Parent app at phone size (390 px) | `mobile-parent.html` |
 | Learner | My assessments | `assessments.html` |
 | Learner | Set up a learner | `onboarding.html` |
 | Learner | Set up learners in bulk (spreadsheet, paste or type; invitations and tracking) | `enrol.html` |
@@ -72,15 +76,20 @@ question is sent. On the design canvas the panel shows saved example results ins
 | Website | Join as a guide or school | `join.html` |
 | Website | Contribute curriculum materials (Pre-K to Grade 12) | `contribute.html` |
 | Website | Terms of use | `terms.html` |
+| Website | Help centre | `help.html` |
+| Website | Service status | `status.html` |
+| Website | Vachuo on any phone (offline, WhatsApp, SMS, USSD) | `any-phone.html` |
 | Website | Privacy policy | `privacy.html` |
 | Parent | Approvals (rules by age, decision record) | `parent-approvals.html` |
 | Parent | Money (plan, earnings held, spending limits) | `parent-money.html` |
 | Parent | Family and settings | `parent-family.html` |
 | Live | Live room (class, club and check-in) | `live-room.html` |
 | Design system | Tokens and components | `design-system.html` |
+| Design system | Page states (loading, empty, error, offline) for every page; add `#state=loading` etc. to any page address | `page-states.html` |
 | Component | Shared calendar | `calendar.html` |
 | Component | Strengths radar and misconception heatmap | `strengths.html` |
 | Guide | Guide workspace (learners, marking queue, schedule, create a lesson) | `guide.html` |
+| Guide | Identity and background checks (guide, reviewer and parent views) | `guide-checks.html` |
 | School | School and microschool console | `school.html` |
 | Internal | Ops console (moderation, accounts, AI cost and safety) | `ops.html` |
 | Admin | Organisation admin (people, roles, policies, connections, billing, audit) | `admin.html` |
